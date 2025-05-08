@@ -69,9 +69,9 @@ const mockConcours = [
 
 const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [subjectFilter, setSubjectFilter] = useState("");
-  const [yearFilter, setYearFilter] = useState("");
-  const [levelFilter, setLevelFilter] = useState("");
+  const [subjectFilter, setSubjectFilter] = useState("all");
+  const [yearFilter, setYearFilter] = useState("all");
+  const [levelFilter, setLevelFilter] = useState("all");
 
   // Get unique values for filters
   const subjects = [...new Set(mockConcours.map((c) => c.subject))];
@@ -84,9 +84,9 @@ const Dashboard = () => {
       concours.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       concours.subject.toLowerCase().includes(searchTerm.toLowerCase());
     
-    const matchesSubject = subjectFilter ? concours.subject === subjectFilter : true;
-    const matchesYear = yearFilter ? concours.year.toString() === yearFilter : true;
-    const matchesLevel = levelFilter ? concours.level === levelFilter : true;
+    const matchesSubject = subjectFilter === "all" ? true : concours.subject === subjectFilter;
+    const matchesYear = yearFilter === "all" ? true : concours.year.toString() === yearFilter;
+    const matchesLevel = levelFilter === "all" ? true : concours.level === levelFilter;
 
     return matchesSearch && matchesSubject && matchesYear && matchesLevel;
   });
@@ -133,7 +133,7 @@ const Dashboard = () => {
                     <SelectValue placeholder="Matière" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Toutes les matières</SelectItem>
+                    <SelectItem value="all">Toutes les matières</SelectItem>
                     {subjects.map((subject) => (
                       <SelectItem key={subject} value={subject}>
                         {subject}
@@ -149,7 +149,7 @@ const Dashboard = () => {
                     <SelectValue placeholder="Année" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Toutes les années</SelectItem>
+                    <SelectItem value="all">Toutes les années</SelectItem>
                     {years.map((year) => (
                       <SelectItem key={year} value={year.toString()}>
                         {year}
@@ -165,7 +165,7 @@ const Dashboard = () => {
                     <SelectValue placeholder="Niveau" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Tous les niveaux</SelectItem>
+                    <SelectItem value="all">Tous les niveaux</SelectItem>
                     {levels.map((level) => (
                       <SelectItem key={level} value={level}>
                         {level}
