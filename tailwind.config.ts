@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom colors for Concours Prep platform
+				'royal-blue': '#1A56DB',
+				'light-blue': '#E1E9F8',
+				'dark-gray': '#374151',
+				'light-gray': '#F3F4F6',
+			},
+			fontFamily: {
+				sans: ['Open Sans', 'sans-serif'],
+				poppins: ['Poppins', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
