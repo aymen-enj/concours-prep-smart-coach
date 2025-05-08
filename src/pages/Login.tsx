@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
-import { Google } from "lucide-react";
+import { LogIn } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -66,7 +66,7 @@ const Login = () => {
                     className="w-full mb-4"
                     onClick={handleGoogleAuth}
                   >
-                    <Google className="mr-2 h-4 w-4" />
+                    <LogIn className="mr-2 h-4 w-4" />
                     Se connecter avec Google
                   </Button>
                   
@@ -126,7 +126,7 @@ const Login = () => {
                     className="w-full mb-4"
                     onClick={handleGoogleAuth}
                   >
-                    <Google className="mr-2 h-4 w-4" />
+                    <LogIn className="mr-2 h-4 w-4" />
                     S'inscrire avec Google
                   </Button>
                   
