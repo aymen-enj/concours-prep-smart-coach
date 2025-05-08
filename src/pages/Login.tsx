@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Separator } from "@/components/ui/separator";
+import { Google } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,6 +28,12 @@ const Login = () => {
     e.preventDefault();
     // Simulate registration - in a real app, this would register with a backend
     console.log("Register attempt with:", { name, email, password });
+    navigate("/dashboard");
+  };
+
+  const handleGoogleAuth = () => {
+    // In a real app, this would authenticate with Google via your backend
+    console.log("Google authentication initiated");
     navigate("/dashboard");
   };
 
@@ -52,6 +60,25 @@ const Login = () => {
             <TabsContent value="login">
               <Card>
                 <CardContent className="pt-6">
+                  <Button 
+                    variant="outline" 
+                    type="button" 
+                    className="w-full mb-4"
+                    onClick={handleGoogleAuth}
+                  >
+                    <Google className="mr-2 h-4 w-4" />
+                    Se connecter avec Google
+                  </Button>
+                  
+                  <div className="relative my-4">
+                    <Separator className="my-4" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="bg-card px-2 text-xs text-muted-foreground">
+                        OU
+                      </span>
+                    </div>
+                  </div>
+                  
                   <form onSubmit={handleLogin} className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
@@ -93,6 +120,25 @@ const Login = () => {
             <TabsContent value="register">
               <Card>
                 <CardContent className="pt-6">
+                  <Button 
+                    variant="outline" 
+                    type="button" 
+                    className="w-full mb-4"
+                    onClick={handleGoogleAuth}
+                  >
+                    <Google className="mr-2 h-4 w-4" />
+                    S'inscrire avec Google
+                  </Button>
+                  
+                  <div className="relative my-4">
+                    <Separator className="my-4" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="bg-card px-2 text-xs text-muted-foreground">
+                        OU
+                      </span>
+                    </div>
+                  </div>
+                  
                   <form onSubmit={handleRegister} className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Nom complet</Label>
