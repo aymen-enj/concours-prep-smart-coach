@@ -11,6 +11,7 @@ import Correction from "./pages/Correction";
 import Payment from "./pages/Payment";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
+import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/correction/:id" element={<Correction />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/support" element={<Support />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

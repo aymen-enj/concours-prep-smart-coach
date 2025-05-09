@@ -24,6 +24,9 @@ const Navbar = () => {
               <Link to="/dashboard" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium">
                 Concours
               </Link>
+              <Link to="/support" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium">
+                Support
+              </Link>
               <Link to="/login" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium">
                 Se connecter
               </Link>
@@ -60,6 +63,13 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             >
               Concours
+            </Link>
+            <Link
+              to="/support"
+              className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Support
             </Link>
             <Link
               to="/login"
