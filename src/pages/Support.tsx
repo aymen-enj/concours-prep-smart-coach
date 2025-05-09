@@ -12,15 +12,15 @@ const Support = () => {
   const defaultTab = location.state?.defaultTab || "faq";
 
   return (
-    <div className="min-h-screen flex flex-col dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col dark:bg-background">
       <Navbar />
-      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 bg-light-gray dark:bg-gray-900">
+      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 bg-light-gray dark:bg-background">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-3xl font-poppins font-bold text-dark-gray mb-4 dark:text-white">
               Centre de Support
             </h1>
-            <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-400">
+            <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
               Besoin d'aide ? Consultez notre FAQ ou discutez directement avec notre assistant via le chatbot.
             </p>
           </div>

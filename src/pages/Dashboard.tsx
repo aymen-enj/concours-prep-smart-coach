@@ -92,16 +92,16 @@ const Dashboard = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-background">
       <Navbar />
-      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 bg-light-gray">
+      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 bg-light-gray dark:bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
-              <h1 className="text-3xl font-poppins font-bold text-dark-gray mb-2">
+              <h1 className="text-3xl font-poppins font-bold text-dark-gray dark:text-white mb-2">
                 Catalogue des concours
               </h1>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 Explorez et préparez-vous pour les concours disponibles
               </p>
             </div>
@@ -194,7 +194,7 @@ const Dashboard = () => {
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <p className="text-gray-500">Aucun concours ne correspond à votre recherche.</p>
+                  <p className="text-gray-500 dark:text-gray-400">Aucun concours ne correspond à votre recherche.</p>
                 </div>
               )}
             </TabsContent>
