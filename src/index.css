@@ -57,7 +57,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
+    --primary: 267 100% 75%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 240 3.7% 15.9%;
@@ -66,7 +66,7 @@
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 240 3.7% 15.9%;
+    --accent: 267 100% 75%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -74,16 +74,16 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --ring: 267 100% 75%;
 
     --sidebar-background: 240 10% 3.9%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary: 267 100% 75%;
     --sidebar-primary-foreground: 240 5.9% 10%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 240 4.9% 83.9%;
+    --sidebar-ring: 267 100% 75%;
   }
 }
 
@@ -112,7 +112,7 @@
   }
 
   .btn-primary {
-    @apply bg-royal-blue text-white hover:bg-blue-700 px-6 py-3 rounded-md font-semibold transition-colors duration-200;
+    @apply bg-royal-blue text-white hover:bg-blue-700 px-6 py-3 rounded-md font-semibold transition-colors duration-200 dark:bg-primary dark:hover:bg-primary/80;
   }
 
   .section-title {
@@ -120,7 +120,7 @@
   }
 
   .section-description {
-    @apply text-gray-600 dark:text-gray-400 mb-8 max-w-2xl;
+    @apply text-gray-600 dark:text-gray-300 mb-8 max-w-2xl;
   }
 
   .badge-paid {

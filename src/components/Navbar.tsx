@@ -2,15 +2,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sun, Moon, Globe } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/providers/ThemeProvider";
-import { useLanguage } from "@/providers/LanguageProvider";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { language, setLanguage, t } = useLanguage();
 
   return (
     <nav className="bg-white shadow-sm dark:bg-gray-800 dark:border-b dark:border-gray-700">
@@ -24,38 +21,20 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               <Link to="/" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white">
-                {t("home")}
+                Accueil
               </Link>
               <Link to="/dashboard" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white">
-                {t("courses")}
+                Concours
               </Link>
               <Link to="/support" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white">
-                {t("support")}
+                Support
               </Link>
               <Link to="/login" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white">
-                {t("login")}
+                Se connecter
               </Link>
               <Button className="bg-royal-blue text-white hover:bg-blue-700">
-                {t("register")}
+                S'inscrire
               </Button>
-              
-              {/* Language Switcher */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="icon" className="ml-2">
-                    <Globe className="h-[1.2rem] w-[1.2rem]" />
-                    <span className="sr-only">Toggle language</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => setLanguage("fr")}>
-                    🇫🇷 Français {language === "fr" && "✓"}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setLanguage("en")}>
-                    🇬🇧 English {language === "en" && "✓"}
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
               
               {/* Dark Mode Toggle */}
               <Button variant="outline" size="icon" onClick={toggleTheme} className="ml-2">
@@ -69,24 +48,6 @@ const Navbar = () => {
             </div>
           </div>
           <div className="md:hidden flex items-center space-x-2">
-            {/* Language Switcher (Mobile) */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Globe className="h-[1.2rem] w-[1.2rem]" />
-                  <span className="sr-only">Toggle language</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage("fr")}>
-                  🇫🇷 Français {language === "fr" && "✓"}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage("en")}>
-                  🇬🇧 English {language === "en" && "✓"}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            
             {/* Dark Mode Toggle (Mobile) */}
             <Button variant="outline" size="icon" onClick={toggleTheme}>
               {theme === "dark" ? (
@@ -116,34 +77,34 @@ const Navbar = () => {
               className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white"
               onClick={() => setIsOpen(false)}
             >
-              {t("home")}
+              Accueil
             </Link>
             <Link
               to="/dashboard"
               className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white"
               onClick={() => setIsOpen(false)}
             >
-              {t("courses")}
+              Concours
             </Link>
             <Link
               to="/support"
               className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white"
               onClick={() => setIsOpen(false)}
             >
-              {t("support")}
+              Support
             </Link>
             <Link
               to="/login"
               className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white"
               onClick={() => setIsOpen(false)}
             >
-              {t("login")}
+              Se connecter
             </Link>
             <Button 
               className="w-full bg-royal-blue text-white hover:bg-blue-700 mt-2"
               onClick={() => setIsOpen(false)}
             >
-              {t("register")}
+              S'inscrire
             </Button>
           </div>
         </div>

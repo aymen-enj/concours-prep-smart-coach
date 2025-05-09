@@ -1,5 +1,4 @@
 
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,12 +6,10 @@ import Faq from "@/components/Faq";
 import Chatbot from "@/components/Chatbot";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MessageSquare, HelpCircle } from "lucide-react";
-import { useLanguage } from "@/providers/LanguageProvider";
 
 const Support = () => {
   const location = useLocation();
   const defaultTab = location.state?.defaultTab || "faq";
-  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen flex flex-col dark:bg-gray-900">

@@ -68,6 +68,9 @@ export default {
 				'light-blue': '#E1E9F8',
 				'dark-gray': '#374151',
 				'light-gray': '#F3F4F6',
+				'purple': '#9b87f5',
+				'dark-purple': '#1A1F2C',
+				'light-purple': '#E5DEFF',
 			},
 			fontFamily: {
 				sans: ['Open Sans', 'sans-serif'],

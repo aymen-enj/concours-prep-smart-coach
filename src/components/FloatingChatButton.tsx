@@ -5,22 +5,20 @@ import { MessageCircle, X } from 'lucide-react';
 import Chatbot from './Chatbot';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
-import { useLanguage } from '@/providers/LanguageProvider';
 
 const FloatingChatButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
-  const { t } = useLanguage();
 
   const toggleChat = () => {
     // Si on est déjà sur la page de support et que le chat est fermé, on peut rediriger vers l'onglet chatbot
     if (location.pathname === '/support' && !isOpen) {
       navigate('/support', { state: { defaultTab: 'chatbot' } });
       toast({
-        title: t("assistant"),
-        description: t("assistantDescription")
+        title: "Assistant Concours Prep",
+        description: "Nous sommes là pour vous aider"
       });
     } else {
       setIsOpen(!isOpen);
@@ -43,7 +41,7 @@ const FloatingChatButton = () => {
         className={`rounded-full w-14 h-14 shadow-lg ${
           isOpen ? 'bg-gray-600 hover:bg-gray-700' : 'bg-royal-blue hover:bg-blue-700'
         } transition-colors duration-200`}
-        aria-label={t("assistant")}
+        aria-label="Assistant"
       >
         {isOpen && location.pathname !== '/support' ? (
           <X className="h-6 w-6" />
