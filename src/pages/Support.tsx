@@ -1,4 +1,6 @@
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Faq from "@/components/Faq";
@@ -7,6 +9,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MessageSquare, HelpCircle } from "lucide-react";
 
 const Support = () => {
+  const location = useLocation();
+  const defaultTab = location.state?.defaultTab || "faq";
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -21,7 +26,7 @@ const Support = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="faq" className="w-full">
+          <Tabs defaultValue={defaultTab} className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="faq">
                 <HelpCircle className="mr-2 h-4 w-4" />

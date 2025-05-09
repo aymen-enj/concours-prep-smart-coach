@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 type Message = {
@@ -12,6 +12,10 @@ type Message = {
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+};
+
+type ChatbotProps = {
+  onClose?: () => void;
 };
 
 const initialMessages: Message[] = [
@@ -23,7 +27,7 @@ const initialMessages: Message[] = [
   }
 ];
 
-const Chatbot = () => {
+const Chatbot = ({ onClose }: ChatbotProps) => {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [newMessage, setNewMessage] = useState('');
   const [name, setName] = useState('');
@@ -117,6 +121,13 @@ const Chatbot = () => {
     return (
       <Card>
         <CardContent className="p-6">
+          {onClose && (
+            <div className="flex justify-end mb-2">
+              <Button variant="ghost" size="icon" onClick={onClose} className="h-6 w-6">
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
           <div className="text-center mb-6">
             <MessageSquare className="h-12 w-12 mx-auto text-royal-blue mb-4" />
             <h2 className="text-2xl font-semibold mb-2">Discutez avec notre assistant</h2>
@@ -159,9 +170,16 @@ const Chatbot = () => {
   return (
     <Card>
       <CardContent className="p-0">
-        <div className="bg-royal-blue text-white p-4 rounded-t-lg">
-          <h2 className="text-lg font-medium">Assistant Concours Prep</h2>
-          <p className="text-sm opacity-80">Nous sommes là pour vous aider</p>
+        <div className="bg-royal-blue text-white p-4 rounded-t-lg flex justify-between items-center">
+          <div>
+            <h2 className="text-lg font-medium">Assistant Concours Prep</h2>
+            <p className="text-sm opacity-80">Nous sommes là pour vous aider</p>
+          </div>
+          {onClose && (
+            <Button variant="ghost" size="icon" onClick={onClose} className="h-8 w-8 text-white hover:text-white/80 hover:bg-royal-blue/80">
+              <X className="h-5 w-5" />
+            </Button>
+          )}
         </div>
         
         <div className="h-96 overflow-y-auto p-4 space-y-4 flex flex-col">

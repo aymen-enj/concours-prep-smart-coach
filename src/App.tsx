@@ -13,6 +13,7 @@ import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
+import FloatingChatButton from "./components/FloatingChatButton";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/support" element={<Support />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingChatButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
