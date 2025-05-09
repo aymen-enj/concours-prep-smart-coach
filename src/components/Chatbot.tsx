@@ -3,7 +3,6 @@ import { useState, useRef, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
 import { MessageSquare, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -30,9 +29,6 @@ const initialMessages: Message[] = [
 const Chatbot = ({ onClose }: ChatbotProps) => {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [newMessage, setNewMessage] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [isStarted, setIsStarted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -83,89 +79,9 @@ const Chatbot = ({ onClose }: ChatbotProps) => {
     }, 1000);
   };
 
-  const handleStartChat = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!name.trim() || !email.trim()) {
-      toast({
-        title: "Champs requis",
-        description: "Veuillez remplir tous les champs pour commencer la conversation",
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      toast({
-        title: "Format d'email invalide",
-        description: "Veuillez entrer une adresse email valide",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsStarted(true);
-    toast({
-      title: "Conversation démarrée",
-      description: "Vous pouvez maintenant discuter avec notre assistant",
-    });
-  };
-
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
-
-  if (!isStarted) {
-    return (
-      <Card>
-        <CardContent className="p-6">
-          {onClose && (
-            <div className="flex justify-end mb-2">
-              <Button variant="ghost" size="icon" onClick={onClose} className="h-6 w-6">
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          )}
-          <div className="text-center mb-6">
-            <MessageSquare className="h-12 w-12 mx-auto text-royal-blue mb-4" />
-            <h2 className="text-2xl font-semibold mb-2">Discutez avec notre assistant</h2>
-            <p className="text-gray-600 mb-4">
-              Veuillez remplir les informations ci-dessous pour commencer la conversation
-            </p>
-          </div>
-          
-          <form onSubmit={handleStartChat} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
-              <Input 
-                id="name" 
-                value={name} 
-                onChange={(e) => setName(e.target.value)} 
-                placeholder="Entrez votre nom complet"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <Input 
-                id="email" 
-                type="email" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-                placeholder="Entrez votre email"
-                required
-              />
-            </div>
-            <Button type="submit" className="w-full">
-              Démarrer la conversation
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    );
-  }
 
   return (
     <Card>
@@ -194,14 +110,14 @@ const Chatbot = ({ onClose }: ChatbotProps) => {
                 className={`p-3 rounded-lg ${
                   message.sender === 'user'
                     ? 'bg-royal-blue text-white rounded-br-none'
-                    : 'bg-gray-200 text-gray-800 rounded-bl-none'
+                    : 'bg-gray-200 text-gray-800 rounded-bl-none dark:bg-gray-700 dark:text-gray-200'
                 }`}
               >
                 {message.text}
               </div>
               <span className={`text-xs mt-1 ${
                 message.sender === 'user' ? 'self-end' : 'self-start'
-              } text-gray-500`}>
+              } text-gray-500 dark:text-gray-400`}>
                 {formatTime(message.timestamp)}
               </span>
             </div>
@@ -209,7 +125,7 @@ const Chatbot = ({ onClose }: ChatbotProps) => {
           <div ref={messagesEndRef} />
         </div>
         
-        <form onSubmit={handleSendMessage} className="border-t p-4 flex gap-2">
+        <form onSubmit={handleSendMessage} className="border-t p-4 flex gap-2 dark:border-gray-700">
           <Textarea
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
