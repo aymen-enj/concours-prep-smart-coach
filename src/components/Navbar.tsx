@@ -10,7 +10,7 @@ import { useAuth } from "@/providers/AuthProvider";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const { user } = useAuth();
 
@@ -91,7 +91,7 @@ const Navbar = () => {
               variant="ghost"
               size="icon"
               aria-label="Toggle theme"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => toggleTheme()}
             >
               {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
