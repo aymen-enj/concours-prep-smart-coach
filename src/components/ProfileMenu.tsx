@@ -79,9 +79,9 @@ const ProfileMenu = () => {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link to="/profile" className="flex items-center cursor-pointer">
+            <Link to="/dashboard" className="flex items-center cursor-pointer">
               <User className="mr-2 h-4 w-4" />
-              <span>Profil</span>
+              <span>Tableau de bord</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>

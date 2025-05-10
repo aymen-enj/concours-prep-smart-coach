@@ -12,6 +12,7 @@ import Payment from "./pages/Payment";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import Support from "./pages/Support";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import FloatingChatButton from "./components/FloatingChatButton";
 import { ThemeProvider } from "./providers/ThemeProvider";
@@ -41,6 +42,7 @@ const App = () => (
                 <Route path="/correction/:id" element={<Correction />} />
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/settings" element={<Settings />} />
               </Route>
 
               {/* 404 route */}
