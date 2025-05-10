@@ -15,6 +15,8 @@ import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 import FloatingChatButton from "./components/FloatingChatButton";
 import { ThemeProvider } from "./providers/ThemeProvider";
+import AuthProvider from "./providers/AuthProvider";
+import RequireAuth from "./components/RequireAuth";
 
 const queryClient = new QueryClient();
 
@@ -25,18 +27,27 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/concours/:id" element={<Concours />} />
-            <Route path="/correction/:id" element={<Correction />} />
-            <Route path="/payment" element={<Payment />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/support" element={<Support />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <FloatingChatButton />
+          <AuthProvider>
+            <Routes>
+              {/* Public routes */}
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/support" element={<Support />} />
+
+              {/* Protected routes */}
+              <Route element={<RequireAuth />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/concours/:id" element={<Concours />} />
+                <Route path="/correction/:id" element={<Correction />} />
+                <Route path="/payment" element={<Payment />} />
+                <Route path="/admin" element={<Admin />} />
+              </Route>
+
+              {/* 404 route */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <FloatingChatButton />
+          </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>

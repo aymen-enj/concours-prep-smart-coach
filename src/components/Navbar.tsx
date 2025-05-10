@@ -1,115 +1,182 @@
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/providers/ThemeProvider";
+import ProfileMenu from "./ProfileMenu";
+import { useAuth } from "@/providers/AuthProvider";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const location = useLocation();
+  const { user } = useAuth();
+
+  // Check if current route is active
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
+  // Handle scroll event to add shadow on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-white shadow-sm dark:bg-gray-800 dark:border-b dark:border-gray-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center">
-              <span className="text-royal-blue font-poppins font-bold text-xl dark:text-white">Concours Prep</span>
+    <header
+      className={`sticky top-0 z-50 bg-white dark:bg-gray-900 transition-shadow ${
+        isScrolled ? "shadow-md" : ""
+      }`}
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center">
+              <span className="text-xl font-bold text-royal-blue">Concours</span>
+              <span className="text-xl font-bold text-dark-gray dark:text-white">
+                Prep
+              </span>
             </Link>
           </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-4">
-              <Link to="/" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white">
-                Accueil
-              </Link>
-              <Link to="/dashboard" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white">
-                Concours
-              </Link>
-              <Link to="/support" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white">
-                Support
-              </Link>
-              <Link to="/login" className="text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white">
-                Se connecter
-              </Link>
-              <Button className="bg-royal-blue text-white hover:bg-blue-700">
-                S'inscrire
-              </Button>
-              
-              {/* Dark Mode Toggle */}
-              <Button variant="outline" size="icon" onClick={toggleTheme} className="ml-2">
-                {theme === "dark" ? (
-                  <Sun className="h-[1.2rem] w-[1.2rem]" />
-                ) : (
-                  <Moon className="h-[1.2rem] w-[1.2rem]" />
-                )}
-                <span className="sr-only">Toggle theme</span>
-              </Button>
-            </div>
-          </div>
-          <div className="md:hidden flex items-center space-x-2">
-            {/* Dark Mode Toggle (Mobile) */}
-            <Button variant="outline" size="icon" onClick={toggleTheme}>
-              {theme === "dark" ? (
-                <Sun className="h-[1.2rem] w-[1.2rem]" />
-              ) : (
-                <Moon className="h-[1.2rem] w-[1.2rem]" />
-              )}
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-            
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-royal-blue focus:outline-none dark:text-gray-200 dark:hover:text-white"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-6">
             <Link
               to="/"
-              className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white"
-              onClick={() => setIsOpen(false)}
+              className={`text-sm font-medium transition-colors ${
+                isActive("/")
+                  ? "text-royal-blue"
+                  : "text-gray-600 hover:text-royal-blue dark:text-gray-300 dark:hover:text-royal-blue"
+              }`}
             >
               Accueil
             </Link>
-            <Link
-              to="/dashboard"
-              className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Concours
-            </Link>
+            {user && (
+              <Link
+                to="/dashboard"
+                className={`text-sm font-medium transition-colors ${
+                  isActive("/dashboard")
+                    ? "text-royal-blue"
+                    : "text-gray-600 hover:text-royal-blue dark:text-gray-300 dark:hover:text-royal-blue"
+                }`}
+              >
+                Tableau de Bord
+              </Link>
+            )}
             <Link
               to="/support"
-              className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white"
-              onClick={() => setIsOpen(false)}
+              className={`text-sm font-medium transition-colors ${
+                isActive("/support")
+                  ? "text-royal-blue"
+                  : "text-gray-600 hover:text-royal-blue dark:text-gray-300 dark:hover:text-royal-blue"
+              }`}
             >
               Support
             </Link>
-            <Link
-              to="/login"
-              className="block text-gray-700 hover:text-royal-blue px-3 py-2 rounded-md font-medium dark:text-gray-200 dark:hover:text-white"
-              onClick={() => setIsOpen(false)}
+          </nav>
+
+          {/* Right section: Theme toggle + Auth */}
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Toggle theme"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
-              Se connecter
-            </Link>
-            <Button 
-              className="w-full bg-royal-blue text-white hover:bg-blue-700 mt-2"
-              onClick={() => setIsOpen(false)}
-            >
-              S'inscrire
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
+
+            {/* Profile Menu or Auth Buttons */}
+            <div className="hidden md:block">
+              <ProfileMenu />
+            </div>
+
+            {/* Mobile menu button */}
+            <Sheet>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="w-64">
+                <div className="flex flex-col space-y-6 mt-6">
+                  <Link
+                    to="/"
+                    className={`text-base font-medium transition-colors ${
+                      isActive("/")
+                        ? "text-royal-blue"
+                        : "text-gray-600 hover:text-royal-blue dark:text-gray-300 dark:hover:text-royal-blue"
+                    }`}
+                  >
+                    Accueil
+                  </Link>
+                  {user && (
+                    <Link
+                      to="/dashboard"
+                      className={`text-base font-medium transition-colors ${
+                        isActive("/dashboard")
+                          ? "text-royal-blue"
+                          : "text-gray-600 hover:text-royal-blue dark:text-gray-300 dark:hover:text-royal-blue"
+                      }`}
+                    >
+                      Tableau de Bord
+                    </Link>
+                  )}
+                  <Link
+                    to="/support"
+                    className={`text-base font-medium transition-colors ${
+                      isActive("/support")
+                        ? "text-royal-blue"
+                        : "text-gray-600 hover:text-royal-blue dark:text-gray-300 dark:hover:text-royal-blue"
+                    }`}
+                  >
+                    Support
+                  </Link>
+                  
+                  {!user ? (
+                    <div className="flex flex-col gap-2 mt-4">
+                      <Button variant="outline" asChild>
+                        <Link to="/login">Connexion</Link>
+                      </Button>
+                      <Button asChild>
+                        <Link to="/login?tab=register">S'inscrire</Link>
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="mt-4">
+                      <Button 
+                        variant="destructive" 
+                        onClick={() => {
+                          const { signOut } = require("@/providers/AuthProvider").useAuth();
+                          signOut();
+                        }}
+                      >
+                        Se déconnecter
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
-      )}
-    </nav>
+      </div>
+    </header>
   );
 };
 
