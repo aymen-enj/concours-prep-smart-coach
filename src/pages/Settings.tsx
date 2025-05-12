@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -42,7 +42,19 @@ export default function Settings() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [avatarUrl, setAvatarUrl] = useState(user?.user_metadata?.avatar_url || "");
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+
+  // Update avatar URL when user changes or after upload
+  useEffect(() => {
+    if (user?.user_metadata?.avatar_url) {
+      // Add cache-busting parameter to force refresh
+      const url = new URL(user.user_metadata.avatar_url);
+      url.searchParams.set('t', Date.now().toString());
+      setAvatarUrl(url.toString());
+    } else {
+      setAvatarUrl(null);
+    }
+  }, [user]);
 
   const profileForm = useForm<z.infer<typeof profileFormSchema>>({
     resolver: zodResolver(profileFormSchema),
@@ -124,8 +136,7 @@ export default function Settings() {
         .getPublicUrl(filePath);
 
       const publicUrl = data.publicUrl;
-      setAvatarUrl(publicUrl);
-
+      
       // Update profile with avatar URL
       const { error: updateError } = await supabase
         .from('profiles')
@@ -140,6 +151,11 @@ export default function Settings() {
       });
 
       if (authUpdateError) throw authUpdateError;
+
+      // Update local state with cache busting
+      const url = new URL(publicUrl);
+      url.searchParams.set('t', Date.now().toString());
+      setAvatarUrl(url.toString());
 
       toast.success("Avatar mis à jour avec succès");
     } catch (error: any) {

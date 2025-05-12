@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   DropdownMenu,
@@ -18,6 +18,19 @@ import { useAuth } from "@/providers/AuthProvider";
 const ProfileMenu = () => {
   const { user, signOut } = useAuth();
   const [open, setOpen] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+  
+  // Update avatar URL when user changes
+  useEffect(() => {
+    if (user?.user_metadata?.avatar_url) {
+      // Add cache-busting parameter to force refresh
+      const url = new URL(user.user_metadata.avatar_url);
+      url.searchParams.set('t', Date.now().toString());
+      setAvatarUrl(url.toString());
+    } else {
+      setAvatarUrl(null);
+    }
+  }, [user]);
 
   // Get initials for avatar fallback
   const getInitials = () => {
@@ -65,7 +78,7 @@ const ProfileMenu = () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="flex items-center gap-2 p-1 pr-2">
           <Avatar className="h-8 w-8">
-            <AvatarImage src={user.user_metadata?.avatar_url} />
+            <AvatarImage src={avatarUrl} />
             <AvatarFallback>{getInitials()}</AvatarFallback>
           </Avatar>
           <span className="hidden md:inline-block text-sm font-medium">
