@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -51,6 +50,7 @@ export default function Settings() {
       const url = new URL(user.user_metadata.avatar_url);
       url.searchParams.set('t', Date.now().toString());
       setAvatarUrl(url.toString());
+      console.log("Settings Avatar URL updated:", url.toString());
     } else {
       setAvatarUrl(null);
     }
@@ -123,6 +123,8 @@ export default function Settings() {
       // Include user ID in the file path for RLS policy compliance
       const filePath = `${user?.id}/${Date.now()}.${fileExt}`;
 
+      console.log("Uploading file to path:", filePath);
+      
       // Upload the file to storage
       const { error: uploadError } = await supabase.storage
         .from('avatars')
@@ -136,6 +138,7 @@ export default function Settings() {
         .getPublicUrl(filePath);
 
       const publicUrl = data.publicUrl;
+      console.log("File uploaded, public URL:", publicUrl);
       
       // Update profile with avatar URL
       const { error: updateError } = await supabase
@@ -152,14 +155,22 @@ export default function Settings() {
 
       if (authUpdateError) throw authUpdateError;
 
+      // Force refresh of the auth object to get updated metadata
+      await supabase.auth.refreshSession();
+      
       // Update local state with cache busting
       const url = new URL(publicUrl);
       url.searchParams.set('t', Date.now().toString());
       setAvatarUrl(url.toString());
 
       toast.success("Avatar mis à jour avec succès");
+      console.log("Avatar updated successfully");
+
+      // Reset file input to allow selecting the same file again if needed
+      event.target.value = '';
     } catch (error: any) {
       toast.error(`Erreur lors de la mise à jour de l'avatar: ${error.message}`);
+      console.error("Avatar update error:", error);
     } finally {
       setIsLoading(false);
     }
@@ -216,7 +227,7 @@ export default function Settings() {
               </CardHeader>
               <CardContent className="flex flex-col items-center sm:flex-row sm:items-start gap-6">
                 <Avatar className="h-32 w-32">
-                  <AvatarImage src={avatarUrl} />
+                  <AvatarImage src={avatarUrl} alt="Profile" />
                   <AvatarFallback className="text-3xl">{getInitials()}</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col gap-4">

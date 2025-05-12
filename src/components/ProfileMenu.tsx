@@ -27,6 +27,7 @@ const ProfileMenu = () => {
       const url = new URL(user.user_metadata.avatar_url);
       url.searchParams.set('t', Date.now().toString());
       setAvatarUrl(url.toString());
+      console.log("Menu Avatar URL updated:", url.toString());
     } else {
       setAvatarUrl(null);
     }
@@ -78,7 +79,7 @@ const ProfileMenu = () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="flex items-center gap-2 p-1 pr-2">
           <Avatar className="h-8 w-8">
-            <AvatarImage src={avatarUrl} />
+            <AvatarImage src={avatarUrl} alt="Profile" />
             <AvatarFallback>{getInitials()}</AvatarFallback>
           </Avatar>
           <span className="hidden md:inline-block text-sm font-medium">
