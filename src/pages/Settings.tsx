@@ -107,7 +107,9 @@ export default function Settings() {
     try {
       const file = event.target.files[0];
       const fileExt = file.name.split('.').pop();
-      const filePath = `avatars/${user?.id}.${fileExt}`;
+      
+      // Include user ID in the file path for RLS policy compliance
+      const filePath = `${user?.id}/${Date.now()}.${fileExt}`;
 
       // Upload the file to storage
       const { error: uploadError } = await supabase.storage
