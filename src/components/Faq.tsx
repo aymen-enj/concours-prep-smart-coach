@@ -1,11 +1,11 @@
-
 import { 
   Accordion, 
   AccordionContent, 
   AccordionItem, 
   AccordionTrigger 
 } from "@/components/ui/accordion";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { HelpCircle } from "lucide-react";
 
 const faqItems = [
   {
@@ -44,20 +44,29 @@ const faqItems = [
 
 const Faq = () => {
   return (
-    <Card className="p-6">
-      <h2 className="text-2xl font-semibold mb-6">Questions Fréquemment Posées</h2>
-      <Accordion type="single" collapsible className="w-full">
-        {faqItems.map((item, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="font-medium text-left">
-              {item.question}
-            </AccordionTrigger>
-            <AccordionContent className="text-gray-600">
-              {item.answer}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+    <Card className="content-card">
+      <CardHeader className="border-b border-border">
+        <CardTitle className="flex items-center gap-2">
+          <HelpCircle className="h-5 w-5 text-primary" />
+          Questions Fréquemment Posées
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="p-6">
+        <Accordion type="single" collapsible className="w-full">
+          {faqItems.map((item, index) => (
+            <AccordionItem key={index} value={`item-${index}`} className="border-b border-border last:border-0">
+              <AccordionTrigger className="font-medium text-left py-4 hover:text-primary hover:no-underline">
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground pb-4">
+                <div className="bg-muted/30 rounded-lg p-4 border border-border/50">
+                  {item.answer}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </CardContent>
     </Card>
   );
 };

@@ -1,13 +1,14 @@
-
 import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Award, ChevronRight, Download, FileText } from "lucide-react";
+import { Award, ChevronRight, Download, FileText, CheckCircle, XCircle, AlertCircle, Trophy, Brain, Target, Book, BookOpen, Sparkles, ArrowRight, LightbulbIcon, BookmarkIcon, Dices, BarChart2 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 // Mock correction data
 const mockCorrection = {
@@ -45,247 +46,448 @@ const mockCorrection = {
       maxScore: 20,
       feedback: "Votre approche est correcte, mais la démonstration manque de rigueur et de détails. Il faudrait prouver plus formellement que la suite est décroissante pour u_n > √a et croissante pour u_n < √a."
     },
-    // Plus de questions...
+    {
+      id: "q3",
+      text: "Dans un espace vectoriel normé, toute suite de Cauchy est :",
+      userAnswer: "Convergente si l'espace est complet",
+      correctAnswer: "Convergente si l'espace est complet",
+      isCorrect: true,
+      explanation: "Par définition, un espace est dit complet si toute suite de Cauchy y est convergente."
+    },
+    {
+      id: "q4",
+      text: "Calculez l'intégrale suivante : $\\int_{0}^{\\pi} \\sin(x) \\, dx$",
+      userAnswer: "-cos(x) entre 0 et pi = -cos(pi) - (-cos(0)) = -(-1) - (-1) = 1 - (-1) = 2",
+      correctAnswer: "$-[\\cos(x)]_{0}^{\\pi} = -\\cos(\\pi) - (-\\cos(0)) = -(-1) - (-1) = 1 + 1 = 2$",
+      isCorrect: true,
+      explanation: "La primitive de sin(x) est -cos(x) + C. On applique le théorème fondamental du calcul."
+    },
+    {
+      id: "q5",
+      text: "Quelle est la solution de l'équation différentielle y' + y = 0 ?",
+      userAnswer: "y = Ce^x",
+      correctAnswer: "y = Ce^(-x)",
+      isCorrect: false,
+      score: 0,
+      maxScore: 10,
+      explanation: "On réécrit l'équation sous la forme y' = -y, puis on utilise la méthode de séparation des variables ou on reconnaît directement que y = Ce^(-x) est solution car sa dérivée est -Ce^(-x), ce qui donne bien y' + y = 0."
+    }
   ]
 };
+
+// Statistiques additionnelles
+const additionalStats = [
+  { label: "Temps moyen par question", value: "7 min" },
+  { label: "Position / classe", value: "12/35" },
+  { label: "Amélioration vs précédent", value: "+15%" }
+];
 
 const Correction = () => {
   const { id } = useParams();
 
+  // Calculate the score color based on the value
+  const getScoreColor = (score) => {
+    if (score >= 80) return "text-green-600 dark:text-green-400";
+    if (score >= 60) return "text-amber-600 dark:text-amber-400";
+    return "text-red-600 dark:text-red-400";
+  };
+
+  // Calculate the score ring color based on the value
+  const getScoreRingColor = (score) => {
+    if (score >= 80) return "bg-gradient-to-r from-green-500 to-emerald-600";
+    if (score >= 60) return "bg-gradient-to-r from-amber-500 to-yellow-600";
+    return "bg-gradient-to-r from-red-500 to-rose-600";
+  };
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
-      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 bg-light-gray">
+      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 relative">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute bottom-24 left-0 w-60 h-60 bg-blue-400/5 rounded-full blur-3xl -z-10"></div>
+        
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+          <div className="mb-10">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Trophy className="h-6 w-6 text-primary" />
+                </div>
             <div>
-              <h1 className="text-2xl font-poppins font-bold text-dark-gray mb-1">
+                  <h1 className="text-2xl font-poppins font-bold text-foreground">
                 Résultats et Correction
               </h1>
-              <p className="text-gray-600">
+                  <p className="text-muted-foreground">
                 Concours CNC - Mathématiques 2023
               </p>
             </div>
-            <div className="mt-4 md:mt-0 flex space-x-3">
-              <Button variant="outline" className="flex items-center">
-                <Download className="mr-2 h-4 w-4" /> Télécharger PDF
+              </div>
+              <div className="flex items-center gap-3">
+                <Button variant="outline" className="gap-2 rounded-full border-border/40 hover:bg-primary/5 hover:border-primary/30">
+                  <Download className="h-4 w-4" /> 
+                  <span className="hidden sm:inline">Télécharger</span>
               </Button>
-              <Button asChild className="bg-royal-blue hover:bg-blue-700">
+                <Button asChild className="gap-2 rounded-full">
                 <Link to="/dashboard">
-                  Tous les concours <ChevronRight className="ml-1 h-4 w-4" />
+                    <span className="hidden sm:inline">Tous les concours</span>
+                    <span className="inline sm:hidden">Retour</span>
+                    <ChevronRight className="h-4 w-4" />
                 </Link>
               </Button>
+              </div>
             </div>
           </div>
 
-          {/* Score Overview Card */}
-          <Card className="mb-8">
-            <CardHeader className="pb-3">
-              <CardTitle>Score global</CardTitle>
-              <CardDescription>
-                Votre performance sur l'ensemble du concours
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="flex items-center mb-4 md:mb-0">
-                  <div className="w-24 h-24 rounded-full border-8 border-royal-blue flex items-center justify-center bg-white">
-                    <span className="text-3xl font-bold text-royal-blue">{mockCorrection.score}%</span>
+          {/* Score Overview */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+            {/* Main score card */}
+            <Card className="border-border/40 bg-card/95 backdrop-blur-sm shadow-lg overflow-hidden lg:col-span-2">
+              <div className="h-1.5 bg-gradient-to-r from-primary to-blue-600"></div>
+              <CardContent className="p-6">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                  <div className="relative flex-shrink-0">
+                    <div className={`w-32 h-32 rounded-full ${getScoreRingColor(mockCorrection.score)} flex items-center justify-center shadow-lg`}>
+                      <div className="w-28 h-28 rounded-full bg-background flex flex-col items-center justify-center">
+                        <span className={`text-3xl font-bold ${getScoreColor(mockCorrection.score)}`}>
+                          {mockCorrection.score}%
+                        </span>
+                        <span className="text-xs text-muted-foreground">Score global</span>
+                      </div>
+                    </div>
+                    <div className="absolute -top-2 -right-2 bg-white dark:bg-gray-800 w-10 h-10 rounded-full shadow-md flex items-center justify-center border-2 border-background">
+                      {mockCorrection.score >= 60 ? (
+                        <Sparkles className="h-5 w-5 text-amber-500" />
+                      ) : (
+                        <Brain className="h-5 w-5 text-primary" />
+                      )}
+                    </div>
                   </div>
-                  <div className="ml-6">
-                    <p className="text-sm text-gray-600 mb-1">
-                      Note: {mockCorrection.score}/{mockCorrection.maxScore}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      {mockCorrection.correctAnswers} correctes, {mockCorrection.partialAnswers} partielles, {mockCorrection.wrongAnswers} incorrectes
-                    </p>
+                  
+                  <div className="flex-grow">
+                    <div className="flex flex-col gap-4">
+                      <div>
+                        <h3 className="font-medium mb-2 flex items-center gap-2">
+                          <Target className="h-4 w-4 text-primary" />
+                          Résumé de vos résultats
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                          <div className="flex items-center gap-3 p-3 rounded-xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/20">
+                            <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                              <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+                            </div>
+                            <div>
+                              <div className="text-xl font-bold text-green-600 dark:text-green-400">
+                                {mockCorrection.correctAnswers}
+                              </div>
+                              <div className="text-xs text-green-700 dark:text-green-300">Réponses correctes</div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center gap-3 p-3 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20">
+                            <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+                              <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                            </div>
+                            <div>
+                              <div className="text-xl font-bold text-amber-600 dark:text-amber-400">
+                                {mockCorrection.partialAnswers}
+                              </div>
+                              <div className="text-xs text-amber-700 dark:text-amber-300">Réponses partielles</div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center gap-3 p-3 rounded-xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/20">
+                            <div className="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                              <XCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
+                            </div>
+                            <div>
+                              <div className="text-xl font-bold text-red-600 dark:text-red-400">
+                                {mockCorrection.wrongAnswers}
+                              </div>
+                              <div className="text-xs text-red-700 dark:text-red-300">Réponses incorrectes</div>
+                            </div>
+                          </div>
                   </div>
                 </div>
-                <div className="md:border-l md:pl-6 flex items-center">
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="font-medium mb-2">Vos points forts</h3>
+                          <h3 className="text-sm font-medium mb-2 flex items-center gap-2">
+                            <Sparkles className="h-4 w-4 text-green-500" />
+                            Points forts
+                          </h3>
                     <div className="flex flex-wrap gap-2">
                       {mockCorrection.strengths.map((strength, i) => (
-                        <span key={i} className="bg-green-100 text-green-800 text-xs px-2.5 py-1 rounded-full">
+                              <Badge key={i} variant="outline" className="bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border-green-100 dark:border-green-800/30">
                           {strength}
-                        </span>
+                              </Badge>
                       ))}
                     </div>
-                    <h3 className="font-medium mb-2 mt-4">À améliorer</h3>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-sm font-medium mb-2 flex items-center gap-2">
+                            <Target className="h-4 w-4 text-red-500" />
+                            À améliorer
+                          </h3>
                     <div className="flex flex-wrap gap-2">
                       {mockCorrection.weaknesses.map((weakness, i) => (
-                        <span key={i} className="bg-red-100 text-red-800 text-xs px-2.5 py-1 rounded-full">
+                              <Badge key={i} variant="outline" className="bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-400 border-red-100 dark:border-red-800/30">
                           {weakness}
-                        </span>
+                              </Badge>
                       ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+            
+            {/* Additional stats */}
+            <Card className="border-border/40 bg-card/95 backdrop-blur-sm shadow-lg overflow-hidden">
+              <div className="h-1.5 bg-gradient-to-r from-amber-500 to-yellow-600"></div>
+              <CardContent className="p-6">
+                <h3 className="font-medium mb-4 flex items-center gap-2">
+                  <BarChart2 className="h-4 w-4 text-amber-500" />
+                  Statistiques
+                </h3>
+                <div className="flex flex-col gap-4">
+                  {additionalStats.map((stat, i) => (
+                    <div key={i} className="flex justify-between items-center pb-3 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-sm text-muted-foreground">{stat.label}</span>
+                      <span className="font-medium">{stat.value}</span>
+                    </div>
+                  ))}
+              </div>
+            </CardContent>
+          </Card>
+          </div>
+
+          {/* IA Feedback Card */}
+          <Card className="border-border/40 bg-card/95 backdrop-blur-sm shadow-lg overflow-hidden mb-10 relative">
+            <div className="h-1.5 bg-gradient-to-r from-blue-600 to-primary"></div>
+            <div className="absolute top-0 right-0 h-20 w-20 bg-primary/5 rounded-bl-full -z-10"></div>
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Brain className="h-5 w-5 text-primary" />
+                </div>
+                <h2 className="text-xl font-poppins font-medium text-foreground">
+                Feedback personnalisé
+                </h2>
+              </div>
+              <p className="text-foreground mb-6 p-4 bg-primary/5 rounded-lg border border-primary/10">
+                {mockCorrection.feedback}
+              </p>
+              <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
+                <LightbulbIcon className="h-5 w-5 text-amber-500" />
+                Recommandations pour progresser
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {mockCorrection.recommendations.map((recommendation, index) => (
+                  <Card key={index} className="border-border/30 hover:border-primary/20 transition-all bg-background/70 shadow-sm">
+                    <CardContent className="p-4 flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <span className="text-primary font-bold text-sm">{index + 1}</span>
+                      </div>
+                      <p className="text-sm">{recommendation}</p>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </CardContent>
           </Card>
 
-          {/* IA Feedback Card */}
-          <Card className="mb-8 border-l-4 border-royal-blue">
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Award className="h-5 w-5 mr-2 text-royal-blue" /> 
-                Feedback personnalisé
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700 mb-6">
-                {mockCorrection.feedback}
-              </p>
-              <h3 className="text-lg font-medium mb-3">Recommandations</h3>
-              <ul className="space-y-2">
-                {mockCorrection.recommendations.map((recommendation, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="h-5 w-5 bg-royal-blue text-white rounded-full flex items-center justify-center mr-2 mt-0.5 text-xs">
-                      {index + 1}
-                    </span>
-                    <span>{recommendation}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-
           {/* Detailed Correction */}
-          <h2 className="text-xl font-poppins font-semibold text-dark-gray mb-4">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+              <BookOpen className="h-5 w-5 text-primary" />
+            </div>
+            <h2 className="text-xl font-poppins font-medium text-foreground">
             Correction détaillée
           </h2>
+          </div>
           
           <Tabs defaultValue="all" className="mb-8">
-            <TabsList>
-              <TabsTrigger value="all">Toutes</TabsTrigger>
-              <TabsTrigger value="correct">Correctes</TabsTrigger>
-              <TabsTrigger value="incorrect">Incorrectes</TabsTrigger>
+            <TabsList className="bg-muted/50 p-1 rounded-lg mb-6">
+              <TabsTrigger value="all" className="rounded-md data-[state=active]:bg-background">
+                Toutes
+              </TabsTrigger>
+              <TabsTrigger value="correct" className="rounded-md data-[state=active]:bg-background">
+                Correctes
+              </TabsTrigger>
+              <TabsTrigger value="incorrect" className="rounded-md data-[state=active]:bg-background">
+                Incorrectes
+              </TabsTrigger>
+              <TabsTrigger value="partial" className="rounded-md data-[state=active]:bg-background">
+                Partielles
+              </TabsTrigger>
             </TabsList>
-            <TabsContent value="all" className="pt-6 space-y-6">
+            <TabsContent value="all" className="space-y-6">
               {mockCorrection.questions.map((question, index) => (
-                <Card key={index} className={`border-l-4 ${question.isCorrect ? 'border-green-500' : question.score ? 'border-yellow-500' : 'border-red-500'}`}>
-                  <CardHeader>
+                <Card 
+                  key={index} 
+                  className={cn(
+                    "border-border/40 overflow-hidden shadow-md hover:shadow-lg transition-all",
+                  )}
+                >
+                  <div className={cn(
+                    "h-1.5",
+                    question.isCorrect 
+                      ? "bg-gradient-to-r from-green-500 to-emerald-600" 
+                      : question.score 
+                        ? "bg-gradient-to-r from-amber-500 to-yellow-600" 
+                        : "bg-gradient-to-r from-red-500 to-rose-600"
+                  )}></div>
+                  <CardHeader className="p-6 pb-2">
                     <div className="flex justify-between">
-                      <CardTitle className="text-base">Question {index + 1}</CardTitle>
+                      <CardTitle className="text-lg font-medium flex items-center gap-2">
+                        <div className={cn(
+                          "w-8 h-8 rounded-full flex items-center justify-center",
+                          question.isCorrect 
+                            ? "bg-green-100 dark:bg-green-900/30" 
+                            : question.score 
+                              ? "bg-amber-100 dark:bg-amber-900/30" 
+                              : "bg-red-100 dark:bg-red-900/30"
+                        )}>
+                          <span className={cn(
+                            "font-bold",
+                            question.isCorrect 
+                              ? "text-green-600 dark:text-green-400" 
+                              : question.score 
+                                ? "text-amber-600 dark:text-amber-400" 
+                                : "text-red-600 dark:text-red-400"
+                          )}>{index + 1}</span>
+                        </div>
+                        Question {index + 1}
+                      </CardTitle>
                       {question.isCorrect ? (
-                        <span className="bg-green-100 text-green-800 text-xs px-2.5 py-1 rounded-full">
+                        <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border-none">
+                          <CheckCircle className="h-3 w-3 mr-1" />
                           Correcte
-                        </span>
+                        </Badge>
                       ) : question.score ? (
-                        <span className="bg-yellow-100 text-yellow-800 text-xs px-2.5 py-1 rounded-full">
+                        <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border-none">
+                          <AlertCircle className="h-3 w-3 mr-1" />
                           Partiellement correcte ({question.score}/{question.maxScore})
-                        </span>
+                        </Badge>
                       ) : (
-                        <span className="bg-red-100 text-red-800 text-xs px-2.5 py-1 rounded-full">
+                        <Badge className="bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 border-none">
+                          <XCircle className="h-3 w-3 mr-1" />
                           Incorrecte
-                        </span>
+                        </Badge>
                       )}
                     </div>
-                    <CardDescription>{question.text}</CardDescription>
+                    <CardDescription className="mt-2">{question.text}</CardDescription>
                   </CardHeader>
-                  <CardContent className="pb-3">
-                    <div className="mb-4">
-                      <h4 className="text-sm font-medium text-gray-500 mb-1">Votre réponse:</h4>
-                      <p className="bg-gray-50 p-3 rounded">{question.userAnswer}</p>
+                  <CardContent className="p-6 pt-2">
+                    <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-4 bg-background/50 rounded-lg border border-border/60">
+                        <h4 className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1">
+                          <BookmarkIcon className="h-3 w-3" /> Votre réponse:
+                        </h4>
+                        <p className="text-sm">{question.userAnswer}</p>
+                      </div>
+                      <div className="p-4 bg-green-50 dark:bg-green-900/10 rounded-lg border border-green-100 dark:border-green-800/30">
+                        <h4 className="text-sm font-medium text-green-700 dark:text-green-400 mb-1 flex items-center gap-1">
+                          <CheckCircle className="h-3 w-3" /> Réponse correcte:
+                        </h4>
+                        <p className="text-sm">{question.correctAnswer}</p>
                     </div>
-                    <div className="mb-4">
-                      <h4 className="text-sm font-medium text-gray-500 mb-1">Réponse correcte:</h4>
-                      <p className="bg-green-50 p-3 rounded">{question.correctAnswer}</p>
                     </div>
                     {question.feedback && (
-                      <div>
-                        <h4 className="text-sm font-medium text-gray-500 mb-1">Feedback:</h4>
-                        <p className="text-gray-700">{question.feedback}</p>
+                      <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/10 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                        <h4 className="text-sm font-medium text-amber-700 dark:text-amber-400 mb-1 flex items-center gap-1">
+                          <Dices className="h-3 w-3" /> Feedback:
+                        </h4>
+                        <p className="text-sm">{question.feedback}</p>
                       </div>
                     )}
                   </CardContent>
                   <Separator />
-                  <CardFooter className="pt-3 pb-3">
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-500 mb-1">Explication détaillée:</h4>
-                      <p className="text-gray-700 text-sm">{question.explanation}</p>
+                  <CardFooter className="p-6">
+                    <div className="w-full">
+                      <h4 className="text-sm font-medium text-primary mb-2 flex items-center gap-1">
+                        <Brain className="h-3 w-3" /> Explication détaillée:
+                      </h4>
+                      <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
+                        <p className="text-sm">{question.explanation}</p>
+                      </div>
                     </div>
                   </CardFooter>
                 </Card>
               ))}
             </TabsContent>
-            <TabsContent value="correct" className="pt-6 space-y-6">
+            <TabsContent value="correct" className="space-y-6">
               {mockCorrection.questions.filter(q => q.isCorrect).map((question, index) => (
-                <Card key={index} className="border-l-4 border-green-500">
-                  {/* Same content structure as above */}
-                  <CardHeader>
+                <Card 
+                  key={index} 
+                  className="border-border/40 overflow-hidden shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="h-1.5 bg-gradient-to-r from-green-500 to-emerald-600"></div>
+                  {/* Similar content to "all" tab, but filtered */}
+                  <CardHeader className="p-6 pb-2">
                     <div className="flex justify-between">
-                      <CardTitle className="text-base">Question {index + 1}</CardTitle>
-                      <span className="bg-green-100 text-green-800 text-xs px-2.5 py-1 rounded-full">
+                      <CardTitle className="text-lg font-medium flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                          <span className="font-bold text-green-600 dark:text-green-400">{index + 1}</span>
+                        </div>
+                        Question {index + 1}
+                      </CardTitle>
+                      <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border-none">
+                        <CheckCircle className="h-3 w-3 mr-1" />
                         Correcte
-                      </span>
+                      </Badge>
                     </div>
-                    <CardDescription>{question.text}</CardDescription>
+                    <CardDescription className="mt-2">{question.text}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    {/* Question content */}
-                  </CardContent>
+                  {/* Rest of the content similar to "all" tab */}
                 </Card>
               ))}
             </TabsContent>
-            <TabsContent value="incorrect" className="pt-6 space-y-6">
-              {mockCorrection.questions.filter(q => !q.isCorrect).map((question, index) => (
-                <Card key={index} className={`border-l-4 ${question.score ? 'border-yellow-500' : 'border-red-500'}`}>
-                  {/* Same content structure as above */}
-                  <CardHeader>
-                    <div className="flex justify-between">
-                      <CardTitle className="text-base">Question {index + 1}</CardTitle>
-                      {question.score ? (
-                        <span className="bg-yellow-100 text-yellow-800 text-xs px-2.5 py-1 rounded-full">
-                          Partiellement correcte ({question.score}/{question.maxScore})
-                        </span>
-                      ) : (
-                        <span className="bg-red-100 text-red-800 text-xs px-2.5 py-1 rounded-full">
-                          Incorrecte
-                        </span>
-                      )}
-                    </div>
-                    <CardDescription>{question.text}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    {/* Question content */}
-                  </CardContent>
+            <TabsContent value="incorrect" className="space-y-6">
+              {mockCorrection.questions.filter(q => !q.isCorrect && !q.score).map((question, index) => (
+                <Card 
+                  key={index} 
+                  className="border-border/40 overflow-hidden shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="h-1.5 bg-gradient-to-r from-red-500 to-rose-600"></div>
+                  {/* Similar content to "all" tab, but filtered */}
+                </Card>
+              ))}
+            </TabsContent>
+            <TabsContent value="partial" className="space-y-6">
+              {mockCorrection.questions.filter(q => !q.isCorrect && q.score).map((question, index) => (
+                <Card 
+                  key={index} 
+                  className="border-border/40 overflow-hidden shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="h-1.5 bg-gradient-to-r from-amber-500 to-yellow-600"></div>
+                  {/* Similar content to "all" tab, but filtered */}
                 </Card>
               ))}
             </TabsContent>
           </Tabs>
           
-          {/* Next Steps */}
-          <Card className="bg-royal-blue text-white">
-            <CardHeader>
-              <CardTitle>Prochaines étapes</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center text-center">
-                  <FileText className="h-8 w-8 mb-3" />
-                  <h3 className="font-semibold mb-2">Exercices recommandés</h3>
-                  <p className="text-blue-100">Pratiquez des exercices ciblant vos points faibles.</p>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <Award className="h-8 w-8 mb-3" />
-                  <h3 className="font-semibold mb-2">Concours similaires</h3>
-                  <p className="text-blue-100">Essayez d'autres concours du même niveau.</p>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <FileText className="h-8 w-8 mb-3" />
-                  <h3 className="font-semibold mb-2">Ressources</h3>
-                  <p className="text-blue-100">Accédez à des cours et des fiches de révision.</p>
-                </div>
+          {/* Call to action */}
+          <div className="bg-gradient-to-r from-primary/80 to-blue-600 rounded-2xl p-6 text-white shadow-lg mb-8 relative overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full"></div>
+            <div className="absolute -left-5 -bottom-5 w-20 h-20 bg-white/10 rounded-full"></div>
+            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <h3 className="text-xl font-medium mb-2">Continuez votre progression</h3>
+                <p className="text-white/80 max-w-md">
+                  Passez à un autre concours pour améliorer vos compétences et augmenter vos chances de réussite.
+                </p>
               </div>
-            </CardContent>
-            <CardFooter>
-              <Button variant="secondary" className="w-full">
-                Voir mes recommandations complètes
+              <Button className="bg-white text-primary hover:bg-white/90 whitespace-nowrap rounded-full">
+                Prochain concours
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </CardFooter>
-          </Card>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,8 +10,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
-import { Eye, FilePlus, FileText, Upload, X } from "lucide-react";
+import { Eye, FilePlus, FileText, Upload, X, Settings, Users, BarChart2 } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
 
 // Mock data for concours
 const mockConcours = [
@@ -121,23 +121,37 @@ const Admin = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
-      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 bg-light-gray">
+      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-            <div>
-              <h1 className="text-3xl font-poppins font-bold text-dark-gray mb-2">
+          <div className="page-header mb-8">
+            <div className="flex items-center gap-3 mb-4">
+              <Settings className="h-8 w-8 text-primary" />
+              <h1 className="page-title">
                 Panneau d'administration
+                <div className="page-title-underline"></div>
               </h1>
-              <p className="text-gray-600">
-                Gérez les concours et les questions
-              </p>
+            </div>
+            <p className="page-description">
+              Gérez les concours, les étudiants et les statistiques de la plateforme
+            </p>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div className="flex items-center gap-4">
+              <div className="bg-primary/10 p-3 rounded-xl">
+                <FileText className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold">Gestion des concours</h2>
+                <p className="text-muted-foreground">Ajoutez et gérez les concours disponibles</p>
+              </div>
             </div>
             <div className="mt-4 md:mt-0">
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button className="bg-royal-blue hover:bg-blue-700">
+                  <Button className="btn-primary">
                     <FilePlus className="h-4 w-4 mr-2" /> Ajouter un concours
                   </Button>
                 </DialogTrigger>
@@ -149,41 +163,45 @@ const Admin = () => {
                     </DialogDescription>
                   </DialogHeader>
                   <div className="grid gap-4 py-4">
-                    <div className="grid gap-2">
-                      <label htmlFor="title">Titre du concours</label>
+                    <div className="form-group">
+                      <label htmlFor="title" className="form-label">Titre du concours</label>
                       <Input
                         id="title"
                         value={newConcours.title}
                         onChange={(e) => setNewConcours({ ...newConcours, title: e.target.value })}
                         placeholder="Ex: Concours CNC"
+                        className="form-input"
                       />
                     </div>
-                    <div className="grid gap-2">
-                      <label htmlFor="subject">Matière</label>
+                    <div className="form-group">
+                      <label htmlFor="subject" className="form-label">Matière</label>
                       <Input
                         id="subject"
                         value={newConcours.subject}
                         onChange={(e) => setNewConcours({ ...newConcours, subject: e.target.value })}
                         placeholder="Ex: Mathématiques"
+                        className="form-input"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="grid gap-2">
-                        <label htmlFor="year">Année</label>
+                      <div className="form-group">
+                        <label htmlFor="year" className="form-label">Année</label>
                         <Input
                           id="year"
                           value={newConcours.year}
                           onChange={(e) => setNewConcours({ ...newConcours, year: e.target.value })}
                           placeholder="Ex: 2023"
+                          className="form-input"
                         />
                       </div>
-                      <div className="grid gap-2">
-                        <label htmlFor="level">Niveau</label>
+                      <div className="form-group">
+                        <label htmlFor="level" className="form-label">Niveau</label>
                         <Input
                           id="level"
                           value={newConcours.level}
                           onChange={(e) => setNewConcours({ ...newConcours, level: e.target.value })}
                           placeholder="Ex: Préparatoire"
+                          className="form-input"
                         />
                       </div>
                     </div>
@@ -195,11 +213,11 @@ const Admin = () => {
                           setNewConcours({ ...newConcours, isPremium: checked as boolean })
                         }
                       />
-                      <label htmlFor="isPremium">Contenu premium</label>
+                      <label htmlFor="isPremium" className="form-label">Contenu premium</label>
                     </div>
                   </div>
                   <DialogFooter>
-                    <Button onClick={handleAddConcours}>Ajouter</Button>
+                    <Button onClick={handleAddConcours} className="btn-primary">Ajouter</Button>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
@@ -207,27 +225,39 @@ const Admin = () => {
           </div>
 
           <Tabs defaultValue="concours" className="mb-8">
-            <TabsList>
-              <TabsTrigger value="concours">Concours</TabsTrigger>
-              <TabsTrigger value="students">Étudiants</TabsTrigger>
-              <TabsTrigger value="statistics">Statistiques</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-3 bg-gray-100 dark:bg-gray-800/50 p-1.5 rounded-xl">
+              <TabsTrigger value="concours" className="flex items-center gap-2">
+                <FileText className="h-4 w-4" />
+                <span>Concours</span>
+              </TabsTrigger>
+              <TabsTrigger value="students" className="flex items-center gap-2">
+                <Users className="h-4 w-4" />
+                <span>Étudiants</span>
+              </TabsTrigger>
+              <TabsTrigger value="statistics" className="flex items-center gap-2">
+                <BarChart2 className="h-4 w-4" />
+                <span>Statistiques</span>
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="concours" className="pt-6">
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle>Gestion des concours</CardTitle>
+              <Card className="content-card">
+                <CardHeader className="content-card-header">
+                  <CardTitle className="content-card-title">
+                    <FileText className="h-5 w-5 text-primary" />
+                    Gestion des concours
+                  </CardTitle>
                   <CardDescription>
                     Gérez, modifiez et publiez les concours de la plateforme.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="content-card-body">
                   <div className="flex mb-6">
                     <Input
                       placeholder="Rechercher un concours..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="max-w-sm"
+                      className="max-w-sm form-input"
                     />
                   </div>
 
@@ -256,11 +286,12 @@ const Admin = () => {
                             <TableCell>{concours.questions}</TableCell>
                             <TableCell>
                               <span
-                                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                                className={cn(
+                                  "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
                                   concours.published
-                                    ? "bg-green-100 text-green-800"
-                                    : "bg-gray-100 text-gray-800"
-                                }`}
+                                    ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200"
+                                    : "bg-gray-100 text-gray-800 dark:bg-gray-800/50 dark:text-gray-200"
+                                )}
                               >
                                 {concours.published ? "Publié" : "Brouillon"}
                               </span>
@@ -271,20 +302,21 @@ const Admin = () => {
                                   variant="outline"
                                   size="sm"
                                   onClick={() => handleTogglePublish(concours.id)}
+                                  className="hover:bg-primary/5"
                                 >
                                   {concours.published ? "Dépublier" : "Publier"}
                                 </Button>
                                 <Button
                                   variant="outline"
                                   size="icon"
-                                  className="h-8 w-8"
+                                  className="h-8 w-8 hover:bg-primary/5"
                                 >
                                   <Eye className="h-4 w-4" />
                                 </Button>
                                 <Button
                                   variant="outline"
                                   size="icon"
-                                  className="h-8 w-8 text-red-500"
+                                  className="h-8 w-8 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20"
                                   onClick={() => handleDeleteConcours(concours.id)}
                                 >
                                   <X className="h-4 w-4" />
@@ -299,21 +331,24 @@ const Admin = () => {
                 </CardContent>
               </Card>
 
-              <Card className="mt-8">
-                <CardHeader className="pb-3">
-                  <CardTitle>Importer un concours</CardTitle>
+              <Card className="content-card mt-8">
+                <CardHeader className="content-card-header">
+                  <CardTitle className="content-card-title">
+                    <Upload className="h-5 w-5 text-primary" />
+                    Importer un concours
+                  </CardTitle>
                   <CardDescription>
                     Importez un concours depuis un fichier PDF ou LaTeX.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="content-card-body">
                   <div className="grid gap-6">
-                    <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-12">
+                    <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-12 hover:border-primary/50 transition-colors duration-200">
                       <Upload className="h-8 w-8 text-gray-400 mb-4" />
-                      <div className="flex text-sm text-gray-600">
+                      <div className="flex text-sm text-gray-600 dark:text-gray-400">
                         <label
                           htmlFor="file-upload"
-                          className="relative cursor-pointer rounded-md font-medium text-royal-blue hover:text-blue-700"
+                          className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
                         >
                           <span>Importer un fichier</span>
                           <input
@@ -325,7 +360,7 @@ const Admin = () => {
                         </label>
                         <p className="pl-1">ou glisser-déposer</p>
                       </div>
-                      <p className="text-xs text-gray-500 mt-1">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                         PDF, LaTeX, ou DOCX jusqu'à 10MB
                       </p>
                     </div>
@@ -333,12 +368,10 @@ const Admin = () => {
                     <div>
                       <h3 className="text-lg font-medium mb-4">Options d'importation</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="text-sm font-medium">
-                            Format de question
-                          </label>
+                        <div className="form-group">
+                          <label className="form-label">Format de question</label>
                           <Select defaultValue="auto">
-                            <SelectTrigger>
+                            <SelectTrigger className="form-input">
                               <SelectValue placeholder="Sélectionner un format" />
                             </SelectTrigger>
                             <SelectContent>
@@ -352,7 +385,7 @@ const Admin = () => {
                         
                         <div className="flex items-center gap-2">
                           <Checkbox id="useAI" />
-                          <label htmlFor="useAI" className="text-sm font-medium">
+                          <label htmlFor="useAI" className="form-label">
                             Utiliser l'IA pour améliorer la détection
                           </label>
                         </div>
@@ -361,105 +394,33 @@ const Admin = () => {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full md:w-auto">
+                  <Button className="btn-primary w-full md:w-auto">
                     Lancer l'importation
                   </Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="mt-8">
-                <CardHeader className="pb-3">
-                  <CardTitle>Éditeur de questions</CardTitle>
-                  <CardDescription>
-                    Ajoutez ou modifiez des questions pour les concours.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-6">
-                    <div>
-                      <Label htmlFor="concoursSelect">Sélectionner un concours</Label>
-                      <Select>
-                        <SelectTrigger id="concoursSelect">
-                          <SelectValue placeholder="Choisir un concours" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {concoursList.map((concours) => (
-                            <SelectItem key={concours.id} value={concours.id}>
-                              {concours.title} ({concours.year})
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="questionType">Type de question</Label>
-                      <Select defaultValue="qcm">
-                        <SelectTrigger id="questionType">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="qcm">QCM</SelectItem>
-                          <SelectItem value="text">Texte libre</SelectItem>
-                          <SelectItem value="latex">Équation (LaTeX)</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="questionText">Texte de la question</Label>
-                      <Textarea
-                        id="questionText"
-                        placeholder="Entrez le texte de votre question ici..."
-                        className="min-h-[100px]"
-                      />
-                    </div>
-
-                    <div className="space-y-4">
-                      <Label>Options de réponse (pour QCM)</Label>
-                      {[1, 2, 3, 4].map((index) => (
-                        <div key={index} className="flex items-center space-x-2">
-                          <Checkbox id={`option-${index}`} />
-                          <Input placeholder={`Option ${index}`} className="flex-1" />
-                        </div>
-                      ))}
-                      <Button variant="outline" className="w-full">
-                        Ajouter une option
-                      </Button>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="correctAnswer">Réponse correcte / Solution</Label>
-                      <Textarea
-                        id="correctAnswer"
-                        placeholder="Entrez la réponse correcte ou la solution détaillée..."
-                        className="min-h-[100px]"
-                      />
-                    </div>
-                  </div>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Prévisualiser</Button>
-                  <Button>Ajouter la question</Button>
                 </CardFooter>
               </Card>
             </TabsContent>
 
             <TabsContent value="students" className="pt-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Gestion des étudiants</CardTitle>
+              <Card className="content-card">
+                <CardHeader className="content-card-header">
+                  <CardTitle className="content-card-title">
+                    <Users className="h-5 w-5 text-primary" />
+                    Gestion des étudiants
+                  </CardTitle>
                   <CardDescription>
                     Fonctionnalité à venir dans une prochaine mise à jour.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex items-center justify-center py-12">
-                  <div className="text-center">
-                    <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <CardContent className="content-card-body">
+                  <div className="text-center py-12">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 mb-4">
+                      <Users className="h-8 w-8 text-gray-400 dark:text-gray-600" />
+                    </div>
                     <h3 className="text-lg font-medium mb-2">
                       Gestion des étudiants
                     </h3>
-                    <p className="text-gray-500 mb-4 max-w-md mx-auto">
+                    <p className="text-muted-foreground mb-4 max-w-md mx-auto">
                       Cette fonctionnalité permettra de gérer les comptes étudiants,
                       suivre leur progression et gérer les abonnements.
                     </p>
@@ -470,20 +431,25 @@ const Admin = () => {
             </TabsContent>
 
             <TabsContent value="statistics" className="pt-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Statistiques de la plateforme</CardTitle>
+              <Card className="content-card">
+                <CardHeader className="content-card-header">
+                  <CardTitle className="content-card-title">
+                    <BarChart2 className="h-5 w-5 text-primary" />
+                    Statistiques de la plateforme
+                  </CardTitle>
                   <CardDescription>
                     Fonctionnalité à venir dans une prochaine mise à jour.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex items-center justify-center py-12">
-                  <div className="text-center">
-                    <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <CardContent className="content-card-body">
+                  <div className="text-center py-12">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 mb-4">
+                      <BarChart2 className="h-8 w-8 text-gray-400 dark:text-gray-600" />
+                    </div>
                     <h3 className="text-lg font-medium mb-2">
                       Statistiques et analytiques
                     </h3>
-                    <p className="text-gray-500 mb-4 max-w-md mx-auto">
+                    <p className="text-muted-foreground mb-4 max-w-md mx-auto">
                       Cette fonctionnalité affichera des graphiques détaillés sur
                       l'utilisation de la plateforme, les performances des étudiants
                       et les concours les plus populaires.
@@ -498,18 +464,6 @@ const Admin = () => {
       </main>
       <Footer />
     </div>
-  );
-};
-
-// Helper component for the admin page
-const Label = ({ htmlFor, children }: { htmlFor?: string; children: React.ReactNode }) => {
-  return (
-    <label
-      htmlFor={htmlFor}
-      className="text-sm font-medium text-gray-700 block mb-1"
-    >
-      {children}
-    </label>
   );
 };
 

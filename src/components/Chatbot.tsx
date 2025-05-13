@@ -1,10 +1,9 @@
-
 import { useState, useRef, useEffect } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageSquare, X } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { MessageSquare, Send, Bot, User, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { toast } from "@/components/ui/use-toast";
 
 type Message = {
   id: number;
@@ -29,8 +28,8 @@ const initialMessages: Message[] = [
 const Chatbot = ({ onClose }: ChatbotProps) => {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [newMessage, setNewMessage] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { toast } = useToast();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -55,6 +54,7 @@ const Chatbot = ({ onClose }: ChatbotProps) => {
 
     setMessages(prev => [...prev, userMessage]);
     setNewMessage('');
+    setIsTyping(true);
 
     // Simulate bot response after delay
     setTimeout(() => {
@@ -75,8 +75,15 @@ const Chatbot = ({ onClose }: ChatbotProps) => {
         timestamp: new Date(),
       };
 
+      setIsTyping(false);
       setMessages(prev => [...prev, botMessage]);
-    }, 1000);
+      
+      toast({
+        title: "Nouvelle réponse",
+        description: "L'assistant a répondu à votre message",
+        duration: 3000,
+      });
+    }, 1500);
   };
 
   const formatTime = (date: Date) => {
@@ -84,66 +91,87 @@ const Chatbot = ({ onClose }: ChatbotProps) => {
   };
 
   return (
-    <Card>
-      <CardContent className="p-0">
-        <div className="bg-royal-blue text-white p-4 rounded-t-lg flex justify-between items-center">
-          <div>
-            <h2 className="text-lg font-medium">Assistant Concours Prep</h2>
-            <p className="text-sm opacity-80">Nous sommes là pour vous aider</p>
-          </div>
-          {onClose && (
-            <Button variant="ghost" size="icon" onClick={onClose} className="h-8 w-8 text-white hover:text-white/80 hover:bg-royal-blue/80">
-              <X className="h-5 w-5" />
-            </Button>
-          )}
-        </div>
-        
-        <div className="h-96 overflow-y-auto p-4 space-y-4 flex flex-col">
-          {messages.map((message) => (
-            <div 
-              key={message.id} 
-              className={`flex flex-col max-w-[80%] ${
-                message.sender === 'user' ? 'self-end' : 'self-start'
-              }`}
-            >
-              <div
-                className={`p-3 rounded-lg ${
-                  message.sender === 'user'
-                    ? 'bg-royal-blue text-white rounded-br-none'
-                    : 'bg-gray-200 text-gray-800 rounded-bl-none dark:bg-gray-700 dark:text-gray-200'
-                }`}
-              >
-                {message.text}
+    <div className="flex flex-col h-[500px] rounded-lg border border-border overflow-hidden">
+      <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-muted/20">
+        {messages.map((message) => (
+          <div 
+            key={message.id} 
+            className={cn(
+              "flex flex-col max-w-[80%]",
+              message.sender === 'user' ? 'self-end ml-auto' : 'self-start mr-auto'
+            )}
+          >
+            <div className={cn(
+              "flex gap-2 mb-1",
+              message.sender === 'user' ? 'justify-end' : 'justify-start'
+            )}>
+              <div className={cn(
+                "w-6 h-6 rounded-full flex items-center justify-center",
+                message.sender === 'user' 
+                  ? 'bg-primary text-primary-foreground order-2' 
+                  : 'bg-muted text-muted-foreground order-1'
+              )}>
+                {message.sender === 'user' 
+                  ? <User className="h-3.5 w-3.5" /> 
+                  : <Bot className="h-3.5 w-3.5" />}
               </div>
-              <span className={`text-xs mt-1 ${
-                message.sender === 'user' ? 'self-end' : 'self-start'
-              } text-gray-500 dark:text-gray-400`}>
+              <span className="text-xs text-muted-foreground">
                 {formatTime(message.timestamp)}
               </span>
             </div>
-          ))}
-          <div ref={messagesEndRef} />
-        </div>
+            <div
+              className={cn(
+                "p-3 rounded-lg",
+                message.sender === 'user'
+                  ? 'bg-primary text-primary-foreground rounded-tr-none ml-auto'
+                  : 'bg-muted border border-border text-foreground rounded-tl-none mr-auto'
+              )}
+            >
+              {message.text}
+            </div>
+          </div>
+        ))}
         
-        <form onSubmit={handleSendMessage} className="border-t p-4 flex gap-2 dark:border-gray-700">
-          <Textarea
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-            placeholder="Tapez votre message..."
-            className="min-h-[50px] flex-grow resize-none"
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                if (newMessage.trim()) handleSendMessage(e);
-              }
-            }}
-          />
-          <Button type="submit" className="self-end" disabled={!newMessage.trim()}>
-            Envoyer
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+        {isTyping && (
+          <div className="flex flex-col max-w-[80%] self-start mr-auto">
+            <div className="flex gap-2 mb-1">
+              <div className="w-6 h-6 rounded-full bg-muted text-muted-foreground flex items-center justify-center">
+                <Bot className="h-3.5 w-3.5" />
+              </div>
+              <span className="text-xs text-muted-foreground">En train d'écrire...</span>
+            </div>
+            <div className="p-3 rounded-lg bg-muted border border-border text-foreground rounded-tl-none mr-auto">
+              <div className="flex space-x-1">
+                <div className="w-2 h-2 rounded-full bg-primary/40 animate-pulse"></div>
+                <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse delay-75"></div>
+                <div className="w-2 h-2 rounded-full bg-primary/80 animate-pulse delay-150"></div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        <div ref={messagesEndRef} />
+      </div>
+      
+      <form onSubmit={handleSendMessage} className="border-t p-3 flex gap-2 bg-background">
+        <Textarea
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+          placeholder="Écrivez votre message..."
+          className="min-h-[50px] max-h-[120px] flex-grow resize-none form-input text-sm py-2"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              if (newMessage.trim()) handleSendMessage(e);
+            }
+          }}
+        />
+        <Button type="submit" className="self-end btn-primary h-10 px-3" disabled={!newMessage.trim() || isTyping}>
+          <Send className="h-4 w-4" />
+          <span className="sr-only">Envoyer</span>
+        </Button>
+      </form>
+    </div>
   );
 };
 
