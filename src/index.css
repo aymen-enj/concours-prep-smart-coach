@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -25,7 +25,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 261 73% 75%; /* Purple accent */
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,7 +35,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221 77% 48%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -48,41 +48,41 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%; /* Dark background */
+    --background: 240 10% 6%; /* Plus sombre pour contraste */
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%; /* Keeping cards light for contrast */
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 10% 10%; /* Carte plus sombre */
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%; /* Keeping popovers light */
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 221 77% 48%; /* Keeping primary color */
+    --primary: 221 77% 50%; /* Plus brillant en dark mode */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 220 27% 92%; /* Keeping secondary color light */
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 10% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 261 73% 65%; /* Purple accent adapté */
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
     --ring: 221 77% 48%;
 
-    --sidebar-background: 240 10% 3.9%; /* Dark sidebar */
+    --sidebar-background: 240 10% 8%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 221 77% 48%;
+    --sidebar-primary: 221 77% 50%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --sidebar-accent: 240 10% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 10% 15%;
     --sidebar-ring: 221 77% 48%;
   }
 }
@@ -93,7 +93,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans transition-colors duration-200;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -108,7 +108,7 @@
   }
 
   .card-concours {
-    @apply bg-white dark:bg-white rounded-lg shadow-md p-6 card-hover;
+    @apply bg-white dark:bg-card rounded-lg shadow-md p-6 card-hover;
   }
 
   .btn-primary {
@@ -116,18 +116,63 @@
   }
 
   .section-title {
-    @apply text-3xl font-poppins font-bold text-dark-gray dark:text-dark-gray mb-6;
+    @apply text-3xl font-poppins font-bold text-dark-gray dark:text-white mb-6;
   }
 
   .section-description {
-    @apply text-gray-600 dark:text-gray-600 mb-8 max-w-2xl;
+    @apply text-gray-600 dark:text-gray-300 mb-8 max-w-2xl;
   }
 
   .badge-paid {
-    @apply bg-green-100 text-green-800 dark:bg-green-100 dark:text-green-800 text-xs px-2.5 py-0.5 rounded-full font-medium;
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs px-2.5 py-0.5 rounded-full font-medium;
   }
 
   .badge-free {
-    @apply bg-blue-100 text-blue-800 dark:bg-blue-100 dark:text-blue-800 text-xs px-2.5 py-0.5 rounded-full font-medium;
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs px-2.5 py-0.5 rounded-full font-medium;
   }
+  
+  /* Nouvelles classes d'animation et d'interaction */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+  }
+  
+  .pulsate {
+    @apply animate-[pulse_3s_ease-in-out_infinite];
+  }
+  
+  .fade-in {
+    @apply animate-[fadeIn_0.5s_ease-out_forwards];
+  }
+  
+  .zoom-on-hover {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm;
+  }
+  
+  .fancy-border {
+    @apply border border-purple/20 dark:border-purple/30 rounded-xl shadow-sm;
+  }
+  
+  .tab-effect {
+    @apply transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 px-4 py-2 rounded-md;
+  }
+}
+
+/* Animations personnalisées */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-20px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }

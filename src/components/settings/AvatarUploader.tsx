@@ -1,12 +1,13 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "@/components/ui/sonner";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Loader2, Image as ImageIcon, Upload, Camera } from "lucide-react";
+import { Loader2, Upload, Camera } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface AvatarUploaderProps {
   userId: string;
@@ -19,13 +20,15 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
   const [isLoading, setIsLoading] = useState(false);
   const [imgKey, setImgKey] = useState(Date.now()); // Key to force re-render of image
   const [isDragOver, setIsDragOver] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Effect to force re-render of image when avatarUrl changes
   useEffect(() => {
     if (avatarUrl) {
       setImgKey(Date.now());
       // Pre-fetch the image
-      const img = new Image();
+      const img = document.createElement('img');
       img.src = avatarUrl;
     }
   }, [avatarUrl]);
@@ -44,12 +47,23 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
 
   async function uploadAvatar(file: File) {
     setIsLoading(true);
-    toast.loading("Téléchargement en cours...", { 
-      id: "avatar-upload",
-      duration: 5000 
-    });
+    setUploadProgress(0);
+    
+    const toastId = "avatar-upload";
+    toast.loading("Préparation de l'image...", { id: toastId, duration: 5000 });
     
     try {
+      // Simulate progress for better UX
+      const interval = setInterval(() => {
+        setUploadProgress(prev => {
+          if (prev >= 90) {
+            clearInterval(interval);
+            return 90;
+          }
+          return prev + 10;
+        });
+      }, 300);
+      
       const fileExt = file.name.split('.').pop();
       
       // Include user ID in the file path for RLS policy compliance
@@ -62,6 +76,10 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
         .upload(filePath, file, { upsert: true });
 
       if (uploadError) throw uploadError;
+      
+      clearInterval(interval);
+      setUploadProgress(95);
+      toast.loading("Finalisation...", { id: toastId });
 
       // Get public URL
       const { data } = supabase.storage
@@ -93,19 +111,22 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
       // Force refresh of the auth object to get updated metadata
       await supabase.auth.refreshSession();
       
+      setUploadProgress(100);
+      
       // Add a slight delay before updating the UI
       setTimeout(() => {
         // Update local state with cache busting
         onAvatarChange(cacheBustedUrl);
         setImgKey(timestamp); // Force re-render
-        toast.success("Avatar mis à jour avec succès", { id: "avatar-upload" });
+        toast.success("Avatar mis à jour avec succès", { id: toastId });
         console.log("Avatar updated successfully");
       }, 500);
     } catch (error: any) {
-      toast.error(`Erreur lors de la mise à jour de l'avatar: ${error.message}`, { id: "avatar-upload" });
+      toast.error(`Erreur lors de la mise à jour de l'avatar: ${error.message}`, { id: toastId });
       console.error("Avatar update error:", error);
     } finally {
       setIsLoading(false);
+      setUploadProgress(0);
     }
   }
 
@@ -124,10 +145,20 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
     }
   };
 
+  const handleOpenFileDialog = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div 
-        className={`flex flex-col items-center ${isDragOver ? 'scale-105' : ''} transition-transform duration-200`}
+        className={cn(
+          "flex flex-col items-center",
+          isDragOver ? 'scale-105' : '',
+          "transition-transform duration-200"
+        )}
         onDragOver={(e) => {
           e.preventDefault();
           setIsDragOver(true);
@@ -135,8 +166,15 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
         onDragLeave={() => setIsDragOver(false)}
         onDrop={handleDrop}
       >
-        <div className={`relative group cursor-pointer mb-3 ${isDragOver ? 'ring-4 ring-primary ring-opacity-60' : ''} transition-all duration-200`}>
-          <Avatar className="h-32 w-32 border-4 border-background shadow-lg">
+        <div 
+          className={cn(
+            "relative group cursor-pointer mb-3",
+            isDragOver ? 'ring-4 ring-primary ring-opacity-60' : '',
+            "transition-all duration-200"
+          )}
+          onClick={handleOpenFileDialog}
+        >
+          <Avatar className="h-32 w-32 border-4 border-white dark:border-gray-900 shadow-xl">
             {avatarUrl && (
               <AvatarImage 
                 key={imgKey}
@@ -147,8 +185,46 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
                 }}
               />
             )}
-            <AvatarFallback className="text-3xl bg-gradient-to-br from-primary to-purple">{getInitials()}</AvatarFallback>
+            <AvatarFallback className="text-3xl bg-gradient-to-br from-primary to-accent text-white">
+              {getInitials()}
+            </AvatarFallback>
           </Avatar>
+          
+          {/* Upload progress indicator */}
+          {isLoading && uploadProgress > 0 && (
+            <div className="absolute inset-0 flex items-center justify-center rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                <div className="w-16 h-16">
+                  <svg className="w-full h-full" viewBox="0 0 100 100">
+                    <circle 
+                      className="text-gray-300 dark:text-gray-700" 
+                      strokeWidth="8" 
+                      stroke="currentColor" 
+                      fill="transparent" 
+                      r="45" 
+                      cx="50" 
+                      cy="50" 
+                    />
+                    <circle 
+                      className="text-primary" 
+                      strokeWidth="8" 
+                      strokeDasharray={2 * Math.PI * 45}
+                      strokeDashoffset={2 * Math.PI * 45 * ((100 - uploadProgress) / 100)}
+                      strokeLinecap="round" 
+                      stroke="currentColor" 
+                      fill="transparent" 
+                      r="45" 
+                      cx="50" 
+                      cy="50" 
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-white text-sm font-medium">{uploadProgress}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
           
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 flex items-center justify-center rounded-full transition-all duration-300">
             <Camera className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -161,9 +237,10 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
         >
           <Button 
             variant="outline" 
-            className="bg-white hover:bg-gray-50 flex items-center gap-2 shadow-sm"
+            className="bg-white hover:bg-gray-50 flex items-center gap-2 shadow-sm dark:bg-gray-800 dark:hover:bg-gray-700"
             disabled={isLoading}
             size="sm"
+            onClick={handleOpenFileDialog}
           >
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -174,6 +251,7 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
           </Button>
           <Input
             id="avatar"
+            ref={fileInputRef}
             type="file"
             accept="image/*"
             className="hidden"
