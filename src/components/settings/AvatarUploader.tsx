@@ -1,10 +1,10 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "@/components/ui/sonner";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Loader2 } from "lucide-react";
+import { Loader2, Image } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 interface AvatarUploaderProps {
@@ -16,6 +16,14 @@ interface AvatarUploaderProps {
 
 const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: AvatarUploaderProps) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [imgKey, setImgKey] = useState(Date.now()); // Key to force re-render of image
+
+  // Effect to force re-render of image when avatarUrl changes
+  useEffect(() => {
+    if (avatarUrl) {
+      setImgKey(Date.now());
+    }
+  }, [avatarUrl]);
 
   async function handleAvatarChange(event: React.ChangeEvent<HTMLInputElement>) {
     if (!event.target.files || event.target.files.length === 0) {
@@ -56,9 +64,10 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
 
       if (updateError) throw updateError;
 
-      // Update auth metadata
+      // Update auth metadata with new cache-busting parameter
+      const cacheBustedUrl = `${publicUrl}?t=${Date.now()}`;
       const { error: authUpdateError } = await supabase.auth.updateUser({
-        data: { avatar_url: publicUrl }
+        data: { avatar_url: cacheBustedUrl }
       });
 
       if (authUpdateError) throw authUpdateError;
@@ -66,13 +75,20 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
       // Force refresh of the auth object to get updated metadata
       await supabase.auth.refreshSession();
       
-      // Update local state with cache busting
-      const url = new URL(publicUrl);
-      url.searchParams.set('t', Date.now().toString());
-      onAvatarChange(url.toString());
-
-      toast.success("Avatar mis à jour avec succès");
-      console.log("Avatar updated successfully");
+      // Pre-load the image to ensure it's cached
+      const img = new Image();
+      img.src = cacheBustedUrl;
+      img.onload = () => {
+        // Update local state with cache busting
+        onAvatarChange(cacheBustedUrl);
+        toast.success("Avatar mis à jour avec succès");
+        console.log("Avatar updated successfully");
+      };
+      
+      img.onerror = (e) => {
+        console.error("Failed to preload avatar image:", e);
+        toast.error("L'image a été téléchargée mais ne peut pas être affichée. Veuillez réessayer.");
+      };
 
       // Reset file input to allow selecting the same file again if needed
       event.target.value = '';
@@ -89,6 +105,7 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
       <Avatar className="h-32 w-32">
         {avatarUrl && (
           <AvatarImage 
+            key={imgKey}
             src={avatarUrl} 
             alt="Profile"
           />
@@ -100,7 +117,9 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
           <div className="flex items-center gap-2 h-10 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90">
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
-            ) : null}
+            ) : (
+              <Image className="h-4 w-4" />
+            )}
             <span>Changer l'avatar</span>
           </div>
           <Input

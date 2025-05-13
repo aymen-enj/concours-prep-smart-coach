@@ -19,6 +19,7 @@ const ProfileMenu = () => {
   const { user, signOut } = useAuth();
   const [open, setOpen] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+  const [imgKey, setImgKey] = useState(Date.now()); // Key to force re-render of image
   
   // Update avatar URL when user changes
   useEffect(() => {
@@ -28,12 +29,14 @@ const ProfileMenu = () => {
         const url = new URL(user.user_metadata.avatar_url);
         url.searchParams.set('t', Date.now().toString());
         setAvatarUrl(url.toString());
+        setImgKey(Date.now()); // Force re-render
         console.log("Menu Avatar URL updated:", url.toString());
       } catch (error) {
         console.error("Error parsing avatar URL:", user.user_metadata.avatar_url, error);
         // Use the URL directly if it can't be parsed
         const cacheBustedUrl = `${user.user_metadata.avatar_url}?t=${Date.now()}`;
         setAvatarUrl(cacheBustedUrl);
+        setImgKey(Date.now()); // Force re-render
       }
     } else {
       setAvatarUrl(null);
@@ -88,8 +91,10 @@ const ProfileMenu = () => {
           <Avatar className="h-8 w-8">
             {avatarUrl && (
               <AvatarImage 
+                key={imgKey}
                 src={avatarUrl} 
-                alt="Profile" 
+                alt="Profile"
+                onError={() => console.error("Profile menu avatar failed to load:", avatarUrl)}
               />
             )}
             <AvatarFallback>{getInitials()}</AvatarFallback>
