@@ -4,8 +4,9 @@ import { toast } from "@/components/ui/sonner";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Loader2, Image as ImageIcon } from "lucide-react";
+import { Loader2, Image as ImageIcon, Upload, Camera } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
 
 interface AvatarUploaderProps {
   userId: string;
@@ -17,11 +18,15 @@ interface AvatarUploaderProps {
 const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: AvatarUploaderProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [imgKey, setImgKey] = useState(Date.now()); // Key to force re-render of image
+  const [isDragOver, setIsDragOver] = useState(false);
 
   // Effect to force re-render of image when avatarUrl changes
   useEffect(() => {
     if (avatarUrl) {
       setImgKey(Date.now());
+      // Pre-fetch the image
+      const img = new Image();
+      img.src = avatarUrl;
     }
   }, [avatarUrl]);
 
@@ -30,15 +35,25 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
       return;
     }
     
+    const file = event.target.files[0];
+    await uploadAvatar(file);
+    
+    // Reset file input to allow selecting the same file again if needed
+    event.target.value = '';
+  }
+
+  async function uploadAvatar(file: File) {
     setIsLoading(true);
+    toast.loading("Téléchargement en cours...", { 
+      id: "avatar-upload",
+      duration: 5000 
+    });
     
     try {
-      const file = event.target.files[0];
       const fileExt = file.name.split('.').pop();
       
       // Include user ID in the file path for RLS policy compliance
       const filePath = `${userId}/${Date.now()}.${fileExt}`;
-
       console.log("Uploading file to path:", filePath);
       
       // Upload the file to storage
@@ -64,8 +79,11 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
 
       if (updateError) throw updateError;
 
+      // Add cache-busting parameter to force refresh
+      const timestamp = Date.now();
+      const cacheBustedUrl = `${publicUrl}?t=${timestamp}`;
+      
       // Update auth metadata with new cache-busting parameter
-      const cacheBustedUrl = `${publicUrl}?t=${Date.now()}`;
       const { error: authUpdateError } = await supabase.auth.updateUser({
         data: { avatar_url: cacheBustedUrl }
       });
@@ -75,53 +93,85 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
       // Force refresh of the auth object to get updated metadata
       await supabase.auth.refreshSession();
       
-      // Pre-load the image to ensure it's cached
-      const imgElement = document.createElement('img');
-      imgElement.src = cacheBustedUrl;
-      imgElement.onload = () => {
+      // Add a slight delay before updating the UI
+      setTimeout(() => {
         // Update local state with cache busting
         onAvatarChange(cacheBustedUrl);
-        toast.success("Avatar mis à jour avec succès");
+        setImgKey(timestamp); // Force re-render
+        toast.success("Avatar mis à jour avec succès", { id: "avatar-upload" });
         console.log("Avatar updated successfully");
-      };
-      
-      imgElement.onerror = (e) => {
-        console.error("Failed to preload avatar image:", e);
-        toast.error("L'image a été téléchargée mais ne peut pas être affichée. Veuillez réessayer.");
-      };
-
-      // Reset file input to allow selecting the same file again if needed
-      event.target.value = '';
+      }, 500);
     } catch (error: any) {
-      toast.error(`Erreur lors de la mise à jour de l'avatar: ${error.message}`);
+      toast.error(`Erreur lors de la mise à jour de l'avatar: ${error.message}`, { id: "avatar-upload" });
       console.error("Avatar update error:", error);
     } finally {
       setIsLoading(false);
     }
   }
 
+  // Handle drag and drop functionality
+  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const file = e.dataTransfer.files[0];
+      if (file.type.startsWith('image/')) {
+        await uploadAvatar(file);
+      } else {
+        toast.error("Seules les images sont acceptées");
+      }
+    }
+  };
+
   return (
-    <div className="flex flex-col items-center sm:flex-row sm:items-start gap-6">
-      <Avatar className="h-32 w-32">
-        {avatarUrl && (
-          <AvatarImage 
-            key={imgKey}
-            src={avatarUrl} 
-            alt="Profile"
-          />
-        )}
-        <AvatarFallback className="text-3xl">{getInitials()}</AvatarFallback>
-      </Avatar>
-      <div className="flex flex-col gap-4">
-        <Label htmlFor="avatar" className="cursor-pointer">
-          <div className="flex items-center gap-2 h-10 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90">
+    <div className="space-y-6">
+      <div 
+        className={`flex flex-col items-center ${isDragOver ? 'scale-105' : ''} transition-transform duration-200`}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setIsDragOver(true);
+        }}
+        onDragLeave={() => setIsDragOver(false)}
+        onDrop={handleDrop}
+      >
+        <div className={`relative group cursor-pointer mb-3 ${isDragOver ? 'ring-4 ring-primary ring-opacity-60' : ''} transition-all duration-200`}>
+          <Avatar className="h-32 w-32 border-4 border-background shadow-lg">
+            {avatarUrl && (
+              <AvatarImage 
+                key={imgKey}
+                src={avatarUrl} 
+                alt="Profile"
+                onError={() => {
+                  console.error("Failed to load avatar image:", avatarUrl);
+                }}
+              />
+            )}
+            <AvatarFallback className="text-3xl bg-gradient-to-br from-primary to-purple">{getInitials()}</AvatarFallback>
+          </Avatar>
+          
+          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 flex items-center justify-center rounded-full transition-all duration-300">
+            <Camera className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </div>
+        </div>
+        
+        <Label 
+          htmlFor="avatar" 
+          className="cursor-pointer"
+        >
+          <Button 
+            variant="outline" 
+            className="bg-white hover:bg-gray-50 flex items-center gap-2 shadow-sm"
+            disabled={isLoading}
+            size="sm"
+          >
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              <ImageIcon className="h-4 w-4" />
+              <Upload className="h-4 w-4" />
             )}
-            <span>Changer l'avatar</span>
-          </div>
+            <span>{isLoading ? "Téléchargement..." : "Changer l'avatar"}</span>
+          </Button>
           <Input
             id="avatar"
             type="file"
@@ -131,8 +181,11 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
             disabled={isLoading}
           />
         </Label>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground mt-2 text-center">
           JPG, PNG ou GIF. Taille maximale 2Mo.
+        </p>
+        <p className="text-xs text-muted-foreground mt-1 text-center opacity-75">
+          Glissez et déposez une image ici ou cliquez pour choisir un fichier
         </p>
       </div>
     </div>
