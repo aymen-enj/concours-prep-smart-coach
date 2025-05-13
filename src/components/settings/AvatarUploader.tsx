@@ -4,7 +4,7 @@ import { toast } from "@/components/ui/sonner";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Loader2, Image } from "lucide-react";
+import { Loader2, Image as ImageIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 interface AvatarUploaderProps {
@@ -76,16 +76,16 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
       await supabase.auth.refreshSession();
       
       // Pre-load the image to ensure it's cached
-      const img = new Image();
-      img.src = cacheBustedUrl;
-      img.onload = () => {
+      const imgElement = document.createElement('img');
+      imgElement.src = cacheBustedUrl;
+      imgElement.onload = () => {
         // Update local state with cache busting
         onAvatarChange(cacheBustedUrl);
         toast.success("Avatar mis à jour avec succès");
         console.log("Avatar updated successfully");
       };
       
-      img.onerror = (e) => {
+      imgElement.onerror = (e) => {
         console.error("Failed to preload avatar image:", e);
         toast.error("L'image a été téléchargée mais ne peut pas être affichée. Veuillez réessayer.");
       };
@@ -118,7 +118,7 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              <Image className="h-4 w-4" />
+              <ImageIcon className="h-4 w-4" />
             )}
             <span>Changer l'avatar</span>
           </div>
