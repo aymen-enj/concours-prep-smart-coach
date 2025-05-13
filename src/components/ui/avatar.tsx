@@ -30,6 +30,7 @@ const AvatarImage = React.forwardRef<
     onError={(e) => {
       // Hide the image element when it fails to load
       (e.target as HTMLImageElement).style.visibility = 'hidden';
+      console.log("Avatar image failed to load:", props.src);
     }}
   />
 ))

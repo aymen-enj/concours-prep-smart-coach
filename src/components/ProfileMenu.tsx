@@ -23,11 +23,18 @@ const ProfileMenu = () => {
   // Update avatar URL when user changes
   useEffect(() => {
     if (user?.user_metadata?.avatar_url) {
-      // Add cache-busting parameter to force refresh
-      const url = new URL(user.user_metadata.avatar_url);
-      url.searchParams.set('t', Date.now().toString());
-      setAvatarUrl(url.toString());
-      console.log("Menu Avatar URL updated:", url.toString());
+      try {
+        // Add cache-busting parameter to force refresh
+        const url = new URL(user.user_metadata.avatar_url);
+        url.searchParams.set('t', Date.now().toString());
+        setAvatarUrl(url.toString());
+        console.log("Menu Avatar URL updated:", url.toString());
+      } catch (error) {
+        console.error("Error parsing avatar URL:", user.user_metadata.avatar_url, error);
+        // Use the URL directly if it can't be parsed
+        const cacheBustedUrl = `${user.user_metadata.avatar_url}?t=${Date.now()}`;
+        setAvatarUrl(cacheBustedUrl);
+      }
     } else {
       setAvatarUrl(null);
     }
@@ -79,7 +86,12 @@ const ProfileMenu = () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="flex items-center gap-2 p-1 pr-2">
           <Avatar className="h-8 w-8">
-            <AvatarImage src={avatarUrl} alt="Profile" />
+            {avatarUrl && (
+              <AvatarImage 
+                src={avatarUrl} 
+                alt="Profile" 
+              />
+            )}
             <AvatarFallback>{getInitials()}</AvatarFallback>
           </Avatar>
           <span className="hidden md:inline-block text-sm font-medium">
