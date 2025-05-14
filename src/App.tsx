@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,6 +19,7 @@ import FloatingChatButton from "./components/FloatingChatButton";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import AuthProvider from "./providers/AuthProvider";
 import RequireAuth from "./components/RequireAuth";
+import AuthCallback from "./pages/user/AuthCallback";
 
 // Import global styles
 import "@/styles/landing-transitions.css";
@@ -38,6 +40,7 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/support" element={<Support />} />
               <Route path="/payment" element={<Payment />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
 
               {/* Protected routes */}
               <Route element={<RequireAuth />}>

@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+
+import { useState, useEffect } from "react";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,19 +10,21 @@ import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/providers/AuthProvider";
 import { toast } from "@/components/ui/sonner";
 import { Loader2, LogIn, UserPlus, LockKeyhole, Mail, User, ArrowRight, CheckCircle, Lock, Eye, EyeOff } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
 const Login = () => {
+  const [searchParams] = useSearchParams();
+  const initialTab = searchParams.get("tab") === "register" ? "register" : "login";
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [animateContent, setAnimateContent] = useState(false);
-  const [activeTab, setActiveTab] = useState("login");
+  const [activeTab, setActiveTab] = useState(initialTab);
   
-  const { user, signUp, signIn } = useAuth();
+  const { user, signUp, signIn, signInWithGoogle } = useAuth();
 
   // Animation effect when switching tabs
   const handleTabChange = (value: string) => {
@@ -31,9 +34,9 @@ const Login = () => {
   };
 
   // Initialize animation
-  useState(() => {
+  useEffect(() => {
     setTimeout(() => setAnimateContent(true), 50);
-  });
+  }, []);
 
   // Redirect if already logged in
   if (user) {
@@ -75,17 +78,13 @@ const Login = () => {
   };
 
   const handleGoogleAuth = async () => {
+    setIsSubmitting(true);
     try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: `${window.location.origin}/auth/callback`,
-        },
-      });
-      
-      if (error) throw error;
-    } catch (error: any) {
-      toast.error(error.message || "Erreur lors de la connexion avec Google");
+      await signInWithGoogle();
+    } catch (error) {
+      console.error("Google auth error:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
