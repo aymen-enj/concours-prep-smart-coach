@@ -1,71 +1,39 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ConcoursCard from "@/components/ConcoursCard";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Search, Book, Calendar, GraduationCap, BookmarkPlus, Filter, CheckCircle, BarChart, TrendingUp, TrendingDown, Award, Clock, Bookmark, BookOpen, Trophy, Bell, Flame, ChevronRight, Sparkles, Brain, Zap, LineChart } from "lucide-react";
+import { CheckCircle, BarChart, TrendingUp, TrendingDown, Clock, BookOpen, Trophy, Bell, Flame, ChevronRight, Sparkles, Brain, Zap, LineChart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-// Sample data for concours
-const mockConcours = [
-  {
-    id: "1",
-    title: "Concours CNC",
-    subject: "Mathématiques",
-    year: 2023,
-    level: "Préparatoire",
-    isPaid: false,
-    hasAccess: true,
+// Performance stats
+const performanceStats = [
+  { 
+    label: "Mathématiques", 
+    value: 85, 
+    change: 5,
+    color: "bg-primary" 
   },
-  {
-    id: "2",
-    title: "Concours Médecine",
-    subject: "Biologie",
-    year: 2023,
-    level: "Terminale",
-    isPaid: true,
-    hasAccess: true,
+  { 
+    label: "Physique", 
+    value: 72, 
+    change: -2,
+    color: "bg-purple-500" 
   },
-  {
-    id: "3",
-    title: "Concours ENCG",
-    subject: "Économie",
-    year: 2022,
-    level: "Bac+2",
-    isPaid: true,
-    hasAccess: false,
+  { 
+    label: "Chimie", 
+    value: 68, 
+    change: 8, 
+    color: "bg-green-500" 
   },
-  {
-    id: "4",
-    title: "Concours ENA",
-    subject: "Droit Administratif",
-    year: 2023,
-    level: "Bac+3",
-    isPaid: true,
-    hasAccess: false,
-  },
-  {
-    id: "5",
-    title: "Concours ENSAM",
-    subject: "Physique",
-    year: 2022,
-    level: "Préparatoire",
-    isPaid: false,
-    hasAccess: true,
-  },
-  {
-    id: "6",
-    title: "Concours ISCAE",
-    subject: "Mathématiques",
-    year: 2021,
-    level: "Bac+2",
-    isPaid: true,
-    hasAccess: true,
-  },
+  { 
+    label: "Français", 
+    value: 75, 
+    change: 0,
+    color: "bg-amber-500" 
+  }
 ];
 
 // Recent activity data
@@ -101,58 +69,7 @@ const recentActivity = [
   }
 ];
 
-// Performance stats
-const performanceStats = [
-  { 
-    label: "Mathématiques", 
-    value: 85, 
-    change: 5,
-    color: "bg-primary" 
-  },
-  { 
-    label: "Physique", 
-    value: 72, 
-    change: -2,
-    color: "bg-purple-500" 
-  },
-  { 
-    label: "Chimie", 
-    value: 68, 
-    change: 8, 
-    color: "bg-green-500" 
-  },
-  { 
-    label: "Français", 
-    value: 75, 
-    change: 0,
-    color: "bg-amber-500" 
-  }
-];
-
 const Dashboard = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [subjectFilter, setSubjectFilter] = useState("all");
-  const [yearFilter, setYearFilter] = useState("all");
-  const [levelFilter, setLevelFilter] = useState("all");
-
-  // Get unique values for filters
-  const subjects = [...new Set(mockConcours.map((c) => c.subject))];
-  const years = [...new Set(mockConcours.map((c) => c.year))];
-  const levels = [...new Set(mockConcours.map((c) => c.level))];
-
-  // Filter concours based on search term and filters
-  const filteredConcours = mockConcours.filter((concours) => {
-    const matchesSearch =
-      concours.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      concours.subject.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesSubject = subjectFilter === "all" ? true : concours.subject === subjectFilter;
-    const matchesYear = yearFilter === "all" ? true : concours.year.toString() === yearFilter;
-    const matchesLevel = levelFilter === "all" ? true : concours.level === levelFilter;
-
-    return matchesSearch && matchesSubject && matchesYear && matchesLevel;
-  });
-
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
@@ -168,14 +85,14 @@ const Dashboard = () => {
             <div>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <BookOpen className="h-5 w-5 text-primary" />
+                    <BarChart className="h-5 w-5 text-primary" />
                   </div>
                   <h1 className="text-3xl font-poppins font-bold text-foreground">
-                    Services
-              </h1>
+                    Statistiques
+                  </h1>
                 </div>
                 <p className="text-muted-foreground">
-                  Bienvenue ! Suivez votre progression et explorez nos concours
+                  Suivez votre progression et visualisez vos performances
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -183,9 +100,11 @@ const Dashboard = () => {
                   <Bell className="h-4 w-4 text-primary" />
                   <span className="hidden sm:inline">Notifications</span>
                 </Button>
-                <Button className="gap-2 rounded-full">
-                  <BookmarkPlus className="h-4 w-4" />
-                  <span className="hidden sm:inline">Mes concours</span>
+                <Button className="gap-2 rounded-full" asChild>
+                  <Link to="/concours">
+                    <BookOpen className="h-4 w-4" />
+                    <span className="hidden sm:inline">Explorer les concours</span>
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -209,6 +128,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* Stats and Activity section */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             {/* Stats cards */}
             <div className="lg:col-span-2">
@@ -365,208 +285,112 @@ const Dashboard = () => {
                   
                   <Button variant="outline" className="w-full mt-4 text-sm rounded-lg">
                     Charger plus
-              </Button>
+                  </Button>
                 </CardContent>
               </Card>
             </div>
           </div>
 
-          {/* Concours catalog section */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Book className="h-5 w-5 text-primary" />
-              </div>
-              <h2 className="text-2xl font-poppins font-bold text-foreground">
-                Catalogue des concours
-              </h2>
-          </div>
-
-          {/* Search and filters */}
-            <Card className="border border-border/40 shadow-sm mb-8 bg-background/70 backdrop-blur-sm">
-              <CardContent className="p-5">
-                <div className="flex items-center gap-2 mb-4">
-                  <Filter className="h-5 w-5 text-primary" />
-                  <h3 className="text-lg font-medium">Filtres</h3>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              <div className="lg:col-span-2">
-                <div className="relative">
-                      <Search className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
-                  <Input
-                    placeholder="Rechercher un concours..."
-                        className="pl-10 border border-input bg-background hover:bg-accent/10 focus-visible:ring-1"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <Book className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">Matière</span>
-                    </div>
-                <Select value={subjectFilter} onValueChange={setSubjectFilter}>
-                      <SelectTrigger className="bg-background border border-input hover:bg-accent/10">
-                        <SelectValue placeholder="Toutes les matières" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">Toutes les matières</SelectItem>
-                    {subjects.map((subject) => (
-                      <SelectItem key={subject} value={subject}>
-                        {subject}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <Calendar className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">Année</span>
-                    </div>
-                <Select value={yearFilter} onValueChange={setYearFilter}>
-                      <SelectTrigger className="bg-background border border-input hover:bg-accent/10">
-                        <SelectValue placeholder="Toutes les années" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">Toutes les années</SelectItem>
-                    {years.map((year) => (
-                      <SelectItem key={year} value={year.toString()}>
-                        {year}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <GraduationCap className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">Niveau</span>
-                    </div>
-                <Select value={levelFilter} onValueChange={setLevelFilter}>
-                      <SelectTrigger className="bg-background border border-input hover:bg-accent/10">
-                        <SelectValue placeholder="Tous les niveaux" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">Tous les niveaux</SelectItem>
-                    {levels.map((level) => (
-                      <SelectItem key={level} value={level}>
-                        {level}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-              </CardContent>
-            </Card>
-
-            {/* Concours tabs */}
-            <Tabs defaultValue="all" className="mb-6">
-              <TabsList className="bg-muted/50 p-1 rounded-lg mb-6">
-                <TabsTrigger value="all" className="rounded-md data-[state=active]:bg-background">
-                  Tous
-                </TabsTrigger>
-                <TabsTrigger value="popular" className="rounded-md data-[state=active]:bg-background">
-                  Populaires
-                </TabsTrigger>
-                <TabsTrigger value="recent" className="rounded-md data-[state=active]:bg-background">
-                  Récents
-                </TabsTrigger>
-                <TabsTrigger value="saved" className="rounded-md data-[state=active]:bg-background">
-                  Sauvegardés
-                </TabsTrigger>
-            </TabsList>
-
-              <TabsContent value="all" className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {filteredConcours.map((concours) => (
-                    <ConcoursCard key={concours.id} {...concours} />
-                  ))}
-                </div>
-            </TabsContent>
-              
-              <TabsContent value="popular" className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {filteredConcours.slice(0, 3).map((concours) => (
-                    <ConcoursCard key={concours.id} {...concours} />
-                  ))}
-              </div>
-            </TabsContent>
-              
-              <TabsContent value="recent" className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {filteredConcours.slice(2, 5).map((concours) => (
-                    <ConcoursCard key={concours.id} {...concours} />
-                  ))}
-              </div>
-            </TabsContent>
-              
-              <TabsContent value="saved" className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {filteredConcours.filter(c => c.hasAccess).slice(0, 3).map((concours) => (
-                    <ConcoursCard key={concours.id} {...concours} />
-                  ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-
-            {/* Show more button */}
-            <div className="text-center">
-              <Button variant="outline" className="gap-1 rounded-full border-primary/20 hover:bg-primary/5 hover:border-primary/30">
-                Voir plus de concours
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Suggested concours */}
+          {/* Recommended concours */}
           <div className="bg-gradient-to-br from-primary/5 via-transparent to-primary/5 rounded-2xl p-6 mb-8 relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center backdrop-blur-sm">
-                <Sparkles className="h-5 w-5 text-primary" />
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center backdrop-blur-sm">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                </div>
+                <h2 className="text-xl font-poppins font-bold text-foreground">
+                  Concours récemment consultés
+                </h2>
               </div>
-              <h2 className="text-xl font-poppins font-bold text-foreground">
-                Recommandé pour vous
-              </h2>
+              <Button variant="outline" className="gap-1" asChild>
+                <Link to="/concours">
+                  Voir tous les concours
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {filteredConcours.slice(0, 3).map((concours) => (
-                <Card key={concours.id} className="bg-background/80 backdrop-blur-sm border-white/10 hover:shadow-md transition-all overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="h-3 bg-gradient-to-r from-primary to-blue-600"></div>
-                    <div className="p-5">
-                      <div className="flex justify-between items-start mb-3">
-                        <div>
-                          <h3 className="font-medium">{concours.title}</h3>
-                          <p className="text-sm text-muted-foreground">{concours.subject}</p>
-                        </div>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <Bookmark className="h-4 w-4" />
-                        </Button>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
-                            {concours.year}
-                          </Badge>
-                          <Badge variant="outline" className="bg-background/50 border-border/50">
-                            {concours.level}
-                          </Badge>
-                        </div>
-                        <Button size="sm" className="h-8 text-xs">
-                          Commencer
-                        </Button>
+              <Card className="bg-background/80 backdrop-blur-sm border-white/10 hover:shadow-md transition-all overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="h-3 bg-gradient-to-r from-primary to-blue-600"></div>
+                  <div className="p-5">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h3 className="font-medium">Concours CNC</h3>
+                        <p className="text-sm text-muted-foreground">Mathématiques</p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
+                          2023
+                        </Badge>
+                        <Badge variant="outline" className="bg-background/50 border-border/50">
+                          Classes préparatoires
+                        </Badge>
+                      </div>
+                      <Button size="sm" className="h-8 text-xs">
+                        Reprendre
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-background/80 backdrop-blur-sm border-white/10 hover:shadow-md transition-all overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="h-3 bg-gradient-to-r from-primary to-blue-600"></div>
+                  <div className="p-5">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h3 className="font-medium">Concours ENSAM</h3>
+                        <p className="text-sm text-muted-foreground">Physique</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
+                          2022
+                        </Badge>
+                        <Badge variant="outline" className="bg-background/50 border-border/50">
+                          Classes préparatoires
+                        </Badge>
+                      </div>
+                      <Button size="sm" className="h-8 text-xs">
+                        Reprendre
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-background/80 backdrop-blur-sm border-white/10 hover:shadow-md transition-all overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="h-3 bg-gradient-to-r from-primary to-blue-600"></div>
+                  <div className="p-5">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h3 className="font-medium">Concours Médecine</h3>
+                        <p className="text-sm text-muted-foreground">Biologie</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
+                          2023
+                        </Badge>
+                        <Badge variant="outline" className="bg-background/50 border-border/50">
+                          Bac
+                        </Badge>
+                      </div>
+                      <Button size="sm" className="h-8 text-xs">
+                        Reprendre
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

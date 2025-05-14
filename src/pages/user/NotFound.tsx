@@ -1,4 +1,3 @@
-
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -43,7 +42,7 @@ const NotFound = () => {
           
           <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              Vous semblez perdu ? <Link to="/dashboard" className="text-primary hover:underline">Découvrez nos concours</Link>
+              Vous semblez perdu ? <Link to="/concours" className="text-primary hover:underline">Découvrez nos concours</Link>
             </p>
           </div>
         </div>

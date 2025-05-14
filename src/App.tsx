@@ -2,10 +2,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import Dashboard from "./pages/user/Dashboard";
-import Concours from "./pages/user/Concours";
+import ConcoursPage from "./pages/user/Concours";
+import ExamView from "./pages/user/ExamView";
 import Correction from "./pages/user/Correction";
 import Payment from "./pages/user/Payment";
 import Admin from "./pages/admin/Admin";
@@ -17,6 +18,9 @@ import FloatingChatButton from "./components/FloatingChatButton";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import AuthProvider from "./providers/AuthProvider";
 import RequireAuth from "./components/RequireAuth";
+
+// Import global styles
+import "@/styles/landing-transitions.css";
 
 const queryClient = new QueryClient();
 
@@ -37,11 +41,17 @@ const App = () => (
 
               {/* Protected routes */}
               <Route element={<RequireAuth />}>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/concours/:id" element={<Concours />} />
+                <Route path="/statistiques" element={<Dashboard />} />
+                <Route path="/concours" element={<ConcoursPage />} />
+                <Route path="/exam/:id" element={<ExamView />} />
+                <Route path="/exam-view/:id" element={<ExamView />} />
                 <Route path="/correction/:id" element={<Correction />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/settings" element={<Settings />} />
+                
+                {/* Legacy routes redirects */}
+                <Route path="/dashboard" element={<Navigate replace to="/statistiques" />} />
+                <Route path="/concours/:id" element={<Navigate replace to="/exam-view/:id" />} />
               </Route>
 
               {/* 404 route */}

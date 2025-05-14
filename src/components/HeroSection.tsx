@@ -36,10 +36,6 @@ const HeroSection = () => {
               Préparez vos <span className="text-primary">concours</span> avec l'intelligence artificielle
             </h1>
             
-            <p className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Une plateforme innovante qui utilise l'IA pour vous offrir des corrections personnalisées 
-              et un accompagnement sur mesure pour réussir vos examens.
-            </p>
             
             <div className="space-y-4 mb-8">
               {highlights.map((item, index) => (
