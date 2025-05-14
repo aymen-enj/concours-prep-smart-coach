@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import LandingNavbar from "@/components/LandingNavbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import FeatureSection from "@/components/FeatureSection";
@@ -44,13 +44,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Navbar />
+      <LandingNavbar />
       <main className="flex-grow">
-        <HeroSection />
-        <FeatureSection />
+        {/* Hero Section */}
+        <section id="hero">
+          <HeroSection />
+        </section>
+        
+        {/* Features Section */}
+        <section id="features">
+          <FeatureSection />
+        </section>
         
         {/* Video Showcase Section */}
-        <section className="py-24 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 relative overflow-hidden">
+        <section id="video" className="py-24 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 relative overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute -top-40 right-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
@@ -185,7 +192,7 @@ const Index = () => {
                 &times;
               </button>
               <iframe 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
+                src="" 
                 title="Présentation de la plateforme Concours Prep" 
                 className="w-full h-full"
                 frameBorder="0"
@@ -197,7 +204,7 @@ const Index = () => {
         )}
         
         {/* How it works section */}
-        <section className="py-24 bg-muted/30">
+        <section id="how-it-works" className="py-24 bg-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary mb-4 text-sm font-medium">
@@ -254,7 +261,7 @@ const Index = () => {
         </section>
         
         {/* Testimonials Section */}
-        <section className="py-24">
+        <section id="testimonials" className="py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary mb-4 text-sm font-medium">

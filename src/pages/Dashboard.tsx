@@ -171,7 +171,7 @@ const Dashboard = () => {
                     <BookOpen className="h-5 w-5 text-primary" />
                   </div>
                   <h1 className="text-3xl font-poppins font-bold text-foreground">
-                    Tableau de bord
+                    Services
               </h1>
                 </div>
                 <p className="text-muted-foreground">

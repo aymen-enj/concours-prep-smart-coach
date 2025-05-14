@@ -51,7 +51,7 @@ const Footer = () => {
             <h3 className="text-dark-gray font-poppins font-semibold mb-4 dark:text-white">Navigation</h3>
             <ul className="space-y-3">
               <li><FooterLink href="/">Accueil</FooterLink></li>
-              <li><FooterLink href="/dashboard">Tableau de bord</FooterLink></li>
+              <li><FooterLink href="/dashboard">Services</FooterLink></li>
               <li><FooterLink href="/payment">Tarifs</FooterLink></li>
               <li><FooterLink href="/support">Support</FooterLink></li>
             </ul>

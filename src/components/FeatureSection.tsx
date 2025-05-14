@@ -56,6 +56,14 @@ const benefits = [
 ];
 
 const FeatureSection = () => {
+  // Scroll to video section
+  const scrollToVideoSection = () => {
+    const videoSection = document.getElementById("video");
+    if (videoSection) {
+      videoSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,7 +84,7 @@ const FeatureSection = () => {
         {/* Features grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-20">
           {features.map((feature, index) => (
-            <div key={index} className="group relative">
+            <div key={index} className="group relative cursor-pointer" onClick={scrollToVideoSection}>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-10" style={{ backgroundImage: `linear-gradient(to right, var(--${feature.color})` }}></div>
               <div className="flex gap-6 items-start p-6 rounded-2xl border border-border hover:border-primary/20 transition-colors bg-background hover:shadow-lg hover:shadow-primary/5">
                 <div className={`w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-r shadow-lg ${feature.color} text-white`}>
@@ -92,7 +100,7 @@ const FeatureSection = () => {
         </div>
         
         {/* Key benefits section */}
-        <div className="bg-primary/5 rounded-2xl p-10 border border-primary/10">
+        <div className="bg-primary/5 rounded-2xl p-10 border border-primary/10 cursor-pointer hover:shadow-lg transition-shadow" onClick={scrollToVideoSection}>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
             <div className="lg:col-span-2">
               <h3 className="text-2xl font-poppins font-bold mb-4">
@@ -136,7 +144,7 @@ const FeatureSection = () => {
             { value: "500+", label: "Concours disponibles" },
             { value: "24/7", label: "Support en ligne" }
           ].map((stat, i) => (
-            <div key={i} className="p-8 rounded-2xl bg-muted/30 border border-border">
+            <div key={i} className="p-8 rounded-2xl bg-muted/30 border border-border hover:border-primary/30 hover:shadow-md transition-all cursor-pointer" onClick={scrollToVideoSection}>
               <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
               <div className="text-muted-foreground">{stat.label}</div>
             </div>

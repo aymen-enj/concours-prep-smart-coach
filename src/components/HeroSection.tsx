@@ -9,6 +9,14 @@ const HeroSection = () => {
     "Suivi de progression avancé"
   ];
 
+  // Scroll to features section
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById("features");
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 dark:from-gray-900 dark:to-gray-800">
       {/* Background decorative elements */}
@@ -35,7 +43,7 @@ const HeroSection = () => {
             
             <div className="space-y-4 mb-8">
               {highlights.map((item, index) => (
-                <div key={index} className="flex items-center space-x-2 text-foreground text-lg">
+                <div key={index} className="flex items-center space-x-2 text-foreground text-lg justify-center lg:justify-start">
                   <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
                   <span>{item}</span>
                 </div>
@@ -43,11 +51,12 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button asChild className="btn-primary text-base py-6 rounded-full group">
-                <Link to="/dashboard">
-                  Commencer maintenant
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+              <Button 
+                onClick={scrollToFeatures}
+                className="btn-primary text-base py-6 rounded-full group"
+              >
+                Découvrir nos fonctionnalités
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/5 text-base py-6 rounded-full">
                 <Link to="/login">Espace étudiant</Link>
@@ -95,10 +104,13 @@ const HeroSection = () => {
                 </div>
                 
                 <div className="mt-4 flex justify-end">
-                  <div className="inline-flex items-center text-primary text-sm font-medium">
+                  <button 
+                    onClick={scrollToFeatures}
+                    className="inline-flex items-center text-primary text-sm font-medium transition-all hover:underline"
+                  >
                     Voir plus d'exemples
-                    <ArrowRight className="ml-1 h-3 w-3" />
-                  </div>
+                    <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                  </button>
                 </div>
               </div>
             </div>
