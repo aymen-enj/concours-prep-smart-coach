@@ -84,25 +84,25 @@ export default function Settings() {
                 <SettingsIcon className="h-6 w-6 text-primary" />
               </div>
               <h1 className="text-3xl font-poppins font-bold text-foreground">
-                Paramètres
-              </h1>
+            Paramètres
+          </h1>
             </div>
             <p className="text-muted-foreground max-w-2xl">
-              Gérez vos informations personnelles, vos préférences et la sécurité de votre compte.
-            </p>
-          </div>
+            Gérez vos informations personnelles, vos préférences et la sécurité de votre compte.
+          </p>
+        </div>
 
           <div className="grid grid-cols-12 gap-8">
-            {/* Sidebar for larger screens */}
+          {/* Sidebar for larger screens */}
             <div className="hidden md:block md:col-span-3">
               <div className="sticky top-24 space-y-1">
-                {TABS.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={cn(
+            {TABS.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={cn(
                       "w-full text-left px-4 py-3 rounded-xl transition-all duration-200 flex items-center space-x-3",
-                      activeTab === tab.id 
+                  activeTab === tab.id 
                         ? "bg-gradient-to-r from-primary to-blue-600 text-white shadow-lg shadow-primary/20" 
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/50"
                     )}
@@ -116,21 +116,21 @@ export default function Settings() {
                       {tab.icon}
                     </span>
                     <span className="font-medium">{tab.label}</span>
-                    {activeTab === tab.id && (
-                      <div className="ml-auto w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
+                {activeTab === tab.id && (
+                  <div className="ml-auto w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
+                )}
+              </button>
+            ))}
+          </div>
+          </div>
 
-            {/* Main content area */}
-            <div className="col-span-12 md:col-span-9">
-              <Tabs 
-                value={activeTab} 
-                onValueChange={setActiveTab}
-                className="space-y-6"
-              >
+          {/* Main content area */}
+          <div className="col-span-12 md:col-span-9">
+            <Tabs 
+              value={activeTab} 
+              onValueChange={setActiveTab}
+              className="space-y-6"
+            >
                 {/* Mobile tabs */}
                 <div className="col-span-12 md:hidden mb-6">
                   <TabsList className="grid grid-cols-4 w-full bg-muted/50 p-1.5 rounded-xl">
@@ -149,104 +149,104 @@ export default function Settings() {
                   </TabsList>
                 </div>
 
-                <TabsContent 
-                  value="profile" 
-                  className={cn(
-                    "space-y-6 transition-all duration-300 transform", 
-                    animateContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  )}
-                >
+              <TabsContent 
+                value="profile" 
+                className={cn(
+                  "space-y-6 transition-all duration-300 transform", 
+                  animateContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                )}
+              >
                   <Card className="border border-border/40 bg-card/95 backdrop-blur-sm shadow-lg overflow-hidden">
                     <div className="h-1 bg-gradient-to-r from-primary to-blue-600"></div>
                     <CardHeader className="border-b border-border/40 pb-6">
-                      <div className="flex flex-col md:flex-row items-center gap-6">
-                        <AvatarUploader 
-                          userId={user.id}
-                          avatarUrl={avatarUrl}
-                          onAvatarChange={setAvatarUrl}
-                          getInitials={getInitials}
-                        />
+                    <div className="flex flex-col md:flex-row items-center gap-6">
+                      <AvatarUploader 
+                        userId={user.id}
+                        avatarUrl={avatarUrl}
+                        onAvatarChange={setAvatarUrl}
+                        getInitials={getInitials}
+                      />
                         <div className="space-y-2 text-center md:text-left">
                           <CardTitle className="flex items-center gap-2 justify-center md:justify-start">
                             <div className="p-2 rounded-full bg-primary/10 text-primary">
                               <User className="h-4 w-4" />
                             </div>
-                            Informations personnelles
-                          </CardTitle>
+                          Informations personnelles
+                        </CardTitle>
                           <CardDescription>
-                            Gérez vos informations personnelles et comment elles sont partagées sur la plateforme.
-                          </CardDescription>
-                        </div>
+                          Gérez vos informations personnelles et comment elles sont partagées sur la plateforme.
+                        </CardDescription>
                       </div>
-                    </CardHeader>
+                    </div>
+                  </CardHeader>
                     <CardContent className="p-6">
-                      <ProfileForm user={user} />
-                    </CardContent>
-                  </Card>
-                </TabsContent>
+                    <ProfileForm user={user} />
+                  </CardContent>
+                </Card>
+              </TabsContent>
 
-                <TabsContent 
-                  value="appearance" 
-                  className={cn(
-                    "space-y-6 transition-all duration-300 transform", 
-                    animateContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  )}
-                >
+              <TabsContent 
+                value="appearance" 
+                className={cn(
+                  "space-y-6 transition-all duration-300 transform", 
+                  animateContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                )}
+              >
                   <Card className="border border-border/40 bg-card/95 backdrop-blur-sm shadow-lg overflow-hidden">
                     <div className="h-1 bg-gradient-to-r from-primary to-purple-600"></div>
                     <CardHeader className="border-b border-border/40 pb-6">
-                      <CardTitle className="flex items-center gap-2">
+                    <CardTitle className="flex items-center gap-2">
                         <div className="p-2 rounded-full bg-primary/10 text-primary">
                           <Palette className="h-4 w-4" />
                         </div>
-                        Apparence et accessibilité
-                      </CardTitle>
-                      <CardDescription>
-                        Personnalisez l'apparence de l'interface selon vos préférences visuelles.
-                      </CardDescription>
-                    </CardHeader>
+                      Apparence et accessibilité
+                    </CardTitle>
+                    <CardDescription>
+                      Personnalisez l'apparence de l'interface selon vos préférences visuelles.
+                    </CardDescription>
+                  </CardHeader>
                     <CardContent className="p-6">
-                      <AppearanceForm />
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent 
-                  value="security" 
-                  className={cn(
-                    "space-y-6 transition-all duration-300 transform", 
-                    animateContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  )}
-                >
+                    <AppearanceForm />
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              
+              <TabsContent 
+                value="security" 
+                className={cn(
+                  "space-y-6 transition-all duration-300 transform", 
+                  animateContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                )}
+              >
                   <Card className="border border-border/40 bg-card/95 backdrop-blur-sm shadow-lg overflow-hidden">
                     <div className="h-1 bg-gradient-to-r from-primary to-amber-600"></div>
                     <CardHeader className="border-b border-border/40 pb-6">
-                      <CardTitle className="flex items-center gap-2">
+                    <CardTitle className="flex items-center gap-2">
                         <div className="p-2 rounded-full bg-primary/10 text-primary">
                           <Lock className="h-4 w-4" />
                         </div>
-                        Sécurité du compte
-                      </CardTitle>
-                      <CardDescription>
-                        Gérez votre mot de passe et les paramètres de sécurité de votre compte.
-                      </CardDescription>
-                    </CardHeader>
+                      Sécurité du compte
+                    </CardTitle>
+                    <CardDescription>
+                      Gérez votre mot de passe et les paramètres de sécurité de votre compte.
+                    </CardDescription>
+                  </CardHeader>
                     <CardContent className="p-6">
                       <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/30 rounded-xl p-4 mb-6">
                         <div className="flex items-start gap-3">
                           <div className="flex-shrink-0 p-2 bg-amber-100 dark:bg-amber-800/50 rounded-lg">
                             <Shield className="h-5 w-5 text-amber-600 dark:text-amber-400" />
-                          </div>
+                        </div>
                           <div>
                             <h3 className="text-sm font-medium text-amber-800 dark:text-amber-200">Recommandation de sécurité</h3>
                             <div className="mt-2 text-sm text-amber-700 dark:text-amber-300">
-                              <p>
-                                Pour une meilleure sécurité, nous vous recommandons d'activer l'authentification à deux facteurs.
-                              </p>
-                            </div>
+                            <p>
+                              Pour une meilleure sécurité, nous vous recommandons d'activer l'authentification à deux facteurs.
+                            </p>
                           </div>
                         </div>
                       </div>
+                    </div>
 
                       <div className="space-y-5">
                         <Card className="border border-border/40 shadow-sm bg-background/70 hover:shadow-md hover:border-primary/20 transition-all">
@@ -300,31 +300,31 @@ export default function Settings() {
                             </div>
                           </CardContent>
                         </Card>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
 
-                <TabsContent 
-                  value="notifications" 
-                  className={cn(
-                    "space-y-6 transition-all duration-300 transform", 
-                    animateContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  )}
-                >
+              <TabsContent 
+                value="notifications" 
+                className={cn(
+                  "space-y-6 transition-all duration-300 transform", 
+                  animateContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                )}
+              >
                   <Card className="border border-border/40 bg-card/95 backdrop-blur-sm shadow-lg overflow-hidden">
                     <div className="h-1 bg-gradient-to-r from-primary to-blue-600"></div>
                     <CardHeader className="border-b border-border/40 pb-6">
-                      <CardTitle className="flex items-center gap-2">
+                    <CardTitle className="flex items-center gap-2">
                         <div className="p-2 rounded-full bg-primary/10 text-primary">
                           <BellRing className="h-4 w-4" />
                         </div>
                         Préférences de notifications
-                      </CardTitle>
-                      <CardDescription>
+                    </CardTitle>
+                    <CardDescription>
                         Personnalisez les notifications que vous souhaitez recevoir.
-                      </CardDescription>
-                    </CardHeader>
+                    </CardDescription>
+                  </CardHeader>
                     <CardContent className="p-6">
                       <div className="space-y-5">
                         {[
@@ -383,14 +383,14 @@ export default function Settings() {
                         <p className="text-sm text-muted-foreground flex-1">
                           Vous pouvez également gérer vos préférences d'emails en cliquant sur le lien "Gérer les abonnements" dans nos emails.
                         </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              </Tabs>
-            </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
+      </div>
       </div>
       <Footer />
     </div>

@@ -5,8 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/providers/AuthProvider";
 import { toast } from "@/components/ui/sonner";
@@ -97,7 +95,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Navbar />
       <main className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Enhanced decorative background elements */}
         <div className="absolute top-0 right-0 w-1/3 h-96 bg-gradient-to-bl from-primary/10 via-transparent to-transparent rounded-bl-full -z-10"></div>
@@ -392,7 +389,6 @@ const Login = () => {
           </div>
         </div>
       </main>
-      <Footer />
 
       {/* Add CSS for animations */}
       <style>
