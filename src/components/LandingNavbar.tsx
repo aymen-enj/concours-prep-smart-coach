@@ -10,11 +10,11 @@ import { cn } from "@/lib/utils";
 
 // Landing page section IDs
 const sections = [
-  { id: "hero", label: "Accueil", icon: <Award className="h-4 w-4" /> },
-  { id: "features", label: "Fonctionnalités", icon: <BookOpen className="h-4 w-4" /> },
-  { id: "video", label: "Démo", icon: <Play className="h-4 w-4" /> },
-  { id: "how-it-works", label: "Comment ça marche", icon: <BookOpen className="h-4 w-4" /> },
-  { id: "testimonials", label: "Témoignages", icon: <MessageSquare className="h-4 w-4" /> },
+  { id: "hero", label: "Accueil", icon: <Award className="h-5 w-5" /> },
+  { id: "features", label: "Fonctionnalités", icon: <BookOpen className="h-5 w-5" /> },
+  { id: "video", label: "Démo", icon: <Play className="h-5 w-5" /> },
+  { id: "how-it-works", label: "Comment ça marche", icon: <BookOpen className="h-5 w-5" /> },
+  { id: "testimonials", label: "Témoignages", icon: <MessageSquare className="h-5 w-5" /> },
 ];
 
 const LandingNavbar = () => {

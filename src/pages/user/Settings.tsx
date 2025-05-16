@@ -61,10 +61,10 @@ export default function Settings() {
   };
 
   const TABS = [
-    { id: "profile", label: "Profil", icon: <User className="h-4 w-4" /> },
-    { id: "appearance", label: "Apparence", icon: <Palette className="h-4 w-4" /> },
-    { id: "security", label: "Sécurité", icon: <Lock className="h-4 w-4" /> },
-    { id: "notifications", label: "Notifications", icon: <BellRing className="h-4 w-4" /> },
+    { id: "profile", label: "Profil", icon: <User className="h-5 w-5" /> },
+    { id: "appearance", label: "Apparence", icon: <Palette className="h-5 w-5" /> },
+    { id: "security", label: "Sécurité", icon: <Lock className="h-5 w-5" /> },
+    { id: "notifications", label: "Notifications", icon: <BellRing className="h-5 w-5" /> },
   ];
 
   return (
@@ -77,24 +77,24 @@ export default function Settings() {
         <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-blue-400/5 rounded-full blur-3xl -z-10"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
         
-        <div className="container max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center md:text-left mb-10">
             <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <SettingsIcon className="h-6 w-6 text-primary" />
+              <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center shadow-lg">
+                <SettingsIcon className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-3xl font-poppins font-bold text-foreground">
-            Paramètres
-          </h1>
+                Paramètres
+              </h1>
             </div>
             <p className="text-muted-foreground max-w-2xl">
-            Gérez vos informations personnelles, vos préférences et la sécurité de votre compte.
-          </p>
-        </div>
+              Gérez vos informations personnelles, vos préférences et la sécurité de votre compte.
+            </p>
+          </div>
 
           <div className="grid grid-cols-12 gap-8">
-          {/* Sidebar for larger screens */}
-            <div className="hidden md:block md:col-span-3">
+            {/* Sidebar for larger screens */}
+            <div className="hidden md:block md:col-span-2">
               <div className="sticky top-24 space-y-1">
             {TABS.map((tab) => (
               <button
@@ -125,7 +125,7 @@ export default function Settings() {
           </div>
 
           {/* Main content area */}
-          <div className="col-span-12 md:col-span-9">
+          <div className="col-span-12 md:col-span-10">
             <Tabs 
               value={activeTab} 
               onValueChange={setActiveTab}
@@ -133,12 +133,12 @@ export default function Settings() {
             >
                 {/* Mobile tabs */}
                 <div className="col-span-12 md:hidden mb-6">
-                  <TabsList className="grid grid-cols-4 w-full bg-muted/50 p-1.5 rounded-xl">
+                  <TabsList className="grid grid-cols-4 w-full p-1.5 rounded-xl">
                     {TABS.map((tab) => (
                       <TabsTrigger 
                         key={tab.id} 
                         value={tab.id} 
-                        className="flex items-center gap-2 data-[state=active]:bg-background dark:data-[state=active]:bg-gray-900 data-[state=active]:shadow-sm rounded-lg"
+                        className="flex items-center justify-center gap-2 py-3 rounded-xl transition-all font-medium data-[state=active]:bg-background data-[state=active]:shadow-lg data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=inactive]:text-muted-foreground"
                       >
                         <span className="p-1.5 rounded-md bg-gray-200 dark:bg-gray-700">
                           {tab.icon}
@@ -169,7 +169,7 @@ export default function Settings() {
                         <div className="space-y-2 text-center md:text-left">
                           <CardTitle className="flex items-center gap-2 justify-center md:justify-start">
                             <div className="p-2 rounded-full bg-primary/10 text-primary">
-                              <User className="h-4 w-4" />
+                              <User className="h-5 w-5" />
                             </div>
                           Informations personnelles
                         </CardTitle>
@@ -197,7 +197,7 @@ export default function Settings() {
                     <CardHeader className="border-b border-border/40 pb-6">
                     <CardTitle className="flex items-center gap-2">
                         <div className="p-2 rounded-full bg-primary/10 text-primary">
-                          <Palette className="h-4 w-4" />
+                          <Palette className="h-5 w-5" />
                         </div>
                       Apparence et accessibilité
                     </CardTitle>
@@ -223,7 +223,7 @@ export default function Settings() {
                     <CardHeader className="border-b border-border/40 pb-6">
                     <CardTitle className="flex items-center gap-2">
                         <div className="p-2 rounded-full bg-primary/10 text-primary">
-                          <Lock className="h-4 w-4" />
+                          <Lock className="h-5 w-5" />
                         </div>
                       Sécurité du compte
                     </CardTitle>
@@ -254,7 +254,7 @@ export default function Settings() {
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-3">
                                 <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
-                                  <Smartphone className="h-4 w-4" />
+                                  <Smartphone className="h-5 w-5" />
                                 </div>
                                 <div>
                                   <h3 className="font-medium text-foreground">Authentification à deux facteurs</h3>
@@ -272,7 +272,7 @@ export default function Settings() {
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-3">
                                 <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400">
-                                  <Lock className="h-4 w-4" />
+                                  <Lock className="h-5 w-5" />
                                 </div>
                                 <div>
                                   <h3 className="font-medium text-foreground">Changement de mot de passe</h3>
@@ -289,7 +289,7 @@ export default function Settings() {
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-3">
                                 <div className="p-2 rounded-lg bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400">
-                                  <Eye className="h-4 w-4" />
+                                  <Eye className="h-5 w-5" />
                                 </div>
                                 <div>
                                   <h3 className="font-medium text-foreground">Sessions actives</h3>
@@ -317,7 +317,7 @@ export default function Settings() {
                     <CardHeader className="border-b border-border/40 pb-6">
                     <CardTitle className="flex items-center gap-2">
                         <div className="p-2 rounded-full bg-primary/10 text-primary">
-                          <BellRing className="h-4 w-4" />
+                          <BellRing className="h-5 w-5" />
                         </div>
                         Préférences de notifications
                     </CardTitle>
@@ -331,28 +331,28 @@ export default function Settings() {
                           {
                             title: "Nouveaux cours et concours",
                             description: "Soyez informé dès qu'un nouveau concours est disponible",
-                            icon: <Sparkles className="h-4 w-4" />,
+                            icon: <Sparkles className="h-5 w-5" />,
                             bgClass: "bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400",
                             enabled: true
                           },
                           {
                             title: "Résultats et corrections",
                             description: "Notifications lorsque vos résultats sont disponibles",
-                            icon: <Check className="h-4 w-4" />,
+                            icon: <Check className="h-5 w-5" />,
                             bgClass: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400",
                             enabled: true
                           },
                           {
                             title: "Rappels et échéances",
                             description: "Rappels pour les concours et tests à venir",
-                            icon: <BellRing className="h-4 w-4" />,
+                            icon: <BellRing className="h-5 w-5" />,
                             bgClass: "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400",
                             enabled: false
                           },
                           {
                             title: "Mise à jour du compte",
                             description: "Informations importantes sur votre compte",
-                            icon: <User className="h-4 w-4" />,
+                            icon: <User className="h-5 w-5" />,
                             bgClass: "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400",
                             enabled: true
                           }
@@ -378,7 +378,7 @@ export default function Settings() {
 
                       <div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/10 flex items-center gap-3">
                         <div className="p-2 rounded-full bg-primary/10 text-primary">
-                          <Mail className="h-4 w-4" />
+                          <Mail className="h-5 w-5" />
                         </div>
                         <p className="text-sm text-muted-foreground flex-1">
                           Vous pouvez également gérer vos préférences d'emails en cliquant sur le lien "Gérer les abonnements" dans nos emails.

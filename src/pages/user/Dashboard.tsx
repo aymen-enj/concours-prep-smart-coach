@@ -84,8 +84,8 @@ const Dashboard = () => {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
             <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <BarChart className="h-5 w-5 text-primary" />
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
+                    <BarChart className="h-6 w-6 text-white" />
                   </div>
                   <h1 className="text-3xl font-poppins font-bold text-foreground">
                     Statistiques

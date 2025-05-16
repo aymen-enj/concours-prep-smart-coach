@@ -328,11 +328,11 @@ const ConcoursPage = () => {
                 
                 <div className="flex gap-3">
                   <Button className="rounded-full gap-2 bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-primary">
-                    <Trophy className="h-4 w-4" />
+                    <Trophy className="h-5 w-5" />
                     Débloquer l'accès Premium
                   </Button>
                   <Button variant="outline" className="rounded-full gap-2 border-primary/30 hover:bg-primary/5">
-                    <BookOpen className="h-4 w-4" />
+                    <BookOpen className="h-5 w-5" />
                     Découvrir nos offres
                   </Button>
                 </div>
@@ -411,44 +411,43 @@ const ConcoursPage = () => {
             transition={{ duration: 0.5 }}
             className="mb-10"
           >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-3">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg">
-                  <GraduationCap className="h-6 w-6 text-white" />
-                </div>
-                <div>
+            <div className="flex flex-col gap-2 mb-3">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center shadow-lg">
+                    <GraduationCap className="h-6 w-6 text-white" />
+                  </div>
                   <h1 className="text-3xl font-poppins font-bold text-foreground">
                     Catalogue des concours
                   </h1>
-                  <div className="flex items-center text-muted-foreground text-sm gap-3 mt-1">
-                    <div className="flex items-center">
-                      <CheckCircle className="h-3.5 w-3.5 mr-1 text-green-500" />
-                      <span>+400 concours</span>
-                    </div>
-                    <div className="flex items-center">
-                      <CheckCircle className="h-3.5 w-3.5 mr-1 text-green-500" />
-                      <span>Mise à jour régulière</span>
-                    </div>
-                    <div className="flex items-center">
-                      <CheckCircle className="h-3.5 w-3.5 mr-1 text-green-500" />
-                      <span>Corrections détaillées</span>
-                    </div>
-                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                  <Badge variant="outline" className="gap-1 px-2 py-1 border-amber-200 bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800/40">
+                    <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+                    Accès illimité avec Premium
+                  </Badge>
+                  <Button 
+                    className="rounded-full gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-600 shadow-sm"
+                    size="sm"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    Devenir Premium
+                  </Button>
                 </div>
               </div>
-              
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <Badge variant="outline" className="gap-1 px-2 py-1 border-amber-200 bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800/40">
-                  <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
-                  Accès illimité avec Premium
-                </Badge>
-                <Button 
-                  className="rounded-full gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-600 shadow-sm"
-                  size="sm"
-                >
-                  <Sparkles className="h-4 w-4" />
-                  Devenir Premium
-                </Button>
+              <div className="flex items-center text-muted-foreground text-sm gap-6 mt-1">
+                <div className="flex items-center">
+                  <CheckCircle className="h-4 w-4 mr-1 text-green-500" />
+                  <span>+400 concours</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-4 w-4 mr-1 text-green-500" />
+                  <span>Mise à jour régulière</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-4 w-4 mr-1 text-green-500" />
+                  <span>Corrections détaillées</span>
+                </div>
               </div>
             </div>
           </motion.div>

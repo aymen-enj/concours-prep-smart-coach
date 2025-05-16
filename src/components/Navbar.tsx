@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Moon, Sun, User, Settings as SettingsIcon, Bell, BarChart, GraduationCap } from "lucide-react";
+import { Menu, Moon, Sun, User, Settings as SettingsIcon, Bell, BarChart, GraduationCap, HelpCircle, UserPlus, LogOut } from "lucide-react";
 import { useTheme } from "@/providers/ThemeProvider";
 import ProfileMenu from "./ProfileMenu";
 import { useAuth } from "@/providers/AuthProvider";
@@ -158,7 +158,7 @@ const Navbar = () => {
                             : "text-gray-600 hover:text-royal-blue hover:bg-gray-50 dark:text-gray-300 dark:hover:text-royal-blue dark:hover:bg-gray-800/50"
                         )}
                       >
-                        <BarChart size={18} />
+                        <BarChart className="h-5 w-5" />
                         Statistiques
                       </Link>
                       <Link
@@ -170,7 +170,7 @@ const Navbar = () => {
                             : "text-gray-600 hover:text-royal-blue hover:bg-gray-50 dark:text-gray-300 dark:hover:text-royal-blue dark:hover:bg-gray-800/50"
                         )}
                       >
-                        <GraduationCap size={18} />
+                        <GraduationCap className="h-5 w-5" />
                         Concours
                       </Link>
                       <Link
@@ -182,7 +182,7 @@ const Navbar = () => {
                             : "text-gray-600 hover:text-royal-blue hover:bg-gray-50 dark:text-gray-300 dark:hover:text-royal-blue dark:hover:bg-gray-800/50"
                         )}
                       >
-                        <SettingsIcon size={18} />
+                        <SettingsIcon className="h-5 w-5" />
                         Paramètres
                       </Link>
                     </>
@@ -196,7 +196,7 @@ const Navbar = () => {
                         : "text-gray-600 hover:text-royal-blue hover:bg-gray-50 dark:text-gray-300 dark:hover:text-royal-blue dark:hover:bg-gray-800/50"
                     )}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg>
+                    <HelpCircle className="h-5 w-5" />
                     Support
                   </Link>
                   <Link
@@ -216,13 +216,13 @@ const Navbar = () => {
                     <div className="flex flex-col gap-2 mt-4 px-2">
                       <Button variant="outline" asChild className="w-full justify-start">
                         <Link to="/login" className="flex items-center gap-2">
-                          <User size={18} />
+                          <User className="h-5 w-5" />
                           Connexion
                         </Link>
                       </Button>
                       <Button asChild className="w-full justify-start">
                         <Link to="/login?tab=register" className="flex items-center gap-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+                          <UserPlus className="h-5 w-5" />
                           S'inscrire
                         </Link>
                       </Button>
@@ -237,7 +237,7 @@ const Navbar = () => {
                         }}
                         className="w-full justify-start"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide mr-2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                        <LogOut className="h-5 w-5 mr-2" />
                         Se déconnecter
                       </Button>
                     </div>
