@@ -1,43 +1,53 @@
-# Concours Prep Smart Coach
+# 🎓 Concours Prep Smart Coach
 
-A modern web application built with React, TypeScript, and Supabase to help students prepare for competitive exams.
+A modern, responsive web application built with React, TypeScript, and Supabase to help students efficiently prepare for competitive exams.
+
+---
 
 ## 🚀 Features
 
-- Modern UI built with Shadcn UI components
-- Responsive design with Tailwind CSS
-- Type-safe development with TypeScript
-- Real-time data management with Supabase
-- Form handling with React Hook Form and Zod validation
-- State management with React Query
-- Beautiful charts and data visualization with Recharts
-- Smooth animations with Framer Motion
+- ✨ Beautiful UI with [Shadcn UI](https://ui.shadcn.com/)
+- 🎯 Type-safe development using TypeScript
+- 📱 Fully responsive design via Tailwind CSS
+- 📡 Real-time data sync powered by Supabase
+- ✅ Form validation using React Hook Form + Zod
+- ⚛️ State management with React Query
+- 📊 Data visualization using Recharts
+- 🎞️ Smooth animations via Framer Motion
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework:** React 18
-- **Language:** TypeScript
-- **Build Tool:** Vite
-- **Styling:** Tailwind CSS
-- **UI Components:** Shadcn UI (Radix UI)
-- **Form Handling:** React Hook Form + Zod
-- **State Management:** React Query
-- **Routing:** React Router DOM
-- **Database:** Supabase
-- **Charts:** Recharts
-- **Animations:** Framer Motion
-- **Date Handling:** date-fns
-- **Notifications:** Sonner
+| Category           | Tech                                               |
+|--------------------|----------------------------------------------------|
+| Frontend Framework | [React 18](https://react.dev)                      |
+| Language           | [TypeScript](https://www.typescriptlang.org/)     |
+| Build Tool         | [Vite](https://vitejs.dev)                         |
+| Styling            | [Tailwind CSS](https://tailwindcss.com)           |
+| UI Components      | [Shadcn UI (Radix)](https://ui.shadcn.com)        |
+| Forms              | [React Hook Form](https://react-hook-form.com/), [Zod](https://zod.dev) |
+| State Management   | [React Query](https://tanstack.com/query)         |
+| Routing            | [React Router DOM](https://reactrouter.com/)      |
+| Database           | [Supabase](https://supabase.com/)                 |
+| Charts             | [Recharts](https://recharts.org/)                 |
+| Animations         | [Framer Motion](https://www.framer.com/motion/)   |
+| Dates              | [date-fns](https://date-fns.org/)                 |
+| Notifications      | [Sonner](https://sonner.emilkowal.dev)            |
 
-## 📦 Installation
+---
 
-1. Clone the repository:
+## 📦 Getting Started
+
+### 1. Clone the repository
+
 ```bash
-git clone [repository-url]
+git clone https://github.com/your-username/concours-prep-smart-coach.git
 cd concours-prep-smart-coach
+
 ```
 
-2. Install dependencies:
+### 2. Install dependencies:
 ```bash
 npm install
 # or
@@ -46,7 +56,7 @@ yarn install
 bun install
 ```
 
-3. Set up environment variables:
+###  3. Set up environment variables:
 Create a `.env` file in the root directory and add your Supabase credentials:
 ```env
 VITE_SUPABASE_URL=your_supabase_url
