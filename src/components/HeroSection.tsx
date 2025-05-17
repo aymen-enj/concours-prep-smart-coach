@@ -1,14 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { CheckCircle, ArrowRight, BookOpen, Award } from "lucide-react";
+import { ArrowRight, Award, Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const HeroSection = () => {
-  const highlights = [
-    "Correction IA personnalisée",
-    "Concours des années précédentes",
-    "Suivi de progression avancé"
-  ];
-
   // Scroll to features section
   const scrollToFeatures = () => {
     const featuresSection = document.getElementById("features");
@@ -17,119 +12,104 @@ const HeroSection = () => {
     }
   };
 
-  return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 dark:from-gray-900 dark:to-gray-800">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30"></div>
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/3 -left-20 w-60 h-60 bg-blue-400/10 rounded-full blur-3xl"></div>
+  // Référence pour l'élément 3D et son état de rotation
+  const brainRef = useRef<HTMLDivElement>(null);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  
+  // Effet pour gérer la rotation 3D basée sur le mouvement de la souris
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!brainRef.current) return;
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary mb-6 text-sm font-medium">
-              <Award className="h-4 w-4 mr-2" />
-              <span>Réussissez vos concours avec confiance</span>
-            </div>
+      const rect = brainRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      // Calcul de la rotation basé sur la position de la souris par rapport au centre
+      const rotateY = ((e.clientX - centerX) / (window.innerWidth / 2)) * 15;
+      const rotateX = ((e.clientY - centerY) / (window.innerHeight / 2)) * -15;
+      
+      setRotation({ x: rotateX, y: rotateY });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <div className="relative overflow-hidden min-h-[90vh] flex items-center justify-center">
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 z-0">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-blue-500/10 to-primary/5 animate-gradient-background"></div>
+        
+        {/* Floating particles/circles for dynamic effect */}
+        <div className="absolute top-20 left-1/4 w-72 h-72 rounded-full bg-primary/10 blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-32 right-1/4 w-96 h-96 rounded-full bg-blue-400/10 blur-3xl animate-float-reverse"></div>
+        <div className="absolute top-1/3 -right-20 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl animate-pulse-slow"></div>
+        
+        {/* Dynamic grid lines for tech feel */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMS41IiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48L2c+PC9zdmc+')]"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div className="text-center">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary mb-6 text-sm font-medium mx-auto">
+            <Award className="h-4 w-4 mr-2" />
+            <span>Réussissez vos concours avec confiance</span>
+          </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-foreground leading-tight mb-6">
-              Préparez vos <span className="text-primary">concours</span> avec l'intelligence artificielle
-            </h1>
-            
-            
-            <div className="space-y-4 mb-8">
-              {highlights.map((item, index) => (
-                <div key={index} className="flex items-center space-x-2 text-foreground text-lg justify-center lg:justify-start">
-                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                onClick={scrollToFeatures}
-                className="btn-primary text-base py-6 rounded-full group"
-              >
-                Découvrir nos fonctionnalités
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/5 text-base py-6 rounded-full">
-                <Link to="/login">Espace étudiant</Link>
-              </Button>
-            </div>
-            
-            <div className="mt-8 text-sm text-muted-foreground">
-              Déjà plus de <span className="font-bold text-primary">2,000+</span> étudiants nous font confiance
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-foreground leading-tight mb-10 max-w-4xl mx-auto">
+            Préparez vos <span className="text-primary">concours</span> avec l'intelligence artificielle
+          </h1>
+
+          {/* 3D Animation du cerveau IA */}
+          <div 
+            ref={brainRef} 
+            className="relative mx-auto w-60 h-60 mb-8 transition-transform duration-300 perspective-1000"
+            style={{
+              transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+              transformStyle: 'preserve-3d'
+            }}
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-48 h-48 md:w-56 md:h-56 relative bg-background/20 rounded-full backdrop-blur-xl shadow-xl p-4 transition-all duration-300 transform hover:scale-105">
+                {/* Animation SVG */}
+                <object
+                  type="image/svg+xml"
+                  data="/images/brain-circuit.svg"
+                  className="w-full h-full"
+                  aria-label="Animation du cerveau IA"
+                >
+                  Votre navigateur ne prend pas en charge les SVG
+                </object>
+                
+                {/* Cercles lumineux autour du cerveau */}
+                <div className="absolute -top-2 -left-2 w-4 h-4 bg-blue-500 rounded-full blur-sm animate-pulse-slow"></div>
+                <div className="absolute top-1/4 -right-3 w-3 h-3 bg-indigo-500 rounded-full blur-sm animate-pulse-slow delay-300"></div>
+                <div className="absolute -bottom-2 left-1/3 w-5 h-5 bg-primary rounded-full blur-sm animate-pulse-slow delay-700"></div>
+              </div>
             </div>
           </div>
-          
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-blue-500 rounded-lg opacity-20 blur-xl transform -rotate-6 scale-105"></div>
             
-            <div className="relative bg-background rounded-xl shadow-2xl border border-border overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-blue-500 to-primary"></div>
-              
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center">
-                    <BookOpen className="h-5 w-5 text-primary mr-2" />
-                    <span className="font-semibold">Correction IA</span>
-                  </div>
-                  <div className="px-3 py-1 rounded-full bg-green-100 text-green-800 text-xs font-medium dark:bg-green-900/30 dark:text-green-400">
-                    98% Précision
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="bg-muted p-4 rounded-lg">
-                    <div className="text-sm font-medium mb-1">Question:</div>
-                    <p className="text-foreground">Calculez la dérivée de f(x) = x³ + 2x² - 5x + 3</p>
-                  </div>
-                  
-                  <div className="bg-primary/5 p-4 rounded-lg border border-primary/10">
-                    <div className="text-sm font-medium mb-1 flex items-center">
-                      <Award className="h-4 w-4 mr-1 text-primary" />
-                      <span>Correction IA:</span>
-                    </div>
-                    <p className="text-foreground">La dérivée de f(x) = x³ + 2x² - 5x + 3 est f'(x) = 3x² + 4x - 5</p>
-                    <div className="mt-3 pt-3 border-t border-border">
-                      <p className="text-sm text-muted-foreground">Excellent travail! Vous avez correctement appliqué les règles de dérivation à chaque terme.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-4 flex justify-end">
-                  <button 
-                    onClick={scrollToFeatures}
-                    className="inline-flex items-center text-primary text-sm font-medium transition-all hover:underline"
-                  >
-                    Voir plus d'exemples
-                    <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              onClick={scrollToFeatures}
+              className="btn-primary text-base py-6 rounded-full group"
+            >
+              Découvrir nos fonctionnalités
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/5 text-base py-6 rounded-full">
+              <Link to="/login">Espace étudiant</Link>
+            </Button>
+          </div>
             
-            {/* Floating elements */}
-            <div className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 transform rotate-6">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                </div>
-                <div>
-                  <div className="text-xs font-medium">Score</div>
-                  <div className="text-lg font-bold">92%</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-3 transform -rotate-3">
-              <div className="text-xs font-medium text-muted-foreground">Progression</div>
-              <div className="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-1 overflow-hidden">
-                <div className="h-full bg-primary rounded-full" style={{ width: '75%' }}></div>
-              </div>
-            </div>
+          <div className="mt-8 text-sm text-muted-foreground">
+            Déjà plus de <span className="font-bold text-primary">2,000+</span> étudiants nous font confiance
           </div>
         </div>
       </div>
