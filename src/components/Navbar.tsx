@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetHeader } from "@/components/ui/sheet";
 import { Menu, Moon, Sun, User, Settings as SettingsIcon, Bell, BarChart, GraduationCap, HelpCircle, UserPlus, LogOut } from "lucide-react";
 import { useTheme } from "@/providers/ThemeProvider";
 import ProfileMenu from "./ProfileMenu";
@@ -10,33 +10,72 @@ import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [scrollTimeout, setScrollTimeout] = useState<number | null>(null);
+  
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   // Check if current route is active
   const isActive = (path: string) => {
     return location.pathname === path || location.pathname.startsWith(path + '/');
   };
 
-  // Handle scroll event to add shadow on scroll
+  // Handle scroll event to control navbar visibility
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      // Get current scroll position
+      const currentScrollPos = window.scrollY;
+      
+      // Determine if scrolled past threshold
+      setIsScrolled(currentScrollPos > 10);
+      
+      // Determine scroll direction and update visibility
+      const isScrollingDown = currentScrollPos > prevScrollPos;
+      
+      // Only hide navbar after scrolling down a bit (40px)
+      if (isScrollingDown && currentScrollPos > 60) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      // Update previous scroll position
+      setPrevScrollPos(currentScrollPos);
+      
+      // Clear any existing timeout
+      if (scrollTimeout) {
+        window.clearTimeout(scrollTimeout);
+      }
+      
+      // Set a timeout to show navbar after scrolling stops
+      const timeout = window.setTimeout(() => {
+        setIsVisible(true);
+      }, 1000); // Show navbar after 1 second of inactivity
+      
+      setScrollTimeout(timeout as unknown as number);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      // Clear timeout on unmount
+      if (scrollTimeout) {
+        window.clearTimeout(scrollTimeout);
+      }
     };
-  }, []);
+  }, [prevScrollPos, scrollTimeout]);
 
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm transition-all duration-300",
+        "sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm",
+        "transition-all duration-300 transform",
         isScrolled ? "shadow-md" : "",
-        "border-b border-gray-100 dark:border-gray-800"
+        "border-b border-gray-100 dark:border-gray-800",
+        isVisible ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,7 +183,15 @@ const Navbar = () => {
                   <span className="sr-only">Ouvrir le menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent className="w-64 border-l border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+              <SheetContent 
+                className="w-64 border-l border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900" 
+                aria-labelledby="sheet-title"
+                aria-describedby="sheet-description"
+              >
+                <SheetHeader>
+                  <SheetTitle id="sheet-title" className="text-lg font-semibold text-gray-900 dark:text-white">Menu principal</SheetTitle>
+                  <SheetDescription id="sheet-description" className="sr-only">Navigation mobile de Concours Prep</SheetDescription>
+                </SheetHeader>
                 <div className="flex flex-col space-y-6 mt-6">
                   
                   {user && (
@@ -231,8 +278,9 @@ const Navbar = () => {
                     <div className="mt-4 px-2">
                       <Button 
                         variant="destructive" 
-                        onClick={() => {
-                          const { signOut } = require("@/providers/AuthProvider").useAuth();
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
                           signOut();
                         }}
                         className="w-full justify-start"

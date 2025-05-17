@@ -235,6 +235,7 @@ const Support = () => {
                   
                   <AnimatePresence mode="wait">
                     <TabsContent 
+                      key="faq"
                       value="faq" 
                       className={cn(
                         "mt-6 transition-all duration-300 transform",
@@ -245,6 +246,7 @@ const Support = () => {
                     </TabsContent>
                     
                     <TabsContent 
+                      key="chatbot"
                       value="chatbot" 
                       className={cn(
                         "mt-6 transition-all duration-300 transform",
@@ -270,6 +272,7 @@ const Support = () => {
                     </TabsContent>
 
                     <TabsContent 
+                      key="contact"
                       value="contact" 
                       className={cn(
                         "mt-6 transition-all duration-300 transform",

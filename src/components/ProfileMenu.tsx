@@ -124,7 +124,11 @@ const ProfileMenu = () => {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem 
-          onClick={() => signOut()}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            signOut();
+          }}
           className="flex items-center cursor-pointer text-red-500 focus:text-red-500"
         >
           <LogOut className="mr-2 h-4 w-4" />

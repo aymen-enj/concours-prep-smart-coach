@@ -19,6 +19,9 @@ const sections = [
 
 const LandingNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [scrollTimeout, setScrollTimeout] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState("hero");
   const { theme, toggleTheme } = useTheme();
   const { user } = useAuth();
@@ -26,11 +29,39 @@ const LandingNavbar = () => {
   // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
+      // Get current scroll position
+      const currentScrollPos = window.scrollY;
+      
       // Add shadow on scroll
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(currentScrollPos > 10);
+      
+      // Determine scroll direction and update visibility
+      const isScrollingDown = currentScrollPos > prevScrollPos;
+      
+      // Only hide navbar after scrolling down a bit
+      if (isScrollingDown && currentScrollPos > 60) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      // Update previous scroll position
+      setPrevScrollPos(currentScrollPos);
+      
+      // Clear any existing timeout
+      if (scrollTimeout) {
+        window.clearTimeout(scrollTimeout);
+      }
+      
+      // Set a timeout to show navbar after scrolling stops
+      const timeout = window.setTimeout(() => {
+        setIsVisible(true);
+      }, 1000); // Show navbar after 1 second of inactivity
+      
+      setScrollTimeout(timeout as unknown as number);
       
       // Update active section based on scroll position
-      const scrollPosition = window.scrollY + 100; // Offset for better UX
+      const scrollPosition = currentScrollPos + 100; // Offset for better UX
       
       // Find which section we're currently in
       const currentSection = sections.find(section => {
@@ -51,8 +82,12 @@ const LandingNavbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      // Clear timeout on unmount
+      if (scrollTimeout) {
+        window.clearTimeout(scrollTimeout);
+      }
     };
-  }, []);
+  }, [prevScrollPos, scrollTimeout]);
 
   // Smooth scroll to section
   const scrollToSection = (sectionId: string) => {
@@ -68,9 +103,11 @@ const LandingNavbar = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md transition-all duration-300",
+        "sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md",
+        "transition-all duration-300 transform",
         isScrolled ? "shadow-md" : "",
-        "border-b border-gray-100 dark:border-gray-800"
+        "border-b border-gray-100 dark:border-gray-800",
+        isVisible ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
