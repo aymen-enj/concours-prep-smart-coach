@@ -70,14 +70,14 @@ export default function Settings() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="relative py-10 px-4 sm:px-6">
+      <div className="relative py-10 px-4 sm:px-6 lg:px-8">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-1/3 h-72 bg-gradient-to-bl from-primary/10 via-transparent to-transparent rounded-bl-full -z-10"></div>
         <div className="absolute bottom-1/3 left-0 w-1/4 h-64 bg-gradient-to-tr from-primary/5 via-transparent to-transparent rounded-tr-full -z-10"></div>
         <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-blue-400/5 rounded-full blur-3xl -z-10"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center md:text-left mb-10">
             <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
               <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center shadow-lg">
@@ -87,14 +87,11 @@ export default function Settings() {
                 Paramètres
               </h1>
             </div>
-            <p className="text-muted-foreground max-w-2xl">
-              Gérez vos informations personnelles, vos préférences et la sécurité de votre compte.
-            </p>
           </div>
 
           <div className="grid grid-cols-12 gap-8">
             {/* Sidebar for larger screens */}
-            <div className="hidden md:block md:col-span-2">
+            <div className="hidden md:block md:col-span-3 lg:col-span-2">
               <div className="sticky top-24 space-y-1">
             {TABS.map((tab) => (
               <button
@@ -125,7 +122,7 @@ export default function Settings() {
           </div>
 
           {/* Main content area */}
-          <div className="col-span-12 md:col-span-10">
+          <div className="col-span-12 md:col-span-9 lg:col-span-10">
             <Tabs 
               value={activeTab} 
               onValueChange={setActiveTab}

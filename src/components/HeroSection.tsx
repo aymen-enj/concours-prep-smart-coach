@@ -146,7 +146,7 @@ const HeroSection = () => {
       
       {/* Contenu principal */}
       <div className="container mx-auto px-4 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           {/* Colonne gauche - Contenu textuel */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             {/* Badge en haut */}
@@ -189,10 +189,9 @@ const HeroSection = () => {
               <MorphingText 
                 baseText="Une plateforme qui vous aide à " 
                 words={[
-                  "identifier vos points faibles.", 
                   "réviser efficacement.",
-                  "progresser méthodiquement.",
-                  "réussir vos examens."
+                  "progresser.",
+                  "réussir.",
                 ]} 
               />
             </motion.div>
@@ -233,61 +232,120 @@ const HeroSection = () => {
               </div>
             </motion.div>
             
-            {/* Boutons d'action */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            {/* Boutons d'action améliorés */}
+            <div className="flex flex-col sm:flex-row gap-5 mt-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
-                whileHover={{ scale: isHoveringPrimary ? 1.03 : 1 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="relative group w-full sm:w-auto"
               >
-                <Button 
-                  size="lg" 
-                  className="w-full sm:w-auto px-8 py-7 text-lg relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
-                  onMouseEnter={() => setIsHoveringPrimary(true)}
-                  onMouseLeave={() => setIsHoveringPrimary(false)}
-                  onClick={handlePrimaryButtonClick}
-                >
-                  {isHoveringPrimary && (
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 rounded-xl blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                <Link to="/login" className="w-full sm:w-auto block relative">
+                  <Button
+                    size="lg"
+                    className="w-full sm:w-auto px-8 py-7 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-violet-600 text-white shadow-lg relative z-10 border-0 overflow-hidden group-hover:shadow-blue-500/50 transition-all duration-300 rounded-lg"
+                    onMouseEnter={() => setIsHoveringPrimary(true)}
+                    onMouseLeave={() => setIsHoveringPrimary(false)}
+                    onClick={handlePrimaryButtonClick}
+                  >
+                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600/40 via-indigo-600/40 to-violet-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    {/* Particules d'énergie lors du survol */}
+                    <div className="absolute inset-0 w-full h-full">
+                      {isHoveringPrimary && [...Array(8)].map((_, i) => (
+                        <motion.div
+                          key={`particle-${i}`}
+                          className="absolute w-1 h-1 rounded-full bg-white"
+                          initial={{ 
+                            x: '50%', 
+                            y: '50%',
+                            opacity: 0.8 
+                          }}
+                          animate={{ 
+                            x: `${50 + (Math.random() * 60 - 30)}%`, 
+                            y: `${50 + (Math.random() * 60 - 30)}%`,
+                            opacity: 0
+                          }}
+                          transition={{ 
+                            duration: 0.6 + Math.random() * 0.2,
+                            ease: "easeOut" 
+                          }}
+                          style={{
+                            scale: Math.random() * 1.5 + 1
+                          }}
+                        />
+                      ))}
+                    </div>
+                    
+                    {/* Effet de pulsation de la bordure */}
                     <motion.div 
-                      className="absolute inset-0 bg-white/10"
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1.5, opacity: 0 }}
-                      transition={{ duration: 0.7 }}
-                      style={{ borderRadius: '100%' }}
+                      className="absolute inset-0 rounded-lg border-2 border-white/30"
+                      animate={{ 
+                        opacity: isHoveringPrimary ? [0.2, 0.5, 0.2] : 0 
+                      }}
+                      transition={{ 
+                        duration: 1.5, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                      }}
                     />
-                  )}
-                  <span className="mr-2">Commencer maintenant</span> 
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
+                    
+                    <span className="mr-3 relative">Commencer maintenant</span>
+                    
+                    {/* Flèche animée */}
+                    <motion.div
+                      animate={isHoveringPrimary ? { x: [0, 5, 0] } : {}}
+                      transition={{ duration: 1, repeat: Infinity }}
+                      className="relative"
+                    >
+                      <ArrowRight className="h-5 w-5" />
+                    </motion.div>
+                  </Button>
+                </Link>
               </motion.div>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                whileHover={{ scale: isHoveringSecondary ? 1.03 : 1 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="relative group w-full sm:w-auto"
               >
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-400/30 to-slate-300/30 dark:from-slate-700/30 dark:to-slate-600/30 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="w-full sm:w-auto px-8 py-7 text-lg border-2 border-slate-300 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-500 relative overflow-hidden"
+                  className="w-full sm:w-auto px-8 py-7 text-lg border-2 border-slate-300 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-500 relative overflow-hidden backdrop-blur-sm bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-200 z-10 rounded-lg group"
                   onMouseEnter={() => setIsHoveringSecondary(true)}
                   onMouseLeave={() => setIsHoveringSecondary(false)}
                   onClick={scrollToFeatures}
                 >
-                  {isHoveringSecondary && (
-                    <motion.div 
-                      className="absolute inset-0 bg-slate-100 dark:bg-slate-700/30"
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1.5, opacity: 0 }}
-                      transition={{ duration: 0.7 }}
-                      style={{ borderRadius: '100%' }}
-                    />
-                  )}
-                  Découvrir les fonctionnalités
+                  {/* Effet de lumière qui se déplace */}
+                  <motion.div 
+                    className="absolute inset-0 w-40 h-full bg-gradient-to-r from-transparent via-white/30 dark:via-white/10 to-transparent skew-x-12"
+                    animate={isHoveringSecondary ? {
+                      x: [-200, 200],
+                      opacity: [0, 1, 0]
+                    } : {}}
+                    transition={{
+                      x: { duration: 1.5, repeat: Infinity, repeatDelay: 0.5 },
+                      opacity: { duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }
+                    }}
+                  />
+                  
+                  <div className="flex items-center justify-center space-x-2">
+                    <span>Découvrir les fonctionnalités</span>
+                    <motion.div
+                      animate={isHoveringSecondary ? { y: [0, -3, 0] } : {}}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <ChevronDown className="h-5 w-5 transform group-hover:rotate-180 transition-transform duration-300" />
+                    </motion.div>
+                  </div>
                 </Button>
               </motion.div>
             </div>
@@ -295,13 +353,13 @@ const HeroSection = () => {
           
           {/* Colonne droite - Visuel */}
           <div className="lg:col-span-7 order-1 lg:order-2 relative">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-end items-center pr-4 lg:pr-0">
               {/* Illustration de l'étudiant avec IA */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="relative shadow-2xl shadow-blue-500/10 w-full max-w-xl rounded-3xl overflow-hidden"
+                className="relative shadow-2xl shadow-blue-500/10 w-full max-w-xl rounded-3xl overflow-hidden mr-8 lg:mr-12"
                 style={{ aspectRatio: '4/3' }}
               >
                 <StudentAIIllustration />
@@ -312,7 +370,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1 }}
-                className="absolute -bottom-12 -right-5 xl:right-12 2xl:right-20"
+                className="absolute -bottom-12 right-0 xl:right-16 2xl:right-24"
               >
                 <ChatbotAssistant3D />
               </motion.div>
@@ -321,22 +379,33 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Indicateur de défilement */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
-        onClick={scrollToFeatures}
-      >
-        <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Découvrir plus</span>
+      {/* Indicateur de défilement amélioré */}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center">
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
+          className="inline-flex flex-col items-center cursor-pointer"
+          onClick={scrollToFeatures}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <ChevronDown className="w-6 h-6 text-slate-400" />
+          <motion.div 
+            className="relative px-5 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 shadow-lg group flex items-center justify-center"
+            whileHover={{ y: -2 }}
+          >
+            <span className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300">Découvrir plus</span>
+          </motion.div>
+          
+          <motion.div
+            className="mt-2 bg-white/80 dark:bg-slate-800/80 rounded-full p-1 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center"
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };
