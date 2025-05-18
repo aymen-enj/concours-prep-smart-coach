@@ -22,9 +22,9 @@ const LandingNavbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [scrollTimeout, setScrollTimeout] = useState<number | null>(null);
+  const { signOut, user } = useAuth();  // Extract signOut and user at the component level
   const [activeSection, setActiveSection] = useState("hero");
   const { theme, toggleTheme } = useTheme();
-  const { user } = useAuth();
 
   // Handle scroll events
   useEffect(() => {
@@ -227,9 +227,10 @@ const LandingNavbar = () => {
                     <div className="mt-4 px-2">
                       <Button 
                         variant="destructive" 
-                        onClick={() => {
-                          const { signOut } = require("@/providers/AuthProvider").useAuth();
-                          signOut();
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          signOut(); // Use the signOut function extracted at component level
                         }}
                         className="w-full justify-start"
                       >
