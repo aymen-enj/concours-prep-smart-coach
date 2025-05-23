@@ -1,0 +1,1201 @@
+
+{
+  "exam_title": "Concours d'accès aux facultés de médecine, de pharmacie et de médecine dentaire 2022-2023 - Version Française",
+  "components": [
+    {
+      "component_name": "Sciences de la Vie",
+      "coefficient": 1,
+      "questions": [
+        {
+          "question_number": "Q1",
+          "text": "Au cours du cycle de la contraction musculaire, le $Ca^{H}$ se fixe sur :",
+          "options": [
+            {"label": "A", "text": "la troponine qui déplace la tropomyosine et la tête de myosine porteuse d'ATP se lie à l'actine."},
+            {"label": "B", "text": "la tropomyosine qui déplace la troponine et la tête de myosine porteuse d'ADP se lie à l'actine."},
+            {"label": "C", "text": "la troponine qui déplace la tropomyosine et la tête de myosine porteuse d'ADP se lie à l'actine."},
+            {"label": "D", "text": "la troponine qui déplace la tropomyosine et l'actine porteuse d'ADP se lie à la tête de myosine."},
+            {"label": "E", "text": "l'actine qui déplace la troponine et la tête de myosine porteuse d'ATP se lie à la tropomyosine."}
+          ]
+        },
+        {
+          "question_number": "Q2",
+          "text": "Parmi les suggestions suivantes, il y a deux suggestions vraies concernant les voies les plus utilisées dans la régénération de l'ATP pendant un effort musculaire :",
+          "stimulus_list": [
+            {"number": 1, "text": "La fermentation lactique pour un effort long."},
+            {"number": 2, "text": "La respiration cellulaire pour un effort court."},
+            {"number": 3, "text": "L'ADP qui interagit avec la phosphocréatine pour un effort très rapide."},
+            {"number": 4, "text": "La phosphocréatine pour un effort plus long."},
+            {"number": 5, "text": "La respiration cellulaire pour un effort plus long."}
+          ],
+          "follow_up_question": "Les deux suggestions vraies sont :",
+          "options": [
+            {"label": "A", "text": "1 et 2."},
+            {"label": "B", "text": "2 et 5."},
+            {"label": "C", "text": "3 et 4."},
+            {"label": "D", "text": "3 et 5."},
+            {"label": "E", "text": "4 et 5."}
+          ]
+        },
+        {
+          "question_number": "Q3",
+          "text": "Le brassage intrachromosomique permet la combinaison entres les allèles :",
+          "options": [
+            {"label": "A", "text": "d'un même gène disposés sur deux locus (loci) différents d'un même chromosome."},
+            {"label": "B", "text": "d'un même gène disposés sur un même locus d'un chromosome déterminé."},
+            {"label": "C", "text": "de deux gènes disposés sur deux locus différents des chromosomes homologues."},
+            {"label": "D", "text": "de deux gènes disposés sur deux locus différents de deux chromosomes non homologues."},
+            {"label": "E", "text": "de deux gènes disposés sur un même locus d'un chromosome déterminé."}
+          ]
+        },
+        {
+          "question_number": "Q4",
+          "text": "Un plasmide est :",
+          "options": [
+            {"label": "A", "text": "un ADN bactérien utilisé comme vecteur en génie génétique."},
+            {"label": "B", "text": "un ARN bactérien utilisé comme vecteur en génie génétique."},
+            {"label": "C", "text": "une enzyme bactérienne utilisée en génie génétique pour découper l'ADN au niveau de sites spécifiques."},
+            {"label": "D", "text": "une enzyme bactérienne utilisée en génie génétique pour découper l'ARN au niveau de sites spécifiques."},
+            {"label": "E", "text": "une protéine découverte chez les plantes et utilisée comme vecteur en génie génétique."}
+          ]
+        },
+        {
+          "question_number": "Q5",
+          "text": "La réplication de l'ADN a lieu :",
+          "options": [
+            {"label": "A", "text": "uniquement avant la mitose grâce à l'ARN polymérase qui copie l'ADN."},
+            {"label": "B", "text": "uniquement avant la méiose grâce à l'ADN polymérase qui copie l'ADN."},
+            {"label": "C", "text": "avant la première division de la méiose grâce à l'ARN polymérase qui copie l'ADN."},
+            {"label": "D", "text": "grâce à l'ADN polymérase qui copie l'ADN durant l'interphase."},
+            {"label": "E", "text": "juste avant la deuxième division de la méiose grâce à l'ADN polymérase qui copie l'ADN."}
+          ]
+        },
+        {
+          "question_number": "Q6",
+          "text": "La carte factorielle est représentée par une droite avec les loci (locus) et la distance séparant les loci de deux gènes :",
+          "options": [
+            {"label": "A", "text": "liés est exprimée en centimorgan (cM) dont 1 cM correspond à 1% des types recombinés."},
+            {"label": "B", "text": "indépendants est exprimée en centimorgan (cM) dont 1 cM correspond à 1% des types recombinés."},
+            {"label": "C", "text": "liés est exprimée en centimorgan (cM) dont 1 cM correspond à 10% des types recombinés."},
+            {"label": "D", "text": "liés est exprimée en centimorgan (cM) dont 1 cM correspond à 10% des types parentaux."},
+            {"label": "E", "text": "indépendants est exprimée en centimorgan (cM) dont 1 cM correspond à 1% des types parentaux."}
+          ]
+        },
+        {
+          "question_number": "Q7",
+          "text": "Dans le cas d'une maladie héréditaire récessive liée au chromosome X:",
+          "options": [
+            {"label": "A", "text": "L'allèle responsable de la maladie se transmet du père vers ses fils."},
+            {"label": "B", "text": "Un homme malade donne toujours des filles malades."},
+            {"label": "C", "text": "Une femme saine porteuse de l'allèle morbide ne donne jamais des garçons malades."},
+            {"label": "D", "text": "Une femme malade donne toujours des garçons malades."},
+            {"label": "E", "text": "L'allèle responsable de la maladie ne se transmet pas du père vers ses filles."}
+          ]
+        },
+        {
+          "question_number": "Q8",
+          "text": "Concernant le mécanisme de la dérive génétique, on peut affirmer que :",
+          "options": [
+            {"label": "A", "text": "les effets de la dérive génétique sont d'autant plus marqués que la population ciblée par la dérive génétique est grande."},
+            {"label": "B", "text": "les effets de la dérive génétique sont d'autant plus marqués au sein d'une population ayant subi un goulot d'étranglement."},
+            {"label": "C", "text": "la dérive génétique ne peut pas agir en même temps que la sélection naturelle."},
+            {"label": "D", "text": "la dérive génétique accroit la diversité génétique au sein d'une population donnée."},
+            {"label": "E", "text": "la dérive génétique est liée à des phénomènes déterministes c'est-à-dire non-aléatoires."}
+          ]
+        },
+        {
+          "question_number": "Q9",
+          "text": "Parmi les suggestions suivantes, il y a deux suggestions vraies concernant la reconnaissance de l'antigène :",
+          "stimulus_list": [
+            {"number": 1, "text": "LB reconnaît le déterminant antigénique après sa présentation par les CPA à travers le CMH-I."},
+            {"number": 2, "text": "LT4 reconnaît le déterminant antigénique après sa présentation par les CPA à travers le CMH-II."},
+            {"number": 3, "text": "LT8 reconnaît le déterminant antigénique après sa présentation par les CPA à travers le CMH-II."},
+            {"number": 4, "text": "LT4 reconnaît le déterminant antigénique après sa présentation par les CPA à travers le CMH-I."},
+            {"number": 5, "text": "LT8 reconnaît le déterminant antigénique après sa présentation par les CPA à travers le CMH-I."}
+          ],
+          "follow_up_question": "Les deux suggestions vraies sont :",
+          "options": [
+            {"label": "A", "text": "1 et 3."},
+            {"label": "B", "text": "3 et 4."},
+            {"label": "C", "text": "4 et 5."},
+            {"label": "D", "text": "1 et 5."},
+            {"label": "E", "text": "2 et 5."}
+          ]
+        },
+        {
+          "question_number": "Q10",
+          "text": "Dans la réponse allergique la phase de sensibilisation est liée à l'activation de :",
+          "options": [
+            {"label": "A", "text": "LT8 qui se transforme en LTc secrétant la perforine et les granzymes qui détruisent les cellules dendritiques."},
+            {"label": "B", "text": "LB qui se transforment en plasmocytes secrétant les IgE qui se fixent sur les mastocytes."},
+            {"label": "C", "text": "LB qui se transforment en plasmocytes secrétant les IgE qui se fixent sur les cellules dendritiques."},
+            {"label": "D", "text": "LT8 qui se transforme en LTc secrétant la perforine et les granzymes qui détruisent les mastocytes."},
+            {"label": "E", "text": "LB qui se transforment en plasmocytes secrétant les IgG qui se fixent sur les cellules dendritiques."}
+          ]
+        },
+        {
+          "question_number": "Q11",
+          "stimulus": "On a mesuré la variation de la concentration d'ATP, de phosphocréatine au niveau du muscle et la concentration d'acide lactique dans le sang d'un sprinteur au cours d'un échauffement et d'une course de 10s environ. Le document ci-contre présente les résultats obtenus.",
+          "image_description": "Graphique montrant l'évolution de la concentration de Phosphocréatine, ATP (axe Y gauche, mmol.L⁻¹) et Acide lactique (axe Y droit, mmol.L⁻¹) en fonction de la distance parcourue (m, axe X) pendant un échauffement et une course.",
+          "data_labels_from_image": ["Phosphocréatine", "ATP", "Acide lactique"],
+          "text": "À partir des données du document et des connaissances, on peut déduire que la régénération de l'ATP chez le sprinteur est assurée essentiellement par la voie de :",
+          "options": [
+            {"label": "A", "text": "phosphocréatine lors de l'échauffement et par la voie de fermentation lactique lors de la course. Ces deux voies se déroulent au niveau du hyaloplasme."},
+            {"label": "B", "text": "phosphocréatine lors de l'échauffement et par la voie de fermentation lactique lors de la course. Ces deux voies se déroulent au niveau de la matrice."},
+            {"label": "C", "text": "fermentation lactique, au niveau du hyaloplasme, lors de l'échauffement et par la voie de phosphocréatine, au niveau de la matrice, lors de la course."},
+            {"label": "D", "text": "phosphocréatine, au niveau du hyaloplasme, lors de l'échauffement et par la voie de fermentation lactique, au niveau de la matrice, lors de la course."},
+            {"label": "E", "text": "phosphocréatine, au niveau de la matrice, lors de l'échauffement et par la voie de fermentation lactique, au niveau du hyaloplasme, lors de la course."}
+          ]
+        },
+        {
+          "question_number": "Q12",
+          "stimulus": "Le tableau suivant présente les composantes de la chaîne respiratoire au niveau de la mitochondrie avec les valeurs de potentiel d'oxydoréduction de chaque composante.",
+          "data": {
+            "type": "table",
+            "headers": ["Les composantes de la chaîne respiratoire", "Le potentiel d'oxydoréduction (mV)"],
+            "rows": [
+              ["Flavine mononucléotide", -300],
+              ["Cytochrome a3", "+385"],
+              ["Ubiquinone", "+2"],
+              ["Cytochrome b", "+30"],
+              ["Cytochrome a", "+310"],
+              ["Cytochrome c", "+235"],
+              ["Cytochrome c1", "+225"]
+            ]
+          },
+          "text": "Le sens de déplacement des électrons du NADH, H+ vers le dioxygène le long de quatre composantes de cette chaîne respiratoire est le suivant :",
+          "options": [
+            {"label": "A", "text": "Cytochrome a3 → Cytochrome a→ Cytochrome b→ Flavine mononucléotide."},
+            {"label": "B", "text": "Ubiquinone → Cytochrome b→ Cytochrome a → Cytochrome a3."},
+            {"label": "C", "text": "Flavine mononucleotide→ Cytochrome c→ Cytochrome c1 → Cytochrome a3."},
+            {"label": "D", "text": "Ubiquinone → Cytochrome b→ Cytochrome a3 → Cytochrome a."},
+            {"label": "E", "text": "Cytochrome a3 → Cytochrome a → Cytochrome c→ Cytochrome c1."}
+          ]
+        },
+        {
+          "question_number": "Q13",
+          "stimulus": "Le croisement d'un lapin gris à poils longs avec une lapine blanche à poils courts donne à la première génération F₁ des lapereaux tachetés à poils longs. On croise ensuite les individus de la première génération entre eux, on obtient une deuxième génération F2.",
+          "text": "Sachant que les deux gènes étudiés sont indépendants, les proportions des phénotypes obtenus à la génération $F_{2}$ sont :",
+          "options": [
+            {"label": "A", "text": "gris long: $9/16$; gris court: $3/16$; blanc long: $3/16$; blanc court: $1/16$."},
+            {"label": "B", "text": "blanc long: $9/16$; blanc court: $3/16$; gris long: $3/16$; gris court: $1/16$."},
+            {"label": "C", "text": "tacheté long: $6/16$; gris long: $3/16$; blanc long: $3/16$; tacheté court: $2/16$; gris court: $1/16$; blanc court: $1/16$."},
+            {"label": "D", "text": "tacheté long: $6/16$; gris long: $3/16$; blanc court: $3/16$; tacheté court: $2/16$; gris court: $1/16$; blanc long: $1/16$."},
+            {"label": "E", "text": "tacheté long: $6/16$; gris court: $3/16$; blanc long: $3/16$; tacheté court: $2/16$; gris long: $1/16$; blanc court: $1/16$."}
+          ]
+        },
+        {
+          "question_number": "Q14",
+          "stimulus": "X, Y et Z sont trois gènes de la drosophile. Les fréquences de recombinaison pour deux de ces trois gènes sont indiquées ci-dessous.",
+          "data": {
+            "type": "table",
+            "headers": ["Paire de gène", "La fréquence des recombinaisons"],
+            "rows": [
+              ["X-Y", "50%"],
+              ["X-Z", "25%"],
+              ["Y-Z", "50%"]
+            ]
+          },
+          "text": "La fréquence des recombinaisons signifie que:",
+          "options": [
+            {"label": "A", "text": "les gènes X, Y et Z sont portés par le même chromosome."},
+            {"label": "B", "text": "les gènes X, Y et Z sont portés par des chromosomes différents."},
+            {"label": "C", "text": "les gènes X et Y sont portés par le même chromosome et Z est porté par un chromosome différent."},
+            {"label": "D", "text": "les gènes Y et Z sont portés par le même chromosome et X est porté par un chromosome différent."},
+            {"label": "E", "text": "les gènes X et Z sont portés par le même chromosome et Y est porté par un chromosome différent."}
+          ]
+        },
+        {
+          "question_number": "Q15",
+          "stimulus": "Dans l'ADN de l'oursin qui est à double brin, 17% des bases se sont révélées être de la cytosine (C).",
+          "text": "Les pourcentages des trois autres bases censées être présente dans cette ADN sont les suivants :",
+          "options": [
+            {"label": "A", "text": "G:34%; A: 24.5%; T: 24.5%"},
+            {"label": "B", "text": "G:17%; A: 16.5%; T: 32.5%"},
+            {"label": "C", "text": "G:17%; A: 33%; T: 33%"},
+            {"label": "D", "text": "G: 8.5%; A: 50%; T: 24.5%"},
+            {"label": "E", "text": "G: 24%; A: 50%; T: 34%"}
+          ]
+        },
+        {
+          "question_number": "Q16",
+          "stimulus": "Un allèle récessif sur le chromosome X est responsable du daltonisme rouge-vert chez l'Homme. Une femme ayant une vision normale et dont le père est daltonien se marie avec un homme daltonien.",
+          "text": "La probabilité pour que ce couple donne naissance à une fille et que cette fille soit daltonienne est :",
+          "options": [
+            {"label": "A", "text": "0"},
+            {"label": "B", "text": "$1/4$"},
+            {"label": "C", "text": "$1/2$"},
+            {"label": "D", "text": "$3/4$"},
+            {"label": "E", "text": "1"}
+          ]
+        },
+        {
+          "question_number": "Q17",
+          "stimulus": "La fourrure du mutant yellow [Y] de la souris est jaune. Le type sauvage est dit type agouti [+]. Afin de déterminer le mode de transmission de ce caractère, on propose les deux croisements suivants:\nCroisement 1: entre une souris [Y] et une souris [+], on obtient une descendance constituée de $1/2$ $[Y]$ et $1/2$ [+].\nCroisement 2: entre deux souris [Y], on obtient une descendance constituée de $2/3$ [Y] et $1/3$ [+].",
+          "text": "Si l'on croise un individu [Y] issu du croisement 2 avec une souris [+], la descendance sera constituée d'individus avec les rapports suivants :",
+          "options": [
+            {"label": "A", "text": "$1/4$ yellow; $3/4$ agouti."},
+            {"label": "B", "text": "$1/3$ yellow; $2/3$ agouti."},
+            {"label": "C", "text": "$3/4$ yellow; $1/4$ agouti."},
+            {"label": "D", "text": "$1/2$ yellow; $1/2$ agouti."},
+            {"label": "E", "text": "$2/3$ yellow; $1/3$ agouti."}
+          ]
+        },
+        {
+          "question_number": "Q18",
+          "stimulus": "le Phénylthiocarbamide (PTC), a un goût très amer pour certaines personnes et aucun goût pour d'autres. Dans une population, soumise à la loi de Hardy Weinberg, on a 70% des individus sensibles au goût amer du PTC. Sachant que la sensibilité à la PTC est liée à un allèle dominant S et l'insensibilité à cette substance est liée à l'allèle récessif s.",
+          "data": {
+            "given_values": [
+    "\\sqrt{0,20}=0,45",
+    "\\sqrt{0,30}=0,55",
+    "\\sqrt{0,70}=0,83"
+]
+,
+            "remark": "on a considéré deux chiffres après la virgule."
+          },
+          "text": "Quelles sont les fréquences des allèles et des génotypes dans cette population?",
+          "options": [
+            {"label": "A", "text": "$f(s)=0.55$; $f(S)=0.45$; $f(ss)=0.30$; $f(Ss)=0.49$; $f(SS)=0.20.$"},
+            {"label": "B", "text": "$f(s)=0.55$; $f(S)=0.45$; $f(ss)=0.30$; $f(Ss)=0.20$; $f(SS)=0.49.$"},
+            {"label": "C", "text": "$f(s)=0.83$; $f(S)=0.17$; $f(ss)=0.70$; $f(Ss)=0.44$; $f(SS)=0.07.$"},
+            {"label": "D", "text": "$f(s)=0.70$; $f(S)=0.30$; $f(ss)=0.30$; $f(Ss)=0.20$; $f(SS)=0.50.$"},
+            {"label": "E", "text": "$f(s)=0.55$; $f(S)=0.45$; $f(ss)=0.30$; $f(Ss)=0.68$; $f(SS)=0.02.$"}
+          ]
+        },
+        {
+          "question_number": "Q19",
+          "stimulus": "Un laboratoire d'analyses effectue la réaction immunitaire suivante : 1ère étape: sur une lame de verre, on dépose une goutte de sérum dans chacune des cases : case 1: sérum d'un animal atteint de la mononucléose infectieuse. case 2: sérum d'un animal non atteint. case 3: sérum de monsieur A. 2ème étape: on ajoute dans chacune de ces cases la même quantité d'hématies de cheval infectées par le virus de la mononucléose et présentant des antigènes du virus à leur surface. 3ème étape: on observe la lame afin de rechercher si les hématies de cheval ont été agglutinées par des anticorps du sérum. L'agglutination correspond à la formation de complexes immuns.",
+          "data": {
+            "type": "results",
+            "observations": [
+              {"case": 1, "result": "Hématies agglutinées"},
+              {"case": 2, "result": "Hématies non agglutinées"},
+              {"case": 3, "result": "Hématies agglutinées"}
+            ]
+          },
+          "text": "À partir des résultats précédents, on peut dire que :",
+          "options": [
+            {"label": "A", "text": "l'agglutination des hématies de cheval dans la case 3 résulte d'une réaction immunitaire dont les cellules effectrices sont les lymphocytes T cytotoxiques."},
+            {"label": "B", "text": "les hématies de cheval dans la case 3 ont été agglutinées suite à la fixation des antigènes du virus de la mononucléose par des anticorps spécifiques."},
+            {"label": "C", "text": "monsieur A n'est pas atteint de mononucléose car son sérum réagit différemment du sérum de l'animal dans la case 2."},
+            {"label": "D", "text": "dans le sérum de monsieur A, l'agglutination des hématies de cheval montre que ce monsieur n'est pas atteint de mononucléose."},
+            {"label": "E", "text": "monsieur A n'est pas atteint de mononucléose car son sérum réagit de la même façon que le sérum de l'animal dans la case 1."}
+          ]
+        },
+        {
+          "question_number": "Q20",
+          "stimulus": "Le document ci-contre présente la réponse immunitaire contre le VIH.",
+          "image_description": "Graphique montrant l'évolution du Nombre en UA (Unités Arbitraires) des Lymphocytes T8, de la Charge virale et des Lymphocytes T4 en fonction du temps (Semaines, 1 à 2 ans, années).",
+          "text": "Parmi les suggestions suivantes, il y a deux suggestions vraies concernant l'analyse de ce graphique :",
+          "stimulus_list": [
+            {"number": 1, "text": "L'augmentation du nombre de LT8 est la conséquence d'une immunité humorale."},
+            {"number": 2, "text": "Les LT8 sont des LTc détruisant les LT4 infectés."},
+            {"number": 3, "text": "Le VIH reste présent et inactif car le nombre de LT8 reste important."},
+            {"number": 4, "text": "La diminution du nombre de LT8 est la conséquence d'une immunodéficience."}
+          ],
+          "follow_up_question": "Les deux suggestions vraies sont :",
+          "options": [
+            {"label": "A", "text": "1 et 2."},
+            {"label": "B", "text": "1 et 4."},
+            {"label": "C", "text": "1 et 3."},
+            {"label": "D", "text": "3 et 4."},
+            {"label": "E", "text": "2 et 4."}
+          ]
+        }
+      ]
+    },
+    {
+      "component_name": "Physique",
+      "coefficient": 1,
+      "questions": [
+        {
+          "exercise_title": "Ondes à la surface de l'eau",
+          "question_number": "Q21",
+          "stimulus": "Sur la surface de l'eau contenue dans une cuve à onde, on crée à l'instant $t_{0}=0$, une onde progressive sinusoïdale de fréquence N, en un point S, à l'aide d'une pointe liée à un vibreur. Cette onde se propage sans amortissement et sans réflexion avec une vitesse constante. Le document ci-dessous représente une section de la surface de l'eau suivant un plan vertical passant par le point S à un instant $t_{1}$. L'élongation de la source est $y_{s}(t)=10^{-2}.sin(100.\\pi.t)$ (m).",
+          "image_description": "Diagramme d'une onde sinusoïdale à la surface de l'eau issue d'une source S. Un segment AB est indiqué sur l'onde, correspondant à 2.5 longueurs d'onde.",
+          "data": {
+            "frequency_N": "50 Hz",
+            "AB_distance": "10 cm",
+            "source_elongation_equation": "$y_{s}(t)=10^{-2}.sin(100.\\pi.t)$ (m)"
+          },
+          "text": "La valeur de l'instant $t_{1}$ est:",
+          "options": [
+            {"label": "A", "text": "$t_{1}=0,6ms$"},
+            {"label": "B", "text": "$t_{1}=14ms$"},
+            {"label": "C", "text": "$t_{1}=21ms$"},
+            {"label": "D", "text": "$t_{1}=50~ms$"},
+            {"label": "E", "text": "$t_{1}=100~ms$"}
+          ]
+        },
+        {
+          "exercise_title": "Ondes à la surface de l'eau",
+          "question_number": "Q22",
+          "stimulus": "On considère un point P de la surface de l'eau. $\\dot{A}$ l'instant t, P appartient à la crête numéro 4.",
+           "data": {
+            "frequency_N": "50 Hz",
+            "source_elongation_equation": "$y_{s}(t)=10^{-2}.sin(100.\\pi.t)$ (m)",
+            "context": "Référence au diagramme de Q21 où $\\\\lambda = AB/2.5 = 10cm/2.5 = 4cm$."
+          },
+          "text": "L'élongation du point P à l'instant t est:",
+          "options": [
+            {"label": "A", "text": "$y_{p}(t)=10^{-2}.sin(100.\\pi.t)$"},
+            {"label": "B", "text": "$y_{p}(t)=10^{-2}.sin(100.\\pi.t-\\frac{\\pi}{2})$"},
+            {"label": "C", "text": "$y_{P}(t)=10^{-2}.sin(100.\\pi.t+\\frac{\\pi}{2})$"},
+            {"label": "D", "text": "$y_{P}(t)=10^{-2}.sin(100.t)$"},
+            {"label": "E", "text": "$y_{P}(t)=10^{-2}.sin(100.\\pi~t-\\pi)$"}
+          ]
+        },
+        {
+          "exercise_title": "Diffraction de la lumière par une fente",
+          "question_number": "Q23_Context",
+          "stimulus": "On réalise la diffraction de la lumière en utilisant le dispositif ci-contre. On réalise dans l'air, quatre expériences en utilisant deux lasers produisant deux radiations de longueurs d'onde respectives $\\lambda_{1}$ et $\\lambda_{2}$. Pour différentes valeurs de la largeur a de la fente, on obtient les résultats indiqués dans le tableau ci-dessous.",
+          "image_description": "Schéma d'un dispositif de diffraction: une source laser éclaire une fente de largeur 'a'. Un écran est placé à une distance D de la fente. La largeur de la tache centrale L est mesurée sur l'écran.",
+          "data": {
+            "type": "table",
+            "description": "Tableau des résultats de 4 expériences de diffraction.",
+            "columns": ["Expérience", "Longueur d'onde", "Largeur de la fente", "Distance à l'écran", "Largeur de la tache centrale", "Ecart angulaire de diffraction"],
+            "rows": [
+              ["1", "$\\lambda_{1}$", "$a_{1}=a$", "D", "$L_{1}=3,2~cm$", "$\\theta_{1}=10^{-2}rad$"],
+              ["2", "$\\lambda_{2}=632,8~nm$", "$a_{2}=a$", "D", "$L_{2}=5,0$ cm", "$\\theta_{2}$"],
+              ["3", "$\\lambda_{2}=632,8~nm$", "$a_{3}=\\frac{a}{2}$", "D", "$L_{3}=2.L_{2}$", "$\\theta_{3}$"],
+              ["4", "$\\lambda_{2}=632,8~nm$", "$a_{4}=2a$", "D", "$L_{4}=\\frac{L_{2}}{2}$", "$\\theta_{4}$"]
+            ],
+            "additional_data_for_Q23": "$tan \\theta \\approx \\theta (rad.)$ ; $632,8 \\times 3,2 = 2.10^3$"
+          },
+          "text": "La valeur de la largeur de la fente est :",
+           "options": [
+            {"label": "A", "text": "$a=10~\\mu m$"},
+            {"label": "B", "text": "$a=25~\\mu m$"},
+            {"label": "C", "text": "$a=40~\\mu m$"},
+            {"label": "D", "text": "$a=65~\\mu m$"},
+            {"label": "E", "text": "$a=100~\\mu m$"}
+          ],
+          "question_reference": "Q23"
+        },
+        {
+          "exercise_title": "Diffraction de la lumière par une fente",
+          "question_number": "Q24",
+          "stimulus": "Référence aux données de l'exercice de diffraction (Q23_Context).",
+          "text": "Les écarts angulaires de diffraction dans les quatre expériences sont tels que :",
+          "options": [
+            {"label": "A", "text": "$\\theta_1 > \\theta_2 > \\theta_3 > \\theta_4$"},
+            {"label": "B", "text": "$\\theta_4 > \\theta_2 > \\theta_1 > \\theta_3$"},
+            {"label": "C", "text": "$\\theta_3 > \\theta_2 > \\theta_1 > \\theta_4$"},
+            {"label": "D", "text": "$\\theta_3 > \\theta_1 > \\theta_2 > \\theta_4$"},
+            {"label": "E", "text": "$\\theta_2 > \\theta_3 > \\theta_4 > \\theta_1$"}
+          ]
+        },
+        {
+          "exercise_title": "Désintégration du thorium $^{230}_{90}Th$",
+          "question_number": "Q25",
+          "stimulus": "Le noyau de thorium $^{230}_{90}Th$ subit une série de désintégrations successives de types $\\alpha$ et $\\beta^-$ qui conduisent à la formation du noyau de plomb $^{A}_{Z}Pb$, stable. L'équation globale des désintégrations subie par le thorium s'écrit: $^{230}_{90}Th \\rightarrow ^{A}_{Z}Pb + x.\\alpha + y.\\beta^-$. On dispose d'un échantillon contenant $N_0$ noyaux de thorium à l'instant $t_0=0$. L'échantillon contient à un instant $t_1$ après une série de désintégrations $0,25~mmol$ de thorium $^{230}_{90}Th$ et $0,75~mmol$ de plomb $^{210}_{82}Pb$.",
+          "data": {
+            "constante_radioactivite_thorium": "$\\lambda = 8,7.10^{-6} ans^{-1}$",
+            "ln2": "0,7"
+          },
+          "text": "Les valeurs de x et y sont :",
+          "options": [
+            {"label": "A", "text": "$x=6, y=4$"},
+            {"label": "B", "text": "$x=4, y=2$"},
+            {"label": "C", "text": "$x=2, y=4$"},
+            {"label": "D", "text": "$x=4, y=6$"},
+            {"label": "E", "text": "$x=6, y=2$"}
+          ]
+        },
+        {
+          "exercise_title": "Désintégration du thorium $^{230}_{90}Th$",
+          "question_number": "Q26",
+          "stimulus": "Référence aux données de l'exercice de désintégration du thorium (Q25).",
+           "data": {
+            "constante_radioactivite_thorium": "$\\lambda = 8,7.10^{-6} ans^{-1}$",
+            "ln2": "0,7"
+          },
+          "text": "La valeur de la demi-vie du thorium est :",
+          "options": [
+            {"label": "A", "text": "$t_{1/2} = 1,4.10^4 ans$"},
+            {"label": "B", "text": "$t_{1/2} = 5,5.10^4 ans$"},
+            {"label": "C", "text": "$t_{1/2} = 8,0.10^4 ans$"},
+            {"label": "D", "text": "$t_{1/2} = 4,10^5 ans$"},
+            {"label": "E", "text": "$t_{1/2} = 8.10^5 ans$"}
+          ]
+        },
+        {
+          "exercise_title": "Désintégration du thorium $^{230}_{90}Th$",
+          "question_number": "Q27",
+          "stimulus": "Référence aux données de l'exercice de désintégration du thorium (Q25). L'échantillon contient à un instant $t_1$ après une série de désintégrations $0,25~mmol$ de thorium $^{230}_{90}Th$ et $0,75~mmol$ de plomb $^{210}_{82}Pb$.",
+           "data": {
+            "constante_radioactivite_thorium": "$\\lambda = 8,7.10^{-6} ans^{-1}$",
+            "ln2": "0,7"
+          },
+          "text": "L'âge de l'échantillon est :",
+          "options": [
+            {"label": "A", "text": "$t_1 = 2,7.10^5 ans$"},
+            {"label": "B", "text": "$t_1 = 1,6.10^5 ans$"},
+            {"label": "C", "text": "$t_1 = 2,2.10^5 ans$"},
+            {"label": "D", "text": "$t_1 = 2,4.10^5 ans$"},
+            {"label": "E", "text": "$t_1 = 1,4.10^5 ans$"}
+          ]
+        },
+        {
+            "exercise_title": "Circuit RC",
+            "question_number": "Q28",
+            "stimulus": "On considère le montage schématisé sur la figure suivante. À l'instant $t_0=0$, on place l'interrupteur K en position (1). Un système d'acquisition donne l'expression numérique de l'intensité du courant qui circule dans le circuit : $i(t) = 0.10^{-3}.e^{-\\frac{1000}{35}t}$ (A).",
+            "image_description": "Circuit RC série avec un générateur de tension E, un interrupteur K (positions 1 et 2), un condensateur C et une résistance R. En position 1, le circuit est E-C-R. En position 2, le condensateur se décharge dans R.",
+            "data": {
+                "E": "6,0V",
+                "R_conducteur_ohmique": "$0,95 k\\Omega$"
+            },
+            "text": "Les valeurs de la résistance r et de la capacité C sont :",
+            "options": [
+                {"label": "A", "text": "$r=50~\\Omega$, $C=10~\\mu F$"},
+                {"label": "B", "text": "$r=20~\\Omega$, $C=33~\\mu F$"},
+                {"label": "C", "text": "$r=10~\\Omega$, $C=55~\\mu F$"},
+                {"label": "D", "text": "$r=50~\\Omega$, $C=33~\\mu F$"},
+                {"label": "E", "text": "$r=50~\\Omega$, $C=75~\\mu F$"}
+            ]
+        },
+        {
+            "exercise_title": "Circuit RC",
+            "question_number": "Q29",
+             "stimulus": "Référence aux données de l'exercice Circuit RC (Q28).",
+            "data": {
+                "E": "6,0V",
+                "R_conducteur_ohmique": "$0,95 k\\Omega$",
+                "valeurs_deduites_Q28": "Supposons $r=50~\\Omega, C=33~\\mu F$ (option D de Q28 comme exemple)"
+            },
+            "text": "La valeur de l'énergie $\\mathcal{E}_e$ emmagasinée dans le condensateur quand $u_C = 75\\%.E$ est :",
+            "options": [
+                {"label": "A", "text": "$\\mathcal{E}_e = 0,33 mJ$"},
+                {"label": "B", "text": "$\\mathcal{E}_e = 2,64 mJ$"},
+                {"label": "C", "text": "$\\mathcal{E}_e = 5,02 mJ$"},
+                {"label": "D", "text": "$\\mathcal{E}_e = 8,65 mJ$"},
+                {"label": "E", "text": "$\\mathcal{E}_e = 9,27 mJ$"}
+            ]
+        },
+        {
+            "exercise_title": "Circuit RC",
+            "question_number": "Q30",
+            "stimulus": "Lorsque le condensateur devient totalement chargé, on bascule K en position (2) à un instant pris comme nouvelle origine des dates ($t_0=0$).",
+            "data": {
+                 "E": "6,0V",
+                 "R_conducteur_ohmique": "$0,95 k\\Omega$",
+                 "valeurs_deduites_Q28": "Supposons $r=50~\\Omega, C=33~\\mu F$"
+            },
+            "text": "L'expression numérique de la tension aux bornes du condensateur est :",
+            "options": [
+                {"label": "A", "text": "$u_C(t) = 6.e^{-\\frac{1000}{31,35}t}$"},
+                {"label": "B", "text": "$u_C(t) = 6.(1-e^{-\\frac{1000}{31,35}t})$"},
+                {"label": "C", "text": "$u_C(t) = 6.e^{-\\frac{1000}{33}t}$"},
+                {"label": "D", "text": "$u_C(t) = 4.(1-e^{-\\frac{1000}{31,35}t})$"},
+                {"label": "E", "text": "$u_C(t) = 6.e^{-\\frac{1000}{25}t}$"}
+            ]
+        },
+        {
+            "exercise_title": "Circuit RC",
+            "question_number": "Q31",
+            "stimulus": "Référence à la décharge du condensateur (Q30).",
+             "data": {
+                 "E": "6,0V",
+                 "R_conducteur_ohmique": "$0,95 k\\Omega$",
+                 "valeurs_deduites_Q28": "Supposons $r=50~\\Omega, C=33~\\mu F$"
+            },
+            "text": "La valeur de la tension aux bornes du conducteur ohmique de résistance R à $t_0=0$ est :",
+            "options": [
+                {"label": "A", "text": "$u_R = 6V$"},
+                {"label": "B", "text": "$u_R = -6V$"},
+                {"label": "C", "text": "$u_R = 0$"},
+                {"label": "D", "text": "$u_R = 4,5V$"},
+                {"label": "E", "text": "$u_R = -4,5V$"}
+            ]
+        },
+        {
+            "exercise_title": "Circuit RL",
+            "question_number": "Q32",
+            "stimulus": "On réalise un circuit électrique série comportant une bobine d'inductance L et de résistance r, un conducteur ohmique de résistance $R=50~\\Omega$, un générateur de tension de f.é.m E et un interrupteur K. À l'instant $t_0=0$, on ferme K. Un système d'acquisition donne l'évolution de la tension $u_R(t)$ aux bornes du conducteur ohmique et l'énergie magnétique $\\mathcal{E}_m(t)$ emmagasinée dans la bobine (voir document suivant).",
+            "image_description": "Document suivant (non fourni ici, mais typiquement un graphique de $u_R(t)$ et/ou $\\mathcal{E}_m(t)$). Un graphique de $u_R(V)$ en fonction de $t(ms)$ est visible sur la page 13, montrant une courbe exponentielle décroissante partant de $u_R(0)=5V$ et tendant vers $2V$. L'échelle de temps va jusqu'à $5ms$.",
+            "text": "L'équation différentielle vérifiée par l'intensité du courant qui traverse le circuit est :",
+            "options": [
+                {"label": "A", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = \\frac{E}{L}$"},
+                {"label": "B", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = \\frac{E}{L}$"},
+                {"label": "C", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = 0$"},
+                {"label": "D", "text": "$\\frac{di}{dt} - \\frac{R+r}{L}.i = \\frac{E}{L}$"},
+                {"label": "E", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = 0$"}
+            ]
+        },
+        {
+            "exercise_title": "Circuit RL",
+            "question_number": "Q33",
+            "stimulus": "Référence aux données de l'exercice Circuit RL (Q32) et au graphique de $u_R(t)$. D'après le graphique, $u_R(0)=5V$ et $u_R(\\infty)=2V$. $R=50~\\Omega$.",
+            "text": "La valeur de la f.é.m est :",
+            "options": [
+                {"label": "A", "text": "$E=4,5~V$"},
+                {"label": "B", "text": "$E=6~V$"},
+                {"label": "C", "text": "$E=10~V$"},
+                {"label": "D", "text": "$E=12~V$"},
+                {"label": "E", "text": "$E=24~V$"}
+            ]
+        },
+        {
+            "exercise_title": "Circuit RL",
+            "question_number": "Q34",
+            "stimulus": "Référence aux données de l'exercice Circuit RL (Q32) et au graphique de $u_R(t)$. Le graphique montre aussi que la tension $u_R(t)$ atteint environ $ (5-2)e^{-1}+2 \\approx 3.1V $ pour $t \\approx 2ms $, ce qui suggère $\\tau \\approx 2ms$.",
+            "text": "Les valeurs des caractéristiques de la bobine sont :",
+            "options": [
+                {"label": "A", "text": "$r=10~\\Omega ; L=0,2~H$"},
+                {"label": "B", "text": "$r=10~\\Omega ; L=0,3~H$"},
+                {"label": "C", "text": "$r=8~\\Omega ; L=0,3~H$"},
+                {"label": "D", "text": "$r=8~\\Omega ; L=0,4~H$"},
+                {"label": "E", "text": "$r=4~\\Omega ; L=0,4~H$"}
+            ]
+        },
+        {
+            "exercise_title": "Mouvement d'un skieur",
+            "question_number": "Q35",
+            "stimulus": "Un skieur de masse m désire franchir l'espace entre deux tremplins symétriques ABJ et CDJ (figure ci-dessous). Pour cela, il aborde le premier tremplin en A avec une vitesse $v_A$ tangente à (AB). Tous les frottements sont négligeables au cours de son mouvement.",
+            "image_description": "Schéma d'un saut à ski. Point A en bas à gauche, tremplin AB montant, saut de B à C, tremplin CD descendant. Point I sous B, point J sous C. Angle $\\alpha$ à la base du tremplin AB.",
+            "data": {
+                "g": "$10~m.s^{-2}$",
+                "v_A": "$20~m.s^{-1}$",
+                "alpha": "$30°$",
+                "sin60": "0,866",
+                "BI": "$h = 10~m$"
+            },
+            "text": "La valeur de la vitesse du skieur en B est :",
+            "options": [
+                {"label": "A", "text": "$v_B = 8,2~m.s^{-1}$"},
+                {"label": "B", "text": "$v_B = 10,1~m.s^{-1}$"},
+                {"label": "C", "text": "$v_B = 12,4~m.s^{-1}$"},
+                {"label": "D", "text": "$v_B = 14,1~m.s^{-1}$"},
+                {"label": "E", "text": "$v_B = 18,2~m.s^{-1}$"}
+            ]
+        },
+        {
+            "exercise_title": "Mouvement d'un skieur",
+            "question_number": "Q36",
+            "stimulus": "Le skieur chute sur le deuxième tremplin dans la position C avec une vitesse $v_C$ tangente à (CD). Le mouvement est étudié dans le repère $(O, \\vec{i}, \\vec{j})$ supposé galiléen.",
+             "data": {
+                "g": "$10~m.s^{-2}$",
+                "v_A": "$20~m.s^{-1}$",
+                "alpha": "$30°$",
+                "sin60": "0,866",
+                "BI": "$h = 10~m$",
+                "Distances_options": ["$BC=7,2~m$", "$BC=10,5~m$", "$BC=13,2~m$", "$BC=17,3~m$", "$BC=28,6~m$"]
+            },
+            "text": "La valeur de la distance BC entre les deux tremplins est :",
+            "options": [
+                {"label": "A", "text": "$BC=7,2~m$"},
+                {"label": "B", "text": "$BC=10,5~m$"},
+                {"label": "C", "text": "$BC=13,2~m$"},
+                {"label": "D", "text": "$BC=17,3~m$"},
+                {"label": "E", "text": "$BC=28,6~m$"}
+            ]
+        },
+        {
+            "exercise_title": "Mouvement d'un skieur",
+            "question_number": "Q37",
+            "stimulus": "Référence à l'exercice du skieur (Q35, Q36). On cherche l'ordonnée du sommet S de la trajectoire parabolique entre B et C.",
+            "text": "L'expression de l'ordonnée du sommet S de la trajectoire du skieur est :",
+            "options": [
+                {"label": "A", "text": "$y_S = \\frac{v_B^2 \\sin^2 \\alpha}{2g}$"},
+                {"label": "B", "text": "$y_S = h - \\frac{v_B^2 \\sin^2 \\alpha}{2g}$"},
+                {"label": "C", "text": "$y_S = \\frac{v_B^2 \\sin^2 \\alpha}{2g} + h$"},
+                {"label": "D", "text": "$y_S = h - \\frac{v_B^2 \\sin \\alpha}{g}$"},
+                {"label": "E", "text": "$y_S = \\frac{v_B^2 \\sin \\alpha}{2g} + h$"}
+            ]
+        },
+        {
+            "exercise_title": "Oscillateur mécanique",
+            "question_number": "Q38",
+            "stimulus": "On considère l'oscillateur (solide (S) - ressort) représenté sur la figure. Le ressort est à spires non jointives, d'axe horizontal, de masse négligeable et de raideur K. On étudie le mouvement du centre d'inertie G du solide (S) de masse m dans un repère $(O,\\vec{i})$ lié à la Terre supposé galiléen. On écarte (S) de sa position d'équilibre et on l'abandonne sans vitesse initiale. A l'instant $t_0=0$, choisi comme origine des dates, l'abscisse de G est $x_{G0}=-2~cm$ et la coordonnée de sa vitesse dans le repère $(O,\\vec{i})$ est $v_{0x}=0~m.s^{-1}$. On choisit l'état où le ressort n'est pas déformé comme référence de l'énergie potentielle élastique $E_{pe}$ et le plan horizontal contenant G comme état de référence de l'énergie potentielle de pesanteur $E_{pp}$.",
+            "image_description": "Schéma d'un solide (S) attaché à un ressort horizontal, oscillant sur un axe x. O est la position d'équilibre.",
+            "data": {
+                "m": "100 g",
+                "K": "$10~N.m^{-1}$",
+                "frottements": "négligeables",
+                "x_G0": "-2 cm",
+                "v_0x": "$0~m.s^{-1}$"
+            },
+            "text": "La valeur de l'énergie mécanique de l'oscillateur est :",
+            "options": [
+                {"label": "A", "text": "$\\mathcal{E}_m = 20 mJ$"},
+                {"label": "B", "text": "$\\mathcal{E}_m = 15 mJ$"},
+                {"label": "C", "text": "$\\mathcal{E}_m = 12 mJ$"},
+                {"label": "D", "text": "$\\mathcal{E}_m = 7 mJ$"},
+                {"label": "E", "text": "$\\mathcal{E}_m = 4 mJ$"}
+            ]
+        },
+        {
+            "exercise_title": "Oscillateur mécanique",
+            "question_number": "Q39",
+            "stimulus": "Référence à l'exercice de l'oscillateur mécanique (Q38).",
+             "data": {
+                "m": "100 g = 0.1 kg",
+                "K": "$10~N.m^{-1}$",
+                "x_G0": "-2 cm = -0.02 m",
+                "v_0x": "$0~m.s^{-1}$"
+            },
+            "text": "L'expression numérique de l'équation horaire de mouvement du solide (S) en mètre (m) est :",
+            "options": [
+                {"label": "A", "text": "$x(t) = 2\\sqrt{2}.10^{-2}.\\cos(10.t - \\frac{5\\pi}{4})$"},
+                {"label": "B", "text": "$x(t) = 2.10^{-2}.\\cos(10.t - \\pi)$"},
+                {"label": "C", "text": "$x(t) = 2\\sqrt{2}.10^{-2}.\\cos(10.t + \\frac{5\\pi}{4})$"},
+                {"label": "D", "text": "$x(t) = \\sqrt{2}.10^{-2}.\\cos(10.t + \\pi)$"},
+                {"label": "E", "text": "$x(t) = 2.10^{-2}.\\cos(10.t + \\frac{\\pi}{2})$"}
+            ]
+        },
+        {
+            "exercise_title": "Oscillateur mécanique",
+            "question_number": "Q40",
+            "stimulus": "Référence à l'exercice de l'oscillateur mécanique (Q38).",
+            "data": {
+                "m": "0.1 kg",
+                "K": "$10~N.m^{-1}$",
+                "X_m": "$0.02 m$ (amplitude déduite de Q38 ou conditions initiales)"
+            },
+            "text": "La valeur de la vitesse de passage de G par la position d'équilibre dans le sens positif est :",
+            "options": [
+                {"label": "A", "text": "$v_{eq} = 2,82~m.s^{-1}$"},
+                {"label": "B", "text": "$v_{eq} = 1,78~m.s^{-1}$"},
+                {"label": "C", "text": "$v_{eq} = 1,20~m.s^{-1}$"},
+                {"label": "D", "text": "$v_{eq} = 0,52~m.s^{-1}$"},
+                {"label": "E", "text": "$v_{eq} = 0,28~m.s^{-1}$"}
+            ]
+        }
+      ]
+    },
+    {
+      "component_name": "Chimie",
+      "coefficient": 1,
+      "questions": [
+        {
+          "exercise_title": "Transformation chimique (suivi cinétique par conductimétrie)",
+          "question_number": "Q41",
+          "stimulus": "On verse dans un bécher le volume $V = 2,10^{-1} L$ d'une solution $(S_H)$ d'hydroxyde de sodium de concentration molaire $C_H = 10~mol.m^{-3}$, et l'on y ajoute, à l'instant $t_0=0$, une quantité de matière $n_E$ de méthanoate de méthyle égale à la quantité de matière $n_H$ d'hydroxyde de sodium dans la solution $(S_H)$. On suppose que le volume de la solution reste constant ($V = 2.10^{-1} L$). On modélise la transformation qui se produit dans le milieu réactionnel par l'équation chimique: $HCO_2C_2H_{5(aq)} + HO^{-}_{(aq)} \\rightarrow HCO^{-}_{2(aq)} + CH_3CH_2OH_{(aq)}$. La courbe de la figure ci-dessous représente les variations de la conductivité $\\sigma$ du mélange au cours du temps. L'expression de la conductivité $\\sigma$ à l'instant t est: $\\sigma = -72,8.x + 8,25$ (Sm$^{-1}$), avec x l'avancement de la réaction.",
+          "image_description": "Graphique de la conductivité $\\sigma (S.m^{-1})$ en fonction du temps $t (min)$. La conductivité diminue avec le temps.",
+          "data": {
+            "type": "table",
+            "description": "Conductivités molaires ioniques $\\lambda$ des ions présents dans le mélange réactionnel :",
+            "headers": ["Ion", "$\\lambda (mS.m^2.mol^{-1})$"],
+            "rows": [
+              ["$Na^+$", "5,01"],
+              ["$HO^-$", "19,9"],
+              ["$HCO_2^-$", "5,46"]
+            ],
+            "note": "On néglige l'effet des ions $H_3O^+$ sur la conductivité du mélange. $75+52=1,44$ (possiblement une coquille, ou un calcul intermédiaire non clair)"
+          },
+          "text": "La valeur de l'avancement maximal de la réaction est:",
+          "options": [
+            {"label": "A", "text": "$x_{max} = 2.10^{-3} mol$"},
+            {"label": "B", "text": "$x_{max} = 1.10^{-3} mol$"},
+            {"label": "C", "text": "$x_{max} = 2.10^{-2} mol$"},
+            {"label": "D", "text": "$x_{max} = 3.10^{-3} mol$"},
+            {"label": "E", "text": "$x_{max} = 1.10^{-2} mol$"}
+          ]
+        },
+        {
+          "exercise_title": "Transformation chimique (suivi cinétique par conductimétrie)",
+          "question_number": "Q42",
+          "stimulus": "Référence à l'exercice Q41 et au graphique $\\sigma(t)$.",
+          "text": "La valeur du temps de demi-réaction est:",
+          "options": [
+            {"label": "A", "text": "$t_{1/2} = 36~min$"},
+            {"label": "B", "text": "$t_{1/2} = 32~min$"},
+            {"label": "C", "text": "$t_{1/2} = 20~min$"},
+            {"label": "D", "text": "$t_{1/2} = 12~min$"},
+            {"label": "E", "text": "$t_{1/2} = 10~min$"}
+          ]
+        },
+        {
+          "exercise_title": "Transformation chimique (suivi cinétique par conductimétrie)",
+          "question_number": "Q43",
+          "stimulus": "Référence à l'exercice Q41. L'expression de la conductivité $\\sigma$ à l'instant t est: $\\sigma = -72,8.x + 8,25$ (Sm$^{-1}$).",
+          "text": "L'expression de la vitesse volumique de la réaction est :",
+          "options": [
+            {"label": "A", "text": "$v = -\\frac{1}{72,8V} \\frac{d\\sigma}{dt}$"},
+            {"label": "B", "text": "$v = \\frac{1}{72,8V} \\frac{d\\sigma}{dt}$"},
+            {"label": "C", "text": "$v = -\\frac{V}{72,8} \\frac{d\\sigma}{dt}$"},
+            {"label": "D", "text": "$v = -\\frac{1}{42V} \\frac{d\\sigma}{dt}$"},
+            {"label": "E", "text": "$v = -\\frac{1}{36V} \\frac{d\\sigma}{dt}$"}
+          ]
+        },
+        {
+          "exercise_title": "Transformation chimique (suivi cinétique par conductimétrie)",
+          "question_number": "Q44",
+          "stimulus": "Référence à l'exercice Q41 et au graphique $\\sigma(t)$. Il faut estimer la pente à $t_0=0$.",
+          "text": "La valeur de la vitesse volumique de la réaction à l'instant $t_0 = 0$ est :",
+          "options": [
+            {"label": "A", "text": "$v = 1,23~mol.m^{-3}.min^{-1}$"},
+            {"label": "B", "text": "$v = 0,82~mol.m^{-3}.min^{-1}$"},
+            {"label": "C", "text": "$v = 1,05~mol.m^{-3}.min^{-1}$"},
+            {"label": "D", "text": "$v = 0,52~mol.m^{-3}.min^{-1}$"},
+            {"label": "E", "text": "$v = 0,32~mol.m^{-3}.min^{-1}$"}
+          ]
+        },
+        {
+          "exercise_title": "Solution aqueuse d'acide éthanoïque",
+          "question_number": "Q45",
+          "stimulus": "Une solution aqueuse (S) d'acide éthanoïque de concentration molaire $C = 1.10^{-2} mol.L^{-1}$ a une conductivité $\\sigma = 5.2 mS.m^{-1}$.",
+          "data": {
+            "conductivites_molaires_ioniques": [
+                {"ion": "$H_3O^+$", "lambda": "$35.0~mS.m^2.mol^{-1}$"},
+                {"ion": "$CH_3COO^-$", "lambda": "$4.1~mS.m^2.mol^{-1}$"}
+            ],
+            "note": "On néglige l'effet des ions $HO^-$ sur la conductivité de la solution.",
+            "calculs_fournis": ["$52 : 391 = 0.133$", "$\\sqrt{0.02} = 0.133$ (coquille, $\\sqrt{0.000176...} \\approx 0.0133$)", "$4.36$"]
+          },
+          "text": "La valeur de la concentration molaire effective de l'ion oxonium en solution (S) est:",
+          "options": [
+            {"label": "A", "text": "$[H_3O^+] = 1,33.10^{-2} mol.L^{-1}$"},
+            {"label": "B", "text": "$[H_3O^+] = 1,33.10^{-3} mol.L^{-1}$"},
+            {"label": "C", "text": "$[H_3O^+] = 1,33.10^{-4} mol.L^{-1}$"},
+            {"label": "D", "text": "$[H_3O^+] = 1,33.10^{-5} mol.L^{-1}$"},
+            {"label": "E", "text": "$[H_3O^+] = 1,33.10^{-6} mol.L^{-1}$"}
+          ]
+        },
+        {
+          "exercise_title": "Solution aqueuse d'acide éthanoïque",
+          "question_number": "Q46",
+          "stimulus": "On dilue 10 fois la solution (S) pour obtenir une solution $(S_1)$ de concentration molaire $C_1$ et de $pH=3,37$.",
+          "text": "La valeur du taux d'avancement final de la réaction qui a eu lieu dans la solution $(S_1)$ est :",
+          "options": [
+            {"label": "A", "text": "$\\tau_1 = 0,133$"},
+            {"label": "B", "text": "$\\tau_1 = 0,013$"},
+            {"label": "C", "text": "$\\tau_1 = 0,042$"},
+            {"label": "D", "text": "$\\tau_1 = 0,426$"},
+            {"label": "E", "text": "$\\tau_1 = 0,260$"}
+          ]
+        },
+        {
+          "exercise_title": "Acide méthanoïque et eau",
+          "question_number": "Q47",
+          "stimulus": "Soit une solution aqueuse d'acide méthanoïque HCOOH de concentration molaire C.",
+          "text": "Le taux d'avancement final de la réaction entre l'acide méthanoïque et l'eau a pour expression :",
+          "options": [
+            {"label": "A", "text": "$\\tau = 1+10^{-pK_a+pH}$"},
+            {"label": "B", "text": "$\\tau = \\frac{1}{1+10^{pK_a-pH}}$"},
+            {"label": "C", "text": "$\\tau = \\frac{1}{1-10^{pK_a-pH}}$"},
+            {"label": "D", "text": "$\\tau = 1+10^{(pK_a-pH)}$"},
+            {"label": "E", "text": "$\\tau = \\frac{1}{1+10^{pH-pK_a}}$"}
+          ]
+        },
+        {
+          "exercise_title": "Acide méthanoïque et eau",
+          "question_number": "Q48",
+          "stimulus": "Soit une solution aqueuse d'acide méthanoïque HCOOH de concentration molaire C. On note K_a la constante d'acidité du couple $(HCOOH_{(aq)}/HCOO^{-}_{(aq)})$.",
+          "text": "L'expression de la constante d'acidité du couple $(HCOOH_{(aq)}/HCOO^{-}_{(aq)})$ est :",
+          "options": [
+            {"label": "A", "text": "$K_a = \\frac{C\\tau^2}{1-\\tau}$"},
+            {"label": "B", "text": "$K_a = \\frac{C(1-\\tau)}{\\tau^2}$"},
+            {"label": "C", "text": "$K_a = 10^{-pH} + 10^{-2pH}$"},
+            {"label": "D", "text": "$K_a = 10^{-pH} + 10^{pK_a-2pH}$"},
+            {"label": "E", "text": "$K_a = 10^{-pH} + 10^{pH-2pK_a}$"}
+          ]
+        },
+        {
+          "exercise_title": "Mélange acide éthanoïque et ammoniac",
+          "question_number": "Q49",
+          "stimulus": "On mélange un volume d'une solution aqueuse d'acide éthanoïque contenant une quantité de matière initiale $n_1(CH_3COOH)$, avec un volume d'une solution aqueuse d'ammoniac contenant la même quantité de matière initiale $n_1(NH_3)$. L'équation modélisant la réaction entre l'acide $(CH_3COOH)$ et la base $NH_3$ s'écrit : $CH_3COOH_{(aq)} + NH_{3(aq)} \\rightleftharpoons CH_3COO^{-}_{(aq)} + NH^{+}_{4(aq)}$.",
+          "data": {
+            "pK_a1": "$pK_a(CH_3COOH/CH_3COO^-)$",
+            "pK_a2": "$pK_a(NH^+_4/NH_3)$"
+          },
+          "text": "L'expression de la constante d'équilibre K associée à l'équation de la réaction étudiée est :",
+          "options": [
+            {"label": "A", "text": "$K = 10^{pK_{a1}-pK_{a2}}$"},
+            {"label": "B", "text": "$K = 10^{pK_{a2}-pK_{a1}}$"},
+            {"label": "C", "text": "$K = \\frac{K_{a1}}{K_{a2}}$"},
+            {"label": "D", "text": "$K = K_{a1}.K_{a2}$"},
+            {"label": "E", "text": "$K = 10^{-(pK_{a1}+pK_{a2})}$"}
+          ]
+        },
+        {
+          "exercise_title": "Mélange acide éthanoïque et ammoniac",
+          "question_number": "Q50",
+          "stimulus": "Référence à l'exercice Q49. On cherche l'expression de l'avancement final $x_f$ en fonction de $n_1$ et K.",
+          "text": "L'expression de l'avancement final de cette réaction est :",
+          "options": [
+            {"label": "A", "text": "$x_f = n_1 \\frac{\\sqrt{K}}{1+\\sqrt{K}}$"},
+            {"label": "B", "text": "$x_f = n_1 \\frac{1+\\sqrt{K}}{\\sqrt{K}}$"},
+            {"label": "C", "text": "$x_f = n_1 \\frac{1-\\sqrt{K}}{\\sqrt{K}}$"},
+            {"label": "D", "text": "$x_f = n_1 \\frac{K}{1+\\sqrt{K}}$"},
+            {"label": "E", "text": "$x_f = n_1 (1+\\sqrt{K})$"}
+          ]
+        },
+        {
+          "exercise_title": "Solution d'acide borique, borate de sodium et chlorure de méthylammonium",
+          "question_number": "Q51",
+          "stimulus": "On considère un système chimique obtenu en mélangeant :\n- le volume $V_1 = 15,0~mL$ de solution d'acide borique $H_3BO_2$ de concentration molaire $C_1 = 1,10 \\times 10^{-2} mol.L^{-1}$;\n- le volume $V_2 = 1,20~mL$ de solution de borate de sodium $Na^+ + H_2BO_2^-$ de concentration molaire $C_2 = 1,20 \\times 10^{-2} mol.L^{-1}$;\n- le volume $V_3 = 10,0~mL$ de solution de méthylamine $CH_3NH_2$ de concentration molaire $C_3 = 2,00 \\times 10^{-2} mol.L^{-1}$;\n- le volume $V_4 = 10,0~mL$ de solution de chlorure de méthylammonium $CH_3NH_3Cl$ de concentration molaire $C_4 = 1,50 \\times 10^{-2} mol.L^{-1}$.\nL'équation la réaction modélisant la transformation qui se produit dans le mélange est: $H_3BO_{2(aq)} + CH_3NH_{2(aq)} \\rightleftharpoons H_2BO^{-}_{2(aq)} + CH_3NH^{+}_{3(aq)}$.",
+          "data": {
+            "pK_a1": "$pK_a(H_3BO_2/H_2BO_2^-) = 9,20$",
+            "pK_a2": "$pK_a(CH_3NH_3^+/CH_3NH_2) = 10,7$",
+            "log_values": ["$10^{0.2} = 3,16$ (Probablement une erreur, $10^{0.5} \\approx 3.16$)", "$\\log \\frac{0,725}{0,275} = 0,58$ (Probablement une erreur, $\\log (0.725/0.275) \\approx \\log 2.63 \\approx 0.42$)", "$\\log \\frac{3.75}{0.75} = 0,9$ (Probablement une erreur, $\\log 5 \\approx 0.7$)", "$Q_{r,i} = 1,22$ (Valeur calculée)", "$Q_{r,i} = 1,318$ (Valeur calculée)"]
+          },
+          "text": "La valeur du quotient de réaction à l'état initial du système est :",
+          "options": [
+            {"label": "A", "text": "$Q_{r,i} = 0,818$"},
+            {"label": "B", "text": "$Q_{r,i} = 1$"},
+            {"label": "C", "text": "$Q_{r,i} = 1,22$"},
+            {"label": "D", "text": "$Q_{r,i} = 0,918$"},
+            {"label": "E", "text": "$Q_{r,i} = 1,318$"}
+          ]
+        },
+        {
+          "exercise_title": "Solution d'acide borique, borate de sodium et chlorure de méthylammonium",
+          "question_number": "Q52",
+          "stimulus": "L'avancement final de la réaction est $x_f = 1,225.10^{-4} mol$. Référence à l'exercice Q51.",
+          "text": "La valeur du pH du mélange est :",
+          "options": [
+            {"label": "A", "text": "$pH = 10,1$"},
+            {"label": "B", "text": "$pH = 11,1$"},
+            {"label": "C", "text": "$pH = 9,95$"},
+            {"label": "D", "text": "$pH = 8,1$"},
+            {"label": "E", "text": "$pH = 5,1$"}
+          ]
+        },
+        {
+          "exercise_title": "Pile Zinc-Cuivre",
+          "question_number": "Q53",
+          "stimulus": "On réalise la pile Zinc-Cuivre en utilisant le matériel et les produits suivants : Bécher 1: lame de zinc $Zn_{(s)}$ plongeant dans un volume $V_1=50~mL$ de solution de sulfate de zinc $(Zn^{2+}_{(aq)} + SO^{2-}_{4(aq)})$ de concentration $C_1=0,1~mol.L^{-1}$. Bécher 2: lame de cuivre $Cu_{(s)}$ plongeant dans un volume $V_2=50~mL$ de solution de sulfate de cuivre $(Cu^{2+}_{(aq)} + SO^{2-}_{4(aq)})$ de concentration $C_2=0,1~mol.L^{-1}$. Un pont salin.",
+          "data": {
+            "faraday": "$1F = 9,65.10^4 C.mol^{-1}$",
+            "M_Cu": "$63,5 g.mol^{-1}$",
+            "M_Zn": "$65,4 g.mol^{-1}$",
+            "K_equilibre": "$2.10^{37}$ pour la réaction $Zn_{(s)} + Cu^{2+}_{(aq)} \\rightleftharpoons Zn^{2+}_{(aq)} + Cu_{(s)}$"
+          },
+          "text": "L'équation de la réaction spontanée qui se produit lorsque la pile débite du courant est :",
+          "options": [
+            {"label": "A", "text": "$Zn^{2+}_{(aq)} + Cu_{(s)} \\rightarrow Zn_{(s)} + Cu^{2+}_{(aq)}$"},
+            {"label": "B", "text": "$Zn_{(s)} + Cu^{2+}_{(aq)} \\rightarrow Zn^{2+}_{(aq)} + Cu_{(s)}$"},
+            {"label": "C", "text": "$Zn_{(s)} + 2Cu^{2+}_{(aq)} \\rightarrow Zn^{2+}_{(aq)} + 2Cu_{(s)}$"},
+            {"label": "D", "text": "$Zn^{2+}_{(aq)} + SO^{2-}_{4(aq)} \\rightarrow ZnSO_{4(s)}$"},
+            {"label": "E", "text": "$Cu^{2+}_{(aq)} + SO^{2-}_{4(aq)} \\rightarrow CuSO_{4(s)}$"}
+          ]
+        },
+        {
+          "exercise_title": "Pile Zinc-Cuivre",
+          "question_number": "Q54",
+          "stimulus": "Référence à l'exercice Q53.",
+          "text": "La polarité de la pile et sa f.e.m. $E_{pile}$ sont :",
+          "options": [
+            {"label": "A", "text": "Zn (+), Cu (-); $E_{pile} = 1,10V$"},
+            {"label": "B", "text": "Zn (-), Cu (+); $E_{pile} = 1,10V$"},
+            {"label": "C", "text": "Zn (+), Cu (-); $E_{pile} = 0,76V$"},
+            {"label": "D", "text": "Zn (-), Cu (+); $E_{pile} = 0,34V$"},
+            {"label": "E", "text": "Zn (-), Cu (+); $E_{pile} = 0,76V$"}
+          ]
+        },
+        {
+          "exercise_title": "Pile Zinc-Cuivre",
+          "question_number": "Q55",
+          "stimulus": "La pile débite un courant d'intensité constante $I=0,2A$ pendant $\\Delta t = 30 min$. Référence à l'exercice Q53.",
+          "text": "La variation de la masse de l'électrode de cuivre est :",
+          "options": [
+            {"label": "A", "text": "$\\Delta m(Cu) = +0,12~g$"},
+            {"label": "B", "text": "$\\Delta m(Cu) = -0,12~g$"},
+            {"label": "C", "text": "$\\Delta m(Cu) = +0,24~g$"},
+            {"label": "D", "text": "$\\Delta m(Cu) = -0,24~g$"},
+            {"label": "E", "text": "$\\Delta m(Cu) = +0,06~g$"}
+          ]
+        },
+        {
+          "exercise_title": "Électrolyse d'une solution de nitrate d'argent",
+          "question_number": "Q56",
+          "stimulus": "On réalise l'électrolyse d'une solution aqueuse de nitrate d'argent $(Ag^+_{(aq)} + NO^{-}_{3(aq)})$ de concentration $C=0,1 mol.L^{-1}$ entre deux électrodes inattaquables en graphite.",
+          "data": {
+            "couples_redox": ["$Ag^{+}_{(aq)}/Ag_{(s)}$", "$O_{2(g)}/H_2O_{(l)}$", "$H_2O_{(l)}/H_{2(g)}$"],
+            "faraday": "$1F = 9,65.10^4 C.mol^{-1}$",
+            "V_m": "$25 L.mol^{-1}$"
+          },
+          "text": "Les équations des réactions susceptibles de se produire aux électrodes sont :",
+          "options": [
+            {"label": "A", "text": "Anode: $2H_2O \\rightarrow O_2 + 4H^+ + 4e^-$; Cathode: $Ag^+ + e^- \\rightarrow Ag$"},
+            {"label": "B", "text": "Anode: $Ag \\rightarrow Ag^+ + e^-$; Cathode: $2H_2O + 2e^- \\rightarrow H_2 + 2HO^-$"},
+            {"label": "C", "text": "Anode: $2H_2O \\rightarrow O_2 + 4H^+ + 4e^-$; Cathode: $2H_2O + 2e^- \\rightarrow H_2 + 2HO^-$"},
+            {"label": "D", "text": "Anode: $NO_3^- + ... \\rightarrow ...$; Cathode: $Ag^+ + e^- \\rightarrow Ag$"},
+            {"label": "E", "text": "Anode: $Ag \\rightarrow Ag^+ + e^-$; Cathode: $Ag^+ + e^- \\rightarrow Ag$"}
+          ]
+        },
+        {
+          "exercise_title": "Électrolyse d'une solution de nitrate d'argent",
+          "question_number": "Q57",
+          "stimulus": "L'électrolyse dure $\\Delta t = 15 min$ avec un courant d'intensité $I=1,5A$. Référence à l'exercice Q56.",
+          "text": "Le volume de dioxygène dégagé est :",
+          "options": [
+            {"label": "A", "text": "$V(O_2) = 35~mL$"},
+            {"label": "B", "text": "$V(O_2) = 87~mL$"},
+            {"label": "C", "text": "$V(O_2) = 174~mL$"},
+            {"label": "D", "text": "$V(O_2) = 220~mL$"},
+            {"label": "E", "text": "$V(O_2) = 348~mL$"}
+          ]
+        },
+        {
+          "exercise_title": "Estérification",
+          "question_number": "Q58",
+          "stimulus": "On étudie la cinétique de la réaction d'estérification entre l'acide éthanoïque et l'éthanol. On mélange initialement $n_1=0,5~mol$ d'acide éthanoïque et $n_2=0,5~mol$ d'éthanol en présence de quelques gouttes d'acide sulfurique concentré. On chauffe à reflux.",
+          "data": {
+            "masses_molaires": ["$M(C)=12~g/mol$", "$M(H)=1~g/mol$", "$M(O)=16~g/mol$"]
+          },
+          "text": "Le nom de l'ester formé et sa formule semi-développée sont :",
+          "options": [
+            {"label": "A", "text": "Méthanoate d'éthyle; $HCOO-CH_2-CH_3$"},
+            {"label": "B", "text": "Éthanoate de méthyle; $CH_3-COO-CH_3$"},
+            {"label": "C", "text": "Éthanoate d'éthyle; $CH_3-COO-CH_2-CH_3$"},
+            {"label": "D", "text": "Propanoate de méthyle; $CH_3-CH_2-COO-CH_3$"},
+            {"label": "E", "text": "Acétate de propyle; $CH_3-COO-CH_2-CH_2-CH_3$"}
+          ]
+        },
+        {
+          "exercise_title": "Estérification",
+          "question_number": "Q59",
+          "stimulus": "À l'équilibre, il reste $0,17~mol$ d'acide éthanoïque. Référence à l'exercice Q58.",
+          "text": "Le taux d'avancement final de cette réaction est :",
+          "options": [
+            {"label": "A", "text": "$\\tau = 33\\%$"},
+            {"label": "B", "text": "$\\tau = 50\\%$"},
+            {"label": "C", "text": "$\\tau = 66\\%$"},
+            {"label": "D", "text": "$\\tau = 75\\%$"},
+            {"label": "E", "text": "$\\tau = 83\\%$"}
+          ]
+        },
+        {
+          "exercise_title": "Estérification",
+          "question_number": "Q60",
+          "stimulus": "Référence à l'exercice Q58.",
+          "text": "Pour augmenter le rendement de cette réaction, on peut :",
+          "options": [
+            {"label": "A", "text": "Augmenter la température."},
+            {"label": "B", "text": "Utiliser un catalyseur basique."},
+            {"label": "C", "text": "Éliminer l'eau formée au fur et à mesure."},
+            {"label": "D", "text": "Diminuer la quantité initiale d'un des réactifs."},
+            {"label": "E", "text": "Ajouter de l'eau au mélange initial."}
+          ]
+        }
+      ]
+    },
+    {
+      "component_name": "Mathématiques",
+      "coefficient": 1,
+      "questions": [
+        {
+          "question_number": "Q61",
+          "text": "La limite $\\lim_{x\\to +\\infty} (\\sqrt{4x^2+x-2} - (2x-1))$ est égale à :",
+          "options": [
+            {"label": "A", "text": "$+\\infty$"},
+            {"label": "B", "text": "$0$"},
+            {"label": "C", "text": "$1/4$"},
+            {"label": "D", "text": "$5/4$"},
+            {"label": "E", "text": "$3/4$"}
+          ]
+        },
+        {
+          "question_number": "Q62",
+          "text": "La limite $\\lim_{x\\to 0} \\frac{\\sqrt[3]{x+1} - \\sqrt{x+1}}{x}$ est égale à :",
+          "options": [
+            {"label": "A", "text": "$0$"},
+            {"label": "B", "text": "$1/6$"},
+            {"label": "C", "text": "$-1/6$"},
+            {"label": "D", "text": "$1/3$"},
+            {"label": "E", "text": "$-1/2$"}
+          ]
+        },
+        {
+          "question_number": "Q63",
+          "text": "Soit la fonction $f$ définie par $f(x) = \\frac{x^2-x}{x^2-1}$. Le domaine de définition de $f$ est :",
+          "options": [
+            {"label": "A", "text": "$\\mathbb{R} \\setminus \\{-1\\}$"},
+            {"label": "B", "text": "$\\mathbb{R} \\setminus \\{1\\}$"},
+            {"label": "C", "text": "$\\mathbb{R} \\setminus \\{-1, 1\\}$"},
+            {"label": "D", "text": "$\\mathbb{R} \\setminus \\{0, 1\\}$"},
+            {"label": "E", "text": "$\\mathbb{R}$"}
+          ]
+        },
+        {
+          "question_number": "Q64",
+          "text": "Soit la fonction $f$ définie par $f(x) = x + \\sqrt{x^2-x}$. La courbe $(C_f)$ admet au voisinage de $+\\infty$ une asymptote oblique d'équation :",
+          "options": [
+            {"label": "A", "text": "$y = 2x - 1/2$"},
+            {"label": "B", "text": "$y = 2x + 1/2$"},
+            {"label": "C", "text": "$y = x - 1/2$"},
+            {"label": "D", "text": "$y = x + 1/2$"},
+            {"label": "E", "text": "$y = 2x$"}
+          ]
+        },
+        {
+          "question_number": "Q65",
+          "text": "Soit la fonction $f$ définie sur $[0, +\\infty[$ par $f(x) = \\arctan(\\sqrt{x})$. La valeur de $f'(1)$ est :",
+          "options": [
+            {"label": "A", "text": "$1/4$"},
+            {"label": "B", "text": "$1/2$"},
+            {"label": "C", "text": "$\\pi/4$"},
+            {"label": "D", "text": "$1$"},
+            {"label": "E", "text": "$1/8$"}
+          ]
+        },
+        {
+          "question_number": "Q66",
+          "text": "La valeur de l'intégrale $I = \\int_{0}^{1} \\frac{x}{\\sqrt{x^2+1}} dx$ est :",
+          "options": [
+            {"label": "A", "text": "$\\sqrt{2}-1$"},
+            {"label": "B", "text": "$\\sqrt{2}$"},
+            {"label": "C", "text": "$1$"},
+            {"label": "D", "text": "$(\\sqrt{2}-1)/2$"},
+            {"label": "E", "text": "$2(\\sqrt{2}-1)$"}
+          ]
+        },
+        {
+          "question_number": "Q67",
+          "text": "En utilisant une intégration par parties, la valeur de l'intégrale $J = \\int_{1}^{e} x \\ln(x) dx$ est :",
+          "options": [
+            {"label": "A", "text": "$(e^2+1)/4$"},
+            {"label": "B", "text": "$(e^2-1)/4$"},
+            {"label": "C", "text": "$e^2/4$"},
+            {"label": "D", "text": "$(e^2+1)/2$"},
+            {"label": "E", "text": "$1/4$"}
+          ]
+        },
+        {
+          "question_number": "Q68",
+          "text": "La solution de l'équation différentielle $y' - 2y = 0$ qui vérifie la condition $y(0)=1$ est :",
+          "options": [
+            {"label": "A", "text": "$y(x) = e^{2x}$"},
+            {"label": "B", "text": "$y(x) = e^{-2x}$"},
+            {"label": "C", "text": "$y(x) = 2e^{x}$"},
+            {"label": "D", "text": "$y(x) = \\cos(2x)$"},
+            {"label": "E", "text": "$y(x) = e^{x^2}$"}
+          ]
+        },
+        {
+          "question_number": "Q69",
+          "text": "La solution de l'équation différentielle $y'' + 4y = 0$ qui vérifie les conditions $y(0)=1$ et $y'(0)=2$ est :",
+          "options": [
+            {"label": "A", "text": "$y(x) = \\cos(2x) + \\sin(2x)$"},
+            {"label": "B", "text": "$y(x) = \\cos(2x) - \\sin(2x)$"},
+            {"label": "C", "text": "$y(x) = e^{2x} + e^{-2x}$"},
+            {"label": "D", "text": "$y(x) = \\sin(2x)$"},
+            {"label": "E", "text": "$y(x) = \\cos(2x)$"}
+          ]
+        },
+        {
+          "question_number": "Q70",
+          "text": "La forme algébrique du nombre complexe $(1+i\\sqrt{3})^2$ est :",
+          "options": [
+            {"label": "A", "text": "$1+2i\\sqrt{3}$"},
+            {"label": "B", "text": "$-2+2i\\sqrt{3}$"},
+            {"label": "C", "text": "$4+2i\\sqrt{3}$"},
+            {"label": "D", "text": "$1-3+2i\\sqrt{3}$"},
+            {"label": "E", "text": "$2-2i\\sqrt{3}$"}
+          ]
+        },
+        {
+          "question_number": "Q71",
+          "text": "Soit le nombre complexe $z = \\frac{1+i}{1-i}$. Sa forme trigonométrique est :",
+          "options": [
+            {"label": "A", "text": "$\\cos(\\pi/2) + i\\sin(\\pi/2)$"},
+            {"label": "B", "text": "$\\cos(-\\pi/2) + i\\sin(-\\pi/2)$"},
+            {"label": "C", "text": "$\\cos(0) + i\\sin(0)$"},
+            {"label": "D", "text": "$\\cos(\\pi) + i\\sin(\\pi)$"},
+            {"label": "E", "text": "$\\sqrt{2}(\\cos(\\pi/4) + i\\sin(\\pi/4))$"}
+          ]
+        },
+        {
+          "question_number": "Q72",
+          "text": "Dans le plan complexe, l'ensemble des points M d'affixe z tel que $|z-1+i| = |z+2|$ est :",
+          "options": [
+            {"label": "A", "text": "Un cercle"},
+            {"label": "B", "text": "Une droite"},
+            {"label": "C", "text": "Un segment"},
+            {"label": "D", "text": "Un point"},
+            {"label": "E", "text": "L'ensemble vide"}
+          ]
+        },
+        {
+          "question_number": "Q73",
+          "text": "Soit la suite $(u_n)$ définie par $u_n = \\frac{2n+(-1)^n n}{3n}$. La limite de la suite $(u_n)$ est :",
+          "options": [
+            {"label": "A", "text": "$1/3$"},
+            {"label": "B", "text": "$1$"},
+            {"label": "C", "text": "$2/3$"},
+            {"label": "D", "text": "n'existe pas"},
+            {"label": "E", "text": "$+\\infty$"}
+          ]
+        },
+        {
+          "question_number": "Q74",
+          "text": "Soit la suite $(u_n)$ définie par $u_0=2$ et $u_{n+1} = \\frac{1}{2}u_n + 1$. La limite de la suite $(u_n)$ est :",
+          "options": [
+            {"label": "A", "text": "$0$"},
+            {"label": "B", "text": "$1$"},
+            {"label": "C", "text": "$2$"},
+            {"label": "D", "text": "$1/2$"},
+            {"label": "E", "text": "$+\\infty$"}
+          ]
+        },
+        {
+          "question_number": "Q75",
+          "text": "Une urne contient 3 boules rouges et 4 boules noires. On tire simultanément 3 boules de l'urne. La probabilité d'obtenir exactement 2 boules rouges est :",
+          "options": [
+            {"label": "A", "text": "$12/35$"},
+            {"label": "B", "text": "$3/35$"},
+            {"label": "C", "text": "$4/35$"},
+            {"label": "D", "text": "$18/35$"},
+            {"label": "E", "text": "$2/7$"}
+          ]
+        },
+        {
+          "question_number": "Q76",
+          "text": "On lance une pièce de monnaie équilibrée 4 fois. Soit X la variable aléatoire égale au nombre de \"Pile\" obtenus. La probabilité $P(X=2)$ est :",
+          "options": [
+            {"label": "A", "text": "$1/16$"},
+            {"label": "B", "text": "$4/16$"},
+            {"label": "C", "text": "$6/16$"},
+            {"label": "D", "text": "$8/16$"},
+            {"label": "E", "text": "$3/16$"}
+          ]
+        },
+        {
+          "question_number": "Q77",
+          "text": "Dans l'espace rapporté à un repère orthonormé, on considère le plan $(P)$ d'équation $x-2y+z-1=0$ et le point $A(1,0,1)$. La distance du point A au plan $(P)$ est :",
+          "options": [
+            {"label": "A", "text": "$1/\\sqrt{6}$"},
+            {"label": "B", "text": "$1/6$"},
+            {"label": "C", "text": "$\\sqrt{6}$"},
+            {"label": "D", "text": "$0$"},
+            {"label": "E", "text": "$2/\\sqrt{6}$"}
+          ]
+        },
+        {
+          "question_number": "Q78",
+          "text": "Dans l'espace, on considère les droites $(D)$ et $(D')$ de représentations paramétriques : $(D): \\begin{cases} x = 1+t \\ y = -1+2t \\ z = t \\end{cases}, t \\in \\mathbb{R}$ et $(D'): \\begin{cases} x = k \\ y = 1+k \\ z = -1+k \\end{cases}, k \\in \\mathbb{R}$. Les droites $(D)$ et $(D')$ sont :",
+          "options": [
+            {"label": "A", "text": "Parallèles et distinctes"},
+            {"label": "B", "text": "Sécantes"},
+            {"label": "C", "text": "Confondues"},
+            {"label": "D", "text": "Non coplanaires"},
+            {"label": "E", "text": "Orthogonales"}
+          ]
+        },
+        {
+          "question_number": "Q79",
+          "text": "Dans l'espace, on considère la sphère $(S)$ d'équation $x^2+y^2+z^2-2x+4y-2z+2=0$ et le plan $(P)$ d'équation $x-y+z+1=0$. L'intersection de $(S)$ et $(P)$ est :",
+          "options": [
+            {"label": "A", "text": "Un cercle"},
+            {"label": "B", "text": "Un point"},
+            {"label": "C", "text": "L'ensemble vide"},
+            {"label": "D", "text": "Une droite"},
+            {"label": "E", "text": "La sphère (S) elle-même"}
+          ]
+        },
+        {
+          "question_number": "Q80",
+          "text": "Soit la fonction $f$ définie sur $\\mathbb{R}$ par $f(x) = \\ln(x^2+1)$. Le tableau de variations correct de $f$ est :",
+          "options": [
+            {"label": "A", "text": "Croissante sur $\\mathbb{R}$"},
+            {"label": "B", "text": "Décroissante sur $\\mathbb{R}$"},
+            {"label": "C", "text": "Décroissante sur $]-\\infty, 0]$ et croissante sur $[0, +\\infty[$"},
+            {"label": "D", "text": "Croissante sur $]-\\infty, 0]$ et décroissante sur $[0, +\\infty[$"},
+            {"label": "E", "text": "Constante sur $\\mathbb{R}$"}
+          ]
+        }
+      ]
+    }
+  ]
+}

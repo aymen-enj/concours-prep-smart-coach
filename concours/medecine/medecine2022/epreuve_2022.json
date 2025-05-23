@@ -1,0 +1,1030 @@
+[
+  {"source": "concours ar+fr 2021-2022_0.pdf", "page_number": 28},
+  {
+    "exam_title": "Concours d'accès aux facultés de médecine, de pharmacie et de médecine dentaire 2021-2022 - Version Française",
+    "components": [
+      {
+        "component_name": "Sciences de la Vie",
+        "coefficient": 1,
+        "questions": [
+          {
+            "question_number": "Q1",
+            "text": "Les produits de la glycolyse sont :",
+            "options": [
+              {"label": "A", "text": "L'ATP, l'acide pyruvique et le NADH,H⁺."},
+              {"label": "B", "text": "L'ATP, l'acide pyruvique et le dioxyde de carbone."},
+              {"label": "C", "text": "Le dioxyde de carbone, l'acide pyruvique et le NADH,H⁺."},
+              {"label": "D", "text": "Le dioxyde de carbone, l'acétyl-coenzyme A et l'acide pyruvique."},
+              {"label": "E", "text": "L'ATP, l'acétyl-coenzyme A et l'acide pyruvique."}
+            ]
+          },
+          {
+            "question_number": "Q2",
+            "text": "Au niveau du muscle strié squelettique :",
+            "options": [
+              {"label": "A", "text": "la troponine permet la liaison de l'actine à la myosine."},
+              {"label": "B", "text": "la troponine reste liée à la tropomyosine durant le cycle de la contraction musculaire."},
+              {"label": "C", "text": "la troponine a une faible affinité pour les ions calcium."},
+              {"label": "D", "text": "la troponine est la partie de l'actine qui se lie à la myosine."},
+              {"label": "E", "text": "la troponine masque les sites de liaison de la myosine sur l'actine."}
+            ]
+          },
+          {
+            "question_number": "Q3",
+            "text": "La réplication moléculaire de l'ADN est :",
+            "options": [
+              {"label": "A", "text": "bidirectionnelle, se fait de 5' vers 3' et de 3' vers 5' et permet de synthétiser deux brins antiparallèles par rapport aux brins parentaux."},
+              {"label": "B", "text": "unidirectionnelle, se fait de 5' vers 3' et permet de synthétiser deux brins parallèles aux brins parentaux."},
+              {"label": "C", "text": "bidirectionnelle, se fait de 5' vers 3' et permet de synthétiser deux brins antiparallèles par rapport aux brins parentaux."},
+              {"label": "D", "text": "unidirectionnelle, se fait de 5' vers 3' et permet de synthétiser deux brins antiparallèles par rapport aux brins parentaux."},
+              {"label": "E", "text": "unidirectionnelle, se fait de 3' vers 5' et permet de synthétiser deux brins antiparallèles par rapport aux brins parentaux."}
+            ]
+          },
+          {
+            "question_number": "Q4",
+            "text": "L'ARN se distingue de l'ADN par :",
+            "options": [
+              {"label": "A", "text": "la présence du ribose et d'une base azotée différente."},
+              {"label": "B", "text": "la présence du ribose et de deux bases azotées différentes."},
+              {"label": "C", "text": "la présence du désoxyribose et de quatre bases azotées différentes."},
+              {"label": "D", "text": "la présence du ribose et de plusieurs bases azotées différentes."},
+              {"label": "E", "text": "la présence de désoxyribose et de la base azotée uracile."}
+            ]
+          },
+          {
+            "question_number": "Q5",
+            "text": "En ce qui concerne la traduction :",
+            "options": [
+              {"label": "A", "text": "la synthèse de l'ARNm se fait dans le sens 3' vers 5' et s'arrête au niveau d'un codon stop."},
+              {"label": "B", "text": "la molécule d'ARNm se lie à plusieurs ribosomes à la fois et la traduction se fait dans le sens 5' vers 3'."},
+              {"label": "C", "text": "la molécule d'ARNm se lie à un seul ribosome à la fois et la traduction se fait dans le sens 3' -> 5'."},
+              {"label": "D", "text": "la traduction de l'ADN peut commencer dans le noyau d'une cellule eucaryote et se termine toujours dans le cytoplasme."},
+              {"label": "E", "text": "la traduction de l'ADN se fait toujours dans le cytoplasme de la cellule eucaryote et s'arrête au niveau d'un codon stop."}
+            ]
+          },
+          {
+            "question_number": "Q6",
+            "text": "En ce qui concerne le monohybridisme et le dihybridisme :",
+            "options": [
+              {"label": "A", "text": "le croisement, dans le cas du monohybridisme, nécessite un seul parent alors que le croisement dans le cas du dihybridisme nécessite deux parents."},
+              {"label": "B", "text": "le croisement, dans le cas du monohybridisme, donne un seul descendant alors que le croisement dans le cas du dihybridisme donne deux descendants."},
+              {"label": "C", "text": "le croisement, dans le cas du monohybridisme, nécessite des organismes qui diffèrent par un seul caractère, alors que le croisement dans le cas du dihybridisme nécessite des organismes qui diffèrent par deux caractères."},
+              {"label": "D", "text": "le croisement, dans le cas du monohybridisme, se fait une seule fois alors que le croisement dans le cas du dihybridisme se fait deux fois."},
+              {"label": "E", "text": "le croisement, dans le cas du monohybridisme, donne une descendance avec les proportions 9:3:3:1 alors que le croisement dans le cas du dihybridisme donne une descendance avec les proportions 3:1."}
+            ]
+          },
+          {
+            "question_number": "Q7",
+            "text": "Il était nécessaire que Mendel étudie dans ses expériences de reproduction, en plus de la première génération F1, la deuxième génération F2 car :",
+            "options": [
+              {"label": "A", "text": "le nombre d'individus obtenus en génération F1 est faible, ce qui rend l'étude statistique difficile."},
+              {"label": "B", "text": "les caractères parentaux non observés en génération F1 apparaissent en génération F2, ce qui montre que les facteurs héréditaires n'ont pas disparu en génération F1."},
+              {"label": "C", "text": "l'étude de la descendance F1 lui a permis de découvrir la loi de la pureté des gamètes et non la loi de la ségrégation indépendante des allèles."},
+              {"label": "D", "text": "les phénotypes dominants ont été observés en génération F2 et non en génération F1."},
+              {"label": "E", "text": "l'étude de la descendance F1 lui a permis de découvrir la loi de la pureté des gamètes et non la loi de l'uniformité des hybrides."}
+            ]
+          },
+          {
+            "question_number": "Q8",
+            "text": "L'explication la plus probable pour un taux de crossing-over élevé entre deux gènes est :",
+            "options": [
+              {"label": "A", "text": "les deux gènes sont situés sur des chromosomes différents."},
+              {"label": "B", "text": "les deux gènes sont situés ensemble près du centromère."},
+              {"label": "C", "text": "les deux gènes sont liés au sexe."},
+              {"label": "D", "text": "les deux gènes codent pour la même protéine."},
+              {"label": "E", "text": "les deux gènes sont éloignés l'un de l'autre sur le même chromosome."}
+            ]
+          },
+          {
+            "question_number": "Q9",
+            "text": "Un homme transmet un allèle lié au chromosome sexuel X :",
+            "options": [
+              {"label": "A", "text": "à tous ses fils et à toutes ses filles."},
+              {"label": "B", "text": "à la moitié de ses filles."},
+              {"label": "C", "text": "à tous ses fils."},
+              {"label": "D", "text": "à la moitié de ses fils."},
+              {"label": "E", "text": "à toutes ses filles."}
+            ]
+          },
+          {
+            "question_number": "Q10",
+            "text": "Les principes de l'équilibre de Hardy-Weinberg sont :",
+            "options": [
+              {"label": "A", "text": "petite population, croisement aléatoire, absence de sélection, absence de migration, absence de mutations."},
+              {"label": "B", "text": "grande population, croisement aléatoire, absence de sélection, absence de migration, absence de mutations."},
+              {"label": "C", "text": "grande population, croisement aléatoire, avantage de survie pour les hétérozygotes, absence de migration, absence de mutations."},
+              {"label": "D", "text": "petite population, croisement entre individus similaires, absence de sélection, absence de migration, absence de mutations."},
+              {"label": "E", "text": "grande population, croisement aléatoire, absence de sélection, migration en provenance d'autres populations, absence de mutations."}
+            ]
+          },
+          {
+            "question_number": "Q11",
+            "stimulus": "Le tableau suivant présente les caractéristiques de trois types de fibres musculaires :",
+            "data": {
+              "type": "table",
+              "headers": ["Caractéristiques", "Type I", "Type IIa", "Type IIb"],
+              "rows": [
+                ["Capacité oxydative", "Importante", "Moyenne", "Faible"],
+                ["Capacité de glycolyse", "Faible", "Moyenne", "Importante"],
+                ["Densité des capillaires sanguins", "Grande", "Moyenne", "Faible"],
+                ["Diamètre de la fibre", "Faible", "Moyen", "Grand"],
+                ["Force développée", "Faible", "Moyenne", "Grande"]
+              ]
+            },
+            "text": "Les fibres musculaires les plus adaptées aux efforts physiques de longue durée sont :",
+            "options": [
+              {"label": "A", "text": "les fibres de type I car elles contiennent un petit nombre de capillaires sanguins et ont une capacité anaérobie importante par rapport aux fibres de type IIb."},
+              {"label": "B", "text": "les fibres de type IIb car elles contiennent un petit nombre de capillaires sanguins et ont une capacité anaérobie faible par rapport aux fibres de type I."},
+              {"label": "C", "text": "les fibres de type IIb car elles contiennent un grand nombre de capillaires sanguins et ont une capacité aérobie élevée par rapport aux fibres de type IIa."},
+              {"label": "D", "text": "les fibres de type IIa car elles contiennent un petit nombre de capillaires sanguins par rapport aux fibres de type I et ont une capacité anaérobie faible par rapport aux fibres de type IIb."},
+              {"label": "E", "text": "les fibres de type I car elles contiennent un grand nombre de capillaires sanguins et ont une capacité aérobie importante par rapport aux fibres de type IIb."}
+            ]
+          },
+          {
+            "question_number": "Q12",
+            "text": "La séquence de l'ARNm transcrite à partir de la séquence d'ADN -------T-G-A-3' brin transcrit est :",
+            "options": [
+              {"label": "A", "text": "ARNm: 5'-A-C-U-G-C-A-C-A-A-3'"},
+              {"label": "B", "text": "ARNm: 5'-T-C-A-A-C-G-A-A-C-3'"},
+              {"label": "C", "text": "ARNm: 5'-C-A-A-G-C-A-A-C-U-3'"},
+              {"label": "D", "text": "ARNm: 5'-U-C-A-A-C-G-A-A-C-3'"},
+              {"label": "E", "text": "ARNm: 5'-A-A-C-A-C-G-U-C-A-3'"}
+            ]
+          },
+          {
+            "question_number": "Q13",
+            "stimulus": "On considère un animal à reproduction sexuée qui possède deux gènes indépendants, le premier contrôle la forme de la tête (H) et le second contrôle la longueur de la queue (T). Son génotype est (Hh, Tt).",
+            "text": "Parmi les génotypes suivants, quel est le génotype possible dans un des gamètes de cet animal ?",
+            "options": [
+              {"label": "A", "text": "(H, T)"},
+              {"label": "B", "text": "(H, h)"},
+              {"label": "C", "text": "(H, h, T, t)"},
+              {"label": "D", "text": "(T)"},
+              {"label": "E", "text": "(t, t)"}
+            ]
+          },
+          {
+            "question_number": "Q14",
+            "stimulus": "Dans le cas de deux gènes indépendants, on croise deux lignées de pois, la première a des fleurs axiales rouges et la seconde a des fleurs terminales blanches. Tous les individus de la génération F1 ont des fleurs axiales rouges.",
+            "text": "Parmi 64 individus de la génération F2, quel est le nombre de plantes à fleurs terminales rouges ?",
+            "options": [
+              {"label": "A", "text": "4"},
+              {"label": "B", "text": "8"},
+              {"label": "C", "text": "12"},
+              {"label": "D", "text": "24"},
+              {"label": "E", "text": "36"}
+            ]
+          },
+          {
+            "question_number": "Q15",
+            "stimulus": "Certaines plantes peuvent vivre dans des régions très froides. Pour expliquer ce phénomène on propose les deux documents suivants :\nDocument 1 : Deux chaînes respiratoires chez certaines plantes. Le cytochrome c oxydase (CCO) et l'oxydase alternative (AOX) sont des accepteurs d'électrons au niveau de la chaîne respiratoire qui interviennent dans la réduction du dioxygène pour donner une molécule d'eau.\nDocument 2 : Couplage énergétique de deux chaînes respiratoires différentes.",
+            "image_description": "Deux schémas de chaînes respiratoires mitochondriales. La première, classique, avec le complexe Cytochrome c oxydase (CCO) qui couple le flux d'électrons au pompage de protons pour la synthèse d'ATP. La seconde, avec une Oxydase Alternative (AOX), où le flux d'électrons court-circuite une partie de la chaîne, produisant moins d'ATP mais plus de chaleur.",
+            "data": {
+              "type": "table",
+              "headers": ["Type de chaîne respiratoire", "Production d'énergie sous forme d'ATP", "Production d'énergie sous forme de chaleur"],
+              "rows": [
+                ["Chaîne respiratoire avec expression de Cytochrome c oxydase (CCO)", "+++++", "Faible"],
+                ["Chaîne respiratoire avec expression de l'Oxydase alternative (AOX)", "+", "Important"]
+              ]
+            },
+            "text": "Pour résister au grand froid il y a expression de :",
+            "options": [
+              {"label": "A", "text": "AOX et la plante produit moins d'ADP+Pi et une grande quantité d'eau."},
+              {"label": "B", "text": "CCO et la plante produit moins d'ADP+Pi et une petite quantité d'eau."},
+              {"label": "C", "text": "AOX et l'ATP synthase devient moins active."},
+              {"label": "D", "text": "CCO et l'ATP synthase devient plus active."},
+              {"label": "E", "text": "AOX et l'ATP synthase devient plus active avec une augmentation de la production de chaleur."}
+            ]
+          },
+          {
+            "question_number": "Q16",
+            "stimulus": "La digestion d'une molécule d'ADN par une enzyme de restriction produit quatre fragments A, B, C et D de tailles différentes. La technique d'électrophorèse conduit à l'un des schémas numérotés de 1 à 5.",
+            "image_description": "Cinq schémas (1 à 5) montrant des résultats possibles d'une électrophorèse sur gel. Chaque schéma montre des bandes (A, B, C, D) à différentes positions entre le pôle négatif (-) et le pôle positif (+). La migration se fait du haut vers le bas.",
+            "text": "Le schéma qui résultera de la séparation de ces fragments par la technique d'électrophorèse est :",
+            "options": [
+              {"label": "A", "text": "Schéma 1"},
+              {"label": "B", "text": "Schéma 2"},
+              {"label": "C", "text": "Schéma 3"},
+              {"label": "D", "text": "Schéma 4"},
+              {"label": "E", "text": "Schéma 5"}
+            ]
+          },
+          {
+            "question_number": "Q17",
+            "stimulus": "La détermination du sexe chez les oiseaux est contrôlée par une paire de chromosomes ZW. Les mâles ont deux chromosomes ZZ et les femelles ont deux chromosomes ZW. Dans certains cas, chez le pigeon, un allèle récessif létal peut être présent sur le chromosome Z.",
+            "text": "Dans le cas d'un croisement d'un mâle hétérozygote porteur de l'allèle létal avec une femelle normale, nous obtiendrons une descendance selon la distribution suivante :",
+            "options": [
+              {"label": "A", "text": "le nombre de mâles est le double du nombre de femelles."},
+              {"label": "B", "text": "le nombre de femelles est le double du nombre de mâles."},
+              {"label": "C", "text": "le nombre de femelles est égal au nombre de mâles."},
+              {"label": "D", "text": "le nombre de femelles est quatre fois le nombre de mâles."},
+              {"label": "E", "text": "le nombre de mâles est trois fois le nombre de femelles."}
+            ]
+          },
+          {
+            "question_number": "Q18",
+            "stimulus": "Les résultats des croisements-tests ont permis de déterminer les pourcentages de recombinaison suivants entre quatre gènes :\n- entre les gènes B et C est de 5%\n- entre les gènes B et A est de 30%\n- entre les gènes A et D est de 15%\n- entre les gènes C et A est de 25%\n- entre les gènes C et D est de 40%",
+            "text": "Parmi les propositions suivantes, quelle est la proposition qui représente la position relative des quatre gènes sur le chromosome ?",
+            "options": [
+              {"label": "A", "text": "A-B-C-D"},
+              {"label": "B", "text": "A-D-C-B"},
+              {"label": "C", "text": "C-A-B-D"},
+              {"label": "D", "text": "B-C-A-D"},
+              {"label": "E", "text": "D-B-A-C"}
+            ]
+          },
+          {
+            "question_number": "Q19",
+            "stimulus": "L'arbre généalogique ci-dessous présente une famille dont certains membres souffrent d'une anomalie de la structure du cuir chevelu 'cheveux laineux'. Sachant que l'individu I-1 est homozygote.",
+            "image_description": "Arbre généalogique sur trois générations (I, II, III). Les individus atteints sont représentés par des symboles pleins (carré pour homme, cercle pour femme). I-1 (homme sain) et I-2 (femme atteinte) ont 5 enfants en II. Le couple II-4 (homme sain) et II-5 (femme atteinte) ont des enfants en III.",
+            "text": "En se basant sur l'arbre généalogique, on peut conclure que :",
+            "options": [
+              {"label": "A", "text": "La probabilité pour le couple (II4-II5) d'avoir un enfant avec des cheveux laineux est de 0% et la probabilité que l'individu III-1 ait un génotype WW est de 100%."},
+              {"label": "B", "text": "La probabilité pour le couple (II4-II5) d'avoir un enfant avec des cheveux laineux est de 25% et la probabilité que l'individu III-1 ait un génotype ww est de 0%."},
+              {"label": "C", "text": "La probabilité pour le couple (II4-II5) d'avoir un enfant avec des cheveux laineux est de 25% et la probabilité que l'individu III-1 ait un génotype Ww est de 75%."},
+              {"label": "D", "text": "La probabilité pour le couple (II4-II5) d'avoir un enfant avec des cheveux laineux est de 50% et la probabilité que l'individu III-1 ait un génotype WW est de 100%."},
+              {"label": "E", "text": "La probabilité pour le couple (II4-II5) d'avoir un enfant avec des cheveux laineux est de 50% et la probabilité que l'individu III-1 ait un génotype Ww est de 50%."}
+            ]
+          },
+          {
+            "question_number": "Q20",
+            "stimulus": "Dans une population en équilibre de Hardy-Weinberg, la fréquence d'un allèle récessif pour un certain caractère héréditaire est de 0,20.",
+            "text": "Le pourcentage d'individus présentant le caractère dominant dans la génération suivante est :",
+            "options": [
+              {"label": "A", "text": "8%"},
+              {"label": "B", "text": "16%"},
+              {"label": "C", "text": "32%"},
+              {"label": "D", "text": "64%"},
+              {"label": "E", "text": "96%"}
+            ]
+          }
+        ]
+      },
+      {
+        "component_name": "Physique",
+        "coefficient": 1,
+        "questions": [
+          {
+            "exercise_title": "Propagation d'une onde le long d'une corde",
+            "question_number": "Q21",
+            "stimulus": "Une plaque horizontale, fixée à l'extrémité S d'une corde élastique, crée une onde progressive sinusoïdale qui se propage avec une vitesse v. Le mouvement de S commence à l'instant t₀=0. Les figures (1) et (2) ci-dessous représentent l'élongation d'un point M de la corde, situé à une distance d de S, et l'aspect de la corde à l'instant t₁=0,16s. Le front de l'onde se trouve à l'instant t₁ à la distance SF=80 cm de S.",
+            "image_description": "Figure 1: Graphique de l'élongation yM en fonction du temps t (en 10⁻²s), montrant une sinusoïde commençant après un certain délai. Figure 2: Graphique de l'aspect de la corde à t₁, montrant une onde sinusoïdale de la source S jusqu'au front F.",
+            "text": "Les valeurs de la longueur d'onde λ et de la vitesse de propagation v de l'onde le long de la corde sont :",
+            "options": [
+              {"label": "A", "text": "λ=0,40 m ; v=0,25 m.s⁻¹"},
+              {"label": "B", "text": "λ=0,08 m ; v=0,80 m.s⁻¹"},
+              {"label": "C", "text": "λ=0,40 m ; v=2,5 m.s⁻¹"},
+              {"label": "D", "text": "λ=0,40 m ; v=5,0 m.s⁻¹"},
+              {"label": "E", "text": "λ=0,80 m ; v=10 m.s⁻¹"}
+            ]
+          },
+          {
+            "exercise_title": "Propagation d'une onde le long d'une corde",
+            "question_number": "Q22",
+            "stimulus": "Référence aux données de l'exercice précédent (Q21).",
+            "text": "La valeur de la distance d=SM est :",
+            "options": [
+              {"label": "A", "text": "d=0,20 m"},
+              {"label": "B", "text": "d=0,40 m"},
+              {"label": "C", "text": "d=0,60 m"},
+              {"label": "D", "text": "d=0,80 m"},
+              {"label": "E", "text": "d=1,2 m"}
+            ]
+          },
+          {
+            "exercise_title": "Propagation d'une onde le long d'une corde",
+            "question_number": "Q23",
+            "stimulus": "Référence aux données de l'exercice précédent (Q21).",
+            "text": "L'élongation du point M de la corde par rapport à la source S est :",
+            "options": [
+              {"label": "A", "text": "yₘ(t)=yₛ(t-0,04)"},
+              {"label": "B", "text": "yₘ(t)=yₛ(t-0,08)"},
+              {"label": "C", "text": "yₘ(t)=yₛ(t-0,4)"},
+              {"label": "D", "text": "yₘ(t)=yₛ(t-0,8)"},
+              {"label": "E", "text": "yₘ(t)=yₛ(t-0,05)"}
+            ]
+          },
+          {
+            "exercise_title": "Comportement des ondes ultrasonores dans deux milieux différents",
+            "question_number": "Q24",
+            "stimulus": "Deux émetteurs E₁ et E₂, envoient, au même instant, des ondes ultrasonores de même fréquence N respectivement dans l'air et dans l'eau de mer (Figure 1). Le récepteur R₁ capte les ondes se propageant dans l'air, et le récepteur R₂ capte les ondes se propageant dans l'eau de mer. Soit Δt le retard temporel des ondes reçues par R₁ par rapport à celles reçues par R₂ pour une distance d. La courbe de la figure (2) représente les variations de Δt en fonction de d.",
+            "image_description": "Figure 1: Schéma du dispositif avec deux paires émetteur-récepteur (E₁-R₁ dans l'air, E₂-R₂ dans l'eau), séparées par une distance d. Figure 2: Graphique de Δt (ms) en fonction de d (m), montrant une droite passant par l'origine.",
+            "data": {"Vₐ": "340 m.s⁻¹"},
+            "text": "L'expression du retard temporel Δt est :",
+            "options": [
+              {"label": "A", "text": "Δt = d.(Vₑ - Vₐ)"},
+              {"label": "B", "text": "Δt = d.(1/Vₑ + 1/Vₐ)"},
+              {"label": "C", "text": "Δt = d.(1/Vₐ - 1/Vₑ)"},
+              {"label": "D", "text": "Δt = d.(Vₑ + Vₐ)"},
+              {"label": "E", "text": "Δt = 2d.(1/Vₐ - 1/Vₑ)"}
+            ]
+          },
+          {
+            "exercise_title": "Comportement des ondes ultrasonores dans deux milieux différents",
+            "question_number": "Q25",
+            "stimulus": "Référence aux données de l'exercice précédent (Q24).",
+            "text": "La valeur de la vitesse de propagation des ondes ultrasonores dans l'eau de mer est :",
+            "options": [
+              {"label": "A", "text": "Vₑ = 670 m.s⁻¹"},
+              {"label": "B", "text": "Vₑ = 1210 m.s⁻¹"},
+              {"label": "C", "text": "Vₑ = 1340 m.s⁻¹"},
+              {"label": "D", "text": "Vₑ = 1492 m.s⁻¹"},
+              {"label": "E", "text": "Vₑ = 1767 m.s⁻¹"}
+            ]
+          },
+          {
+            "exercise_title": "Diffraction",
+            "question_number": "Q26",
+            "stimulus": "On éclaire une fente de largeur a par un faisceau de lumière monochromatique de longueur d'onde λ émis par un laser. On observe le phénomène de diffraction sur un écran placé à une distance D de la fente. On obtient une tache centrale de largeur L. On remplace la lumière monochromatique par une lumière blanche. On obtient une tache centrale blanche et des spectres lumineux.",
+            "data": {
+              "λᵥ": "longueur d'onde de la lumière verte",
+              "λᵣ": "longueur d'onde de la lumière rouge",
+              "tanθ ≈ θ (rad)": "approximation valable pour les petits angles en radians"
+            },
+            "text": "L'expression de la largeur de la tache centrale est :",
+            "options": [
+              {"label": "A", "text": "L = (λ.D)/a"},
+              {"label": "B", "text": "L = (2.λ.D)/a"},
+              {"label": "C", "text": "L = (λ.a)/D"},
+              {"label": "D", "text": "L = (2.λ.a)/D"},
+              {"label": "E", "text": "L = (λ.D)/(2.a)"}
+            ]
+          },
+          {
+            "exercise_title": "Diffraction",
+            "question_number": "Q27",
+            "stimulus": "Référence aux données de l'exercice précédent (Q26).",
+            "text": "La comparaison de la largeur de la tache centrale pour la lumière verte (Lᵥ) et pour la lumière rouge (Lᵣ) montre que :",
+            "options": [
+              {"label": "A", "text": "Lᵥ = Lᵣ"},
+              {"label": "B", "text": "Lᵥ > Lᵣ"},
+              {"label": "C", "text": "Lᵥ < Lᵣ"},
+              {"label": "D", "text": "Lᵥ = 2Lᵣ"},
+              {"label": "E", "text": "Lᵥ = Lᵣ/2"}
+            ]
+          },
+          {
+            "exercise_title": "Nucléaire",
+            "question_number": "Q28",
+            "stimulus": "L'iode 131 est un isotope radioactif utilisé en médecine pour traiter certaines maladies de la glande thyroïde. Le noyau d'iode ¹³¹₅₃I se désintègre en un noyau de xénon ᴬzXe.",
+            "text": "Le type de désintégration de l'iode 131 et les valeurs de A et Z sont :",
+            "options": [
+              {"label": "A", "text": "Désintégration β⁻ ; A=131 et Z=54"},
+              {"label": "B", "text": "Désintégration β⁺ ; A=131 et Z=52"},
+              {"label": "C", "text": "Désintégration β⁻ ; A=131 et Z=52"},
+              {"label": "D", "text": "Désintégration α ; A=127 et Z=51"},
+              {"label": "E", "text": "Désintégration β⁺ ; A=131 et Z=54"}
+            ]
+          },
+          {
+            "question_number": "Q29",
+            "stimulus": "On injecte à un patient à l'instant t=0, une dose d'une solution d'iode 131 d'activité a₀ = 3,5.10⁶ Bq. La demi-vie de l'iode 131 est t₁/₂ = 8 jours. L'activité de l'échantillon restant dans le corps du patient à l'instant t=24 jours est :",
+            "data": {"ln2": "0,7"},
+            "text": "L'activité de l'échantillon à t=24 jours est :",
+            "options": [
+              {"label": "A", "text": "a = 4,375.10⁵ Bq"},
+              {"label": "B", "text": "a = 3,375.10⁵ Bq"},
+              {"label": "C", "text": "a = 1,16.10⁵ Bq"},
+              {"label": "D", "text": "a = 0,58.10⁵ Bq"},
+              {"label": "E", "text": "a = 2,5.10⁵ Bq"}
+            ]
+          },
+          {
+            "exercise_title": "Circuit RC",
+            "question_number": "Q30",
+            "stimulus": "On réalise le circuit électrique représenté sur la figure 1. A l'instant t=0, on ferme l'interrupteur K. Un système d'acquisition informatisé permet de tracer la courbe d'évolution de la tension uₐ(t) aux bornes du condensateur (figure 2).",
+            "image_description": "Figure 1: Circuit RC série avec un générateur de tension E, un interrupteur K, une résistance R et un condensateur C. Figure 2: Courbe de charge du condensateur uₐ(t) en fonction du temps, avec une asymptote à 10V et une tangente à l'origine coupant l'asymptote à t=τ.",
+            "text": "L'équation différentielle vérifiée par la tension uₐ(t) est :",
+            "options": [
+              {"label": "A", "text": "duₐ/dt + uₐ/(RC) = E/(RC)"},
+              {"label": "B", "text": "duₐ/dt - uₐ/(RC) = E/(RC)"},
+              {"label": "C", "text": "duₐ/dt + uₐ/(RC) = 0"},
+              {"label": "D", "text": "duₐ/dt + uₐ = E/R"},
+              {"label": "E", "text": "duₐ/dt - uₐ/(RC) = 0"}
+            ]
+          },
+          {
+            "exercise_title": "Circuit RC",
+            "question_number": "Q31",
+            "stimulus": "Référence aux données de l'exercice précédent (Q30).",
+            "text": "La valeur de la force électromotrice E et de la capacité C sont :",
+            "options": [
+              {"label": "A", "text": "E=10 V ; C=10 μF"},
+              {"label": "B", "text": "E=10 V ; C=20 μF"},
+              {"label": "C", "text": "E=5 V ; C=10 μF"},
+              {"label": "D", "text": "E=5 V ; C=20 μF"},
+              {"label": "E", "text": "E=10 V ; C=5 μF"}
+            ]
+          },
+          {
+            "exercise_title": "Circuit RC",
+            "question_number": "Q32",
+            "stimulus": "Référence aux données de l'exercice précédent (Q30).",
+            "text": "L'énergie emmagasinée dans le condensateur en régime permanent est :",
+            "options": [
+              {"label": "A", "text": "Eₑ = 1 mJ"},
+              {"label": "B", "text": "Eₑ = 2 mJ"},
+              {"label": "C", "text": "Eₑ = 5 mJ"},
+              {"label": "D", "text": "Eₑ = 10 mJ"},
+              {"label": "E", "text": "Eₑ = 20 mJ"}
+            ]
+          },
+          {
+            "exercise_title": "Circuit RLC",
+            "question_number": "Q33",
+            "stimulus": "On monte en série un condensateur de capacité C=10μF, une bobine d'inductance L=0,1H et de résistance r=10Ω, et un conducteur ohmique de résistance R=90Ω. Le circuit est alimenté par un générateur de tension alternative de tension efficace U=12V et de fréquence N variable.",
+            "text": "La valeur de l'impédance du circuit à la résonance est :",
+            "options": [
+              {"label": "A", "text": "Z=10 Ω"},
+              {"label": "B", "text": "Z=90 Ω"},
+              {"label": "C", "text": "Z=100 Ω"},
+              {"label": "D", "text": "Z=110 Ω"},
+              {"label": "E", "text": "Z=80 Ω"}
+            ]
+          },
+          {
+            "exercise_title": "Circuit RLC",
+            "question_number": "Q34",
+            "stimulus": "Référence aux données de l'exercice précédent (Q33).",
+            "text": "La valeur efficace de l'intensité du courant à la résonance est :",
+            "options": [
+              {"label": "A", "text": "I=0,12 A"},
+              {"label": "B", "text": "I=1,2 A"},
+              {"label": "C", "text": "I=0,13 A"},
+              {"label": "D", "text": "I=1,3 A"},
+              {"label": "E", "text": "I=0,15 A"}
+            ]
+          },
+          {
+            "exercise_title": "Circuit RLC",
+            "question_number": "Q35",
+            "stimulus": "Référence aux données de l'exercice précédent (Q33).",
+            "text": "La tension efficace aux bornes du condensateur à la résonance est :",
+            "options": [
+              {"label": "A", "text": "U_C = 120 V"},
+              {"label": "B", "text": "U_C = 12 V"},
+              {"label": "C", "text": "U_C = 240 V"},
+              {"label": "D", "text": "U_C = 24 V"},
+              {"label": "E", "text": "U_C = 1,2 V"}
+            ]
+          },
+          {
+            "exercise_title": "Mouvement d'un projectile",
+            "question_number": "Q36",
+            "stimulus": "Un skieur s'élance d'un tremplin avec une vitesse initiale v₀ faisant un angle α avec l'horizontale. Le mouvement est étudié dans un repère (O, i, j). On néglige les frottements.",
+            "data": {"g": "9,8 m.s⁻²"},
+            "text": "Les équations horaires du mouvement du skieur sont :",
+            "options": [
+              {"label": "A", "text": "x(t)=(v₀.sinα).t et y(t)=-1/2.g.t²+(v₀.cosα).t"},
+              {"label": "B", "text": "x(t)=(v₀.cosα).t et y(t)=-1/2.g.t²+(v₀.sinα).t"},
+              {"label": "C", "text": "x(t)=(v₀.cosα).t et y(t)=1/2.g.t²+(v₀.sinα).t"},
+              {"label": "D", "text": "x(t)=v₀.t et y(t)=-1/2.g.t²"},
+              {"label": "E", "text": "x(t)=(v₀.sinα).t et y(t)=1/2.g.t²+(v₀.cosα).t"}
+            ]
+          },
+          {
+            "exercise_title": "Mouvement d'un projectile",
+            "question_number": "Q37",
+            "stimulus": "Référence aux données de l'exercice précédent (Q36).",
+            "text": "L'équation de la trajectoire du skieur est :",
+            "options": [
+              {"label": "A", "text": "y(x) = -g/(2v₀²cos²α).x² + (tanα).x"},
+              {"label": "B", "text": "y(x) = g/(2v₀²cos²α).x² + (tanα).x"},
+              {"label": "C", "text": "y(x) = -g/(2v₀²sin²α).x² + (cotanα).x"},
+              {"label": "D", "text": "y(x) = -g/(2v₀²).x² + v₀.x"},
+              {"label": "E", "text": "y(x) = -g/(v₀²cos²α).x² + (tanα).x"}
+            ]
+          },
+          {
+            "exercise_title": "Pendule pesant",
+            "question_number": "Q38",
+            "stimulus": "Un pendule pesant est constitué d'une tige de masse négligeable de longueur L et d'un solide de masse m. On écarte le pendule de sa position d'équilibre d'un angle θₘ et on le lâche sans vitesse initiale. On néglige les frottements.",
+            "text": "L'équation différentielle du mouvement du pendule pour de petites oscillations est :",
+            "options": [
+              {"label": "A", "text": "θ'' + (g/L)θ = 0"},
+              {"label": "B", "text": "θ'' + (L/g)θ = 0"},
+              {"label": "C", "text": "θ'' - (g/L)θ = 0"},
+              {"label": "D", "text": "θ'' + (g/L)sinθ = 0"},
+              {"label": "E", "text": "θ'' + (m.g.L)θ = 0"}
+            ]
+          },
+          {
+            "exercise_title": "Pendule pesant",
+            "question_number": "Q39",
+            "stimulus": "Référence aux données de l'exercice précédent (Q38).",
+            "text": "La période propre T₀ des oscillations est :",
+            "options": [
+              {"label": "A", "text": "T₀ = 2π.√(L/g)"},
+              {"label": "B", "text": "T₀ = 2π.√(g/L)"},
+              {"label": "C", "text": "T₀ = √(L/g)"},
+              {"label": "D", "text": "T₀ = 1/(2π).√(L/g)"},
+              {"label": "E", "text": "T₀ = 2π.√(m/k)"}
+            ]
+          },
+          {
+            "exercise_title": "Pendule pesant",
+            "question_number": "Q40",
+            "stimulus": "On donne L=1m et g=9,8 m.s⁻²",
+            "text": "La valeur de la période propre T₀ est :",
+            "options": [
+              {"label": "A", "text": "T₀ ≈ 1 s"},
+              {"label": "B", "text": "T₀ ≈ 2 s"},
+              {"label": "C", "text": "T₀ ≈ 3,14 s"},
+              {"label": "D", "text": "T₀ ≈ 0,5 s"},
+              {"label": "E", "text": "T₀ ≈ 6,28 s"}
+            ]
+          }
+        ]
+      },
+      {
+        "component_name": "Chimie",
+        "coefficient": 1,
+        "questions": [
+          {
+            "exercise_title": "Cinétique chimique",
+            "question_number": "Q41",
+            "stimulus": "On étudie la cinétique de la réaction d'hydrolyse de l'ester (E) : CH₃COOC₂H₅ + H₂O ⇌ CH₃COOH + C₂H₅OH. On mélange à t=0, n₀ moles d'ester et n₀ moles d'eau. On suit la quantité de matière d'acide formé au cours du temps.",
+            "text": "Le tableau d'avancement de la réaction est : (à l'instant t)",
+            "options": [
+              {"label": "A", "text": "Ester: n₀-x ; Eau: n₀-x ; Acide: x ; Alcool: x"},
+              {"label": "B", "text": "Ester: n₀-x ; Eau: n₀ ; Acide: x ; Alcool: x"},
+              {"label": "C", "text": "Ester: n₀ ; Eau: n₀-x ; Acide: x ; Alcool: x"},
+              {"label": "D", "text": "Ester: n₀+x ; Eau: n₀+x ; Acide: -x ; Alcool: -x"},
+              {"label": "E", "text": "Ester: n₀-2x ; Eau: n₀-2x ; Acide: 2x ; Alcool: 2x"}
+            ]
+          },
+          {
+            "exercise_title": "Cinétique chimique",
+            "question_number": "Q42",
+            "stimulus": "Référence aux données de l'exercice précédent (Q41). La réaction est lente et limitée.",
+            "text": "Pour augmenter la vitesse de la réaction, on peut :",
+            "options": [
+              {"label": "A", "text": "Diminuer la température."},
+              {"label": "B", "text": "Ajouter un catalyseur."},
+              {"label": "C", "text": "Diminuer la concentration des réactifs."},
+              {"label": "D", "text": "Enlever l'un des produits."},
+              {"label": "E", "text": "Travailler à volume constant."}
+            ]
+          },
+          {
+            "exercise_title": "Cinétique chimique",
+            "question_number": "Q43",
+            "stimulus": "Référence aux données de l'exercice précédent (Q41).",
+            "text": "Le temps de demi-réaction t₁/₂ est le temps au bout duquel :",
+            "options": [
+              {"label": "A", "text": "l'avancement x = x_final"},
+              {"label": "B", "text": "l'avancement x = x_max"},
+              {"label": "C", "text": "l'avancement x = x_final / 2"},
+              {"label": "D", "text": "la concentration de l'ester est nulle."},
+              {"label": "E", "text": "la vitesse de réaction est maximale."}
+            ]
+          },
+          {
+            "exercise_title": "Réactions acido-basiques",
+            "question_number": "Q44",
+            "stimulus": "On prépare une solution aqueuse d'acide éthanoïque CH₃COOH de concentration C = 1,0.10⁻² mol.L⁻¹ et de volume V=100mL. Le pH de la solution est 3,4.",
+            "text": "L'équation de la réaction de l'acide éthanoïque avec l'eau est :",
+            "options": [
+              {"label": "A", "text": "CH₃COOH + H₂O → CH₃COO⁻ + H₃O⁺"},
+              {"label": "B", "text": "CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺"},
+              {"label": "C", "text": "CH₃COOH + OH⁻ → CH₃COO⁻ + H₂O"},
+              {"label": "D", "text": "CH₃COO⁻ + H₃O⁺ ⇌ CH₃COOH + H₂O"},
+              {"label": "E", "text": "2CH₃COOH ⇌ (CH₃COOH)₂"}
+            ]
+          },
+          {
+            "exercise_title": "Réactions acido-basiques",
+            "question_number": "Q45",
+            "stimulus": "Référence aux données de l'exercice précédent (Q44).",
+            "text": "Le taux d'avancement final de la réaction est :",
+            "options": [
+              {"label": "A", "text": "τ = 1"},
+              {"label": "B", "text": "τ = 0,04"},
+              {"label": "C", "text": "τ = 4,0"},
+              {"label": "D", "text": "τ = 0,4"},
+              {"label": "E", "text": "τ = 0,004"}
+            ]
+          },
+          {
+            "exercise_title": "Réactions acido-basiques",
+            "question_number": "Q46",
+            "stimulus": "Référence aux données de l'exercice précédent (Q44).",
+            "text": "La constante d'acidité Ka du couple CH₃COOH/CH₃COO⁻ est de l'ordre de :",
+            "options": [
+              {"label": "A", "text": "1,6.10⁻⁵"},
+              {"label": "B", "text": "1,6.10⁻⁴"},
+              {"label": "C", "text": "1,6.10⁻³"},
+              {"label": "D", "text": "4,0.10⁻⁴"},
+              {"label": "E", "text": "4,0.10⁻³"}
+            ]
+          },
+          {
+            "exercise_title": "Dosage",
+            "question_number": "Q47",
+            "stimulus": "On dose un volume Vₐ=20mL d'une solution d'acide chlorhydrique (H₃O⁺ + Cl⁻) par une solution d'hydroxyde de sodium (Na⁺ + OH⁻) de concentration Cₑ=1,0.10⁻² mol.L⁻¹. Le volume de base versé à l'équivalence est Vₑ=15mL.",
+            "text": "L'équation de la réaction de dosage est :",
+            "options": [
+              {"label": "A", "text": "H₃O⁺ + OH⁻ → 2H₂O"},
+              {"label": "B", "text": "HCl + NaOH → NaCl + H₂O"},
+              {"label": "C", "text": "Cl⁻ + Na⁺ → NaCl"},
+              {"label": "D", "text": "H₃O⁺ + NaOH → Na⁺ + 2H₂O"},
+              {"label": "E", "text": "HCl + OH⁻ → Cl⁻ + H₂O"}
+            ]
+          },
+          {
+            "exercise_title": "Dosage",
+            "question_number": "Q48",
+            "stimulus": "Référence aux données de l'exercice précédent (Q47).",
+            "text": "La concentration de la solution d'acide chlorhydrique est :",
+            "options": [
+              {"label": "A", "text": "Cₐ = 1,33.10⁻² mol.L⁻¹"},
+              {"label": "B", "text": "Cₐ = 0,75.10⁻² mol.L⁻¹"},
+              {"label": "C", "text": "Cₐ = 1,0.10⁻² mol.L⁻¹"},
+              {"label": "D", "text": "Cₐ = 1,5.10⁻² mol.L⁻¹"},
+              {"label": "E", "text": "Cₐ = 2,0.10⁻² mol.L⁻¹"}
+            ]
+          },
+          {
+            "exercise_title": "Dosage",
+            "question_number": "Q49",
+            "stimulus": "Référence aux données de l'exercice précédent (Q47).",
+            "text": "Le pH du mélange à l'équivalence est :",
+            "options": [
+              {"label": "A", "text": "pH < 7"},
+              {"label": "B", "text": "pH > 7"},
+              {"label": "C", "text": "pH = 7"},
+              {"label": "D", "text": "pH = pKa"},
+              {"label": "E", "text": "pH = 14"}
+            ]
+          },
+          {
+            "exercise_title": "Pile",
+            "question_number": "Q50",
+            "stimulus": "On réalise une pile Daniell avec une électrode de zinc plongeant dans une solution de sulfate de zinc (Zn²⁺ + SO₄²⁻) et une électrode de cuivre plongeant dans une solution de sulfate de cuivre (Cu²⁺ + SO₄²⁻). Les concentrations initiales sont [Zn²⁺]=[Cu²⁺]=1 mol.L⁻¹.",
+            "data": {"E°(Zn²⁺/Zn)": "-0,76 V", "E°(Cu²⁺/Cu)": "+0,34 V"},
+            "text": "La force électromotrice (f.e.m) initiale de la pile est :",
+            "options": [
+              {"label": "A", "text": "E = 0,42 V"},
+              {"label": "B", "text": "E = -0,42 V"},
+              {"label": "C", "text": "E = 1,10 V"},
+              {"label": "D", "text": "E = -1,10 V"},
+              {"label": "E", "text": "E = 0 V"}
+            ]
+          },
+          {
+            "exercise_title": "Pile",
+            "question_number": "Q51",
+            "stimulus": "Référence aux données de l'exercice précédent (Q50).",
+            "text": "L'électrode de zinc constitue :",
+            "options": [
+              {"label": "A", "text": "le pôle positif (cathode) où a lieu une oxydation."},
+              {"label": "B", "text": "le pôle positif (cathode) où a lieu une réduction."},
+              {"label": "C", "text": "le pôle négatif (anode) où a lieu une oxydation."},
+              {"label": "D", "text": "le pôle négatif (anode) où a lieu une réduction."},
+              {"label": "E", "text": "une électrode inerte."}
+            ]
+          },
+          {
+            "exercise_title": "Pile",
+            "question_number": "Q52",
+            "stimulus": "Référence aux données de l'exercice précédent (Q50). La pile débite un courant I pendant un temps Δt.",
+            "text": "La masse de l'électrode de cuivre :",
+            "options": [
+              {"label": "A", "text": "augmente."},
+              {"label": "B", "text": "diminue."},
+              {"label": "C", "text": "reste constante."},
+              {"label": "D", "text": "devient nulle."},
+              {"label": "E", "text": "dépend de la masse de l'électrode de zinc."}
+            ]
+          },
+          {
+            "exercise_title": "Estérification",
+            "question_number": "Q53",
+            "stimulus": "On chauffe à reflux un mélange équimolaire d'acide éthanoïque et d'éthanol en présence d'acide sulfurique.",
+            "text": "Le nom du produit organique principal formé est :",
+            "options": [
+              {"label": "A", "text": "Acétate d'éthyle"},
+              {"label": "B", "text": "Éthanoate d'éthyle"},
+              {"label": "C", "text": "Méthanoate d'éthyle"},
+              {"label": "D", "text": "Éther éthylique"},
+              {"label": "E", "text": "Anhydride éthanoïque"}
+            ]
+          },
+          {
+            "exercise_title": "Estérification",
+            "question_number": "Q54",
+            "stimulus": "Référence aux données de l'exercice précédent (Q53).",
+            "text": "La réaction d'estérification est :",
+            "options": [
+              {"label": "A", "text": "rapide et totale."},
+              {"label": "B", "text": "lente et totale."},
+              {"label": "C", "text": "rapide et limitée."},
+              {"label": "D", "text": "lente et limitée."},
+              {"label": "E", "text": "instantanée."}
+            ]
+          },
+          {
+            "exercise_title": "Estérification",
+            "question_number": "Q55",
+            "stimulus": "Référence aux données de l'exercice précédent (Q53). Le rendement de la réaction est de 67%.",
+            "text": "La constante d'équilibre K associée à cette réaction est :",
+            "options": [
+              {"label": "A", "text": "K = 1"},
+              {"label": "B", "text": "K = 2"},
+              {"label": "C", "text": "K = 3"},
+              {"label": "D", "text": "K = 4"},
+              {"label": "E", "text": "K = 0,67"}
+            ]
+          },
+          {
+            "exercise_title": "Saponification",
+            "question_number": "Q56",
+            "stimulus": "La saponification de l'éthanoate d'éthyle est la réaction entre cet ester et une solution d'hydroxyde de sodium.",
+            "text": "Les produits de cette réaction sont :",
+            "options": [
+              {"label": "A", "text": "Acide éthanoïque et éthanol."},
+              {"label": "B", "text": "Éthanoate de sodium et éthanol."},
+              {"label": "C", "text": "Acide éthanoïque et ion sodium."},
+              {"label": "D", "text": "Acétate de sodium et méthanol."},
+              {"label": "E", "text": "Anhydride éthanoïque et éthanol."}
+            ]
+          },
+          {
+            "exercise_title": "Composés organiques",
+            "question_number": "Q57",
+            "text": "La formule semi-développée CH₃-CH(CH₃)-CH₂-OH correspond à :",
+            "options": [
+              {"label": "A", "text": "Butan-1-ol"},
+              {"label": "B", "text": "Butan-2-ol"},
+              {"label": "C", "text": "2-méthylpropan-1-ol"},
+              {"label": "D", "text": "2-méthylpropan-2-ol"},
+              {"label": "E", "text": "Pentan-1-ol"}
+            ]
+          },
+          {
+            "exercise_title": "Composés organiques",
+            "question_number": "Q58",
+            "text": "Parmi les composés suivants, lequel est un acide carboxylique ?",
+            "options": [
+              {"label": "A", "text": "CH₃-CO-CH₃"},
+              {"label": "B", "text": "CH₃-CHO"},
+              {"label": "C", "text": "CH₃-COOH"},
+              {"label": "D", "text": "CH₃-COO-CH₃"},
+              {"label": "E", "text": "CH₃-CH₂-OH"}
+            ]
+          },
+          {
+            "exercise_title": "Composés organiques",
+            "question_number": "Q59",
+            "text": "L'oxydation ménagée du propan-2-ol par une solution de dichromate de potassium en milieu acide donne :",
+            "options": [
+              {"label": "A", "text": "Propanal"},
+              {"label": "B", "text": "Propanone"},
+              {"label": "C", "text": "Acide propanoïque"},
+              {"label": "D", "text": "Propène"},
+              {"label": "E", "text": "Aucune réaction"}
+            ]
+          },
+          {
+            "exercise_title": "Composés organiques",
+            "question_number": "Q60",
+            "text": "Laquelle des molécules suivantes est chirale ?",
+            "options": [
+              {"label": "A", "text": "CH₄"},
+              {"label": "B", "text": "CH₃Cl"},
+              {"label": "C", "text": "CH₂Cl₂"},
+              {"label": "D", "text": "CHCl₃"},
+              {"label": "E", "text": "CHFClBr"}
+            ]
+          }
+        ]
+      },
+      {
+        "component_name": "Mathématiques",
+        "coefficient": 1,
+        "questions": [
+          {
+            "question_number": "Q61",
+            "text": "La limite de la suite (uₙ) définie par uₙ = (3n²-n+1)/(n²+5) est :",
+            "options": [
+              {"label": "A", "text": "0"},
+              {"label": "B", "text": "3"},
+              {"label": "C", "text": "+∞"},
+              {"label": "D", "text": "1/5"},
+              {"label": "E", "text": "-1"}
+            ]
+          },
+          {
+            "question_number": "Q62",
+            "text": "La limite lim(x→+∞) (√(x²+x+1) - x) est égale à :",
+            "options": [
+              {"label": "A", "text": "0"},
+              {"label": "B", "text": "1/2"},
+              {"label": "C", "text": "1"},
+              {"label": "D", "text": "+∞"},
+              {"label": "E", "text": "-∞"}
+            ]
+          },
+          {
+            "question_number": "Q63",
+            "text": "La limite lim(x→0) (sin(3x))/x est égale à :",
+            "options": [
+              {"label": "A", "text": "0"},
+              {"label": "B", "text": "1"},
+              {"label": "C", "text": "3"},
+              {"label": "D", "text": "1/3"},
+              {"label": "E", "text": "n'existe pas"}
+            ]
+          },
+          {
+            "question_number": "Q64",
+            "text": "Soit la fonction f définie par f(x)= (x²-4)/(x-2) pour x≠2 et f(2)=4. f est-elle continue en x=2 ?",
+            "options": [
+              {"label": "A", "text": "Oui"},
+              {"label": "B", "text": "Non"},
+              {"label": "C", "text": "On ne peut pas savoir"},
+              {"label": "D", "text": "f n'est pas définie en 2"},
+              {"label": "E", "text": "La limite n'existe pas"}
+            ]
+          },
+          {
+            "question_number": "Q65",
+            "text": "La dérivée de la fonction f(x) = ln(x²+1) est :",
+            "options": [
+              {"label": "A", "text": "1/(x²+1)"},
+              {"label": "B", "text": "2x/(x²+1)"},
+              {"label": "C", "text": "1/x"},
+              {"label": "D", "text": "x/(x²+1)"},
+              {"label": "E", "text": "2/(x²+1)"}
+            ]
+          },
+          {
+            "question_number": "Q66",
+            "text": "La dérivée de la fonction g(x) = e^(sin(x)) est :",
+            "options": [
+              {"label": "A", "text": "e^(sin(x))"},
+              {"label": "B", "text": "cos(x).e^(sin(x))"},
+              {"label": "C", "text": "-cos(x).e^(sin(x))"},
+              {"label": "D", "text": "sin(x).e^(sin(x))"},
+              {"label": "E", "text": "e^(cos(x))"}
+            ]
+          },
+          {
+            "question_number": "Q67",
+            "text": "Une primitive de la fonction h(x) = 1/(x.ln(x)) sur ]1, +∞[ est :",
+            "options": [
+              {"label": "A", "text": "ln(ln(x))"},
+              {"label": "B", "text": "-1/(ln(x))²"},
+              {"label": "C", "text": "ln(x)"},
+              {"label": "D", "text": "1/x²"},
+              {"label": "E", "text": "-1/(x.ln(x))²"}
+            ]
+          },
+          {
+            "question_number": "Q68",
+            "text": "L'intégrale ∫(de 0 à 1) xe^(x²) dx vaut :",
+            "options": [
+              {"label": "A", "text": "(e-1)/2"},
+              {"label": "B", "text": "e-1"},
+              {"label": "C", "text": "e/2"},
+              {"label": "D", "text": "e"},
+              {"label": "E", "text": "1/2"}
+            ]
+          },
+          {
+            "question_number": "Q69",
+            "text": "En utilisant une intégration par parties, l'intégrale ∫(de 1 à e) ln(x) dx vaut :",
+            "options": [
+              {"label": "A", "text": "1"},
+              {"label": "B", "text": "e-1"},
+              {"label": "C", "text": "e"},
+              {"label": "D", "text": "0"},
+              {"label": "E", "text": "2"}
+            ]
+          },
+          {
+            "question_number": "Q70",
+            "text": "La solution générale de l'équation différentielle y' + 2y = 0 est :",
+            "options": [
+              {"label": "A", "text": "y = k.e^(2x)"},
+              {"label": "B", "text": "y = k.e^(-2x)"},
+              {"label": "C", "text": "y = k.sin(2x)"},
+              {"label": "D", "text": "y = k.cos(2x)"},
+              {"label": "E", "text": "y = kx²"}
+            ]
+          },
+          {
+            "question_number": "Q71",
+            "text": "La solution de l'équation différentielle y'' + 9y = 0 vérifiant y(0)=1 et y'(0)=0 est :",
+            "options": [
+              {"label": "A", "text": "y = cos(3x)"},
+              {"label": "B", "text": "y = sin(3x)"},
+              {"label": "C", "text": "y = cos(3x) + sin(3x)"},
+              {"label": "D", "text": "y = e^(3x)"},
+              {"label": "E", "text": "y = e^(-3x)"}
+            ]
+          },
+          {
+            "question_number": "Q72",
+            "text": "Le module du nombre complexe z = 3 - 4i est :",
+            "options": [
+              {"label": "A", "text": "3"},
+              {"label": "B", "text": "4"},
+              {"label": "C", "text": "5"},
+              {"label": "D", "text": "7"},
+              {"label": "E", "text": "25"}
+            ]
+          },
+          {
+            "question_number": "Q73",
+            "text": "La forme exponentielle de z = 1 + i est :",
+            "options": [
+              {"label": "A", "text": "e^(iπ/4)"},
+              {"label": "B", "text": "√2.e^(iπ/4)"},
+              {"label": "C", "text": "√2.e^(-iπ/4)"},
+              {"label": "D", "text": "2.e^(iπ/4)"},
+              {"label": "E", "text": "e^(iπ/2)"}
+            ]
+          },
+          {
+            "question_number": "Q74",
+            "text": "Soit z = (1+i)⁴. La forme algébrique de z est :",
+            "options": [
+              {"label": "A", "text": "4"},
+              {"label": "B", "text": "-4"},
+              {"label": "C", "text": "4i"},
+              {"label": "D", "text": "-4i"},
+              {"label": "E", "text": "1+4i"}
+            ]
+          },
+          {
+            "question_number": "Q75",
+            "text": "Une urne contient 5 boules rouges et 3 boules noires. On tire simultanément 2 boules. La probabilité de tirer 2 boules de même couleur est :",
+            "options": [
+              {"label": "A", "text": "13/28"},
+              {"label": "B", "text": "15/56"},
+              {"label": "C", "text": "1/2"},
+              {"label": "D", "text": "10/28"},
+              {"label": "E", "text": "3/28"}
+            ]
+          },
+          {
+            "question_number": "Q76",
+            "text": "On lance un dé équilibré à 6 faces. Soit A l'événement 'obtenir un nombre pair' et B l'événement 'obtenir un nombre supérieur à 3'. Les événements A et B sont-ils indépendants ?",
+            "options": [
+              {"label": "A", "text": "Oui"},
+              {"label": "B", "text": "Non"},
+              {"label": "C", "text": "On ne peut pas savoir"},
+              {"label": "D", "text": "A et B sont incompatibles"},
+              {"label": "E", "text": "A implique B"}
+            ]
+          },
+          {
+            "question_number": "Q77",
+            "text": "Soit X une variable aléatoire suivant une loi binomiale B(10; 0,2). L'espérance E(X) est :",
+            "options": [
+              {"label": "A", "text": "10"},
+              {"label": "B", "text": "0,2"},
+              {"label": "C", "text": "2"},
+              {"label": "D", "text": "1,6"},
+              {"label": "E", "text": "8"}
+            ]
+          },
+          {
+            "question_number": "Q78",
+            "text": "Dans l'espace, on donne les points A(1,2,3), B(2,3,1) et C(3,1,2). Le produit scalaire AB.AC est :",
+            "options": [
+              {"label": "A", "text": "0"},
+              {"label": "B", "text": "-2"},
+              {"label": "C", "text": "2"},
+              {"label": "D", "text": "6"},
+              {"label": "E", "text": "-6"}
+            ]
+          },
+          {
+            "question_number": "Q79",
+            "text": "Dans l'espace, on considère le plan (P) d'équation 2x-y+z-5=0 et la droite (D) de représentation paramétrique x=1+t, y=2t, z=-1-t. Le point d'intersection de (P) et (D) est :",
+            "options": [
+              {"label": "A", "text": "M(1,0,-1)"},
+              {"label": "B", "text": "M(2,2,-2)"},
+              {"label": "C", "text": "M(3,4,-3)"},
+              {"label": "D", "text": "M(0,-2,0)"},
+              {"label": "E", "text": "La droite est parallèle au plan"}
+            ]
+          },
+          {
+            "question_number": "Q80",
+            "text": "La distance du point A(1,1,1) au plan (P) d'équation x+y+z-6=0 est :",
+            "options": [
+              {"label": "A", "text": "√3"},
+              {"label": "B", "text": "3"},
+              {"label": "C", "text": "3/√3"},
+              {"label": "D", "text": "1"},
+              {"label": "E", "text": "0"}
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

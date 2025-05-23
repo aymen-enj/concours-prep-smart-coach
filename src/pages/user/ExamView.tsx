@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,62 +14,35 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import MathRenderer from "@/components/MathRenderer";
 
-// Mock data for concours questions
-const mockQuestions = [
-  {
-    id: "q1",
-    type: "qcm",
-    text: "Quelle est la limite de f(x) = (1+x)^(1/x) quand x tend vers 0 ?",
-    options: ["e", "1", "0", "∞"],
-    correctAnswer: "e",
-    hint: "Pensez à la définition du nombre e comme une limite.",
-    difficulty: "medium",
-  },
-  {
-    id: "q2",
-    type: "text",
-    text: "Démontrez que la suite définie par u_n+1 = (u_n + a/u_n)/2 avec u_1 > 0 et a > 0 converge vers √a.",
-    hint: "Cette méthode est connue sous le nom de méthode de Newton-Raphson.",
-    difficulty: "hard",
-  },
-  {
-    id: "q3",
-    type: "qcm",
-    text: "Dans un espace vectoriel normé, toute suite de Cauchy est :",
-    options: [
-      "Toujours convergente",
-      "Convergente si l'espace est complet",
-      "Jamais convergente",
-      "Divergente",
-    ],
-    correctAnswer: "Convergente si l'espace est complet",
-    hint: "La complétude d'un espace est liée au comportement des suites de Cauchy.",
-    difficulty: "medium",
-  },
-  {
-    id: "q4",
-    type: "latex",
-    text: "Calculez l'intégrale suivante : $\\int_{0}^{\\pi} \\sin(x) \\, dx$",
-    hint: "Rappel : la primitive de sin(x) est -cos(x) + C",
-    difficulty: "easy",
-  },
-  {
-    id: "q5",
-    type: "qcm",
-    text: "Quelle est la solution de l'équation différentielle y' + y = 0 ?",
-    options: [
-      "y = Ce^x",
-      "y = Ce^(-x)",
-      "y = Cx",
-      "y = C/x",
-    ],
-    correctAnswer: "y = Ce^(-x)",
-    hint: "Une équation différentielle du premier ordre à coefficients constants.",
-    difficulty: "medium",
-  },
-];
+// Import exam data with proper TypeScript typing
+import medecine2023Data from "../../../concours/medecine/medecine2023/epreuve_2023.json";
 
+// Types for the exam data matching the actual JSON structure
+interface ExamOption {
+  label: string;
+  text: string;
+}
+
+interface ExamQuestion {
+  question_number: string;
+  text: string;
+  options: ExamOption[];
+}
+
+interface ExamComponent {
+  component_name: string;
+  coefficient: number;
+  questions: ExamQuestion[];
+}
+
+interface ExamData {
+  exam_title: string;
+  components: ExamComponent[];
+}
+
+// Helper functions
 const getDifficultyColor = (difficulty: string) => {
   switch(difficulty) {
     case "easy": return "text-green-500 bg-green-100 dark:bg-green-900/30 dark:text-green-400";
@@ -88,23 +61,36 @@ const getDifficultyText = (difficulty: string) => {
   }
 };
 
+const formatTime = (seconds: number) => {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+};
+
 const ExamView = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [timeLeft, setTimeLeft] = useState(3600); // 60 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(10800); // 3 hours in seconds
   const [showHint, setShowHint] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // Mock concours data
-  const concours = {
-    id,
-    title: "Concours CNC - Mathématiques",
-    year: 2023,
-    duration: "60 minutes",
-    totalQuestions: mockQuestions.length,
-  };
+  // Flatten all questions from all components
+  const allQuestions = useMemo(() => {
+    return medecine2023Data.components.flatMap(component => component.questions);
+  }, []);
+  
+  // Process exam data
+  const examData = useMemo(() => {
+    return {
+      id: id || 'medecine2023',
+      title: medecine2023Data.exam_title || 'Concours de Médecine 2023',
+      year: 2023, // Hardcoded since it's in the path
+      duration: '3 heures', // Hardcoded since it's not in the JSON
+      totalQuestions: allQuestions.length,
+    };
+  }, [id, allQuestions.length]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -129,7 +115,7 @@ const ExamView = () => {
   };
 
   const handleNext = () => {
-    if (currentQuestion < mockQuestions.length - 1) {
+    if (currentQuestion < allQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setShowHint(false);
     }
@@ -154,24 +140,19 @@ const ExamView = () => {
     }, 1500);
   };
 
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-  };
-
-  const question = mockQuestions[currentQuestion];
-  const isLastQuestion = currentQuestion === mockQuestions.length - 1;
-  const hasAnswer = !!answers[question.id];
+  // Current question data
+  const question = allQuestions[currentQuestion];
+  const isLastQuestion = currentQuestion === allQuestions.length - 1;
+  const hasAnswer = !!answers[question.question_number];
 
   // Calculate progress percentage
-  const progressPercentage = (currentQuestion + 1) / concours.totalQuestions * 100;
+  const progressPercentage = (currentQuestion + 1) / examData.totalQuestions * 100;
 
   // Quick navigation to questions
   const QuickNav = () => (
-    <div className="hidden md:flex items-center gap-2 mb-8">
-      {mockQuestions.map((q, index) => (
-        <TooltipProvider key={q.id}>
+    <div className="hidden md:flex items-center gap-2 mb-8 flex-wrap">
+      {allQuestions.slice(0, 20).map((q, index) => (
+        <TooltipProvider key={q.question_number}>
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
@@ -181,7 +162,7 @@ const ExamView = () => {
                   "h-9 w-9 rounded-full transition-all",
                   currentQuestion === index 
                     ? "bg-primary text-primary-foreground hover:bg-primary/90" 
-                    : answers[q.id] 
+                    : answers[q.question_number] 
                       ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800/40" 
                       : "bg-background"
                 )}
@@ -193,17 +174,19 @@ const ExamView = () => {
             <TooltipContent side="bottom">
               <div className="text-xs">
                 <div className="font-semibold">Question {index + 1}</div>
-                <div className={cn(
-                  "px-1.5 py-0.5 rounded text-[10px] mt-1",
-                  getDifficultyColor(q.difficulty)
-                )}>
-                  {getDifficultyText(q.difficulty)}
+                <div className="px-1.5 py-0.5 rounded text-[10px] mt-1 bg-blue-100 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400">
+                  QCM
                 </div>
               </div>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       ))}
+      {allQuestions.length > 20 && (
+        <div className="text-sm text-muted-foreground">
+          +{allQuestions.length - 20} questions
+        </div>
+      )}
     </div>
   );
 
@@ -230,12 +213,12 @@ const ExamView = () => {
                 </div>
                 <div>
                   <h1 className="text-2xl font-poppins font-bold text-foreground">
-                    {concours.title}
+                    {examData.title}
                   </h1>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <span>Année: {concours.year}</span>
+                    <span>Année: {examData.year}</span>
                     <span>•</span>
-                    <span>Durée: {concours.duration}</span>
+                    <span>Durée: {examData.duration}</span>
                   </div>
                 </div>
               </div>
@@ -260,9 +243,9 @@ const ExamView = () => {
             <div className="mb-6">
               <div className="mb-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium">Question {currentQuestion + 1}/{concours.totalQuestions}</span>
-                  <Badge className={cn("px-2 text-xs", getDifficultyColor(question.difficulty))}>
-                    {getDifficultyText(question.difficulty)}
+                  <span className="text-sm font-medium">Question {currentQuestion + 1}/{examData.totalQuestions}</span>
+                  <Badge className="px-2 text-xs bg-blue-100 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400">
+                    QCM
                   </Badge>
                 </div>
                 <span className="text-sm text-muted-foreground">
@@ -292,10 +275,10 @@ const ExamView = () => {
                     <div className="flex items-start justify-between gap-4 mb-6">
                       <div className="flex gap-3">
                         <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                          <span className="text-sm font-medium text-primary">{currentQuestion + 1}</span>
+                          <span className="text-sm font-medium text-primary">{question.question_number}</span>
                         </div>
                         <h2 className="text-lg font-medium text-foreground">
-                          {question.text}
+                          <MathRenderer text={question.text} />
                         </h2>
                       </div>
                       <Button
@@ -309,7 +292,7 @@ const ExamView = () => {
                     </div>
 
                     <AnimatePresence>
-                      {showHint && question.hint && (
+                      {showHint && (
                         <motion.div 
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
@@ -321,76 +304,49 @@ const ExamView = () => {
                             <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
                           </div>
                           <div>
-                            <p className="text-amber-800 dark:text-amber-300 text-sm">{question.hint}</p>
+                            <p className="text-amber-800 dark:text-amber-300 text-sm">
+                              Pas d'indice disponible pour cette question.
+                            </p>
                           </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
 
-                    {question.type === "qcm" && (
-                      <RadioGroup
-                        value={answers[question.id] || ""}
-                        onValueChange={(value) => handleAnswer(question.id, value)}
-                        className="space-y-3"
-                      >
-                        {question.options?.map((option, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                    <RadioGroup
+                      value={answers[question.question_number] || ""}
+                      onValueChange={(value) => handleAnswer(question.question_number, value)}
+                      className="space-y-3"
+                    >
+                      {question.options.map((option, index) => (
+                        <motion.div
+                          key={option.label}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                        >
+                          <div 
+                            className={cn(
+                              "flex items-center space-x-3 border border-border/60 rounded-lg p-3 transition-all",
+                              answers[question.question_number] === option.label 
+                                ? "border-primary/50 bg-primary/5 shadow-sm" 
+                                : "hover:border-border hover:bg-accent/5"
+                            )}
                           >
-                            <div 
+                            <RadioGroupItem value={option.label} id={`option-${option.label}`} />
+                            <Label 
+                              htmlFor={`option-${option.label}`}
                               className={cn(
-                                "flex items-center space-x-2 border border-border/60 rounded-lg p-3 transition-all",
-                                answers[question.id] === option 
-                                  ? "border-primary/50 bg-primary/5 shadow-sm" 
-                                  : "hover:border-border hover:bg-accent/5"
+                                "cursor-pointer flex-grow",
+                                answers[question.question_number] === option.label ? "font-medium" : ""
                               )}
                             >
-                              <RadioGroupItem value={option} id={`option-${index}`} />
-                              <Label 
-                                htmlFor={`option-${index}`}
-                                className={cn(
-                                  "cursor-pointer flex-grow",
-                                  answers[question.id] === option ? "font-medium" : ""
-                                )}
-                              >
-                                {option}
-                              </Label>
-                            </div>
-                          </motion.div>
-                        ))}
-                      </RadioGroup>
-                    )}
-
-                    {(question.type === "text" || question.type === "latex") && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="bg-blue-50/50 dark:bg-blue-950/10 p-3 rounded-lg mb-4 border border-blue-100 dark:border-blue-900/20">
-                          <div className="flex items-center gap-2 mb-2">
-                            <BookOpen className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                            <span className="text-sm font-medium text-blue-700 dark:text-blue-400">
-                              {question.type === "text" ? "Question ouverte" : "Formule mathématique"}
-                            </span>
+                              <span className="font-medium mr-2">{option.label}.</span>
+                              <MathRenderer text={option.text} />
+                            </Label>
                           </div>
-                          <p className="text-sm text-blue-800 dark:text-blue-300">
-                            {question.type === "text" 
-                              ? "Rédigez votre réponse de manière claire et structurée." 
-                              : "Vous pouvez utiliser la notation LaTeX pour vos formules mathématiques."}
-                          </p>
-                        </div>
-                        <Textarea
-                          placeholder="Votre réponse ici..."
-                          value={answers[question.id] || ""}
-                          onChange={(e) => handleAnswer(question.id, e.target.value)}
-                          className="min-h-[160px] bg-background/50 border-border/60 focus-visible:ring-primary/30"
-                        />
-                      </motion.div>
-                    )}
+                        </motion.div>
+                      ))}
+                    </RadioGroup>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -452,4 +408,4 @@ const ExamView = () => {
   );
 };
 
-export default ExamView; 
+export default ExamView;
