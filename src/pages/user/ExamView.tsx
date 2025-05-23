@@ -25,10 +25,42 @@ interface ExamOption {
   text: string;
 }
 
+interface StimulusListItem {
+  number: number;
+  text: string;
+}
+
+interface TableData {
+  type: "table";
+  headers: string[];
+  rows: (string | number)[][];
+  description?: string;
+  columns?: string[];
+  additional_data_for_Q23?: string;
+}
+
+interface ResultsData {
+  type: "results";
+  observations: { case: number; result: string }[];
+}
+
+interface SimpleData {
+  given_values?: string[];
+  remark?: string;
+  [key: string]: any; // For other data fields
+}
+
 interface ExamQuestion {
   question_number: string;
   text: string;
   options: ExamOption[];
+  stimulus?: string;
+  stimulus_list?: StimulusListItem[];
+  data?: TableData | ResultsData | SimpleData;
+  follow_up_question?: string;
+  image_description?: string;
+  data_labels_from_image?: string[];
+  exercise_title?: string;
 }
 
 interface ExamComponent {
@@ -273,13 +305,163 @@ const ExamView = () => {
                   <div className="h-1.5 bg-gradient-to-r from-primary to-blue-600"></div>
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between gap-4 mb-6">
-                      <div className="flex gap-3">
+                      <div className="flex gap-3 flex-grow">
                         <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
                           <span className="text-sm font-medium text-primary">{question.question_number}</span>
                         </div>
-                        <h2 className="text-lg font-medium text-foreground">
-                          <MathRenderer text={question.text} />
-                        </h2>
+                        <div className="w-full">
+                          {question.exercise_title && (
+                            <div className="mb-2 text-sm text-muted-foreground font-medium">
+                              {question.exercise_title}
+                            </div>
+                          )}
+                          
+                          {question.stimulus && (
+                            <div className="mb-4 p-3 bg-muted/50 rounded-md border border-border/50">
+                              <h3 className="text-sm font-medium mb-1">Contexte:</h3>
+                              <div className="text-sm text-foreground">
+                                <MathRenderer text={question.stimulus} />
+                              </div>
+                            </div>
+                          )}
+                          
+                          {question.stimulus_list && (
+                            <div className="mb-4 p-3 bg-muted/50 rounded-md border border-border/50">
+                              <h3 className="text-sm font-medium mb-1">Éléments à considérer:</h3>
+                              <ul className="list-none space-y-1">
+                                {question.stimulus_list.map((item) => (
+                                  <li key={item.number} className="text-sm">
+                                    <span className="font-medium mr-2">{item.number}.</span>
+                                    <MathRenderer text={item.text} />
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          
+                          {question.data && (
+                            <div className="mb-4 p-3 bg-muted/50 rounded-md border border-border/50">
+                              <h3 className="text-sm font-medium mb-2">Données:</h3>
+                              
+                              {/* Table data */}
+                              {'type' in question.data && question.data.type === 'table' && (
+                                <div className="overflow-x-auto">
+                                  <table className="w-full text-sm border-collapse">
+                                    {question.data.headers && (
+                                      <thead>
+                                        <tr className="bg-muted">
+                                          {question.data.headers.map((header, idx) => (
+                                            <th key={idx} className="border border-border/50 p-2 text-left">
+                                              <MathRenderer text={header} />
+                                            </th>
+                                          ))}
+                                        </tr>
+                                      </thead>
+                                    )}
+                                    <tbody>
+                                      {question.data.rows && question.data.rows.map((row, rowIdx) => (
+                                        <tr key={rowIdx} className="even:bg-muted/30">
+                                          {row.map((cell, cellIdx) => (
+                                            <td key={cellIdx} className="border border-border/50 p-2">
+                                              <MathRenderer text={String(cell)} />
+                                            </td>
+                                          ))}
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                  {question.data.description && (
+                                    <div className="mt-2 text-xs text-muted-foreground">
+                                      {question.data.description}
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                              
+                              {/* Results data */}
+                              {'type' in question.data && question.data.type === 'results' && (
+                                <div className="space-y-2">
+                                  {question.data.observations && question.data.observations.map((obs, idx) => (
+                                    <div key={idx} className="flex items-start gap-2">
+                                      <div className="px-2 py-1 bg-primary/10 rounded-md text-xs font-medium">
+                                        Case {obs.case}
+                                      </div>
+                                      <div className="text-sm">
+                                        <MathRenderer text={obs.result} />
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                              
+                              {/* Simple data with given values and remarks */}
+                              {question.data.given_values && (
+                                <div className="space-y-2">
+                                  <h4 className="text-xs font-medium">Valeurs données:</h4>
+                                  <ul className="list-disc pl-5 space-y-1">
+                                    {question.data.given_values.map((value, idx) => (
+                                      <li key={idx} className="text-sm">
+                                        <MathRenderer text={value} />
+                                      </li>
+                                    ))}
+                                  </ul>
+                                  {question.data.remark && (
+                                    <div className="mt-2 text-xs italic text-muted-foreground">
+                                      Note: {question.data.remark}
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                              
+                              {/* Other data fields */}
+                              {'type' in question.data === false && !question.data.given_values && Object.keys(question.data).length > 0 && (
+                                <div className="space-y-2">
+                                  {Object.entries(question.data).map(([key, value]) => (
+                                    <div key={key} className="text-sm">
+                                      <span className="font-medium">{key}: </span>
+                                      <MathRenderer text={typeof value === 'string' ? value : JSON.stringify(value)} />
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                          
+                          {question.image_description && (
+                            <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-md border border-blue-200 dark:border-blue-800/30 text-sm">
+                              <div className="flex items-start gap-2">
+                                <BookOpen className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                                <span>
+                                  <span className="font-medium">Description de l'image: </span>
+                                  {question.image_description}
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {question.data_labels_from_image && (
+                            <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-md border border-blue-200 dark:border-blue-800/30">
+                              <h3 className="text-xs font-medium mb-1 text-blue-700 dark:text-blue-400">Légende de l'image:</h3>
+                              <div className="flex flex-wrap gap-2">
+                                {question.data_labels_from_image.map((label, idx) => (
+                                  <Badge key={idx} variant="outline" className="bg-blue-100/50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800/30">
+                                    {label}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          
+                          <h2 className="text-lg font-medium text-foreground mb-2">
+                            <MathRenderer text={question.text} />
+                          </h2>
+                          
+                          {question.follow_up_question && (
+                            <div className="text-sm font-medium text-foreground mb-4">
+                              <MathRenderer text={question.follow_up_question} />
+                            </div>
+                          )}
+                        </div>
                       </div>
                       <Button
                         variant="ghost"

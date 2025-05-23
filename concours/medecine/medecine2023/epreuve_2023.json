@@ -8,7 +8,7 @@
       "questions": [
         {
           "question_number": "Q1",
-          "text": "Au cours du cycle de la contraction musculaire, le $Ca^{H}$ se fixe sur :",
+          "text": "Au cours du cycle de la contraction musculaire, le $Ca^{++}$ se fixe sur :",
           "options": [
             {"label": "A", "text": "la troponine qui déplace la tropomyosine et la tête de myosine porteuse d'ATP se lie à l'actine."},
             {"label": "B", "text": "la tropomyosine qui déplace la troponine et la tête de myosine porteuse d'ADP se lie à l'actine."},
@@ -153,7 +153,7 @@
             "type": "table",
             "headers": ["Les composantes de la chaîne respiratoire", "Le potentiel d'oxydoréduction (mV)"],
             "rows": [
-              ["Flavine mononucléotide", -300],
+              ["Flavine mononucléotide", "-300"],
               ["Cytochrome a3", "+385"],
               ["Ubiquinone", "+2"],
               ["Cytochrome b", "+30"],
@@ -245,10 +245,10 @@
           "stimulus": "le Phénylthiocarbamide (PTC), a un goût très amer pour certaines personnes et aucun goût pour d'autres. Dans une population, soumise à la loi de Hardy Weinberg, on a 70% des individus sensibles au goût amer du PTC. Sachant que la sensibilité à la PTC est liée à un allèle dominant S et l'insensibilité à cette substance est liée à l'allèle récessif s.",
           "data": {
             "given_values": [
-    "\\sqrt{0,20}=0,45",
-    "\\sqrt{0,30}=0,55",
-    "\\sqrt{0,70}=0,83"
-]
+              "\\sqrt{0,20}=0,45",
+              "\\sqrt{0,30}=0,55",
+              "\\sqrt{0,70}=0,83"
+            ]
 ,
             "remark": "on a considéré deux chiffres après la virgule."
           },
