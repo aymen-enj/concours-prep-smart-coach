@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Award, BookOpen, Star, ArrowRight, MessageSquare, Quote, Play, Video, ExternalLink, CheckCircle, LightbulbIcon, BrainCircuit, CreditCardIcon, BadgeCheck } from "lucide-react";
 import { useState, useEffect, memo, lazy, Suspense } from "react";
 
+
 // Import performance optimization utilities
 import { useOptimizedAnimations } from "@/utils/use-optimized-animations";
 import { setupLazyImageLoading } from "@/utils/perf-optimizer";

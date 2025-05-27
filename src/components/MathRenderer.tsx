@@ -12,6 +12,11 @@ interface MathRendererProps {
  * Processes text and renders LaTeX formulas inside $ $ or $$ $$ delimiters
  */
 const MathRenderer: React.FC<MathRendererProps> = ({ text, block = false }) => {
+  // Defensive: if text is not a string, render nothing or fallback
+  if (typeof text !== 'string') {
+    return <span>{String(text ?? '')}</span>;
+  }
+
   // No math formulas
   if (!text.includes('$')) {
     return <span>{text}</span>;

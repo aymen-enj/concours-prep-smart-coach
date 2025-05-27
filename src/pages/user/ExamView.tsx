@@ -15,6 +15,8 @@ import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import MathRenderer from "@/components/MathRenderer";
+import PlotRenderer from "@/components/PlotRenderer";
+import DiagramRenderer from "@/components/DiagramRenderer";
 
 // Import exam data with proper TypeScript typing
 import medecine2023Data from "../../../concours/medecine/medecine2023/epreuve_2023.json";
@@ -53,14 +55,40 @@ interface SimpleData {
 interface ExamQuestion {
   question_number: string;
   text: string;
-  options: ExamOption[];
+  options: { label: string; text: string; }[];
+  programmatic_figure?: {
+    type: 'plot' | 'diagram';
+    library: string;
+    title: string;
+    data_points?: Array<{
+      distance: number;
+      phosphocreatine: number;
+      atp: number;
+      acideLactique: number;
+      [key: string]: number;
+    }>;
+    annotations?: Array<{
+      text: string;
+      x: number;
+      y: number;
+      textAnchor?: 'start' | 'middle' | 'end';
+    }>;
+    [key: string]: any;
+  };
   stimulus?: string;
-  stimulus_list?: StimulusListItem[];
-  data?: TableData | ResultsData | SimpleData;
+  stimulus_list?: Array<{ number: number; text: string; }>;
   follow_up_question?: string;
   image_description?: string;
   data_labels_from_image?: string[];
-  exercise_title?: string;
+  data?: {
+    type?: 'table' | 'results' | 'simple';
+    columns?: string[];
+    headers?: string[];
+    rows?: any[][];
+    description?: string;
+    [key: string]: any;
+  };
+  [key: string]: any;
 }
 
 interface ExamComponent {
@@ -110,7 +138,7 @@ const ExamView = () => {
   
   // Flatten all questions from all components
   const allQuestions = useMemo(() => {
-    return medecine2023Data.components.flatMap(component => component.questions);
+    return medecine2023Data.components.flatMap(component => component.questions) as ExamQuestion[];
   }, []);
   
   // Process exam data
@@ -173,7 +201,7 @@ const ExamView = () => {
   };
 
   // Current question data
-  const question = allQuestions[currentQuestion];
+  const question = allQuestions[currentQuestion] as ExamQuestion;
   const isLastQuestion = currentQuestion === allQuestions.length - 1;
   const hasAnswer = !!answers[question.question_number];
 
@@ -462,62 +490,115 @@ const ExamView = () => {
                               
                               {/* Table data */}
                               {'type' in question.data && question.data.type === 'table' && (
-                                <div className="overflow-x-auto w-full max-w-full my-4">
-                                  <div className="inline-block min-w-full align-middle">
-                                    <table className="text-sm" style={{borderCollapse: 'collapse', borderWidth: '1px', borderStyle: 'solid', borderColor: '#000', width: '100%', tableLayout: 'fixed'}}>
-                                      {question.data.headers && (
+                                <div className="overflow-x-auto w-full max-w-full my-4 -mx-4 sm:mx-0">
+                                  <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+                                    <table className="text-sm shadow-md w-full md:w-auto" style={{borderCollapse: 'collapse', borderWidth: '1px', borderStyle: 'solid', borderColor: '#d1d5db', minWidth: '100%', tableLayout: 'auto'}}>
+                                      <colgroup>
+                                        <col style={{width: 'auto', minWidth: '120px'}} />
+                                        <col style={{width: 'auto'}} />
+                                        <col style={{width: 'auto', minWidth: '100px'}} />
+                                      </colgroup>
+                                      {/* Display columns as headers if they exist */}
+                                      {question.data.type === 'table' && question.data.columns && (
                                         <thead>
-                                          <tr>
+                                          <tr className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20">
+                                            {question.data.columns.map((column, idx) => (
+                                              <th 
+                                                key={idx} 
+                                                style={{ 
+                                                  borderWidth: '1px', 
+                                                  borderStyle: 'solid',
+                                                  borderColor: '#d1d5db',
+                                                  padding: '8px 4px',
+                                                  textAlign: 'center',
+                                                  fontWeight: 'bold',
+                                                }}
+                                                className="whitespace-normal"
+                                              >
+                                                <div className="text-blue-800 dark:text-blue-300 text-xs sm:text-sm md:text-base" style={{fontSize: '85%'}}>
+                                                  <MathRenderer text={column} />
+                                                </div>
+                                              </th>
+                                            ))}
+                                          </tr>
+                                        </thead>
+                                      )}
+                                      
+                                      {/* Use regular headers if columns don't exist */}
+                                      {question.data.type === 'table' && !question.data.columns && question.data.headers && (
+                                        <thead>
+                                          <tr className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20">
                                             {question.data.headers.map((header, idx) => (
                                               <th 
                                                 key={idx} 
                                                 style={{ 
                                                   borderWidth: '1px', 
                                                   borderStyle: 'solid',
-                                                  borderColor: '#000',
-                                                  padding: '4px 6px',
+                                                  borderColor: '#d1d5db',
+                                                  padding: '8px 4px',
                                                   textAlign: 'center',
                                                   fontWeight: 'bold',
-                                                  width: idx === 0 ? '20%' : idx === 1 ? '60%' : '20%'
                                                 }}
+                                                className="whitespace-normal"
                                               >
-                                                <MathRenderer text={header} />
+                                                <div className="text-blue-800 dark:text-blue-300 text-xs sm:text-sm md:text-base" style={{fontSize: '85%'}}>
+                                                  <MathRenderer text={header} />
+                                                </div>
                                               </th>
                                             ))}
                                           </tr>
                                         </thead>
                                       )}
                                       <tbody>
-                                        {question.data.rows && question.data.rows.map((row, rowIdx) => (
+                                        {question.data.type === 'table' && question.data.rows && question.data.rows.map((row, rowIdx) => (
                                           <tr key={rowIdx}>
-                                            {row.map((cell, cellIdx) => (
-                                              <td 
-                                                key={cellIdx} 
-                                                style={{ 
-                                                  borderWidth: '1px', 
-                                                  borderStyle: 'solid',
-                                                  borderColor: '#000',
-                                                  padding: '4px 6px',
-                                                  textAlign: cellIdx === 0 ? 'left' : cellIdx === 2 ? 'center' : 'center',
-                                                  verticalAlign: 'middle',
-                                                  height: '60px',
-                                                  width: cellIdx === 0 ? '20%' : cellIdx === 1 ? '60%' : '20%',
-                                                  overflowWrap: 'break-word'
-                                                }}
-                                              >
-                                                <div style={{width: '100%', fontSize: cellIdx === 1 ? '90%' : '100%'}}>
-                                                  <MathRenderer text={String(cell)} />
-                                                </div>
-                                              </td>
-                                            ))}
+                                            {row.map((cell, cellIdx) => {
+                                              // Adjust styling based on column index
+                                              let textAlign: 'left' | 'center' | 'right' = 'center';
+                                              if (cellIdx === 0) textAlign = 'center'; // Experiment number
+                                              else if (cellIdx === 1) textAlign = 'center'; // Wavelength
+                                              else if (cellIdx === 2) textAlign = 'center'; // Slit width
+                                              
+                                              return (
+                                                <td 
+                                                  key={cellIdx} 
+                                                  style={{ 
+                                                    borderWidth: '1px', 
+                                                    borderStyle: 'solid',
+                                                    borderColor: '#d1d5db',
+                                                    padding: '8px 4px',
+                                                    textAlign,
+                                                    verticalAlign: 'middle',
+                                                    height: 'auto',
+                                                    minHeight: '50px',
+                                                    overflowWrap: 'break-word'
+                                                  }}
+                                                  className={rowIdx % 2 === 0 ? 'bg-white dark:bg-gray-900/30' : 'bg-gray-50 dark:bg-gray-800/20'}
+                                                >
+                                                  <div className="font-medium text-xs sm:text-sm md:text-base" style={{width: '100%', fontSize: cellIdx === 1 ? '80%' : '85%'}}>
+                                                    <MathRenderer text={String(cell)} />
+                                                  </div>
+                                                </td>
+                                              );
+                                            })}
                                           </tr>
                                         ))}
                                       </tbody>
                                     </table>
                                   </div>
-                                  {question.data.description && (
-                                    <div className="mt-2 text-xs text-muted-foreground">
-                                      {question.data.description}
+                                  {question.data.type === 'table' && question.data.description && (
+                                    <div className="mt-2 text-sm text-foreground">
+                                      <span className="font-medium">Description:</span> {question.data.description}
+                                    </div>
+                                  )}
+                                  
+                                  {/* Display additional_data when available */}
+                                  {'additional_data_for_Q23' in question.data && (
+                                    <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/30 rounded-md">
+                                      <h4 className="text-base font-medium mb-2 text-amber-700 dark:text-amber-400">Données supplémentaires:</h4>
+                                      <div className="text-sm">
+                                        <MathRenderer text={String(question.data.additional_data_for_Q23)} />
+                                      </div>
                                     </div>
                                   )}
                                 </div>
@@ -652,6 +733,17 @@ const ExamView = () => {
                                   </Badge>
                                 ))}
                               </div>
+                            </div>
+                          )}
+                          
+                          {question.programmatic_figure && (
+                            <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg border border-border/50">
+                              {question.programmatic_figure.type === 'plot' && (
+                                <PlotRenderer figureData={question.programmatic_figure} />
+                              )}
+                              {question.programmatic_figure.type === 'diagram' && (
+                                <DiagramRenderer figureData={question.programmatic_figure} />
+                              )}
                             </div>
                           )}
                           

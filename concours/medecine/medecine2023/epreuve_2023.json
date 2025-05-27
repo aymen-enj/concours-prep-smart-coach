@@ -1,4 +1,3 @@
-
 {
   "exam_title": "Concours d'accès aux facultés de médecine, de pharmacie et de médecine dentaire 2022-2023 - Version Française",
   "components": [
@@ -144,7 +143,80 @@
             {"label": "C", "text": "fermentation lactique, au niveau du hyaloplasme, lors de l'échauffement et par la voie de phosphocréatine, au niveau de la matrice, lors de la course."},
             {"label": "D", "text": "phosphocréatine, au niveau du hyaloplasme, lors de l'échauffement et par la voie de fermentation lactique, au niveau de la matrice, lors de la course."},
             {"label": "E", "text": "phosphocréatine, au niveau de la matrice, lors de l'échauffement et par la voie de fermentation lactique, au niveau du hyaloplasme, lors de la course."}
-          ]
+          ],
+          "programmatic_figure": {
+            "type": "plot",
+            "library": "recharts",
+            "title": "Évolution des concentrations pendant l'effort",
+            "data_points": [
+              { "distance": "", "phosphocreatine": 22, "atp": 6, "acideLactique": 1 },
+              { "distance": 0, "phosphocreatine": 10, "atp": 5, "acideLactique": 2 },
+              { "distance": 10, "phosphocreatine": 8, "atp": 4.8, "acideLactique": 3 },
+              { "distance": 20, "phosphocreatine": 7, "atp": 4.2, "acideLactique": 4 },
+              { "distance": 40, "phosphocreatine": 5, "atp": 4, "acideLactique": 5 },
+              { "distance": 60, "phosphocreatine": 4.5, "atp": 4, "acideLactique": 5.5 },
+              { "distance": 80, "phosphocreatine": 4, "atp": 4.2, "acideLactique": 7 },
+              { "distance": 100, "phosphocreatine": 3.8, "atp": 4, "acideLactique": 8 }
+            ],
+            "series": [
+              {
+                "name": "Phosphocréatine",
+                "data_key": "phosphocreatine",
+                "unit": "\\mathrm{mmol.L^{-1}}",
+                "color": "#8884d8",
+                "line_style": "solid",
+                "y_axis_id": "left"
+              },
+              {
+                "name": "ATP",
+                "data_key": "atp",
+                "unit": "\\mathrm{mmol.L^{-1}}",
+                "color": "#82ca9d",
+                "line_style": "dashed",
+                "y_axis_id": "left"
+              },
+              {
+                "name": "Acide lactique",
+                "data_key": "acideLactique",
+                "unit": "\\mathrm{mmol.L^{-1}}",
+                "color": "#ffc658",
+                "line_style": "dotted",
+                "y_axis_id": "right"
+              }
+            ],
+            "x_axis": {
+              "key": "distance",
+              "label": "Distance parcourue en m",
+              "unit": "m",
+              "domain": [-10, 100],
+              "ticks": [-10, 0, 20, 40, 60, 80, 100]
+            },
+            "y_axes": [
+              {
+                "id": "left",
+                "orientation": "left",
+                "label": "Concentration (mmol.L$^{-1}$)",
+                "unit": "\\mathrm{mmol.L^{-1}}",
+                "domain": [0, 24],
+                "ticks": [0, 4, 8, 12, 16, 20, 24]
+              },
+              {
+                "id": "right",
+                "orientation": "right",
+                "label": "Concentration (mmol.L$^{-1}$)",
+                "unit": "\\mathrm{mmol.L^{-1}}",
+                "domain": [0, 12],
+                "ticks": [0, 2, 4, 6, 8, 10, 12],
+                 "stroke": "#ffc658"
+              }
+            ],
+            "legend": true,
+            "grid": true,
+            "annotations": [
+              { "type": "text", "x_start": -10, "x_end": 0, "y_position_factor": -0.1, "text": "Echauffement", "style": {"fontWeight": "bold"}},
+              { "type": "text", "x_start": 0, "x_end": 100, "y_position_factor": -0.1, "text": "Course", "style": {"fontWeight": "bold"}}
+            ]
+          }
         },
         {
           "question_number": "Q12",
@@ -176,11 +248,11 @@
           "stimulus": "Le croisement d'un lapin gris à poils longs avec une lapine blanche à poils courts donne à la première génération F₁ des lapereaux tachetés à poils longs. On croise ensuite les individus de la première génération entre eux, on obtient une deuxième génération F2.",
           "text": "Sachant que les deux gènes étudiés sont indépendants, les proportions des phénotypes obtenus à la génération $F_{2}$ sont :",
           "options": [
-            {"label": "A", "text": "gris long: $\\/16$; gris court: $\\/16$; blanc long: $\\/16$; blanc court: $\\/16$."},
-            {"label": "B", "text": "blanc long: $\\/16$; blanc court: $\\/16$; gris long: $\\/16$; gris court: $\\/16$."},
-            {"label": "C", "text": "tacheté long: $\\/16$; gris long: $\\/16$; blanc long: $\\/16$; tacheté court: $\\/16$; gris court: $\\/16$; blanc court: $\\/16$."},
-            {"label": "D", "text": "tacheté long: $\\/16$; gris long: $\\/16$; blanc court: $\\/16$; tacheté court: $\\/16$; gris court: $\\/16$; blanc long: $\\/16$."},
-            {"label": "E", "text": "tacheté long: $\\/16$; gris court: $\\/16$; blanc long: $\\/16$; tacheté court: $\\/16$; gris long: $\\/16$; blanc court: $\\/16$."}
+            {"label": "A", "text": "gris long: $9\/16$; gris court: $3\/16$; blanc long: $3\/16$; blanc court: $1\/16$."},
+            {"label": "B", "text": "blanc long: $9\/16$; blanc court: $3\/16$; gris long: $3\/16$; gris court: $1\/16$."},
+            {"label": "C", "text": "tacheté long: $6\/16$; gris long: $3\/16$; blanc long: $3\/16$; tacheté court: $2\/16$; gris court: $1\/16$; blanc court: $1\/16$."},
+            {"label": "D", "text": "tacheté long: $6\/16$; gris long: $3\/16$; blanc court: $3\/16$; tacheté court: $2\/16$; gris court: $1\/16$; blanc long: $1\/16$."},
+            {"label": "E", "text": "tacheté long: $6\/16$; gris court: $3\/16$; blanc long: $3\/16$; tacheté court: $2\/16$; gris long: $1\/16$; blanc court: $1\/16$."}
           ]
         },
         {
@@ -222,22 +294,22 @@
           "text": "La probabilité pour que ce couple donne naissance à une fille et que cette fille soit daltonienne est :",
           "options": [
             {"label": "A", "text": "0"},
-            {"label": "B", "text": "$\\/4$"},
-            {"label": "C", "text": "$\\/2$"},
-            {"label": "D", "text": "$\\/4$"},
+            {"label": "B", "text": "$1\/4$"},
+            {"label": "C", "text": "$1\/2$"},
+            {"label": "D", "text": "$3\/4$"},
             {"label": "E", "text": "1"}
           ]
         },
         {
           "question_number": "Q17",
-          "stimulus": "La fourrure du mutant yellow [Y] de la souris est jaune. Le type sauvage est dit type agouti [+]. Afin de déterminer le mode de transmission de ce caractère, on propose les deux croisements suivants:\nCroisement 1: entre une souris [Y] et une souris [+], on obtient une descendance constituée de $\\/2$ $[Y]$ et $\\/2$ [+].\nCroisement 2: entre deux souris [Y], on obtient une descendance constituée de $\\/3$ [Y] et $\\/3$ [+].",
+          "stimulus": "La fourrure du mutant yellow [Y] de la souris est jaune. Le type sauvage est dit type agouti [+]. Afin de déterminer le mode de transmission de ce caractère, on propose les deux croisements suivants:\nCroisement 1: entre une souris [Y] et une souris [+], on obtient une descendance constituée de $1\/2$ $[Y]$ et $1\/2$ [+].\nCroisement 2: entre deux souris [Y], on obtient une descendance constituée de $2\/3$ [Y] et $1\/3$ [+].",
           "text": "Si l'on croise un individu [Y] issu du croisement 2 avec une souris [+], la descendance sera constituée d'individus avec les rapports suivants :",
           "options": [
-            {"label": "A", "text": "$\\/4$ yellow; $\\/4$ agouti."},
-            {"label": "B", "text": "$\\/3$ yellow; $\\/3$ agouti."},
-            {"label": "C", "text": "$\\/4$ yellow; $\\/4$ agouti."},
-            {"label": "D", "text": "$\\/2$ yellow; $\\/2$ agouti."},
-            {"label": "E", "text": "$\\/3$ yellow; $\\/3$ agouti."}
+            {"label": "A", "text": "$1\/4$ yellow; $3\/4$ agouti."},
+            {"label": "B", "text": "$1\/3$ yellow; $2\/3$ agouti."},
+            {"label": "C", "text": "$3\/4$ yellow; $1\/4$ agouti."},
+            {"label": "D", "text": "$1\/2$ yellow; $1\/2$ agouti."},
+            {"label": "E", "text": "$2\/3$ yellow; $1\/3$ agouti."}
           ]
         },
         {
@@ -245,9 +317,9 @@
           "stimulus": "le Phénylthiocarbamide (PTC), a un goût très amer pour certaines personnes et aucun goût pour d'autres. Dans une population, soumise à la loi de Hardy Weinberg, on a 70% des individus sensibles au goût amer du PTC. Sachant que la sensibilité à la PTC est liée à un allèle dominant S et l'insensibilité à cette substance est liée à l'allèle récessif s.",
           "data": {
             "given_values": [
-              "\\sqrt{0,20}=0,45",
-              "\\sqrt{0,30}=0,55",
-              "\\sqrt{0,70}=0,83"
+              "$\\sqrt{0,20}=0,45$",
+              "$\\sqrt{0,30}=0,55$",
+              "$\\sqrt{0,70}=0,83$"
             ]
 ,
             "remark": "on a considéré deux chiffres après la virgule."
@@ -256,9 +328,9 @@
           "options": [
             {"label": "A", "text": "$f(s)=0.55$; $f(S)=0.45$; $f(ss)=0.30$; $f(Ss)=0.49$; $f(SS)=0.20.$"},
             {"label": "B", "text": "$f(s)=0.55$; $f(S)=0.45$; $f(ss)=0.30$; $f(Ss)=0.20$; $f(SS)=0.49.$"},
-            {"label": "C", "text": "$f(s)=0.83$; $f(S)=0.17$; $f(ss)=0.70$; $f(Ss)=0.44$; $f(SS)=0.07.$"},
-            {"label": "D", "text": "$f(s)=0.70$; $f(S)=0.30$; $f(ss)=0.30$; $f(Ss)=0.20$; $f(SS)=0.50.$"},
-            {"label": "E", "text": "$f(s)=0.55$; $f(S)=0.45$; $f(ss)=0.30$; $f(Ss)=0.68$; $f(SS)=0.02.$"}
+            {"label": "C", "text": "$f(s)=0.70$; $f(S)=0.30$; $f(ss)=0.30$; $f(Ss)=0.20$; $f(SS)=0.50.$"},
+            {"label": "D", "text": "$f(s)=0.55$; $f(S)=0.45$; $f(ss)=0.30$; $f(Ss)=0.68$; $f(SS)=0.02.$"},
+            {"label": "E", "text": "$f(s)=0.83$; $f(S)=0.17$; $f(ss)=0.70$; $f(Ss)=0.44$; $f(SS)=0.07.$"}
           ]
         },
         {
@@ -334,12 +406,12 @@
             "frequency_N": "50 Hz",
             "source_elongation_equation": "$y_{s}(t)=10^{-2}.sin(100.\\pi.t)$ (m)"
           },
-          "text": "L'élongation du point P à l'instant t est:",
+          "text": "L'élongation du point $\\mathcal{P}$ à l'instant $\\mathcal{t}$ est:",
           "options": [
-            {"label": "A", "text": "$y_{p}(t)=10^{-2}.sin(100.\\pi.t)$"},
-            {"label": "B", "text": "$y_{p}(t)=10^{-2}.sin(100.\\pi.t-\\frac{\\pi}{2})$"},
-            {"label": "C", "text": "$y_{P}(t)=10^{-2}.sin(100.\\pi.t+\\frac{\\pi}{2})$"},
-            {"label": "D", "text": "$y_{P}(t)=10^{-2}.sin(100.t)$"},
+            {"label": "A", "text": "$y_{\\mathcal{P}}(t)=10^{-2}.sin(100.\\pi.t)$"},
+            {"label": "B", "text": "$y_{\\mathcal{P}}(t)=10^{-2}.sin(100.\\pi.t-\\frac{\\pi}{2})$"},
+            {"label": "C", "text": "$y_{\\mathcal{P}}(t)=10^{-2}.sin(100.\\pi.t+\\frac{\\pi}{2})$"},
+            {"label": "D", "text": "$y_{\\mathcal{P}}(t)=10^{-2}.sin(100.t)$"},
             {"label": "E", "text": "$y_{P}(t)=10^{-2}.sin(100.\\pi~t-\\pi)$"}
           ]
         },
@@ -377,14 +449,14 @@
           "text": "Les écarts angulaires de diffraction dans les quatre expériences sont tels que :",
           "options": [
             {"label": "A", "text": "$\\theta_1 > \\theta_2 > \\theta_3 > \\theta_4$"},
-            {"label": "B", "text": "$\\theta_4 > \\theta_2 > \\theta_1 > \\theta_3$"},
-            {"label": "C", "text": "$\\theta_3 > \\theta_2 > \\theta_1 > \\theta_4$"},
-            {"label": "D", "text": "$\\theta_3 > \\theta_1 > \\theta_2 > \\theta_4$"},
-            {"label": "E", "text": "$\\theta_2 > \\theta_3 > \\theta_4 > \\theta_1$"}
+            {"label": "B", "text": "$\\theta_3 > \\theta_1 > \\theta_2 > \\theta_4$"},
+            {"label": "C", "text": "$\\theta_4 > \\theta_1 > \\theta_2 > \\theta_3$"},
+            {"label": "D", "text": "$\\theta_3 > \\theta_2 > \\theta_1 > \\theta_4$"},
+            {"label": "E", "text": "$\\theta_3 > \\theta_2 > \\theta_4 > \\theta_1$"}
           ]
         },
         {
-          "exercise_title": "Désintégration du thorium $^{230}_{90}Th$",
+          "exercise_title": "Désintégration du thorium",
           "question_number": "Q25",
           "stimulus": "Le noyau de thorium $^{230}_{90}Th$ subit une série de désintégrations successives de types $\\alpha$ et $\\beta^-$ qui conduisent à la formation du noyau de plomb $^{A}_{Z}Pb$, stable. L'équation globale des désintégrations subie par le thorium s'écrit: $^{230}_{90}Th \\rightarrow ^{A}_{Z}Pb + x.\\alpha + y.\\beta^-$. On dispose d'un échantillon contenant $N_0$ noyaux de thorium à l'instant $t_0=0$. L'échantillon contient à un instant $t_1$ après une série de désintégrations $0,25~mmol$ de thorium $^{230}_{90}Th$ et $0,75~mmol$ de plomb $^{210}_{82}Pb$.",
           "data": {
@@ -393,15 +465,15 @@
           },
           "text": "Les valeurs de x et y sont :",
           "options": [
-            {"label": "A", "text": "$x=6, y=4$"},
-            {"label": "B", "text": "$x=4, y=2$"},
-            {"label": "C", "text": "$x=2, y=4$"},
-            {"label": "D", "text": "$x=4, y=6$"},
-            {"label": "E", "text": "$x=6, y=2$"}
+            {"label": "A", "text": "$x=4, y=6$"},
+            {"label": "B", "text": "$x=2, y=4$"},
+            {"label": "C", "text": "$x=4, y=4$"},
+            {"label": "D", "text": "$x=6, y=4$"},
+            {"label": "E", "text": "$x=4, y=2$"}
           ]
         },
         {
-          "exercise_title": "Désintégration du thorium $^{230}_{90}Th$",
+          "exercise_title": "Désintégration du thorium",
           "question_number": "Q26",
           "stimulus": "Référence aux données de l'exercice de désintégration du thorium (Q25).",
            "data": {
@@ -410,11 +482,11 @@
           },
           "text": "La valeur de la demi-vie du thorium est :",
           "options": [
-            {"label": "A", "text": "$t_{\\/2} = 1,4.10^4 ans$"},
-            {"label": "B", "text": "$t_{\\/2} = 5,5.10^4 ans$"},
-            {"label": "C", "text": "$t_{\\/2} = 8,0.10^4 ans$"},
-            {"label": "D", "text": "$t_{\\/2} = 4,10^5 ans$"},
-            {"label": "E", "text": "$t_{\\/2} = 8.10^5 ans$"}
+            {"label": "A", "text": "$t_{1\/2} = 1,4.10^4 ans$"},
+            {"label": "B", "text": "$t_{1\/2} = 5,5.10^4 ans$"},
+            {"label": "C", "text": "$t_{1\/2} = 8,0.10^4 ans$"},
+            {"label": "D", "text": "$t_{1\/2} = 4,10^5 ans$"},
+            {"label": "E", "text": "$t_{1\/2} = 8.10^5 ans$"}
           ]
         },
         {
@@ -427,11 +499,11 @@
           },
           "text": "L'âge de l'échantillon est :",
           "options": [
-            {"label": "A", "text": "$t_1 = 2,7.10^5 ans$"},
+            {"label": "A", "text": "$t_1 = 2,7.10^4 ans$"},
             {"label": "B", "text": "$t_1 = 1,6.10^5 ans$"},
-            {"label": "C", "text": "$t_1 = 2,2.10^5 ans$"},
+            {"label": "C", "text": "$t_1 = 1,6.10^4 ans$"},
             {"label": "D", "text": "$t_1 = 2,4.10^5 ans$"},
-            {"label": "E", "text": "$t_1 = 1,4.10^5 ans$"}
+            {"label": "E", "text": "$t_1 = 2,2.10^6 ans$"}
           ]
         },
         {
@@ -450,7 +522,41 @@
                 {"label": "C", "text": "$r=10~\\Omega$, $C=55~\\mu F$"},
                 {"label": "D", "text": "$r=50~\\Omega$, $C=33~\\mu F$"},
                 {"label": "E", "text": "$r=50~\\Omega$, $C=75~\\mu F$"}
-            ]
+            ],
+            "programmatic_figure": {
+              "type": "diagram",
+              "description": "RC Circuit for charging/discharging",
+              "viewBox": "0 0 400 200",
+              "elements": [
+                { "element_type": "line", "id": "gen_pos", "x1": 50, "y1": 100, "x2": 50, "y2": 80, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "gen_neg", "x1": 50, "y1": 100, "x2": 50, "y2": 120, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "circle", "id": "gen_circle", "cx": 50, "cy": 100, "r": 20, "stroke": "black", "fill": "none", "stroke_width": 2 },
+                { "element_type": "text", "id": "gen_label", "x": 50, "y": 70, "text": "E, r", "font_size": 12, "text_anchor": "middle" },
+                { "element_type": "line", "id": "switch_pivot", "x1": 70, "y1": 100, "x2": 100, "y2": 100, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "switch_arm_1", "x1": 100, "y1": 100, "x2": 120, "y2": 80, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "switch_arm_2", "x1": 100, "y1": 100, "x2": 120, "y2": 120, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "text", "id": "switch_label", "x": 100, "y": 90, "text": "K", "font_size": 12, "text_anchor": "middle" },
+                { "element_type": "text", "id": "pos1_label", "x": 130, "y": 80, "text": "1", "font_size": 10, "text_anchor": "middle" },
+                { "element_type": "text", "id": "pos2_label", "x": 130, "y": 120, "text": "2", "font_size": 10, "text_anchor": "middle" },
+                { "element_type": "line", "id": "cap_plate1", "x1": 180, "y1": 80, "x2": 180, "y2": 120, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "cap_plate2", "x1": 190, "y1": 80, "x2": 190, "y2": 120, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "text", "id": "cap_label", "x": 210, "y": 100, "text": "C", "font_size": 12, "text_anchor": "middle" },
+                { "element_type": "text", "id": "uc_label", "x": 185, "y": 70, "text": "$u_C$", "font_size": 12, "text_anchor": "middle" },
+                { "element_type": "rect", "id": "resistor_R", "x": 250, "y": 90, "width": 40, "height": 20, "stroke": "black", "fill": "none", "stroke_width": 2 },
+                { "element_type": "text", "id": "resistor_label", "x": 270, "y": 80, "text": "R", "font_size": 12, "text_anchor": "middle" },
+                { "element_type": "text", "id": "ur_label", "x": 270, "y": 125, "text": "$u_R$", "font_size": 12, "text_anchor": "middle" },
+                { "element_type": "line", "id": "wire_gen_switch", "x1": 50, "y1": 100, "x2": 70, "y2": 100, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "wire_switch_cap", "x1": 120, "y1": 80, "x2": 180, "y2": 80, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "wire_cap_resistor", "x1": 190, "y1": 80, "x2": 250, "y2": 90, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "wire_resistor_gen", "x1": 290, "y1": 100, "x2": 350, "y2": 100, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "wire_bottom", "x1": 50, "y1": 120, "x2": 350, "y2": 120, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "wire_switch_bottom", "x1": 120, "y1": 120, "x2": 180, "y2": 120, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "id": "current_arrow_line", "x1": 150, "y1": 110, "x2": 200, "y2": 110, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "text", "id": "current_label", "x": 175, "y": 105, "text": "I(i)", "font_size": 12, "text_anchor": "middle" },
+                { "element_type": "text", "id": "point_A", "x": 50, "y": 130, "text": "A", "font_size": 12, "text_anchor": "middle" },
+                { "element_type": "text", "id": "point_B", "x": 350, "y": 130, "text": "B", "font_size": 12, "text_anchor": "middle" }
+              ]
+            }
         },
         {
             "exercise_title": "Circuit RC",
@@ -458,8 +564,7 @@
              "stimulus": "Référence aux données de l'exercice Circuit RC (Q28).",
             "data": {
                 "E": "6,0V",
-                "R_conducteur_ohmique": "$0,95 k\\Omega$",
-                "valeurs_deduites_Q28": "Supposons $r=50~\\Omega, C=33~\\mu F$ (option D de Q28 comme exemple)"
+                "R_conducteur_ohmique": "$0,95 k\\Omega$"
             },
             "text": "La valeur de l'énergie electrique $\\mathcal{E}_e$ emmagasinée dans le condensateur quand $u_C = 75\\%.E$ est :",
             "options": [
@@ -476,15 +581,14 @@
             "stimulus": "Lorsque le condensateur devient totalement chargé, on bascule K en position (2) à un instant pris comme nouvelle origine des dates ($t_0=0$).",
             "data": {
                  "E": "6,0V",
-                 "R_conducteur_ohmique": "$0,95 k\\Omega$",
-                 "valeurs_deduites_Q28": "Supposons $r=50~\\Omega, C=33~\\mu F$"
+                 "R_conducteur_ohmique": "$0,95 k\\Omega$"
             },
             "text": "L'expression numérique de la tension aux bornes du condensateur est :",
             "options": [
                 {"label": "A", "text": "$u_C(t) = 6.e^{-\\frac{1000}{31,35}t}$"},
                 {"label": "B", "text": "$u_C(t) = 6.(1-e^{-\\frac{1000}{31,35}t})$"},
-                {"label": "C", "text": "$u_C(t) = 6.e^{-\\frac{1000}{33}t}$"},
-                {"label": "D", "text": "$u_C(t) = 4.(1-e^{-\\frac{1000}{31,35}t})$"},
+                {"label": "C", "text": "$u_C(t) = 4.e^{-\\frac{1000}{50}t}$"},
+                {"label": "D", "text": "$u_C(t) = 4.(1-e^{-\\frac{1000}{55,33}t})$"},
                 {"label": "E", "text": "$u_C(t) = 6.e^{-\\frac{1000}{25}t}$"}
             ]
         },
@@ -494,8 +598,7 @@
             "stimulus": "Référence à la décharge du condensateur (Q30).",
              "data": {
                  "E": "6,0V",
-                 "R_conducteur_ohmique": "$0,95 k\\Omega$",
-                 "valeurs_deduites_Q28": "Supposons $r=50~\\Omega, C=33~\\mu F$"
+                 "R_conducteur_ohmique": "$0,95 k\\Omega$"
             },
             "text": "La valeur de la tension aux bornes du conducteur ohmique de résistance R à $t_0=0$ est :",
             "options": [
@@ -513,17 +616,17 @@
             "image_description": "Document suivant (non fourni ici, mais typiquement un graphique de $u_R(t)$ e\\/ou $\\mathcal{E}_m(t)$). Un graphique de $u_R(V)$ en fonction de $t(ms)$ est visible sur la page 13, montrant une courbe exponentielle décroissante partant de $u_R(0)=5V$ et tendant vers $2V$. L'échelle de temps va jusqu'à $5ms$.",
             "text": "L'équation différentielle vérifiée par l'intensité du courant qui traverse le circuit est :",
             "options": [
-                {"label": "A", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = \\frac{E}{L}$"},
-                {"label": "B", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = \\frac{E}{L}$"},
-                {"label": "C", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = 0$"},
-                {"label": "D", "text": "$\\frac{di}{dt} - \\frac{R+r}{L}.i = \\frac{E}{L}$"},
-                {"label": "E", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = 0$"}
+                {"label": "A", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = \\frac{E}{L}$"},
+                {"label": "B", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = \\frac{L}{E}$"},
+                {"label": "C", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = 0$"},
+                {"label": "D", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = \\frac{E}{L}$"},
+                {"label": "E", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = 0$"}
             ]
         },
         {
             "exercise_title": "Circuit RL",
             "question_number": "Q33",
-            "stimulus": "Référence aux données de l'exercice Circuit RL (Q32) et au graphique de $u_R(t)$. D'après le graphique, $u_R(0)=5V$ et $u_R(\\infty)=2V$. $R=50~\\Omega$.",
+            "stimulus": "Référence aux données de l'exercice Circuit RL (Q32) et au graphique de $u_R(t)$.",
             "text": "La valeur de la f.é.m est :",
             "options": [
                 {"label": "A", "text": "$E=4,5~V$"},
@@ -536,20 +639,20 @@
         {
             "exercise_title": "Circuit RL",
             "question_number": "Q34",
-            "stimulus": "Référence aux données de l'exercice Circuit RL (Q32) et au graphique de $u_R(t)$. Le graphique montre aussi que la tension $u_R(t)$ atteint environ $ (5-2)e^{-1}+2 \\approx 3.1V $ pour $t \\approx 2ms $, ce qui suggère $\\tau \\approx 2ms$.",
+            "stimulus": "Référence aux données de l'exercice Circuit RL (Q32) et au graphique de $u_R(t)$.",
             "text": "Les valeurs des caractéristiques de la bobine sont :",
             "options": [
                 {"label": "A", "text": "$r=10~\\Omega ; L=0,2~H$"},
                 {"label": "B", "text": "$r=10~\\Omega ; L=0,3~H$"},
                 {"label": "C", "text": "$r=8~\\Omega ; L=0,3~H$"},
-                {"label": "D", "text": "$r=8~\\Omega ; L=0,4~H$"},
+                {"label": "D", "text": "$r=8~\\Omega ; L=0,2~H$"},
                 {"label": "E", "text": "$r=4~\\Omega ; L=0,4~H$"}
             ]
         },
         {
             "exercise_title": "Mouvement d'un skieur",
             "question_number": "Q35",
-            "stimulus": "Un skieur de masse m désire franchir l'espace entre deux tremplins symétriques ABJ et CDJ (figure ci-dessous). Pour cela, il aborde le premier tremplin en A avec une vitesse $v_A$ tangente à (AB). Tous les frottements sont négligeables au cours de son mouvement.",
+            "stimulus": "Un skieur de masse m désire franchir l'espace entre deux tremplins symétriques ABI et CDJ (figure ci-dessous). Pour cela, il aborde le premier tremplin en A avec une vitesse $v_A$ tangente à (AB). Tous les frottements sont négligeables au cours de son mouvement.",
             "image_description": "Schéma d'un saut à ski. Point A en bas à gauche, tremplin AB montant, saut de B à C, tremplin CD descendant. Point I sous B, point J sous C. Angle $\\alpha$ à la base du tremplin AB.",
             "data": {
                 "g": "$10~m.s^{-2}$",
@@ -570,14 +673,13 @@
         {
             "exercise_title": "Mouvement d'un skieur",
             "question_number": "Q36",
-            "stimulus": "Le skieur chute sur le deuxième tremplin dans la position C avec une vitesse $v_C$ tangente à (CD). Le mouvement est étudié dans le repère $(O, \\vec{i}, \\vec{j})$ supposé galiléen.",
+            "stimulus": "Le skieur chute sur le deuxième tremplin dans la position C avec une vitesse $v_C$ tangente à (CD). Le mouvement est étudié dans le repère $(I, \\vec{i}, \\vec{j})$ supposé galiléen.",
              "data": {
                 "g": "$10~m.s^{-2}$",
                 "v_A": "$20~m.s^{-1}$",
                 "alpha": "$30°$",
                 "sin60": "0,866",
-                "BI": "$h = 10~m$",
-                "Distances_options": ["$BC=7,2~m$", "$BC=10,5~m$", "$BC=13,2~m$", "$BC=17,3~m$", "$BC=28,6~m$"]
+                "BI": "$h = 10~m$"
             },
             "text": "La valeur de la distance BC entre les deux tremplins est :",
             "options": [
@@ -591,27 +693,25 @@
         {
             "exercise_title": "Mouvement d'un skieur",
             "question_number": "Q37",
-            "stimulus": "Référence à l'exercice du skieur (Q35, Q36). On cherche l'ordonnée du sommet S de la trajectoire parabolique entre B et C.",
+            "stimulus": "Référence à l'exercice du skieur (Q35, Q36).",
             "text": "L'expression de l'ordonnée du sommet S de la trajectoire du skieur est :",
             "options": [
-                {"label": "A", "text": "$y_S = \\frac{v_B^2 \\sin^2 \\alpha}{2g}$"},
-                {"label": "B", "text": "$y_S = h - \\frac{v_B^2 \\sin^2 \\alpha}{2g}$"},
+                {"label": "A", "text": "$y_S = \\frac{v_B^2 \\sin^2 \\alpha}{g}$"},
+                {"label": "B", "text": "$y_S = \\frac{v_B^2 \\sin \\alpha}{2g} + h$"},
                 {"label": "C", "text": "$y_S = \\frac{v_B^2 \\sin^2 \\alpha}{2g} + h$"},
-                {"label": "D", "text": "$y_S = h - \\frac{v_B^2 \\sin \\alpha}{g}$"},
-                {"label": "E", "text": "$y_S = \\frac{v_B^2 \\sin \\alpha}{2g} + h$"}
+                {"label": "D", "text": "$y_S = \\frac{v_B \\sin^2 \\alpha}{g} + h$"},
+                {"label": "E", "text": "$y_S = \\frac{v_B \\sin \\alpha}{2g} + h$"}
             ]
         },
         {
             "exercise_title": "Oscillateur mécanique",
             "question_number": "Q38",
-            "stimulus": "On considère l'oscillateur (solide (S) - ressort) représenté sur la figure. Le ressort est à spires non jointives, d'axe horizontal, de masse négligeable et de raideur K. On étudie le mouvement du centre d'inertie G du solide (S) de masse m dans un repère $(O,\\vec{i})$ lié à la Terre supposé galiléen. On écarte (S) de sa position d'équilibre et on l'abandonne sans vitesse initiale. A l'instant $t_0=0$, choisi comme origine des dates, l'abscisse de G est $x_{G0}=-2~cm$ et la coordonnée de sa vitesse dans le repère $(O,\\vec{i})$ est $v_{0x}=0~m.s^{-1}$. On choisit l'état où le ressort n'est pas déformé comme référence de l'énergie potentielle élastique $E_{pe}$ et le plan horizontal contenant G comme état de référence de l'énergie potentielle de pesanteur $E_{pp}$.",
+            "stimulus": "On considère l'oscillateur (solide (S) - ressort) représenté sur la figure. Le ressort est à spires non jointives, d'axe horizontal, de masse négligeable et de raideur K. On étudie le mouvement du centre d'inertie G du solide (S) de masse m dans un repère $(O,\\vec{i})$ lié à la Terre supposé galiléen. On écarte (S) de sa position d'équilibre et on l'abandonne sans vitesse initiale. A l'instant $t_0=0$, choisi comme origine des dates, l'abscisse de G est $x_{OG}=-2~cm$ et la coordonnée de sa vitesse dans le repère $(O,\\vec{i})$ est $v_{0G}=0~m.s^{-1}$. On choisit l'état où le ressort n'est pas déformé comme référence de l'énergie potentielle élastique $E_{pe}$ et le plan horizontal contenant G comme état de référence de l'énergie potentielle de pesanteur $E_{pp}$.",
             "image_description": "Schéma d'un solide (S) attaché à un ressort horizontal, oscillant sur un axe x. O est la position d'équilibre.",
             "data": {
                 "m": "100 g",
                 "K": "$10~N.m^{-1}$",
-                "frottements": "négligeables",
-                "x_G0": "-2 cm",
-                "v_0x": "$0~m.s^{-1}$"
+                "frottements": "négligeables"
             },
             "text": "La valeur de l'énergie mécanique de l'oscillateur est :",
             "options": [
@@ -628,17 +728,15 @@
             "stimulus": "Référence à l'exercice de l'oscillateur mécanique (Q38).",
              "data": {
                 "m": "100 g = 0.1 kg",
-                "K": "$10~N.m^{-1}$",
-                "x_G0": "-2 cm = -0.02 m",
-                "v_0x": "$0~m.s^{-1}$"
+                "K": "$10~N.m^{-1}$"
             },
             "text": "L'expression numérique de l'équation horaire de mouvement du solide (S) en mètre (m) est :",
             "options": [
-                {"label": "A", "text": "$x(t) = 2\\sqrt{2}.10^{-2}.\\cos(10.t - \\frac{5\\pi}{4})$"},
-                {"label": "B", "text": "$x(t) = 2.10^{-2}.\\cos(10.t - \\pi)$"},
-                {"label": "C", "text": "$x(t) = 2\\sqrt{2}.10^{-2}.\\cos(10.t + \\frac{5\\pi}{4})$"},
-                {"label": "D", "text": "$x(t) = \\sqrt{2}.10^{-2}.\\cos(10.t + \\pi)$"},
-                {"label": "E", "text": "$x(t) = 2.10^{-2}.\\cos(10.t + \\frac{\\pi}{2})$"}
+                {"label": "A", "text": "$x(t) = 2\\sqrt{2}.10^{-2}.\\cos(10.t - \\frac{5\\pi}{2})$"},
+                {"label": "B", "text": "$x(t) = 2\\sqrt{2}.10^{-2}.\\cos(10.t + \\frac{5\\pi}{4})$"},
+                {"label": "C", "text": "$x(t) = \\sqrt{2}.10^{-2}.\\cos(10\\pi.t + \\frac{5\\pi}{2})$"},
+                {"label": "D", "text": "$x(t) = \\sqrt{2}.10^{-2}.\\cos(10\\pi.t)$"},
+                {"label": "E", "text": "$x(t) = 2\\sqrt{2}.10^{-2}.\\cos(10.t + \\frac{\\pi}{3})$"}
             ]
         },
         {
@@ -647,8 +745,7 @@
             "stimulus": "Référence à l'exercice de l'oscillateur mécanique (Q38).",
             "data": {
                 "m": "0.1 kg",
-                "K": "$10~N.m^{-1}$",
-                "X_m": "$0.02 m$ (amplitude déduite de Q38 ou conditions initiales)"
+                "K": "$10~N.m^{-1}$"
             },
             "text": "La valeur de la vitesse de passage de G par la position d'équilibre dans le sens positif est :",
             "options": [
@@ -666,9 +763,9 @@
       "coefficient": 1,
       "questions": [
         {
-          "exercise_title": "Transformation chimique (suivi cinétique par conductimétrie)",
+          "exercise_title": "Suivi temporel d'une transformation chimique",
           "question_number": "Q41",
-          "stimulus": "On verse dans un bécher le volume $V = 2,10^{-1} L$ d'une solution $(S_H)$ d'hydroxyde de sodium de concentration molaire $C_H = 10~mol.m^{-3}$, et l'on y ajoute, à l'instant $t_0=0$, une quantité de matière $n_E$ de méthanoate de méthyle égale à la quantité de matière $n_H$ d'hydroxyde de sodium dans la solution $(S_H)$. On suppose que le volume de la solution reste constant ($V = 2.10^{-1} L$). On modélise la transformation qui se produit dans le milieu réactionnel par l'équation chimique: $HCO_2C_2H_{5(aq)} + HO^{-}_{(aq)} \\rightarrow HCO^{-}_{2(aq)} + CH_3CH_2OH_{(aq)}$. La courbe de la figure ci-dessous représente les variations de la conductivité $\\sigma$ du mélange au cours du temps. L'expression de la conductivité $\\sigma$ à l'instant t est: $\\sigma = -72,8.x + 8,25$ (Sm$^{-1}$), avec x l'avancement de la réaction.",
+          "stimulus": "On verse dans un bécher le volume $V = 2,10^{-1} L$ d'une solution $(S_B)$ d'hydroxyde de sodium de concentration molaire $C_B = 10~mol.m^{-3}$, et on y ajoute, à l'instant $t_0=0$, une quantité de matière $n_E$ de méthanoate de méthyle égale à la quantité de matière $n_B$ d'hydroxyde de sodium dans la solution $(S_B)$. On suppose que le volume de la solution reste constant ($V = 2.10^{-1} m^3$). On modélise la transformation qui se produit dans le milieu réactionnel par l'équation chimique: $HCO_2CH_{3(l)} + HO^{-}_{(aq)} \\rightarrow HCO^{-}_{2(aq)} + CH_3OH_{(l)}$. La courbe de la figure ci-dessous représente les variations de la conductivité $\\sigma$ du mélange au cours du temps. L'expression de la conductivité $\\sigma$ à l'instant t est: $\\sigma = -72.x + 0,25$ (S.m$^{-1}$), avec x l'avancement de la réaction.",
           "image_description": "Graphique de la conductivité $\\sigma (S.m^{-1})$ en fonction du temps $t (min)$. La conductivité diminue avec le temps.",
           "data": {
             "type": "table",
@@ -679,15 +776,15 @@
               ["$HO^-$", "19,9"],
               ["$HCO_2^-$", "5,46"]
             ],
-            "note": "On néglige l'effet des ions $H_3O^+$ sur la conductivité du mélange. $75+52=1,44$ (possiblement une coquille, ou un calcul intermédiaire non clair)"
+            "note": "On néglige l'effet des ions $H_3O^+$ sur la conductivité du mélange. $75+52=1,44$"
           },
           "text": "La valeur de l'avancement maximal de la réaction est:",
           "options": [
-            {"label": "A", "text": "$x_{max} = 2.10^{-3} mol$"},
-            {"label": "B", "text": "$x_{max} = 1.10^{-3} mol$"},
-            {"label": "C", "text": "$x_{max} = 2.10^{-2} mol$"},
-            {"label": "D", "text": "$x_{max} = 3.10^{-3} mol$"},
-            {"label": "E", "text": "$x_{max} = 1.10^{-2} mol$"}
+            {"label": "A", "text": "$x_{max} = 2.10^{-4} mol$"},
+            {"label": "B", "text": "$x_{max} = 2.10^{-3} mol$"},
+            {"label": "C", "text": "$x_{max} = 1.10^{-4} mol$"},
+            {"label": "D", "text": "$x_{max} = 1.10^{-3} mol$"},
+            {"label": "E", "text": "$x_{max} = 3.10^{-3} mol$"}
           ]
         },
         {
@@ -696,30 +793,30 @@
           "stimulus": "Référence à l'exercice Q41 et au graphique $\\sigma(t)$.",
           "text": "La valeur du temps de demi-réaction est:",
           "options": [
-            {"label": "A", "text": "$t_{\\/2} = 36~min$"},
-            {"label": "B", "text": "$t_{\\/2} = 32~min$"},
-            {"label": "C", "text": "$t_{\\/2} = 20~min$"},
-            {"label": "D", "text": "$t_{\\/2} = 12~min$"},
-            {"label": "E", "text": "$t_{\\/2} = 10~min$"}
+            {"label": "A", "text": "$t_{1\/2} = 36~min$"},
+            {"label": "B", "text": "$t_{1\/2} = 32~min$"},
+            {"label": "C", "text": "$t_{1\/2} = 20~min$"},
+            {"label": "D", "text": "$t_{1\/2} = 12~min$"},
+            {"label": "E", "text": "$t_{1\/2} = 10~min$"}
           ]
         },
         {
           "exercise_title": "Transformation chimique (suivi cinétique par conductimétrie)",
           "question_number": "Q43",
-          "stimulus": "Référence à l'exercice Q41. L'expression de la conductivité $\\sigma$ à l'instant t est: $\\sigma = -72,8.x + 8,25$ (Sm$^{-1}$).",
+          "stimulus": "Référence à l'exercice Q41. L'expression de la conductivité $\\sigma$ à l'instant t est: $\\sigma = -72.x + 0,25$ (S.m$^{-1}$).",
           "text": "L'expression de la vitesse volumique de la réaction est :",
           "options": [
-            {"label": "A", "text": "$v = -\\frac{1}{72,8V} \\frac{d\\sigma}{dt}$"},
-            {"label": "B", "text": "$v = \\frac{1}{72,8V} \\frac{d\\sigma}{dt}$"},
-            {"label": "C", "text": "$v = -\\frac{V}{72,8} \\frac{d\\sigma}{dt}$"},
-            {"label": "D", "text": "$v = -\\frac{1}{42V} \\frac{d\\sigma}{dt}$"},
-            {"label": "E", "text": "$v = -\\frac{1}{36V} \\frac{d\\sigma}{dt}$"}
+            {"label": "A", "text": "$v = -\\frac{1}{72.V} \\frac{d\\sigma}{dt}$"},
+            {"label": "B", "text": "$v = -\\frac{1}{36V} \\frac{d\\sigma}{dt}$"},
+            {"label": "C", "text": "$v = -\\frac{1}{V} \\frac{d\\sigma}{dt}$"},
+            {"label": "D", "text": "$v = -\\frac{1}{32V} \\frac{d\\sigma}{dt}$"},
+            {"label": "E", "text": "$v = -\\frac{1}{42V} \\frac{d\\sigma}{dt}$"}
           ]
         },
         {
           "exercise_title": "Transformation chimique (suivi cinétique par conductimétrie)",
           "question_number": "Q44",
-          "stimulus": "Référence à l'exercice Q41 et au graphique $\\sigma(t)$. Il faut estimer la pente à $t_0=0$.",
+          "stimulus": "Référence à l'exercice Q41 et au graphique $\\sigma(t)$.",
           "text": "La valeur de la vitesse volumique de la réaction à l'instant $t_0 = 0$ est :",
           "options": [
             {"label": "A", "text": "$v = 1,23~mol.m^{-3}.min^{-1}$"},
@@ -743,11 +840,11 @@
           },
           "text": "La valeur de la concentration molaire effective de l'ion oxonium en solution (S) est:",
           "options": [
-            {"label": "A", "text": "$[H_3O^+] = 1,33.10^{-2} mol.L^{-1}$"},
-            {"label": "B", "text": "$[H_3O^+] = 1,33.10^{-3} mol.L^{-1}$"},
-            {"label": "C", "text": "$[H_3O^+] = 1,33.10^{-4} mol.L^{-1}$"},
-            {"label": "D", "text": "$[H_3O^+] = 1,33.10^{-5} mol.L^{-1}$"},
-            {"label": "E", "text": "$[H_3O^+] = 1,33.10^{-6} mol.L^{-1}$"}
+            {"label": "A", "text": "$[H_3O^+] = 1,33.10^{-3} mol.L^{-1}$"},
+            {"label": "B", "text": "$[H_3O^+] = 1,33.10^{-2} mol.L^{-1}$"},
+            {"label": "C", "text": "$[H_3O^+] = 1,33.10^{-6} mol.L^{-1}$"},
+            {"label": "D", "text": "$[H_3O^+] = 1,33.10^{-4} mol.L^{-1}$"},
+            {"label": "E", "text": "$[H_3O^+] = 1,33.10^{-5} mol.L^{-1}$"}
           ]
         },
         {
@@ -757,29 +854,29 @@
           "text": "La valeur du taux d'avancement final de la réaction qui a eu lieu dans la solution $(S_1)$ est :",
           "options": [
             {"label": "A", "text": "$\\tau_1 = 0,133$"},
-            {"label": "B", "text": "$\\tau_1 = 0,013$"},
-            {"label": "C", "text": "$\\tau_1 = 0,042$"},
-            {"label": "D", "text": "$\\tau_1 = 0,426$"},
-            {"label": "E", "text": "$\\tau_1 = 0,260$"}
+            {"label": "B", "text": "$\\tau_1 = 0,042$"},
+            {"label": "C", "text": "$\\tau_1 = 0,260$"},
+            {"label": "D", "text": "$\\tau_1 = 0,013$"},
+            {"label": "E", "text": "$\\tau_1 = 0,426$"}
           ]
         },
         {
           "exercise_title": "Acide méthanoïque et eau",
           "question_number": "Q47",
-          "stimulus": "Soit une solution aqueuse d'acide méthanoïque HCOOH de concentration molaire C. On note $K_A$ la constante d'acidité du couple $(HCOOH_{(aq)}\\/ HCOO^-_{(aq)})$.",
+          "stimulus": "Soit une solution aqueuse d'acide méthanoïque HCOOH de concentration molaire C. On note $K_A$ la constante d'acidité du couple $(HCOOH_{(aq)}\/ HCOO^-_{(aq)})$.",
           "text": "Le taux d'avancement final de la réaction entre l'acide méthanoïque et l'eau a pour expression :",
           "options": [
-            {"label": "A", "text": "$\\tau = \\frac{1}{1+10^{-pK_a+pH}}$"},
+            {"label": "A", "text": "$\\tau = \\frac{1}{1+10^{pH-pK_a}}$"},
             {"label": "B", "text": "$\\tau = \\frac{1}{1-10^{pK_a-pH}}$"},
             {"label": "C", "text": "$\\tau = \\frac{1}{1+10^{pK_a-pH}}$"},
             {"label": "D", "text": "$\\tau = \\frac{1}{1+10^{-(pK_a+pH)}}$"},
-            {"label": "E", "text": "$\\tau = \\frac{1}{1+10^{pH+pK_a}}$"}
+            {"label": "E", "text": "$\\tau = \\frac{1}{1+10^{pK_a+pH}}$"}
           ]
         },
         {
           "exercise_title": "Acide méthanoïque et eau",
           "question_number": "Q48",
-          "stimulus": "Soit une solution aqueuse d'acide méthanoïque HCOOH de concentration molaire C. On note K_a la constante d'acidité du couple $(HCOOH_{(aq)\\/HCOO^{-}_{(aq)})$.",
+          "stimulus": "Soit une solution aqueuse d'acide méthanoïque HCOOH de concentration molaire C. On note $K_A$ la constante d'acidité du couple $(HCOOH_{(aq)}\/ HCOO^-_{(aq)})$.",
           "text": "L'expression de la concentration molaire $C$ est :",
           "options": [
             {"label": "A", "text": "$C = 10^{-pH} + 10^{pK_a+2pH}$"},
@@ -803,7 +900,7 @@
             {"label": "B", "text": "$K = 10^{pK_{A1}-pK_{A2}}$"},
             {"label": "C", "text": "$K = \\frac{K_{A2}}{K_{A1}}$"},
             {"label": "D", "text": "$K = K_{A1}.K_{A2}$"},
-            {"label": "E", "text": "$K = 10^{-(-pK_{A2}+pK_{A1})}$"}
+            {"label": "E", "text": "$K = 10^{pK_{A2}-pK_{A1}}$"}
           ]
         },
         {
@@ -909,8 +1006,8 @@
             "description": "Données sur les composés:",
             "headers": ["Composé organique", "Formule semi-développée", "Masse molaire"],
             "rows": [
-              ["L'alcool (B)", "$\\begin{array}{ccccc} CH_3 & - & CH & - & CH_2 & - & CH_2 & - & OH \\\\ & & | & & & & & & \\\\ & & CH_3 & & & & & & \\end{array}$", ""],
-              ["L'ester (E)", "$\\begin{array}{ccccccccc} & & & & O & & & & \\\\ & & & & \\| & & & & \\\\ CH_3 & - & CH_2 & - & CH_2 & - & C & & \\\\ & & & & & & \\searrow & & \\\\ & & & & & & & O & - & CH_2 & - & CH_2 & - & CH & - & CH_3 \\\\ & & & & & & & & & & & & & | & & \\\\ & & & & & & & & & & & & & CH_3 & & \\end{array}$", "$M(E)=158~g.mol^{-1}$"]
+              ["L'alcool (B)", "$\\begin{array}{ccc} CH_3 & - & CH & - & CH_2 & - & CH_2 & - & OH \\\\ & & | & & & & & & \\\\ & & CH_3 & & & & & & \\end{array}$", ""],
+              ["L'ester (E)","$\\begin{array}{ccccc} & & & & & & O \\\\ & & & & & & \\| \\\\ CH_3 & - & CH_2 & - & CH_2 & - & C \\\\ & & & & & & \\vert \\\\ & & & & & &  O & - & CH_2 & - & CH_2 & - & CH & - & CH_3 \\\\ & & & & & & & & & & & &  | \\\\ & & & & & & & & & & & & CH_3 \\end{array}$","$M(E) = 158~g\\cdot mol^{-1}$"]          
             ],
             "given_values": ["$ 79/39 = 2 $"]
           },
@@ -965,14 +1062,13 @@
         {
           "exercise_title": "Méthode de contrôle de l'évolution d'un système chimique",
           "question_number": "Q60",
-          "stimulus": "Lors de la synthèse industrielle de l'ester (E), on préfère utiliser un autre réactif (D) à la place de l'acide (A), pour que la réaction soit rapide et totale.",
-          "text": "La formule semi-développée du réactif (D) est :",
+          "stimulus": "Lors de la synthèse industrielle de l'ester (E), on préfère utiliser un autre réactif (D) à la place de l'acide (A), pour que la réaction soit rapide et totale.\nLa formule semi-développée du réactif (D) est :",
           "options": [
-            {"label": "A", "text": "$CH_3-CH_2-CH_2-C \\begin{pmatrix} O \\\\ O-CH_3-CH_2-CH_2-C \\begin{pmatrix} O \\\\ O \\end{pmatrix} \\end{pmatrix}$"},
-            {"label": "B", "text": "$CH_3-CH_2-CH_2-C \\begin{pmatrix} O \\\\ O-CH_3-CH_2-CH_2 \\end{pmatrix}$"},
-            {"label": "C", "text": "$CH_3-CH \\begin{pmatrix} CH_3 \\end{pmatrix}-CH_2-C \\begin{pmatrix} O \\\\ O-CH_3-CH \\begin{pmatrix} CH_3 \\end{pmatrix}-CH_2-C \\begin{pmatrix} O \\\\ O \\end{pmatrix} \\end{pmatrix}$"},
-            {"label": "D", "text": "$CH_3-CH_2-CH \\begin{pmatrix} CH_3 \\end{pmatrix}-C \\begin{pmatrix} O \\\\ O-CH_3-CH_2-CH \\begin{pmatrix} CH_3 \\end{pmatrix}-C \\begin{pmatrix} O \\\\ O \\end{pmatrix} \\end{pmatrix}$"},
-            {"label": "E", "text": "$CH_3-CH_2-CH_2-CH_2-O-CH_3-CH_2-CH_2-CH_2$"}
+            {"label": "A", "text": "CH3—CH2—CH2—C(=O)—O\n           |\nCH3—CH2—CH2—C(=O)—O"},
+            {"label": "B", "text": "CH3—CH2—CH2—C(=O)—O\nCH3—CH2—CH2"},
+            {"label": "C", "text": "   CH3\n    |\nCH3—CH—CH2—C(=O)—O\nCH3—CH—CH2—C(=O)—O\n    |\n   CH3"},
+            {"label": "D", "text": "   CH3\n    |\nCH3—CH2—CH—C(=O)—O\nCH3—CH2—CH—C(=O)—O\n    |\n   CH3"},
+            {"label": "E", "text": "CH3—CH2—CH2—CH2—O—CH3—CH2—CH2—CH2"}
           ]
         }
       ]
@@ -983,222 +1079,222 @@
       "questions": [
         {
           "question_number": "Q61",
-          "text": "La limite $\\lim_{x\\to +\\infty} (\\sqrt{4x^2+x-2} - (2x-1))$ est égale à :",
+          "text": "Dans $\\mathbb{C}$, l'ensemble des solutions de l'équation $\\frac{2z-1}{z+1} = z$ est :",
           "options": [
-            {"label": "A", "text": "$+\\infty$"},
-            {"label": "B", "text": "$0$"},
-            {"label": "C", "text": "$\\/4$"},
-            {"label": "D", "text": "$\\/4$"},
-            {"label": "E", "text": "$\\/4$"}
+            {"label": "A", "text": "$\\left\\{-1; \\frac{1}{2}\\right\\}$"},
+            {"label": "B", "text": "$\\left\\{1+i\\sqrt{3}; 1-i\\sqrt{3}\\right\\}$"},
+            {"label": "C", "text": "$\\left\\{\\frac{1+i\\sqrt{3}}{2}; \\frac{1-i\\sqrt{3}}{2}\\right\\}$"},
+            {"label": "D", "text": "$\\left\\{i\\sqrt{3}; -i\\sqrt{3}\\right\\}$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q62",
-          "text": "La limite $\\lim_{x\\to 0} \\frac{\\sqrt[3]{x+1} - \\sqrt{x+1}}{x}$ est égale à :",
+          "text": "Si $f$ est une solution sur $\\mathbb{R}$ de l'équation différentielle $y'' + 2y' + 4y = 0$, alors la fonction $g = 2f$ est une solution sur $\\mathbb{R}$ de l'équation différentielle :",
           "options": [
-            {"label": "A", "text": "$0$"},
-            {"label": "B", "text": "$\\/6$"},
-            {"label": "C", "text": "$-\\/6$"},
-            {"label": "D", "text": "$\\/3$"},
-            {"label": "E", "text": "$-\\/2$"}
+            {"label": "A", "text": "$y'' + 2y' + 4y = 0$"},
+            {"label": "B", "text": "$y'' + y' + y = 0$"},
+            {"label": "C", "text": "$y'' + 4y' + 4y = 0$"},
+            {"label": "D", "text": "$2y'' + 4y' + y = 0$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q63",
-          "text": "Soit la fonction $f$ définie par $f(x) = \\frac{x^2-x}{x^2-1}$. Le domaine de définition de $f$ est :",
+          "text": "Si $z = e^{-i\\theta} - e^{i\\theta}$ avec $\\theta \\in ]0; \\pi[$, alors $|z|$ est égal à :",
           "options": [
-            {"label": "A", "text": "$\\mathbb{R} \\setminus \\{-1\\}$"},
-            {"label": "B", "text": "$\\mathbb{R} \\setminus \\{1\\}$"},
-            {"label": "C", "text": "$\\mathbb{R} \\setminus \\{-1, 1\\}$"},
-            {"label": "D", "text": "$\\mathbb{R} \\setminus \\{0, 1\\}$"},
-            {"label": "E", "text": "$\\mathbb{R}$"}
+            {"label": "A", "text": "$2$"},
+            {"label": "B", "text": "$2\\cos\\theta$"},
+            {"label": "C", "text": "$2\\cos\\frac{\\theta}{2}$"},
+            {"label": "D", "text": "$2\\sin\\theta$"},
+            {"label": "E", "text": "$2\\sin\\frac{\\theta}{2}$"}
           ]
         },
         {
           "question_number": "Q64",
-          "text": "Soit la fonction $f$ définie par $f(x) = x + \\sqrt{x^2-x}$. La courbe $(C_f)$ admet au voisinage de $+\\infty$ une asymptote oblique d'équation :",
+          "text": "$\\lim_{n \\to +\\infty} n - \\sqrt{n^2-n}$ est égale à :",
           "options": [
-            {"label": "A", "text": "$y = 2x - \\/2$"},
-            {"label": "B", "text": "$y = 2x + \\/2$"},
-            {"label": "C", "text": "$y = x - \\/2$"},
-            {"label": "D", "text": "$y = x + \\/2$"},
-            {"label": "E", "text": "$y = 2x$"}
+            {"label": "A", "text": "$-\\infty$"},
+            {"label": "B", "text": "$0$"},
+            {"label": "C", "text": "$\\frac{1}{2}$"},
+            {"label": "D", "text": "$1$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q65",
-          "text": "Soit la fonction $f$ définie sur $[0, +\\infty[$ par $f(x) = \\arctan(\\sqrt{x})$. La valeur de $f'(1)$ est :",
+          "text": "Dans l'espace rapporté à un repère orthonormé, on considère les deux points $A(1;2;3)$ et $B(2;0;1)$. L'ensemble des points $M(x;y;z)$ équidistants des points $A$ et $B$ est :",
           "options": [
-            {"label": "A", "text": "$\\/4$"},
-            {"label": "B", "text": "$\\/2$"},
-            {"label": "C", "text": "$\\p\\/4$"},
-            {"label": "D", "text": "$1$"},
-            {"label": "E", "text": "$\\/8$"}
+            {"label": "A", "text": "Le plan : $x + y + z = 6$"},
+            {"label": "B", "text": "Le plan : $2x - 4y - 4z = -9$"},
+            {"label": "C", "text": "Le plan : $2x - 4y - 4z = 9$"},
+            {"label": "D", "text": "La droite : $\\begin{cases} x + y + z = 6 \\\\ 2x - 4y - 4z = -9 \\end{cases}$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q66",
-          "text": "La valeur de l'intégrale $I = \\int_{0}^{1} \\frac{x}{\\sqrt{x^2+1}} dx$ est :",
+          "text": "Dans l'ensemble $\\mathbb{C}$, si $arg(iz) \\equiv \\frac{7\\pi}{6}~[2\\pi]$ et $|z| = \\sqrt{2}$ alors la partie imaginaire de $z^3$ est égale à :",
           "options": [
-            {"label": "A", "text": "$\\sqrt{2}-1$"},
-            {"label": "B", "text": "$\\sqrt{2}$"},
-            {"label": "C", "text": "$1$"},
-            {"label": "D", "text": "$(\\sqrt{2}-1\\/2$"},
-            {"label": "E", "text": "$2(\\sqrt{2}-1)$"}
+            {"label": "A", "text": "$0$"},
+            {"label": "B", "text": "$2\\sqrt{2}$"},
+            {"label": "C", "text": "$\\sqrt{2}$"},
+            {"label": "D", "text": "$-\\sqrt{2}$"},
+            {"label": "E", "text": "$-2\\sqrt{2}$"}
           ]
         },
         {
           "question_number": "Q67",
-          "text": "En utilisant une intégration par parties, la valeur de l'intégrale $J = \\int_{1}^{e} x \\ln(x) dx$ est :",
+          "text": "Soit $a \\in \\mathbb{R}^*$. Si $\\int_0^1 \\frac{e^{ax}}{1+e^{ax}}dx = \\frac{1}{a}$ alors $a$ est égal à :",
           "options": [
-            {"label": "A", "text": "$(e^2+1\\/4$"},
-            {"label": "B", "text": "$(e^2-1\\/4$"},
-            {"label": "C", "text": "$e^\\/4$"},
-            {"label": "D", "text": "$(e^2+1\\/2$"},
-            {"label": "E", "text": "$\\/4$"}
+            {"label": "A", "text": "$\\ln(e-1)$"},
+            {"label": "B", "text": "$2e-1$"},
+            {"label": "C", "text": "$\\ln(2e+1)$"},
+            {"label": "D", "text": "$\\ln(2e-1)$"},
+            {"label": "E", "text": "$2e+1$"}
           ]
         },
         {
           "question_number": "Q68",
-          "text": "La solution de l'équation différentielle $y' - 2y = 0$ qui vérifie la condition $y(0)=1$ est :",
+          "text": "Le plan complexe est rapporté à un repère orthonormé direct.\nSoit $z$ un nombre complexe et $\\Omega, M$ et $M'$ les points d'affixes respectivement $-\\frac{\\sqrt{3}}{3}$, $z$ et $z'$ tel que : $z' = (1+i\\sqrt{3})z + i$, alors une mesure de l'angle $\\left(\\overrightarrow{\\Omega M}, \\overrightarrow{\\Omega M'}\\right)$ est :",
           "options": [
-            {"label": "A", "text": "$y(x) = e^{2x}$"},
-            {"label": "B", "text": "$y(x) = e^{-2x}$"},
-            {"label": "C", "text": "$y(x) = 2e^{x}$"},
-            {"label": "D", "text": "$y(x) = \\cos(2x)$"},
-            {"label": "E", "text": "$y(x) = e^{x^2}$"}
+            {"label": "A", "text": "$\\frac{2\\pi}{3}~[2\\pi]$"},
+            {"label": "B", "text": "$\\frac{\\pi}{3}~[2\\pi]$"},
+            {"label": "C", "text": "$-\\frac{2\\pi}{3}~[2\\pi]$"},
+            {"label": "D", "text": "$-\\frac{\\pi}{3}~[2\\pi]$"},
+            {"label": "E", "text": "$\\frac{\\pi}{6}~[2\\pi]$"}
           ]
         },
         {
           "question_number": "Q69",
-          "text": "La solution de l'équation différentielle $y'' + 4y = 0$ qui vérifie les conditions $y(0)=1$ et $y'(0)=2$ est :",
+          "text": "$ABCD$ est un carré de côté $1$.\nOn place les points $E$ et $F$ respectivement sur les côtés $[AB]$ et $[BC]$ tels que $BE = CF = x$.\nLa valeur de $x$ pour laquelle l'aire du triangle $EFD$ est minimale est :",
           "options": [
-            {"label": "A", "text": "$y(x) = \\cos(2x) + \\sin(2x)$"},
-            {"label": "B", "text": "$y(x) = \\cos(2x) - \\sin(2x)$"},
-            {"label": "C", "text": "$y(x) = e^{2x} + e^{-2x}$"},
-            {"label": "D", "text": "$y(x) = \\sin(2x)$"},
-            {"label": "E", "text": "$y(x) = \\cos(2x)$"}
+            {"label": "A", "text": "$0$"},
+            {"label": "B", "text": "$\\frac{1}{4}$"},
+            {"label": "C", "text": "$\\frac{1}{3}$"},
+            {"label": "D", "text": "$\\frac{1}{2}$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q70",
-          "text": "La forme algébrique du nombre complexe $(1+i\\sqrt{3})^2$ est :",
+          "text": "Dans l'ensemble $\\mathbb{C}$, si $|z| - z = 3 - i\\sqrt{3}$, alors $|z|$ est égal à :",
           "options": [
-            {"label": "A", "text": "$1+2i\\sqrt{3}$"},
-            {"label": "B", "text": "$-2+2i\\sqrt{3}$"},
-            {"label": "C", "text": "$4+2i\\sqrt{3}$"},
-            {"label": "D", "text": "$1-3+2i\\sqrt{3}$"},
-            {"label": "E", "text": "$2-2i\\sqrt{3}$"}
+            {"label": "A", "text": "$0$"},
+            {"label": "B", "text": "$2$"},
+            {"label": "C", "text": "$2\\sqrt{3}$"},
+            {"label": "D", "text": "$3\\sqrt{2}$"},
+            {"label": "E", "text": "$7\\sqrt{2}$"}
           ]
         },
         {
           "question_number": "Q71",
-          "text": "Soit le nombre complexe $z = \\frac{1+i}{1-i}$. Sa forme trigonométrique est :",
+          "text": "Le plan complexe est rapporté à un repère orthonormé direct.\nSoient $A$ et $B$ les points d'affixes respectives $-i$ et $i$\nL'ensemble des points $M$ d'affixe $z$ tel que :\n$\\left| \\frac{iz-1}{\\overline{z}+i} \\right| = 1$ est :",
           "options": [
-            {"label": "A", "text": "$\\cos(\\p\\/2) + i\\sin(\\p\\/2)$"},
-            {"label": "B", "text": "$\\cos(-\\p\\/2) + i\\sin(-\\p\\/2)$"},
-            {"label": "C", "text": "$\\cos(0) + i\\sin(0)$"},
-            {"label": "D", "text": "$\\cos(\\pi) + i\\sin(\\pi)$"},
-            {"label": "E", "text": "$\\sqrt{2}(\\cos(\\p\\/4) + i\\sin(\\p\\/4))$"}
+            {"label": "A", "text": "La médiatrice du segment $[AB]$"},
+            {"label": "B", "text": "La droite $(AB)$"},
+            {"label": "C", "text": "La droite $(AB)$ privée du point $B$"},
+            {"label": "D", "text": "Le cercle de diamètre $[AB]$"},
+            {"label": "E", "text": "Le cercle de diamètre $[AB]$ privé du point $B$"}
           ]
         },
         {
           "question_number": "Q72",
-          "text": "Dans le plan complexe, l'ensemble des points M d'affixe z tel que $|z-1+i| = |z+2|$ est :",
+          "text": "Soit $x \\in \\mathbb{R}^*$. Si $\\lim_{n \\to +\\infty} \\left(1 + \\frac{x}{7n}\\right)^{29n} = 2022$ alors $x$ est égal à :",
           "options": [
-            {"label": "A", "text": "Un cercle"},
-            {"label": "B", "text": "Une droite"},
-            {"label": "C", "text": "Un segment"},
-            {"label": "D", "text": "Un point"},
-            {"label": "E", "text": "L'ensemble vide"}
+            {"label": "A", "text": "$\\frac{29}{7} \\ln 2022$"},
+            {"label": "B", "text": "$2022 \\ln \\left(\\frac{7}{29}\\right)$"},
+            {"label": "C", "text": "$2022 \\ln \\left(\\frac{29}{7}\\right)$"},
+            {"label": "D", "text": "$\\frac{7}{29} \\ln 2022$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q73",
-          "text": "Soit la suite $(u_n)$ définie par $u_n = \\frac{2n+(-1)^n n}{3n}$. La limite de la suite $(u_n)$ est :",
+          "text": "Dans l'espace rapporté à un repère orthonormé, on considère le plan $(P)$ d'équation $3x-2z+3=0$\nOn dispose d'un dé régulier dont les faces sont numérotées de 1 à 6.\nOn lance le dé et on obtient ainsi de manière équiprobable un nombre $a$ $(1 \\leq a \\leq 6)$\nLa probabilité que le point $A(a^2;2a;6a-3)$ appartient au plan $(P)$ est :",
           "options": [
-            {"label": "A", "text": "$\\/3$"},
-            {"label": "B", "text": "$1$"},
-            {"label": "C", "text": "$\\/3$"},
-            {"label": "D", "text": "n'existe pas"},
-            {"label": "E", "text": "$+\\infty$"}
+            {"label": "A", "text": "$\\frac{1}{6}$"},
+            {"label": "B", "text": "$\\frac{1}{3}$"},
+            {"label": "C", "text": "$\\frac{1}{2}$"},
+            {"label": "D", "text": "$\\frac{2}{3}$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q74",
-          "text": "Soit la suite $(u_n)$ définie par $u_0=2$ et $u_{n+1} = \\frac{1}{2}u_n + 1$. La limite de la suite $(u_n)$ est :",
+          "text": "Soit $f$ la fonction définie sur $\\mathbb{R}$ par $f(x) = 2e^{3x} - 6$\nLa primitive $F$ de la fonction $f$ sur $\\mathbb{R}$ dont la courbe représentative coupe l'axe des ordonnées au point d'ordonnée $3$ est définie par :",
           "options": [
-            {"label": "A", "text": "$0$"},
-            {"label": "B", "text": "$1$"},
-            {"label": "C", "text": "$2$"},
-            {"label": "D", "text": "$\\/2$"},
-            {"label": "E", "text": "$+\\infty$"}
+            {"label": "A", "text": "$F(x) = \\frac{2}{3}e^{3x} - 6x - \\frac{2}{3}$"},
+            {"label": "B", "text": "$F(x) = \\frac{2}{3}e^{3x} - 6x + \\frac{7}{3}$"},
+            {"label": "C", "text": "$F(x) = \\frac{2}{3}e^{3x} - 6x - \\frac{7}{3}$"},
+            {"label": "D", "text": "$F(x) = \\frac{2}{3}e^{3x} - 6x + \\frac{2}{3}$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q75",
-          "text": "Une urne contient 3 boules rouges et 4 boules noires. On tire simultanément 3 boules de l'urne. La probabilité d'obtenir exactement 2 boules rouges est :",
+          "text": "L'intégrale $\\int_0^3 \\frac{x^2+2}{\\sqrt{x^3+6x+4}} dx$ est égale à :",
           "options": [
-            {"label": "A", "text": "$1\\/35$"},
-            {"label": "B", "text": "$\\/35$"},
-            {"label": "C", "text": "$\\/35$"},
-            {"label": "D", "text": "$1\\/35$"},
-            {"label": "E", "text": "$\\/7$"}
+            {"label": "A", "text": "$\\frac{1}{3}$"},
+            {"label": "B", "text": "$\\frac{8}{3}$"},
+            {"label": "C", "text": "$\\frac{10}{3}$"},
+            {"label": "D", "text": "$\\frac{14}{3}$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q76",
-          "text": "On lance une pièce de monnaie équilibrée 4 fois. Soit X la variable aléatoire égale au nombre de \"Pile\" obtenus. La probabilité $P(X=2)$ est :",
+          "text": "Si $(v_n)_{n \\in \\mathbb{N}^*}$ est une suite telle que :\n$\\left(\\forall n \\in \\mathbb{N}^*\\right) ; v_1 + v_2 + \\ldots + v_n = 2n^2 + n$, alors $v_8$ est égal à :",
           "options": [
-            {"label": "A", "text": "$\\/16$"},
-            {"label": "B", "text": "$\\/16$"},
-            {"label": "C", "text": "$\\/16$"},
-            {"label": "D", "text": "$\\/16$"},
-            {"label": "E", "text": "$\\/16$"}
+            {"label": "A", "text": "$31$"},
+            {"label": "B", "text": "$53$"},
+            {"label": "C", "text": "$54$"},
+            {"label": "D", "text": "$62$"},
+            {"label": "E", "text": "$64$"}
           ]
         },
         {
           "question_number": "Q77",
-          "text": "Dans l'espace rapporté à un repère orthonormé, on considère le plan $(P)$ d'équation $x-2y+z-1=0$ et le point $A(1,0,1)$. La distance du point A au plan $(P)$ est :",
+          "text": "Soit $f$ une fonction numérique dérivable sur $\\mathbb{R}$\nSi $\\left(\\forall x \\in \\mathbb{R}\\right) ;\\ f(2x-1) = x^2 + 3x$ alors $f(1) + f'(1)$ est égal à :",
           "options": [
-            {"label": "A", "text": "$\\/\\sqrt{6}$"},
-            {"label": "B", "text": "$\\/6$"},
-            {"label": "C", "text": "$\\sqrt{6}$"},
-            {"label": "D", "text": "$0$"},
-            {"label": "E", "text": "$\\/\\sqrt{6}$"}
+            {"label": "A", "text": "$\\frac{5}{2}$"},
+            {"label": "B", "text": "$4$"},
+            {"label": "C", "text": "$\\frac{9}{2}$"},
+            {"label": "D", "text": "$\\frac{13}{2}$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         },
         {
           "question_number": "Q78",
-          "text": "Dans l'espace, on considère les droites $(D)$ et $(D')$ de représentations paramétriques : $(D): \\begin{cases} x = 1+t \\ y = -1+2t \\ z = t \\end{cases}, t \\in \\mathbb{R}$ et $(D'): \\begin{cases} x = k \\ y = 1+k \\ z = -1+k \\end{cases}, k \\in \\mathbb{R}$. Les droites $(D)$ et $(D')$ sont :",
+          "text": "Si pour tout entier naturel $n$, $I_n = \\int_1^e x(\\ln x)^n dx$\nalors $\\left(\\forall n \\in \\mathbb{N}^*\\right)\\ 2I_{n+1} + (n+1)I_n$ est égal à :",
           "options": [
-            {"label": "A", "text": "Parallèles et distinctes"},
-            {"label": "B", "text": "Sécantes"},
-            {"label": "C", "text": "Confondues"},
-            {"label": "D", "text": "Non coplanaires"},
-            {"label": "E", "text": "Orthogonales"}
+            {"label": "A", "text": "$e$"},
+            {"label": "B", "text": "$e^2$"},
+            {"label": "C", "text": "$1$"},
+            {"label": "D", "text": "$\\frac{e-1}{2}$"},
+            {"label": "E", "text": "$\\frac{e+1}{2}$"}
           ]
         },
         {
           "question_number": "Q79",
-          "text": "Dans l'espace, on considère la sphère $(S)$ d'équation $x^2+y^2+z^2-2x+4y-2z+2=0$ et le plan $(P)$ d'équation $x-y+z+1=0$. L'intersection de $(S)$ et $(P)$ est :",
+          "text": "Soit $f$ la fonction définie sur $\\mathbb{R}$ par : $f(x) = \\sum_{k=0}^n x^k = 1 + x + x^2 + \\ldots + x^n$\net soit $(C)$ sa courbe représentative dans un repère orthonormé.\nL'équation réduite de la tangente à $(C)$ au point d'abscisse $1$ est :",
           "options": [
-            {"label": "A", "text": "Un cercle"},
-            {"label": "B", "text": "Un point"},
-            {"label": "C", "text": "L'ensemble vide"},
-            {"label": "D", "text": "Une droite"},
-            {"label": "E", "text": "La sphère (S) elle-même"}
+            {"label": "A", "text": "$y = \\frac{n(n+1)}{2}x - \\frac{(n-2)(n+1)}{2}$"},
+            {"label": "B", "text": "$y = \\frac{n(n-1)}{2}x + \\frac{(n-2)(n+1)}{2}$"},
+            {"label": "C", "text": "$y = \\frac{n(n+1)}{2}x + \\frac{(n-2)(n+1)}{2}$"},
+            {"label": "D", "text": "$y = \\frac{n(n-1)}{2}x - \\frac{n^2-1}{2}$"},
+            {"label": "E", "text": "$y = \\frac{n(n+1)}{2}x + \\frac{n^2-1}{2}$"}
           ]
         },
         {
           "question_number": "Q80",
-          "text": "Soit la fonction $f$ définie sur $\\mathbb{R}$ par $f(x) = \\ln(x^2+1)$. Le tableau de variations correct de $f$ est :",
+          "text": "On considère la suite $(u_n)_{n \\in \\mathbb{N}}$ définie par : $u_0 \\in ]0,1[$ et $(\\forall n \\in \\mathbb{N}) ;\\ u_{n+1} = f(u_n)$\nOù $f$ est la fonction définie sur $[0,1]$ par : $f(x) = \\frac{\\sqrt{x}}{\\sqrt{x} + \\sqrt{1-x}}$\nOn a alors :",
           "options": [
-            {"label": "A", "text": "Croissante sur $\\mathbb{R}$"},
-            {"label": "B", "text": "Décroissante sur $\\mathbb{R}$"},
-            {"label": "C", "text": "Décroissante sur $]-\\infty, 0]$ et croissante sur $[0, +\\infty[$"},
-            {"label": "D", "text": "Croissante sur $]-\\infty, 0]$ et décroissante sur $[0, +\\infty[$"},
-            {"label": "E", "text": "Constante sur $\\mathbb{R}$"}
+            {"label": "A", "text": "$\\lim_{n \\to +\\infty} u_n = 0$"},
+            {"label": "B", "text": "$\\lim_{n \\to +\\infty} u_n = \\frac{1}{3}$"},
+            {"label": "C", "text": "$\\lim_{n \\to +\\infty} u_n = 1$"},
+            {"label": "D", "text": "$\\lim_{n \\to +\\infty} u_n = +\\infty$"},
+            {"label": "E", "text": "Autre réponse"}
           ]
         }
       ]
