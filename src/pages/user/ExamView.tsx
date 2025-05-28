@@ -17,6 +17,8 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import MathRenderer from "@/components/MathRenderer";
 import PlotRenderer from "@/components/PlotRenderer";
 import DiagramRenderer from "@/components/DiagramRenderer";
+import RawSvgRenderer from "@/components/RawSvgRenderer";
+import SvgFileRenderer from "@/components/SvgFileRenderer";
 
 // Import exam data with proper TypeScript typing
 import medecine2023Data from "../../../concours/medecine/medecine2023/epreuve_2023.json";
@@ -57,6 +59,27 @@ interface ExamQuestion {
   text: string;
   options: { label: string; text: string; }[];
   programmatic_figure?: {
+    type: 'plot' | 'diagram' | 'raw_svg' | 'svg_file';
+    library: string;
+    title?: string;
+    svg_content?: string; // For raw SVG content
+    svg_url?: string;     // For SVG file URL
+    data_points?: Array<{
+      distance: number;
+      phosphocreatine: number;
+      atp: number;
+      acideLactique: number;
+      [key: string]: number;
+    }>;
+    annotations?: Array<{
+      text: string;
+      x: number;
+      y: number;
+      textAnchor?: 'start' | 'middle' | 'end';
+    }>;
+    [key: string]: any;
+  };
+  programmatic_figures?: {
     type: 'plot' | 'diagram';
     library: string;
     title: string;
@@ -74,7 +97,7 @@ interface ExamQuestion {
       textAnchor?: 'start' | 'middle' | 'end';
     }>;
     [key: string]: any;
-  };
+  }[];
   stimulus?: string;
   stimulus_list?: Array<{ number: number; text: string; }>;
   follow_up_question?: string;
@@ -717,7 +740,7 @@ const ExamView = () => {
                                 <BookOpen className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
                                 <span>
                                   <span className="font-medium">Description de l'image: </span>
-                                  {question.image_description}
+                                  <MathRenderer text={question.image_description} />
                                 </span>
                               </div>
                             </div>
@@ -736,13 +759,46 @@ const ExamView = () => {
                             </div>
                           )}
                           
-                          {question.programmatic_figure && (
+                          {/* Handle both singular and plural cases */}
+                          {(question.programmatic_figure || question.programmatic_figures) && (
                             <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg border border-border/50">
-                              {question.programmatic_figure.type === 'plot' && (
-                                <PlotRenderer figureData={question.programmatic_figure} />
+                              {/* Handle single figure */}
+                              {question.programmatic_figure && (
+                                <>
+                                  {question.programmatic_figure.type === 'plot' && (
+                                    <PlotRenderer figureData={question.programmatic_figure} />
+                                  )}
+                                  {question.programmatic_figure.type === 'diagram' && (
+                                    <DiagramRenderer figureData={question.programmatic_figure} />
+                                  )}
+                                  {question.programmatic_figure.type === 'raw_svg' && (
+                                    <RawSvgRenderer figureData={question.programmatic_figure} />
+                                  )}
+                                  {question.programmatic_figure.type === 'svg_file' && (
+                                    <SvgFileRenderer figureData={question.programmatic_figure} />
+                                  )}
+                                </>
                               )}
-                              {question.programmatic_figure.type === 'diagram' && (
-                                <DiagramRenderer figureData={question.programmatic_figure} />
+                              {/* Handle multiple figures */}
+                              {question.programmatic_figures && (
+                                <div className="flex flex-wrap gap-4">
+                                  {question.programmatic_figures.map((figure, index) => (
+                                    <div key={index} className="flex-1 min-w-[300px]">
+                                      {figure.type === 'plot' && (
+                                        <PlotRenderer figureData={figure} />
+                                      )}
+                                      {figure.type === 'diagram' && (
+                                        <DiagramRenderer figureData={figure} />
+                                      )}
+                                      {figure.type === 'raw_svg' && (
+                                        <RawSvgRenderer figureData={figure} />
+                                      )}
+                                      {figure.type === 'svg_file' && (
+                                        <SvgFileRenderer figureData={figure} />
+                                      )}
+                                    </div>
+                                  ))}
+                                </div>
                               )}
                             </div>
                           )}

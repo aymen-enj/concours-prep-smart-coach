@@ -117,6 +117,49 @@ const KaTeXTick = (props: any) => {
   }
 };
 
+// Custom Tooltip component with KaTeX rendering
+const KaTeXTooltip = ({ active, payload, label }) => {
+  if (!active || !payload || payload.length === 0) return null;
+
+  return (
+    <div className="custom-tooltip" style={{ 
+      background: 'white', 
+      border: '1px solid #ccc', 
+      padding: '8px',
+      borderRadius: '4px',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+    }}>
+      <div style={{ marginBottom: '4px' }}>
+        <strong>{label}</strong>
+      </div>
+      {payload.map((entry, i) => {
+        let valueHtml = '';
+        if (entry.unit) {
+          let unit = entry.unit;
+          if (unit.startsWith('$') && unit.endsWith('$')) {
+            unit = unit.slice(1, -1);
+          }
+          valueHtml = katex.renderToString(`${entry.value}\\ \\mathrm{${unit}}`, { throwOnError: false });
+        } else {
+          valueHtml = katex.renderToString(`${entry.value}`, { throwOnError: false });
+        }
+        return (
+          <div key={i} style={{ 
+            color: entry.color, 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '4px',
+            marginBottom: '2px'
+          }}>
+            <span>{entry.name}:</span>
+            <span dangerouslySetInnerHTML={{ __html: valueHtml }} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 interface PlotFigureData {
   type: 'plot';
   library: 'recharts' | 'plotly.js';
@@ -148,16 +191,28 @@ interface PlotFigureData {
   }[];
   legend?: boolean;
   grid?: boolean;
-  annotations?: {
-      type: 'text';
-      x_start: number;
-      x_end: number;
-      y_position_factor: number; // e.g., -0.1 to position above the chart
-      text: string;
-      style?: React.CSSProperties;
-      textAnchor?: 'start' | 'middle' | 'end';
-      verticalAnchor?: 'start' | 'middle' | 'end';
-  }[];
+  annotations?: (
+    | {
+        type: 'text';
+        x_start: number;
+        x_end: number;
+        y_position_factor: number;
+        text: string;
+        style?: React.CSSProperties;
+        textAnchor?: 'start' | 'middle' | 'end';
+        verticalAnchor?: 'start' | 'middle' | 'end';
+    }
+    | {
+        type: 'line';
+        x1: number; // Start x in data units
+        y1: number; // Start y in data units
+        x2: number; // End x in data units
+        y2: number; // End y in data units
+        stroke?: string; // Line color
+        strokeWidth?: number;
+        strokeDasharray?: string;
+    }
+  )[];
 }
 
 interface PlotRendererProps {
@@ -212,100 +267,103 @@ const PlotRenderer: React.FC<PlotRendererProps> = ({ figureData }) => {
       );
   });
 
-  // Determine chart dimensions. Using responsive container for flexibility.
-  // You might need to adjust height based on content (title, legend, axes labels)
-  const chartHeight = 400; // Example height, adjust as needed
-  const chartWidth = 1000; // Example width, adjust as needed
-  return (
-    <div style={{ width: '100%', height: chartHeight, maxWidth: '1000px', margin: '0 auto' }}> {/* Reduced max width and centered */}
-      {title && <h3 style={{ textAlign: 'center' }}><KaTeXText text={title} fontSize={14} /></h3>} {/* Pass fontSize to title */}
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data_points} margin={{ top: 20, right: 80, left: 80, bottom: 40 }}> {/* Increased left/right and bottom margins */}
-          {grid && <CartesianGrid strokeDasharray="3 3" />}
+  // Function to render annotations
+  const renderAnnotations = () => {
+    if (!annotations) return null;
 
-          {/* XAxis with KaTeXText for label */}
+    return annotations.map((annotation, index) => {
+      if (annotation.type === 'text') {
+        return (
+          <div
+            key={`annotation-${index}`}
+            style={{
+              position: 'absolute',
+              top: `${(annotation.y_position_factor || 0) * 100}%`,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              ...annotation.style,
+            }}
+          >
+            {annotation.text}
+          </div>
+        );
+      } else if (annotation.type === 'line') {
+        // For line annotations, we need to use SVG line element
+        // The coordinates will be converted from data space to pixel space by Recharts
+        return (
+          <svg
+            key={`line-annotation-${index}`}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              pointerEvents: 'none'
+            }}
+          >
+            <line
+              x1={`${(annotation.x1 / (x_axis.domain?.[1] || 10)) * 100}%`}
+              y1={`${100 - ((annotation.y1 - (y_axes[0].domain?.[0] || 0)) / ((y_axes[0].domain?.[1] || 6) - (y_axes[0].domain?.[0] || 0))) * 100}%`}
+              x2={`${(annotation.x2 / (x_axis.domain?.[1] || 10)) * 100}%`}
+              y2={`${100 - ((annotation.y2 - (y_axes[0].domain?.[0] || 0)) / ((y_axes[0].domain?.[1] || 6) - (y_axes[0].domain?.[0] || 0))) * 100}%`}
+              stroke={annotation.stroke || '#666'}
+              strokeWidth={annotation.strokeWidth || 1}
+              strokeDasharray={annotation.strokeDasharray || '5,5'}
+            />
+          </svg>
+        );
+      }
+      return null;
+    });
+  };
+
+  // Determine chart dimensions
+  const chartHeight = 400;
+  const chartWidth = 1000;
+
+  return (
+    <div style={{ width: '100%', height: chartHeight, maxWidth: '1000px', margin: '0 auto', position: 'relative' }}>
+      {title && <h3 style={{ textAlign: 'center' }}><KaTeXText text={title} fontSize={14} /></h3>}
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data_points} margin={{ top: 20, right: 30, left: 30, bottom: 20 }}>
+          {grid && <CartesianGrid strokeDasharray="3 3" stroke="#888" />}
           <XAxis
             dataKey={x_axis.key}
-            label={x_axis.label ? { value: x_axis.label, position: 'bottom', style: { textAnchor: 'middle' } } : undefined}
-            unit={x_axis.unit}
             domain={x_axis.domain}
             ticks={x_axis.ticks}
+            stroke="#000"
+            strokeWidth={1}
+            tick={{ fontSize: 12, fill: '#000' }}
           >
-           {/* Using the KaTeXText helper for the label value */}
-           {x_axis.label && (
-               <Label
-                  value={x_axis.label}
-                  position="bottom"
-                  style={{ textAnchor: 'middle' }}
-                   content={<KaTeXText text={x_axis.label} fontSize={12} />} // x/y ignored by Label, pass fontSize
-               />
-           )}
+            {x_axis.label && (
+              <Label
+                value={x_axis.label}
+                position="bottom"
+                offset={10}
+                style={{ textAnchor: 'middle', fontSize: '12px' }}
+                content={<KaTeXText text={x_axis.label} fontSize={12} />}
+              />
+            )}
           </XAxis>
-
-          {/* YAxes */}
           {yAxesComponents}
-
-          {/* Add custom horizontal Y-axis label at the top */}
           {y_axes.map(axis => axis.label && (
-              <text
-                  key={`custom-yaxis-label-${axis.id}`}
-                  x={axis.orientation === 'left' ? 40 : chartWidth - 40} // Adjust x position based on orientation
-                  y={10} // Position at the top
-                  textAnchor={axis.orientation === 'left' ? 'middle' : 'middle'} // Center the text
-                  dominantBaseline="hanging" // Align the top of the text to the y coordinate
-                  style={{ fontSize: '12px' }}
-              >
-                  <KaTeXText text={axis.label} fontSize={12} />
-              </text>
+            <text
+              key={`custom-yaxis-label-${axis.id}`}
+              x={axis.orientation === 'left' ? 10 : chartWidth - 10}
+              y={10}
+              textAnchor={axis.orientation === 'left' ? 'start' : 'end'}
+              style={{ fontSize: '12px', fill: '#000' }}
+            >
+              <KaTeXText text={axis.label} fontSize={12} />
+            </text>
           ))}
-
-          <Tooltip /> {/* Default tooltip, customize if needed */}
-
-          {legend && <Legend />}
-
+          <Tooltip content={KaTeXTooltip} />
+          {legend && <Legend verticalAlign="top" align="center" />}
           {linesComponents}
-
-          {/* Render Annotations */}
-          {/* Annotations positioning might require converting chart coordinates to SVG coordinates */}
-          {/* A simplified approach is to place text relative to chart container or use Recharts' internal hooks/components */}
-          {/* For now, a basic text rendering for annotations: */}
-          {annotations && annotations.map((annotation, index) => {
-              if (annotation.type === 'text') {
-                  // This positioning is simplified and assumes the x_start/x_end relate to data domain.
-                  // Precise positioning relative to chart area requires more context or calculation.
-                  // A simple approach is to place text at calculated SVG coordinates.
-                  // Recharts doesn't directly expose easy ways to map data coords to SVG coords for arbitrary elements.
-                  // Let's just render them absolutely or relative to a container for now, or make a best guess at position within the chart area.
-
-                  // A possible strategy: find a data point near x_start/x_end and position relative to it.
-                  // Or position relative to the ResponsiveContainer bounds.
-
-                  // Let's add a placeholder rendering for annotations.
-                  // A proper implementation would need to calculate screen coordinates from data coordinates.
-                  // For demonstration, let's just add a simple text label at a fixed position or relative to the top of the chart.
-                   // Placing annotation text above the chart title for simplicity
-                  return (
-                      <div
-                          key={`annotation-${index}`}
-                           style={{
-                               position: 'absolute',
-                               top: `${(annotation.y_position_factor || 0) * 100}%`, // Position above chart
-                               left: '50%', // Center horizontally - needs refinement based on x_start/x_end
-                               transform: 'translateX(-50%)',
-                               ...annotation.style,
-                               // This absolute positioning is relative to the parent div, not the chart axes.
-                               // For positioning relative to axes, more complex Recharts custom rendering is needed.
-                           }}
-                      >
-                          {annotation.text} {/* No KaTeX rendering here in this simplified placement */}
-                      </div>
-                  );
-              }
-              return null;
-          })}
-
         </LineChart>
       </ResponsiveContainer>
+      {renderAnnotations()}
     </div>
   );
 };

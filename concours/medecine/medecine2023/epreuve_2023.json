@@ -213,8 +213,6 @@
             "legend": true,
             "grid": true,
             "annotations": [
-              { "type": "text", "x_start": -10, "x_end": 0, "y_position_factor": -0.1, "text": "Echauffement", "style": {"fontWeight": "bold"}},
-              { "type": "text", "x_start": 0, "x_end": 100, "y_position_factor": -0.1, "text": "Course", "style": {"fontWeight": "bold"}}
             ]
           }
         },
@@ -238,7 +236,7 @@
           "options": [
             {"label": "A", "text": "Cytochrome a3 → Cytochrome a→ Cytochrome b→ Flavine mononucléotide."},
             {"label": "B", "text": "Ubiquinone → Cytochrome b→ Cytochrome a → Cytochrome a3."},
-            {"label": "C", "text": "Flavine mononucleotide→ Cytochrome c→ Cytochrome c1 → Cytochrome a3."},
+            {"label": "C", "text": "Flavine mononucléotide→ Cytochrome c→ Cytochrome c1 → Cytochrome a3."},
             {"label": "D", "text": "Ubiquinone → Cytochrome b→ Cytochrome a3 → Cytochrome a."},
             {"label": "E", "text": "Cytochrome a3 → Cytochrome a → Cytochrome c→ Cytochrome c1."}
           ]
@@ -351,6 +349,29 @@
             {"label": "C", "text": "monsieur A n'est pas atteint de mononucléose car son sérum réagit différemment du sérum de l'animal dans la case 2."},
             {"label": "D", "text": "dans le sérum de monsieur A, l'agglutination des hématies de cheval montre que ce monsieur n'est pas atteint de mononucléose."},
             {"label": "E", "text": "monsieur A n'est pas atteint de mononucléose car son sérum réagit de la même façon que le sérum de l'animal dans la case 1."}
+          ],
+          "programmatic_figures": [
+            {
+              "type": "svg_file",
+              "library": "svg",
+              "svg_url": "/svg/q19_case1.svg",
+              "title": "Case 1: Hématies agglutinées (sérum d'un animal atteint)",
+              "description": "Illustration montrant l'agglutination des hématies dans la case 1"
+            },
+            {
+              "type": "svg_file",
+              "library": "svg",
+              "svg_url": "/svg/q19_case2.svg",
+              "title": "Case 2: Hématies non agglutinées (sérum d'un animal non atteint)",
+              "description": "Illustration montrant les hématies non agglutinées dans la case 2"
+            },
+            {
+              "type": "svg_file",
+              "library": "svg",
+              "svg_url": "/svg/q19_case3.svg",
+              "title": "Case 3: Hématies agglutinées (sérum de monsieur A)",
+              "description": "Illustration montrant l'agglutination des hématies dans la case 3"
+            }
           ]
         },
         {
@@ -371,7 +392,65 @@
             {"label": "C", "text": "1 et 3."},
             {"label": "D", "text": "3 et 4."},
             {"label": "E", "text": "2 et 4."}
-          ]
+          ],
+          "programmatic_figure": {
+            "type": "plot",
+            "library": "recharts",
+            "title": "Évolution du nombre en UA des lymphocytes et de la charge virale",
+            "data_points": [
+              { "temps": "Semaines", "T8": 60, "T4": 70, "ChargeVirale": 0 },
+              { "temps": "", "T8": 65, "T4": 20, "ChargeVirale": 90 },
+              { "temps": "1 à 2 ans", "T8": 90, "T4": 60, "ChargeVirale": 40 },
+              { "temps": "", "T8": 85, "T4": 40, "ChargeVirale": 45 },
+              { "temps": "années", "T8": 80, "T4": 20, "ChargeVirale": 50 },
+              { "temps": "", "T8": 70, "T4": 0, "ChargeVirale": 55 },
+              { "temps": "", "T8": 55, "T4": 0, "ChargeVirale": 120 }
+            ],
+            "series": [
+              {
+                "name": "Lymphocytes T8",
+                "data_key": "T8",
+                "color": "#1976d2",
+                "line_style": "solid",
+                "y_axis_id": "left"
+              },
+              {
+                "name": "Charge virale",
+                "data_key": "ChargeVirale",
+                "color": "#d32f2f",
+                "line_style": "dashed",
+                "y_axis_id": "left"
+              },
+              {
+                "name": "Lymphocytes T4",
+                "data_key": "T4",
+                "color": "#388e3c",
+                "line_style": "dotted",
+                "y_axis_id": "left"
+              }
+            ],
+            "x_axis": {
+              "key": "temps",
+              "label": "Temps",
+              "unit": "",
+              "ticks": ["Semaines", "1 à 2 ans", "années"]
+            },
+            "y_axes": [
+              {
+                "id": "left",
+                "orientation": "left",
+                "label": "Nombre en UA",
+                "unit": "UA",
+                "domain": [0, 130],
+                "ticks": [0, 20, 40, 60, 80, 100, 120]
+              }
+            ],
+            "legend": true,
+            "grid": true,
+            "annotations": [
+              
+            ]
+          }
         }
       ]
     },
@@ -383,7 +462,7 @@
           "exercise_title": "Ondes à la surface de l'eau",
           "question_number": "Q21",
           "stimulus": "Sur la surface de l'eau contenue dans une cuve à onde, on crée à l'instant $t_{0}=0$, une onde progressive sinusoïdale de fréquence N, en un point S, à l'aide d'une pointe liée à un vibreur. Cette onde se propage sans amortissement et sans réflexion avec une vitesse constante. Le document ci-dessous représente une section de la surface de l'eau suivant un plan vertical passant par le point S à un instant $t_{1}$. L'élongation de la source est $y_{s}(t)=10^{-2}.sin(100.\\pi.t)$ (m).",
-          "image_description": "Diagramme d'une onde sinusoïdale à la surface de l'eau issue d'une source S. Un segment AB est indiqué sur l'onde, correspondant à 2.5 longueurs d'onde.",
+          "image_description": "Schéma d'une onde sinusoïdale à la surface de l'eau issue d'une source S. Un segment AB est indiqué sur l'onde, correspondant à 2.5 longueurs d'onde.",
           "data": {
             "frequency_N": "50 Hz",
             "AB_distance": "10 cm",
@@ -396,7 +475,41 @@
             {"label": "C", "text": "$t_{1}=21ms$"},
             {"label": "D", "text": "$t_{1}=50~ms$"},
             {"label": "E", "text": "$t_{1}=100~ms$"}
-          ]
+          ],
+          "programmatic_figure": {
+            "type": "diagram",
+            "description": "Onde sinusoïdale à la surface de l'eau (Q21)",
+            "viewBox": "0 0 800 80", 
+            "elements": [
+              {
+                "element_type": "line",
+                "x1": 40, "y1": 40,
+                "x2": 780, "y2": 40, 
+                "stroke": "black",
+                "stroke_width": 2,
+                "stroke_dasharray": "6 6"
+              },
+              {
+                "element_type": "text", "x": 80, "y": 60, "text": "A",
+                "font_size": 20, "text_anchor": "middle", "font_family": "serif"
+              },
+              {
+                "element_type": "text", "x": 350, "y": 60, "text": "S",
+                "font_size": 20, "text_anchor": "middle", "font_family": "serif"
+              },
+              {
+                "element_type": "text", "x": 750, "y": 60, "text": "B", 
+                "font_size": 20, "text_anchor": "middle", "font_family": "serif"
+              },
+              {
+                "element_type": "path",
+                "d": "M 350 40 Q 390 10 430 40 Q 470 70 510 40 Q 550 10 590 40 Q 630 70 670 40 Q 710 10 750 40",
+                "stroke": "black",
+                "stroke_width": 2,
+                "fill": "none"
+              }
+            ]
+          }
         },
         {
           "exercise_title": "Ondes à la surface de l'eau",
@@ -510,7 +623,7 @@
             "exercise_title": "Circuit RC",
             "question_number": "Q28",
             "stimulus": "On considère le montage schématisé sur la figure suivante. À l'instant $t_0=0$, on place l'interrupteur K en position (1). Un système d'acquisition donne l'expression numérique de l'intensité du courant qui circule dans le circuit : $i(t) = 0.10^{-3}.e^{-\\frac{1000}{35}t}$ (A).",
-            "image_description": "Circuit RC série avec un générateur de tension E, un interrupteur K (positions 1 et 2), un condensateur C et une résistance R. En position 1, le circuit est E-C-R. En position 2, le condensateur se décharge dans R.",
+          "image_description": "Circuit RC série avec un générateur de tension E, une résistance interne r, un interrupteur K (positions 1 et 2), un condensateur C et une résistance R. En position 1, le circuit E-r-C-R est alimenté. En position 2, le condensateur se décharge dans R et r (si K shorts to r side then r is out). The target diagram shows pos 2 connects C-R to the common rail, bypassing E-r.",
             "data": {
                 "E": "6,0V",
                 "R_conducteur_ohmique": "$0,95 k\\Omega$"
@@ -523,38 +636,54 @@
                 {"label": "D", "text": "$r=50~\\Omega$, $C=33~\\mu F$"},
                 {"label": "E", "text": "$r=50~\\Omega$, $C=75~\\mu F$"}
             ],
-            "programmatic_figure": {
+          "programmatic_figure": {
               "type": "diagram",
-              "description": "RC Circuit for charging/discharging",
-              "viewBox": "0 0 400 200",
+              "description": "RC Circuit",
+              "viewBox": "0 0 500 250",
               "elements": [
-                { "element_type": "line", "id": "gen_pos", "x1": 50, "y1": 100, "x2": 50, "y2": 80, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "gen_neg", "x1": 50, "y1": 100, "x2": 50, "y2": 120, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "circle", "id": "gen_circle", "cx": 50, "cy": 100, "r": 20, "stroke": "black", "fill": "none", "stroke_width": 2 },
-                { "element_type": "text", "id": "gen_label", "x": 50, "y": 70, "text": "E, r", "font_size": 12, "text_anchor": "middle" },
-                { "element_type": "line", "id": "switch_pivot", "x1": 70, "y1": 100, "x2": 100, "y2": 100, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "switch_arm_1", "x1": 100, "y1": 100, "x2": 120, "y2": 80, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "switch_arm_2", "x1": 100, "y1": 100, "x2": 120, "y2": 120, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "text", "id": "switch_label", "x": 100, "y": 90, "text": "K", "font_size": 12, "text_anchor": "middle" },
-                { "element_type": "text", "id": "pos1_label", "x": 130, "y": 80, "text": "1", "font_size": 10, "text_anchor": "middle" },
-                { "element_type": "text", "id": "pos2_label", "x": 130, "y": 120, "text": "2", "font_size": 10, "text_anchor": "middle" },
-                { "element_type": "line", "id": "cap_plate1", "x1": 180, "y1": 80, "x2": 180, "y2": 120, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "cap_plate2", "x1": 190, "y1": 80, "x2": 190, "y2": 120, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "text", "id": "cap_label", "x": 210, "y": 100, "text": "C", "font_size": 12, "text_anchor": "middle" },
-                { "element_type": "text", "id": "uc_label", "x": 185, "y": 70, "text": "$u_C$", "font_size": 12, "text_anchor": "middle" },
-                { "element_type": "rect", "id": "resistor_R", "x": 250, "y": 90, "width": 40, "height": 20, "stroke": "black", "fill": "none", "stroke_width": 2 },
-                { "element_type": "text", "id": "resistor_label", "x": 270, "y": 80, "text": "R", "font_size": 12, "text_anchor": "middle" },
-                { "element_type": "text", "id": "ur_label", "x": 270, "y": 125, "text": "$u_R$", "font_size": 12, "text_anchor": "middle" },
-                { "element_type": "line", "id": "wire_gen_switch", "x1": 50, "y1": 100, "x2": 70, "y2": 100, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "wire_switch_cap", "x1": 120, "y1": 80, "x2": 180, "y2": 80, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "wire_cap_resistor", "x1": 190, "y1": 80, "x2": 250, "y2": 90, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "wire_resistor_gen", "x1": 290, "y1": 100, "x2": 350, "y2": 100, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "wire_bottom", "x1": 50, "y1": 120, "x2": 350, "y2": 120, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "wire_switch_bottom", "x1": 120, "y1": 120, "x2": 180, "y2": 120, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "line", "id": "current_arrow_line", "x1": 150, "y1": 110, "x2": 200, "y2": 110, "stroke": "black", "stroke_width": 2 },
-                { "element_type": "text", "id": "current_label", "x": 175, "y": 105, "text": "I(i)", "font_size": 12, "text_anchor": "middle" },
-                { "element_type": "text", "id": "point_A", "x": 50, "y": 130, "text": "A", "font_size": 12, "text_anchor": "middle" },
-                { "element_type": "text", "id": "point_B", "x": 350, "y": 130, "text": "B", "font_size": 12, "text_anchor": "middle" }
+                { "element_type": "line", "x1": 50, "y1": 165, "x2": 50, "y2": 210, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "circle", "cx": 50, "cy": 150, "r": 15, "stroke": "black", "stroke_width": 1, "fill": "white" },
+                { "element_type": "line", "x1": 50, "y1": 135, "x2": 50, "y2": 165, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "text", "x": 35, "y": 150, "text": "E", "font_size": 14, "text_anchor": "end", "font_family": "Arial, sans-serif" },
+                { "element_type": "path", "d": "M 50 125 L 45 135 L 55 135 Z", "fill": "black" },
+                { "element_type": "rect", "x": 40, "y": 60, "width": 20, "height": 40, "stroke": "black", "stroke_width": 1, "fill": "white" },
+                { "element_type": "text", "x": 30, "y": 80, "text": "r", "font_size": 14, "text_anchor": "end", "font_family": "Arial, sans-serif" },
+                { "element_type": "line", "x1": 50, "y1": 100, "x2": 50, "y2": 135, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "line", "x1": 50, "y1": 40, "x2": 50, "y2": 60, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "line", "x1": 50, "y1": 40, "x2": 147, "y2": 40, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "circle", "cx": 150, "cy": 40, "r": 3, "stroke": "black", "stroke_width": 1, "fill": "white" },
+                { "element_type": "text", "x": 150, "y": 28, "text": "1", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" },
+                { "element_type": "circle", "cx": 170, "cy": 40, "r": 3, "fill": "black" },
+                { "element_type": "text", "x": 170, "y": 28, "text": "K", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" },
+                { "element_type": "line", "x1": 170, "y1": 40, "x2": 150, "y2": 40, "stroke": "black", "stroke_width": 2 },
+                { "element_type": "line", "x1": 173, "y1": 40, "x2": 297, "y2": 40, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "circle", "cx": 170, "cy": 80, "r": 3, "stroke": "black", "stroke_width": 1, "fill": "white" },
+                { "element_type": "text", "x": 170, "y": 95, "text": "2", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" },
+                { "element_type": "line", "x1": 170, "y1": 83, "x2": 170, "y2": 210, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "line", "x1": 50, "y1": 210, "x2": 170, "y2": 210, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "line", "x1": 170, "y1": 210, "x2": 297, "y2": 210, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "circle", "cx": 300, "cy": 40, "r": 3, "stroke": "black", "stroke_width": 1, "fill": "white" },
+                { "element_type": "text", "x": 300, "y": 28, "text": "A", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" },
+                { "element_type": "line", "x1": 300, "y1": 43, "x2": 300, "y2": 70, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "line", "x1": 285, "y1": 70, "x2": 315, "y2": 70, "stroke": "black", "stroke_width": 3 },
+                { "element_type": "line", "x1": 285, "y1": 80, "x2": 315, "y2": 80, "stroke": "black", "stroke_width": 3 },
+                { "element_type": "line", "x1": 300, "y1": 80, "x2": 300, "y2": 110, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "text", "x": 275, "y": 75, "text": "C", "font_size": 14, "text_anchor": "end", "font_family": "Arial, sans-serif" },
+                { "element_type": "line", "x1": 330, "y1": 95, "x2": 330, "y2": 55, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "path", "d": "M 330 55 L 325 65 L 335 65 Z", "fill": "black" },
+                { "element_type": "text", "x": 345, "y": 75, "text": "u_C", "font_size": 14, "text_anchor": "start", "font_family": "Arial, sans-serif" },
+                { "element_type": "rect", "x": 290, "y": 130, "width": 20, "height": 40, "stroke": "black", "stroke_width": 1, "fill": "white" },
+                { "element_type": "text", "x": 280, "y": 150, "text": "R", "font_size": 14, "text_anchor": "end", "font_family": "Arial, sans-serif" },
+                { "element_type": "line", "x1": 300, "y1": 110, "x2": 300, "y2": 130, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "line", "x1": 300, "y1": 170, "x2": 300, "y2": 190, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "line", "x1": 330, "y1": 175, "x2": 330, "y2": 135, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "path", "d": "M 330 135 L 325 145 L 335 145 Z", "fill": "black" },
+                { "element_type": "text", "x": 345, "y": 155, "text": "u_R", "font_size": 14, "text_anchor": "start", "font_family": "Arial, sans-serif" },
+                { "element_type": "line", "x1": 300, "y1": 190, "x2": 300, "y2": 207, "stroke": "black", "stroke_width": 1 },
+                { "element_type": "path", "d": "M 300 200 L 295 195 L 305 195 Z", "fill": "black" },
+                { "element_type": "text", "x": 315, "y": 195, "text": "i(i)", "font_size": 14, "text_anchor": "start", "font_family": "Arial, sans-serif" },
+                { "element_type": "circle", "cx": 300, "cy": 210, "r": 3, "stroke": "black", "stroke_width": 1, "fill": "white" },
+                { "element_type": "text", "x": 300, "y": 225, "text": "B", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" }
               ]
             }
         },
@@ -610,19 +739,33 @@
             ]
         },
         {
-            "exercise_title": "Circuit RL",
-            "question_number": "Q32",
-            "stimulus": "On réalise un circuit électrique série comportant une bobine d'inductance L et de résistance r, un conducteur ohmique de résistance $R=50~\\Omega$, un générateur de tension de f.é.m E et un interrupteur K. À l'instant $t_0=0$, on ferme K. Un système d'acquisition donne l'évolution de la tension $u_R(t)$ aux bornes du conducteur ohmique et l'énergie magnétique $\\mathcal{E}_m(t)$ emmagasinée dans la bobine (voir document suivant).",
-            "image_description": "Document suivant (non fourni ici, mais typiquement un graphique de $u_R(t)$ e\\/ou $\\mathcal{E}_m(t)$). Un graphique de $u_R(V)$ en fonction de $t(ms)$ est visible sur la page 13, montrant une courbe exponentielle décroissante partant de $u_R(0)=5V$ et tendant vers $2V$. L'échelle de temps va jusqu'à $5ms$.",
-            "text": "L'équation différentielle vérifiée par l'intensité du courant qui traverse le circuit est :",
-            "options": [
-                {"label": "A", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = \\frac{E}{L}$"},
-                {"label": "B", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = \\frac{L}{E}$"},
-                {"label": "C", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = 0$"},
-                {"label": "D", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = \\frac{E}{L}$"},
-                {"label": "E", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = 0$"}
-            ]
-        },
+          "exercise_title": "Circuit RL",
+          "question_number": "Q32",
+          "stimulus": "On réalise un circuit électrique série comportant une bobine d'inductance L et de résistance r, un conducteur ohmique de résistance $R=50~\\Omega$, un générateur de tension de f.é.m E et un interrupteur K. À l'instant $t_0=0$, on ferme K. Un système d'acquisition donne l'évolution de la tension $u_R(t)$ aux bornes du conducteur ohmique et l'énergie magnétique $\\mathcal{E}_m(t)$ emmagasinée dans la bobine (voir documents suivants).",
+          "image_description": "Documents suivants: 1) Graphique de $u_R\\,(V)$ en fonction de $t\\,(ms)$ montrant une courbe exponentielle décroissante partant de $u_R(0)=5\\,V$ et tendant vers $2\\,V$. 2) Graphique de l'énergie magnétique $\\mathcal{E}_m\\,(mJ)$ en fonction de $t\\,(ms)$ montrant une courbe croissante qui tend vers $6\\,mJ$.",
+          "programmatic_figures": [
+            {
+              "type": "svg_file",
+              "library": "svg",
+              "svg_url": "/svg/q32_graph.svg",
+              "description": "Graphique de tension u_R(t) en fonction du temps montrant une courbe exponentielle décroissante de 5V à 2V"
+            },
+            {
+              "type": "svg_file",
+              "library": "svg",
+              "svg_url": "/svg/q32_energy_graph.svg",
+              "description": "Graphique de l'énergie magnétique Em(t) en fonction du temps montrant une courbe croissante tendant vers 6mJ"
+            }
+          ],
+          "text": "L'équation différentielle vérifiée par l'intensité du courant qui traverse le circuit est :",
+          "options": [
+              {"label": "A", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = \\frac{E}{L}$"},
+              {"label": "B", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = \\frac{L}{E}$"},
+              {"label": "C", "text": "$\\frac{di}{dt} + \\frac{L}{R+r}.i = 0$"},
+              {"label": "D", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = \\frac{E}{L}$"},
+              {"label": "E", "text": "$\\frac{di}{dt} + \\frac{R+r}{L}.i = 0$"}
+          ]
+      },
         {
             "exercise_title": "Circuit RL",
             "question_number": "Q33",

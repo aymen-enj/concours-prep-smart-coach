@@ -1,0 +1,57 @@
+<svg width="250" height="200" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* No explicit background style needed, SVG default is transparent (appears white in most viewers) */
+    .main-shape {
+      fill: black; /* Explicitly black */
+      stroke: none;
+    }
+    .debris {
+      fill: black; /* Explicitly black */
+      stroke: none;
+    }
+  </style>
+
+  <!-- Main Shape -->
+  <path class="main-shape" d="
+    M 15 35
+    C 10 15, 35 5, 55 10
+    C 75 12, 90 25, 85 45
+    C 82 60, 60 62, 45 58
+    C 30 60, 18 50, 15 35 Z
+  "/>
+
+  <!-- Debris Below -->
+  <!-- Larger chunks -->
+  <path class="debris" d="M30,60 q2,3 5,2 q1,3 -3,2 Z" />
+  <path class="debris" d="M40,58 q3,4 6,2 q1,2 -4,3 Z" />
+  <path class="debris" d="M50,61 q-2,4 3,3 q2,2 -4,1 Z" />
+  <path class="debris" d="M60,59 q4,3 5,1 q0,3 -5,2 Z" />
+  <path class="debris" d="M70,60 q2,2 3,0 q-1,2.5 -3,1.5 Z" />
+
+  <!-- Smaller fragments and dots -->
+  <rect class="debris" x="25" y="65" width="3" height="2.5" rx="1"/>
+  <path class="debris" d="M32,66 l2,1 l-1,1.5 Z"/>
+  <circle class="debris" cx="38" cy="67" r="1.2"/>
+  <rect class="debris" x="42" y="64" width="2.5" height="3" rx="0.5"/>
+  <path class="debris" d="M47,67 l-1.5,2 l2.5,0 Z"/>
+  <circle class="debris" cx="53" cy="66" r="1.5"/>
+  <path class="debris" d="M58,68 q1.5,-1 2,1 l-2,1 Z"/>
+  <rect class="debris" x="63" y="65" width="3" height="2" rx="1"/>
+  <circle class="debris" cx="68" cy="67.5" r="1"/>
+  <path class="debris" d="M72,66 l1,2 l-2.5,0.5 Z"/>
+
+  <!-- Even smaller, more scattered fragments -->
+  <circle class="debris" cx="22" cy="69" r="0.8"/>
+  <circle class="debris" cx="28" cy="70" r="0.7"/>
+  <circle class="debris" cx="35" cy="71" r="1"/>
+  <circle class="debris" cx="40" cy="69.5" r="0.6"/>
+  <circle class="debris" cx="46" cy="71.5" r="0.9"/>
+  <circle class="debris" cx="51" cy="69" r="0.8"/>
+  <circle class="debris" cx="57" cy="72" r="1.1"/>
+  <circle class="debris" cx="62" cy="70.5" r="0.7"/>
+  <circle class="debris" cx="67" cy="71" r="0.8"/>
+  <circle class="debris" cx="74" cy="69" r="0.9"/>
+  <circle class="debris" cx="77" cy="71" r="0.6"/>
+  <circle class="debris" cx="80" cy="68" r="0.5"/>
+
+</svg>
