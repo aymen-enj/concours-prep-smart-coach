@@ -19,6 +19,7 @@ import PlotRenderer from "@/components/PlotRenderer";
 import DiagramRenderer from "@/components/DiagramRenderer";
 import RawSvgRenderer from "@/components/RawSvgRenderer";
 import SvgFileRenderer from "@/components/SvgFileRenderer";
+import ImageRenderer from "@/components/ImageRenderer";
 
 // Import exam data with proper TypeScript typing
 import medecine2023Data from "../../../concours/medecine/medecine2023/epreuve_2023.json";
@@ -27,6 +28,13 @@ import medecine2023Data from "../../../concours/medecine/medecine2023/epreuve_20
 interface ExamOption {
   label: string;
   text: string;
+  programmatic_figure?: {
+    type: 'image';
+    library: string;
+    image_url: string;
+    alt_text?: string;
+    [key: string]: any;
+  };
 }
 
 interface StimulusListItem {
@@ -51,6 +59,8 @@ interface ResultsData {
 interface SimpleData {
   given_values?: string[];
   remark?: string;
+  pK_a1?: string;
+  pK_a2?: string;
   [key: string]: any; // For other data fields
 }
 
@@ -59,7 +69,7 @@ interface ExamQuestion {
   text: string;
   options: { label: string; text: string; }[];
   programmatic_figure?: {
-    type: 'plot' | 'diagram' | 'raw_svg' | 'svg_file';
+    type: 'plot' | 'diagram' | 'raw_svg' | 'svg_file' | 'image';
     library: string;
     title?: string;
     svg_content?: string; // For raw SVG content
@@ -611,7 +621,7 @@ const ExamView = () => {
                                   </div>
                                   {question.data.type === 'table' && question.data.description && (
                                     <div className="mt-2 text-sm text-foreground">
-                                      <span className="font-medium">Description:</span> {question.data.description}
+                                      <span className="font-medium">Description:</span> <MathRenderer text={question.data.description} />
                                     </div>
                                   )}
                                   
@@ -672,6 +682,53 @@ const ExamView = () => {
                                 </div>
                               )}
 
+                              {/* Afficher pK_a1 et pK_a2 s'ils existent */}
+                              {(question.data.pK_a1 || question.data.pK_a2) && (
+                                <div className="mt-3 mb-3">
+                                  <h4 className="text-sm font-medium mb-2">Constantes d'acidité:</h4>
+                                  <Card className="bg-white dark:bg-gray-800 border border-border/50">
+                                    <CardContent className="p-4">
+                                      {question.data.pK_a1 && (
+                                        <div className="mb-2 py-1 px-3 rounded-md bg-blue-50/50 dark:bg-blue-900/10">
+                                          <MathRenderer text={question.data.pK_a1} />
+                                        </div>
+                                      )}
+                                      {question.data.pK_a2 && (
+                                        <div className="py-1 px-3 rounded-md bg-blue-50/50 dark:bg-blue-900/10">
+                                          <MathRenderer text={question.data.pK_a2} />
+                                        </div>
+                                      )}
+                                    </CardContent>
+                                  </Card>
+                                </div>
+                              )}
+
+                              {/* Autres données spécifiques */}
+                              {Object.entries(question.data).map(([key, value]) => {
+                                // Liste des clés déjà traitées ailleurs
+                                const alreadyHandledKeys = [
+                                  'type', 'given_values', 'remark', 'note', 'description',
+                                  'conductivites_molaires_ioniques', 'calculs_fournis', 
+                                  'columns', 'headers', 'rows', 'observations',
+                                  'additional_data_for_Q23', 'pK_a1', 'pK_a2'
+                                ];
+                                
+                                // Ignorer les clés déjà traitées
+                                if (alreadyHandledKeys.includes(key)) return null;
+                                
+                                // Afficher les autres données
+                                return (
+                                  <div key={key} className="mt-3 mb-3">
+                                    <div className="p-3 bg-indigo-50/50 dark:bg-indigo-950/20 rounded-md border border-indigo-100 dark:border-indigo-800/30">
+                                      <h4 className="text-sm font-medium mb-1 text-indigo-700 dark:text-indigo-400">{key}:</h4>
+                                      <div className="text-sm p-2 bg-white dark:bg-gray-800 rounded border border-indigo-100/50 dark:border-indigo-800/20">
+                                        <MathRenderer text={typeof value === 'string' ? value : JSON.stringify(value)} />
+                                      </div>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+
                               {/* Calculations - Calculs fournis */}
                               {question.data.calculs_fournis && (
                                 <div className="mt-3 mb-3">
@@ -709,26 +766,9 @@ const ExamView = () => {
                                   </ul>
                                   {question.data.remark && (
                                     <div className="mt-2 text-xs italic text-muted-foreground">
-                                      Note: {question.data.remark}
+                                      Note: <MathRenderer text={question.data.remark} />
                                     </div>
                                   )}
-                                </div>
-                              )}
-                              
-                              {/* Other data fields */}
-                              {'type' in question.data === false && 
-                               !question.data.given_values && 
-                               !question.data.conductivites_molaires_ioniques &&
-                               !question.data.calculs_fournis &&
-                               !question.data.note &&
-                               Object.keys(question.data).length > 0 && (
-                                <div className="space-y-2">
-                                  {Object.entries(question.data).map(([key, value]) => (
-                                    <div key={key} className="text-sm">
-                                      <span className="font-medium">{key}: </span>
-                                      <MathRenderer text={typeof value === 'string' ? value : JSON.stringify(value)} />
-                                    </div>
-                                  ))}
                                 </div>
                               )}
                             </div>
@@ -777,6 +817,9 @@ const ExamView = () => {
                                   {question.programmatic_figure.type === 'svg_file' && (
                                     <SvgFileRenderer figureData={question.programmatic_figure} />
                                   )}
+                                  {question.programmatic_figure.type === 'image' && (
+                                    <ImageRenderer figureData={question.programmatic_figure} />
+                                  )}
                                 </>
                               )}
                               {/* Handle multiple figures */}
@@ -795,6 +838,9 @@ const ExamView = () => {
                                       )}
                                       {figure.type === 'svg_file' && (
                                         <SvgFileRenderer figureData={figure} />
+                                      )}
+                                      {figure.type === 'image' && (
+                                        <ImageRenderer figureData={figure} />
                                       )}
                                     </div>
                                   ))}
@@ -875,6 +921,20 @@ const ExamView = () => {
                             >
                               <span className="font-semibold mr-3 text-primary">{option.label}.</span>
                               <MathRenderer text={option.text} />
+                              {option.programmatic_figure && option.programmatic_figure.type === 'image' && (
+                                <div className="mt-2">
+                                  <img 
+                                    src={option.programmatic_figure.image_url}
+                                    alt={option.programmatic_figure.alt_text || "Figure"}
+                                    style={{ 
+                                      maxHeight: '80px',
+                                      display: 'inline-block',
+                                      marginTop: '4px'
+                                    }}
+                                    className="border-0"
+                                  />
+                                </div>
+                              )}
                             </Label>
                           </div>
                         </motion.div>

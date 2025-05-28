@@ -1,0 +1,212 @@
+{
+  "q11_concentrations": {
+    "type": "plot",
+    "library": "recharts",
+    "title": "Évolution des concentrations pendant l'effort",
+    "data_points": [
+      { "distance": "", "phosphocreatine": 22, "atp": 6, "acideLactique": 1 },
+      { "distance": 0, "phosphocreatine": 10, "atp": 5, "acideLactique": 2 },
+      { "distance": 10, "phosphocreatine": 8, "atp": 4.8, "acideLactique": 3 },
+      { "distance": 20, "phosphocreatine": 7, "atp": 4.2, "acideLactique": 4 },
+      { "distance": 40, "phosphocreatine": 5, "atp": 4, "acideLactique": 5 },
+      { "distance": 60, "phosphocreatine": 4.5, "atp": 4, "acideLactique": 5.5 },
+      { "distance": 80, "phosphocreatine": 4, "atp": 4.2, "acideLactique": 7 },
+      { "distance": 100, "phosphocreatine": 3.8, "atp": 4, "acideLactique": 8 }
+    ],
+    "series": [
+      {
+        "name": "Phosphocréatine",
+        "data_key": "phosphocreatine",
+        "unit": "\\mathrm{mmol.L^{-1}}",
+        "color": "#8884d8",
+        "line_style": "solid",
+        "y_axis_id": "left"
+      },
+      {
+        "name": "ATP",
+        "data_key": "atp",
+        "unit": "\\mathrm{mmol.L^{-1}}",
+        "color": "#82ca9d",
+        "line_style": "dashed",
+        "y_axis_id": "left"
+      },
+      {
+        "name": "Acide lactique",
+        "data_key": "acideLactique",
+        "unit": "\\mathrm{mmol.L^{-1}}",
+        "color": "#ffc658",
+        "line_style": "dotted",
+        "y_axis_id": "right"
+      }
+    ],
+    "x_axis": {
+      "key": "distance",
+      "label": "Distance parcourue en m",
+      "unit": "m",
+      "domain": [-10, 100],
+      "ticks": [-10, 0, 20, 40, 60, 80, 100]
+    },
+    "y_axes": [
+      {
+        "id": "left",
+        "orientation": "left",
+        "label": "Concentration (mmol.L$^{-1}$)",
+        "unit": "\\mathrm{mmol.L^{-1}}",
+        "domain": [0, 24],
+        "ticks": [0, 4, 8, 12, 16, 20, 24]
+      },
+      {
+        "id": "right",
+        "orientation": "right",
+        "label": "Concentration (mmol.L$^{-1}$)",
+        "unit": "\\mathrm{mmol.L^{-1}}",
+        "domain": [0, 12],
+        "ticks": [0, 2, 4, 6, 8, 10, 12],
+        "stroke": "#ffc658"
+      }
+    ],
+    "legend": true,
+    "grid": true,
+    "annotations": []
+  },
+  "q20_vih_evolution": {
+    "type": "plot",
+    "library": "recharts",
+    "title": "Évolution du nombre en UA des lymphocytes et de la charge virale",
+    "data_points": [
+      { "temps": "Semaines", "T8": 60, "T4": 70, "ChargeVirale": 0 },
+      { "temps": "", "T8": 65, "T4": 20, "ChargeVirale": 90 },
+      { "temps": "1 à 2 ans", "T8": 90, "T4": 60, "ChargeVirale": 40 },
+      { "temps": "", "T8": 85, "T4": 40, "ChargeVirale": 45 },
+      { "temps": "années", "T8": 80, "T4": 20, "ChargeVirale": 50 },
+      { "temps": "", "T8": 70, "T4": 0, "ChargeVirale": 55 },
+      { "temps": "", "T8": 55, "T4": 0, "ChargeVirale": 120 }
+    ],
+    "series": [
+      {
+        "name": "Lymphocytes T8",
+        "data_key": "T8",
+        "color": "#1976d2",
+        "line_style": "solid",
+        "y_axis_id": "left"
+      },
+      {
+        "name": "Charge virale",
+        "data_key": "ChargeVirale",
+        "color": "#d32f2f",
+        "line_style": "dashed",
+        "y_axis_id": "left"
+      },
+      {
+        "name": "Lymphocytes T4",
+        "data_key": "T4",
+        "color": "#388e3c",
+        "line_style": "dotted",
+        "y_axis_id": "left"
+      }
+    ],
+    "x_axis": {
+      "key": "temps",
+      "label": "Temps",
+      "unit": "",
+      "ticks": ["Semaines", "1 à 2 ans", "années"]
+    },
+    "y_axes": [
+      {
+        "id": "left",
+        "orientation": "left",
+        "label": "Nombre en UA",
+        "unit": "UA",
+        "domain": [0, 130],
+        "ticks": [0, 20, 40, 60, 80, 100, 120]
+      }
+    ],
+    "legend": true,
+    "grid": true,
+    "annotations": []
+  },
+  "q21_onde": {
+    "type": "diagram",
+    "description": "Onde sinusoïdale à la surface de l'eau (Q21)",
+    "viewBox": "0 0 800 80", 
+    "elements": [
+      {
+        "element_type": "line",
+        "x1": 40, "y1": 40,
+        "x2": 780, "y2": 40, 
+        "stroke": "black",
+        "stroke_width": 2,
+        "stroke_dasharray": "6 6"
+      },
+      {
+        "element_type": "text", "x": 80, "y": 60, "text": "A",
+        "font_size": 20, "text_anchor": "middle", "font_family": "serif"
+      },
+      {
+        "element_type": "text", "x": 350, "y": 60, "text": "S",
+        "font_size": 20, "text_anchor": "middle", "font_family": "serif"
+      },
+      {
+        "element_type": "text", "x": 750, "y": 60, "text": "B", 
+        "font_size": 20, "text_anchor": "middle", "font_family": "serif"
+      },
+      {
+        "element_type": "path",
+        "d": "M 350 40 Q 390 10 430 40 Q 470 70 510 40 Q 550 10 590 40 Q 630 70 670 40 Q 710 10 750 40",
+        "stroke": "black",
+        "stroke_width": 2,
+        "fill": "none"
+      }
+    ]
+  },
+  "q28_circuit_rc": {
+    "type": "diagram",
+    "description": "RC Circuit",
+    "viewBox": "0 0 500 250",
+    "elements": [
+      { "element_type": "line", "x1": 50, "y1": 165, "x2": 50, "y2": 210, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "circle", "cx": 50, "cy": 150, "r": 15, "stroke": "black", "stroke_width": 1, "fill": "white" },
+      { "element_type": "line", "x1": 50, "y1": 135, "x2": 50, "y2": 165, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "text", "x": 35, "y": 150, "text": "E", "font_size": 14, "text_anchor": "end", "font_family": "Arial, sans-serif" },
+      { "element_type": "path", "d": "M 50 125 L 45 135 L 55 135 Z", "fill": "black" },
+      { "element_type": "rect", "x": 40, "y": 60, "width": 20, "height": 40, "stroke": "black", "stroke_width": 1, "fill": "white" },
+      { "element_type": "text", "x": 30, "y": 80, "text": "r", "font_size": 14, "text_anchor": "end", "font_family": "Arial, sans-serif" },
+      { "element_type": "line", "x1": 50, "y1": 100, "x2": 50, "y2": 135, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "line", "x1": 50, "y1": 40, "x2": 50, "y2": 60, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "line", "x1": 50, "y1": 40, "x2": 147, "y2": 40, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "circle", "cx": 150, "cy": 40, "r": 3, "stroke": "black", "stroke_width": 1, "fill": "white" },
+      { "element_type": "text", "x": 150, "y": 28, "text": "1", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" },
+      { "element_type": "circle", "cx": 170, "cy": 40, "r": 3, "fill": "black" },
+      { "element_type": "text", "x": 170, "y": 28, "text": "K", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" },
+      { "element_type": "line", "x1": 170, "y1": 40, "x2": 150, "y2": 40, "stroke": "black", "stroke_width": 2 },
+      { "element_type": "line", "x1": 173, "y1": 40, "x2": 297, "y2": 40, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "circle", "cx": 170, "cy": 80, "r": 3, "stroke": "black", "stroke_width": 1, "fill": "white" },
+      { "element_type": "text", "x": 170, "y": 95, "text": "2", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" },
+      { "element_type": "line", "x1": 170, "y1": 83, "x2": 170, "y2": 210, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "line", "x1": 50, "y1": 210, "x2": 170, "y2": 210, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "line", "x1": 170, "y1": 210, "x2": 297, "y2": 210, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "circle", "cx": 300, "cy": 40, "r": 3, "stroke": "black", "stroke_width": 1, "fill": "white" },
+      { "element_type": "text", "x": 300, "y": 28, "text": "A", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" },
+      { "element_type": "line", "x1": 300, "y1": 43, "x2": 300, "y2": 70, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "line", "x1": 285, "y1": 70, "x2": 315, "y2": 70, "stroke": "black", "stroke_width": 3 },
+      { "element_type": "line", "x1": 285, "y1": 80, "x2": 315, "y2": 80, "stroke": "black", "stroke_width": 3 },
+      { "element_type": "line", "x1": 300, "y1": 80, "x2": 300, "y2": 110, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "text", "x": 275, "y": 75, "text": "C", "font_size": 14, "text_anchor": "end", "font_family": "Arial, sans-serif" },
+      { "element_type": "line", "x1": 330, "y1": 95, "x2": 330, "y2": 55, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "path", "d": "M 330 55 L 325 65 L 335 65 Z", "fill": "black" },
+      { "element_type": "text", "x": 345, "y": 75, "text": "u_C", "font_size": 14, "text_anchor": "start", "font_family": "Arial, sans-serif" },
+      { "element_type": "rect", "x": 290, "y": 130, "width": 20, "height": 40, "stroke": "black", "stroke_width": 1, "fill": "white" },
+      { "element_type": "text", "x": 280, "y": 150, "text": "R", "font_size": 14, "text_anchor": "end", "font_family": "Arial, sans-serif" },
+      { "element_type": "line", "x1": 300, "y1": 110, "x2": 300, "y2": 130, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "line", "x1": 300, "y1": 170, "x2": 300, "y2": 190, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "line", "x1": 330, "y1": 175, "x2": 330, "y2": 135, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "path", "d": "M 330 135 L 325 145 L 335 145 Z", "fill": "black" },
+      { "element_type": "text", "x": 345, "y": 155, "text": "u_R", "font_size": 14, "text_anchor": "start", "font_family": "Arial, sans-serif" },
+      { "element_type": "line", "x1": 300, "y1": 190, "x2": 300, "y2": 207, "stroke": "black", "stroke_width": 1 },
+      { "element_type": "path", "d": "M 300 200 L 295 195 L 305 195 Z", "fill": "black" },
+      { "element_type": "text", "x": 315, "y": 195, "text": "i(i)", "font_size": 14, "text_anchor": "start", "font_family": "Arial, sans-serif" },
+      { "element_type": "circle", "cx": 300, "cy": 210, "r": 3, "stroke": "black", "stroke_width": 1, "fill": "white" },
+      { "element_type": "text", "x": 300, "y": 225, "text": "B", "font_size": 14, "text_anchor": "middle", "font_family": "Arial, sans-serif" }
+    ]
+  }
+} 
