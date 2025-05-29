@@ -518,224 +518,51 @@
           {
             "exercise_title": "Circuit RLC",
             "question_number": "Q33",
-            "stimulus": "On monte en série un condensateur de capacité C=10μF, une bobine d'inductance L=0,1H et de résistance r=10Ω, et un conducteur ohmique de résistance R=90Ω. Le circuit est alimenté par un générateur de tension alternative de tension efficace U=12V et de fréquence N variable.",
+            "stimulus": "On monte en série un condensateur de capacité $C=10\\,\\mu\\mathrm{F}$, une bobine d'inductance $L=0,1\\,\\mathrm{H}$ et de résistance $r=10\\,\\Omega$, et un conducteur ohmique de résistance $R=90\\,\\Omega$. Le circuit est alimenté par un générateur de tension alternative de tension efficace $U=12\\,\\mathrm{V}$ et de fréquence $N$ variable.",
             "text": "La valeur de l'impédance du circuit à la résonance est :",
             "options": [
-              {"label": "A", "text": "Z=10 Ω"},
-              {"label": "B", "text": "Z=90 Ω"},
-              {"label": "C", "text": "Z=100 Ω"},
-              {"label": "D", "text": "Z=110 Ω"},
-              {"label": "E", "text": "Z=80 Ω"}
+              {"label": "A", "text": "$Z=10\\,\\Omega$"},
+              {"label": "B", "text": "$Z=90\\,\\Omega$"},
+              {"label": "C", "text": "$Z=100\\,\\Omega$"},
+              {"label": "D", "text": "$Z=110\\,\\Omega$"},
+              {"label": "E", "text": "$Z=80\\,\\Omega$"}
             ]
           },
           {
             "exercise_title": "Circuit RLC",
             "question_number": "Q34",
-            "stimulus": "Référence aux données de l'exercice précédent (Q33).",
-            "programmatic_figures": [
-              {
-                "type": "image",
-                "library": "img",
-                "image_url": "/concours/medecine/medecine2021/image/q34_F1.png",
-                "title": "Circuit RLC série",
-                "description": "Schéma du circuit RLC série alimenté par un générateur alternatif",
-                "width": "65%"
-              },
-              {
-                "type": "image",
-                "library": "img",
-                "image_url": "/concours/medecine/medecine2021/image/q34_F2.png",
-                "title": "Courbe de résonance",
-                "description": "Graphique montrant la variation de l'intensité en fonction de la fréquence",
-                "width": "65%"
-              }
-            ],
             "text": "La valeur efficace de l'intensité du courant à la résonance est :",
             "options": [
-              {"label": "A", "text": "I=0,12 A"},
-              {"label": "B", "text": "I=1,2 A"},
-              {"label": "C", "text": "I=0,13 A"},
-              {"label": "D", "text": "I=1,3 A"},
-              {"label": "E", "text": "I=0,15 A"}
+              {"label": "A", "text": "$I=0,12\\,\\mathrm{A}$"},
+              {"label": "B", "text": "$I=1,2\\,\\mathrm{A}$"},
+              {"label": "C", "text": "$I=0,13\\,\\mathrm{A}$"},
+              {"label": "D", "text": "$I=1,3\\,\\mathrm{A}$"},
+              {"label": "E", "text": "$I=0,15\\,\\mathrm{A}$"}
             ]
           },
           {
             "exercise_title": "Circuit RLC",
             "question_number": "Q35",
-            "stimulus": "Référence aux données de l'exercice précédent (Q33).",
-            "programmatic_figure": {
-              "type": "image",
-              "library": "img",
-              "image_url": "/concours/medecine/medecine2021/image/q35.png",
-              "title": "Diagramme de Fresnel à la résonance",
-              "description": "Représentation vectorielle des tensions dans le circuit RLC à la résonance",
-              "width": "70%"
-            },
             "text": "La tension efficace aux bornes du condensateur à la résonance est :",
             "options": [
-              {"label": "A", "text": "U_C = 120 V"},
-              {"label": "B", "text": "U_C = 12 V"},
-              {"label": "C", "text": "U_C = 240 V"},
-              {"label": "D", "text": "U_C = 24 V"},
-              {"label": "E", "text": "U_C = 1,2 V"}
-            ]
-          },
-          {
-            "exercise_title": "Mouvement d'un projectile",
-            "question_number": "Q36",
-            "stimulus": "Un skieur s'élance d'un tremplin avec une vitesse initiale v₀ faisant un angle α avec l'horizontale. Le mouvement est étudié dans un repère (O, i, j). On néglige les frottements.",
-            "data": {"g": "9,8 m.s⁻²"},
-            "text": "Les équations horaires du mouvement du skieur sont :",
-            "options": [
-              {"label": "A", "text": "x(t)=(v₀.sinα).t et y(t)=-1/2.g.t²+(v₀.cosα).t"},
-              {"label": "B", "text": "x(t)=(v₀.cosα).t et y(t)=-1/2.g.t²+(v₀.sinα).t"},
-              {"label": "C", "text": "x(t)=(v₀.cosα).t et y(t)=1/2.g.t²+(v₀.sinα).t"},
-              {"label": "D", "text": "x(t)=v₀.t et y(t)=-1/2.g.t²"},
-              {"label": "E", "text": "x(t)=(v₀.sinα).t et y(t)=1/2.g.t²+(v₀.cosα).t"}
-            ]
-          },
-          {
-            "exercise_title": "Mouvement d'un projectile",
-            "question_number": "Q37",
-            "stimulus": "Référence aux données de l'exercice précédent (Q36).",
-            "text": "L'équation de la trajectoire du skieur est :",
-            "options": [
-              {"label": "A", "text": "y(x) = -g/(2v₀²cos²α).x² + (tanα).x"},
-              {"label": "B", "text": "y(x) = g/(2v₀²cos²α).x² + (tanα).x"},
-              {"label": "C", "text": "y(x) = -g/(2v₀²sin²α).x² + (cotanα).x"},
-              {"label": "D", "text": "y(x) = -g/(2v₀²).x² + v₀.x"},
-              {"label": "E", "text": "y(x) = -g/(v₀²cos²α).x² + (tanα).x"}
-            ]
-          },
-          {
-            "exercise_title": "Pendule pesant",
-            "question_number": "Q38",
-            "stimulus": "Un pendule pesant est constitué d'une tige de masse négligeable de longueur L et d'un solide de masse m. On écarte le pendule de sa position d'équilibre d'un angle θₘ et on le lâche sans vitesse initiale. On néglige les frottements.",
-            "programmatic_figures": [
-              {
-                "type": "image",
-                "library": "img",
-                "image_url": "/concours/medecine/medecine2021/image/q38_F1.png",
-                "title": "Pendule pesant",
-                "description": "Schéma du pendule pesant avec indication de l'angle θ",
-                "width": "65%"
-              },
-              {
-                "type": "image",
-                "library": "img",
-                "image_url": "/concours/medecine/medecine2021/image/q38_F2.png",
-                "title": "Oscillations du pendule",
-                "description": "Graphique de l'évolution de l'angle θ en fonction du temps",
-                "width": "65%"
-              }
-            ],
-            "text": "L'équation différentielle du mouvement du pendule pour de petites oscillations est :",
-            "options": [
-              {"label": "A", "text": "θ'' + (g/L)θ = 0"},
-              {"label": "B", "text": "θ'' + (L/g)θ = 0"},
-              {"label": "C", "text": "θ'' - (g/L)θ = 0"},
-              {"label": "D", "text": "θ'' + (g/L)sinθ = 0"},
-              {"label": "E", "text": "θ'' + (m.g.L)θ = 0"}
-            ]
-          },
-          {
-            "exercise_title": "Pendule pesant",
-            "question_number": "Q39",
-            "stimulus": "Référence aux données de l'exercice précédent (Q38).",
-            "text": "La période propre T₀ des oscillations est :",
-            "options": [
-              {"label": "A", "text": "T₀ = 2π.√(L/g)"},
-              {"label": "B", "text": "T₀ = 2π.√(g/L)"},
-              {"label": "C", "text": "T₀ = √(L/g)"},
-              {"label": "D", "text": "T₀ = 1/(2π).√(L/g)"},
-              {"label": "E", "text": "T₀ = 2π.√(m/k)"}
-            ]
-          },
-          {
-            "exercise_title": "Pendule pesant",
-            "question_number": "Q40",
-            "stimulus": "On donne L=1m et g=9,8 m.s⁻²",
-            "text": "La valeur de la période propre T₀ est :",
-            "options": [
-              {"label": "A", "text": "T₀ ≈ 1 s"},
-              {"label": "B", "text": "T₀ ≈ 2 s"},
-              {"label": "C", "text": "T₀ ≈ 3,14 s"},
-              {"label": "D", "text": "T₀ ≈ 0,5 s"},
-              {"label": "E", "text": "T₀ ≈ 6,28 s"}
-            ]
-          }
-        ]
-      },
-      {
-        "component_name": "Chimie",
-        "coefficient": 1,
-        "questions": [
-          {
-            "exercise_title": "Cinétique chimique",
-            "question_number": "Q41",
-            "stimulus": "On étudie la cinétique de la réaction d'hydrolyse de l'ester (E) : CH₃COOC₂H₅ + H₂O ⇌ CH₃COOH + C₂H₅OH. On mélange à t=0, n₀ moles d'ester et n₀ moles d'eau. On suit la quantité de matière d'acide formé au cours du temps.",
-            "programmatic_figure": {
-              "type": "image",
-              "library": "img",
-              "image_url": "/concours/medecine/medecine2021/image/q41.png",
-              "title": "Cinétique de l'hydrolyse de l'ester",
-              "description": "Courbes montrant l'évolution des quantités de matière des réactifs et produits au cours du temps",
-              "width": "75%"
-            },
-            "text": "Le tableau d'avancement de la réaction est : (à l'instant t)",
-            "options": [
-              {"label": "A", "text": "Ester: n₀-x ; Eau: n₀-x ; Acide: x ; Alcool: x"},
-              {"label": "B", "text": "Ester: n₀-x ; Eau: n₀ ; Acide: x ; Alcool: x"},
-              {"label": "C", "text": "Ester: n₀ ; Eau: n₀-x ; Acide: x ; Alcool: x"},
-              {"label": "D", "text": "Ester: n₀+x ; Eau: n₀+x ; Acide: -x ; Alcool: -x"},
-              {"label": "E", "text": "Ester: n₀-2x ; Eau: n₀-2x ; Acide: 2x ; Alcool: 2x"}
-            ]
-          },
-          {
-            "exercise_title": "Cinétique chimique",
-            "question_number": "Q42",
-            "stimulus": "Référence aux données de l'exercice précédent (Q41). La réaction est lente et limitée.",
-            "text": "Pour augmenter la vitesse de la réaction, on peut :",
-            "options": [
-              {"label": "A", "text": "Diminuer la température."},
-              {"label": "B", "text": "Ajouter un catalyseur."},
-              {"label": "C", "text": "Diminuer la concentration des réactifs."},
-              {"label": "D", "text": "Enlever l'un des produits."},
-              {"label": "E", "text": "Travailler à volume constant."}
-            ]
-          },
-          {
-            "exercise_title": "Cinétique chimique",
-            "question_number": "Q43",
-            "stimulus": "Référence aux données de l'exercice précédent (Q41).",
-            "text": "Le temps de demi-réaction t₁/₂ est le temps au bout duquel :",
-            "options": [
-              {"label": "A", "text": "l'avancement x = x_final"},
-              {"label": "B", "text": "l'avancement x = x_max"},
-              {"label": "C", "text": "l'avancement x = x_final / 2"},
-              {"label": "D", "text": "la concentration de l'ester est nulle."},
-              {"label": "E", "text": "la vitesse de réaction est maximale."}
+              {"label": "A", "text": "$U_C = 120\\,\\mathrm{V}$"},
+              {"label": "B", "text": "$U_C = 12\\,\\mathrm{V}$"},
+              {"label": "C", "text": "$U_C = 240\\,\\mathrm{V}$"},
+              {"label": "D", "text": "$U_C = 24\\,\\mathrm{V}$"},
+              {"label": "E", "text": "$U_C = 1,2\\,\\mathrm{V}$"}
             ]
           },
           {
             "exercise_title": "Réactions acido-basiques",
             "question_number": "Q44",
-            "stimulus": "On prépare une solution aqueuse d'acide éthanoïque CH₃COOH de concentration C = 1,0.10⁻² mol.L⁻¹ et de volume V=100mL. Le pH de la solution est 3,4.",
-            "programmatic_figure": {
-              "type": "image",
-              "library": "img",
-              "image_url": "/concours/medecine/medecine2021/image/q44.png",
-              "title": "Équilibre acido-basique",
-              "description": "Diagramme de prédominance et représentation de la réaction de l'acide éthanoïque avec l'eau",
-              "width": "75%"
-            },
+            "stimulus": "On prépare une solution aqueuse d'acide éthanoïque $\\ce{CH3COOH}$ de concentration $C = 1,0\\times10^{-2}\\,\\mathrm{mol\\cdot L^{-1}}$ et de volume $V=100\\,\\mathrm{mL}$. Le pH de la solution est 3,4.",
             "text": "L'équation de la réaction de l'acide éthanoïque avec l'eau est :",
             "options": [
-              {"label": "A", "text": "CH₃COOH + H₂O → CH₃COO⁻ + H₃O⁺"},
-              {"label": "B", "text": "CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺"},
-              {"label": "C", "text": "CH₃COOH + OH⁻ → CH₃COO⁻ + H₂O"},
-              {"label": "D", "text": "CH₃COO⁻ + H₃O⁺ ⇌ CH₃COOH + H₂O"},
-              {"label": "E", "text": "2CH₃COOH ⇌ (CH₃COOH)₂"}
+              {"label": "A", "text": "$\\ce{CH3COOH + H2O -> CH3COO- + H3O+}$"},
+              {"label": "B", "text": "$\\ce{CH3COOH + H2O <=> CH3COO- + H3O+}$"},
+              {"label": "C", "text": "$\\ce{CH3COOH + OH- -> CH3COO- + H2O}$"},
+              {"label": "D", "text": "$\\ce{CH3COO- + H3O+ <=> CH3COOH + H2O}$"},
+              {"label": "E", "text": "$\\ce{2CH3COOH <=> (CH3COOH)2}$"}
             ]
           },
           {
@@ -744,24 +571,24 @@
             "stimulus": "Référence aux données de l'exercice précédent (Q44).",
             "text": "Le taux d'avancement final de la réaction est :",
             "options": [
-              {"label": "A", "text": "τ = 1"},
-              {"label": "B", "text": "τ = 0,04"},
-              {"label": "C", "text": "τ = 4,0"},
-              {"label": "D", "text": "τ = 0,4"},
-              {"label": "E", "text": "τ = 0,004"}
+              {"label": "A", "text": "$\\tau = 1$"},
+              {"label": "B", "text": "$\\tau = 0,04$"},
+              {"label": "C", "text": "$\\tau = 4,0$"},
+              {"label": "D", "text": "$\\tau = 0,4$"},
+              {"label": "E", "text": "$\\tau = 0,004$"}
             ]
           },
           {
             "exercise_title": "Réactions acido-basiques",
             "question_number": "Q46",
             "stimulus": "Référence aux données de l'exercice précédent (Q44).",
-            "text": "La constante d'acidité Ka du couple CH₃COOH/CH₃COO⁻ est de l'ordre de :",
+            "text": "La constante d'acidité $K_a$ du couple $\\ce{CH3COOH/CH3COO-}$ est de l'ordre de :",
             "options": [
-              {"label": "A", "text": "1,6.10⁻⁵"},
-              {"label": "B", "text": "1,6.10⁻⁴"},
-              {"label": "C", "text": "1,6.10⁻³"},
-              {"label": "D", "text": "4,0.10⁻⁴"},
-              {"label": "E", "text": "4,0.10⁻³"}
+              {"label": "A", "text": "$1,6\\times10^{-5}$"},
+              {"label": "B", "text": "$1,6\\times10^{-4}$"},
+              {"label": "C", "text": "$1,6\\times10^{-3}$"},
+              {"label": "D", "text": "$4,0\\times10^{-4}$"},
+              {"label": "E", "text": "$4,0\\times10^{-3}$"}
             ]
           },
           {
@@ -951,222 +778,222 @@
         "questions": [
           {
             "question_number": "Q61",
-            "text": "La limite de la suite (uₙ) définie par uₙ = (3n²-n+1)/(n²+5) est :",
+            "text": "La limite de la suite $(u_n)$ définie par $u_n = \\frac{3n^2-n+1}{n^2+5}$ est :",
             "options": [
-              {"label": "A", "text": "0"},
-              {"label": "B", "text": "3"},
-              {"label": "C", "text": "+∞"},
-              {"label": "D", "text": "1/5"},
-              {"label": "E", "text": "-1"}
+              {"label": "A", "text": "$0$"},
+              {"label": "B", "text": "$3$"},
+              {"label": "C", "text": "$+\\infty$"},
+              {"label": "D", "text": "$\\frac{1}{5}$"},
+              {"label": "E", "text": "$-1$"}
             ]
           },
           {
             "question_number": "Q62",
-            "text": "La limite lim(x→+∞) (√(x²+x+1) - x) est égale à :",
+            "text": "La limite $\\lim_{x \\to +\\infty} (\\sqrt{x^2+x+1} - x)$ est égale à :",
             "options": [
-              {"label": "A", "text": "0"},
-              {"label": "B", "text": "1/2"},
-              {"label": "C", "text": "1"},
-              {"label": "D", "text": "+∞"},
-              {"label": "E", "text": "-∞"}
+              {"label": "A", "text": "$0$"},
+              {"label": "B", "text": "$\\frac{1}{2}$"},
+              {"label": "C", "text": "$1$"},
+              {"label": "D", "text": "$+\\infty$"},
+              {"label": "E", "text": "$-\\infty$"}
             ]
           },
           {
             "question_number": "Q63",
-            "text": "La limite lim(x→0) (sin(3x))/x est égale à :",
+            "text": "La limite $\\lim_{x \\to 0} \\frac{\\sin(3x)}{x}$ est égale à :",
             "options": [
-              {"label": "A", "text": "0"},
-              {"label": "B", "text": "1"},
-              {"label": "C", "text": "3"},
-              {"label": "D", "text": "1/3"},
+              {"label": "A", "text": "$0$"},
+              {"label": "B", "text": "$1$"},
+              {"label": "C", "text": "$3$"},
+              {"label": "D", "text": "$\\frac{1}{3}$"},
               {"label": "E", "text": "n'existe pas"}
             ]
           },
           {
             "question_number": "Q64",
-            "text": "Soit la fonction f définie par f(x)= (x²-4)/(x-2) pour x≠2 et f(2)=4. f est-elle continue en x=2 ?",
+            "text": "Soit la fonction $f$ définie par $f(x)= \\frac{x^2-4}{x-2}$ pour $x \\neq 2$ et $f(2)=4$. $f$ est-elle continue en $x=2$ ?",
             "options": [
               {"label": "A", "text": "Oui"},
               {"label": "B", "text": "Non"},
               {"label": "C", "text": "On ne peut pas savoir"},
-              {"label": "D", "text": "f n'est pas définie en 2"},
+              {"label": "D", "text": "$f$ n'est pas définie en $2$"},
               {"label": "E", "text": "La limite n'existe pas"}
             ]
           },
           {
             "question_number": "Q65",
-            "text": "La dérivée de la fonction f(x) = ln(x²+1) est :",
+            "text": "La dérivée de la fonction $f(x) = \\ln(x^2+1)$ est :",
             "options": [
-              {"label": "A", "text": "1/(x²+1)"},
-              {"label": "B", "text": "2x/(x²+1)"},
-              {"label": "C", "text": "1/x"},
-              {"label": "D", "text": "x/(x²+1)"},
-              {"label": "E", "text": "2/(x²+1)"}
+              {"label": "A", "text": "$\\frac{1}{x^2+1}$"},
+              {"label": "B", "text": "$\\frac{2x}{x^2+1}$"},
+              {"label": "C", "text": "$\\frac{1}{x}$"},
+              {"label": "D", "text": "$\\frac{x}{x^2+1}$"},
+              {"label": "E", "text": "$\\frac{2}{x^2+1}$"}
             ]
           },
           {
             "question_number": "Q66",
-            "text": "La dérivée de la fonction g(x) = e^(sin(x)) est :",
+            "text": "La dérivée de la fonction $g(x) = e^{\\sin(x)}$ est :",
             "options": [
-              {"label": "A", "text": "e^(sin(x))"},
-              {"label": "B", "text": "cos(x).e^(sin(x))"},
-              {"label": "C", "text": "-cos(x).e^(sin(x))"},
-              {"label": "D", "text": "sin(x).e^(sin(x))"},
-              {"label": "E", "text": "e^(cos(x))"}
+              {"label": "A", "text": "$e^{\\sin(x)}$"},
+              {"label": "B", "text": "$\\cos(x)\\cdot e^{\\sin(x)}$"},
+              {"label": "C", "text": "$-\\cos(x)\\cdot e^{\\sin(x)}$"},
+              {"label": "D", "text": "$\\sin(x)\\cdot e^{\\sin(x)}$"},
+              {"label": "E", "text": "$e^{\\cos(x)}$"}
             ]
           },
           {
             "question_number": "Q67",
-            "text": "Une primitive de la fonction h(x) = 1/(x.ln(x)) sur ]1, +∞[ est :",
+            "text": "Une primitive de la fonction $h(x) = \\frac{1}{x\\ln(x)}$ sur $]1, +\\infty[$ est :",
             "options": [
-              {"label": "A", "text": "ln(ln(x))"},
-              {"label": "B", "text": "-1/(ln(x))²"},
-              {"label": "C", "text": "ln(x)"},
-              {"label": "D", "text": "1/x²"},
-              {"label": "E", "text": "-1/(x.ln(x))²"}
+              {"label": "A", "text": "$\\ln(\\ln(x))$"},
+              {"label": "B", "text": "$-\\frac{1}{(\\ln(x))^2}$"},
+              {"label": "C", "text": "$\\ln(x)$"},
+              {"label": "D", "text": "$\\frac{1}{x^2}$"},
+              {"label": "E", "text": "$-\\frac{1}{(x\\ln(x))^2}$"}
             ]
           },
           {
             "question_number": "Q68",
-            "text": "L'intégrale ∫(de 0 à 1) xe^(x²) dx vaut :",
+            "text": "L'intégrale $\\int_0^1 xe^{x^2} dx$ vaut :",
             "options": [
-              {"label": "A", "text": "(e-1)/2"},
-              {"label": "B", "text": "e-1"},
-              {"label": "C", "text": "e/2"},
-              {"label": "D", "text": "e"},
-              {"label": "E", "text": "1/2"}
+              {"label": "A", "text": "$\\frac{e-1}{2}$"},
+              {"label": "B", "text": "$e-1$"},
+              {"label": "C", "text": "$\\frac{e}{2}$"},
+              {"label": "D", "text": "$e$"},
+              {"label": "E", "text": "$\\frac{1}{2}$"}
             ]
           },
           {
             "question_number": "Q69",
-            "text": "En utilisant une intégration par parties, l'intégrale ∫(de 1 à e) ln(x) dx vaut :",
+            "text": "En utilisant une intégration par parties, l'intégrale $\\int_1^e \\ln(x) dx$ vaut :",
             "options": [
-              {"label": "A", "text": "1"},
-              {"label": "B", "text": "e-1"},
-              {"label": "C", "text": "e"},
-              {"label": "D", "text": "0"},
-              {"label": "E", "text": "2"}
+              {"label": "A", "text": "$1$"},
+              {"label": "B", "text": "$e-1$"},
+              {"label": "C", "text": "$e$"},
+              {"label": "D", "text": "$0$"},
+              {"label": "E", "text": "$2$"}
             ]
           },
           {
             "question_number": "Q70",
-            "text": "La solution générale de l'équation différentielle y' + 2y = 0 est :",
+            "text": "La solution générale de l'équation différentielle $y' + 2y = 0$ est :",
             "options": [
-              {"label": "A", "text": "y = k.e^(2x)"},
-              {"label": "B", "text": "y = k.e^(-2x)"},
-              {"label": "C", "text": "y = k.sin(2x)"},
-              {"label": "D", "text": "y = k.cos(2x)"},
-              {"label": "E", "text": "y = kx²"}
+              {"label": "A", "text": "$y = ke^{2x}$"},
+              {"label": "B", "text": "$y = ke^{-2x}$"},
+              {"label": "C", "text": "$y = k\\sin(2x)$"},
+              {"label": "D", "text": "$y = k\\cos(2x)$"},
+              {"label": "E", "text": "$y = kx^2$"}
             ]
           },
           {
             "question_number": "Q71",
-            "text": "La solution de l'équation différentielle y'' + 9y = 0 vérifiant y(0)=1 et y'(0)=0 est :",
+            "text": "La solution de l'équation différentielle $y'' + 9y = 0$ vérifiant $y(0)=1$ et $y'(0)=0$ est :",
             "options": [
-              {"label": "A", "text": "y = cos(3x)"},
-              {"label": "B", "text": "y = sin(3x)"},
-              {"label": "C", "text": "y = cos(3x) + sin(3x)"},
-              {"label": "D", "text": "y = e^(3x)"},
-              {"label": "E", "text": "y = e^(-3x)"}
+              {"label": "A", "text": "$y = \\cos(3x)$"},
+              {"label": "B", "text": "$y = \\sin(3x)$"},
+              {"label": "C", "text": "$y = \\cos(3x) + \\sin(3x)$"},
+              {"label": "D", "text": "$y = e^{3x}$"},
+              {"label": "E", "text": "$y = e^{-3x}$"}
             ]
           },
           {
             "question_number": "Q72",
-            "text": "Le module du nombre complexe z = 3 - 4i est :",
+            "text": "Le module du nombre complexe $z = 3 - 4i$ est :",
             "options": [
-              {"label": "A", "text": "3"},
-              {"label": "B", "text": "4"},
-              {"label": "C", "text": "5"},
-              {"label": "D", "text": "7"},
-              {"label": "E", "text": "25"}
+              {"label": "A", "text": "$3$"},
+              {"label": "B", "text": "$4$"},
+              {"label": "C", "text": "$5$"},
+              {"label": "D", "text": "$7$"},
+              {"label": "E", "text": "$25$"}
             ]
           },
           {
             "question_number": "Q73",
-            "text": "La forme exponentielle de z = 1 + i est :",
+            "text": "La forme exponentielle de $z = 1 + i$ est :",
             "options": [
-              {"label": "A", "text": "e^(iπ/4)"},
-              {"label": "B", "text": "√2.e^(iπ/4)"},
-              {"label": "C", "text": "√2.e^(-iπ/4)"},
-              {"label": "D", "text": "2.e^(iπ/4)"},
-              {"label": "E", "text": "e^(iπ/2)"}
+              {"label": "A", "text": "$e^{i\\pi/4}$"},
+              {"label": "B", "text": "$\\sqrt{2}e^{i\\pi/4}$"},
+              {"label": "C", "text": "$\\sqrt{2}e^{-i\\pi/4}$"},
+              {"label": "D", "text": "$2e^{i\\pi/4}$"},
+              {"label": "E", "text": "$e^{i\\pi/2}$"}
             ]
           },
           {
             "question_number": "Q74",
-            "text": "Soit z = (1+i)⁴. La forme algébrique de z est :",
+            "text": "Soit $z = (1+i)^4$. La forme algébrique de $z$ est :",
             "options": [
-              {"label": "A", "text": "4"},
-              {"label": "B", "text": "-4"},
-              {"label": "C", "text": "4i"},
-              {"label": "D", "text": "-4i"},
-              {"label": "E", "text": "1+4i"}
+              {"label": "A", "text": "$4$"},
+              {"label": "B", "text": "$-4$"},
+              {"label": "C", "text": "$4i$"},
+              {"label": "D", "text": "$-4i$"},
+              {"label": "E", "text": "$1+4i$"}
             ]
           },
           {
             "question_number": "Q75",
             "text": "Une urne contient 5 boules rouges et 3 boules noires. On tire simultanément 2 boules. La probabilité de tirer 2 boules de même couleur est :",
             "options": [
-              {"label": "A", "text": "13/28"},
-              {"label": "B", "text": "15/56"},
-              {"label": "C", "text": "1/2"},
-              {"label": "D", "text": "10/28"},
-              {"label": "E", "text": "3/28"}
+              {"label": "A", "text": "$\\frac{13}{28}$"},
+              {"label": "B", "text": "$\\frac{15}{56}$"},
+              {"label": "C", "text": "$\\frac{1}{2}$"},
+              {"label": "D", "text": "$\\frac{10}{28}$"},
+              {"label": "E", "text": "$\\frac{3}{28}$"}
             ]
           },
           {
             "question_number": "Q76",
-            "text": "On lance un dé équilibré à 6 faces. Soit A l'événement 'obtenir un nombre pair' et B l'événement 'obtenir un nombre supérieur à 3'. Les événements A et B sont-ils indépendants ?",
+            "text": "On lance un dé équilibré à 6 faces. Soit $A$ l'événement 'obtenir un nombre pair' et $B$ l'événement 'obtenir un nombre supérieur à 3'. Les événements $A$ et $B$ sont-ils indépendants ?",
             "options": [
               {"label": "A", "text": "Oui"},
               {"label": "B", "text": "Non"},
               {"label": "C", "text": "On ne peut pas savoir"},
-              {"label": "D", "text": "A et B sont incompatibles"},
-              {"label": "E", "text": "A implique B"}
+              {"label": "D", "text": "$A$ et $B$ sont incompatibles"},
+              {"label": "E", "text": "$A$ implique $B$"}
             ]
           },
           {
             "question_number": "Q77",
-            "text": "Soit X une variable aléatoire suivant une loi binomiale B(10; 0,2). L'espérance E(X) est :",
+            "text": "Soit $X$ une variable aléatoire suivant une loi binomiale $\\mathcal{B}(10; 0,2)$. L'espérance $E(X)$ est :",
             "options": [
-              {"label": "A", "text": "10"},
-              {"label": "B", "text": "0,2"},
-              {"label": "C", "text": "2"},
-              {"label": "D", "text": "1,6"},
-              {"label": "E", "text": "8"}
+              {"label": "A", "text": "$10$"},
+              {"label": "B", "text": "$0,2$"},
+              {"label": "C", "text": "$2$"},
+              {"label": "D", "text": "$1,6$"},
+              {"label": "E", "text": "$8$"}
             ]
           },
           {
             "question_number": "Q78",
-            "text": "Dans l'espace, on donne les points A(1,2,3), B(2,3,1) et C(3,1,2). Le produit scalaire AB.AC est :",
+            "text": "Dans l'espace, on donne les points $A(1,2,3)$, $B(2,3,1)$ et $C(3,1,2)$. Le produit scalaire $\\vec{AB}\\cdot\\vec{AC}$ est :",
             "options": [
-              {"label": "A", "text": "0"},
-              {"label": "B", "text": "-2"},
-              {"label": "C", "text": "2"},
-              {"label": "D", "text": "6"},
-              {"label": "E", "text": "-6"}
+              {"label": "A", "text": "$0$"},
+              {"label": "B", "text": "$-2$"},
+              {"label": "C", "text": "$2$"},
+              {"label": "D", "text": "$6$"},
+              {"label": "E", "text": "$-6$"}
             ]
           },
           {
             "question_number": "Q79",
-            "text": "Dans l'espace, on considère le plan (P) d'équation 2x-y+z-5=0 et la droite (D) de représentation paramétrique x=1+t, y=2t, z=-1-t. Le point d'intersection de (P) et (D) est :",
+            "text": "Dans l'espace, on considère le plan $(P)$ d'équation $2x-y+z-5=0$ et la droite $(D)$ de représentation paramétrique $\\begin{cases} x=1+t \\\\ y=2t \\\\ z=-1-t \\end{cases}$. Le point d'intersection de $(P)$ et $(D)$ est :",
             "options": [
-              {"label": "A", "text": "M(1,0,-1)"},
-              {"label": "B", "text": "M(2,2,-2)"},
-              {"label": "C", "text": "M(3,4,-3)"},
-              {"label": "D", "text": "M(0,-2,0)"},
+              {"label": "A", "text": "$M(1,0,-1)$"},
+              {"label": "B", "text": "$M(2,2,-2)$"},
+              {"label": "C", "text": "$M(3,4,-3)$"},
+              {"label": "D", "text": "$M(0,-2,0)$"},
               {"label": "E", "text": "La droite est parallèle au plan"}
             ]
           },
           {
             "question_number": "Q80",
-            "text": "La distance du point A(1,1,1) au plan (P) d'équation x+y+z-6=0 est :",
+            "text": "La distance du point $A(1,1,1)$ au plan $(P)$ d'équation $x+y+z-6=0$ est :",
             "options": [
-              {"label": "A", "text": "√3"},
-              {"label": "B", "text": "3"},
-              {"label": "C", "text": "3/√3"},
-              {"label": "D", "text": "1"},
-              {"label": "E", "text": "0"}
+              {"label": "A", "text": "$\\sqrt{3}$"},
+              {"label": "B", "text": "$3$"},
+              {"label": "C", "text": "$\\frac{3}{\\sqrt{3}}$"},
+              {"label": "D", "text": "$1$"},
+              {"label": "E", "text": "$0$"}
             ]
           }
         ]
