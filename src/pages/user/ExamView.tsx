@@ -21,8 +21,8 @@ import RawSvgRenderer from "@/components/RawSvgRenderer";
 import SvgFileRenderer from "@/components/SvgFileRenderer";
 import ImageRenderer from "@/components/ImageRenderer";
 
-// Import exam data with proper TypeScript typing
-import medecine2023Data from "../../../concours/medecine/medecine2023/epreuve_2023.json";
+// Remove hardcoded import and add dynamic loading
+// import medecine2022Data from "../../../concours/medecine/medecine2022/epreuve_2022.json";
 
 // Types for the exam data matching the actual JSON structure
 interface ExamOption {
@@ -67,7 +67,7 @@ interface SimpleData {
 interface ExamQuestion {
   question_number: string;
   text: string;
-  options: { label: string; text: string; }[];
+  options: ExamOption[];
   programmatic_figure?: {
     type: 'plot' | 'diagram' | 'raw_svg' | 'svg_file' | 'image';
     library: string;
@@ -160,105 +160,86 @@ const formatTime = (seconds: number) => {
   return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
 };
 
-const ExamView = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [timeLeft, setTimeLeft] = useState(10800); // 3 hours in seconds
-  const [showHint, setShowHint] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  // Flatten all questions from all components
-  const allQuestions = useMemo(() => {
-    return medecine2023Data.components.flatMap(component => component.questions) as ExamQuestion[];
-  }, []);
-  
-  // Process exam data
-  const examData = useMemo(() => {
-    return {
-      id: id || 'medecine2023',
-      title: medecine2023Data.exam_title || 'Concours de Médecine 2023',
-      year: 2023, // Hardcoded since it's in the path
-      duration: '3 heures', // Hardcoded since it's not in the JSON
-      totalQuestions: allQuestions.length,
-    };
-  }, [id, allQuestions.length]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 0) {
-          clearInterval(timer);
-          handleSubmit();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleAnswer = (questionId: string, answer: string) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [questionId]: answer,
-    }));
-  };
-
-  const handleNext = () => {
-    if (currentQuestion < allQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setShowHint(false);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-      setShowHint(false);
-    }
-  };
-
-  const handleSubmit = () => {
-    // In a real app, this would send the answers to a server
-    setIsSubmitting(true);
+// Add a utility to dynamically load exam data
+const loadExamData = async (id: string) => {
+  try {
+    console.log(`Attempting to load exam with ID: ${id}`);
     
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Submitting answers:", answers);
-      toast.success("Concours terminé! Vos réponses ont été soumises avec succès.");
-      navigate(`/correction/${id}`);
-    }, 1500);
-  };
-
-  // Current question data
-  const question = allQuestions[currentQuestion] as ExamQuestion;
-  const isLastQuestion = currentQuestion === allQuestions.length - 1;
-  const hasAnswer = !!answers[question.question_number];
-
-  // Calculate progress percentage
-  const progressPercentage = (currentQuestion + 1) / examData.totalQuestions * 100;
-
-  // State for quick navigation component visibility (moved outside the component to persist between renders)
-  const [expandedComponents, setExpandedComponents] = useState<Record<string, boolean>>(() => {
-    // Initialize with first component expanded
-    const initialState: Record<string, boolean> = {};
-    if (medecine2023Data.components.length > 0) {
-      initialState[medecine2023Data.components[0].component_name] = true;
+    // Extract exam type and year from the ID 
+    // This supports various formats like:
+    // - medecine2022
+    // - medecine-2022
+    // - medecine_2022
+    const match = id.match(/([a-zA-Z]+)[-_]?(\d{4})/);
+    
+    // If no match using the pattern above, try to extract from the full path
+    // This handles formats like exam-view/medecine-2022
+    if (!match && id.includes('/')) {
+      const segments = id.split('/');
+      const lastSegment = segments[segments.length - 1];
+      console.log(`Trying to extract from path segment: ${lastSegment}`);
+      const subMatch = lastSegment.match(/([a-zA-Z]+)[-_]?(\d{4})/);
+      
+      if (subMatch) {
+        const [_, examType, year] = subMatch;
+        console.log(`Extracted from path: examType=${examType}, year=${year}`);
+        
+        // Construct the import path
+        const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
+        console.log(`Importing from path: ${importPath}`);
+        
+        // Dynamically import the exam data
+        const examModule = await import(importPath);
+        return examModule.default;
+      }
     }
-    return initialState;
-  });
+    
+    if (!match) {
+      throw new Error(`Invalid exam ID format: ${id}`);
+    }
+    
+    const [_, examType, year] = match;
+    console.log(`Extracted: examType=${examType}, year=${year}`);
+    
+    // Construct the import path
+    const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
+    console.log(`Importing from path: ${importPath}`);
+    
+    // Dynamically import the exam data
+    const examModule = await import(importPath);
+    return examModule.default;
+  } catch (error) {
+    console.error(`Failed to load exam data for ID: ${id}`, error);
+    throw error;
+  }
+};
 
-  // Quick navigation to questions organized by component
-  const QuickNav = () => {
+// QuickNav component moved outside the main component
+interface QuickNavProps {
+  examData: ExamData;
+  allQuestions: ExamQuestion[];
+  currentQuestion: number;
+  setCurrentQuestion: (index: number) => void;
+  answers: Record<string, string>;
+  expandedComponents: Record<string, boolean>;
+  setExpandedComponents: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
+}
+
+const QuickNav = ({ 
+  examData, 
+  allQuestions, 
+  currentQuestion, 
+  setCurrentQuestion, 
+  answers,
+  expandedComponents,
+  setExpandedComponents
+}: QuickNavProps) => {
     // Group questions by component
     const questionsByComponent = useMemo(() => {
       const result: Record<string, { component: ExamComponent, questionIndices: number[] }> = {};
       
       let questionIndex = 0;
-      medecine2023Data.components.forEach((component) => {
+    examData.components.forEach((component) => {
         // Create entry for this component if it doesn't exist
         if (!result[component.component_name]) {
           result[component.component_name] = {
@@ -275,7 +256,7 @@ const ExamView = () => {
       });
       
       return result;
-    }, []);
+  }, [examData]);
     
     // Handler to toggle component expansion
     const handleToggleComponent = useCallback((e: React.MouseEvent, componentName: string) => {
@@ -296,7 +277,7 @@ const ExamView = () => {
           return newState;
         });
       }, 0);
-    }, [expandedComponents]);
+  }, [expandedComponents, setExpandedComponents]);
     
     return (
       <div className="hidden md:flex flex-col gap-2 mb-6">
@@ -360,6 +341,430 @@ const ExamView = () => {
     );
   };
 
+const ExamView = () => {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [timeLeft, setTimeLeft] = useState(10800); // 3 hours in seconds
+  const [showHint, setShowHint] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Add states for loading and error handling
+  const [examData, setExamData] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  // State for quick navigation component visibility - moved here to maintain consistent hooks order
+  const [expandedComponents, setExpandedComponents] = useState<Record<string, boolean>>({});
+  
+  // Load exam data on component mount
+  useEffect(() => {
+    const fetchExamData = async () => {
+      if (!id) {
+        setError("No exam ID provided");
+        setIsLoading(false);
+        return;
+      }
+      
+      try {
+        setIsLoading(true);
+        const rawData = await loadExamData(id);
+        console.log(`Loaded exam data for ${id}:`, rawData);
+        
+        // Normalize the data structure based on what we received
+        let normalizedData: any = { components: [] };
+        
+        // Case 1: Data is an array (like 2021 format)
+        if (Array.isArray(rawData)) {
+          console.log("Processing array-format exam data (2021 format)");
+          console.log("Raw 2021 data first item structure:", JSON.stringify(rawData[0], null, 2));
+          
+          // Create a normalized exam data structure
+          let extractedComponents: ExamComponent[] = [];
+          
+          // Check if the second element has the actual exam structure
+          if (rawData.length > 1 && rawData[1] && typeof rawData[1] === 'object') {
+            console.log("Examining second element in 2021 format array");
+            
+            // If second element has 'components' property, use it directly
+            if (rawData[1].components && Array.isArray(rawData[1].components)) {
+              console.log(`Found ${rawData[1].components.length} components in second array element`);
+              extractedComponents = rawData[1].components;
+              
+              // Check if components have questions
+              let totalQuestions = 0;
+              extractedComponents.forEach((comp, idx) => {
+                if (comp.questions && Array.isArray(comp.questions)) {
+                  totalQuestions += comp.questions.length;
+                  console.log(`Component ${idx} (${comp.component_name}) has ${comp.questions.length} questions`);
+                }
+              });
+              
+              console.log(`Total extracted questions from all components: ${totalQuestions}`);
+              
+              // Use the structure as-is if it has the expected format
+              if (totalQuestions > 0) {
+                normalizedData = {
+                  exam_title: rawData[1].exam_title || `Examen Médecine ${id.match(/\d{4}/)?.[0] || ''}`,
+                  components: extractedComponents
+                };
+                
+                console.log("Successfully normalized 2021 format with nested components structure");
+                // Don't return early, continue to set loading state to false
+                // Just skip the rest of the processing
+                console.log("Skipping additional processing");
+                
+                // Set the state and proceed to normal exit
+                console.log("Normalized data structure:", normalizedData);
+                setExamData(normalizedData);
+                
+                // Initialize expandedComponents
+                if (normalizedData.components && normalizedData.components.length > 0) {
+                  setExpandedComponents({
+                    [normalizedData.components[0].component_name]: true
+                  });
+                }
+                
+                setIsLoading(false);
+                return; // Return early but after setting loading state to false
+              }
+            }
+          }
+          
+          // If we couldn't extract using the component structure, try each array element
+          let extractedQuestions: ExamQuestion[] = [];
+          
+          // For 2021 format, the questions might be at a different location in the data structure
+          // Let's check a few common patterns
+          rawData.forEach((component, componentIndex) => {
+            console.log(`Component ${componentIndex} keys:`, Object.keys(component));
+            
+            // If component.questions exists and is an array, use it directly
+            if (component.questions && Array.isArray(component.questions)) {
+              console.log(`Component ${componentIndex} has ${component.questions.length} questions in 'questions' property`);
+              extractedQuestions = [...extractedQuestions, ...component.questions];
+            }
+            // If there's a data property that contains questions
+            else if (component.data && Array.isArray(component.data)) {
+              console.log(`Component ${componentIndex} has ${component.data.length} items in 'data' property`);
+              
+              // Check if data items look like questions
+              const possibleQuestions = component.data.filter(item => 
+                item && typeof item === 'object' && (item.text || item.options || item.question_number)
+              );
+              
+              if (possibleQuestions.length > 0) {
+                console.log(`Found ${possibleQuestions.length} question-like objects in component ${componentIndex}'s data`);
+                extractedQuestions = [...extractedQuestions, ...possibleQuestions];
+              }
+            }
+            // If component itself is a question (has text, options, etc)
+            else if (component.text && (component.options || component.answer || component.choices)) {
+              console.log(`Component ${componentIndex} itself looks like a question`);
+              extractedQuestions.push(component as unknown as ExamQuestion);
+            }
+            // If component has a 'question' property
+            else if (component.question && typeof component.question === 'object') {
+              console.log(`Component ${componentIndex} has a 'question' property`);
+              extractedQuestions.push(component.question as unknown as ExamQuestion);
+            }
+            // Check for other potential question containers
+            else {
+              // Look for arrays that might contain questions
+              Object.entries(component).forEach(([key, value]) => {
+                if (Array.isArray(value) && value.length > 0) {
+                  console.log(`Component ${componentIndex} has array property '${key}' with ${value.length} items`);
+                  
+                  // Check if items look like questions
+                  const possibleQuestions = value.filter(item => 
+                    item && typeof item === 'object' && (item.text || item.options || item.question_number)
+                  );
+                  
+                  if (possibleQuestions.length > 0) {
+                    console.log(`Found ${possibleQuestions.length} question-like objects in component ${componentIndex}'s ${key} property`);
+                    extractedQuestions = [...extractedQuestions, ...possibleQuestions];
+                  }
+                }
+                
+                // Check if value is an object with components property
+                if (value && typeof value === 'object' && 'components' in value && Array.isArray((value as any).components)) {
+                  console.log(`Component ${componentIndex} has property '${key}' with components array`);
+                  extractedComponents = [...extractedComponents, ...(value as any).components];
+                }
+              });
+            }
+          });
+          
+          console.log(`Total extracted questions from direct search: ${extractedQuestions.length}`);
+          console.log(`Total extracted components from direct search: ${extractedComponents.length}`);
+          
+          // If we have components with questions, use them
+          if (extractedComponents.length > 0) {
+            let totalQuestions = 0;
+            extractedComponents.forEach(comp => {
+              if (comp.questions) totalQuestions += comp.questions.length;
+            });
+            
+            if (totalQuestions > 0) {
+              console.log(`Using ${extractedComponents.length} components with ${totalQuestions} total questions`);
+              normalizedData = {
+                exam_title: `Examen Médecine ${id.match(/\d{4}/)?.[0] || ''}`,
+                components: extractedComponents
+              };
+            } else {
+              console.log("Components found but no questions, using fallback");
+              normalizedData = {
+                exam_title: `Examen Médecine ${id.match(/\d{4}/)?.[0] || ''}`,
+                components: [{
+                  component_name: "Examen 2021",
+                  coefficient: 1,
+                  questions: extractedQuestions.length > 0 ? extractedQuestions : []
+                }]
+              };
+            }
+          } else if (extractedQuestions.length > 0) {
+            // If we only have questions but no components, create a default component
+            console.log(`Creating default component with ${extractedQuestions.length} extracted questions`);
+            normalizedData = {
+              exam_title: `Examen Médecine ${id.match(/\d{4}/)?.[0] || ''}`,
+              components: [{
+                component_name: "Examen 2021",
+                coefficient: 1,
+                questions: extractedQuestions
+              }]
+            };
+          } else {
+            // No questions or components found, provide empty structure with warning
+            console.warn("No valid questions or components found in the 2021 format data");
+            normalizedData = {
+              exam_title: `Examen Médecine ${id.match(/\d{4}/)?.[0] || ''}`,
+              components: [{
+                component_name: "Examen 2021",
+                coefficient: 1,
+                questions: []
+              }]
+            };
+          }
+        } 
+        // Case 2: Data is an object with questions at root level
+        else if (rawData && typeof rawData === 'object' && rawData.questions) {
+          console.log("Processing object with root-level questions");
+          normalizedData = {
+            exam_title: rawData.exam_title || rawData.title || `Examen ${id.match(/\d{4}/)?.[0] || ''}`,
+            components: [{
+              component_name: "Main Component",
+              coefficient: 1,
+              questions: rawData.questions
+            }]
+          };
+        } 
+        // Case 3: Data already has components structure (like 2022 format)
+        else if (rawData && typeof rawData === 'object' && rawData.components) {
+          console.log("Processing standard format with components");
+          normalizedData = rawData;
+        }
+        // Case 4: Unknown structure
+        else {
+          throw new Error("Unknown exam data structure - cannot process");
+        }
+        
+        console.log("Normalized data structure:", normalizedData);
+        setExamData(normalizedData);
+        
+        // Initialize expandedComponents after data is loaded
+        if (normalizedData && normalizedData.components && normalizedData.components.length > 0) {
+          setExpandedComponents({
+            [normalizedData.components[0].component_name]: true
+          });
+        }
+        
+        setIsLoading(false);
+      } catch (error) {
+        console.error(`Failed to load exam:`, error);
+        setError(`Failed to load exam: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        setIsLoading(false);
+      }
+    };
+    
+    fetchExamData();
+  }, [id]);
+  
+  // Flatten all questions from all components
+  const allQuestions = useMemo(() => {
+    if (!examData) {
+      console.log("No exam data available yet");
+      return [];
+    }
+    
+    // Add better structure validation
+    if (!examData.components) {
+      console.error("Exam data is missing 'components' property:", examData);
+      return [];
+    }
+    
+    // Check if components is an array
+    if (!Array.isArray(examData.components)) {
+      console.error("Exam data 'components' is not an array:", examData.components);
+      return [];
+    }
+
+    console.log(`Processing ${examData.components.length} components`);
+    
+    // Add a type cast to ExamQuestion[] to avoid TypeScript errors
+    return examData.components.flatMap((component, componentIndex) => {
+      // Check if component has questions property
+      if (!component) {
+        console.warn(`Component at index ${componentIndex} is null or undefined`);
+        return [];
+      }
+      
+      if (!component.questions) {
+        console.warn(`Component at index ${componentIndex} is missing 'questions' array:`, component);
+        return [];
+      }
+      
+      if (!Array.isArray(component.questions)) {
+        console.warn(`Component at index ${componentIndex} has 'questions' but it's not an array:`, component.questions);
+        return [];
+      }
+      
+      console.log(`Component ${componentIndex} (${component.component_name || 'unnamed'}) has ${component.questions.length} questions`);
+      return component.questions;
+    }) as ExamQuestion[];
+  }, [examData]);
+  
+  // Process exam data
+  const examInfo = useMemo(() => {
+    if (!examData || !id) {
+      return {
+        id: id || '',
+        title: 'Loading...',
+        year: 0,
+        duration: '3 heures',
+        totalQuestions: 0,
+      };
+    }
+    
+    // Extract year from ID
+    const yearMatch = id.match(/\d{4}/);
+    const year = yearMatch ? parseInt(yearMatch[0]) : 0;
+    
+    // Get title, using appropriate property based on data structure
+    const title = examData.exam_title || examData.title || `Examen ${year}`;
+    
+    return {
+      id,
+      title,
+      year,
+      duration: '3 heures', // Hardcoded since it's not in the JSON
+      totalQuestions: allQuestions.length,
+    };
+  }, [id, examData, allQuestions.length]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 0) {
+          clearInterval(timer);
+          handleSubmit();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleAnswer = (questionId: string, answer: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [questionId]: answer,
+    }));
+  };
+
+  const handleNext = () => {
+    if (currentQuestion < allQuestions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setShowHint(false);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+      setShowHint(false);
+    }
+  };
+
+  const handleSubmit = () => {
+    // In a real app, this would send the answers to a server
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      console.log("Submitting answers:", answers);
+      toast.success("Concours terminé! Vos réponses ont été soumises avec succès.");
+      navigate(`/correction/${id}`);
+    }, 1500);
+  };
+
+  // Calculate progress percentage
+  const progressPercentage = (currentQuestion + 1) / examInfo.totalQuestions * 100;
+
+  // Display loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col bg-background">
+        <Navbar />
+        <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+          <Card className="w-full max-w-md">
+            <CardContent className="p-8 flex flex-col items-center">
+              <div className="h-14 w-14 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                <span className="h-8 w-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
+              </div>
+              <h2 className="text-xl font-medium mb-2">Chargement de l'examen...</h2>
+              <p className="text-muted-foreground text-center">Préparation des questions et des ressources</p>
+            </CardContent>
+          </Card>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  // Display error state
+  if (error || !examData) {
+    return (
+      <div className="min-h-screen flex flex-col bg-background">
+        <Navbar />
+        <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+          <Card className="w-full max-w-md border-red-200">
+            <CardContent className="p-8 flex flex-col items-center">
+              <div className="h-14 w-14 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                <AlertTriangle className="h-8 w-8 text-red-500" />
+              </div>
+              <h2 className="text-xl font-medium mb-2">Impossible de charger l'examen</h2>
+              <p className="text-muted-foreground text-center mb-4">{error || "Une erreur s'est produite lors du chargement de l'examen."}</p>
+              <Button onClick={() => navigate('/')}>Retour à l'accueil</Button>
+            </CardContent>
+          </Card>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  // Current question data with fallback
+  const question = allQuestions[currentQuestion] || { 
+    question_number: "N/A", 
+    text: "Question non disponible", 
+    options: [] 
+  };
+  const isLastQuestion = currentQuestion === allQuestions.length - 1;
+  const hasAnswer = !!answers[question?.question_number];
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
@@ -384,12 +789,12 @@ const ExamView = () => {
                 </div>
                 <div>
                   <h1 className="text-2xl font-poppins font-bold text-foreground">
-                    {examData.title}
+                    {examInfo.title}
                   </h1>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                    <span>Année: {examData.year}</span>
+                    <span>Année: {examInfo.year}</span>
                     <span>•</span>
-                    <span>Durée: {examData.duration}</span>
+                    <span>Durée: {examInfo.duration}</span>
                     <span>•</span>
                     <span className="text-green-600 font-medium">Vous progressez bien!</span>
                   </div>
@@ -423,7 +828,7 @@ const ExamView = () => {
               <div className="mb-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="bg-primary/10 text-primary font-medium px-3 py-1 rounded-full text-sm">
-                    Question {currentQuestion + 1}/{examData.totalQuestions}
+                    Question {currentQuestion + 1}/{examInfo.totalQuestions}
                   </div>
                   <Badge className="px-2 py-1 text-xs bg-blue-100 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400 border border-blue-200 dark:border-blue-800/30">
                     QCM
@@ -469,7 +874,15 @@ const ExamView = () => {
             </div>
 
             {/* Quick navigation */}
-            <QuickNav />
+            {examData && <QuickNav 
+              examData={examData} 
+              allQuestions={allQuestions} 
+              currentQuestion={currentQuestion} 
+              setCurrentQuestion={setCurrentQuestion} 
+              answers={answers}
+              expandedComponents={expandedComponents}
+              setExpandedComponents={setExpandedComponents}
+            />}
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -592,6 +1005,31 @@ const ExamView = () => {
                                               else if (cellIdx === 1) textAlign = 'center'; // Wavelength
                                               else if (cellIdx === 2) textAlign = 'center'; // Slit width
                                               
+                                              // Force strings for MathRenderer
+                                              const cellContent = String(cell);
+                                              
+                                              // Apply special styling for certain content
+                                              let specialStyle = {};
+                                              
+                                              // Handle plus signs (e.g., +++++) in tables
+                                              const isPlusSignOnly = /^(\+)+$/.test(cellContent);
+                                              const hasMultiplePlus = cellContent.includes('++++');
+                                              
+                                              if (isPlusSignOnly || hasMultiplePlus) {
+                                                specialStyle = {
+                                                  fontWeight: 'bold',
+                                                  color: '#2563eb' // blue-600
+                                                };
+                                              }
+                                              
+                                              // Apply special styling for text values like "Important", "Faible", etc.
+                                              if (['important', 'moyenne', 'faible', 'grand', 'petit', 'moyen'].includes(cellContent.toLowerCase())) {
+                                                specialStyle = {
+                                                  fontStyle: 'italic',
+                                                  color: '#4b5563' // gray-600
+                                                };
+                                              }
+                                              
                                               return (
                                                 <td 
                                                   key={cellIdx} 
@@ -604,12 +1042,13 @@ const ExamView = () => {
                                                     verticalAlign: 'middle',
                                                     height: 'auto',
                                                     minHeight: '50px',
-                                                    overflowWrap: 'break-word'
+                                                    overflowWrap: 'break-word',
+                                                    ...specialStyle
                                                   }}
                                                   className={rowIdx % 2 === 0 ? 'bg-white dark:bg-gray-900/30' : 'bg-gray-50 dark:bg-gray-800/20'}
                                                 >
                                                   <div className="font-medium text-xs sm:text-sm md:text-base" style={{width: '100%', fontSize: cellIdx === 1 ? '80%' : '85%'}}>
-                                                    <MathRenderer text={String(cell)} />
+                                                    <MathRenderer text={cellContent} />
                                                   </div>
                                                 </td>
                                               );
@@ -806,44 +1245,77 @@ const ExamView = () => {
                               {question.programmatic_figure && (
                                 <>
                                   {question.programmatic_figure.type === 'plot' && (
-                                    <PlotRenderer figureData={question.programmatic_figure} />
+                                    <PlotRenderer figureData={question.programmatic_figure as any} />
                                   )}
                                   {question.programmatic_figure.type === 'diagram' && (
-                                    <DiagramRenderer figureData={question.programmatic_figure} />
+                                    <DiagramRenderer figureData={question.programmatic_figure as any} />
                                   )}
                                   {question.programmatic_figure.type === 'raw_svg' && (
-                                    <RawSvgRenderer figureData={question.programmatic_figure} />
+                                    <RawSvgRenderer figureData={question.programmatic_figure as any} />
                                   )}
                                   {question.programmatic_figure.type === 'svg_file' && (
-                                    <SvgFileRenderer figureData={question.programmatic_figure} />
+                                    <SvgFileRenderer figureData={question.programmatic_figure as any} />
                                   )}
                                   {question.programmatic_figure.type === 'image' && (
-                                    <ImageRenderer figureData={question.programmatic_figure} />
+                                    <ImageRenderer figureData={question.programmatic_figure as any} />
                                   )}
                                 </>
                               )}
                               {/* Handle multiple figures */}
                               {question.programmatic_figures && (
                                 <div className="flex flex-wrap gap-4">
-                                  {question.programmatic_figures.map((figure, index) => (
-                                    <div key={index} className="flex-1 min-w-[300px]">
-                                      {figure.type === 'plot' && (
-                                        <PlotRenderer figureData={figure} />
-                                      )}
-                                      {figure.type === 'diagram' && (
-                                        <DiagramRenderer figureData={figure} />
-                                      )}
-                                      {figure.type === 'raw_svg' && (
-                                        <RawSvgRenderer figureData={figure} />
-                                      )}
-                                      {figure.type === 'svg_file' && (
-                                        <SvgFileRenderer figureData={figure} />
-                                      )}
-                                      {figure.type === 'image' && (
-                                        <ImageRenderer figureData={figure} />
-                                      )}
-                                    </div>
-                                  ))}
+                                  {question.programmatic_figures.map((figure, index) => {
+                                    // Handle all supported figure types, including images
+                                    if (figure.type === 'plot') {
+                                      return (
+                                        <div key={index} className="flex-1 min-w-[300px]">
+                                          <PlotRenderer figureData={figure as any} />
+                                        </div>
+                                      );
+                                    } else if (figure.type === 'diagram') {
+                                      return (
+                                        <div key={index} className="flex-1 min-w-[300px]">
+                                          <DiagramRenderer figureData={figure as any} />
+                                        </div>
+                                      );
+                                    } else if (figure.type === 'image') {
+                                      return (
+                                        <div key={index} className="flex-1 min-w-[250px] flex flex-col items-center">
+                                          <div className="mb-2 text-sm font-medium text-center text-gray-700 dark:text-gray-300">
+                                            {figure.title}
+                                          </div>
+                                          <img 
+                                            src={figure.image_url} 
+                                            alt={figure.description || figure.title || "Image"}
+                                            style={{ 
+                                              maxWidth: figure.width || '100%',
+                                              maxHeight: figure.height || '400px',
+                                              objectFit: 'contain'
+                                            }}
+                                            className="rounded-md border border-gray-200 dark:border-gray-700"
+                                          />
+                                          {figure.description && (
+                                            <div className="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center">
+                                              {figure.description}
+                                            </div>
+                                  )}
+                                </div>
+                                      );
+                                    } else if (figure.type === 'raw_svg') {
+                                      return (
+                                        <div key={index} className="flex-1 min-w-[300px]">
+                                          <RawSvgRenderer figureData={figure as any} />
+                                        </div>
+                                      );
+                                    } else if (figure.type === 'svg_file') {
+                                      return (
+                                        <div key={index} className="flex-1 min-w-[300px]">
+                                          <SvgFileRenderer figureData={figure as any} />
+                                        </div>
+                                      );
+                                    }
+                                    return null;
+                                  })}
                                 </div>
                               )}
                             </div>
@@ -896,7 +1368,7 @@ const ExamView = () => {
                       onValueChange={(value) => handleAnswer(question.question_number, value)}
                       className="space-y-3"
                     >
-                      {question.options.map((option, index) => (
+                      {Array.isArray(question.options) ? question.options.map((option, index) => (
                         <motion.div
                           key={option.label}
                           initial={{ opacity: 0, y: 10 }}
@@ -938,7 +1410,16 @@ const ExamView = () => {
                             </Label>
                           </div>
                         </motion.div>
-                      ))}
+                      )) : (
+                        <div className="p-4 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/30 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <AlertTriangle className="h-5 w-5 text-amber-500" />
+                            <p className="text-amber-800 dark:text-amber-300">
+                              Aucune option disponible pour cette question.
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </RadioGroup>
                   </CardContent>
                 </Card>

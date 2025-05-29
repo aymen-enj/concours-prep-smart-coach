@@ -121,10 +121,10 @@ export const concoursData: ConcoursItem[] = [
     educationLevel: 'Bac+2'
   },
   {
-    id: 'encg-2022',
+    id: 'encg-2021',
     title: 'Concours ENCG',
     subject: 'Économie',
-    year: 2022,
+    year: 2021,
     level: 'Bac+2',
     isPaid: true,
     hasAccess: false,
@@ -161,10 +161,10 @@ export const concoursData: ConcoursItem[] = [
     educationLevel: 'Classes préparatoires'
   },
   {
-    id: 'cnc-2022',
+    id: 'cnc-2021',
     title: 'Concours CNC',
     subject: 'Physique',
-    year: 2022,
+    year: 2021,
     level: 'Classes préparatoires',
     isPaid: true,
     hasAccess: false,
@@ -175,10 +175,10 @@ export const concoursData: ConcoursItem[] = [
   
   // Moroccan Medicine
   {
-    id: 'medecine-2023',
-    title: 'Concours Médecine 2023',
+    id: 'medecine-2022',
+    title: 'Concours Médecine 2022',
     subject: 'Touts les composantes',
-    year: 2023,
+    year: 2022,
     level: 'Bac',
     isPaid: true,
     hasAccess: true,
@@ -188,10 +188,10 @@ export const concoursData: ConcoursItem[] = [
   },
 
   {
-    id: 'medecine-2022',
-    title: 'Concours Médecine 2022',
+    id: 'medecine-2021',
+    title: 'Concours Médecine 2021',
     subject: 'Touts les composantes',
-    year: 2022,
+    year: 2021,
     level: 'Bac',
     isPaid: true,
     hasAccess: true,

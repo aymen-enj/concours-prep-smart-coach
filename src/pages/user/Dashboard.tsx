@@ -41,7 +41,7 @@ const recentActivity = [
   {
     id: 1,
     action: "Concours terminé",
-    details: "Mathématiques - CNC 2022",
+    details: "Mathématiques - CNC 2021",
     date: "Aujourd'hui, 14:30",
     score: "85%",
     icon: CheckCircle,
@@ -351,7 +351,7 @@ const Dashboard = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
-                          2022
+                          2021
                         </Badge>
                         <Badge variant="outline" className="bg-background/50 border-border/50">
                           Classes préparatoires
