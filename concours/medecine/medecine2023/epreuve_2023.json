@@ -2,90 +2,90 @@
     "exam_title": "Concours d'Accès aux Facultés de Médecine, de Pharmacie et de Médecine Dentaire Année Universitaire 2023-2024 - Version française",
     "date": "22 Juillet 2023",
     "duration": "2 heures",
-    "components": [
-      {
-        "component_name": "Sciences de la Vie",
-        "coefficient": 1,
-        "questions": [
-          {
-            "question_number": "Q1",
+  "components": [
+    {
+      "component_name": "Sciences de la Vie",
+      "coefficient": 1,
+      "questions": [
+        {
+          "question_number": "Q1",
             "text": "A propos du cycle de Krebs :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Ce cycle peut se dérouler en milieu aérobie et anaérobie."},
               {"label": "B", "text": "Ce cycle comporte des réactions d'hydrolyse."},
               {"label": "C", "text": "Le cycle de Krebs produit NADH,H+, FADH2, CO2 et l'AcétylCoA."},
               {"label": "D", "text": "Au cours de ce cycle, les transporteurs d'hydrogène passent de la forme oxydée à la forme réduite."},
               {"label": "E", "text": "Les réactions du cycle de Krebs se déroulent dans la membrane interne mitochondriale."}
-            ]
-          },
-          {
-            "question_number": "Q2",
+          ]
+        },
+        {
+          "question_number": "Q2",
             "text": "Au sujet de la chaîne respiratoire :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Il y a un transfert d'électrons du couple O2/H2O au couple NADH,H+/NAD+."},
               {"label": "B", "text": "Le dioxygène est oxydé en tant que récepteur final des électrons."},
               {"label": "C", "text": "Il y a augmentation de la concentration des protons dans la matrice."},
               {"label": "D", "text": "Il y a diminution du pH dans la matrice."},
               {"label": "E", "text": "Il y a augmentation de la concentration des protons dans l'espace intermembranaire."}
-            ]
-          },
-          {
-            "question_number": "Q3",
+          ]
+        },
+        {
+          "question_number": "Q3",
             "text": "A propos de l'exercice physique et de la contraction musculaire :",
-            "options": [
+          "options": [
               {"label": "A", "text": "La chaleur initiale est totalement libérée au cours de la phase de contraction musculaire."},
               {"label": "B", "text": "Au début de l'exercice physique prolongé, le muscle insuffisamment fourni en dioxygène, produit de l'acide lactique."},
               {"label": "C", "text": "Suite à l'excitation de la fibre musculaire, le calcium libéré par le réticulum sarcoplasmique se fixe sur la tropomyosine."},
               {"label": "D", "text": "Dans la fibre musculaire squelettique, la fermentation cellulaire est une voie lente de régénération de l'ATP."},
               {"label": "E", "text": "L'ATP est nécessaire à la formation du complexe actomyosine et non pas à la rupture de ce complexe."}
-            ]
-          },
-          {
-            "question_number": "Q4",
+          ]
+        },
+        {
+          "question_number": "Q4",
             "text": "A propos de la glycolyse:",
-            "options": [
+          "options": [
               {"label": "A", "text": "C'est une voie commune à la respiration et à la fermentation."},
               {"label": "B", "text": "La glycolyse comporte deux étapes essentielles."},
               {"label": "C", "text": "Elle se déroule dans la matrice mitochondriale."},
               {"label": "D", "text": "C'est une voie spécifique à la respiration."},
               {"label": "E", "text": "Une molécule de glucose produit une molécule d'Acide Pyruvique."}
-            ]
-          },
-          {
-            "question_number": "Q5",
+          ]
+        },
+        {
+          "question_number": "Q5",
             "text": "Les étapes successives de la mitose sont :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Prophase -Anaphase -Métaphase -Télophase."},
               {"label": "B", "text": "Prophase-Métaphase -Télophase -Anaphase."},
               {"label": "C", "text": "Prophase -Métaphase -Anaphase -Télophase."},
               {"label": "D", "text": "Anaphase -Métaphase -Prophase -Télophase."},
               {"label": "E", "text": "Métaphase -Prophase -Télophase -Anaphase."}
-            ]
-          },
-          {
-            "question_number": "Q6",
+          ]
+        },
+        {
+          "question_number": "Q6",
             "text": "Le génome chez les eucaryotes:",
-            "options": [
+          "options": [
               {"label": "A", "text": "est exclusivement nucléaire."},
               {"label": "B", "text": "peut être dupliqué grâce à l'ARN polymérase."},
               {"label": "C", "text": "insère des plasmides pour lutter contre les maladies bactériennes chez l'homme."},
               {"label": "D", "text": "est haploïde au niveau des cellules germinales."},
               {"label": "E", "text": "possède une seule origine (œil) de réplication."}
-            ]
-          },
-          {
-            "question_number": "Q7",
+          ]
+        },
+        {
+          "question_number": "Q7",
             "text": "Concernant la double hélice d'ADN :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Les bases azotées successives sont reliées entre elles par une liaison phosphodiester entre deux riboses."},
               {"label": "B", "text": "Il y a deux liaisons hydrogène entre la Guanine et la Cytosine."},
               {"label": "C", "text": "Le nucléofilament subit un enroulement très dense lors de la mitose."},
               {"label": "D", "text": "Les deux brins sont dits parallèles."},
               {"label": "E", "text": "Les liaisons hydrogène permettent de lier deux riboses."}
-            ]
-          },
-          {
-            "question_number": "Q8",
+          ]
+        },
+        {
+          "question_number": "Q8",
             "stimulus": "Exercice:\nLe Favisme ou déficit en Glucose-6-Phosphate Déshydrogénase (G6PD), est caractérisé par une anémie hémolytique. Le gène responsable de cette pathologie est muté dans la famille représentée ci-dessous.",
             "programmatic_figure": {
               "type": "image",
@@ -96,73 +96,73 @@
               "width": "80%"
             },
             "text": "En se basant sur l'arbre généalogique:",
-            "options": [
+          "options": [
               {"label": "A", "text": "Cette maladie se transmet selon le mode autosomique dominant."},
               {"label": "B", "text": "Cette maladie se transmet selon le mode dominant lié à l'X."},
               {"label": "C", "text": "Si la maladie est due à une mutation ponctuelle du gène responsable, le diagnostic peut être fait grâce au caryotype."},
               {"label": "D", "text": "Aucun des enfants de l'individu 1 n'est porteur du gène muté."},
               {"label": "E", "text": "Le fœtus de l'individu 2 a un risque d'être malade si c'est un garçon."}
-            ]
-          },
-          {
-            "question_number": "Q9",
+          ]
+        },
+        {
+          "question_number": "Q9",
             "text": "A propos de la méiose :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Une double réplication de l'ADN précède les deux divisions méiotiques."},
               {"label": "B", "text": "Après la première division méiotique, on note la séparation des chromatides sœurs de chaque chromosome."},
               {"label": "C", "text": "Après la division équationnelle, on note la séparation des chromosomes homologues."},
               {"label": "D", "text": "Lors de l'anaphase 1, les centromères se scindent en deux afin de permettre la migration des chromosomes."},
               {"label": "E", "text": "Lors de la prophase 1, les bivalents sont constitués chacun de 4 chromatides (tétrades)."}
-            ]
-          },
-          {
-            "question_number": "Q10",
+          ]
+        },
+        {
+          "question_number": "Q10",
             "text": "Parmi les propositions suivantes, quelle est la réponse juste :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Le brassage interchromosomique s'effectue pendant la prophase 1."},
               {"label": "B", "text": "Un nucléosome est formé de plusieurs protéines histones qui s'enroulent autour de la molécule d'ADN."},
               {"label": "C", "text": "La réplication de l'ADN est conservative."},
               {"label": "D", "text": "Il faut plus d'énergie pour rompre les liaisons entre G et C, que pour rompre les liaisons entre A et T."},
               {"label": "E", "text": "La traduction de l'ADN se passe à l'intérieur du noyau."}
-            ]
-          },
-          {
-            "question_number": "Q11",
+          ]
+        },
+        {
+          "question_number": "Q11",
             "text": "A propos du code génétique :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Il assure la correspondance entre 20 acides aminés et 64 codons."},
               {"label": "B", "text": "Un codon code toujours pour un acide aminé."},
               {"label": "C", "text": "Pour initier la transcription, il est nécessaire d'avoir une amorce d'ARN."},
               {"label": "D", "text": "Le codon AUG correspond à la Méthionine."},
               {"label": "E", "text": "UCC correspond à un codon stop."}
             ]
-          },
-          {
-            "question_number": "Q12",
+        },
+        {
+          "question_number": "Q12",
             "text": "A propos des anomalies chromosomiques et diagnostic prénatal :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Le diagnostic prénatal chromosomique est obligatoire chez toutes les femmes enceintes au Maroc."},
               {"label": "B", "text": "Quand l'un des deux parents présente une translocation équilibrée, il a 100% de chance d'avoir un enfant normal à chaque grossesse."},
               {"label": "C", "text": "Afin de réaliser un diagnostic prénatal, on peut faire une amniocentèse à partir de la 10ème semaine de grossesse."},
               {"label": "D", "text": "Le syndrome de Turner ne peut pas être diagnostiqué en prénatal."},
               {"label": "E", "text": "En diagnostic prénatal, la clarté nucale peut être révélée par échographie."}
-            ]
-          },
-          {
-            "question_number": "Q13",
+          ]
+        },
+        {
+          "question_number": "Q13",
             "text": "Au cours des réactions immunitaires causées par un allergène :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Il y a libération de l'histamine au cours de la phase de sensibilisation."},
               {"label": "B", "text": "Les symptômes de l'allergie apparaissent avant le premier contact avec l'allergène."},
               {"label": "C", "text": "Les IgE se fixent sur les mastocytes."},
               {"label": "D", "text": "Les IgE se fixent sur les monocytes."},
               {"label": "E", "text": "Les allergies sont des maladies contagieuses."}
-            ]
-          },
-          {
-            "question_number": "Q14",
+          ]
+        },
+        {
+          "question_number": "Q14",
             "text": "A propos des réponses immunitaires non spécifiques:\nLa succession correcte des évènements en réponse à l'inflammation est:",
-            "options": [
+          "options": [
               {"label": "A", "text": "Lésion tissulaire- Vasodilatation- Inflammation-Libération de médiateurs chimiques par les basophiles et mastocytes- Attraction des cellules immunitaires au site de l'inflammation- Phagocytose."},
               {"label": "B", "text": "Lésion tissulaire-Vasodilatation- Libération de médiateurs chimiques par les basophiles et mastocytes- Inflammation- Attraction des cellules immunitaires au site de l'inflammation- Phagocytose."},
               {"label": "C", "text": "Lésion tissulaire- Libération de médiateurs chimiques par les basophiles et mastocytes- Vasodilatation - Inflammation- Attraction des cellules immunitaires au site de l'inflammation- Phagocytose."},
@@ -178,10 +178,10 @@
         "questions": [
           {
             "exercise_title": "Diffraction de la lumière",
-            "question_number": "Q15",
+          "question_number": "Q15",
             "stimulus": "On étudie la diffraction d'un rayonnement LASER de longueur d'onde $\\lambda = 405nm$ en utilisant une fente de largeur $a = 40\\mu m$ et un écran placé à une distance $D = 2,5m$ de la fente.",
             "text": "Ce rayonnement LASER est :",
-            "options": [
+          "options": [
               {"label": "A", "text": "Polychromatique"},
               {"label": "B", "text": "Monochromatique"},
               {"label": "C", "text": "De couleur dans le domaine du jaune - vert"},
@@ -191,10 +191,10 @@
           },
           {
             "exercise_title": "Diffraction de la lumière",
-            "question_number": "Q16",
+          "question_number": "Q16",
             "stimulus": "On étudie la diffraction d'un rayonnement LASER de longueur d'onde $\\lambda = 405nm$ en utilisant une fente de largeur $a = 40\\mu m$ et un écran placé à une distance $D = 2,5m$ de la fente.",
             "text": "La largeur L de la tache centrale sur l'écran est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$2D\\lambda/a$"},
               {"label": "B", "text": "$2a\\lambda/D$"},
               {"label": "C", "text": "$D\\lambda/a$"},
@@ -204,10 +204,10 @@
           },
           {
             "exercise_title": "Diffraction de la lumière",
-            "question_number": "Q17",
+          "question_number": "Q17",
             "stimulus": "On étudie la diffraction d'un rayonnement LASER de longueur d'onde $\\lambda = 405nm$ en utilisant une fente de largeur $a = 40\\mu m$ et un écran placé à une distance $D = 2,5m$ de la fente.",
             "text": "La largeur L de la tache centrale mesure:",
-            "options": [
+          "options": [
               {"label": "A", "text": "$5mm$"},
               {"label": "B", "text": "$5cm$"},
               {"label": "C", "text": "$5dm$"},
@@ -217,10 +217,10 @@
           },
           {
             "exercise_title": "Radioactivité",
-            "question_number": "Q18",
+          "question_number": "Q18",
             "stimulus": "L'uranium U238 (Z=92) est radioactif $\\alpha$ de constante radioactive $\\lambda1$. Le noyau fils obtenu est radioactif $\\beta-$. A partir de l'U238 et après une première désintégration $\\alpha$ et 2 désintégrations $\\beta-$ successives, le noyau obtenu est l'uranium U234 radioactif.",
             "text": "Pour l'U234 le nombre Z est :",
-            "options": [
+          "options": [
               {"label": "A", "text": "88"},
               {"label": "B", "text": "90"},
               {"label": "C", "text": "91"},
@@ -230,10 +230,10 @@
           },
           {
             "exercise_title": "Radioactivité",
-            "question_number": "Q19",
+          "question_number": "Q19",
             "stimulus": "L'U234 se désintègre par émission $\\alpha$ pour donner du Thorium Th230 radioactif de constante radioactive $\\lambda2$. A l'équilibre, dit séculaire, les activités de l'U238 et du Th230 sont égales. Leurs demi-vies physiques respectives sont notées $t_{1/2}1$ et $t_{1/2}2$.",
             "text": "A cet équilibre, le rapport des nombres de noyaux : $r = N(Th230) / N(U238)$ est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$230/238$"},
               {"label": "B", "text": "$\\lambda1/\\lambda2$"},
               {"label": "C", "text": "$\\lambda2/\\lambda1$"},
@@ -243,10 +243,10 @@
           },
           {
             "exercise_title": "Radioactivité",
-            "question_number": "Q20",
+          "question_number": "Q20",
             "stimulus": "Les demi-vies $t_{1/2}1 = 4,5.10^9$ années et $t_{1/2}2 \\approx 75000$ années. On donne : $75/45 \\approx 1,6$. Le rapport r (calculé en Q19) est N(Th230)/N(U238).",
             "text": "Le rapport r est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$1,6.10^5$"},
               {"label": "B", "text": "$1,6.10^{-5}$"},
               {"label": "C", "text": "$16.10^{-5}$"},
@@ -256,10 +256,10 @@
           },
           {
             "exercise_title": "Radioactivité",
-            "question_number": "Q21",
+          "question_number": "Q21",
             "stimulus": "Le Th230 est radioactif $\\alpha$. Il donne du Radium Ra226. Le nombre de noyaux initiaux du Th230 est $N_0$. Après un temps $t= x.t_{1/2}$, il ne reste plus que $N = N_0/16$ de noyaux thorium actif.",
             "text": "Dans ce cas, le coefficient x est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "2"},
               {"label": "B", "text": "4"},
               {"label": "C", "text": "8"},
@@ -269,10 +269,10 @@
           },
           {
             "exercise_title": "Radioactivité",
-            "question_number": "Q22",
+          "question_number": "Q22",
             "stimulus": "A partir de l'U238, après x désintégrations $\\alpha$ et y désintégrations $\\beta-$, le noyau obtenu est le Pb206 (Z=82) stable.",
             "text": "Les valeurs de x et y calculées sont :",
-            "options": [
+          "options": [
               {"label": "A", "text": "x= 20, y= 10"},
               {"label": "B", "text": "x= 16, y= 8"},
               {"label": "C", "text": "x= 8, y= 6"},
@@ -282,10 +282,10 @@
           },
           {
             "exercise_title": "Mécanique",
-            "question_number": "Q23",
+          "question_number": "Q23",
             "stimulus": "I. Au temps t=0, on lance vers le haut une petite boule (B) à la vitesse initiale $v_0 = 8m.s^{-1}$. La boule B monte verticalement pour atteindre le point le plus haut situé H (hauteur maximale) puis retombe vers le sol. Données: frottements négligeables, $g=10m.s^{-2}$",
             "text": "Le temps $t_H$ (en secondes) mis par B pour atteindre le point H est :",
-            "options": [
+           "options": [
               {"label": "A", "text": "1"},
               {"label": "B", "text": "0,8"},
               {"label": "C", "text": "0,6"},
@@ -295,10 +295,10 @@
           },
           {
             "exercise_title": "Mécanique",
-            "question_number": "Q24",
+          "question_number": "Q24",
             "stimulus": "I. Au temps t=0, on lance vers le haut une petite boule (B) à la vitesse initiale $v_0 = 8m.s^{-1}$. La boule B monte verticalement pour atteindre le point le plus haut situé H (hauteur maximale) puis retombe vers le sol. Données: frottements négligeables, $g=10m.s^{-2}$",
             "text": "Le point H se trouve à la hauteur h égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "2,5m"},
               {"label": "B", "text": "3m"},
               {"label": "C", "text": "3,2m"},
@@ -308,10 +308,10 @@
           },
           {
             "exercise_title": "Mécanique",
-            "question_number": "Q25",
+          "question_number": "Q25",
             "stimulus": "II. Un corps S1 est lâché, à t=0, d'une hauteur h par rapport au sol, à la vitesse $v=0$. Après 2 secondes, un 2ème corps S2 est lâché dans les mêmes conditions que le premier, du même endroit et sans vitesse initiale. Données: $g=10m.s^{-2}$",
             "text": "Quatre secondes après lâchage de S1, la distance qui sépare S1 de S2 est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "30cm"},
               {"label": "B", "text": "30m"},
               {"label": "C", "text": "60m"},
@@ -321,10 +321,10 @@
           },
           {
             "exercise_title": "Electricité",
-            "question_number": "Q26",
+          "question_number": "Q26",
             "stimulus": "On considère une bobine ($L = 42,2mH, r = 8,5\\Omega$).",
             "text": "La tension $U_L$ aux bornes de la bobine lorsqu'elle est traversée par un courant électrique d'intensité i=1,2A est:",
-            "options": [
+          "options": [
               {"label": "A", "text": "10,2V"},
               {"label": "B", "text": "1,02V"},
               {"label": "C", "text": "102mV"},
@@ -334,10 +334,10 @@
           },
           {
             "exercise_title": "Electricité",
-            "question_number": "Q27",
+          "question_number": "Q27",
             "stimulus": "On considère une bobine ($L = 42,2mH, r = 8,5\\Omega$).",
             "text": "La tension $U_L$ aux bornes de la bobine à t=0 lorsque la bobine est traversée par un courant électrique variable $i=1,5-200t$ (A), est:",
-            "options": [
+          "options": [
               {"label": "A", "text": "12,75V"},
               {"label": "B", "text": "1,275V"},
               {"label": "C", "text": "4,3mV"},
@@ -398,9 +398,9 @@
             ]
           },
           {
-            "question_number": "Q32",
+          "question_number": "Q32",
             "text": "Le pH d'une solution d'hydroxyde de sodium 0,1M à 25°C est:",
-            "options": [
+          "options": [
               {"label": "A", "text": "pH= 12,0"},
               {"label": "B", "text": "pH= 12,5"},
               {"label": "C", "text": "pH= 13,0"},
@@ -469,7 +469,7 @@
             "exercise_title": "Exercice 2",
             "question_number": "Q36",
             "stimulus": "Pour étudier une pile nickel-cobalt, on plonge une électrode de nickel dans un bécher contenant une solution de chlorure de nickel, et une électrode de cobalt dans un autre bécher contenant une solution de chlorure de cobalt. Un pont au chlorure de potassium permet le contact électrique entre les deux solutions. On monte en série avec la pile un interrupteur, un conducteur ohmique et un ampèremètre. Lorsque l'interrupteur est fermé, un courant électrique circule dans le circuit. L'équation de la réaction chimique qui modélise la transformation qui a eu lieu est : $Ni^{2+}_{(aq)} + Co_{(s)} \\rightleftharpoons Ni_{(s)} + Co^{2+}_{(aq)}$",
-            "data": {
+             "data": {
               "Données": "Les solutions de chlorure de nickel et de chlorure de cobalt ont la même concentration initiale: $C = 10^{-2} mol.L^{-1}$, la constante d'équilibre de la réaction: $K = 34$"
             },
             "text": "La borne positive de cette pile est constituée par :",
@@ -541,11 +541,11 @@
           },
           {
             "exercise_title": "Exercice 3",
-            "question_number": "Q41",
+          "question_number": "Q41",
             "stimulus": "Dans un ballon de 250 mL, on introduit 1,50 mol d'acide 2,3-diméthylbutanoïque, 1,50 mol de 3-méthylbutan-2-ol et quelques gouttes d'une solution d'acide sulfurique concentrée, puis on chauffe le mélange réactionnel à reflux pendant 1 heure. L'équation chimique associée à cette transformation est la suivante : Acide carboxylique + Alcool $\\rightleftharpoons$ X + Eau. La formule du produit X a été déterminée en Q40.",
             "data": {"Donnée": "La constante d'équilibre de cette réaction est: K = 4"},
             "text": "La nomenclature chimique du produit X obtenu est :",
-            "options": [
+          "options": [
               {"label": "A", "text": "2,3-diméthylbutanoate de 2-méthylbut-3-yle"},
               {"label": "B", "text": "2,3-diméthylbutanoate de 3-méthylbut-3-yle"},
               {"label": "C", "text": "2,3-diméthylbutanoate de 3-méthylbut-2-yle"},
@@ -555,11 +555,11 @@
           },
           {
             "exercise_title": "Exercice 3",
-            "question_number": "Q42",
+          "question_number": "Q42",
             "stimulus": "Dans un ballon de 250 mL, on introduit 1,50 mol d'acide 2,3-diméthylbutanoïque, 1,50 mol de 3-méthylbutan-2-ol et quelques gouttes d'une solution d'acide sulfurique concentrée, puis on chauffe le mélange réactionnel à reflux pendant 1 heure. L'équation chimique associée à cette transformation est la suivante : Acide carboxylique + Alcool $\\rightleftharpoons$ X + Eau",
             "data": {"Donnée": "La constante d'équilibre de cette réaction est: K = 4"},
             "text": "Le taux d'avancement final de cette réaction est :",
-            "options": [
+          "options": [
               {"label": "A", "text": "0,86"},
               {"label": "B", "text": "0,77"},
               {"label": "C", "text": "0,66"},
@@ -574,9 +574,9 @@
         "coefficient": 1,
         "questions": [
           {
-            "question_number": "Q43",
+          "question_number": "Q43",
             "text": "Dans l'ensemble $\\mathbb{C}$, si $z = \\sqrt{5}e^{-i\\frac{3\\pi}{4}}$, alors :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$z = \\frac{\\sqrt{10+5\\sqrt{2}}}{2} - i\\frac{\\sqrt{10-5\\sqrt{2}}}{2}$"},
               {"label": "B", "text": "$z = \\frac{\\sqrt{2+\\sqrt{2}}}{2} - i\\frac{\\sqrt{2-\\sqrt{2}}}{2}$"},
               {"label": "C", "text": "$z = \\frac{\\sqrt{10+5\\sqrt{2}}}{2} + i\\frac{\\sqrt{10-5\\sqrt{2}}}{2}$"},
@@ -585,9 +585,9 @@
             ]
           },
           {
-            "question_number": "Q44",
+          "question_number": "Q44",
             "text": "Le nombre complexe $z = (\\frac{1}{2}(1-i\\sqrt{3}))^{18}$ est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$z = -512$"},
               {"label": "B", "text": "$z = \\frac{\\sqrt{3}}{2} - \\frac{1}{2}i$"},
               {"label": "C", "text": "$z=512$"},
@@ -596,9 +596,9 @@
             ]
           },
           {
-            "question_number": "Q45",
+          "question_number": "Q45",
             "text": "Pour $z \\in \\mathbb{C} \\setminus \\{1\\}$, l'ensemble des points M d'affixes z tels que $\\frac{z+1}{z-1} \\in i\\mathbb{R}$ est:",
-            "options": [
+          "options": [
               {"label": "A", "text": "La droite (Ox) privée du point (1,0)"},
               {"label": "B", "text": "La droite (Oy) privée du point (0,1)"},
               {"label": "C", "text": "Le cercle de centre O et de rayon 1"},
@@ -607,9 +607,9 @@
             ]
           },
           {
-            "question_number": "Q46",
+          "question_number": "Q46",
             "text": "$(U_n)_{n \\ge 2}$ est la suite définie par $U_n=(1-\\frac{1}{2^2})\\times(1-\\frac{1}{3^2})\\times....\\times(1-\\frac{1}{n^2})$, $n \\ge 2$. $\\lim_{n \\to +\\infty} (U_n)$ est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "1"},
               {"label": "B", "text": "0"},
               {"label": "C", "text": "$+\\infty$"},
@@ -618,9 +618,9 @@
             ]
           },
           {
-            "question_number": "Q47",
+          "question_number": "Q47",
             "text": "$(U_n)_{n \\ge 1}$ et $(V_n)_{n \\ge 1}$ sont deux suites définies par : $U_n=\\frac{1}{2}+\\frac{1}{2^2}+\\frac{1}{2^3}+...+\\frac{1}{2^n}$; $\\ln(V_n) = U_n \\ln(2)$",
-            "options": [
+          "options": [
               {"label": "A", "text": "$\\lim_{n \\to +\\infty} U_n= 1$ et $\\lim_{n \\to +\\infty} V_n = \\ln (2)$"},
               {"label": "B", "text": "$\\lim_{n \\to +\\infty} U_n= \\frac{1}{2}$ et $\\lim_{n \\to +\\infty} V_n = \\ln (2)$"},
               {"label": "C", "text": "$\\lim_{n \\to +\\infty} U_n= 2$ et $\\lim_{n \\to +\\infty} V_n = 1$"},
@@ -629,9 +629,9 @@
             ]
           },
           {
-            "question_number": "Q48",
+          "question_number": "Q48",
             "text": "Soit f une fonction définie sur $\\mathbb{R}^{*+}$ par: $f(x) = \\frac{\\sqrt{x}}{\\sqrt{x}+2\\sqrt[3]{x}}$. La $\\lim_{x \\to 0^+} f(x)$ est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$+\\infty$"},
               {"label": "B", "text": "0"},
               {"label": "C", "text": "1"},
@@ -640,9 +640,9 @@
             ]
           },
           {
-            "question_number": "Q49",
+          "question_number": "Q49",
             "text": "Soit g une fonction définie sur $\\mathbb{R}^{*+}$: $g(x) = \\frac{(2x)^x}{(x)^{2x}}$, pour tout x>0. La $\\lim_{x \\to +\\infty} g(x)$ est égale à:",
-            "options": [
+          "options": [
               {"label": "A", "text": "$+\\infty$"},
               {"label": "B", "text": "1"},
               {"label": "C", "text": "2"},
@@ -651,9 +651,9 @@
             ]
           },
           {
-            "question_number": "Q50",
+          "question_number": "Q50",
             "text": "f est une fonction réelle, sachant que $f(1) = 3$ et $f'(1) = -3$. La courbe de la fonction f admet au point (1, 3) une tangente d'équation :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$y=3x-2$"},
               {"label": "B", "text": "$y=3x-6$"},
               {"label": "C", "text": "$y=-3x+6$"},
@@ -662,9 +662,9 @@
             ]
           },
           {
-            "question_number": "Q51",
+          "question_number": "Q51",
             "text": "Soit f et g deux fonctions réelles telle que: $f(x) = \\ln (x-1)$ et $g(x) = \\sqrt{x}+1$. Le domaine de définition de gof est :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$[-1,+\\infty[$"},
               {"label": "B", "text": "$]1,+\\infty[$"},
               {"label": "C", "text": "$[1,+\\infty[$"},
@@ -673,9 +673,9 @@
             ]
           },
           {
-            "question_number": "Q52",
+          "question_number": "Q52",
             "text": "L'intégrale $\\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{2}} \\frac{1}{\\sin x \\tan x} dx$ est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "$\\frac{1}{2}-\\frac{\\sqrt{2}}{2}$"},
               {"label": "B", "text": "$2-\\sqrt{2}$"},
               {"label": "C", "text": "$\\sqrt{2}-2$"},
@@ -684,9 +684,9 @@
             ]
           },
           {
-            "question_number": "Q53",
+          "question_number": "Q53",
             "text": "L'intégrale $\\int_0^{\\frac{\\pi}{4}} \\frac{\\sin 2x}{1+\\sin^2 x} dx$ est égale à :",
-            "options": [
+          "options": [
               {"label": "A", "text": "0"},
               {"label": "B", "text": "$\\ln(2)+1$"},
               {"label": "C", "text": "$\\ln(2)$"},
@@ -695,9 +695,9 @@
             ]
           },
           {
-            "question_number": "Q54",
+          "question_number": "Q54",
             "text": "Soit (P) et (P') deux plans d'équations P: $x-y-z+2=0$; P' $x+z-2=0$ respectivement et $(\\Delta)$ la droite telle que: $(\\Delta) \\begin{cases} x=1+t \\\\ y=2+2t \\\\ z=1-t \\end{cases} (t \\in \\mathbb{R})$",
-            "options": [
+          "options": [
               {"label": "A", "text": "$(\\Delta) \\subset P$"},
               {"label": "B", "text": "$(\\Delta) \\perp P$"},
               {"label": "C", "text": "$(\\Delta) \\cap P = \\emptyset$"},
@@ -706,9 +706,9 @@
             ]
           },
           {
-            "question_number": "Q55",
+          "question_number": "Q55",
             "text": "Soit $f(x) = \\begin{cases} x + x^2\\sin\\frac{1}{x} & si x \\neq 0 \\\\ 0 & si x = 0 \\end{cases}$",
-            "options": [
+          "options": [
               {"label": "A", "text": "f n'est pas dérivable en 0"},
               {"label": "B", "text": "f'(0) = 0"},
               {"label": "C", "text": "f'(0) = 1"},
@@ -717,9 +717,9 @@
             ]
           },
           {
-            "question_number": "Q56",
+          "question_number": "Q56",
             "text": "Soit une urne qui contient 5 boules bleues, 4 boules blanches et 3 boules noires, toutes indiscernables au toucher. On tire simultanément 3 boules au hasard de l'urne. On répète cette expérience n fois de suite ($n \\ge 5$) en remettant dans l'urne les boules tirées après chaque tirage. Quelle est la probabilité d'obtenir 3 boules de couleurs 2 à 2 distinctes (n-1) fois exactement ?",
-            "options": [
+          "options": [
               {"label": "A", "text": "$\\frac{8 \\times 3^n}{11^n}$"},
               {"label": "B", "text": "$\\frac{8n \\times 3^n}{11^n}$"},
               {"label": "C", "text": "$\\frac{8n \\times 3^{n-1}}{11^n}$"},
