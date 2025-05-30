@@ -175,6 +175,18 @@ export const concoursData: ConcoursItem[] = [
   
   // Moroccan Medicine
   {
+    id: 'medecine-2024',
+    title: 'Concours Médecine 2024',
+    subject: 'Touts les composantes',
+    year: 2024,
+    level: 'Bac',
+    isPaid: true,
+    hasAccess: true,
+    universityId: 'medecine',
+    country: 'Maroc',
+    educationLevel: 'Bac'
+  },
+  {
     id: 'medecine-2023',
     title: 'Concours Médecine 2023',
     subject: 'Touts les composantes',
@@ -203,6 +215,18 @@ export const concoursData: ConcoursItem[] = [
     title: 'Concours Médecine 2021',
     subject: 'Touts les composantes',
     year: 2021,
+    level: 'Bac',
+    isPaid: true,
+    hasAccess: true,
+    universityId: 'medecine',
+    country: 'Maroc',
+    educationLevel: 'Bac'
+  },
+  {
+    id: 'medecine-2020',
+    title: 'Concours Médecine 2020',
+    subject: 'Touts les composantes',
+    year: 2020,
     level: 'Bac',
     isPaid: true,
     hasAccess: true,

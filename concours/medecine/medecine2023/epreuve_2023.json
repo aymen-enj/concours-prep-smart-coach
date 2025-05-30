@@ -413,10 +413,7 @@
             "question_number": "Q33",
             "stimulus": "On souhaite vérifier l'indication de l'étiquette d'un produit pharmaceutique en solution dont le principe actif est la polyvidone iodée à 10%. L'équation de la réaction du titrage est $\\mathrm{I_2(aq) + 2S_2O_3^{2-}(aq) \\rightarrow 2I^-(aq) + S_4O_6^{2-}(aq)}$. On prépare une solution S1 par dilution d'un facteur 10 de la solution commerciale de concentration C0. On dose 10,0 mL de la solution S1 par une solution S2 de thiosulfate de sodium de concentration $C_2=0,01~\\mathrm{mol\\cdot L^{-1}}$. Le volume versé à l'équivalence est Ve=8,0 mL.",
             "data": {
-              "Données": [
-                "*Masse molaire de la polyvidone iodée = $2363~\\mathrm{g\\cdot mol^{-1}}$",
-                "*Une molécule de polyvidone iodée libère une molécule de diiode"
-              ]
+              "Données": "Masse molaire de la polyvidone iodée : $M = 2363~\\mathrm{g\\cdot mol^{-1}}$ \nUne molécule de polyvidone iodée libère une molécule de diiode"
             },
             "text": "Parmi les couples \"oxydant/réducteur\" impliqués, on trouve:",
             "options": [
@@ -432,10 +429,7 @@
             "question_number": "Q34",
             "stimulus": "On souhaite vérifier l'indication de l'étiquette d'un produit pharmaceutique en solution dont le principe actif est la polyvidone iodée à 10%. L'équation de la réaction du titrage est $\\mathrm{I_2(aq) + 2S_2O_3^{2-}(aq) \\rightarrow 2I^-(aq) + S_4O_6^{2-}(aq)}$. On prépare une solution S1 par dilution d'un facteur 10 de la solution commerciale de concentration C0. On dose 10,0 mL de la solution S1 par une solution S2 de thiosulfate de sodium de concentration $C_2=0,01~\\mathrm{mol\\cdot L^{-1}}$. Le volume versé à l'équivalence est Ve=8,0 mL.",
             "data": {
-              "Données": [
-                "*Masse molaire de la polyvidone iodée = $2363~\\mathrm{g\\cdot mol^{-1}}$",
-                "*Une molécule de polyvidone iodée libère une molécule de diiode"
-              ]
+              "Données": "Masse molaire de la polyvidone iodée : $M = 2363~\\mathrm{g\\cdot mol^{-1}}$ \nUne molécule de polyvidone iodée libère une molécule de diiode"
             },
             "text": "La concentration C0 en diiode de la solution commerciale est de :",
             "options": [
@@ -451,10 +445,7 @@
             "question_number": "Q35",
             "stimulus": "On souhaite vérifier l'indication de l'étiquette d'un produit pharmaceutique en solution dont le principe actif est la polyvidone iodée à 10%. L'équation de la réaction du titrage est $\\mathrm{I_2(aq) + 2S_2O_3^{2-}(aq) \\rightarrow 2I^-(aq) + S_4O_6^{2-}(aq)}$. On prépare une solution S1 par dilution d'un facteur 10 de la solution commerciale de concentration C0. On dose 10,0 mL de la solution S1 par une solution S2 de thiosulfate de sodium de concentration $C_2=0,01~\\mathrm{mol\\cdot L^{-1}}$. Le volume versé à l'équivalence est Ve=8,0 mL. Concentration C0 calculée en Q34.",
             "data": {
-              "Données": [
-                "*Masse molaire de la polyvidone iodée = $2363~\\mathrm{g\\cdot mol^{-1}}$",
-                "*Une molécule de polyvidone iodée libère une molécule de diiode"
-              ]
+              "Données": "Masse molaire de la polyvidone iodée : $M = 2363~\\mathrm{g\\cdot mol^{-1}}$ \nUne molécule de polyvidone iodée libère une molécule de diiode"
             },
             "text": "Le pourcentage de polyvidone iodée dans la solution commerciale est de :",
             "options": [
@@ -470,7 +461,7 @@
             "question_number": "Q36",
             "stimulus": "Pour étudier une pile nickel-cobalt, on plonge une électrode de nickel dans un bécher contenant une solution de chlorure de nickel, et une électrode de cobalt dans un autre bécher contenant une solution de chlorure de cobalt. Un pont au chlorure de potassium permet le contact électrique entre les deux solutions. On monte en série avec la pile un interrupteur, un conducteur ohmique et un ampèremètre. Lorsque l'interrupteur est fermé, un courant électrique circule dans le circuit. L'équation de la réaction chimique qui modélise la transformation qui a eu lieu est : $Ni^{2+}_{(aq)} + Co_{(s)} \\rightleftharpoons Ni_{(s)} + Co^{2+}_{(aq)}$",
              "data": {
-              "Données": "Les solutions de chlorure de nickel et de chlorure de cobalt ont la même concentration initiale: $C = 10^{-2} mol.L^{-1}$, la constante d'équilibre de la réaction: $K = 34$"
+              "Données": "Solutions de chlorure de nickel et de chlorure de cobalt : $C = 10^{-2}~\\mathrm{mol\\cdot L^{-1}}$ \nConstante d'équilibre de la réaction : $K = 34$"
             },
             "text": "La borne positive de cette pile est constituée par :",
             "options": [
@@ -486,7 +477,7 @@
             "question_number": "Q37",
             "stimulus": "Pour étudier une pile nickel-cobalt, on plonge une électrode de nickel dans un bécher contenant une solution de chlorure de nickel, et une électrode de cobalt dans un autre bécher contenant une solution de chlorure de cobalt. Un pont au chlorure de potassium permet le contact électrique entre les deux solutions. On monte en série avec la pile un interrupteur, un conducteur ohmique et un ampèremètre. Lorsque l'interrupteur est fermé, un courant électrique circule dans le circuit. L'équation de la réaction chimique qui modélise la transformation qui a eu lieu est : $Ni^{2+}_{(aq)} + Co_{(s)} \\rightleftharpoons Ni_{(s)} + Co^{2+}_{(aq)}$",
             "data": {
-              "Données": "Les solutions de chlorure de nickel et de chlorure de cobalt ont la même concentration initiale: $C = 10^{-2} mol.L^{-1}$, la constante d'équilibre de la réaction: $K = 34$"
+              "Données": "Solutions de chlorure de nickel et de chlorure de cobalt : $C = 10^{-2}~\\mathrm{mol\\cdot L^{-1}}$ \nConstante d'équilibre de la réaction : $K = 34$"
             },
             "text": "Au cours de cette transformation chimique on a une augmentation de:",
             "options": [
@@ -501,7 +492,9 @@
             "exercise_title": "Exercice 3",
             "question_number": "Q38",
             "stimulus": "Dans un ballon de 250 mL, on introduit 1,50 mol d'acide 2,3-diméthylbutanoïque, 1,50 mol de 3-méthylbutan-2-ol et quelques gouttes d'une solution d'acide sulfurique concentrée, puis on chauffe le mélange réactionnel à reflux pendant 1 heure. L'équation chimique associée à cette transformation est la suivante : Acide carboxylique + Alcool $\\rightleftharpoons$ X + Eau",
-            "data": {"Donnée": "La constante d'équilibre de cette réaction est: K = 4"},
+            "data": {
+              "Données": "Constante d'équilibre de la réaction : $K = 4$"
+            },
             "text": "La formule semi-développée de l'alcool est :",
             "options": [
               {"label": "A", "text": "Option A", "programmatic_figure": {"type": "image", "library": "img", "image_url": "/concours/medecine/medecine2023/images/q38_optA.png", "alt_text": "CH3-CH(OH)-CH(CH3)-CH3"}},
@@ -515,7 +508,9 @@
             "exercise_title": "Exercice 3",
             "question_number": "Q39",
             "stimulus": "Dans un ballon de 250 mL, on introduit 1,50 mol d'acide 2,3-diméthylbutanoïque, 1,50 mol de 3-méthylbutan-2-ol et quelques gouttes d'une solution d'acide sulfurique concentrée, puis on chauffe le mélange réactionnel à reflux pendant 1 heure. L'équation chimique associée à cette transformation est la suivante : Acide carboxylique + Alcool $\\rightleftharpoons$ X + Eau",
-            "data": {"Donnée": "La constante d'équilibre de cette réaction est: K = 4"},
+             "data": {
+              "Données": "Constante d'équilibre de la réaction : $K = 4$"
+            },
             "text": "La formule semi-développée de l'acide carboxylique est :",
             "options": [
               {"label": "A", "text": "Option A", "programmatic_figure": {"type": "image", "library": "img", "image_url": "/concours/medecine/medecine2023/images/q39_optA.png", "alt_text": "CH3-CH(CH3)-CH(CH3)-COOH"}},
@@ -529,7 +524,9 @@
             "exercise_title": "Exercice 3",
             "question_number": "Q40",
             "stimulus": "Dans un ballon de 250 mL, on introduit 1,50 mol d'acide 2,3-diméthylbutanoïque, 1,50 mol de 3-méthylbutan-2-ol et quelques gouttes d'une solution d'acide sulfurique concentrée, puis on chauffe le mélange réactionnel à reflux pendant 1 heure. L'équation chimique associée à cette transformation est la suivante : Acide carboxylique + Alcool $\\rightleftharpoons$ X + Eau",
-            "data": {"Donnée": "La constante d'équilibre de cette réaction est: K = 4"},
+            "data": {
+              "Données": "Constante d'équilibre de la réaction : $K = 4$"
+            },
             "text": "La formule semi-développée du produit X obtenu est :",
             "options": [
               {"label": "A", "text": "Option A", "programmatic_figure": {"type": "image", "library": "img", "image_url": "/concours/medecine/medecine2023/images/q40_optA.png", "alt_text": "Produit X option A"}},
@@ -543,7 +540,9 @@
             "exercise_title": "Exercice 3",
           "question_number": "Q41",
             "stimulus": "Dans un ballon de 250 mL, on introduit 1,50 mol d'acide 2,3-diméthylbutanoïque, 1,50 mol de 3-méthylbutan-2-ol et quelques gouttes d'une solution d'acide sulfurique concentrée, puis on chauffe le mélange réactionnel à reflux pendant 1 heure. L'équation chimique associée à cette transformation est la suivante : Acide carboxylique + Alcool $\\rightleftharpoons$ X + Eau. La formule du produit X a été déterminée en Q40.",
-            "data": {"Donnée": "La constante d'équilibre de cette réaction est: K = 4"},
+          "data": {
+              "Données": "Constante d'équilibre de la réaction : $K = 4$"
+            },
             "text": "La nomenclature chimique du produit X obtenu est :",
           "options": [
               {"label": "A", "text": "2,3-diméthylbutanoate de 2-méthylbut-3-yle"},
@@ -557,7 +556,9 @@
             "exercise_title": "Exercice 3",
           "question_number": "Q42",
             "stimulus": "Dans un ballon de 250 mL, on introduit 1,50 mol d'acide 2,3-diméthylbutanoïque, 1,50 mol de 3-méthylbutan-2-ol et quelques gouttes d'une solution d'acide sulfurique concentrée, puis on chauffe le mélange réactionnel à reflux pendant 1 heure. L'équation chimique associée à cette transformation est la suivante : Acide carboxylique + Alcool $\\rightleftharpoons$ X + Eau",
-            "data": {"Donnée": "La constante d'équilibre de cette réaction est: K = 4"},
+            "data": {
+              "Données": "Constante d'équilibre de la réaction : $K = 4$"
+            },
             "text": "Le taux d'avancement final de cette réaction est :",
           "options": [
               {"label": "A", "text": "0,86"},

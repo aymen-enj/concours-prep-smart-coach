@@ -1,0 +1,1103 @@
+{
+    "exam_title": "Concours d'accès aux facultés de médecine, de pharmacie et de médecine dentaire 2020-2021 - Version Française",
+    "components": [
+      {
+        "component_name": "Sciences de la Vie",
+        "coefficient": 1,
+        "questions": [
+          {
+            "question_number": "Q1",
+            "text": "L'expression de l'information génétique chez les eucaryotes passe par deux étapes :",
+            "options": [
+              {"label": "A", "text": "La transcription au niveau du cytoplasme et la traduction au niveau du noyau ;"},
+              {"label": "B", "text": "La réplication au niveau du noyau et la transcription au niveau du cytoplasme ;"},
+              {"label": "C", "text": "La réplication au niveau du noyau et la traduction au niveau du cytoplasme ;"},
+              {"label": "D", "text": "La réplication au niveau du cytoplasme et la traduction au niveau du noyau ;"},
+              {"label": "E", "text": "La transcription au niveau du noyau et la traduction au niveau du cytoplasme."}
+            ]
+          },
+          {
+            "question_number": "Q2",
+            "text": "Durant la métaphase de la mitose, les chromosomes :",
+            "options": [
+              {"label": "A", "text": "sont à deux chromatides condensées constituées chacune d'un brin d'ADN ;"},
+              {"label": "B", "text": "sont à une chromatide décondensée constituée de deux brins d'ADN ;"},
+              {"label": "C", "text": "sont à deux chromatides condensées constituées chacune de deux brins d'ADN ;"},
+              {"label": "D", "text": "sont à une chromatide décondensée constituée d'un brin d'ADN ;"},
+              {"label": "E", "text": "sont à deux chromatides décondensées constituées chacune de deux brins d'ADN."}
+            ]
+          },
+          {
+            "question_number": "Q3",
+            "text": "La loi de pureté des gamètes dit qu'il y a :",
+            "options": [
+              {"label": "A", "text": "association des allèles responsables des deux phénotypes différents d'un caractère chez l'hybride lors de la formation des gamètes ;"},
+              {"label": "B", "text": "séparation des allèles réunis chez l'hybride lors de la formation des gamètes ;"},
+              {"label": "C", "text": "séparation indépendante des allèles responsables des deux caractères lors de la formation des gamètes chez l'hybride;"},
+              {"label": "D", "text": "séparation indépendante des allèles responsables des deux caractères lors de la formation des gamètes chez l'homozygote;"},
+              {"label": "E", "text": "association des allèles responsables des deux phénotypes différents d'un caractère chez l'homozygote lors de la formation des gamètes."}
+            ]
+          },
+          {
+            "question_number": "Q4",
+            "text": "L'ARN de transfert (ARNt) :",
+            "options": [
+              {"label": "A", "text": "s'associe par son anti-codon à l'ARNm pour assurer la traduction ;"},
+              {"label": "B", "text": "s'associe par son codon à l'ARNm pour assurer la transcription ;"},
+              {"label": "C", "text": "s'associe par son anti-codon à l'ARNm pour assurer la réplication ;"},
+              {"label": "D", "text": "s'associe par son anti-codon à l'ARNm pour assurer la transcription;"},
+              {"label": "E", "text": "s'associe par son codon à l'ARNm pour assurer la traduction."}
+            ]
+          },
+          {
+            "question_number": "Q5",
+            "text": "La carte génétique (carte factorielle) est une représentation sous forme d'un graphique du positionnement :",
+            "options": [
+              {"label": "A", "text": "des chromosomes réalisée en se basant sur le calcul du pourcentage des gènes liés lors d'un croisement-test;"},
+              {"label": "B", "text": "des chromosomes réalisée en se basant sur le calcul du pourcentage des recombinés lors d'un croisement-test;"},
+              {"label": "C", "text": "des gènes sur les chromosomes réalisée en se basant sur le calcul du pourcentage des gènes indépendants lors d'un croisement-test ;"},
+              {"label": "D", "text": "des chromosomes réalisée en se basant sur le calcul du pourcentage des gènes indépendants lors d'un croisement-test;"},
+              {"label": "E", "text": "des gènes sur les chromosomes réalisée en se basant sur le calcul du pourcentage des recombinés lors d'un croisement-test;"}
+            ]
+          },
+          {
+            "question_number": "Q6",
+            "text": "Concernant les mutations :",
+            "options": [
+              {"label": "A", "text": "Elles sont toujours avantageuses à celui qui les porte ;"},
+              {"label": "B", "text": "Elles diminuent la diversité génétique au sein des populations;"},
+              {"label": "C", "text": "Elles peuvent apporter un avantage sélectif à l'individu porteur de la mutation ;"},
+              {"label": "D", "text": "Elles sont transmissibles aux générations futures lorsqu'elles atteignent les cellules somatiques;"},
+              {"label": "E", "text": "Elles entraînent toujours des maladies génétiques héréditaires."}
+            ]
+          },
+          {
+            "question_number": "Q7",
+            "text": "L'évolution d'une population :",
+            "options": [
+              {"label": "A", "text": "repose sur des innovations génétiques aléatoires et indépendantes des caractéristiques du milieu;"},
+              {"label": "B", "text": "fait intervenir des mécanismes de diversification et de complexification des génomes qui aboutissent toujours à des nouveautés phénotypiques \"avantageuses\";"},
+              {"label": "C", "text": "est due toujours à une augmentation de la diversité génétique au sein de la population ;"},
+              {"label": "D", "text": "fait intervenir des mécanismes de diversification et de complexification des génomes qui aboutissent toujours à des nouveautés phénotypiques \"désavantageuses\";"},
+              {"label": "E", "text": "est impossible sans modifications du pool génique de cette population."}
+            ]
+          },
+          {
+            "question_number": "Q8",
+            "text": "Un ARN est une molécule :",
+            "options": [
+              {"label": "A", "text": "Qui n'existe que dans le cytoplasme des cellules ;"},
+              {"label": "B", "text": "Qui ne se lie jamais à une protéine ;"},
+              {"label": "C", "text": "Constituée des 4 nucléotides: A, T, G et C;"},
+              {"label": "D", "text": "Qui n'intervient que dans la transcription des gènes ;"},
+              {"label": "E", "text": "qui peut renfermer des codons non-sens."}
+            ]
+          },
+          {
+            "question_number": "Q9",
+            "text": "Dans le diagnostic prénatal chez l'homme, parmi les techniques de prélèvement utilisées pour la réalisation du caryotype, on trouve :",
+            "options": [
+              {"label": "A", "text": "l'amniocentèse et la choriocentèse ;"},
+              {"label": "B", "text": "la radiographie et la choriocentèse ;"},
+              {"label": "C", "text": "l'échographie et l'amniocentèse;"},
+              {"label": "D", "text": "l'échographie et la choriocentèse ;"},
+              {"label": "E", "text": "la radiographie et l'amniocentèse."}
+            ]
+          },
+          {
+            "question_number": "Q10",
+            "text": "Une espèce :",
+            "options": [
+              {"label": "A", "text": "est moins diversifié génétiquement qu'une population ;"},
+              {"label": "B", "text": "a une répartition géographique limitée ;"},
+              {"label": "C", "text": "se définit strictement par le critère de ressemblance phénotypique ;"},
+              {"label": "D", "text": "ne présente pas de variations génotypiques inter-individuelles ;"},
+              {"label": "E", "text": "est soumise aux facteurs de diversité génétique."}
+            ]
+          },
+          {
+            "question_number": "Q11",
+            "stimulus": "Soit les croisements suivants : Croisement 1: On croise une poule de race pure à crête rosacée avec un coq à crête simple : on obtient alors uniquement des poulets à crête rosacée. Croisement 2: dans la descendance de poulets à pattes courtes, on obtient toujours à la fois des poulets à pattes courtes et des poulets à pattes normales, dont les proportions de deux poulets à pattes courtes pour un poulet à pattes normales. Croisement 3 : on croise un coq à crête rosacée et à pattes courtes avec une poule à crête simple et à pattes normales. On obtient dans la descendance 50% de poulets à crête rosacée et à pattes courtes et 50% de poulets à crête rosacée et à pattes normales.",
+            "text": "En se basant sur ces trois croisements, et sachant que les deux gènes étudiés sont indépendants, on peut écrire ainsi le génotype du coq du croisement 3 : (Avec : R et r pour la forme de la crête et C et c pour la forme des pattes)",
+            "options": [
+              {"label": "A", "text": "(R//r, C//C)"},
+              {"label": "B", "text": "(R//r, C//c)"},
+              {"label": "C", "text": "(R//R, C//c)"},
+              {"label": "D", "text": "(R//R, C//C)"},
+              {"label": "E", "text": "(R//r, c//c)"}
+            ]
+          },
+          {
+            "question_number": "Q12",
+            "stimulus": "Le document suivant représente le caryotype d'un fœtus :",
+            "programmatic_figure": {
+              "type": "image",
+              "library": "img",
+              "image_url": "/concours/medecine/medecine2020/images/q12.png",
+              "title": "Caryotype d'un fœtus",
+              "description": "Image d'un caryotype humain présentant une trisomie 21 (syndrome de Down) chez un individu de sexe masculin (XY). Les chromosomes sont numérotés de 1 à 22, plus les chromosomes sexuels X et Y. Le chromosome 21 est présent en trois exemplaires.",
+              "width": "70%"
+            },
+            "text": "A partir des informations tirées du document on peut déduire que ce caryotype est celui d'une cellule d'un fœtus mâle a 2n+1=47 issu de la fusion :",
+            "options": [
+              {"label": "A", "text": "d'un gamète au caryotype normal et d'un gamète résultant d'une méiose dont la prophase II a présenté une anomalie ;"},
+              {"label": "B", "text": "de deux gamètes aux caryotypes anormaux résultants d'une méiose dont l'anaphase I a présenté une anomalie;"},
+              {"label": "C", "text": "de deux gamètes aux caryotypes anormaux résultants d'une méiose dont l'anaphase II a présenté une anomalie ;"},
+              {"label": "D", "text": "d'un gamète au caryotype normal et d'un gamète résultant d'une méiose dont l'anaphase I a présenté une anomalie ;"},
+              {"label": "E", "text": "d'un gamète au caryotype normal et d'un gamète résultant d'une méiose dont la prophase I et la prophase II ont présenté une anomalie."}
+            ]
+          },
+          {
+            "question_number": "Q13",
+            "stimulus": "Le document suivant présente l'évolution de la quantité d'ADN par noyau, depuis la formation des spermatozoïdes à partir d'une cellule mère dans les testicules jusqu'à l'obtention d'un embryon de 2 cellules.\n1: cellule œuf;\n2: cellule embryonnaire;\nH: entrée de la tête du spermatozoïde dans le cytoplasme du gamète femelle;\nSegment HI du graphique : réplication d'ADN dans chaque noyau, avant leur fusion.",
+            "programmatic_figure": {
+              "type": "image",
+              "library": "img",
+              "image_url": "/concours/medecine/medecine2020/images/q13.png",
+              "title": "Évolution de la quantité d'ADN par noyau",
+              "description": "Graphique montrant l'évolution de la quantité d'ADN par noyau (en unités arbitraires UA) en fonction du temps (heures) depuis la cellule sexuelle mâle jusqu'à la fusion des noyaux. Les phases de méiose, fécondation et premières divisions cellulaires sont illustrées.",
+              "width": "70%"
+            },
+            "text": "Le graphique de ce document montre :",
+            "options": [
+              {"label": "A", "text": "deux réplications et trois divisions cellulaires et que la fécondation correspond à la fusion des noyaux des gamètes haploïdes ayant répliqué leur ADN ;"},
+              {"label": "B", "text": "deux réplications et trois divisions cellulaires et que la fécondation correspond à la fusion des noyaux des gamètes haploïdes n'ayant pas répliqué leur ADN ;"},
+              {"label": "C", "text": "deux réplications et deux divisions cellulaires et que la fécondation correspond à la fusion des noyaux des gamètes haploïdes ayant répliqué leur ADN ;"},
+              {"label": "D", "text": "deux réplications et deux divisions cellulaires et que la fécondation correspond à la fusion des noyaux des gamètes haploïdes n'ayant pas répliqué leur ADN ;"},
+              {"label": "E", "text": "une réplication et trois divisions cellulaires et que la fécondation correspond à la fusion des noyaux des gamètes haploïdes ayant répliqué leur ADN."}
+            ]
+          },
+          {
+            "question_number": "Q14",
+            "stimulus": "Un des codons pour l'acide aminé glutamine (Gln) est CAG.",
+            "text": "Son anti-codon au niveau de l'ARNt est :",
+            "options": [
+              {"label": "A", "text": "5'-CUU-3'"},
+              {"label": "B", "text": "5'-GUC-3'"},
+              {"label": "C", "text": "5'-GTG-3'"},
+              {"label": "D", "text": "5'-CUG-3'"},
+              {"label": "E", "text": "5'-GTC-3'"}
+            ]
+          },
+          {
+            "question_number": "Q15",
+            "stimulus": "Une maladie M est due à une activité nulle d'une enzyme E. Le pedigree suivant présente la transmission de cette maladie dans une famille et précise le pourcentage d'activité enzymatique (en %) chez les membres de cette famille.",
+            "programmatic_figure": {
+              "type": "image",
+              "library": "img",
+              "image_url": "/concours/medecine/medecine2020/images/q15.png",
+              "title": "Pedigree d'une maladie M",
+              "description": "Arbre généalogique montrant la transmission d'une maladie M. Les carrés représentent les hommes, les cercles les femmes. Les individus atteints sont remplis. Les pourcentages indiquent l'activité enzymatique. La légende indique homme malade, homme sain, femme saine.",
+              "width": "70%"
+            },
+            "text": "On peut conclure que la maladie est :",
+            "options": [
+              {"label": "A", "text": "récessive autosomale ;"},
+              {"label": "B", "text": "récessive liée à X;"},
+              {"label": "C", "text": "récessive liée à Y;"},
+              {"label": "D", "text": "dominante autosomale;"},
+              {"label": "E", "text": "dominante liée à X."}
+            ]
+          },
+          {
+            "question_number": "Q16",
+            "stimulus": "La fréquence d'apparition dans le sexe masculin du syndrome de Hunter, maladie récessive liée au chromosome X est de 1/1000.",
+            "text": "La fréquence d'apparition de la maladie dans le sexe féminin est : (la population est en équilibre selon Hardy Weinberg)",
+            "options": [
+              {"label": "A", "text": "1/100 000"},
+              {"label": "B", "text": "1/150 000"},
+              {"label": "C", "text": "1/50 000"},
+              {"label": "D", "text": "1/10000"},
+              {"label": "E", "text": "1/1000 000"}
+            ]
+          },
+          {
+            "question_number": "Q17",
+            "stimulus": "On dispose des enzymes de restrictions suivantes qui découpent l'ADN en des endroits précis :\nHpa 1\n5' GTTAAC 3'\n3' CAATTG 5'\nHind III\n5' AAGCTT 3'\n3' TTCGAA 5'\nEco RI\n5' GAATTC 3'\n3' CTTAAG 5'\nL'enzyme ou les enzymes qui peuvent agir sur la séquence d'ADN suivante :\n5' ATGTATGGTGGTTTTTTATAGAATTCGCAA 3'\n3' TACATACCACCAAAAAATATCTTAAGCGTT 5'",
+            "text": "",
+            "options": [
+              {"label": "A", "text": "est Hpa 1;"},
+              {"label": "B", "text": "sont Hpa 1 et Eco RI;"},
+              {"label": "C", "text": "est Eco RI;"},
+              {"label": "D", "text": "sont Eco RI et Hind III ;"},
+              {"label": "E", "text": "sont Hind III et Hpa 1."}
+            ]
+          },
+          {
+            "question_number": "Q18",
+            "stimulus": "Les figures suivantes représentent quelques étapes de la méiose.",
+            "programmatic_figures": [
+               {
+                "type": "image",
+                "library": "img",
+                "image_url": "/concours/medecine/medecine2020/images/q18.png",
+                "title": "Étapes de la méiose",
+                "description": "Quatre schémas de cellules en méiose: 1. Prophase I (centromère, fuseau de division). 2. Métaphase I (chromosome à deux chromatides). 3. Anaphase I (sillon de division). 4. Télophase I/Cytocinèse (site de clivage).",
+                "width": "80%"
+              }
+            ],
+            "text": "L'analyse de ces figures montre que :",
+            "options": [
+              {"label": "A", "text": "la figure 1 représente une cellule en prophase I qui permet le brassage intrachromosomique et la figure 3 représente une cellule en anaphase I qui permet le brassage interchromosomique ;"},
+              {"label": "B", "text": "la figure 2 représente une cellule en métaphase I qui permet le brassage intrachromosomique et la figure 3 représente une cellule en anaphase I qui permet le brassage interchromosomique;"},
+              {"label": "C", "text": "la figure 3 représente une cellule en anaphase I qui permet le brassage interchromosomique et la figure 4 représente une cellule en télophase I qui précède au brassage interchromosomique;"},
+              {"label": "D", "text": "la figure 1 représente une cellule en prophase I qui permet le brassage intrachromosomique et la figure 4 représente une cellule en télophase I qui précède au brassage interchromosomique ;"},
+              {"label": "E", "text": "la figure 2 représente une cellule en métaphase I qui permet le brassage intrachromosomique et la figure 4 représente une cellule en télophase I qui suit le brassage interchromosomique."}
+            ]
+          },
+          {
+            "question_number": "Q19",
+            "stimulus": "Un horticulteur voudrait améliorer son jardin à fleurs. Pour cela, il a croisé une plante P1, à fleurs blanches et à pied lisse, avec une plante P2 à fleurs roses et à pied épineux. La première génération F1 est composée de plantes à fleurs roses et à pied épineux. Un croisement effectué entre des individus hybrides F1 donne une génération constituée par :\n- 126 plantes à fleurs roses et à pied épineux ;\n- 59 plantes à fleurs roses et à pied lisse ;\n- 52 plantes à fleurs blanches et à pied épineux ;\n- 21 plantes à fleurs blanches et à pied lisse.",
+            "text": "Les proportions des phénotypes obtenus à la génération F2 s'expliquent comme suit :",
+            "options": [
+              {"label": "A", "text": "Les deux gènes étudiés sont liés et les nouveaux phénotypes résultent d'un brassage intrachromosomique lors de la formation des gamètes chez les hybrides F1;"},
+              {"label": "B", "text": "Les deux gènes étudiés sont indépendants et les nouveaux phénotypes résultent d'un brassage intrachromosomique lors de la formation des gamètes chez les hybrides F1;"},
+              {"label": "C", "text": "Les deux gènes étudiés sont liés et les nouveaux phénotypes résultent d'un brassage interchromosomique lors de la formation des gamètes chez les hybrides F1;"},
+              {"label": "D", "text": "Les deux gènes étudiés sont indépendants et les nouveaux phénotypes résultent d'un brassage interchromosomique lors de la formation des gamètes chez les hybrides F1;"},
+              {"label": "E", "text": "Les deux gènes étudiés sont indépendants et les nouveaux phénotypes résultent d'un brassage intrachromosomique suivi d'un brassage interchromosomique lors de la formation des gamètes chez les hybrides F1."}
+            ]
+          },
+          {
+            "question_number": "Q20",
+            "stimulus": "La figure ci-dessous, représente une cellule d'anthère de lys en division.",
+            "programmatic_figure": {
+              "type": "image",
+              "library": "img",
+              "image_url": "/concours/medecine/medecine2020/images/q20.png",
+              "title": "Cellule d'anthère de lys en division",
+              "description": "Schéma d'une cellule végétale en anaphase I de méiose, montrant la séparation des chromosomes homologues vers les pôles opposés. Les chromosomes sont encore bichromatidiens.",
+              "width": "60%"
+            },
+            "text": "Cette photographie représente une cellule à :",
+            "options": [
+              {"label": "A", "text": "2n = 24, en anaphase d'une mitose ;"},
+              {"label": "B", "text": "2n = 24, en prophase I d'une méiose ;"},
+              {"label": "C", "text": "2n = 12, en métaphase d'une mitose ;"},
+              {"label": "D", "text": "2n = 12, en anaphase II d'une méiose ;"},
+              {"label": "E", "text": "2n = 24, en anaphase I d'une méiose."}
+            ]
+          }
+        ]
+      },
+      {
+        "component_name": "Physique",
+        "coefficient": 1,
+        "questions": [
+          {
+            "exercise_title": "Propagation d'une onde à la surface de l'eau",
+            "question_number": "Q21",
+            "stimulus": "À l'aide du vibreur d'une cuve à onde, on crée à $t_0=0$, au point S de la surface libre de l'eau une onde progressive sinusoïdale de fréquence N. L'élongation du point S est $y_s(t)=5.10^{-3}.cos(2\\pi.N.t)$. La figure ci-dessous représente une coupe transversale de la surface de l'eau à l'instant $t = 0,1 s$.",
+            "programmatic_figure": {
+              "type": "image",
+              "library": "img",
+              "image_url": "/concours/medecine/medecine2020/images/q21.png",
+              "title": "Onde à la surface de l'eau",
+              "description": "Profil d'une onde sinusoïdale à la surface de l'eau à un instant t=0,1s. L'axe horizontal représente la distance x (cm) depuis la source S. L'onde montre plusieurs longueurs d'onde.",
+              "width": "80%"
+            },
+            "text": "La valeur de la longueur d'onde est :",
+            "options": [
+              {"label": "A", "text": "$\\lambda = 0,5 cm$"},
+              {"label": "B", "text": "$\\lambda = 2,5 cm$"},
+              {"label": "C", "text": "$\\lambda = 1 cm$"},
+              {"label": "D", "text": "$\\lambda = 2 cm$"},
+              {"label": "E", "text": "$\\lambda = 1,5 cm$"}
+            ]
+          },
+          {
+            "exercise_title": "Propagation d'une onde à la surface de l'eau",
+            "question_number": "Q22",
+            "stimulus": "L'élongation du point S est $y_s(t)=5.10^{-3}.cos(2\\pi.N.t)$.",
+            "text": "La vitesse de propagation de l'onde à la surface de l'eau est:",
+            "options": [
+              {"label": "A", "text": "$v = 0,20 m.s^{-1}$"},
+              {"label": "B", "text": "$v = 0,25 m.s^{-1}$"},
+              {"label": "C", "text": "$v = 0,30 m.s^{-1}$"},
+              {"label": "D", "text": "$v = 0,40 m.s^{-1}$"},
+              {"label": "E", "text": "$v = 0,45 m.s^{-1}$"}
+            ]
+          },
+          {
+            "exercise_title": "Propagation d'une onde à la surface de l'eau",
+            "question_number": "Q23",
+            "stimulus": "L'élongation du point S est $y_s(t)=5.10^{-3}.cos(2\\pi.N.t)$.",
+            "text": "L'élongation d'un point M de la surface de l'eau situé à $0,4m$ de S est :",
+            "options": [
+              {"label": "A", "text": "$y_M(t) = 5.10^{-3}.sin (20\\pi t - \\pi)$"},
+              {"label": "B", "text": "$y_M(t) = 5.10^{-3}.cos (20\\pi t - \\pi)$"},
+              {"label": "C", "text": "$y_M(t) = 5.10^{-3}.cos (40\\pi t + \\pi)$"},
+              {"label": "D", "text": "$y_M(t) = 5.10^{-3}.cos (40\\pi t)$"},
+              {"label": "E", "text": "$y_M(t) = 5.10^{-3}.cos (30\\pi t)$"}
+            ]
+          },
+          {
+            "exercise_title": "Propagation d'une onde dans un milieu transparent",
+            "question_number": "Q24",
+            "stimulus": "Une radiation lumineuse visible de fréquence $\\nu = 5.10^{14} Hz$ a une longueur d'onde $\\lambda = 400 nm$ dans un milieu transparent d'indice n.",
+            "data": {"Donnée": "Vitesse de propagation de la lumière dans le vide: $c = 3.10^8 m.s^{-1}$"},
+            "text": "La valeur de la longueur d'onde $\\lambda_0$ de la radiation lumineuse dans le vide est:",
+            "options": [
+              {"label": "A", "text": "$\\lambda_0 = 760 nm$"},
+              {"label": "B", "text": "$\\lambda_0 = 850 nm$"},
+              {"label": "C", "text": "$\\lambda_0 = 600 nm$"},
+              {"label": "D", "text": "$\\lambda_0 = 570 nm$"},
+              {"label": "E", "text": "$\\lambda_0 = 320 nm$"}
+            ]
+          },
+          {
+            "exercise_title": "Propagation d'une onde dans un milieu transparent",
+            "question_number": "Q25",
+            "stimulus": "Une radiation lumineuse visible de fréquence $\\nu = 5.10^{14} Hz$ a une longueur d'onde $\\lambda = 400 nm$ dans un milieu transparent d'indice n.\nVitesse de propagation de la lumière dans le vide: $c = 3.10^8 m.s^{-1}$",
+            "text": "La valeur de l'indice est:",
+            "options": [
+              {"label": "A", "text": "$n = 1,33$"},
+              {"label": "B", "text": "$n = 1,5$"},
+              {"label": "C", "text": "$n = 1,8$"},
+              {"label": "D", "text": "$n = 2,0$"},
+              {"label": "E", "text": "$n = 1,0$"}
+            ]
+          },
+          {
+            "exercise_title": "Ondes dans le domaine médical",
+            "question_number": "Q26",
+            "stimulus": "Lorsqu'un cœur se contracte pour relancer la circulation sanguine, il provoque l'émission d'une onde, le pouls, qui se propage le long des artères : leurs parois se dilatent lorsque la pression sanguine augmente. La célérité du pouls est donnée par la relation $v = \\frac{1}{\\sqrt{\\rho.D}}$ ou $\\rho$ est la masse volumique du sang et D un coefficient caractérisant l'élasticité de l'artère. Pour une personne, on donne $D = \\frac{0,5}{\\Delta P}$ (S.I), avec $\\Delta P$ la variation de la pression sanguine due au pouls.",
+            "data": {"Données": ["$1cmHg = 1,3 kPa$", "$\\rho=10^3 kg.m^{-3}$", "$\\Delta P = 5 cmHg$", "$\\sqrt{13}=3,6$", "$\\sqrt{20}=4,5$"]},
+            "text": "La dimension du coefficient D est :",
+            "options": [
+              {"label": "A", "text": "$L.M.T^{-2}$"},
+              {"label": "B", "text": "$L.M^{-1}.T^{2}$"},
+              {"label": "C", "text": "$L^{-1}.M^{-1}.T^{2}$"},
+              {"label": "D", "text": "$L^{-1}.M.T^{-2}$"},
+              {"label": "E", "text": "$L.M^{-2}.T^{-2}$"}
+            ]
+          },
+          {
+            "exercise_title": "Ondes dans le domaine médical",
+            "question_number": "Q27",
+            "stimulus": "Lorsqu'un cœur se contracte pour relancer la circulation sanguine, il provoque l'émission d'une onde, le pouls, qui se propage le long des artères : leurs parois se dilatent lorsque la pression sanguine augmente. La célérité du pouls est donnée par la relation $v = \\frac{1}{\\sqrt{\\rho.D}}$ ou $\\rho$ est la masse volumique du sang et D un coefficient caractérisant l'élasticité de l'artère. Pour une personne, on donne $D = \\frac{0,5}{\\Delta P}$ (S.I), avec $\\Delta P$ la variation de la pression sanguine due au pouls.",
+            "data": {"Données": ["$1cmHg = 1,3 kPa$", "$\\rho=10^3 kg.m^{-3}$", "$\\Delta P = 5 cmHg$", "$\\sqrt{13}=3,6$", "$\\sqrt{20}=4,5$"]},
+            "text": "La valeur de la célérité du pouls vaut :",
+            "options": [
+              {"label": "A", "text": "$v = 3,6 m.s^{-1}$"},
+              {"label": "B", "text": "$v = 4,0 m.s^{-1}$"},
+              {"label": "C", "text": "$v = 5,0 m.s^{-1}$"},
+              {"label": "D", "text": "$v = 2,6 m.s^{-1}$"},
+              {"label": "E", "text": "$v = 4,5 m.s^{-1}$"}
+            ]
+          },
+          {
+            "exercise_title": "Ondes dans le domaine médical",
+            "question_number": "Q28",
+            "stimulus": "La personne prend son pouls simultanément au niveau d'un point M du cou puis au niveau d'un point N du poignet. Le point M se trouve à 20 cm du cœur et le point N à 80 cm du cœur. On considère que la célérité de propagation du pouls (calculée en Q27) entre le cœur et le point M est la même que celle entre le cœur et le point N.",
+            "text": "Le décalage horaire entre l'arrivée du pouls en M et l'arrivée en N vaut :",
+            "options": [
+              {"label": "A", "text": "$\\Delta t = 0,17 s$"},
+              {"label": "B", "text": "$\\Delta t = 1,7 s$"},
+              {"label": "C", "text": "$\\Delta t = 170 s$"},
+              {"label": "D", "text": "$\\Delta t = 6 s$"},
+              {"label": "E", "text": "$\\Delta t = 0,22 s$"}
+            ]
+          },
+          {
+            "exercise_title": "Propagation d'une perturbation",
+            "question_number": "Q29",
+            "stimulus": "Le document ci-contre donne l'élongation du mouvement d'un point M lors de la propagation d'une perturbation le long d'une corde. Le point M est situé à 1,5 m de la source S. On considère que la perturbation a commencé en S, à l'instant $t_0 = 0$.",
+            "programmatic_figure": {
+              "type": "image",
+              "library": "img",
+              "image_url": "/concours/medecine/medecine2020/images/q29.png",
+              "title": "Élongation d'un point M",
+              "description": "Graphique de l'élongation y (cm) d'un point M en fonction du temps t (s). La perturbation commence à t=0.05s et dure jusqu'à environ t=0.12s, avec une forme de pulse.",
+              "width": "60%"
+            },
+            "text": "La perturbation atteint le point M à l'instant :",
+            "options": [
+              {"label": "A", "text": "$t = 0,50 s$"},
+              {"label": "B", "text": "$t = 0,10 s$"},
+              {"label": "C", "text": "$t = 0,20 s$"},
+              {"label": "D", "text": "$t = 0,15 s$"},
+              {"label": "E", "text": "$t = 0,25 s$"}
+            ]
+          },
+          {
+            "exercise_title": "Propagation d'une perturbation",
+            "question_number": "Q30",
+            "stimulus": "Le document ci-contre (de Q29) donne l'élongation du mouvement d'un point M lors de la propagation d'une perturbation le long d'une corde. Le point M est situé à 1,5 m de la source S. On considère que la perturbation a commencé en S, à l'instant $t_0 = 0$.",
+            "text": "La longueur de la perturbation est :",
+            "options": [
+              {"label": "A", "text": "$l = 0,175 m$"},
+              {"label": "B", "text": "$l = 0,255 m$"},
+              {"label": "C", "text": "$l = 0,375 m$"},
+              {"label": "D", "text": "$l = 0,320 m$"},
+              {"label": "E", "text": "$l = 0,125 m$"}
+            ]
+          },
+          {
+            "exercise_title": "Diffraction de la lumière",
+            "question_number": "Q31",
+            "stimulus": "On éclaire un fil très fin de diamètre a par un Laser qui émet une radiation de longueur d'onde $\\lambda_1 = 670 nm$. On observe une figure de diffraction sur un écran situé à la distance $D = 1,5 m$ du fil. La largeur de la tache centrale est $L_1 = 2 cm$. On remplace le laser par un autre qui émet une radiation de longueur d'onde $\\lambda_2 = 560 nm$. La largeur de la tache centrale dans ce cas est notée $L_2$.",
+            "data": {"Donnée": "$\\frac{56}{67} = 0,84$"},
+            "programmatic_figure": {
+              "type": "image",
+              "library": "img",
+                "image_url": "/concours/medecine/medecine2020/images/q31.png",
+              "title": "Diffraction par un fil fin",
+              "description": "Schéma d'un dispositif de diffraction par un fil fin. Un laser éclaire un fil de diamètre a. Une figure de diffraction est observée sur un écran placé à une distance D. La largeur de la tache centrale est L.",
+              "width": "60%"
+            },
+            "text": "La valeur de $L_2$ est :",
+            "options": [
+              {"label": "A", "text": "$L_2 = 1,5 cm$"},
+              {"label": "B", "text": "$L_2 = 1,7 cm$"},
+              {"label": "C", "text": "$L_2 = 2,3 cm$"},
+              {"label": "D", "text": "$L_2 = 2,6 cm$"},
+              {"label": "E", "text": "$L_2 = 3,2 cm$"}
+            ]
+          },
+          {
+            "exercise_title": "Diffraction de la lumière",
+            "question_number": "Q32",
+            "stimulus": "On éclaire un fil très fin de diamètre a par un Laser qui émet une radiation de longueur d'onde $\\lambda_1 = 670 nm$. On observe une figure de diffraction sur un écran situé à la distance $D = 1,5 m$ du fil. La largeur de la tache centrale est $L_1 = 2 cm$. On remplace le laser par un autre qui émet une radiation de longueur d'onde $\\lambda_2 = 560 nm$. La largeur de la tache centrale dans ce cas est notée $L_2$.",
+             "data": {"Donnée": "$\\frac{56}{67} = 0,84$"},
+            "text": "Pour les deux radiations, l'écart angulaire le plus grand est :",
+            "options": [
+              {"label": "A", "text": "$\\theta = 9,2.10^{-2} rad$"},
+              {"label": "B", "text": "$\\theta = 8,3.10^{-2} rad$"},
+              {"label": "C", "text": "$\\theta = 5,7.10^{-3} rad$"},
+              {"label": "D", "text": "$\\theta = 6,7.10^{-3} rad$"},
+              {"label": "E", "text": "$\\theta = 2,4.10^{-2} rad$"}
+            ]
+          },
+          {
+            "exercise_title": "Désintégration du Fer 59",
+            "question_number": "Q33",
+            "stimulus": "Le Fer $^{59}_{26}Fe$ est radioactif $\\beta^-$. On dispose, à l'instant $t_0 = 0$, d'un échantillon de Fer, $^{59}_{26}Fe$, d'activité $a_0$. Chaque dix jours, on mesure l'activité $a(t)$ de cet échantillon. On remarque que $\\frac{a(t)}{a(t+10)} = 1,17$; ($t$ exprimé en jours).",
+            "data": {"Données": ["La loi de décroissance radioactive s'écrit $N(t) = N_0e^{-\\lambda t}$", "$\\ln(1,17) = 0,157$"]},
+            "text": "Le noyau fils formé lors de cette désintégration est :",
+            "options": [
+              {"label": "A", "text": "$^{59}_{24}Cr$"},
+              {"label": "B", "text": "$^{59}_{25}Mn$"},
+              {"label": "C", "text": "$^{58}_{27}Co$"},
+              {"label": "D", "text": "$^{59}_{27}Co$"},
+              {"label": "E", "text": "$^{60}_{26}Fe$"}
+            ]
+          },
+          {
+            "exercise_title": "Désintégration du Fer 59",
+            "question_number": "Q34",
+            "stimulus": "Le Fer $^{59}_{26}Fe$ est radioactif $\\beta^-$. On dispose, à l'instant $t_0 = 0$, d'un échantillon de Fer, $^{59}_{26}Fe$, d'activité $a_0$. Chaque dix jours, on mesure l'activité $a(t)$ de cet échantillon. On remarque que $\\frac{a(t)}{a(t+10)} = 1,17$; ($t$ exprimé en jours).",
+            "data": {"Données": ["La loi de décroissance radioactive s'écrit $N(t) = N_0e^{-\\lambda t}$", "$\\ln(1,17) = 0,157$"]},
+            "text": "La valeur de la constante radioactive du Fer $^{59}_{26}Fe$ est :",
+            "options": [
+              {"label": "A", "text": "$\\lambda = 1,57.10^{-2} jours^{-1}$"},
+              {"label": "B", "text": "$\\lambda = 1,57.10^{-3} jours^{-1}$"},
+              {"label": "C", "text": "$\\lambda = 1,57.10^{-7} s^{-1}$"},
+              {"label": "D", "text": "$\\lambda = 1,57.10^{-2} s^{-1}$"},
+              {"label": "E", "text": "$\\lambda = 1,57.10^{-1} jours^{-1}$"}
+            ]
+          },
+          {
+            "exercise_title": "Désintégrations successives du Bismuth 212",
+            "question_number": "Q35",
+            "stimulus": "Le noyau de Bismuth $^{212}_{83}Bi$ est radioactif. L'écriture suivante donne deux désintégrations successives de ce noyau: $^{212}_{83}Bi \\xrightarrow{(1)} {}^{A_1}_{Z_1}Po \\xrightarrow{\\alpha} {}^{A_2}_{82}Pb$",
+            "text": "Le type de la désintégration (1) et les valeurs de $Z_1$ et $A_2$ sont :",
+            "options": [
+              {"label": "A", "text": "$\\alpha$, $Z_1 = 84$, $A_2 = 208$"},
+              {"label": "B", "text": "$\\beta^-$, $Z_1 = 84$, $A_2 = 208$"},
+              {"label": "C", "text": "$\\beta^+$, $Z_1 = 82$, $A_2 = 208$"},
+              {"label": "D", "text": "$\\alpha$, $Z_1 = 81$, $A_2 = 208$"},
+              {"label": "E", "text": "$\\beta^-$, $Z_1 = 84$, $A_2 = 212$"}
+            ]
+          },
+          {
+            "exercise_title": "Étude d'un échantillon radioactif",
+            "question_number": "Q36",
+            "stimulus": "Une roche radioactive de masse $m_0 = 1$ tonne contient à l'instant $t_0 = 0$, $0,5\\%$ d'Uranium 235.",
+            "data": {"Données": ["Demi-vie de l'Uranium 235: $t_{1/2} = 7.10^8 ans = 2,20.10^{16} s$.", "$\\ln2 = 0,7$", "$47\\times0,128 = 6,02$", "$\\frac{64}{11} = 5,82$", "$N_A = 6,02.10^{23} mol^{-1}$", "$M(U) = 235 g.mol^{-1}$"]},
+            "text": "Le nombre de noyaux d'Uranium 235 dans la roche à l'instant $t_0 = 0$ est :",
+            "options": [
+              {"label": "A", "text": "$N_0 = 2,35.10^{24}$"},
+              {"label": "B", "text": "$N_0 = 1,28.10^{25}$"},
+              {"label": "C", "text": "$N_0 = 6,02.10^{25}$"},
+              {"label": "D", "text": "$N_0 = 7,25.10^{26}$"},
+              {"label": "E", "text": "$N_0 = 8,50.10^{26}$"}
+            ]
+          },
+          {
+            "exercise_title": "Étude d'un échantillon radioactif",
+            "question_number": "Q37",
+            "stimulus": "Une roche radioactive de masse $m_0 = 1$ tonne contient à l'instant $t_0 = 0$, $0,5\\%$ d'Uranium 235.",
+            "data": {"Données": ["Demi-vie de l'Uranium 235: $t_{1/2} = 7.10^8 ans = 2,20.10^{16} s$.", "$\\ln2 = 0,7$", "$47\\times0,128 = 6,02$", "$\\frac{64}{11} = 5,82$", "$N_A = 6,02.10^{23} mol^{-1}$", "$M(U) = 235 g.mol^{-1}$"]},
+            "text": "L'activité $a_0$ de l'Uranium 235 dans la roche à l'instant $t_0 = 0$ est :",
+            "options": [
+              {"label": "A", "text": "$a_0 = 7.10^6 Bq$"},
+              {"label": "B", "text": "$a_0 = 6.10^6 Bq$"},
+              {"label": "C", "text": "$a_0 = 4,07.10^6 Bq$"},
+              {"label": "D", "text": "$a_0 = 3.10^7 Bq$"},
+              {"label": "E", "text": "$a_0 = 1,5.10^7 Bq$"}
+            ]
+          },
+          {
+            "exercise_title": "Étude d'un échantillon radioactif",
+            "question_number": "Q38",
+            "stimulus": "Une roche radioactive de masse $m_0 = 1$ tonne contient à l'instant $t_0 = 0$, $0,5\\%$ d'Uranium 235. L'activité $a_0$ de l'Uranium 235 dans la roche à l'instant $t_0 = 0$ a été calculée.",
+            "data": {"Données": ["Demi-vie de l'Uranium 235: $t_{1/2} = 7.10^8 ans = 2,20.10^{16} s$.", "$\\ln2 = 0,7$", "$47\\times0,128 = 6,02$", "$\\frac{64}{11} = 5,82$", "$N_A = 6,02.10^{23} mol^{-1}$", "$M(U) = 235 g.mol^{-1}$"]},
+            "text": "À l'instant $t = 28.10^6 ans$, l'activité de l'Uranium 235 est :",
+            "options": [
+              {"label": "A", "text": "$0,5.a_0$"},
+              {"label": "B", "text": "$0,25.a_0$"},
+              {"label": "C", "text": "$0,125.a_0$"},
+              {"label": "D", "text": "$6,25.10^{-2}.a_0$"},
+              {"label": "E", "text": "$3,125.10^{-2}.a_0$"}
+            ]
+          },
+          {
+            "exercise_title": "Composition d'un noyau radioactif",
+            "question_number": "Q39",
+            "stimulus": "Le noyau de Radium $^{226}_{88}Ra$ se désintègre en donnant un noyau fils $^y_xRn$ et une particule $\\alpha$ ($^4_2He$).",
+            "text": "Les valeurs de x et y sont :",
+            "options": [
+              {"label": "A", "text": "$x = 88; y=226$"},
+              {"label": "B", "text": "$x = 87; y=226$"},
+              {"label": "C", "text": "$x = 87; y=222$"},
+              {"label": "D", "text": "$x = 86; y=222$"},
+              {"label": "E", "text": "$x = 89; y=226$"}
+            ]
+          },
+          {
+            "exercise_title": "Composition d'un noyau radioactif",
+            "question_number": "Q40",
+            "stimulus": "Le noyau de Radium $^{226}_{88}Ra$ se désintègre en donnant un noyau fils $^y_xRn$ et une particule $\\alpha$. Les valeurs x et y ont été déterminées en Q39.",
+            "text": "La composition du noyau fils $^y_xRn$ est:",
+            "options": [
+              {"label": "A", "text": "86 protons, 222 neutrons"},
+              {"label": "B", "text": "86 protons, 136 neutrons"},
+              {"label": "C", "text": "87 protons, 135 neutrons"},
+              {"label": "D", "text": "89 protons, 137 neutrons"},
+              {"label": "E", "text": "88 protons, 138 neutrons"}
+            ]
+          }
+        ]
+      },
+      {
+        "component_name": "Chimie",
+        "coefficient": 1,
+        "questions": [
+          {
+            "exercise_title": "Suivi temporel d'une transformation chimique",
+            "question_number": "Q41",
+            "stimulus": "On introduit dans un ballon, une quantité de poudre de Zinc, et on y verse à un volume $V = 75mL$ d'une solution aqueuse d'acide sulfurique. La réaction qui se produit a pour équation: $Zn_{(s)} + 2H_3O^+_{(aq)} \\rightarrow Zn^{2+}_{(aq)} + H_{2(g)} + 2H_2O_{(l)}$. La courbe ci-contre représente les variations de l'avancement x de la réaction en fonction du temps.",
+            "programmatic_figure": {
+              "type": "image",
+              "library": "img",
+              "image_url": "/concours/medecine/medecine2020/images/q41.png",
+              "title": "Variation de l'avancement x en fonction du temps",
+              "description": "Graphique montrant l'avancement x (mmol) de la réaction en fonction du temps t (min). La courbe est croissante et atteint un plateau à x = 5.96 mmol.",
+              "width": "70%"
+            },
+            "data": {"Données": ["La vitesse volumique moyenne d'une réaction a pour expression: $v_{moy} = \\frac{1}{V} \\frac{\\Delta x}{\\Delta t}$ ; (avec V volume total du mélange).", "$3375 \\times 35 \\approx 1,19.10^5$ ; $75 \\times 45 = 3375$"]},
+            "text": "L'avancement final $x_f$ vaut:",
+            "options": [
+              {"label": "A", "text": "$x_f = 29,8mmol$"},
+              {"label": "B", "text": "$x_f = 28,5 mmol$"},
+              {"label": "C", "text": "$x_f = 27,8 mmol$"},
+              {"label": "D", "text": "$x_f = 25,6 mmol$"},
+              {"label": "E", "text": "$x_f = 5,96 mmol$"}
+            ]
+          },
+          {
+            "exercise_title": "Suivi temporel d'une transformation chimique",
+            "question_number": "Q42",
+            "stimulus": "On introduit dans un ballon, une quantité de poudre de Zinc, et on y verse à un volume $V = 75mL$ d'une solution aqueuse d'acide sulfurique. La réaction qui se produit a pour équation: $Zn_{(s)} + 2H_3O^+_{(aq)} \\rightarrow Zn^{2+}_{(aq)} + H_{2(g)} + 2H_2O_{(l)}$. La courbe ci-contre (de Q41) représente les variations de l'avancement x de la réaction en fonction du temps.",
+            "text": "La valeur du temps de demi-réaction vaut:",
+            "options": [
+              {"label": "A", "text": "$t_{1/2} = 60 min$"},
+              {"label": "B", "text": "$t_{1/2} = 45 min$"},
+              {"label": "C", "text": "$t_{1/2} = 40 min$"},
+              {"label": "D", "text": "$t_{1/2} = 35 min$"},
+              {"label": "E", "text": "$t_{1/2} = 30 min$"}
+            ]
+          },
+          {
+            "exercise_title": "Suivi temporel d'une transformation chimique",
+            "question_number": "Q43",
+            "stimulus": "On introduit dans un ballon, une quantité de poudre de Zinc, et on y verse à un volume $V = 75mL$ d'une solution aqueuse d'acide sulfurique. La réaction qui se produit a pour équation: $Zn_{(s)} + 2H_3O^+_{(aq)} \\rightarrow Zn^{2+}_{(aq)} + H_{2(g)} + 2H_2O_{(l)}$. La courbe ci-contre (de Q41) représente les variations de l'avancement x de la réaction en fonction du temps.",
+            "data": {"Données": ["La vitesse volumique moyenne d'une réaction a pour expression: $v_{moy} = \\frac{1}{V} \\frac{\\Delta x}{\\Delta t}$ ; (avec V volume total du mélange).", "$3375 \\times 35 \\approx 1,19.10^5$ ; $75 \\times 45 = 3375$"]},
+            "text": "La valeur de la vitesse volumique moyenne de la réaction entre $t_0 = 0$ et $t_1 = 90min$ vaut:",
+            "options": [
+              {"label": "A", "text": "$v_{moy} = 4.10^{-3} mol.L^{-1}.min^{-1}$"},
+              {"label": "B", "text": "$v_{moy} = 5,33.10^{-3} mol.L^{-1}.min^{-1}$"},
+              {"label": "C", "text": "$v_{moy} = 6,67.10^{-3} mol.L^{-1}.min^{-1}$"},
+              {"label": "D", "text": "$v_{moy} = 8.10^{-3} mol.L^{-1}.min^{-1}$"},
+              {"label": "E", "text": "$v_{moy} = 3,5.10^{-3} mol.L^{-1}.min^{-1}$"}
+            ]
+          },
+          {
+            "exercise_title": "Évolution temporel d'un système chimique",
+            "question_number": "Q44",
+            "stimulus": "A $t_0 = 0$ on ajoute un volume d'eau oxygénée à un volume d'une solution de permanganate de potassium acidifié. L'eau oxygénée $H_2O_{2(l)}$ est oxydée par les ions permanganate $MnO^-_{4(aq)}$ selon l'équation: $5H_2O_{2(l)} + 2MnO^-_{4(aq)} + 6H^+_{(aq)} \\rightarrow 5O_{2(g)} + 2Mn^{2+}_{(aq)} + 8H_2O_{(l)}$. Le tableau ci-dessous présente l'évolution temporelle de la concentration des ions $Mn^{2+}_{(aq)}$:",
+            "data": {
+                  "type": "table",
+                  "headers": ["t(min)", "$[Mn^{2+}_{(aq)}](mol.L^{-1})$"],
+                  "rows": [
+                      ["0", "0"], ["4", "0,10"], ["8", "0,20"], ["14", "0,28"],
+                      ["24", "0,40"], ["44", "0,50"], ["66", "0,54"], ["100", "0,56"], ["120", "0,56"]
+                  ],
+                  "Données": ["Volume molaire $V_m = 24 L.mol^{-1}$", "Volume du mélange: $V=10mL$", "$H_2O_{2(l)}$: réactif limitant."]
+              },
+            "text": "Les couples (ox/réd) participant à cette réaction sont :",
+            "options": [
+              {"label": "A", "text": "$MnO^-_{4(aq)}/Mn^{2+}_{(aq)}$ et $H_2O_{2(l)}/O_{2(g)}$"},
+              {"label": "B", "text": "$MnO^-_{4(aq)}/Mn^{2+}_{(aq)}$ et $O_{2(g)}/H_2O_{2(l)}$"},
+              {"label": "C", "text": "$Mn^{2+}_{(aq)}/MnO^-_{4(aq)}$ et $O_{2(g)}/H_2O_{2(l)}$"},
+              {"label": "D", "text": "$MnO^-_{4(aq)}/Mn^{2+}_{(aq)}$ et $H_2O_{(l)}/H_2O_{2(l)}$"},
+              {"label": "E", "text": "$MnO^-_{4(aq)}/Mn^{2+}_{(aq)}$ et $H_2O_{(l)}/H^+_{(aq)}$"}
+            ]
+          },
+          {
+            "exercise_title": "Évolution temporel d'un système chimique",
+            "question_number": "Q45",
+            "stimulus": "A $t_0 = 0$ on ajoute un volume d'eau oxygénée à un volume d'une solution de permanganate de potassium acidifié. L'eau oxygénée $H_2O_{2(l)}$ est oxydée par les ions permanganate $MnO^-_{4(aq)}$ selon l'équation: $5H_2O_{2(l)} + 2MnO^-_{4(aq)} + 6H^+_{(aq)} \\rightarrow 5O_{2(g)} + 2Mn^{2+}_{(aq)} + 8H_2O_{(l)}$. Le tableau ci-dessous (de Q44) présente l'évolution temporelle de la concentration des ions $Mn^{2+}_{(aq)}$.",
+            "data": { "Données": ["Volume molaire $V_m = 24 L.mol^{-1}$", "Volume du mélange: $V=10mL$", "$H_2O_{2(l)}$: réactif limitant."]},
+            "text": "La valeur du temps de demi-réaction est :",
+            "options": [
+              {"label": "A", "text": "$t_{1/2} = 10 min$"},
+              {"label": "B", "text": "$t_{1/2} = 14 min$"},
+              {"label": "C", "text": "$t_{1/2} = 24 min$"},
+              {"label": "D", "text": "$t_{1/2} = 44 min$"},
+              {"label": "E", "text": "$t_{1/2} = 60 min$"}
+            ]
+          },
+          {
+            "exercise_title": "Évolution temporel d'un système chimique",
+            "question_number": "Q46",
+            "stimulus": "A $t_0 = 0$ on ajoute un volume d'eau oxygénée à un volume d'une solution de permanganate de potassium acidifié. L'eau oxygénée $H_2O_{2(l)}$ est oxydée par les ions permanganate $MnO^-_{4(aq)}$ selon l'équation: $5H_2O_{2(l)} + 2MnO^-_{4(aq)} + 6H^+_{(aq)} \\rightarrow 5O_{2(g)} + 2Mn^{2+}_{(aq)} + 8H_2O_{(l)}$. Le tableau ci-dessous (de Q44) présente l'évolution temporelle de la concentration des ions $Mn^{2+}_{(aq)}$.",
+            "data": { "Données": ["Volume molaire $V_m = 24 L.mol^{-1}$", "Volume du mélange: $V=10mL$", "$H_2O_{2(l)}$: réactif limitant."]},
+            "text": "La valeur du volume du dioxygène formé à l'instant $t = 24 min$ vaut :",
+            "options": [
+              {"label": "A", "text": "$v = 48.10^{-2}L$"},
+              {"label": "B", "text": "$v = 4,8.10^{-2}L$"},
+              {"label": "C", "text": "$v = 36.10^{-2}L$"},
+              {"label": "D", "text": "$v = 12.10^{-2}L$"},
+              {"label": "E", "text": "$v = 24.10^{-2}L$"}
+            ]
+          },
+          {
+            "exercise_title": "Évolution temporel d'un système chimique",
+            "question_number": "Q47",
+            "stimulus": "A $t_0 = 0$ on ajoute un volume d'eau oxygénée à un volume d'une solution de permanganate de potassium acidifié. L'eau oxygénée $H_2O_{2(l)}$ est oxydée par les ions permanganate $MnO^-_{4(aq)}$ selon l'équation: $5H_2O_{2(l)} + 2MnO^-_{4(aq)} + 6H^+_{(aq)} \\rightarrow 5O_{2(g)} + 2Mn^{2+}_{(aq)} + 8H_2O_{(l)}$. Le tableau ci-dessous (de Q44) présente l'évolution temporelle de la concentration des ions $Mn^{2+}_{(aq)}$.",
+            "data": { "Données": ["Volume molaire $V_m = 24 L.mol^{-1}$", "Volume du mélange: $V=10mL$", "$H_2O_{2(l)}$: réactif limitant."]},
+            "text": "La quantité de matière initiale de l'eau oxygénée vaut:",
+            "options": [
+              {"label": "A", "text": "$n_0 = 5,6.10^{-2} mol$"},
+              {"label": "B", "text": "$n_0 = 2,8.10^{-3} mol$"},
+              {"label": "C", "text": "$n_0 = 1,4.10^{-2} mol$"},
+              {"label": "D", "text": "$n_0 = 1,4.10^{-3} mol$"},
+              {"label": "E", "text": "$n_0 = 2,8.10^{-2} mol$"}
+            ]
+          },
+          {
+            "exercise_title": "Solution aqueuse d'acide éthanoïque",
+            "question_number": "Q48",
+            "stimulus": "On considère une solution aqueuse (S) d'acide éthanoïque de concentration $C = 10^{-2} mol.L^{-1}$. La mesure de la conductivité de la solution (S) a donné $\\sigma = 1,56.10^{-2} S.m^{-1}$.",
+            "data": {"Données": ["$\\lambda_{H_3O^+} = 35 mS.m^2.mol^{-1}$", "$\\lambda_{CH_3COO^-} = 4 mS.m^2.mol^{-1}$", "$\\log 2 = 0,3$"]},
+            "text": "La concentration des ions oxonium dans cette solution est :",
+            "options": [
+              {"label": "A", "text": "$[H_3O^+_{(aq)}] = 8.10^{-4} mol.L^{-1}$"},
+              {"label": "B", "text": "$[H_3O^+_{(aq)}] = 4.10^{-4} mol.L^{-1}$"},
+              {"label": "C", "text": "$[H_3O^+_{(aq)}] = 2.10^{-4} mol.L^{-1}$"},
+              {"label": "D", "text": "$[H_3O^+_{(aq)}] = 4.10^{-5} mol.L^{-1}$"},
+              {"label": "E", "text": "$[H_3O^+_{(aq)}] = 8.10^{-3} mol.L^{-1}$"}
+            ]
+          },
+          {
+            "exercise_title": "Solution aqueuse d'acide éthanoïque",
+            "question_number": "Q49",
+            "stimulus": "On considère une solution aqueuse (S) d'acide éthanoïque de concentration $C = 10^{-2} mol.L^{-1}$. La mesure de la conductivité de la solution (S) a donné $\\sigma = 1,56.10^{-2} S.m^{-1}$. La concentration des ions oxonium est $[H_3O^+_{(aq)}] = 4.10^{-4} mol.L^{-1}$ (calculée en Q48).",
+             "data": {"Données": ["$\\log 2 = 0,3$"]},
+            "text": "La valeur du pH du mélange à l'équilibre est :",
+            "options": [
+              {"label": "A", "text": "$pH = 3,1$"},
+              {"label": "B", "text": "$pH = 3,4$"},
+              {"label": "C", "text": "$pH = 3,6$"},
+              {"label": "D", "text": "$pH = 3,8$"},
+              {"label": "E", "text": "$pH = 4,2$"}
+            ]
+          },
+          {
+            "exercise_title": "Solution aqueuse d'acide éthanoïque",
+            "question_number": "Q50",
+            "stimulus": "On considère une solution aqueuse (S) d'acide éthanoïque de concentration $C = 10^{-2} mol.L^{-1}$. La mesure de la conductivité de la solution (S) a donné $\\sigma = 1,56.10^{-2} S.m^{-1}$. La concentration des ions oxonium est $[H_3O^+_{(aq)}] = 4.10^{-4} mol.L^{-1}$ (calculée en Q48). Le taux d'avancement final de la réaction est $\\tau = \\frac{x_f}{x_{max}}$.",
+            "text": "Le taux d'avancement final de la réaction est :",
+            "options": [
+              {"label": "A", "text": "$\\tau = 4\\%$"},
+              {"label": "B", "text": "$\\tau = 2\\%$"},
+              {"label": "C", "text": "$\\tau = 1\\%$"},
+              {"label": "D", "text": "$\\tau = 0,4\\%$"},
+              {"label": "E", "text": "$\\tau = 0,2\\%$"}
+            ]
+          },
+          {
+            "exercise_title": "Etude d'un comprimé d'ibuprofène",
+            "question_number": "Q51",
+            "stimulus": "On dissout un comprimé d'ibuprofène dans un volume $V_a$ d'eau pour obtenir une solution aqueuse (S). On titre la solution (S) par une solution aqueuse d'hydroxyde de sodium de concentration $C_b = 0,20 mol.L^{-1}$. Le volume versé à l'équivalence est $V_{b,E} = 9,7 mL$.",
+            "data": {"Donnée": "$M(ibuprofène) = 206 g.mol^{-1}$"},
+            "text": "La masse d'ibuprofène contenue dans le comprimé étudié vaut :",
+            "options": [
+              {"label": "A", "text": "$m_{ibu} = 0,4 mg$"},
+              {"label": "B", "text": "$m_{ibu} = 4 mg$"},
+              {"label": "C", "text": "$m_{ibu} = 4.10^{-2} mg$"},
+              {"label": "D", "text": "$m_{ibu} = 400 mg$"},
+              {"label": "E", "text": "$m_{ibu} = 500 mg$"}
+            ]
+          },
+          {
+            "exercise_title": "Degré d'acidité d'un vinaigre",
+            "question_number": "Q52",
+            "stimulus": "On prend la masse $m = 10g$ d'un vinaigre commercial, et on y ajoute de l'eau pour obtenir une solution aqueuse $(S_A)$ d'acide éthanoïque $CH_3COOH_{(aq)}$ de volume $V = 100 mL$. On dose $V_A = 20 mL$ de la solution $(S_A)$ par une solution aqueuse $(S_B)$ d'hydroxyde de sodium de concentration $C_B = 0,10 mol.L^{-1}$. Le volume versé à l'équivalence est $V_{B,E} = 16,4 mL$.",
+            "data": {"Données": ["Le degré d'acidité d'un vinaigre commercial représente la masse d'acide éthanoïque pur en (g) contenu dans 100 g de vinaigre.", "$M(CH_3COOH) = 60 g.mol^{-1}$", "$pK_A(CH_3COOH_{(aq)}/CH_3COO^-_{(aq)}) = 4,8$"]},
+            "text": "Le degré d'acidité de ce vinaigre vaut :",
+            "options": [
+              {"label": "A", "text": "$7°$"},
+              {"label": "B", "text": "$4,9°$"},
+              {"label": "C", "text": "$11,2°$"},
+              {"label": "D", "text": "$9°$"},
+              {"label": "E", "text": "$12°$"}
+            ]
+          },
+          {
+            "question_number": "Q53",
+            "stimulus": "Titrage d'un volume $V_A = 20mL$ d'une solution aqueuse d'acide éthanoïque de concentration $C_A$ par une solution d'hydroxyde de sodium de concentration $C_B = 0,1 mol.L^{-1}$. La courbe $pH = f(V_B)$ est donnée (non fournie ici mais implicite pour les options).",
+            "text": "Les valeurs de l'avancement maximal de la réaction et du pH du milieu réactionnel pour le volume $V_B = 8,2 mL$ sont :",
+            "options": [
+              {"label": "A", "text": "$x_f = 8,2.10^{-4} mol$, $pH = 4$"},
+              {"label": "B", "text": "$x_f = 4,2.10^{-4} mol$, $pH = 4,8$"},
+              {"label": "C", "text": "$x_f = 4,2.10^{-4} mol$, $pH = 4$"},
+              {"label": "D", "text": "$x_f = 6,2.10^{-4} mol$, $pH = 5$"},
+              {"label": "E", "text": "$x_f = 8,2.10^{-4} mol$, $pH = 4,8$"}
+            ]
+          },
+          {
+            "exercise_title": "Solution aqueuse d'acide benzoïque",
+            "question_number": "Q54",
+            "stimulus": "Le pH d'une solution aqueuse (S) d'acide benzoïque de volume $V=1L$ et de concentration $C = 0,1mol.L^{-1}$, à 25°C, est $pH = 2,6$.",
+            "data": {"Données": ["$10^{0,8} = 6,3$", "$10^{0,4} = 2,5$", "$1-10^{-1,6} \\approx 1$"]},
+            "text": "L'avancement final de la réaction de l'acide benzoïque avec l'eau est:",
+            "options": [
+              {"label": "A", "text": "$x_f = 2,5.10^{-3} mol$"},
+              {"label": "B", "text": "$x_f = 1,4.10^{-3} mol$"},
+              {"label": "C", "text": "$x_f = 2,5.10^{-2} mol$"},
+              {"label": "D", "text": "$x_f = 4.10^{-2} mol$"},
+              {"label": "E", "text": "$x_f = 6.10^{-2} mol$"}
+            ]
+          },
+          {
+            "exercise_title": "Solution aqueuse d'acide benzoïque",
+            "question_number": "Q55",
+            "stimulus": "Le pH d'une solution aqueuse (S) d'acide benzoïque de volume $V=1L$ et de concentration $C = 0,1mol.L^{-1}$, à 25°C, est $pH = 2,6$. Couple $(C_6H_5COOH_{(aq)} / C_6H_5COO^-_{(aq)})$.",
+            "text": "La constante d'acidité $K_A$ du couple $(C_6H_5COOH_{(aq)} / C_6H_5COO^-_{(aq)})$ a pour expression:",
+            "options": [
+              {"label": "A", "text": "$K_A = \\frac{10^{-pH}}{C-10^{-pH}}$"},
+              {"label": "B", "text": "$K_A = \\frac{10^{-2pH}}{C(1-10^{-pH})}$"},
+              {"label": "C", "text": "$K_A = \\frac{10^{-2pH}}{C-10^{-pH}}$"},
+              {"label": "D", "text": "$K_A = \\frac{C.10^{-2pH}}{1-10^{-pH}}$"},
+              {"label": "E", "text": "$K_A = \\frac{10^{-pH}}{C-10^{-2pH}}$"}
+            ]
+          },
+          {
+            "exercise_title": "Solution aqueuse d'acide benzoïque",
+            "question_number": "Q56",
+            "stimulus": "Le pH d'une solution aqueuse (S) d'acide benzoïque de volume $V=1L$ et de concentration $C = 0,1mol.L^{-1}$, à 25°C, est $pH = 2,6$. Couple $(C_6H_5COOH_{(aq)} / C_6H_5COO^-_{(aq)})$.",
+            "data": {"Données": ["$10^{0,8} = 6,3$", "$10^{0,4} = 2,5$", "$1-10^{-1,6} \\approx 1$"]},
+            "text": "La valeur de la constante d'acidité $K_A$ du couple $(C_6H_5COOH_{(aq)} / C_6H_5COO^-_{(aq)})$ est:",
+            "options": [
+              {"label": "A", "text": "$K_A = 2.10^{-5}$"},
+              {"label": "B", "text": "$K_A = 6,3.10^{-5}$"},
+              {"label": "C", "text": "$K_A = 4.10^{-5}$"},
+              {"label": "D", "text": "$K_A = 6,3.10^{-10}$"},
+              {"label": "E", "text": "$K_A = 4.10^{-7}$"}
+            ]
+          },
+          {
+            "exercise_title": "Solution aqueuse d'ammoniac",
+            "question_number": "Q57",
+            "stimulus": "La mesure du pH d'une solution aqueuse (S) d'ammoniac de concentration C, a donné $pH = 10,3$. Pour cette solution: $\\log \\frac{[NH_4^+]}{[NH_3]} = 1,1$.",
+            "text": "Le taux d'avancement final de la réaction qui se produit a pour expression:",
+            "options": [
+              {"label": "A", "text": "$\\tau = \\frac{10^{-pH}}{C.K_e}$"},
+              {"label": "B", "text": "$\\tau = \\frac{10^{pH}}{C.K_e}$"},
+              {"label": "C", "text": "$\\tau = \\frac{10^{-pH}.K_a}{C}$"},
+              {"label": "D", "text": "$\\tau = \\frac{10^{pH}.K_a}{C}$"},
+              {"label": "E", "text": "$\\tau = \\frac{C.10^{pH}}{K_a}$"}
+            ]
+          },
+          {
+            "exercise_title": "Solution aqueuse d'ammoniac",
+            "question_number": "Q58",
+            "stimulus": "La mesure du pH d'une solution aqueuse (S) d'ammoniac de concentration C, a donné $pH = 10,3$. Pour cette solution: $\\log \\frac{[NH_4^+]}{[NH_3]} = 1,1$. Couple $(NH^+_{4(aq)} / NH_{3(aq)})$.",
+            "text": "La valeur de $pK_A$ du couple $(NH^+_{4(aq)} / NH_{3(aq)})$ vaut :",
+            "options": [
+              {"label": "A", "text": "$pK_A = 9,8$"},
+              {"label": "B", "text": "$pK_A = 5,4$"},
+              {"label": "C", "text": "$pK_A = 10,3$"},
+              {"label": "D", "text": "$pK_A = 4,1$"},
+              {"label": "E", "text": "$pK_A = 9,2$"}
+            ]
+          },
+          {
+            "exercise_title": "Réaction d'acide lactique avec l'hydroxyde de sodium",
+            "question_number": "Q59",
+            "stimulus": "On ajoute au volume $V_A = 20mL$ d'une solution aqueuse d'acide lactique $C_3H_6O_3$ de concentration $C_A = 3.10^{-2} mol.L^{-1}$, le volume $V_B = 10mL$ d'une solution aqueuse d'hydroxyde de sodium de concentration $C_B = 1,5.10^{-2} mol.L^{-1}$. Le pH du mélange est $pH = 3,3$.",
+            "data": {"Donnée": "$10^{-10,7} = 2.10^{-11}$"},
+            "text": "L'avancement final $x_f$ de la réaction qui a eu lieu a pour expression:",
+            "options": [
+              {"label": "A", "text": "$x_f = C_B.V_B - (V_A+V_B).10^{pH-pK_a}$"},
+              {"label": "B", "text": "$x_f = C_A.V_A - (V_A+V_B).10^{pH-pK_a}$"},
+              {"label": "C", "text": "$x_f = C_B.V_B + (V_A+V_B).10^{pH-pK_a}$"},
+              {"label": "D", "text": "$x_f = C_A.V_A + (V_A+V_B).10^{pH-pK_a}$"},
+              {"label": "E", "text": "$x_f = C_A.V_A + (V_A+V_B).10^{pK_a-pH}$"}
+            ]
+          },
+          {
+            "exercise_title": "Réaction d'acide lactique avec l'hydroxyde de sodium",
+            "question_number": "Q60",
+            "stimulus": "On ajoute au volume $V_A = 20mL$ d'une solution aqueuse d'acide lactique $C_3H_6O_3$ de concentration $C_A = 3.10^{-2} mol.L^{-1}$, le volume $V_B = 10mL$ d'une solution aqueuse d'hydroxyde de sodium de concentration $C_B = 1,5.10^{-2} mol.L^{-1}$. Le pH du mélange est $pH = 3,3$.",
+            "text": "La valeur de la concentration $[C_3H_5O^-_{3(aq)}]$ est:",
+            "options": [
+              {"label": "A", "text": "$[C_3H_5O^-_{3(aq)}] = 5.10^{-2} mol.L^{-1}$"},
+              {"label": "B", "text": "$[C_3H_5O^-_{3(aq)}] = 2.10^{-2} mol.L^{-1}$"},
+              {"label": "C", "text": "$[C_3H_5O^-_{3(aq)}] = 1,5.10^{-2} mol.L^{-1}$"},
+              {"label": "D", "text": "$[C_3H_5O^-_{3(aq)}] = 5.10^{-3} mol.L^{-1}$"},
+              {"label": "E", "text": "$[C_3H_5O^-_{3(aq)}] = 1,5.10^{-4} mol.L^{-1}$"}
+            ]
+          }
+        ]
+      },
+      {
+        "component_name": "Mathématiques",
+        "coefficient": 1,
+        "questions": [
+          {
+            "question_number": "Q61",
+            "text": "Si z est le nombre complexe de module $\\sqrt{2}$ et d'argument $\\frac{\\pi}{3}$, alors $z^8$ est égal à :",
+            "options": [
+              {"label": "A", "text": "$8+i8\\sqrt{3}$"},
+              {"label": "B", "text": "$-8+i8\\sqrt{3}$"},
+              {"label": "C", "text": "$-8-i8\\sqrt{3}$"},
+              {"label": "D", "text": "$8-i8\\sqrt{3}$"},
+              {"label": "E", "text": "$4+i4\\sqrt{3}$"}
+            ]
+          },
+          {
+            "question_number": "Q62",
+            "text": "Si $\\theta$ est un nombre réel, alors $\\cos^3 \\theta$ est égal à :",
+            "options": [
+              {"label": "A", "text": "$\\frac{1}{8}(\\cos3\\theta+3\\cos\\theta)$"},
+              {"label": "B", "text": "$\\frac{1}{4}(\\cos3\\theta+3\\cos\\theta)$"},
+              {"label": "C", "text": "$\\frac{1}{4}(\\sin3\\theta+3\\sin\\theta)$"},
+              {"label": "D", "text": "$\\frac{1}{8}(3\\cos\\theta-\\cos3\\theta)$"},
+              {"label": "E", "text": "$\\frac{1}{8}(\\sin3\\theta+3\\sin\\theta)$"}
+            ]
+          },
+          {
+            "question_number": "Q63",
+            "text": "Si $x \\in ]0,1[$, alors $\\lim_{n \\to +\\infty} (1-x)^n (1+x)^n$ est égale à :",
+            "options": [
+              {"label": "A", "text": "$+\\infty$"},
+              {"label": "B", "text": "$-\\infty$"},
+              {"label": "C", "text": "$0$"},
+              {"label": "D", "text": "$-1$"},
+              {"label": "E", "text": "$1$"}
+            ]
+          },
+          {
+            "question_number": "Q64",
+            "text": "Le domaine de définition de la fonction $f$ définie par $f(x) = \\frac{1}{x-1}ln(1+\\frac{1}{x})$ est:",
+            "options": [
+              {"label": "A", "text": "$]-\\infty,-1[ \\cup ]0,+\\infty[$"},
+              {"label": "B", "text": "$]-1,1[ \\cup ]1,+\\infty[$"},
+              {"label": "C", "text": "$]-\\infty,-1[ \\cup ]1,+\\infty[$"},
+              {"label": "D", "text": "$]-\\infty,-1[ \\cup ]0,1[ \\cup ]1,+\\infty[$"},
+              {"label": "E", "text": "$]-1,1[$"}
+            ]
+          },
+          {
+            "question_number": "Q65",
+            "text": "Si $f(x)=(x^2-x)e^{\\frac{1}{x}}$ alors $f'(x)$ est égale à :",
+            "options": [
+              {"label": "A", "text": "$(2x-1)e^{\\frac{1}{x}}$"},
+              {"label": "B", "text": "$(1-\\frac{1}{x})e^{\\frac{1}{x}}$"},
+              {"label": "C", "text": "$(\\frac{1}{x}-1)e^{\\frac{1}{x}}$"},
+              {"label": "D", "text": "$(2x-2+\\frac{1}{x})e^{\\frac{1}{x}}$"},
+              {"label": "E", "text": "$(2x-\\frac{1}{x^2})e^{\\frac{1}{x}}$"}
+            ]
+          },
+          {
+            "question_number": "Q66",
+            "text": "Si z est un nombre complexe tel que : $arg(z-1) = \\frac{2\\pi}{3} [2\\pi]$ et $arg(z+1) = \\frac{\\pi}{3} [2\\pi]$ alors z est égal à :",
+            "options": [
+              {"label": "A", "text": "$i\\sqrt{3}$"},
+              {"label": "B", "text": "$2i\\sqrt{3}$"},
+              {"label": "C", "text": "$-i\\sqrt{3}$"},
+              {"label": "D", "text": "$-2i\\sqrt{3}$"},
+              {"label": "E", "text": "$1+i\\sqrt{3}$"}
+            ]
+          },
+          {
+            "question_number": "Q67",
+            "text": "Si $z=1+ie^{i\\frac{\\theta}{2}}$ où $\\theta \\in ]-\\pi,\\pi[$ alors $|z|$ est égal à :",
+            "options": [
+              {"label": "A", "text": "$2$"},
+              {"label": "B", "text": "$2\\cos\\frac{\\theta}{2}$"},
+              {"label": "C", "text": "$2\\cos(\\frac{\\theta}{4}+\\frac{\\pi}{4})$"},
+              {"label": "D", "text": "$2\\cos\\frac{\\theta}{4}$"},
+              {"label": "E", "text": "$2\\sin\\frac{\\theta}{4}$"}
+            ]
+          },
+          {
+            "question_number": "Q68",
+            "text": "On a $\\lim_{n \\to +\\infty} (\\frac{n-1}{n+1})^{2n}$ est égale à :",
+            "options": [
+              {"label": "A", "text": "$0$"},
+              {"label": "B", "text": "$e^{-4}$"},
+              {"label": "C", "text": "$e^4$"},
+              {"label": "D", "text": "$e$"},
+              {"label": "E", "text": "$1$"}
+            ]
+          },
+          {
+            "question_number": "Q69",
+            "text": "Si $(u_n)_{n \\in \\mathbb{N}}$ une suite géométrique de premier terme $u_1 = 2$ et de raison $q = \\frac{1}{3}$ alors le produit $u_1 \\times u_2 \\times u_3 \\times ... \\times u_n$ ($n \\ge 1$) est égal à :",
+            "options": [
+              {"label": "A", "text": "$2^n.3^{\\frac{n(n-1)}{2}}$"},
+              {"label": "B", "text": "$2^n.3^{-\\frac{n(n-1)}{2}}$"},
+              {"label": "C", "text": "$2^n.3^{\\frac{n(n+1)}{2}}$"},
+              {"label": "D", "text": "$2^n.3^{-\\frac{n(n+1)}{2}}$"},
+              {"label": "E", "text": "$2^n.3^{\\frac{1-n(n-1)}{2}}$"}
+            ]
+          },
+          {
+            "question_number": "Q70",
+            "text": "Si $(\\forall x \\in \\mathbb{R}) ; f(x)=(x-5)(x-4)(x-3)(x-2)(x-1)$ alors $f'(1)$ est égal à :",
+            "options": [
+              {"label": "A", "text": "$24$"},
+              {"label": "B", "text": "$1$"},
+              {"label": "C", "text": "$0$"},
+              {"label": "D", "text": "$5$"},
+              {"label": "E", "text": "$-24$"}
+            ]
+          },
+          {
+            "question_number": "Q71",
+            "text": "Soit $f$ la fonction définie par : $f(x) = \\frac{2\\ln x}{x(1+(\\ln x)^2)}$. La primitive de $f$ sur $]0,+\\infty[$ qui s'annule en 1 est :",
+            "options": [
+              {"label": "A", "text": "$\\ln((\\ln x)^2 +1)$"},
+              {"label": "B", "text": "$(\\ln x)^2$"},
+              {"label": "C", "text": "$2x\\ln((\\ln x)^2 +1)$"},
+              {"label": "D", "text": "$\\frac{x\\ln x}{\\ln x + 1}$"},
+              {"label": "E", "text": "$\\frac{2\\ln x}{(\\ln x)^2 +1}$"}
+            ]
+          },
+          {
+            "question_number": "Q72",
+            "text": "L'intégrale $\\int_0^1 \\frac{2t+3}{t+2}dt$ est égale à :",
+            "options": [
+              {"label": "A", "text": "$\\ln\\frac{3}{2}$"},
+              {"label": "B", "text": "$2+\\ln\\frac{3}{2}$"},
+              {"label": "C", "text": "$2-\\ln\\frac{2}{3}$"},
+              {"label": "D", "text": "$2+\\ln\\frac{2}{3}$"},
+              {"label": "E", "text": "$\\ln\\frac{2}{3}$"}
+            ]
+          },
+          {
+            "question_number": "Q73",
+            "text": "Le plan complexe est rapporté à un repère orthonormé direct $(O, \\vec{u}, \\vec{v})$. L'ensemble des points M d'affixe z tel que : $z+\\frac{1}{z} \\in \\mathbb{R}$ est :",
+            "options": [
+              {"label": "A", "text": "L'axe des réels privé du point O"},
+              {"label": "B", "text": "Le cercle de centre O et de rayon 1"},
+              {"label": "C", "text": "L'axe des réels privé des deux points A(-1) et B(1)"},
+              {"label": "D", "text": "Le cercle de centre O et de rayon 1 privé des deux points A(-1) et B(1)"},
+              {"label": "E", "text": "L'axe des réels privé du point O union le cercle de centre O et de rayon 1"}
+            ]
+          },
+          {
+            "question_number": "Q74",
+            "text": "Soit $(w_n)_{n \\in \\mathbb{N}}$ la suite définie par : $w_0 = \\frac{1}{2}$ et $(\\forall n \\in \\mathbb{N}) ; w_{n+1} = (w_n - 1)^2 + 1$. Si $(w_n)_{n \\in \\mathbb{N}}$ est convergente alors $\\lim_{n \\to +\\infty} w_n$ est égale à :",
+            "options": [
+              {"label": "A", "text": "$0$"},
+              {"label": "B", "text": "$2$"},
+              {"label": "C", "text": "$1$"},
+              {"label": "D", "text": "$\\frac{1}{2}$"},
+              {"label": "E", "text": "$-1$"}
+            ]
+          },
+          {
+            "question_number": "Q75",
+            "text": "Soit $a \\in ]0,+\\infty[$ et $f$ la fonction définie par : $f(x)=1+x\\ln(1+\\frac{a}{x})$. On a $\\lim_{x \\to +\\infty} f(x)$ est égale à :",
+            "options": [
+              {"label": "A", "text": "$1$"},
+              {"label": "B", "text": "$1+\\frac{a}{2}$"},
+              {"label": "C", "text": "$1+a$"},
+              {"label": "D", "text": "$+\\infty$"},
+              {"label": "E", "text": "$a$"}
+            ]
+          },
+          {
+            "question_number": "Q76",
+            "text": "Soit ABC un triangle isocèle en A tel que : $AB=AC=10$. L'aire maximale du triangle ABC est:",
+            "options": [
+              {"label": "A", "text": "$25\\frac{\\sqrt{2}}{2}$"},
+              {"label": "B", "text": "$50$"},
+              {"label": "C", "text": "$100$"},
+              {"label": "D", "text": "$10$"},
+              {"label": "E", "text": "$5\\sqrt{2}$"}
+            ]
+          },
+          {
+            "question_number": "Q77",
+            "text": "Si $(\\forall x \\in \\mathbb{R}_+^*) ; f(x)=x^3+3\\ln x+1$ alors le nombre dérivé $(f^{-1})'(2)$ est égal à :",
+            "options": [
+              {"label": "A", "text": "$\\frac{1}{3}$"},
+              {"label": "B", "text": "$\\frac{1}{6}$"},
+              {"label": "C", "text": "$\\frac{1}{5}$"},
+              {"label": "D", "text": "$\\frac{1}{4}$"},
+              {"label": "E", "text": "$\\frac{1}{2}$"}
+            ]
+          },
+          {
+            "question_number": "Q78",
+            "text": "L'intégrale $\\int_0^{\\frac{\\pi}{2}} \\sin(x)e^x dx$ est égale à :",
+            "options": [
+              {"label": "A", "text": "$\\frac{1+e^{\\frac{\\pi}{2}}}{2}$"},
+              {"label": "B", "text": "$\\frac{e+e^{\\frac{\\pi}{2}}}{2}$"},
+              {"label": "C", "text": "$\\frac{1-e^{\\frac{\\pi}{2}}}{2}$"},
+              {"label": "D", "text": "$1+e^{\\frac{\\pi}{2}}$"},
+              {"label": "E", "text": "$1-e^{\\frac{\\pi}{2}}$"}
+            ]
+          },
+          {
+            "question_number": "Q79",
+            "text": "On considère la fonction $f$ définie par : $(\\forall x \\in \\mathbb{R}) ; f(x)=e^{-\\frac{x^2}{2}}$. Un encadrement de $f'(x)$ sur l'intervalle $[0,1]$ est :",
+            "options": [
+              {"label": "A", "text": "$0 \\le f'(x) \\le \\frac{1}{\\sqrt{e}}$"},
+              {"label": "B", "text": "$-\\frac{1}{\\sqrt{e}} \\le f'(x) \\le 0$"},
+              {"label": "C", "text": "$-\\frac{1}{2} \\le f'(x) \\le 0$"},
+              {"label": "D", "text": "$0 \\le f'(x) \\le \\sqrt{e}$"},
+              {"label": "E", "text": "$-\\frac{1}{\\sqrt{e}} \\le f'(x) \\le -\\frac{1}{2}$"}
+            ]
+          },
+          {
+            "question_number": "Q80",
+            "text": "Soit $f(x) = \\sqrt{x^3+2x^2+3} - ax\\sqrt{x} + b$ avec a et b deux réels donnés. $f$ admet une limite finie en $+\\infty$ si et seulement si :",
+            "options": [
+              {"label": "A", "text": "$a>0$ et $b>0$"},
+              {"label": "B", "text": "$a=1$ et $b>0$"},
+              {"label": "C", "text": "$a=1$ et $b=2$"},
+              {"label": "D", "text": "$a=1$ et $b=0$"},
+              {"label": "E", "text": "$a>0$ et $b=0$"}
+            ]
+          }
+        ]
+      }
+    ]
+  }
