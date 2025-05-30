@@ -184,13 +184,21 @@ const loadExamData = async (id: string) => {
         const [_, examType, year] = subMatch;
         console.log(`Extracted from path: examType=${examType}, year=${year}`);
         
-        // Construct the import path
-        const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
-        console.log(`Importing from path: ${importPath}`);
-        
-        // Dynamically import the exam data
-        const examModule = await import(importPath);
-        return examModule.default;
+        // Use fetch instead of dynamic import for production compatibility
+        try {
+          // First try with the public path
+          const response = await fetch(`/concours/${examType}/${examType}${year}/epreuve_${year}.json`);
+          if (response.ok) {
+            return await response.json();
+          }
+          throw new Error('File not found in public path');
+        } catch (innerError) {
+          // Fallback to relative import for development
+          const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
+          console.log(`Fallback: Importing from path: ${importPath}`);
+          const examModule = await import(importPath);
+          return examModule.default;
+        }
       }
     }
     
@@ -201,13 +209,21 @@ const loadExamData = async (id: string) => {
     const [_, examType, year] = match;
     console.log(`Extracted: examType=${examType}, year=${year}`);
     
-    // Construct the import path
-    const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
-    console.log(`Importing from path: ${importPath}`);
-    
-    // Dynamically import the exam data
-    const examModule = await import(importPath);
-    return examModule.default;
+    // Use fetch instead of dynamic import for production compatibility
+    try {
+      // First try with the public path
+      const response = await fetch(`/concours/${examType}/${examType}${year}/epreuve_${year}.json`);
+      if (response.ok) {
+        return await response.json();
+      }
+      throw new Error('File not found in public path');
+    } catch (innerError) {
+      // Fallback to relative import for development
+      const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
+      console.log(`Fallback: Importing from path: ${importPath}`);
+      const examModule = await import(importPath);
+      return examModule.default;
+    }
   } catch (error) {
     console.error(`Failed to load exam data for ID: ${id}`, error);
     throw error;
