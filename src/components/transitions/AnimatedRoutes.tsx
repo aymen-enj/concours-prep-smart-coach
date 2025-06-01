@@ -100,7 +100,23 @@ const AnimatedRoutes = () => {
             } 
           />
           <Route 
+            path="/exam-view/:id/:subject" 
+            element={
+              <PageTransition>
+                <ExamView />
+              </PageTransition>
+            } 
+          />
+          <Route 
             path="/correction/:id" 
+            element={
+              <PageTransition>
+                <Correction />
+              </PageTransition>
+            } 
+          />
+          <Route 
+            path="/correction/:id/:subject" 
             element={
               <PageTransition>
                 <Correction />

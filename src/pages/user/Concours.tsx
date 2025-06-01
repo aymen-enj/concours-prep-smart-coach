@@ -622,13 +622,7 @@ const ConcoursPage = () => {
                             transition={{ duration: 0.4, delay: index * 0.1 }}
                           >
                             <ConcoursCard 
-                              id={concours.id}
-                              title={concours.title}
-                              subject={concours.subject}
-                              year={concours.year}
-                              level={concours.educationLevel}
-                              isPaid={concours.isPaid}
-                              hasAccess={concours.hasAccess}
+                              concours={concours}
                             />
                           </motion.div>
                         ))}

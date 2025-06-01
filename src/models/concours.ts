@@ -23,6 +23,7 @@ export interface ConcoursItem {
   universityId: string;
   country: Country;
   educationLevel: EducationLevel;
+  subjects?: {id: string, name: string}[];
 }
 
 // Data structure for the countries
@@ -39,6 +40,12 @@ export const educationLevels: EducationLevel[] = [
 
 // Moroccan universities
 export const moroccanUniversities: University[] = [
+  {
+    id: 'ensa',
+    name: 'ENSA (École Nationale des Sciences Appliquées)',
+    location: 'Multiple locations',
+    description: 'Réseau des écoles nationales des sciences appliquées au Maroc'
+  },
   {
     id: 'encg',
     name: 'ENCG (École Nationale de Commerce et Gestion)',
@@ -107,6 +114,89 @@ export const frenchUniversities: University[] = [
 
 // Sample concours data organized by country, education level, and university
 export const concoursData: ConcoursItem[] = [
+  // Moroccan ENSA - Regroupés par année avec des matières
+  {
+    id: 'ensa-2024',
+    title: 'Concours ENSA 2024',
+    subject: 'Concours d\'admission',
+    year: 2024,
+    level: 'Bac',
+    isPaid: false,
+    hasAccess: true,
+    universityId: 'ensa',
+    country: 'Maroc',
+    educationLevel: 'Bac',
+    subjects: [
+      { id: 'math', name: 'Mathématiques' },
+      { id: 'pc', name: 'Physique Chimie' }
+    ]
+  },
+  {
+    id: 'ensa-2023',
+    title: 'Concours ENSA 2023',
+    subject: 'Concours d\'admission',
+    year: 2023,
+    level: 'Bac',
+    isPaid: false,
+    hasAccess: true,
+    universityId: 'ensa',
+    country: 'Maroc',
+    educationLevel: 'Bac',
+    subjects: [
+      { id: 'math', name: 'Mathématiques' },
+      { id: 'pc', name: 'Physique Chimie' }
+    ]
+  },
+  {
+    id: 'ensa-2022',
+    title: 'Concours ENSA 2022',
+    subject: 'Concours d\'admission',
+    year: 2022,
+    level: 'Bac',
+    isPaid: false,
+    hasAccess: true,
+    universityId: 'ensa',
+    country: 'Maroc',
+    educationLevel: 'Bac',
+    subjects: [
+      { id: 'math', name: 'Mathématiques' },
+      { id: 'pc', name: 'Physique Chimie' }
+    ]
+  },
+  {
+    id: 'ensa-2021',
+    title: 'Concours ENSA 2021',
+    subject: 'Concours d\'admission',
+    year: 2021,
+    level: 'Bac',
+    isPaid: false,
+    hasAccess: true,
+    universityId: 'ensa',
+    country: 'Maroc',
+    educationLevel: 'Bac',
+    subjects: [
+      { id: 'math', name: 'Mathématiques' },
+      { id: 'pc', name: 'Physique Chimie' }
+    ]
+  },
+  {
+    id: 'ensa-2019',
+    title: 'Concours ENSA 2019',
+    subject: 'Concours d\'admission',
+    year: 2019,
+    level: 'Bac',
+    isPaid: false,
+    hasAccess: true,
+    universityId: 'ensa',
+    country: 'Maroc',
+    educationLevel: 'Bac',
+    subjects: [
+      { id: 'math', name: 'Mathématiques' },
+      { id: 'pc', name: 'Physique Chimie' }
+    ]
+  },
+
+
   // Moroccan ENCG
   {
     id: 'encg-2023',
@@ -284,4 +374,17 @@ export function getConcoursByUniversity(universityId: string): ConcoursItem[] {
 // Utility function to get all concours by country
 export function getAllConcoursByCountry(country: Country): ConcoursItem[] {
   return concoursData.filter(concours => concours.country === country);
+}
+
+// Nouvelle fonction utilitaire pour obtenir le chemin correct du fichier d'épreuve
+export function getExamPath(concoursId: string, subject?: string): string {
+  // Identifier les concours ENSA spéciaux qui ont des matières
+  if (concoursId.startsWith('ensa-') && subject) {
+    const [_, year] = concoursId.split('-');
+    return `ensa/ensa${year}/${subject}/epreuve_${year}.json`;
+  }
+  
+  // Traitement standard pour les autres concours
+  const [examType, yearStr] = concoursId.split('-');
+  return `${examType}/${examType}${yearStr}/epreuve_${yearStr}.json`;
 } 

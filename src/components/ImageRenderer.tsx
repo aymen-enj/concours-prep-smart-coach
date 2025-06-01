@@ -3,12 +3,13 @@ import MathRenderer from './MathRenderer';
 
 interface ImageFigureData {
   type: 'image';
+  library: string;
   image_url: string;
   title?: string;
-  description?: string;
   alt_text?: string;
-  width?: string | number;
-  height?: string | number;
+  description?: string;
+  width?: string;
+  height?: string;
 }
 
 interface ImageRendererProps {
@@ -16,31 +17,33 @@ interface ImageRendererProps {
 }
 
 const ImageRenderer: React.FC<ImageRendererProps> = ({ figureData }) => {
-  if (!figureData || figureData.type !== 'image' || !figureData.image_url) {
-    return <div>Invalid image configuration.</div>;
-  }
-
-  const { image_url, title, description, alt_text, width = '100%', height = 'auto' } = figureData;
+  console.log("Rendering image from URL:", figureData.image_url);
+  
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    console.error("Erreur de chargement de l'image:", figureData.image_url);
+    e.currentTarget.src = "/images/image-not-found.png";
+  };
 
   return (
-    <div className="image-renderer">
-      {title && <h3 className="text-center text-lg font-medium mb-2">{title}</h3>}
+    <div className="flex flex-col items-center justify-center w-full">
+      {figureData.title && (
+        <h3 className="text-lg font-medium mb-3 text-center">{figureData.title}</h3>
+      )}
       <img 
-        src={image_url}
-        alt={alt_text || description || title || "Figure"}
+        src={figureData.image_url}
+        alt={figureData.alt_text || figureData.title || "Figure"}
         style={{ 
-          width: width,
-          height: height,
+          width: figureData.width || 'auto',
           maxWidth: '100%',
-          display: 'block',
-          margin: '0 auto'
+          height: figureData.height || 'auto',
+          maxHeight: '500px',
+          objectFit: 'contain'
         }}
-        className="border-0"
+        className="rounded-md border border-gray-200 dark:border-gray-700"
+        onError={handleImageError}
       />
-      {description && (
-        <p className="text-sm text-center mt-2 text-gray-600">
-          <MathRenderer text={description} />
-        </p>
+      {figureData.description && (
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">{figureData.description}</p>
       )}
     </div>
   );

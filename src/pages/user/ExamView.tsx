@@ -161,9 +161,31 @@ const formatTime = (seconds: number) => {
 };
 
 // Add a utility to dynamically load exam data
-const loadExamData = async (id: string) => {
+const loadExamData = async (id: string, subject?: string) => {
   try {
-    console.log(`Attempting to load exam with ID: ${id}`);
+    console.log(`Attempting to load exam with ID: ${id}, subject: ${subject}`);
+    
+    // Cas spécial pour ENSA avec matières spécifiques
+    if (id.startsWith('ensa-') && subject) {
+      const [_, year] = id.split('-');
+      const path = `ensa/ensa${year}/${subject}/epreuve_${year}.json`;
+      console.log(`Loading ENSA exam with specific subject: ${path}`);
+      
+      try {
+        // First try with the public path
+        const response = await fetch(`/concours/${path}`);
+        if (response.ok) {
+          return await response.json();
+        }
+        throw new Error('File not found in public path');
+      } catch (innerError) {
+        // Fallback to relative import for development
+        const importPath = `../../../concours/${path}`;
+        console.log(`Fallback: Importing from ENSA path: ${importPath}`);
+        const examModule = await import(importPath);
+        return examModule.default;
+      }
+    }
     
     // Extract exam type and year from the ID 
     // This supports various formats like:
@@ -358,7 +380,7 @@ const QuickNav = ({
   };
 
 const ExamView = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id, subject } = useParams<{ id: string; subject: string }>();
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -385,11 +407,184 @@ const ExamView = () => {
       
       try {
         setIsLoading(true);
-        const rawData = await loadExamData(id);
-        console.log(`Loaded exam data for ${id}:`, rawData);
+        const rawData = await loadExamData(id, subject);
+        console.log(`Loaded exam data for ${id}${subject ? '/' + subject : ''}:`, rawData);
         
         // Normalize the data structure based on what we received
         let normalizedData: any = { components: [] };
+        
+        // Case spécifique pour les fichiers avec structure "exercises" (format PC)
+        if (rawData && typeof rawData === 'object' && 'exercises' in rawData && Array.isArray(rawData.exercises)) {
+          console.log("Structure détectée: fichier avec exercises (format physique-chimie)");
+          console.log("Exercises trouvés:", rawData.exercises.length);
+          
+          try {
+            // Corriger les chemins d'images si nécessaire
+            const correctedExercises = rawData.exercises.map(exercise => {
+              // Copier l'exercice
+              const correctedExercise = { ...exercise };
+              
+              // Corriger le chemin de l'image de l'exercice si présent
+              if (correctedExercise.programmatic_figure && correctedExercise.programmatic_figure.type === 'image') {
+                const imagePath = correctedExercise.programmatic_figure.image_url;
+                // Si le chemin commence par /, il est déjà absolu
+                if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                  // Extraire l'année de l'ID
+                  const yearMatch = id?.match(/\d{4}/);
+                  const year = yearMatch ? yearMatch[0] : '';
+                  
+                  // Construire le chemin absolu
+                  correctedExercise.programmatic_figure.image_url = `/concours/ensa/ensa${year}/${subject}/images/${imagePath}`;
+                  console.log(`Chemin d'image corrigé: ${imagePath} -> ${correctedExercise.programmatic_figure.image_url}`);
+                }
+              }
+              
+              // Corriger les chemins pour plusieurs images dans l'exercice
+              if (correctedExercise.programmatic_figures && Array.isArray(correctedExercise.programmatic_figures)) {
+                correctedExercise.programmatic_figures = correctedExercise.programmatic_figures.map(figure => {
+                  if (figure.type === 'image') {
+                    const imagePath = figure.image_url;
+                    // Si le chemin commence par /, il est déjà absolu
+                    if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                      // Extraire l'année de l'ID
+                      const yearMatch = id?.match(/\d{4}/);
+                      const year = yearMatch ? yearMatch[0] : '';
+                      
+                      // Construire le chemin absolu
+                      figure.image_url = `/concours/ensa/ensa${year}/${subject}/images/${imagePath}`;
+                      console.log(`Chemin d'image multiple corrigé: ${imagePath} -> ${figure.image_url}`);
+                    }
+                  }
+                  return figure;
+                });
+              }
+              
+              // Corriger les chemins d'images dans les questions
+              if (correctedExercise.questions && Array.isArray(correctedExercise.questions)) {
+                correctedExercise.questions = correctedExercise.questions.map(question => {
+                  const correctedQuestion = { ...question };
+                  
+                  // Corriger le chemin de l'image de la question si présent
+                  if (correctedQuestion.programmatic_figure && correctedQuestion.programmatic_figure.type === 'image') {
+                    const imagePath = correctedQuestion.programmatic_figure.image_url;
+                    // Si le chemin commence par /, il est déjà absolu
+                    if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                      // Extraire l'année de l'ID
+                      const yearMatch = id?.match(/\d{4}/);
+                      const year = yearMatch ? yearMatch[0] : '';
+                      
+                      // Construire le chemin absolu
+                      correctedQuestion.programmatic_figure.image_url = `/concours/ensa/ensa${year}/${subject}/images/${imagePath}`;
+                      console.log(`Chemin d'image corrigé: ${imagePath} -> ${correctedQuestion.programmatic_figure.image_url}`);
+                    }
+                  }
+                  
+                  // Corriger les options d'images
+                  if (correctedQuestion.options && Array.isArray(correctedQuestion.options)) {
+                    correctedQuestion.options = correctedQuestion.options.map(option => {
+                      const correctedOption = { ...option };
+                      
+                      if (correctedOption.programmatic_figure && correctedOption.programmatic_figure.type === 'image') {
+                        const imagePath = correctedOption.programmatic_figure.image_url;
+                        // Si le chemin commence par /, il est déjà absolu
+                        if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                          // Extraire l'année de l'ID
+                          const yearMatch = id?.match(/\d{4}/);
+                          const year = yearMatch ? yearMatch[0] : '';
+                          
+                          // Construire le chemin absolu
+                          correctedOption.programmatic_figure.image_url = `/concours/ensa/ensa${year}/${subject}/images/${imagePath}`;
+                          console.log(`Chemin d'image corrigé: ${imagePath} -> ${correctedOption.programmatic_figure.image_url}`);
+                        }
+                      }
+                      
+                      return correctedOption;
+                    });
+                  }
+                  
+                  // Corriger les chemins pour plusieurs images dans la question
+                  if (correctedQuestion.programmatic_figures && Array.isArray(correctedQuestion.programmatic_figures)) {
+                    correctedQuestion.programmatic_figures = correctedQuestion.programmatic_figures.map(figure => {
+                      if (figure.type === 'image') {
+                        const imagePath = figure.image_url;
+                        // Si le chemin commence par /, il est déjà absolu
+                        if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                          // Extraire l'année de l'ID
+                          const yearMatch = id?.match(/\d{4}/);
+                          const year = yearMatch ? yearMatch[0] : '';
+                          
+                          // Construire le chemin absolu
+                          figure.image_url = `/concours/ensa/ensa${year}/${subject}/images/${imagePath}`;
+                          console.log(`Chemin d'image multiple corrigé (question): ${imagePath} -> ${figure.image_url}`);
+                        }
+                      }
+                      return figure;
+                    });
+                  }
+                  
+                  return correctedQuestion;
+                });
+              }
+              
+              return correctedExercise;
+            });
+            
+            // Transformer les exercises en components
+            const components = correctedExercises.map(exercise => {
+              // Inclure l'exercice comme contexte de composant
+              const exerciseNumber = exercise.exercise_number || "";
+              const exerciseTitle = exercise.title || `Exercice ${exerciseNumber}`;
+              
+              // Préparer les questions avec le stimulus de l'exercice ajouté à chaque question
+              const questionsWithContext = (exercise.questions || []).map(question => {
+                // Si la question n'a pas de stimulus mais que l'exercice en a un, ajouter le stimulus de l'exercice
+                const enhancedQuestion = {
+                  ...question,
+                  // Si la question n'a pas déjà un stimulus, utiliser celui de l'exercice
+                  stimulus: question.stimulus || exercise.stimulus,
+                  // Conserver la figure de l'exercice dans la question si elle n'en a pas déjà une
+                  programmatic_figure: question.programmatic_figure || exercise.programmatic_figure,
+                  // Transférer également les figures multiples si la question n'en a pas
+                  programmatic_figures: question.programmatic_figures || exercise.programmatic_figures,
+                  // Ajouter le titre de l'exercice comme information supplémentaire
+                  exercise_title: exerciseTitle
+                };
+                
+                return enhancedQuestion;
+              });
+              
+              return {
+                component_name: exerciseTitle,
+                coefficient: 1,
+                questions: questionsWithContext || []
+              };
+            });
+            
+            normalizedData = {
+              exam_title: rawData.exam_title || `Examen ${id.match(/\d{4}/)?.[0] || ''}`,
+              components: components
+            };
+            
+            console.log("Structure normalisée avec succès:", normalizedData);
+            console.log("Premier component:", normalizedData.components[0]);
+            console.log("Nombre de questions dans le premier component:", normalizedData.components[0].questions.length);
+            
+            setExamData(normalizedData);
+            
+            // Initialize expandedComponents
+            if (normalizedData.components && normalizedData.components.length > 0) {
+              setExpandedComponents({
+                [normalizedData.components[0].component_name]: true
+              });
+            }
+            
+            setIsLoading(false);
+            return; // Return early but after setting loading state to false
+          } catch (error) {
+            console.error("Erreur lors de la normalisation de la structure exercises:", error);
+            // Ne pas throw l'erreur ici pour permettre aux autres méthodes de normalisation d'être essayées
+          }
+        }
         
         // Case 1: Data is an array (like 2021 format)
         if (Array.isArray(rawData)) {
@@ -604,7 +799,7 @@ const ExamView = () => {
     };
     
     fetchExamData();
-  }, [id]);
+  }, [id, subject]);
   
   // Flatten all questions from all components
   const allQuestions = useMemo(() => {
@@ -722,7 +917,7 @@ const ExamView = () => {
     setTimeout(() => {
       console.log("Submitting answers:", answers);
       toast.success("Concours terminé! Vos réponses ont été soumises avec succès.");
-      navigate(`/correction/${id}`);
+      navigate(`/correction/${id}${subject ? `/${subject}` : ''}`);
     }, 1500);
   };
 

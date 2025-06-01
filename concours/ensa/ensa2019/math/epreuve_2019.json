@@ -1,0 +1,207 @@
+{
+    "exam_title": "Concours d'accès en 1ère année des ENSA du MAROC 2019",
+    "subject": "Mathématiques",
+    "duration": "1H30",
+    "questions": [
+      {
+        "question_number": "Q1",
+        "text": "Soient a, b > 0, on considère la suite : $u_{n+1} = \\frac{(b^2 + ab - a^2)u_n - a^2}{b^2u_n + b^2 - ab - a^2}$, $u_0 = \\frac{a}{b}$. En remarquant que la suite $v_n = \\frac{1}{bu_n-a}$ est une suite arithmétique, $u_n$ est égal à :",
+        "options": [
+          {"label": "A", "text": "$\\frac{an+b}{bn+a}$"},
+          {"label": "B", "text": "$\\frac{n+b}{bn+a}$"},
+          {"label": "C", "text": "$\\frac{an-b}{bn-a}$"},
+          {"label": "D", "text": "$\\frac{an+b}{n+a}$"}
+        ]
+      },
+      {
+        "question_number": "Q2",
+        "text": "Pour $n \\in N^*$, on considère la suite : $u_n = \\sum_{k=1}^{n} \\frac{1}{2k+n}$. On a $u_n \\in I$ avec",
+        "options": [
+          {"label": "A", "text": "$I = [0, \\frac{1}{2}[$"},
+          {"label": "B", "text": "$I = [\\frac{1}{2}, 1[$"},
+          {"label": "C", "text": "$I = [\\frac{1}{2}, \\frac{2}{3}[$"},
+          {"label": "D", "text": "$I = [\\frac{1}{3}, \\frac{1}{2}[$"}
+        ]
+      },
+      {
+        "question_number": "Q3",
+        "text": "On considère toujours la suite de la question 2 ci-dessus, $\\lim_{n \\to +\\infty} u_n$ est égale à :",
+        "options": [
+          {"label": "A", "text": "$\\sqrt{3}$"},
+          {"label": "B", "text": "$\\ln(3)$"},
+          {"label": "C", "text": "$\\ln(\\sqrt{3})$"},
+          {"label": "D", "text": "0"}
+        ]
+      },
+      {
+        "question_number": "Q4",
+        "text": "Sachant que $(\\ln(x + \\sqrt{4+x^2}))' = \\frac{1}{\\sqrt{4+x^2}}$, la valeur de l'intégrale $\\int_0^1 \\sqrt{4+x^2} dx$ est:",
+        "options": [
+          {"label": "A", "text": "$\\ln(\\frac{3+\\sqrt{5}}{2}) - \\frac{\\sqrt{5}}{2}$"},
+          {"label": "B", "text": "$\\ln(\\frac{3+\\sqrt{5}}{2}) - \\ln(\\frac{\\sqrt{5}}{2})$"},
+          {"label": "C", "text": "$\\ln(\\frac{3+\\sqrt{5}}{2}) - \\frac{5}{2}$"},
+          {"label": "D", "text": "$\\ln(\\frac{3+\\sqrt{5}}{2}) + \\frac{\\sqrt{5}}{2}$"}
+        ]
+      },
+      {
+        "question_number": "Q5",
+        "text": "On considère l'équation trigonométrique suivante : (E): $\\cos^4(3x) + \\sin^4(3x) = 1$. Les solutions de (E) sont de la forme :",
+        "options": [
+          {"label": "A", "text": "$x = \\frac{\\pi}{6} + 2k\\pi, k \\in Z$"},
+          {"label": "B", "text": "$x = -\\frac{\\pi}{6} + 2k\\pi, k \\in Z$"},
+          {"label": "C", "text": "$x = \\frac{k\\pi}{3}, k \\in Z$"},
+          {"label": "D", "text": "$x = \\frac{k\\pi}{6}, k \\in Z$"}
+        ]
+      },
+      {
+        "question_number": "Q6",
+        "text": "Soit le réel $\\lambda = \\sqrt[4]{\\frac{7+3\\sqrt{5}}{2}} - \\sqrt[4]{\\frac{7-3\\sqrt{5}}{2}}$. En calculant $\\lambda^4$, la valeur de $\\lambda$ est :",
+        "options": [
+          {"label": "A", "text": "$\\lambda = 0$"},
+          {"label": "B", "text": "$\\lambda = 1$"},
+          {"label": "C", "text": "$\\lambda = 2$"},
+          {"label": "D", "text": "$\\lambda = 3$"}
+        ]
+      },
+      {
+        "question_number": "Q7",
+        "text": "Soit $a > 0$, la valeur de l'intégrale $\\int_0^a \\sqrt{a^2-x^2} dx$ est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{\\pi a}{4}$"},
+          {"label": "B", "text": "$4\\pi a$"},
+          {"label": "C", "text": "$\\pi a^2$"},
+          {"label": "D", "text": "$\\frac{\\pi a^2}{4}$"}
+        ]
+      },
+      {
+        "question_number": "Q8",
+        "text": "On jette 3 fois un dé à 6 faces numérotées de 1 à 6, et on note a, b et c les résultats successifs obtenus. On note $Q(x) = ax^2 + bx + c$. La probabilité pour que Q admet une seule racine double est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{11}{216}$"},
+          {"label": "B", "text": "$\\frac{7}{216}$"},
+          {"label": "C", "text": "$\\frac{5}{216}$"},
+          {"label": "D", "text": "$\\frac{9}{216}$"}
+        ]
+      },
+      {
+        "question_number": "Q9",
+        "text": "Une urne contient 4 boules jaunes, 3 boules rouges et 3 boules bleues. Les boules sont indiscernables au touché. L'expérience consiste à tirer au hasard successivement deux boules (une après l'autre) sans remise. La probabilité d'obtenir la deuxième boule tirée de couleur rouge est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{17}{90}$"},
+          {"label": "B", "text": "$\\frac{15}{90}$"},
+          {"label": "C", "text": "$\\frac{19}{90}$"},
+          {"label": "D", "text": "$\\frac{13}{90}$"}
+        ]
+      },
+      {
+        "question_number": "Q10",
+        "text": "On considère toujours la même expérience. La probabilité d'obtenir la deuxième boule tirée rouge sachant que la première est jaune est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{4}{17}$"},
+          {"label": "B", "text": "$\\frac{5}{17}$"},
+          {"label": "C", "text": "$\\frac{8}{17}$"},
+          {"label": "D", "text": "$\\frac{9}{17}$"}
+        ]
+      },
+      {
+        "question_number": "Q11",
+        "text": "Soit $z = -1 + \\sqrt{2} + i$, arg(z) est égal à :",
+        "options": [
+          {"label": "A", "text": "$\\frac{3\\pi}{8}$"},
+          {"label": "B", "text": "$\\frac{5\\pi}{8}$"},
+          {"label": "C", "text": "$\\frac{7\\pi}{8}$"},
+          {"label": "D", "text": "$\\frac{\\pi}{8}$"}
+        ]
+      },
+      {
+        "question_number": "Q12",
+        "text": "En relation avec la question précédente, la valeur de $\\cos(\\frac{5\\pi}{8})$ est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{2-\\sqrt{2}}{2}$"},
+          {"label": "B", "text": "$-\\frac{\\sqrt{2-\\sqrt{2}}}{2}$"},
+          {"label": "C", "text": "$\\frac{\\sqrt{2-\\sqrt{2}}}{2}$"},
+          {"label": "D", "text": "$-\\frac{\\sqrt{2-\\sqrt{2}}}{2}$"}
+        ]
+      },
+      {
+        "question_number": "Q13",
+        "text": "Soit $a = \\cos(\\frac{\\pi}{5})\\cos(\\frac{2\\pi}{5})$. En calculant $a \\sin(\\frac{\\pi}{5})$, la valeur de a est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{1}{2}$"},
+          {"label": "B", "text": "$\\frac{1}{3}$"},
+          {"label": "C", "text": "$\\frac{1}{4}$"},
+          {"label": "D", "text": "$\\frac{1}{5}$"}
+        ]
+      },
+      {
+        "question_number": "Q14",
+        "text": "A partir de l'expression de la valeur de a (question précédente) la valeur de $b = \\sin(\\frac{\\pi}{5})\\sin(\\frac{2\\pi}{5})$ est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{\\sqrt{5}}{4}$"},
+          {"label": "B", "text": "$\\frac{\\sqrt{5}}{4}$"},
+          {"label": "C", "text": "$\\frac{1}{4}$"},
+          {"label": "D", "text": "$\\frac{\\sqrt{5}}{4}$"}
+        ]
+      },
+      {
+        "question_number": "Q15",
+        "text": "Soient A, B deux points distincts du plan. L'ensemble des points M tel que $\\vec{AM}.\\vec{AM} - 4\\vec{AM}.\\vec{BM} = 0$ est :",
+        "options": [
+          {"label": "A", "text": "Une droite"},
+          {"label": "B", "text": "Un cercle"},
+          {"label": "C", "text": "Une demi-droite"},
+          {"label": "D", "text": "Un disque"}
+        ]
+      },
+      {
+        "question_number": "Q16",
+        "text": "L'expression simplifiée de $u_n = \\prod_{k=0}^{n} \\frac{k^2+5k+6}{k^2+5k+4}$ est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{6n+3}{n+4}$"},
+          {"label": "B", "text": "$\\frac{n+4}{3n+6}$"},
+          {"label": "C", "text": "$\\frac{n+4}{6n+3}$"},
+          {"label": "D", "text": "$\\frac{3n+6}{n+4}$"}
+        ]
+      },
+      {
+        "question_number": "Q17",
+        "text": "Le concours d'entrée à la première année des ENSA pour l'année 2019-2020 se déroule le 23 Juillet 2019. Le nombre des unités de $23^{2019}$ est :",
+        "options": [
+          {"label": "A", "text": "3"},
+          {"label": "B", "text": "9"},
+          {"label": "C", "text": "1"},
+          {"label": "D", "text": "7"}
+        ]
+      },
+      {
+        "question_number": "Q18",
+        "text": "La valeur du produit suivant $u_n = \\prod_{k=1}^{n} (e^{2k} + e^{-2k})$ est :",
+        "options": [
+          {"label": "A", "text": "$\\frac{e^{2n+1}-e^{-(2n+1)}}{e-e^{-1}}$"},
+          {"label": "B", "text": "$\\frac{e^{2n+1}+e^{-(2n+1)}}{e-e^{-1}}$"},
+          {"label": "C", "text": "$\\frac{e^{2n+1}-e^{-(2n+1)}}{e+e^{-1}}$"},
+          {"label": "D", "text": "$\\frac{e^{2n+1}+e^{-(2n+1)}}{e+e^{-1}}$"}
+        ]
+      },
+      {
+        "question_number": "Q19",
+        "text": "Soient $f_n(x) = e^x + nx^2-3$ et $u_n$ la solution de $f_n(x) = 0$ ($x \\ge 0, n>0$), $u_n$ est:",
+        "options": [
+          {"label": "A", "text": "est croissante"},
+          {"label": "B", "text": "est décroissante"},
+          {"label": "C", "text": "est stationnaire"},
+          {"label": "D", "text": "est périodique"}
+        ]
+      },
+      {
+        "question_number": "Q20",
+        "text": "Suite à la question précédente, $\\lim_{n \\to \\infty} u_n$ est égale à :",
+        "options": [
+          {"label": "A", "text": "$\\frac{1}{2}$"},
+          {"label": "B", "text": "0"},
+          {"label": "C", "text": "1"},
+          {"label": "D", "text": "$\\frac{1}{\\sqrt{2}}$"}
+        ]
+      }
+    ]
+  }

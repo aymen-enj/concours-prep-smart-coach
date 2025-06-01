@@ -2,92 +2,143 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { BookOpen, Calendar, GraduationCap, Lock, PlayCircle, Sparkles, Star } from "lucide-react";
+import { BookOpen, Calendar, GraduationCap, Lock, PlayCircle, Sparkles, Star, CalendarDays, CheckCircle, ChevronRight, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogHeader, 
+  DialogTitle, 
+  DialogDescription 
+} from "@/components/ui/dialog";
+import { ConcoursItem } from "@/models/concours";
 
 interface ConcoursCardProps {
-  id: string;
-  title: string;
-  subject: string;
-  year: number;
-  level: string;
-  isPaid: boolean;
-  hasAccess: boolean;
+  concours: ConcoursItem;
 }
 
-const ConcoursCard = ({
-  id,
-  title,
-  subject,
-  year,
-  level,
-  isPaid,
-  hasAccess,
-}: ConcoursCardProps) => {
+const ConcoursCard = ({ concours }: ConcoursCardProps) => {
+  const navigate = useNavigate();
+  const [isSubjectDialogOpen, setIsSubjectDialogOpen] = useState(false);
+
+  const handleCardClick = () => {
+    // Si le concours a plusieurs matières, ouvrir le dialogue de sélection
+    if (concours.subjects && concours.subjects.length > 0) {
+      setIsSubjectDialogOpen(true);
+    } else {
+      // Sinon, naviguer directement vers l'examen
+      navigate(`/exam-view/${concours.id}`);
+    }
+  };
+
+  const handleSubjectSelect = (subjectId: string) => {
+    setIsSubjectDialogOpen(false);
+    // Inclure l'ID du sujet dans l'URL pour permettre à ExamView de charger le bon fichier
+    navigate(`/exam-view/${concours.id}/${subjectId}`);
+  };
+
   return (
-    <Card className="content-card overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50 group relative">
-      <div className="absolute inset-x-0 top-0 h-full bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-      <div className="h-1 bg-gradient-to-r from-primary to-blue-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-      <CardContent className="p-5">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 className="font-poppins font-semibold text-lg text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
-              {title}
+    <>
+      <Card 
+        className={`overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer border-border/40 group ${!concours.hasAccess ? 'opacity-80' : ''}`}
+        onClick={handleCardClick}
+      >
+        <div className="h-1 bg-gradient-to-r from-primary to-blue-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        <CardContent className="p-5">
+          <div className="flex justify-between items-start mb-2">
+            <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+              {concours.title}
             </h3>
-            <div className="flex items-center text-muted-foreground text-sm">
-              <BookOpen className="h-3.5 w-3.5 mr-1" />
-              <span>{subject}</span>
-              <span className="mx-2">•</span>
-              <Calendar className="h-3.5 w-3.5 mr-1" />
-              <span>{year}</span>
+            {concours.isPaid ? (
+              <Badge variant="outline" className="bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border-none">
+                Premium
+              </Badge>
+            ) : (
+              <Badge variant="outline" className="bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border-none">
+                Gratuit
+              </Badge>
+            )}
+          </div>
+          
+          <div className="space-y-2 mb-3">
+            <div className="flex items-center text-sm text-muted-foreground">
+              <CalendarDays className="h-3.5 w-3.5 mr-1.5 text-primary/70" />
+              <span>Année {concours.year}</span>
+            </div>
+            <div className="flex items-center text-sm text-muted-foreground">
+              <BookOpen className="h-3.5 w-3.5 mr-1.5 text-primary/70" />
+              <span>{concours.subject}</span>
             </div>
           </div>
-          <Badge 
-            variant={isPaid ? "default" : "outline"} 
-            className={cn(
-              "transition-all duration-300",
-              isPaid 
-                ? "bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 group-hover:bg-primary/30" 
-                : "bg-green-50 text-green-600 hover:bg-green-100 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800"
-            )}
-          >
-            {isPaid ? (
-              <span className="flex items-center gap-1">
-                <Sparkles className="h-3 w-3" /> Premium
-              </span>
-            ) : (
-              <span className="flex items-center gap-1">
-                <Star className="h-3 w-3" /> Gratuit
-              </span>
-            )}
-          </Badge>
-        </div>
-        <div className="mb-3 flex items-center">
-          <GraduationCap className="h-4 w-4 text-muted-foreground mr-2" />
-          <div>
-            <span className="text-sm text-muted-foreground">Niveau:</span>
-            <span className="text-sm font-medium text-foreground ml-1">{level}</span>
+          
+          {concours.hasAccess ? (
+            <div className="flex items-center justify-between">
+              <div className="flex items-center text-sm text-green-600">
+                <CheckCircle className="h-3.5 w-3.5 mr-1" />
+                <span>Accès autorisé</span>
+              </div>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-primary hover:text-primary/80 hover:bg-primary/10 -mr-2"
+              >
+                {concours.subjects && concours.subjects.length > 0 ? "Choisir matière" : "Commencer"}
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </Button>
+            </div>
+          ) : (
+            <div className="flex items-center justify-between">
+              <div className="flex items-center text-sm text-muted-foreground">
+                <Lock className="h-3.5 w-3.5 mr-1" />
+                <span>Accès restreint</span>
+              </div>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="border-primary/40 text-primary hover:bg-primary/5"
+              >
+                Débloquer
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Dialog for subject selection */}
+      <Dialog open={isSubjectDialogOpen} onOpenChange={setIsSubjectDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Choisissez une matière</DialogTitle>
+            <DialogDescription>
+              Sélectionnez la matière du concours {concours.title} que vous souhaitez passer.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            {concours.subjects?.map((subject) => (
+              <Button 
+                key={subject.id} 
+                variant="outline" 
+                className="justify-start h-auto py-3 px-4 hover:bg-primary/5 hover:border-primary/30 transition-colors"
+                onClick={() => handleSubjectSelect(subject.id)}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <FileText className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-medium">{subject.name}</div>
+                    <div className="text-xs text-muted-foreground">Concours {concours.year}</div>
+                  </div>
+                </div>
+                <ChevronRight className="ml-auto h-4 w-4 text-muted-foreground" />
+              </Button>
+            ))}
           </div>
-        </div>
-      </CardContent>
-      <CardFooter className="px-5 pb-5 pt-0">
-        {hasAccess ? (
-          <Button asChild className="w-full group-hover:shadow-md transition-all duration-300 bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-primary">
-            <Link to={`/exam-view/${id}`} className="flex items-center justify-center">
-              <PlayCircle className="h-4 w-4 mr-2" />
-              Commencer
-            </Link>
-          </Button>
-        ) : (
-          <Button asChild variant="outline" className="w-full group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-300">
-            <Link to="/payment" className="flex items-center justify-center">
-              <Lock className="h-4 w-4 mr-2" />
-              Débloquer
-            </Link>
-          </Button>
-        )}
-      </CardFooter>
-    </Card>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

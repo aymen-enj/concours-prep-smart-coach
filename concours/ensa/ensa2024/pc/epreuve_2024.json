@@ -1,0 +1,344 @@
+{
+    "exam_title": "Concours d'accès en 1ère année des ENSA Maroc",
+    "date": "Juillet 2024",
+    "subject": "Physique-Chimie",
+    "duration": "1h30min",
+    "instructions": "Calculatrice interdite",
+    "exercises": [
+      {
+        "exercise_number": 1,
+        "title": "Spectre de l'atome d'hydrogène",
+        "stimulus": "La constante de Planck est h = 6.10⁻³⁴ J.s⁻¹ et la vitesse de la lumière dans le vide est: c = 3.10⁸ms⁻¹; avec 1 eV = 1,6.10⁻¹⁹ J. Dans le spectre de l'atome d'hydrogène, on observe une raie pour la longueur d'onde λ = 648 nm.",
+        "questions": [
+          {
+            "question_number": "Q21",
+            "text": "Cocher la bonne réponse",
+            "options": [
+              {"label": "A", "text": "La fréquence correspondant à cette raie est comprise entre 400.10³ GHz et 500.10³ GHz."},
+              {"label": "B", "text": "L'énergie correspondant à cette raie est comprise entre 1,6 KeV et 2,1 KeV."},
+              {"label": "C", "text": "Cette radiation est dans le domaine de l'infrarouge."},
+              {"label": "D", "text": "Cette radiation est une radiation ionisante (son énergie est supérieure à 13,6 eV)."}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 2,
+        "title": "Diffraction par une fente",
+        "stimulus": "On dispose d'un Laser hélium-néon. On interpose entre le Laser et un écran (E) une fente verticale de largeur a = 3.10⁻² mm (figure 1). Sur l'écran situé à la distance D = 1,5 m, on observe dans la direction perpendiculaire à la fente, une figure de diffraction représentée sur la figure ci-contre.",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2024/pc/images/ex2.png",
+          "title": "Diffraction par une fente",
+          "description": "Schéma d'un dispositif de diffraction: Laser, fente de largeur a, écran E à distance D. La figure de diffraction montre une tache centrale de largeur 2θ.",
+          "width": "70%"
+        },
+        "questions": [
+          {
+            "question_number": "Q22",
+            "text": "Cocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "La largeur de la tache centrale d est donnée par $d = \\frac{2aD}{\\lambda}$"},
+              {"label": "B", "text": "Quand la largeur de la fente a augmente la largeur de la tache centrale d diminue."},
+              {"label": "C", "text": "La longueur d'onde du Laser vaut λ = 600 nm lorsque la mesure de la tache centre est d = 6 cm"},
+              {"label": "D", "text": "L'écart angulaire θ est une fonction croissante en fonction de la largeur a de la fente."}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 3,
+        "title": "Lancer d'une balle de golf",
+        "stimulus": "Un golfeur lance une balle (de diamètre 4cm) verticalement avec un angle α=45°, par rapport à l'horizontal Ox à une vitesse $v_0=30m/s$. Un arbre situé à une distance d=15m du golfeur s'élève à une hauteur h = 9,98m. On supposera que les frottements dues à l'air sont négligeables et on prendra l'accélération de la pesanteur g=10 m.s⁻² (figure ci-contre).",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2024/pc/images/ex3.png",
+          "title": "Lancer d'une balle de golf",
+          "description": "Schéma d'un golfeur lançant une balle. Trajectoire parabolique de la balle (centre G). Un arbre est présent sur la trajectoire.",
+          "width": "50%"
+        },
+        "questions": [
+          {
+            "question_number": "Q23",
+            "text": "Le centre d'inertie de la balle passera au-dessus de l'arbre à:\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "1,77 m"},
+              {"label": "B", "text": "2,77m"},
+              {"label": "C", "text": "3,77 m"},
+              {"label": "D", "text": "4,87 m"}
+            ]
+          },
+          {
+            "question_number": "Q24",
+            "text": "Le golfeur souhaite ajuster son drive de façon à faire passer la balle juste au sommet de l'arbre, on doit alors donner à la balle une vitesse initiale $v'_0$, tout en conservant le même angle de tir.\nLa vitesse initiale $v'_0$ qu'on doit donner à la balle afin de franchir de justesse le sommet de l'arbre vaut exactement:",
+            "options": [
+              {"label": "A", "text": "$v'_0 = 5\\sqrt{2} \\text{ m.s}^{-1}$"},
+              {"label": "B", "text": "$v'_0 = 15\\sqrt{2} \\text{ m.s}^{-1}$"},
+              {"label": "C", "text": "$v'_0 = 10\\sqrt{2} \\text{ m.s}^{-1}$"},
+              {"label": "D", "text": "$v'_0 = 8\\sqrt{2} \\text{ m.s}^{-1}$"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 4,
+        "title": "Mobile sur une piste ABC",
+        "stimulus": "Un mobile M de masse m = 150g, supposé ponctuel, peut glisser le long d'une piste ABC dont la forme est donnée par la figure ci-après; Le mouvement a lieu dans un plan vertical. on prendra l'accélération de la pesanteur g=10 m.s⁻².\n1) la partie curviligne est un quart de cercle de rayon r = 1 m parfaitement lisse de telle sorte que les forces de frottement y sont négligeables.\nLe mobile M est lancé en A avec une vitesse $v_A = 2 \\text{ m.s}^{-1}$ verticale et dirigée vers le bas. Il est repéré à l'instant t par l'angle θ.",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2024/pc/images/ex4.png",
+          "title": "Piste ABC",
+          "description": "Schéma d'une piste ABC. AB est un quart de cercle de rayon r. BC est une partie rectiligne. Point O est le centre du quart de cercle. Angle θ repère la position de M sur AB.",
+          "width": "40%"
+        },
+        "questions": [
+          {
+            "question_number": "Q25",
+            "text": "La vitesse du mobile M en B vaut:\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "$v_B = \\sqrt{6} \\text{ m.s}^{-1}$"},
+              {"label": "B", "text": "$v_B = 2\\sqrt{6} \\text{ m.s}^{-1}$"},
+              {"label": "C", "text": "$v_B = 3\\sqrt{6} \\text{ m.s}^{-1}$"},
+              {"label": "D", "text": "$v_B = 5\\sqrt{6} \\text{ m.s}^{-1}$"}
+            ]
+          },
+          {
+            "question_number": "Q26",
+            "text": "Par application de la deuxième loi de newton au mobile M en mouvement par rapport au repère fixe cartésien d'origine O et en projetant l' équation vectorielle obtenue dans la base de Frenet, déterminer la force de réaction $F_{piste \\to mobile}$ de la piste sur le mobile en M et en déduire celle en B. La valeur de cette force de réaction en B vaut :\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "$F_{piste \\to B} = 4,5 \\text{ N}$"},
+              {"label": "B", "text": "$F_{piste \\to B} = 5,5 \\text{ N}$"},
+              {"label": "C", "text": "$F_{piste \\to B} = 5.1 \\text{ N}$"},
+              {"label": "D", "text": "$F_{piste \\to B} = 6,0 \\text{ N}$"}
+            ]
+          },
+          {
+            "question_number": "Q27",
+            "text": "2) La portion BC est rectiligne et rugueuse et vaut L = 2m. On assimilera les forces de frottement à une force unique f constante et opposée au mouvement.\nSachant que la vitesse en C vaut $v_C = 2 \\text{ m.s}^{-1}$, la valeur de la force de frottement sur la portion BC est avoisinante de:\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "f= 0,375 N"},
+              {"label": "B", "text": "f = 0,750 N"},
+              {"label": "C", "text": "f = 1,50 N"},
+              {"label": "D", "text": "f = 3 N"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 5,
+        "title": "Circuit RLC série",
+        "stimulus": "Un circuit série comprend une bobine d'inductance L, une résistante R et un condensateur de capacité C. Le schéma de l'oscillogramme de l'évolution au cours du temps de la tension aux bornes du condensateur :\n(1 division = 1 carreau)\nSensibilité horizontal: 0,1 ms/div ;\nSensibilité verticale: 2 V/div ;",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2024/pc/images/ex5.png",
+          "title": "Oscillogramme tension condensateur",
+          "description": "Oscillogramme montrant des oscillations pseudo-périodiques de la tension aux bornes du condensateur.",
+          "width": "50%"
+        },
+        "questions": [
+          {
+            "question_number": "Q28",
+            "text": "Déterminer la fréquence f des oscillations électriques pseudopériodiques.\nCocher la bonne réponse",
+            "options": [
+              {"label": "A", "text": "f = 50Hz"},
+              {"label": "B", "text": "f = 500Hz"},
+              {"label": "C", "text": "f = 2500 Hz"},
+              {"label": "D", "text": "f = 5000 Hz"}
+            ]
+          },
+          {
+            "question_number": "Q29",
+            "text": "Sachant que la valeur de la capacité du condensateur vaut C = 10 nF, calculer l'énergie dissipée par effet joule entre l'instant du premier maximum et celui du second maximum.\nCocher la bonne réponse",
+            "options": [
+              {"label": "A", "text": "$2,45.10^{-7} \\text{J}$"},
+              {"label": "B", "text": "$3,45.10^{-7} \\text{J}$"},
+              {"label": "C", "text": "$2,45.10^{-5} \\text{J}$"},
+              {"label": "D", "text": "$3,45.10^{-5} \\text{J}$"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 6,
+        "title": "Charge d'un condensateur",
+        "stimulus": "On étudie la charge d'un condensateur de capacité C au travers d'un conducteur ohmique R. On utilise pour cela un générateur idéal de tension de force électromotrice E. Le montage utilisé est schématisé sur la Figure ci-contre. A l'instant t=0, on bascule l'interrupteur de la position $K_1$ à la position $K_2$. Le traitement des données permet de tracer la courbe ci-dessous représentant la fonction u en fonction du temps.",
+        "programmatic_figures":[
+          {
+            "type": "image",
+            "library": "img",
+            "image_url": "/concours/ensa/ensa2024/pc/images/ex6F1.png",
+            "title": "Circuit RC et courbe de charge",
+            "description": "Schéma d'un circuit RC série avec générateur E, interrupteur K (positions K1, K2), résistance R, condensateur C.",
+            "width": "40%"
+          },
+          {
+            "type": "image",
+            "library": "img",
+            "image_url": "/concours/ensa/ensa2024/pc/images/ex6F2.png",
+            "title": "Circuit RC et courbe de charge",
+            "description": " Courbe de la tension u(V) aux bornes du condensateur en fonction du temps t(µs) montrant une charge exponentielle.",
+            "width": "40%"
+          }
+        ],
+        "questions": [
+          {
+            "question_number": "Q30",
+            "text": "Sachant que la valeur de la capacité du condensateur vaut C = 1 µF, la valeur de la résistance est:\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "R= 100 Ω"},
+              {"label": "B", "text": "R= 100 kΩ"},
+              {"label": "C", "text": "R= 500 kΩ"},
+              {"label": "D", "text": "R= 300 Ω"}
+            ]
+          },
+          {
+            "question_number": "Q31",
+            "text": "La valeur de l'intensité i du courant dans le circuit à t = 0 est:\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "i=0,5 A"},
+              {"label": "B", "text": "i = 0 A"},
+              {"label": "C", "text": "i=5A"},
+              {"label": "D", "text": "i = 50 mA"}
+            ]
+          },
+          {
+            "question_number": "Q32",
+            "text": "L'energie électrique W emmagasinée dans le condensateur est:\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "W= 0J"},
+              {"label": "B", "text": "W = 12,5 J"},
+              {"label": "C", "text": "W = 12,5 µJ"},
+              {"label": "D", "text": "W = 12,5 mJ"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 7,
+        "title": "Sonar d'un bateau",
+        "stimulus": "Le sonar d'un bateau permet de déterminer la profondeur des fonds marins, il est constitué d'un émetteur (E) et d'un récepteur (R). Le sonar étudié est alimenté par une tension sinusoïdale de fréquence 20kHz. La célérité de ces ondes dans l'eau est de $1500m.s^{-1}$",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2024/pc/images/ex7.png",
+          "title": "Fonctionnement d'un sonar",
+          "description": "Schéma d'un bateau avec un sonar (émetteur E, récepteur R). Le sonar émet des ondes vers le fond marin à une profondeur d.",
+          "width": "50%"
+        },
+        "questions": [
+          {
+            "question_number": "Q33",
+            "text": "Cocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "La période correspondant à cette vibration est comprise entre 20 µs et 40 µs;"},
+              {"label": "B", "text": "La longueur d'onde correspondant à cette vibration est comprise entre 0,70 m et 0,80m"},
+              {"label": "C", "text": "La longueur d'onde correspondant à cette vibration est comprise entre 0,074 m et 0,076m"},
+              {"label": "D", "text": "Cette vibration est dans l'infrarouge;"}
+            ]
+          },
+          {
+            "question_number": "Q34",
+            "text": "Le bateau équipé de sonar est situé à d=800m au-dessus du fond, se déplace à 15 noeuds (1noeuds = 1,8 km.h⁻¹). Le récepteur lié au bateau reçoit les vibrations émises par l'émetteur. On considère que le trajet (émetteur-fond-récepteur) suivi par les vibrations émises par l'émetteur s'effectue en ligne droite. La distance parcourue par le bateau pendant la durée qui s'est écoulée entre l'émission et la réception des vibrations est de:\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "2m"},
+              {"label": "B", "text": "4m"},
+              {"label": "C", "text": "6m"},
+              {"label": "D", "text": "8m"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 8,
+        "title": "Radioactivité du Thorium",
+        "stimulus": "Le thorium $_{90}^{232}Th$ est radioactif de type α. Sa demi-vie est égale à 18 jours. On dispose, à t=0, d'une source de thorium de masse $m_0=1 µg$.\nLes données: ln(2)=0,7, ln(3)=1,1, ln(5)=1,6, ln(7)=2, ln(10)=2,3.",
+        "questions": [
+          {
+            "question_number": "Q35",
+            "text": "La masse de thorium restant à la date $t_1=36$ jours est de:\nCocher la bonne réponse.",
+            "options": [
+              {"label": "A", "text": "0.25 µg"},
+              {"label": "B", "text": "0.30 µg"},
+              {"label": "C", "text": "0.40 µg"},
+              {"label": "D", "text": "0.50 µg"}
+            ]
+          },
+          {
+            "question_number": "Q36",
+            "text": "La date $t_2$ au bout de laquelle la masse initiale de thorium deviendra égale à $m_1=1 ng$ est proche de :\nCocher la bonne réponse",
+            "options": [
+              {"label": "A", "text": "180 jours"},
+              {"label": "B", "text": "185 jours"},
+              {"label": "C", "text": "187 jours"},
+              {"label": "D", "text": "190 jours"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 9,
+        "title": "Vitamine C",
+        "stimulus": "La vitamine C est constituée d'acide ascorbique pur $C_6H_8O_6$. La dissolution d'un comprimé de masse m=0,35 g dans un verre contenant 200ml d'eau donne une solution dont le PH est égal à 3.\nLes données: l'ion ascorbate $C_6H_7O_6^-$ est la base conjuguée de l'acide $C_6H_8O_6$\n$M_{C_6H_8O_6}=176.0 \\text{ g.mol}^{-1}$",
+        "questions": [
+          {
+            "question_number": "Q37",
+            "text": "La valeur du taux d'avancement final de cette réaction est plus proche de :\nCocher la bonne réponse",
+            "options": [
+              {"label": "A", "text": "8%"},
+              {"label": "B", "text": "10%"},
+              {"label": "C", "text": "12%"},
+              {"label": "D", "text": "15%"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 10,
+        "title": "Protection d'une lame de fer par électrolyse",
+        "stimulus": "On souhaite protéger une lame de fer parallélépipédique Fe(s) de surface S=36.4cm² en la recouvrant de zinc Zn(s). Pour ce faire on pratique une électrolyse à anode soluble. Le bain est une solution concentrée de chlorure de zinc(II) ($Zn^{2+} 2Cl^-$). Les données: $1F=96500 \\text{ C.mol}^{-1}$, $M_{Zn}=65.4 \\text{ g.mol}^{-1}$, $\\mu_{Zn}=7.14 \\text{ g.cm}^{-3}$.\nOn désire déposer une épaisseur de e=50 µm de zinc sur l'intégralité de la surface de la lame de fer.",
+        "questions": [
+          {
+            "question_number": "Q38",
+            "text": "La masse du Zinc correspondante est plus proche de :\nCocher la bonne réponse",
+            "options": [
+              {"label": "A", "text": "1.0g"},
+              {"label": "B", "text": "1.2g"},
+              {"label": "C", "text": "1.3g"},
+              {"label": "D", "text": "1.4g"}
+            ]
+          },
+          {
+            "question_number": "Q39",
+            "text": "En supposant que la masse de zinc déposée sur l'électrode de fer est égale à la diminution de la masse de l'électrode de zinc. La durée de l'électrolyse si on applique un courant électrique d'intensité I=0.5 A est proche de:\nCocher la bonne réponse",
+            "options": [
+              {"label": "A", "text": "$8.10^2 s$"},
+              {"label": "B", "text": "$16.10^3 s$"},
+              {"label": "C", "text": "$8.10^3 s$"},
+              {"label": "D", "text": "$16.10^2 s$"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 11,
+        "title": "Neutralisation d'acide acétique",
+        "stimulus": "On neutralise 40 ml d'acide acétique $CH_3CO_2H$ de concentration $3.10^{-3} \\text{ mole.L}^{-1}$ par une solution d'hydroxyde de potassium KOH de concentration $2.10^{-4} \\text{ mole.L}^{-1}$.",
+        "questions": [
+          {
+            "question_number": "Q40",
+            "text": "Le volume de KOH à l'équivalence est égal à:",
+            "options": [
+              {"label": "A", "text": "6 ml"},
+              {"label": "B", "text": "15 ml"},
+              {"label": "C", "text": "20 ml"},
+              {"label": "D", "text": "60 ml"}
+            ]
+          }
+        ]
+      }
+    ]
+  }

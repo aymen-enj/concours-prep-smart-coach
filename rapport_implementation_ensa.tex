@@ -1,0 +1,182 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+\geometry{margin=2.5cm}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Smart Coach - Préparation Concours}
+\lhead{Rapport d'Implémentation}
+\cfoot{\thepage}
+
+\title{\vspace{-1.5cm}\textbf{Rapport d'Implémentation des Concours ENSA\\dans l'Application Smart Coach}}
+\author{Équipe de Développement}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Ce rapport détaille le processus d'implémentation des concours de l'École Nationale des Sciences Appliquées (ENSA) du Maroc pour les années 2019 à 2024 dans l'application Smart Coach. Il couvre la mise à jour du modèle de données pour inclure les nouvelles années, la réorganisation des fichiers d'examens, et la migration des contenus vers le dossier public de l'application.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+L'application Smart Coach est une plateforme de préparation aux concours qui permet aux étudiants de s'entraîner sur des épreuves officielles des années précédentes. Dans le cadre de l'amélioration continue de notre offre, nous avons effectué une mise à jour majeure des concours ENSA en :
+\begin{itemize}
+    \item Ajoutant les années 2023 et 2024
+    \item Réorganisant chronologiquement les années (2019-2024)
+    \item Migrant les contenus vers le dossier public de l'application
+\end{itemize}
+
+\section{Mise à jour du modèle de données}
+
+\subsection{Réorganisation des années ENSA}
+
+Nous avons mis à jour le fichier \texttt{models/concours.ts} pour inclure les nouvelles années et réorganiser les concours ENSA de manière chronologique :
+
+\begin{lstlisting}[language=JavaScript, caption=Mise à jour des concours ENSA]
+// Extrait du fichier models/concours.ts
+export const concoursData = [
+  // Moroccan ENSA - Regroupés par année avec des matières
+  {
+    id: 'ensa-2024',
+    title: 'Concours ENSA 2024',
+    subject: 'Concours d\'admission',
+    year: 2024,
+    level: 'Bac',
+    isPaid: false,
+    hasAccess: true,
+    universityId: 'ensa',
+    country: 'Maroc',
+    educationLevel: 'Bac',
+    subjects: [
+      { id: 'math', name: 'Mathématiques' },
+      { id: 'pc', name: 'Physique Chimie' }
+    ]
+  },
+  // ... autres années (2023, 2022, 2021, 2019)
+];
+\end{lstlisting}
+
+\section{Organisation des fichiers}
+
+\subsection{Structure des données}
+
+La nouvelle structure des fichiers d'examens a été organisée comme suit :
+
+\begin{lstlisting}[caption=Nouvelle structure des dossiers]
+public/
+└── concours/
+    └── ensa/
+        ├── ensa2024/
+        │   ├── math/
+        │   │   └── epreuve_2024.json
+        │   └── pc/
+        │       ├── epreuve_2024.json
+        │       └── images/
+        ├── ensa2023/
+        │   ├── math/
+        │   │   └── epreuve_2023.json
+        │   └── pc/
+        │       ├── epreuve_2023.json
+        │       └── images/
+        ├── ensa2022/
+        │   ├── math/
+        │   │   └── epreuve_2022.json
+        │   └── pc/
+        │       ├── epreuve_2022.json
+        │       └── images/
+        ├── ensa2021/
+        │   ├── math/
+        │   │   └── epreuve_2021.json
+        │   └── pc/
+        │       ├── epreuve_2021.json
+        │       └── images/
+        └── ensa2019/
+            ├── math/
+            │   └── epreuve_2019.json
+            └── pc/
+                ├── epreuve_2019.json
+                └── images/
+\end{lstlisting}
+
+\subsection{Migration des fichiers}
+
+Les fichiers ont été migrés depuis le dossier de développement \texttt{concours/ensa} vers le dossier public \texttt{public/concours/ensa}. Cette migration inclut :
+\begin{itemize}
+    \item Les fichiers JSON des épreuves
+    \item Les images associées aux exercices
+    \item La structure complète des dossiers pour chaque année
+\end{itemize}
+
+\section{Validation}
+
+Après la mise à jour, nous avons vérifié :
+\begin{itemize}
+    \item La présence de tous les fichiers d'épreuves dans le dossier public
+    \item La cohérence des données dans le modèle
+    \item L'organisation chronologique des années
+    \item La structure correcte des dossiers pour chaque année
+\end{itemize}
+
+\section{Conclusion}
+
+La mise à jour des concours ENSA a permis d'enrichir significativement notre base de données d'examens en :
+\begin{itemize}
+    \item Ajoutant les années les plus récentes (2023 et 2024)
+    \item Organisant les contenus de manière plus cohérente
+    \item Facilitant l'accès aux ressources via le dossier public
+\end{itemize}
+
+Cette réorganisation améliore l'expérience utilisateur en offrant un accès plus large aux examens récents tout en maintenant une structure cohérente et facile à maintenir.
+
+\section{Travaux futurs}
+
+Pour continuer l'amélioration de notre plateforme, nous suggérons :
+\begin{itemize}
+    \item L'ajout des concours de l'ENSAM 
+    \item L'ajout des concours de l'ENCG 
+\end{itemize}
+
+\end{document}
