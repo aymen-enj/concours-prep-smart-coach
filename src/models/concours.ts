@@ -226,15 +226,35 @@ export const concoursData: ConcoursItem[] = [
   // Moroccan ENSAM
   {
     id: 'ensam-2023',
-    title: 'Concours ENSAM',
-    subject: 'Physique',
+    title: 'Concours ENSAM 2023',
+    subject: 'Concours d\'admission',
     year: 2023,
-    level: 'Classes préparatoires',
+    level: 'Bac',
     isPaid: false,
     hasAccess: true,
     universityId: 'ensam',
     country: 'Maroc',
-    educationLevel: 'Classes préparatoires'
+    educationLevel: 'Bac',
+    subjects: [
+      { id: 'math', name: 'Mathématiques' },
+      { id: 'pc', name: 'Physique Chimie' }
+    ]
+  },
+  {
+    id: 'ensam-2022',
+    title: 'Concours ENSAM 2022',
+    subject: 'Concours d\'admission',
+    year: 2022,
+    level: 'Bac',
+    isPaid: false,
+    hasAccess: true,
+    universityId: 'ensam',
+    country: 'Maroc',
+    educationLevel: 'Bac',
+    subjects: [
+      { id: 'math', name: 'Mathématiques' },
+      { id: 'pc', name: 'Physique Chimie' }
+    ]
   },
   
   // Moroccan CNC
@@ -382,6 +402,12 @@ export function getExamPath(concoursId: string, subject?: string): string {
   if (concoursId.startsWith('ensa-') && subject) {
     const [_, year] = concoursId.split('-');
     return `ensa/ensa${year}/${subject}/epreuve_${year}.json`;
+  }
+  
+  // Identifier les concours ENSAM qui ont des matières
+  if (concoursId.startsWith('ensam-') && subject) {
+    const [_, year] = concoursId.split('-');
+    return `ensam/ensam${year}/${subject}/epreuve_${year}.json`;
   }
   
   // Traitement standard pour les autres concours

@@ -20,6 +20,7 @@ import DiagramRenderer from "@/components/DiagramRenderer";
 import RawSvgRenderer from "@/components/RawSvgRenderer";
 import SvgFileRenderer from "@/components/SvgFileRenderer";
 import ImageRenderer from "@/components/ImageRenderer";
+import { loadExam } from "@/services/examService";
 
 // Remove hardcoded import and add dynamic loading
 // import medecine2022Data from "../../../concours/medecine/medecine2022/epreuve_2022.json";
@@ -28,6 +29,7 @@ import ImageRenderer from "@/components/ImageRenderer";
 interface ExamOption {
   label: string;
   text: string;
+  is_input?: boolean; // Ajout pour permettre les champs de saisie
   programmatic_figure?: {
     type: 'image';
     library: string;
@@ -165,6 +167,61 @@ const loadExamData = async (id: string, subject?: string) => {
   try {
     console.log(`Attempting to load exam with ID: ${id}, subject: ${subject}`);
     
+    // Cas spécial pour ENSAM
+    if (id.startsWith('ensam-')) {
+      const [_, year] = id.split('-');
+      // Chemin par défaut sans sujet
+      let path = `ensam/ensam${year}/epreuve_${year}.json`;
+      
+      // Si un sujet est spécifié, utilisez le chemin avec le sujet
+      if (subject) {
+        path = `ensam/ensam${year}/${subject}/epreuve_${year}.json`;
+      }
+      
+      console.log(`Loading ENSAM exam: ${path}`);
+      
+      try {
+        // Essayer d'abord avec le chemin public
+        const response = await fetch(`/concours/${path}`);
+        if (response.ok) {
+          return await response.json();
+        }
+        throw new Error('File not found in public path');
+      } catch (innerError) {
+        console.log("Trying alternate paths for ENSAM exam");
+        
+        // Essayer avec le chemin direct sans 'public'
+        try {
+          const directResponse = await fetch(`/concours/${path}`);
+          if (directResponse.ok) {
+            return await directResponse.json();
+          }
+        } catch (directError) {
+          console.log("Direct path failed:", directError);
+        }
+        
+        // Essayer avec import relatif pour le développement
+        try {
+          const importPath = `../../../concours/${path}`;
+          console.log(`Fallback: Importing from path: ${importPath}`);
+          const examModule = await import(importPath);
+          return examModule.default;
+        } catch (importError) {
+          console.log("Import path failed:", importError);
+          
+          // Dernier essai avec chemin sans 'public' et import
+          try {
+            const alternateImportPath = `../../../${path}`;
+            console.log(`Last resort: Importing from direct path: ${alternateImportPath}`);
+            const examModule = await import(alternateImportPath);
+            return examModule.default;
+          } catch (finalError) {
+            throw new Error(`Failed to load ENSAM exam from multiple paths: ${finalError}`);
+          }
+        }
+      }
+    }
+    
     // Cas spécial pour ENSA avec matières spécifiques
     if (id.startsWith('ensa-') && subject) {
       const [_, year] = id.split('-');
@@ -177,13 +234,30 @@ const loadExamData = async (id: string, subject?: string) => {
         if (response.ok) {
           return await response.json();
         }
-        throw new Error('File not found in public path');
+        // Essayer le chemin direct sans 'public'
+        const directResponse = await fetch(`/${path}`);
+        if (directResponse.ok) {
+          return await directResponse.json();
+        }
+        throw new Error('File not found in public or direct paths');
       } catch (innerError) {
         // Fallback to relative import for development
-        const importPath = `../../../concours/${path}`;
-        console.log(`Fallback: Importing from ENSA path: ${importPath}`);
-        const examModule = await import(importPath);
-        return examModule.default;
+        try {
+          const importPath = `../../../concours/${path}`;
+          console.log(`Fallback: Importing from ENSA path: ${importPath}`);
+          const examModule = await import(importPath);
+          return examModule.default;
+        } catch (importError) {
+          // Dernier essai avec chemin sans 'public'
+          try {
+            const alternateImportPath = `../../../${path}`;
+            console.log(`Last resort: Importing from direct ENSA path: ${alternateImportPath}`);
+            const examModule = await import(alternateImportPath);
+            return examModule.default;
+          } catch (finalError) {
+            throw new Error(`Failed to load ENSA exam from multiple paths: ${finalError}`);
+          }
+        }
       }
     }
     
@@ -213,13 +287,34 @@ const loadExamData = async (id: string, subject?: string) => {
           if (response.ok) {
             return await response.json();
           }
-          throw new Error('File not found in public path');
+          
+          // Try direct path without 'public'
+          const directResponse = await fetch(`/${examType}/${examType}${year}/epreuve_${year}.json`);
+          if (directResponse.ok) {
+            return await directResponse.json();
+          }
+          
+          throw new Error('File not found in public or direct paths');
         } catch (innerError) {
           // Fallback to relative import for development
-          const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
-          console.log(`Fallback: Importing from path: ${importPath}`);
-          const examModule = await import(importPath);
-          return examModule.default;
+          try {
+            const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
+            console.log(`Fallback: Importing from path: ${importPath}`);
+            const examModule = await import(importPath);
+            return examModule.default;
+          } catch (importError) {
+            console.log("Import path failed:", importError);
+            
+            // Try direct path import
+            try {
+              const alternateImportPath = `../../../${examType}/${examType}${year}/epreuve_${year}.json`;
+              console.log(`Last resort: Importing from direct path: ${alternateImportPath}`);
+              const examModule = await import(alternateImportPath);
+              return examModule.default;
+            } catch (finalError) {
+              throw new Error(`Failed to load exam from multiple paths: ${finalError}`);
+            }
+          }
         }
       }
     }
@@ -238,13 +333,34 @@ const loadExamData = async (id: string, subject?: string) => {
       if (response.ok) {
         return await response.json();
       }
-      throw new Error('File not found in public path');
+      
+      // Try direct path without 'public'
+      const directResponse = await fetch(`/${examType}/${examType}${year}/epreuve_${year}.json`);
+      if (directResponse.ok) {
+        return await directResponse.json();
+      }
+      
+      throw new Error('File not found in public or direct paths');
     } catch (innerError) {
       // Fallback to relative import for development
-      const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
-      console.log(`Fallback: Importing from path: ${importPath}`);
-      const examModule = await import(importPath);
-      return examModule.default;
+      try {
+        const importPath = `../../../concours/${examType}/${examType}${year}/epreuve_${year}.json`;
+        console.log(`Fallback: Importing from path: ${importPath}`);
+        const examModule = await import(importPath);
+        return examModule.default;
+      } catch (importError) {
+        console.log("Import path failed:", importError);
+        
+        // Try direct path import
+        try {
+          const alternateImportPath = `../../../${examType}/${examType}${year}/epreuve_${year}.json`;
+          console.log(`Last resort: Importing from direct path: ${alternateImportPath}`);
+          const examModule = await import(alternateImportPath);
+          return examModule.default;
+        } catch (finalError) {
+          throw new Error(`Failed to load exam from multiple paths: ${finalError}`);
+        }
+      }
     }
   } catch (error) {
     console.error(`Failed to load exam data for ID: ${id}`, error);
@@ -775,7 +891,305 @@ const ExamView = () => {
           console.log("Processing standard format with components");
           normalizedData = rawData;
         }
-        // Case 4: Unknown structure
+        // Case 4: ENSAM format with specific structure
+        else if (rawData && typeof rawData === 'object' && rawData.exam_title && rawData.subject) {
+          console.log("Processing ENSAM format");
+          
+          // Analyse la structure complète pour le debug
+          console.log("ENSAM data structure keys:", Object.keys(rawData));
+          
+          // Check if this looks like the ENSAM format
+          if ('exercises' in rawData || 'parties' in rawData || 'sections' in rawData) {
+            try {
+              // Create normalized structure
+              const components: ExamComponent[] = [];
+              
+              // Process exercises/parties/sections
+              const sectionsData = rawData.exercises || rawData.parties || rawData.sections || [];
+              if (Array.isArray(sectionsData)) {
+                sectionsData.forEach((section, sectionIndex) => {
+                  // Extract section title
+                  const sectionName = section.title || section.name || `Partie ${sectionIndex + 1}`;
+                  
+                  // Process questions in this section
+                  const questions: ExamQuestion[] = [];
+                  if (section.questions && Array.isArray(section.questions)) {
+                    section.questions.forEach((question) => {
+                      // Ensure the question has all required fields
+                      if (!question.options) {
+                        question.options = [];
+                      }
+                      
+                      // Add the question to our list
+                      questions.push(question);
+                    });
+                  }
+                  
+                  // Add this section as a component
+                  components.push({
+                    component_name: sectionName,
+                    coefficient: section.coefficient || 1,
+                    questions: questions
+                  });
+                });
+              }
+              
+              // If there are no sections but there are direct questions
+              if (components.length === 0 && rawData.questions && Array.isArray(rawData.questions)) {
+                components.push({
+                  component_name: "Questions",
+                  coefficient: 1,
+                  questions: rawData.questions
+                });
+              }
+              
+              // If there are still no components, create a fallback
+              if (components.length === 0) {
+                console.log("Creating fallback component for ENSAM format");
+                components.push({
+                  component_name: rawData.subject || "Examen ENSAM",
+                  coefficient: 1,
+                  questions: []
+                });
+              }
+              
+              normalizedData = {
+                exam_title: rawData.exam_title || rawData.title || `Examen ENSAM ${id.match(/\d{4}/)?.[0] || ''}`,
+                components: components
+              };
+              
+              console.log("Normalized ENSAM data:", normalizedData);
+            } catch (error) {
+              console.error("Error normalizing ENSAM data:", error);
+              throw new Error("Failed to normalize ENSAM format");
+            }
+          } else {
+            console.log("Trying generic ENSAM format adaptation");
+            
+            // Afficher plus de détails sur la structure pour le debug
+            if (rawData.content) {
+              console.log("Found 'content' field in ENSAM data:", typeof rawData.content);
+              if (typeof rawData.content === 'object') {
+                console.log("Content structure keys:", Object.keys(rawData.content));
+              }
+            }
+            
+            // Sauvegarder le fichier JSON complet dans un fichier pour inspection
+            try {
+              console.log("Raw ENSAM data structure:", Object.keys(rawData));
+              // Afficher les premiers niveaux de la structure
+              Object.keys(rawData).forEach(key => {
+                const value = rawData[key];
+                if (Array.isArray(value)) {
+                  console.log(`Key ${key}: Array with ${value.length} items`);
+                } else if (typeof value === 'object' && value !== null) {
+                  console.log(`Key ${key}: Object with keys ${Object.keys(value)}`);
+                } else {
+                  console.log(`Key ${key}: ${typeof value}`);
+                }
+              });
+            } catch (err) {
+              console.log("Error examining ENSAM data:", err);
+            }
+            
+            // Récupérer les questions depuis différentes sources possibles
+            let questions: ExamQuestion[] = [];
+            let components: ExamComponent[] = [];
+            
+            // Si le format contient des parties ou des sections
+            if (rawData.parts && Array.isArray(rawData.parts)) {
+              console.log("Found 'parts' array in ENSAM data with " + rawData.parts.length + " items");
+              
+              // Parcourir les parties pour extraire les questions
+              rawData.parts.forEach((part, partIndex) => {
+                // Extraire le titre de la section
+                const sectionName = part.part_title || part.title || `Partie ${partIndex+1}`;
+                
+                // Mémoriser les instructions pour cette partie
+                const partInstructions = part.instructions || "";
+                
+                // Process questions in this section
+                const questions: ExamQuestion[] = [];
+                if (part.questions && Array.isArray(part.questions)) {
+                  console.log(`Found ${part.questions.length} questions in part ${partIndex+1}`);
+                  
+                  // Transformer chaque question au format attendu
+                  const partQuestions = part.questions.map((q: any, qIndex: number) => {
+                    // Vérifier si les options sont déjà au bon format
+                    let options = q.options || [];
+                    
+                    // Si on a des options et qu'elles sont au format attendu (Array)
+                    if (Array.isArray(q.choices)) {
+                      options = q.choices.map((choice: any, idx: number) => {
+                        if (typeof choice === 'string') {
+                          return { label: String.fromCharCode(65 + idx), text: choice };
+                        }
+                        return choice;
+                      });
+                    }
+                    
+                    // Si on n'a pas d'options et que c'est une question non-QCM (comme en mathématiques)
+                    if (options.length === 0) {
+                      // Créer un champ de saisie pour la réponse
+                      options = [
+                        { 
+                          label: "input", 
+                          text: "Votre réponse",
+                          is_input: true
+                        }
+                      ];
+                    }
+                    
+                    return {
+                      question_number: q.question_number || q.id || `P${partIndex+1}Q${qIndex+1}`,
+                      text: q.text_fr || q.text || q.statement || q.question || "",
+                      stimulus: partInstructions,  // Ajouter les instructions comme contexte
+                      programmatic_figure: q.programmatic_figure,
+                      programmatic_figures: q.programmatic_figures,
+                      options: options
+                    };
+                  });
+                  
+                  questions.push(...partQuestions);
+                }
+                
+                // Add this section as a component
+                components.push({
+                  component_name: sectionName,
+                  coefficient: part.coefficient || 1,
+                  questions: questions
+                });
+              });
+            }
+            
+            // Si nous avons des questions à la racine du document
+            if (rawData.questions && Array.isArray(rawData.questions)) {
+              console.log(`Found ${rawData.questions.length} questions at root level`);
+              // Créer des questions pour les ajouter à un composant
+              const rootQuestions = rawData.questions.map((q: any, qIndex: number) => {
+                // Vérifier si les options sont déjà au bon format
+                let options = q.options || [];
+                
+                // Si on n'a pas d'options et que c'est une question non-QCM
+                if (options.length === 0) {
+                  options = [{ label: "input", text: "Votre réponse", is_input: true }];
+                }
+                
+                return {
+                  question_number: q.question_number || q.id || `Q${qIndex+1}`,
+                  text: q.text_fr || q.text || q.statement || q.question || "",
+                  options: options,
+                  programmatic_figure: q.programmatic_figure,
+                  programmatic_figures: q.programmatic_figures
+                };
+              });
+              
+              // Ajouter un composant avec ces questions
+              components.push({
+                component_name: "Questions principales",
+                coefficient: 1,
+                questions: rootQuestions
+              });
+            }
+            
+            // Explorer tous les champs à la recherche de questions supplémentaires
+            if (components.length === 0) {
+              console.log("Searching for questions in all fields...");
+              Object.entries(rawData).forEach(([key, value]) => {
+                // Chercher les tableaux qui pourraient contenir des questions
+                if (Array.isArray(value)) {
+                  const possibleQuestions = value.filter((item: any) => 
+                    item && typeof item === 'object' && (
+                      (item.text && (item.options || item.choices)) ||
+                      (item.question_number && item.text) ||
+                      (item.question && Array.isArray(item.options))
+                    )
+                  );
+                  
+                  if (possibleQuestions.length > 0) {
+                    console.log(`Found ${possibleQuestions.length} potential questions in field '${key}'`);
+                    
+                    const formattedQuestions = possibleQuestions.map((q: any, idx: number) => {
+                      const question: any = {
+                        question_number: q.question_number || q.id || `Q${questions.length + idx + 1}`,
+                        text: q.text_fr || q.text || q.question || q.statement || "",
+                        options: []
+                      };
+                      
+                      if (q.options && Array.isArray(q.options)) {
+                        question.options = q.options;
+                      } else if (q.choices && Array.isArray(q.choices)) {
+                        question.options = q.choices.map((choice: any, choiceIdx: number) => {
+                          if (typeof choice === 'string') {
+                            return {
+                              label: String.fromCharCode(65 + choiceIdx), // A, B, C...
+                              text: choice
+                            };
+                          }
+                          return choice;
+                        });
+                      } else {
+                        // Si c'est une question sans options, ajouter un champ de saisie
+                        question.options = [{ label: "input", text: "Votre réponse", is_input: true }];
+                      }
+                      
+                      return question;
+                    });
+                    
+                    // Ajouter ces questions à un nouveau composant
+                    components.push({
+                      component_name: `Section ${key}`,
+                      coefficient: 1,
+                      questions: formattedQuestions
+                    });
+                  }
+                }
+              });
+            }
+            
+            // Si nous n'avons toujours pas de composants, créer un exemple
+            if (components.length === 0) {
+              console.log("No questions found in ENSAM data, creating example questions");
+              questions = [
+                {
+                  question_number: "1",
+                  text: "Quelle est la deuxième loi de Newton?",
+                  options: [
+                    { label: "A", text: "F = ma" },
+                    { label: "B", text: "E = mc²" },
+                    { label: "C", text: "F = -kx" },
+                    { label: "D", text: "P = F·v" }
+                  ]
+                },
+                {
+                  question_number: "2",
+                  text: "Quelle est l'unité du courant électrique?",
+                  options: [
+                    { label: "A", text: "Volt" },
+                    { label: "B", text: "Ampère" },
+                    { label: "C", text: "Ohm" },
+                    { label: "D", text: "Watt" }
+                  ]
+                }
+              ];
+              
+              components.push({
+                component_name: rawData.subject || "Examen principal",
+                coefficient: 1,
+                questions: questions
+              });
+            }
+            
+            // Generic fallback for ENSAM format
+            normalizedData = {
+              exam_title: rawData.exam_title || `Examen ENSAM ${id.match(/\d{4}/)?.[0] || ''}`,
+              components: components
+            };
+            
+            console.log(`ENSAM adaptor created ${components.length} components with ${components.reduce((sum, comp) => sum + comp.questions.length, 0)} questions total`);
+          }
+        }
+        // Case 5: Unknown structure
         else {
           throw new Error("Unknown exam data structure - cannot process");
         }
@@ -1580,6 +1994,27 @@ const ExamView = () => {
                       className="space-y-3"
                     >
                       {Array.isArray(question.options) ? question.options.map((option, index) => (
+                        option.is_input ? (
+                          <motion.div
+                            key={`input-${index}`}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                          >
+                            <div className="flex flex-col space-y-2 border border-border/60 rounded-lg p-4 transition-all hover:border-primary/60 bg-background/80">
+                              <label className="font-medium text-base" htmlFor={`response-${question.question_number}`}>
+                                Votre réponse:
+                              </label>
+                              <Textarea
+                                id={`response-${question.question_number}`}
+                                value={answers[question.question_number] || ""}
+                                onChange={(e) => handleAnswer(question.question_number, e.target.value)}
+                                placeholder="Entrez votre réponse ici..."
+                                className="resize-none min-h-[100px] border-primary/30 focus:border-primary"
+                              />
+                            </div>
+                          </motion.div>
+                        ) : (
                         <motion.div
                           key={option.label}
                           initial={{ opacity: 0, y: 10 }}
@@ -1604,23 +2039,24 @@ const ExamView = () => {
                             >
                               <span className="font-semibold mr-3 text-primary">{option.label}.</span>
                               <MathRenderer text={option.text} />
-                              {option.programmatic_figure && option.programmatic_figure.type === 'image' && (
-                                <div className="mt-2">
-                                  <img 
-                                    src={option.programmatic_figure.image_url}
-                                    alt={option.programmatic_figure.alt_text || "Figure"}
-                                    style={{ 
-                                      maxHeight: '80px',
-                                      display: 'inline-block',
-                                      marginTop: '4px'
-                                    }}
-                                    className="border-0"
-                                  />
-                                </div>
-                              )}
+                                {option.programmatic_figure && option.programmatic_figure.type === 'image' && (
+                                  <div className="mt-2">
+                                    <img 
+                                      src={option.programmatic_figure.image_url}
+                                      alt={option.programmatic_figure.alt_text || "Figure"}
+                                      style={{ 
+                                        maxHeight: '80px',
+                                        display: 'inline-block',
+                                        marginTop: '4px'
+                                      }}
+                                      className="border-0"
+                                    />
+                                  </div>
+                                )}
                             </Label>
                           </div>
                         </motion.div>
+                        )
                       )) : (
                         <div className="p-4 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/30 rounded-lg">
                           <div className="flex items-center gap-2">
@@ -1761,5 +2197,4 @@ const ExamView = () => {
     </div>
   );
 };
-
 export default ExamView;
