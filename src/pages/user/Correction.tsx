@@ -691,6 +691,7 @@ const calculateResults = (correctionData: CorrectionData, userAnswers: Record<st
       
       processedQuestions.push({
         id: questionNumber,
+        question_number: question.question_number,
         text: question.text,
         userAnswer: userAnswerText,
         correctAnswer: correctAnswerText,
@@ -1212,9 +1213,9 @@ const Correction = () => {
                               : question.score 
                                 ? "text-amber-600 dark:text-amber-400" 
                                 : "text-red-600 dark:text-red-400"
-                          )}>{index + 1}</span>
+                          )}>{question.question_number ? question.question_number.replace(/\D/g, '') : (index + 1)}</span>
                         </div>
-                        Question {index + 1}
+                        Question {question.question_number ? question.question_number.replace(/\D/g, '') : (index + 1)}
                       </CardTitle>
                       {question.isCorrect ? (
                         <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border-none">
@@ -1281,9 +1282,9 @@ const Correction = () => {
                     <div className="flex justify-between">
                       <CardTitle className="text-lg font-medium flex items-center gap-2">
                         <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                          <span className="font-bold text-green-600 dark:text-green-400">{index + 1}</span>
+                          <span className="font-bold text-green-600 dark:text-green-400">{question.question_number ? question.question_number.replace(/\D/g, '') : (index + 1)}</span>
                         </div>
-                        Question {index + 1}
+                        Question {question.question_number ? question.question_number.replace(/\D/g, '') : (index + 1)}
                       </CardTitle>
                       <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border-none">
                         <CheckCircle className="h-3 w-3 mr-1" />
@@ -1341,9 +1342,9 @@ const Correction = () => {
                     <div className="flex justify-between">
                       <CardTitle className="text-lg font-medium flex items-center gap-2">
                         <div className="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
-                          <span className="font-bold text-red-600 dark:text-red-400">{index + 1}</span>
+                          <span className="font-bold text-red-600 dark:text-red-400">{question.question_number ? question.question_number.replace(/\D/g, '') : (index + 1)}</span>
                         </div>
-                        Question {index + 1}
+                        Question {question.question_number ? question.question_number.replace(/\D/g, '') : (index + 1)}
                       </CardTitle>
                       <Badge className="bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 border-none">
                         <XCircle className="h-3 w-3 mr-1" />
@@ -1401,9 +1402,9 @@ const Correction = () => {
                     <div className="flex justify-between">
                       <CardTitle className="text-lg font-medium flex items-center gap-2">
                         <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-                          <span className="font-bold text-amber-600 dark:text-amber-400">{index + 1}</span>
+                          <span className="font-bold text-amber-600 dark:text-amber-400">{question.question_number ? question.question_number.replace(/\D/g, '') : (index + 1)}</span>
                         </div>
-                        Question {index + 1}
+                        Question {question.question_number ? question.question_number.replace(/\D/g, '') : (index + 1)}
                       </CardTitle>
                       <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border-none">
                         <AlertCircle className="h-3 w-3 mr-1" />
