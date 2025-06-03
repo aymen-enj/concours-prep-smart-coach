@@ -15,43 +15,6 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-// Testimonials data for the marketing section
-const testimonials = [
-  {
-    name: "Sarah L.",
-    role: "Étudiante en Prépa",
-    text: "Grâce à cette plateforme, j'ai pu intégrer l'école de mes rêves. Les examens sont parfaitement adaptés au niveau réel des concours.",
-    university: "École Polytechnique",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
-  },
-  {
-    name: "Thomas M.",
-    role: "Étudiant en Médecine",
-    text: "La préparation aux concours n'a jamais été aussi efficace. Les corrections détaillées m'ont permis de progresser rapidement.",
-    university: "Faculté de Médecine Paris",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
-  }
-];
-
-// Key features for marketing section
-const keyFeatures = [
-  {
-    icon: CheckCircle,
-    title: "Contenus officiels",
-    description: "Annales et exercices conformes aux programmes officiels"
-  },
-  {
-    icon: Trophy,
-    title: "Succès garanti",
-    description: "93% de réussite parmi nos utilisateurs premium"
-  },
-  {
-    icon: Star,
-    title: "Corrections détaillées",
-    description: "Explications pas à pas et conseils personnalisés"
-  }
-];
-
 const ConcoursPage = () => {
   // Hierarchical navigation state
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
@@ -289,109 +252,7 @@ const ConcoursPage = () => {
     );
   };
 
-  // Marketing section for the main page
-  const renderMarketingSection = () => {
-    if (currentStep !== 0) return null;
-    
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="mb-12"
-      >
-        <Card className="overflow-hidden border-border/30 backdrop-blur-sm bg-gradient-to-br from-background to-background/70">
-          <CardContent className="p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-3 py-1 text-sm font-medium mb-4">
-                  <Sparkles className="h-4 w-4" />
-                  <span>L'excellence académique accessible à tous</span>
-                </div>
-                <h2 className="text-3xl font-bold mb-4 font-poppins">Préparez-vous pour réussir <br/> vos concours</h2>
-                <p className="text-muted-foreground mb-6">
-                  Notre plateforme vous offre une préparation complète et adaptée aux examens des meilleures 
-                  universités. Des milliers d'étudiants ont déjà réussi grâce à notre méthode.
-                </p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                  {keyFeatures.map((feature, index) => (
-                    <div key={index} className="flex flex-col items-center text-center p-4 rounded-lg bg-background/80 border border-border/30">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                        <feature.icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <h3 className="font-medium mb-1">{feature.title}</h3>
-                      <p className="text-xs text-muted-foreground">{feature.description}</p>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="flex gap-3">
-                  <Button className="rounded-full gap-2 bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-primary">
-                    <Trophy className="h-5 w-5" />
-                    Débloquer l'accès Premium
-                  </Button>
-                  <Button variant="outline" className="rounded-full gap-2 border-primary/30 hover:bg-primary/5">
-                    <BookOpen className="h-5 w-5" />
-                    Découvrir nos offres
-                  </Button>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium flex items-center gap-2">
-                  <Star className="h-5 w-5 text-amber-500" />
-                  Ils ont réussi grâce à nous
-                </h3>
-                
-                {testimonials.map((testimonial, index) => (
-                  <Card key={index} className="p-4 border-border/30 bg-background/80">
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="h-12 w-12 rounded-full overflow-hidden border-2 border-border">
-                          <img src={testimonial.avatar} alt={testimonial.name} className="h-full w-full object-cover" />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex items-center justify-between mb-1">
-                          <div>
-                            <span className="font-medium">{testimonial.name}</span>
-                            <span className="mx-2 text-muted-foreground">•</span>
-                            <span className="text-sm text-muted-foreground">{testimonial.role}</span>
-                          </div>
-                          <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20 text-xs">
-                            {testimonial.university}
-                          </Badge>
-                        </div>
-                        <p className="text-sm text-muted-foreground">{testimonial.text}</p>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-                
-                <div className="flex items-center justify-between px-2 pt-2">
-                  <div className="flex -space-x-2">
-                    {Array(5).fill(0).map((_, i) => (
-                      <div key={i} className="h-8 w-8 rounded-full border-2 border-background overflow-hidden">
-                        <img 
-                          src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? 'women' : 'men'}/${i + 10}.jpg`} 
-                          alt="User avatar" 
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">5000+</span> étudiants actifs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
-    );
-  };
+  // Marketing section has been removed
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -452,8 +313,7 @@ const ConcoursPage = () => {
             </div>
           </motion.div>
 
-          {/* Marketing Section */}
-          {renderMarketingSection()}
+          {/* Marketing Section removed */}
 
           {/* Breadcrumb navigation */}
           {currentStep > 0 && renderBreadcrumb()}

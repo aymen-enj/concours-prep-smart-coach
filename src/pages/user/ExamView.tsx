@@ -1327,6 +1327,15 @@ const ExamView = () => {
     // In a real app, this would send the answers to a server
     setIsSubmitting(true);
     
+    // Save answers to localStorage for the correction page to use
+    const answersKey = `answers_${id}${subject ? `_${subject}` : ''}`;
+    localStorage.setItem(answersKey, JSON.stringify({
+      answers,
+      timestamp: new Date().toISOString(),
+      examId: id,
+      subject: subject || null
+    }));
+    
     // Simulate API call
     setTimeout(() => {
       console.log("Submitting answers:", answers);
