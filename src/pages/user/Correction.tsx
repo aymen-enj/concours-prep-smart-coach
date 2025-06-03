@@ -44,50 +44,99 @@ const MathRenderer = ({ text }: { text: string }) => {
   if (!text) return null;
   
   try {
-    // Regex to match LaTeX expressions between $ symbols
-    const regex = /\$(.*?)\$/g;
-    const parts = [];
-    let lastIndex = 0;
-    let match;
+    // Gestion des expressions LaTeX avec $ simple et double $$
+    // 1. Trouver d'abord les expressions de type $$...$$ (block math)
+    // 2. Puis trouver les expressions de type $...$ (inline math)
     
-    // Find all LaTeX expressions and split text into regular text and LaTeX parts
-    while ((match = regex.exec(text)) !== null) {
-      // Add text before the match
-      if (match.index > lastIndex) {
-        parts.push({ type: 'text', content: text.substring(lastIndex, match.index) });
+    // Étape 1: Séparer le texte en fragments normaux et blocks LaTeX ($$...$$)
+    const blockRegex = /\$\$(.*?)\$\$/gs; // Le 's' permet de capturer sur plusieurs lignes
+    let fragments = [];
+    let lastBlockIndex = 0;
+    let blockMatch;
+    
+    const textCopy = text.toString();
+    
+    while ((blockMatch = blockRegex.exec(textCopy)) !== null) {
+      // Ajouter le texte avant le bloc
+      if (blockMatch.index > lastBlockIndex) {
+        fragments.push({ type: 'mixte', content: textCopy.substring(lastBlockIndex, blockMatch.index) });
       }
       
-      // Add the LaTeX expression
-      parts.push({ type: 'latex', content: match[1] });
+      // Ajouter le bloc LaTeX
+      fragments.push({ type: 'block', content: blockMatch[1] });
       
-      lastIndex = match.index + match[0].length;
+      lastBlockIndex = blockMatch.index + blockMatch[0].length;
     }
     
-    // Add any remaining text after the last match
-    if (lastIndex < text.length) {
-      parts.push({ type: 'text', content: text.substring(lastIndex) });
+    // Ajouter le texte restant après le dernier bloc
+    if (lastBlockIndex < textCopy.length) {
+      fragments.push({ type: 'mixte', content: textCopy.substring(lastBlockIndex) });
     }
     
-    // Render each part
+    // Étape 2: Pour chaque fragment de type 'mixte', chercher les expressions inline ($...$)
+    const processedFragments = [];
+    const inlineRegex = /\$(.*?)\$/g;
+    
+    fragments.forEach((fragment, fragIndex) => {
+      if (fragment.type === 'block') {
+        processedFragments.push(fragment);
+      } else {
+        // Pour le texte mixte, chercher les expressions inline
+        const inlineContent = fragment.content;
+        let parts = [];
+        let lastInlineIndex = 0;
+        let inlineMatch;
+        
+        while ((inlineMatch = inlineRegex.exec(inlineContent)) !== null) {
+          // Texte avant l'expression inline
+          if (inlineMatch.index > lastInlineIndex) {
+            parts.push({ type: 'text', content: inlineContent.substring(lastInlineIndex, inlineMatch.index) });
+          }
+          
+          // Expression inline
+          parts.push({ type: 'inline', content: inlineMatch[1] });
+          
+          lastInlineIndex = inlineMatch.index + inlineMatch[0].length;
+        }
+        
+        // Texte restant
+        if (lastInlineIndex < inlineContent.length) {
+          parts.push({ type: 'text', content: inlineContent.substring(lastInlineIndex) });
+        }
+        
+        // Ajouter tous les fragments traités
+        processedFragments.push(...parts);
+      }
+    });
+    
+    // Rendu de tous les fragments
     return (
       <span>
-        {parts.map((part, index) => {
-          if (part.type === 'latex') {
+        {processedFragments.map((part, index) => {
+          if (part.type === 'inline') {
             try {
-              return <InlineMath key={index} math={part.content} />;
+              return <InlineMath key={`inline-${index}`} math={part.content} />;
             } catch (error) {
-              console.error('Error rendering LaTeX:', error);
-              return <span key={index} className="text-red-500">$${part.content}$$</span>;
+              console.error('Error rendering inline LaTeX:', error, part.content);
+              return <span key={`inline-error-${index}`} className="text-red-500">${part.content}$</span>;
+            }
+          } else if (part.type === 'block') {
+            try {
+              return <BlockMath key={`block-${index}`} math={part.content} />;
+            } catch (error) {
+              console.error('Error rendering block LaTeX:', error, part.content);
+              return <div key={`block-error-${index}`} className="text-red-500 my-2 p-2 border border-red-300 rounded">$${part.content}$$</div>;
             }
           } else {
-            return <span key={index}>{part.content}</span>;
+            return <span key={`text-${index}`}>{part.content}</span>;
           }
         })}
       </span>
     );
   } catch (error) {
-    console.error('Error in MathRenderer:', error);
-    return <span>{text}</span>; // Fallback to plain text if there's an error
+    console.error('Error in MathRenderer:', error, text);
+    // Fallback en cas d'erreur globale
+    return <span className="text-orange-500 font-mono text-sm">{text}</span>;
   }
 };
 
@@ -130,13 +179,23 @@ const CircularProgress = ({ value, max }: { value: number; max: number }) => {
 
 // Composant pour le graphique en camembert des réponses
 const AnswersPieChart = ({ correctAnswers, wrongAnswers, notAnswered }: { correctAnswers: number; wrongAnswers: number; notAnswered: number }) => {
+  // Définition des couleurs vives et distinctes - ordre explicite pour éviter les confusions
+  const COLORS = {
+    correct: '#22c55e',  // vert - correctes
+    incorrect: '#ef4444', // rouge - incorrectes
+    notAnswered: '#f59e0b'  // orange - non répondues
+  };
+  
+  // Assurons-nous que les données sont clairement identifiées
   const data = [
-    { name: 'Correctes', value: correctAnswers, color: '#10b981', description: 'Réponses justes' },
-    { name: 'Incorrectes', value: wrongAnswers, color: '#ef4444', description: 'Réponses erronées' },
-    { name: 'Non répondues', value: notAnswered, color: '#f59e0b', description: 'Questions sans réponse' }
+    { name: 'Correctes', value: correctAnswers, id: 'correct', color: COLORS.correct, description: 'Réponses justes' },
+    { name: 'Incorrectes', value: wrongAnswers, id: 'incorrect', color: COLORS.incorrect, description: 'Réponses erronées' },
+    { name: 'Non répondues', value: notAnswered, id: 'notAnswered', color: COLORS.notAnswered, description: 'Questions sans réponse' }
   ];
   
-  const COLORS = ['#10b981', '#ef4444', '#f59e0b'];
+  // Filtrer les données pour ne garder que celles avec des valeurs > 0
+  const filteredData = data.filter(item => item.value > 0);
+  
   const RADIAN = Math.PI / 180;
   
   // Custom label render pour un design plus moderne
@@ -145,10 +204,12 @@ const AnswersPieChart = ({ correctAnswers, wrongAnswers, notAnswered }: { correc
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-    if (data[index].value === 0) return null;
+    // Récupérer la couleur correcte à partir des données filtrées
+    const item = filteredData[index];
+    if (!item || item.value === 0) return null;
 
     return (
-      <text x={x} y={y} fill={COLORS[index % COLORS.length]} textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      <text x={x} y={y} fill={item.color} textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
         {`${(percent * 100).toFixed(0)}%`}
       </text>
     );
@@ -171,13 +232,17 @@ const AnswersPieChart = ({ correctAnswers, wrongAnswers, notAnswered }: { correc
   // Custom legend plus moderne
   const CustomLegend = ({ payload }) => {
     return (
-      <ul className="flex flex-wrap justify-center gap-4 mt-4">
-        {payload.map((entry, index) => (
-          <li key={`item-${index}`} className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color }}></div>
-            <span className="text-sm">{entry.value}</span>
-          </li>
-        ))}
+      <ul className="flex flex-wrap justify-center gap-6 mt-4">
+        {payload.map((entry, index) => {
+          // Trouver l'item correspondant dans nos données
+          const item = filteredData.find(d => d.id === entry.payload.id) || entry.payload;
+          return (
+            <li key={`item-${index}`} className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full" style={{ backgroundColor: item.color }}></div>
+              <span className="text-sm font-medium">{item.name}</span>
+            </li>
+          );
+        })}
       </ul>
     );
   };
@@ -187,15 +252,16 @@ const AnswersPieChart = ({ correctAnswers, wrongAnswers, notAnswered }: { correc
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <defs>
-            {COLORS.map((color, index) => (
-              <linearGradient key={`gradient-${index}`} id={`colorGradient${index}`} x1="0" y1="0" x2="0" y2="1">
+            {/* Générer les gradients pour chaque couleur */}
+            {Object.entries(COLORS).map(([key, color]) => (
+              <linearGradient key={`gradient-${key}`} id={`colorGradient-${key}`} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor={color} stopOpacity={0.8}/>
                 <stop offset="100%" stopColor={color} stopOpacity={1}/>
               </linearGradient>
             ))}
           </defs>
           <Pie
-            data={data}
+            data={filteredData}
             cx="50%"
             cy="50%"
             labelLine={false}
@@ -208,8 +274,12 @@ const AnswersPieChart = ({ correctAnswers, wrongAnswers, notAnswered }: { correc
             animationDuration={1500}
             animationEasing="ease-out"
           >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={`url(#colorGradient${index})`} stroke="none" />
+            {filteredData.map((entry) => (
+              <Cell 
+                key={`cell-${entry.id}`} 
+                fill={`url(#colorGradient-${entry.id})`} 
+                stroke="none" 
+              />
             ))}
           </Pie>
           <Tooltip content={<CustomTooltip active={undefined} payload={undefined} />} />
@@ -308,7 +378,10 @@ const StrengthsWeaknessesRadarChart = ({ topicScores }: { topicScores: { topic: 
 // Composant pour le graphique en barres des scores par thème
 const TopicBarChart = ({ topicScores }: { topicScores: { topic: string; score: number; maxScore: number }[] }) => {
   // Transformer les données pour le graphique en barres
-  const data = topicScores.map(item => ({
+  // Limiter à 5 matières pour une meilleure lisibilité si nécessaire
+  const limitedData = topicScores.slice(0, 5);
+  
+  const data = limitedData.map(item => ({
     topic: item.topic,
     score: item.score,
     maxScore: item.maxScore,
@@ -349,11 +422,13 @@ const TopicBarChart = ({ topicScores }: { topicScores: { topic: string; score: n
           y={0} 
           dy={16} 
           textAnchor="middle" 
-          fill="#64748b"
+          fill="#334155"
           fontSize="12"
-          transform="rotate(-35)"
+          fontWeight="500"
+          transform="rotate(-25)"
         >
-          {payload.value.length > 12 ? `${payload.value.substring(0, 12)}...` : payload.value}
+          {/* Formater les noms de matières pour qu'ils soient plus lisibles */}
+          {payload.value.length > 15 ? `${payload.value.substring(0, 15)}...` : payload.value}
         </text>
       </g>
     );
@@ -361,21 +436,32 @@ const TopicBarChart = ({ topicScores }: { topicScores: { topic: string; score: n
 
   // Custom Legend avec style moderne
   const CustomLegend = ({ payload }) => {
+    // Définition des descriptions explicites pour les éléments de légende
+    const legendLabels = [
+      { key: 'score', label: 'Points obtenus' },
+      { key: 'maxScore', label: 'Points possibles' }
+    ];
+
     return (
-      <div className="flex justify-center items-center gap-6 mt-2">
-        {payload.map((entry, index) => (
-          <div key={`legend-${index}`} className="flex items-center gap-2">
-            <div 
-              className="w-3 h-3 rounded-sm" 
-              style={{ 
-                background: index === 0 ? 
-                  'linear-gradient(180deg, #3b82f6 0%, #60a5fa 100%)' : 
-                  'linear-gradient(180deg, #94a3b8 0%, #cbd5e1 100%)' 
-              }}
-            />
-            <span className="text-xs text-gray-600 dark:text-gray-300">{entry.value}</span>
-          </div>
-        ))}
+      <div className="flex justify-center items-center gap-6 mt-4">
+        {payload.map((entry, index) => {
+          // Trouver le label correspondant à cette entrée
+          const legendItem = legendLabels.find(item => item.key === entry.dataKey) || { label: entry.value };
+          
+          return (
+            <div key={`legend-${index}`} className="flex items-center gap-2">
+              <div 
+                className="w-4 h-4 rounded-sm" 
+                style={{ 
+                  background: index === 0 ? 
+                    'linear-gradient(180deg, #3b82f6 0%, #60a5fa 100%)' : 
+                    'linear-gradient(180deg, #94a3b8 0%, #cbd5e1 100%)' 
+                }}
+              />
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{legendItem.label}</span>
+            </div>
+          );
+        })}
       </div>
     );
   };
@@ -391,12 +477,12 @@ const TopicBarChart = ({ topicScores }: { topicScores: { topic: string; score: n
         >
           <defs>
             <linearGradient id="scoreGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#60a5fa" stopOpacity={0.8}/>
+              <stop offset="0%" stopColor="#2563eb" stopOpacity={1}/>
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity={0.9}/>
             </linearGradient>
             <linearGradient id="maxScoreGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#94a3b8" stopOpacity={0.6}/>
-              <stop offset="100%" stopColor="#cbd5e1" stopOpacity={0.4}/>
+              <stop offset="0%" stopColor="#64748b" stopOpacity={0.7}/>
+              <stop offset="100%" stopColor="#94a3b8" stopOpacity={0.6}/>
             </linearGradient>
             <filter id="barShadow" height="130%">
               <feDropShadow dx="0" dy="3" stdDeviation="3" floodOpacity="0.1"/>
@@ -944,12 +1030,12 @@ const Correction = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
-      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 relative">
+      <main className="flex-grow py-12 px-6 sm:px-10 md:px-16 lg:px-24 relative">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10"></div>
         <div className="absolute bottom-24 left-0 w-60 h-60 bg-blue-400/5 rounded-full blur-3xl -z-10"></div>
         
-        <div className="w-full mx-auto">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="mb-10">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
               <div className="flex items-center gap-3">
@@ -1108,7 +1194,7 @@ const Correction = () => {
               <CardContent>
                 <AnswersPieChart 
                   correctAnswers={correction.correctAnswers} 
-                  wrongAnswers={correction.wrongAnswers} 
+                  wrongAnswers={correction.incorrectAnswers} 
                   notAnswered={correction.notAnsweredCount} 
                 />
               </CardContent>
@@ -1174,9 +1260,6 @@ const Correction = () => {
               </TabsTrigger>
               <TabsTrigger value="incorrect" className="rounded-md data-[state=active]:bg-background">
                 Incorrectes
-              </TabsTrigger>
-              <TabsTrigger value="partial" className="rounded-md data-[state=active]:bg-background">
-                Partielles
               </TabsTrigger>
             </TabsList>
             <TabsContent value="all" className="space-y-6">
@@ -1299,13 +1382,13 @@ const Correction = () => {
                         <h4 className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1">
                           <BookmarkIcon className="h-3 w-3" /> Votre réponse:
                         </h4>
-                        <p className="text-sm">{question.userAnswer}</p>
+                        <p className="text-sm"><MathRenderer text={question.userAnswer} /></p>
                       </div>
                       <div className="p-4 bg-green-50 dark:bg-green-900/10 rounded-lg border border-green-100 dark:border-green-800/30">
                         <h4 className="text-sm font-medium text-green-700 dark:text-green-400 mb-1 flex items-center gap-1">
                           <CheckCircle className="h-3 w-3" /> Réponse correcte:
                         </h4>
-                        <p className="text-sm">{question.correctAnswer}</p>
+                        <p className="text-sm"><MathRenderer text={question.correctAnswer} /></p>
                       </div>
                     </div>
                     {question.feedback && (
@@ -1351,7 +1434,7 @@ const Correction = () => {
                         Incorrecte
                       </Badge>
                     </div>
-                    <CardDescription className="mt-2">{question.text}</CardDescription>
+                    <CardDescription className="mt-2"><MathRenderer text={question.text} /></CardDescription>
                   </CardHeader>
                   <CardContent className="p-6 pt-2">
                     <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1359,13 +1442,13 @@ const Correction = () => {
                         <h4 className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1">
                           <BookmarkIcon className="h-3 w-3" /> Votre réponse:
                         </h4>
-                        <p className="text-sm">{question.userAnswer}</p>
+                        <p className="text-sm"><MathRenderer text={question.userAnswer} /></p>
                       </div>
                       <div className="p-4 bg-green-50 dark:bg-green-900/10 rounded-lg border border-green-100 dark:border-green-800/30">
                         <h4 className="text-sm font-medium text-green-700 dark:text-green-400 mb-1 flex items-center gap-1">
                           <CheckCircle className="h-3 w-3" /> Réponse correcte:
                         </h4>
-                        <p className="text-sm">{question.correctAnswer}</p>
+                        <p className="text-sm"><MathRenderer text={question.correctAnswer} /></p>
                       </div>
                     </div>
                     {question.feedback && (
@@ -1411,7 +1494,7 @@ const Correction = () => {
                         Partiellement correcte ({question.score}/{question.maxScore})
                       </Badge>
                     </div>
-                    <CardDescription className="mt-2">{question.text}</CardDescription>
+                    <CardDescription className="mt-2"><MathRenderer text={question.text} /></CardDescription>
                   </CardHeader>
                   <CardContent className="p-6 pt-2">
                     <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1419,13 +1502,13 @@ const Correction = () => {
                         <h4 className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1">
                           <BookmarkIcon className="h-3 w-3" /> Votre réponse:
                         </h4>
-                        <p className="text-sm">{question.userAnswer}</p>
+                        <p className="text-sm"><MathRenderer text={question.userAnswer} /></p>
                       </div>
                       <div className="p-4 bg-green-50 dark:bg-green-900/10 rounded-lg border border-green-100 dark:border-green-800/30">
                         <h4 className="text-sm font-medium text-green-700 dark:text-green-400 mb-1 flex items-center gap-1">
                           <CheckCircle className="h-3 w-3" /> Réponse correcte:
                         </h4>
-                        <p className="text-sm">{question.correctAnswer}</p>
+                        <p className="text-sm"><MathRenderer text={question.correctAnswer} /></p>
                       </div>
                     </div>
                     {question.feedback && (
