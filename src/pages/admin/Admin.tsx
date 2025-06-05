@@ -10,9 +10,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
-import { Eye, FilePlus, FileText, Upload, X, Settings, Users, BarChart2 } from "lucide-react";
+import { Eye, FilePlus, FileText, Upload, X, Settings, Users, BarChart2, Loader2 } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
+import { PDFExtractionService } from '@/services/pdfExtractionService';
 
 // Mock data for concours
 const mockConcours = [
@@ -64,6 +65,9 @@ const Admin = () => {
     level: "",
     isPremium: false,
   });
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
   const { toast } = useToast();
 
   // Filter concours based on search term
@@ -118,6 +122,99 @@ const Admin = () => {
         ? "Le concours n'est plus visible pour les étudiants."
         : "Le concours est maintenant visible pour les étudiants.",
     });
+  };
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    setUploadError(null);
+
+    try {
+      if (file.type === 'application/pdf') {
+        const result = await PDFExtractionService.extractPDF(file);
+        if (result.error) {
+          throw new Error(result.error);
+        }
+        
+        const questions = PDFExtractionService.processExtractedText(result.text);
+        console.log('Extracted questions:', questions);
+        
+        // TODO: Handle the extracted questions (e.g., save to state or database)
+        toast({
+          title: "PDF processé avec succès",
+          description: `${questions.length} questions extraites`,
+        });
+      } else {
+        throw new Error('Format de fichier non supporté. Veuillez télécharger un PDF.');
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+      setUploadError(error instanceof Error ? error.message : 'Une erreur est survenue lors du traitement du fichier');
+      toast({
+        title: "Erreur",
+        description: error instanceof Error ? error.message : 'Une erreur est survenue',
+        variant: "destructive",
+      });
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = async (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+
+    if (file.size > 10 * 1024 * 1024) { // 10MB limit
+      setUploadError('Le fichier est trop volumineux. La taille maximale est de 10MB.');
+      return;
+    }
+
+    setIsUploading(true);
+    setUploadError(null);
+
+    try {
+      if (file.type === 'application/pdf') {
+        const result = await PDFExtractionService.extractPDF(file);
+        if (result.error) {
+          throw new Error(result.error);
+        }
+        
+        const questions = PDFExtractionService.processExtractedText(result.text);
+        console.log('Extracted questions:', questions);
+        
+        toast({
+          title: "PDF processé avec succès",
+          description: `${questions.length} questions extraites`,
+        });
+      } else {
+        throw new Error('Format de fichier non supporté. Veuillez télécharger un PDF.');
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+      setUploadError(error instanceof Error ? error.message : 'Une erreur est survenue lors du traitement du fichier');
+      toast({
+        title: "Erreur",
+        description: error instanceof Error ? error.message : 'Une erreur est survenue',
+        variant: "destructive",
+      });
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -344,25 +441,41 @@ const Admin = () => {
                 <CardContent className="content-card-body">
                   <div className="grid gap-6">
                     <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-12 hover:border-primary/50 transition-colors duration-200">
-                      <Upload className="h-8 w-8 text-gray-400 mb-4" />
-                      <div className="flex text-sm text-gray-600 dark:text-gray-400">
-                        <label
-                          htmlFor="file-upload"
-                          className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
-                        >
-                          <span>Importer un fichier</span>
-                          <input
-                            id="file-upload"
-                            name="file-upload"
-                            type="file"
-                            className="sr-only"
-                          />
-                        </label>
-                        <p className="pl-1">ou glisser-déposer</p>
-                      </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                        PDF, LaTeX, ou DOCX jusqu'à 10MB
-                      </p>
+                      {isUploading ? (
+                        <div className="flex flex-col items-center">
+                          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                            Traitement du fichier en cours...
+                          </p>
+                        </div>
+                      ) : (
+                        <>
+                          <Upload className="h-8 w-8 text-gray-400 mb-4" />
+                          <div className="flex text-sm text-gray-600 dark:text-gray-400">
+                            <label
+                              htmlFor="file-upload"
+                              className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
+                            >
+                              <span>Importer un fichier</span>
+                              <input
+                                id="file-upload"
+                                name="file-upload"
+                                type="file"
+                                className="sr-only"
+                                accept=".pdf,.tex,.docx"
+                                onChange={handleFileUpload}
+                              />
+                            </label>
+                            <p className="pl-1">ou glisser-déposer</p>
+                          </div>
+                          {uploadError && (
+                            <p className="mt-2 text-sm text-red-500">{uploadError}</p>
+                          )}
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            PDF, LaTeX, ou DOCX jusqu'à 10MB
+                          </p>
+                        </>
+                      )}
                     </div>
 
                     <div>

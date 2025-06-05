@@ -557,71 +557,6 @@ interface UserAnswers {
   subject: string | null;
 }
 
-// Fallback mock correction data in case of loading errors
-const mockCorrection = {
-  id: "1",
-  score: 68,
-  maxScore: 100,
-  totalQuestions: 5,
-  correctAnswers: 3,
-  partialAnswers: 1,
-  wrongAnswers: 1,
-  strengths: ["Algèbre", "Calcul intégral"],
-  weaknesses: ["Analyse", "Équations différentielles"],
-  feedback: "Vous avez une bonne compréhension des concepts d'algèbre et de calcul intégral. Vous devriez travailler davantage sur les équations différentielles et l'analyse pour améliorer votre score global.",
-  recommendations: [
-    "Revoir les chapitres sur les équations différentielles",
-    "Faire plus d'exercices sur les suites et séries",
-    "Pratiquer les démonstrations en analyse",
-  ],
-  questions: [
-    {
-      id: "q1",
-      text: "Quelle est la limite de f(x) = (1+x)^(1/x) quand x tend vers 0 ?",
-      userAnswer: "e",
-      correctAnswer: "e",
-      isCorrect: true,
-      explanation: "La limite de f(x) = (1+x)^(1/x) quand x tend vers 0 est e. On peut le démontrer en posant t = 1/x et en calculant la limite quand t tend vers l'infini de (1+1/t)^t, qui est la définition du nombre e."
-    },
-    {
-      id: "q2",
-      text: "Démontrez que la suite définie par u_n+1 = (u_n + a/u_n)/2 avec u_1 > 0 et a > 0 converge vers √a.",
-      userAnswer: "J'ai utilisé le fait que la suite est décroissante et minorée par √a...",
-      correctAnswer: "La suite est décroissante à partir d'un certain rang et minorée par √a. Elle converge donc vers une limite l ≥ √a. De l'équation u_n+1 = (u_n + a/u_n)/2, on déduit que l = (l + a/l)/2, ce qui implique l = √a.",
-      isCorrect: false,
-      score: 8,
-      maxScore: 20,
-      feedback: "Votre approche est correcte, mais la démonstration manque de rigueur et de détails. Il faudrait prouver plus formellement que la suite est décroissante pour u_n > √a et croissante pour u_n < √a."
-    },
-    {
-      id: "q3",
-      text: "Dans un espace vectoriel normé, toute suite de Cauchy est :",
-      userAnswer: "Convergente si l'espace est complet",
-      correctAnswer: "Convergente si l'espace est complet",
-      isCorrect: true,
-      explanation: "Par définition, un espace est dit complet si toute suite de Cauchy y est convergente."
-    },
-    {
-      id: "q4",
-      text: "Calculez l'intégrale suivante : $\\int_{0}^{\\pi} \\sin(x) \\, dx$",
-      userAnswer: "-cos(x) entre 0 et pi = -cos(pi) - (-cos(0)) = -(-1) - (-1) = 1 - (-1) = 2",
-      correctAnswer: "$-[\\cos(x)]_{0}^{\\pi} = -\\cos(\\pi) - (-\\cos(0)) = -(-1) - (-1) = 1 + 1 = 2$",
-      isCorrect: true,
-      explanation: "La primitive de sin(x) est -cos(x) + C. On applique le théorème fondamental du calcul."
-    },
-    {
-      id: "q5",
-      text: "Quelle est la solution de l'équation différentielle y' + y = 0 ?",
-      userAnswer: "y = Ce^x",
-      correctAnswer: "y = Ce^(-x)",
-      isCorrect: false,
-      score: 0,
-      maxScore: 10,
-      explanation: "On réécrit l'équation sous la forme y' = -y, puis on utilise la méthode de séparation des variables ou on reconnaît directement que y = Ce^(-x) est solution car sa dérivée est -Ce^(-x), ce qui donne bien y' + y = 0."
-    }
-  ]
-};
-
 // Statistiques additionnelles
 const additionalStats = [
   { label: "Temps moyen par question", value: "7 min" },
@@ -917,7 +852,465 @@ const calculateResults = (correctionData: CorrectionData, userAnswers: Record<st
   };
 };
 
-// Main Correction component
+// Fonction utilitaire pour générer le LaTeX
+const processLatexText = (text: string): string => {
+  if (!text) return '';
+  
+  const parts: string[] = [];
+  let inMath = false;
+  let lastIndex = 0;
+
+  // Helper to escape non-math text and handle special mathematical symbols
+  const escapeNonMath = (str: string): string => {
+    // Liste des symboles mathématiques grecs et autres symboles spéciaux
+    const mathSymbols = {
+      'α': '$\\alpha$',
+      'β': '$\\beta$',
+      'γ': '$\\gamma$',
+      'Γ': '$\\Gamma$',
+      'δ': '$\\delta$',
+      'Δ': '$\\Delta$',
+      'ε': '$\\epsilon$',
+      'ζ': '$\\zeta$',
+      'η': '$\\eta$',
+      'θ': '$\\theta$',
+      'Θ': '$\\Theta$',
+      'ι': '$\\iota$',
+      'κ': '$\\kappa$',
+      'λ': '$\\lambda$',
+      'Λ': '$\\Lambda$',
+      'μ': '$\\mu$',
+      'ν': '$\\nu$',
+      'ξ': '$\\xi$',
+      'Ξ': '$\\Xi$',
+      'π': '$\\pi$',
+      'Π': '$\\Pi$',
+      'ρ': '$\\rho$',
+      'σ': '$\\sigma$',
+      'Σ': '$\\Sigma$',
+      'τ': '$\\tau$',
+      'υ': '$\\upsilon$',
+      'Υ': '$\\Upsilon$',
+      'φ': '$\\phi$',
+      'Φ': '$\\Phi$',
+      'χ': '$\\chi$',
+      'ψ': '$\\psi$',
+      'Ψ': '$\\Psi$',
+      'ω': '$\\omega$',
+      'Ω': '$\\Omega$',
+      '±': '$\\pm$',
+      '∞': '$\\infty$',
+      '≈': '$\\approx$',
+      '≠': '$\\neq$',
+      '≤': '$\\leq$',
+      '≥': '$\\geq$',
+      '∈': '$\\in$',
+      '∉': '$\\notin$',
+      '⊂': '$\\subset$',
+      '⊆': '$\\subseteq$',
+      '∪': '$\\cup$',
+      '∩': '$\\cap$',
+      '→': '$\\rightarrow$',
+      '←': '$\\leftarrow$',
+      '↔': '$\\leftrightarrow$',
+      '⇒': '$\\Rightarrow$',
+      '⇐': '$\\Leftarrow$',
+      '⇔': '$\\Leftrightarrow$',
+      '∀': '$\\forall$',
+      '∃': '$\\exists$',
+      '∇': '$\\nabla$',
+      '∂': '$\\partial$',
+      '∫': '$\\int$',
+      '∑': '$\\sum$',
+      '∏': '$\\prod$'
+    };
+
+    // Remplacer les symboles mathématiques par leur équivalent LaTeX
+    let result = str;
+    
+    // Gérer les exposants numériques (ex: 10⁻⁷)
+    result = result.replace(/(\d+)([⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+)/g, (match, base, exp) => {
+      const expMap = {
+        '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4',
+        '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9',
+        '⁺': '+', '⁻': '-'
+      };
+      const normalExp = exp.split('').map(c => expMap[c] || c).join('');
+      return `$${base}^{${normalExp}}$`;
+    });
+
+    // Gérer les fractions simples (ex: a/2D)
+    result = result.replace(/(\b\w+\/\w+\b|\b\w+\/\d+\b|\b\d+\/\w+\b|\b\d+\.\d+\b)/g, '$$$1$');
+
+    // Remplacer les opérateurs mathématiques isolés
+    for (const [symbol, latex] of Object.entries(mathSymbols)) {
+      result = result.replace(new RegExp(symbol, 'g'), latex);
+    }
+
+    // Échapper les caractères spéciaux LaTeX
+    return result
+      .replace(/_/g, '\\_')      // Escape underscores
+      .replace(/(?<!\$)\$/g, '\\$') // Escape $ not part of math mode
+      .replace(/&/g, '\\&')      // Escape ampersands
+      .replace(/%/g, '\\%')      // Escape percent signs
+      .replace(/#/g, '\\#')      // Escape hash signs
+      .replace(/\{/g, '\\{')     // Escape curly braces
+      .replace(/\}/g, '\\}');    // Escape curly braces
+  };
+
+  // Scan through the text looking for math delimiters
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === '$') {
+      // Check for block math ($$)
+      if (i + 1 < text.length && text[i + 1] === '$') {
+        // Add any preceding non-math text
+        if (i > lastIndex) {
+          parts.push(escapeNonMath(text.substring(lastIndex, i)));
+        }
+        // Find the closing $$
+        const end = text.indexOf('$$', i + 2);
+        if (end !== -1) {
+          // Add the math content without escaping
+          parts.push('$$' + text.substring(i + 2, end) + '$$');
+          i = end + 1;
+          lastIndex = end + 2;
+          continue;
+        }
+      }
+      // Handle inline math ($)
+      if (!inMath) {
+        if (i > lastIndex) {
+          parts.push(escapeNonMath(text.substring(lastIndex, i)));
+        }
+        parts.push('$');
+        lastIndex = i + 1;
+        inMath = true;
+      } else {
+        parts.push(text.substring(lastIndex, i) + '$');
+        lastIndex = i + 1;
+        inMath = false;
+      }
+    }
+  }
+  
+  // Add any remaining text
+  if (lastIndex < text.length) {
+    parts.push(escapeNonMath(text.substring(lastIndex)));
+  }
+  
+  // Join all parts and handle any remaining special cases
+  let result = parts.join('');
+
+  // Gérer les expressions mathématiques complexes
+  // Par exemple : "soit x un nombre" devrait avoir x en mode math
+  result = result.replace(/\b([xyz])\b/g, '$$$1$'); // Variables x, y, z isolées
+  result = result.replace(/\b([abcdfghjklmnpqrstuvw])\b(?!\s*[A-Za-z])/g, '$$$1$'); // Autres variables isolées
+  result = result.replace(/\b(dx|dy|dz)\b/g, '$$$1$'); // Différentielles
+  result = result.replace(/(\d+)\s*([xyz])\b/g, '$$$1$$$2$'); // Coefficients suivis de variables
+  
+  // Améliorer le formatage des expressions mathématiques complexes
+  result = result.replace(/(\w+)\.(\w+)/g, '$$$1\\cdot $2$'); // Points de multiplication
+  result = result.replace(/(\w+)\s*=\s*(\w+)/g, '$$1 = $2$'); // Équations simples
+  result = result.replace(/≈\s*(\d+)/g, '$\\approx $1$'); // Approximations
+
+  return result;
+};
+
+const generateLatexDocument = (results: any, correctionData: any) => {
+  const scorePercentage = Math.round((results.score/results.maxScore) * 100);
+  const date = new Date().toLocaleDateString('fr-FR', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+
+  // Start of LaTeX document with setup
+  return `
+\\documentclass[12pt,a4paper]{article}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{lmodern}
+\\usepackage[french]{babel}
+\\usepackage{amsmath,amssymb,amsfonts}
+\\usepackage{graphicx}
+\\usepackage{xcolor}
+\\usepackage{geometry}
+\\usepackage{fancyhdr}
+\\usepackage{tcolorbox}
+\\usepackage{enumitem}
+\\usepackage{tikz}
+\\usepackage{pgfplots}
+\\usepackage{mathtools}
+\\usepackage{siunitx}
+\\usepackage{physics}
+
+\\definecolor{primaryBlue}{HTML}{2563eb}
+\\definecolor{lightGray}{HTML}{f3f4f6}
+\\definecolor{correctGreen}{HTML}{22c55e}
+\\definecolor{incorrectRed}{HTML}{ef4444}
+\\definecolor{explanationBlue}{HTML}{0ea5e9}
+
+\\geometry{margin=2.5cm}
+
+\\pagestyle{fancy}
+\\fancyhf{}
+\\renewcommand{\\headrulewidth}{0pt}
+\\fancyfoot[C]{\\thepage}
+
+\\tcbuselibrary{skins,breakable}
+
+\\begin{document}
+
+\\begin{titlepage}
+\\begin{center}
+\\vspace*{2cm}
+{\\huge\\bfseries Correction et Résultats\\par}
+\\vspace{2cm}
+{\\Large ${correctionData?.exam_title || 'Concours'}\\par}
+\\vspace{2cm}
+{\\large Score: ${results.score}/${results.maxScore} (${scorePercentage}\\%)\\par}
+\\vfill
+{\\large ${date}\\par}
+\\end{center}
+\\end{titlepage}
+
+\\tableofcontents
+\\newpage
+
+\\section{Résumé des résultats}
+\\begin{tcolorbox}[
+  enhanced,
+  colback=lightGray,
+  colframe=primaryBlue,
+  title=Statistiques de performance,
+  fonttitle=\\bfseries
+]
+\\begin{itemize}[leftmargin=*]
+\\item Réponses correctes: ${results.correctAnswers}
+\\item Réponses incorrectes: ${results.incorrectAnswers}
+\\item Questions non répondues: ${results.notAnsweredCount}
+\\end{itemize}
+\\end{tcolorbox}
+
+\\section{Performance par matière}
+${results.topicScores?.map(topic => `
+\\begin{tcolorbox}[
+  enhanced,
+  colback=lightGray,
+  colframe=primaryBlue,
+  title=${processLatexText(topic.topic)},
+  fonttitle=\\bfseries
+]
+Score: ${topic.percentage}\\% (${topic.score}/${topic.maxScore})
+
+\\begin{tikzpicture}
+\\fill[gray!20] (0,0) rectangle (10,0.5);
+\\fill[primaryBlue] (0,0) rectangle (${(topic.percentage * 10) / 100},0.5);
+\\end{tikzpicture}
+\\end{tcolorbox}
+`).join('\n\\vspace{0.3cm}\n') || ''}
+
+\\section{Recommandations}
+\\begin{tcolorbox}[
+  enhanced,
+  colback=lightGray,
+  colframe=primaryBlue,
+  title=Points à améliorer,
+  fonttitle=\\bfseries
+]
+\\begin{itemize}[leftmargin=*]
+${results.recommendations?.map(rec => `\\item ${processLatexText(rec)}`).join('\n') || ''}
+\\end{itemize}
+\\end{tcolorbox}
+
+\\section{Correction détaillée}
+${results.questions.map((question, index) => `
+\\subsection*{Question ${question.question_number || (index + 1)}}
+
+% Box pour l'énoncé
+\\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colframe=${question.isCorrect ? 'correctGreen' : 'incorrectRed'},
+  colback=white,
+  title={\\textbf{Énoncé} \\hfill Score: ${question.score}/${question.maxScore}},
+  attach boxed title to top text={yshift=-0.3cm,xshift=0cm},
+  boxed title style={
+    enhanced,
+    colframe=${question.isCorrect ? 'correctGreen' : 'incorrectRed'},
+    colback=${question.isCorrect ? 'correctGreen!10' : 'incorrectRed!10'},
+    boxrule=0.5pt
+  }
+]
+${processLatexText(question.text)}
+\\end{tcolorbox}
+
+\\vspace{0.3cm}
+
+% Box pour la réponse de l'utilisateur
+\\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colframe=gray!50!black,
+  colback=gray!5,
+  title={\\textbf{Votre réponse}},
+  attach boxed title to top text={yshift=-0.3cm,xshift=0cm},
+  boxed title style={
+    enhanced,
+    colframe=gray!50!black,
+    colback=gray!10,
+    boxrule=0.5pt
+  }
+]
+${question.userAnswer ? processLatexText(question.userAnswer) : '\\textit{Non répondue}'}
+\\end{tcolorbox}
+
+\\vspace{0.3cm}
+
+% Box pour la correction et l'explication
+\\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colframe=explanationBlue,
+  colback=explanationBlue!5,
+  title={\\textbf{Solution détaillée}},
+  attach boxed title to top text={yshift=-0.3cm,xshift=0cm},
+  boxed title style={
+    enhanced,
+    colframe=explanationBlue,
+    colback=explanationBlue!10,
+    boxrule=0.5pt
+  }
+]
+\\textbf{Réponse correcte:}\\\\
+${processLatexText(question.correctAnswer)}
+
+${question.explanation ? `
+\\vspace{0.5cm}
+\\textbf{Méthode de résolution:}\\\\
+${processLatexText(question.explanation)}` : ''}
+\\end{tcolorbox}
+
+\\vspace{1cm}
+% Ligne de séparation entre les questions
+\\hrulefill
+\\vspace{0.5cm}
+`).join('\n\n')}
+
+\\end{document}`;
+};
+
+// Fonction pour générer le PDF en utilisant LaTeX
+const generateLatexPDF = async (results: any, correctionData: any) => {
+  try {
+    // Créer le contenu LaTeX
+    const latexContent = `
+\\documentclass[12pt,a4paper]{article}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{lmodern}
+\\usepackage[french]{babel}
+\\usepackage{amsmath,amssymb,amsfonts}
+\\usepackage{geometry}
+\\usepackage{xcolor}
+\\usepackage{graphicx}
+\\usepackage{tcolorbox}
+\\usepackage{enumitem}
+
+\\geometry{margin=2.5cm}
+
+\\definecolor{primaryBlue}{RGB}{37,99,235}
+\\definecolor{lightGray}{RGB}{243,244,246}
+\\definecolor{correctGreen}{RGB}{34,197,94}
+\\definecolor{incorrectRed}{RGB}{239,68,68}
+
+\\title{Correction et Résultats}
+\\author{${correctionData?.exam_title || 'Concours'}}
+\\date{\\today}
+
+\\begin{document}
+
+\\maketitle
+\\tableofcontents
+\\newpage
+
+\\section{Résumé des résultats}
+\\begin{tcolorbox}[colback=lightGray,colframe=primaryBlue,title=Statistiques globales]
+Score final: ${results.score}/${results.maxScore} (${Math.round((results.score/results.maxScore) * 100)}\\%)
+
+\\vspace{0.3cm}
+\\begin{itemize}
+\\item Réponses correctes: ${results.correctAnswers}
+\\item Réponses incorrectes: ${results.incorrectAnswers}
+\\item Questions non répondues: ${results.notAnsweredCount}
+\\end{itemize}
+\\end{tcolorbox}
+
+\\section{Performance par matière}
+${results.topicScores?.map(topic => `
+\\begin{tcolorbox}[colback=lightGray,colframe=primaryBlue]
+\\textbf{${topic.topic}}: ${topic.percentage}\\% (${topic.score}/${topic.maxScore})
+\\end{tcolorbox}
+`).join('\n')}
+
+\\section{Recommandations}
+\\begin{tcolorbox}[colback=lightGray,colframe=primaryBlue]
+\\begin{itemize}
+${results.recommendations?.map(rec => `\\item ${rec}`).join('\n')}
+\\end{itemize}
+\\end{tcolorbox}
+
+\\section{Correction détaillée}
+${results.questions.map((question, index) => `
+\\subsection*{Question ${question.question_number || (index + 1)}}
+\\begin{tcolorbox}[
+    colback=lightGray,
+    colframe=${question.isCorrect ? 'correctGreen' : 'incorrectRed'},
+    title={Question ${question.question_number || (index + 1)}${
+    question.isCorrect ? ' - Correcte' : ' - Incorrecte'
+  }}
+]
+
+${question.text.replace(/_/g, '\\_')}
+
+\\vspace{0.3cm}
+\\textbf{Votre réponse:}\\\\
+${question.userAnswer.replace(/_/g, '\\_')}
+
+\\vspace{0.3cm}
+\\textbf{Réponse correcte:}\\\\
+${question.correctAnswer.replace(/_/g, '\\_')}
+
+${question.explanation ? `
+\\vspace{0.3cm}
+\\textbf{Explication:}\\\\
+${question.explanation.replace(/_/g, '\\_')}
+` : ''}
+\\end{tcolorbox}
+`).join('\n\n')}
+
+\\end{document}
+`;
+
+    // Générer le PDF à partir du LaTeX
+// Remplacer la génération PDF par un téléchargement du code LaTeX (à compiler manuellement)
+    const blob = new Blob([latexContent], { type: 'application/x-latex' });
+    const url = URL.createObjectURL(blob);
+    const filename = `correction_${correctionData?.exam_title || 'concours'}_${new Date().toISOString().split('T')[0]}.tex`;
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+  } catch (error) {
+    console.error('Erreur lors de la génération du PDF:', error);
+    throw error;
+  }
+};
+
 const Correction = () => {
   const { id, subject } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -925,7 +1318,18 @@ const Correction = () => {
   const [correctionData, setCorrectionData] = useState<CorrectionData | null>(null);
   const [userAnswers, setUserAnswers] = useState<Record<string, string>>({});
   const [results, setResults] = useState<any>(null);
-  
+
+  // Function to handle downloading correction as PDF
+  const handleDownload = async () => {
+    if (!results) return;
+    
+    try {
+      await generateLatexPDF(results, correctionData);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    }
+  };
+
   // Load correction data and user answers
   useEffect(() => {
     const fetchCorrectionData = async () => {
@@ -963,8 +1367,6 @@ const Correction = () => {
         setError(`Erreur lors du chargement des corrections: ${error instanceof Error ? error.message : 'Erreur inconnue'}`);
         setIsLoading(false);
         
-        // Use mock data as fallback
-        setResults(mockCorrection);
       }
     };
     
@@ -1052,7 +1454,11 @@ const Correction = () => {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Button variant="outline" className="gap-2 rounded-full border-border/40 hover:bg-primary/5 hover:border-primary/30">
+                <Button 
+                  variant="outline" 
+                  className="gap-2 rounded-full border-border/40 hover:bg-primary/5 hover:border-primary/30"
+                  onClick={handleDownload}
+                >
                   <Download className="h-4 w-4" /> 
                   <span className="hidden sm:inline">Télécharger</span>
                 </Button>
@@ -1348,7 +1754,7 @@ const Correction = () => {
                         <Brain className="h-3 w-3" /> Explication détaillée:
                       </h4>
                       <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
-                      <p className="text-sm"><MathRenderer text={question.explanation} /></p>                      </div>
+                        <p className="text-sm"><MathRenderer text={question.explanation} /></p>                      </div>
                     </div>
                   </CardFooter>
                 </Card>
@@ -1383,7 +1789,7 @@ const Correction = () => {
                           <BookmarkIcon className="h-3 w-3" /> Votre réponse:
                         </h4>
                         <p className="text-sm"><MathRenderer text={question.userAnswer} /></p>
-                      </div>
+                                           </div>
                       <div className="p-4 bg-green-50 dark:bg-green-900/10 rounded-lg border border-green-100 dark:border-green-800/30">
                         <h4 className="text-sm font-medium text-green-700 dark:text-green-400 mb-1 flex items-center gap-1">
                           <CheckCircle className="h-3 w-3" /> Réponse correcte:
@@ -1535,24 +1941,6 @@ const Correction = () => {
               ))}
             </TabsContent>
           </Tabs>
-          
-          {/* Call to action */}
-          <div className="bg-gradient-to-r from-primary/80 to-blue-600 rounded-2xl p-6 text-white shadow-lg mb-8 relative overflow-hidden">
-            <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full"></div>
-            <div className="absolute -left-5 -bottom-5 w-20 h-20 bg-white/10 rounded-full"></div>
-            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div>
-                <h3 className="text-xl font-medium mb-2">Continuez votre progression</h3>
-                <p className="text-white/80 max-w-md">
-                  Passez à un autre concours pour améliorer vos compétences et augmenter vos chances de réussite.
-                </p>
-              </div>
-              <Button className="bg-white text-primary hover:bg-white/90 whitespace-nowrap rounded-full">
-                Prochain concours
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          </div>
         </div>
       </main>
       <Footer />
