@@ -3,6 +3,9 @@ import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 // Import KaTeX pour le rendu des formules mathématiques
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
@@ -753,12 +756,12 @@ const calculateResults = (correctionData: CorrectionData, userAnswers: Record<st
   
   // Get top strengths and weaknesses
   const strengths = sortedTopics.filter(topic => topic.percentage >= 50)
-    .slice(0, 3)
+    .slice(0, 5)
     .map(topic => topic.topic);
   
   const weaknesses = [...sortedTopics]
     .filter(topic => topic.percentage < 50)
-    .slice(0, 3)
+    .slice(0, 5)
     .map(topic => topic.topic);
   
   // Generate detailed feedback and recommendations
@@ -856,13 +859,9 @@ const calculateResults = (correctionData: CorrectionData, userAnswers: Record<st
 const processLatexText = (text: string): string => {
   if (!text) return '';
   
-  const parts: string[] = [];
-  let inMath = false;
-  let lastIndex = 0;
-
   // Helper to escape non-math text and handle special mathematical symbols
   const escapeNonMath = (str: string): string => {
-    // Liste des symboles mathématiques grecs et autres symboles spéciaux
+    // Mathematical symbols mapping
     const mathSymbols = {
       'α': '$\\alpha$',
       'β': '$\\beta$',
@@ -925,11 +924,30 @@ const processLatexText = (text: string): string => {
       '∏': '$\\prod$'
     };
 
-    // Remplacer les symboles mathématiques par leur équivalent LaTeX
     let result = str;
     
-    // Gérer les exposants numériques (ex: 10⁻⁷)
-    result = result.replace(/(\d+)([⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+)/g, (match, base, exp) => {
+    // Handle chemical formulas and subscripts (e.g., CO₂, H₂O, etc.)
+    result = result.replace(/([A-Za-z]+)([₀₁₂₃₄₅₆₇₈₉]+)/g, (match, base, subscript) => {
+      const subMap = {
+        '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4',
+        '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9'
+      };
+      const normalSub = subscript.split('').map(c => subMap[c] || c).join('');
+      return `$\\mathrm{${base}}_{${normalSub}}$`;
+    });
+    
+    // Handle standalone subscript numbers (e.g., just ₂)
+    result = result.replace(/([₀₁₂₃₄₅₆₇₈₉]+)/g, (match, subscript) => {
+      const subMap = {
+        '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4',
+        '₅': '5', '₆': '7', '₇': '7', '₈': '8', '₉': '9'
+      };
+      const normalSub = subscript.split('').map(c => subMap[c] || c).join('');
+      return `$_{${normalSub}}$`;
+    });
+
+    // Handle superscript numbers (e.g., 10⁻⁷, x²)
+    result = result.replace(/([A-Za-z0-9]+)([⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+)/g, (match, base, exp) => {
       const expMap = {
         '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4',
         '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9',
@@ -938,85 +956,133 @@ const processLatexText = (text: string): string => {
       const normalExp = exp.split('').map(c => expMap[c] || c).join('');
       return `$${base}^{${normalExp}}$`;
     });
+    
+    // Handle standalone superscript numbers
+    result = result.replace(/([⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+)/g, (match, exp) => {
+      const expMap = {
+        '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4',
+        '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9',
+        '⁺': '+', '⁻': '-'
+      };
+      const normalExp = exp.split('').map(c => expMap[c] || c).join('');
+      return `$^{${normalExp}}$`;
+    });
 
-    // Gérer les fractions simples (ex: a/2D)
-    result = result.replace(/(\b\w+\/\w+\b|\b\w+\/\d+\b|\b\d+\/\w+\b|\b\d+\.\d+\b)/g, '$$$1$');
+    // Handle simple fractions (e.g., 1/2, a/b)
+    result = result.replace(/(\b\w+)\/(\w+\b)/g, '$\\frac{$1}{$2}$');
 
-    // Remplacer les opérateurs mathématiques isolés
+    // Replace mathematical symbols
     for (const [symbol, latex] of Object.entries(mathSymbols)) {
-      result = result.replace(new RegExp(symbol, 'g'), latex);
+      result = result.replace(new RegExp(symbol.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), latex);
     }
 
-    // Échapper les caractères spéciaux LaTeX
+    // Escape LaTeX special characters (but not those already in math mode)
     return result
-      .replace(/_/g, '\\_')      // Escape underscores
-      .replace(/(?<!\$)\$/g, '\\$') // Escape $ not part of math mode
-      .replace(/&/g, '\\&')      // Escape ampersands
-      .replace(/%/g, '\\%')      // Escape percent signs
-      .replace(/#/g, '\\#')      // Escape hash signs
-      .replace(/\{/g, '\\{')     // Escape curly braces
-      .replace(/\}/g, '\\}');    // Escape curly braces
+      .replace(/(?<!\$)_(?!\{)/g, '\\_')  // Escape underscore not in math mode
+      .replace(/(?<!\$)(?<!\\\$)\$(?!\$)(?![^$]*\$)/g, '\\$')  // Escape single $ not in math
+      .replace(/&/g, '\\&')
+      .replace(/%/g, '\\%')
+      .replace(/#/g, '\\#')
+      .replace(/(?<!\$)\{(?![^}]*\$)/g, '\\{')  // Escape { not in math mode
+      .replace(/(?<!\$)\}(?<![^{]*\$)/g, '\\}'); // Escape } not in math mode
   };
 
-  // Scan through the text looking for math delimiters
-  for (let i = 0; i < text.length; i++) {
-    if (text[i] === '$') {
-      // Check for block math ($$)
-      if (i + 1 < text.length && text[i + 1] === '$') {
-        // Add any preceding non-math text
-        if (i > lastIndex) {
-          parts.push(escapeNonMath(text.substring(lastIndex, i)));
+  // Check if text already contains LaTeX math delimiters
+  if (text.includes('$')) {
+    // Text already has LaTeX formatting, process it carefully
+    const parts: string[] = [];
+    let inMath = false;
+    let lastIndex = 0;
+
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === '$') {
+        // Check for block math ($$)
+        if (i + 1 < text.length && text[i + 1] === '$') {
+          // Add any preceding non-math text
+          if (i > lastIndex) {
+            parts.push(escapeNonMath(text.substring(lastIndex, i)));
+          }
+          // Find the closing $$
+          const end = text.indexOf('$$', i + 2);
+          if (end !== -1) {
+            // Add the math content without escaping
+            parts.push('$$' + text.substring(i + 2, end) + '$$');
+            i = end + 1;
+            lastIndex = end + 2;
+            continue;
+          }
         }
-        // Find the closing $$
-        const end = text.indexOf('$$', i + 2);
-        if (end !== -1) {
-          // Add the math content without escaping
-          parts.push('$$' + text.substring(i + 2, end) + '$$');
-          i = end + 1;
-          lastIndex = end + 2;
-          continue;
+        // Handle inline math ($)
+        if (!inMath) {
+          if (i > lastIndex) {
+            parts.push(escapeNonMath(text.substring(lastIndex, i)));
+          }
+          parts.push('$');
+          lastIndex = i + 1;
+          inMath = true;
+        } else {
+          parts.push(text.substring(lastIndex, i) + '$');
+          lastIndex = i + 1;
+          inMath = false;
         }
-      }
-      // Handle inline math ($)
-      if (!inMath) {
-        if (i > lastIndex) {
-          parts.push(escapeNonMath(text.substring(lastIndex, i)));
-        }
-        parts.push('$');
-        lastIndex = i + 1;
-        inMath = true;
-      } else {
-        parts.push(text.substring(lastIndex, i) + '$');
-        lastIndex = i + 1;
-        inMath = false;
       }
     }
+    
+    // Add any remaining text
+    if (lastIndex < text.length) {
+      parts.push(escapeNonMath(text.substring(lastIndex)));
+    }
+    
+    return parts.join('');
+  } else {
+    // No existing LaTeX formatting, process the entire text
+    return escapeNonMath(text);
   }
-  
-  // Add any remaining text
-  if (lastIndex < text.length) {
-    parts.push(escapeNonMath(text.substring(lastIndex)));
-  }
-  
-  // Join all parts and handle any remaining special cases
-  let result = parts.join('');
-
-  // Gérer les expressions mathématiques complexes
-  // Par exemple : "soit x un nombre" devrait avoir x en mode math
-  result = result.replace(/\b([xyz])\b/g, '$$$1$'); // Variables x, y, z isolées
-  result = result.replace(/\b([abcdfghjklmnpqrstuvw])\b(?!\s*[A-Za-z])/g, '$$$1$'); // Autres variables isolées
-  result = result.replace(/\b(dx|dy|dz)\b/g, '$$$1$'); // Différentielles
-  result = result.replace(/(\d+)\s*([xyz])\b/g, '$$$1$$$2$'); // Coefficients suivis de variables
-  
-  // Améliorer le formatage des expressions mathématiques complexes
-  result = result.replace(/(\w+)\.(\w+)/g, '$$$1\\cdot $2$'); // Points de multiplication
-  result = result.replace(/(\w+)\s*=\s*(\w+)/g, '$$1 = $2$'); // Équations simples
-  result = result.replace(/≈\s*(\d+)/g, '$\\approx $1$'); // Approximations
-
-  return result;
 };
 
-const generateLatexDocument = (results: any, correctionData: any) => {
+
+//fonction pour recupere le nom de l'utilisateur
+const getCurrentUser = async () => {
+  try {
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    
+    if (authError || !user) {
+      console.error('Erreur d\'authentification:', authError);
+      return null;
+    }
+
+    // Récupérer les informations du profil utilisateur avec les bons noms de colonnes
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('username, full_name, avatar_url')
+      .eq('id', user.id)
+      .single();
+
+    if (profileError) {
+      console.error('Erreur lors de la récupération du profil:', profileError);
+      // Fallback sur l'email si pas de profil
+      return {
+        full_name: user.email?.split('@')[0] || 'Utilisateur',
+        username: user.email?.split('@')[0] || 'user',
+        email: user.email,
+        avatar_url: null
+      };
+    }
+
+    return {
+      full_name: profile.full_name || profile.username || user.email?.split('@')[0] || 'Utilisateur',
+      username: profile.username,
+      email: user.email,
+      avatar_url: profile.avatar_url
+    };
+  } catch (error) {
+    console.error('Erreur lors de la récupération de l\'utilisateur:', error);
+    return null;
+  }
+};
+
+
+const generateLatexDocument = (results: any, correctionData: any, userName: string = 'Utilisateur') => {
   const scorePercentage = Math.round((results.score/results.maxScore) * 100);
   const date = new Date().toLocaleDateString('fr-FR', { 
     year: 'numeric', 
@@ -1024,7 +1090,15 @@ const generateLatexDocument = (results: any, correctionData: any) => {
     day: 'numeric' 
   });
 
-  // Start of LaTeX document with setup
+  // Déterminer la couleur du score
+  const getScoreColor = (percentage: number) => {
+    if (percentage >= 70) return 'correctGreen';
+    if (percentage >= 50) return 'orange';
+    return 'incorrectRed';
+  };
+
+  const scoreColor = getScoreColor(scorePercentage);
+
   return `
 \\documentclass[12pt,a4paper]{article}
 \\usepackage[utf8]{inputenc}
@@ -1040,276 +1114,639 @@ const generateLatexDocument = (results: any, correctionData: any) => {
 \\usepackage{enumitem}
 \\usepackage{tikz}
 \\usepackage{pgfplots}
-\\usepackage{mathtools}
-\\usepackage{siunitx}
-\\usepackage{physics}
+\\usepackage{booktabs}
+\\usepackage{array}
 
 \\definecolor{primaryBlue}{HTML}{2563eb}
-\\definecolor{lightGray}{HTML}{f3f4f6}
+\\definecolor{lightGray}{HTML}{f8fafc}
 \\definecolor{correctGreen}{HTML}{22c55e}
 \\definecolor{incorrectRed}{HTML}{ef4444}
-\\definecolor{explanationBlue}{HTML}{0ea5e9}
+\\definecolor{orange}{HTML}{f59e0b}
+\\definecolor{darkGray}{HTML}{374151}
 
-\\geometry{margin=2.5cm}
-
+\\geometry{margin=2cm}
 \\pagestyle{fancy}
 \\fancyhf{}
-\\renewcommand{\\headrulewidth}{0pt}
-\\fancyfoot[C]{\\thepage}
+\\renewcommand{\\headrulewidth}{0.5pt}
+\\renewcommand{\\headrule}{\\hbox to\\headwidth{\\color{primaryBlue}\\leaders\\hrule height \\headrulewidth\\hfill}}
+\\fancyhead[L]{\\textcolor{primaryBlue}{\\textbf{Rapport de Performance - ${userName.replace(/[%$&_{}]/g, '\\$&')}}}}
+\\fancyhead[R]{\\textcolor{darkGray}{${date}}}
+\\fancyfoot[C]{\\textcolor{darkGray}{Page \\thepage}}
 
 \\tcbuselibrary{skins,breakable}
+\\usetikzlibrary{patterns}
 
 \\begin{document}
 
+% Page de titre moderne
 \\begin{titlepage}
 \\begin{center}
-\\vspace*{2cm}
-{\\huge\\bfseries Correction et Résultats\\par}
-\\vspace{2cm}
-{\\Large ${correctionData?.exam_title || 'Concours'}\\par}
-\\vspace{2cm}
-{\\large Score: ${results.score}/${results.maxScore} (${scorePercentage}\\%)\\par}
+\\vspace*{1cm}
+
+% Logo ou icône (simulé avec TikZ)
+\\begin{tikzpicture}
+\\fill[primaryBlue] (0,0) circle (1.5cm);
+\\node[white,font=\\Huge\\bfseries] at (0,0) {\\%};
+\\end{tikzpicture}
+
+\\vspace{1.5cm}
+{\\Huge\\bfseries\\textcolor{primaryBlue}{Rapport de Performance}}
+
+\\vspace{0.5cm}
+{\\Large\\textcolor{darkGray}{${correctionData?.exam_title || 'Concours'}}}
+
+\\vspace{0.8cm}
+% Nom de l'utilisateur
+{\\large\\textcolor{primaryBlue}{\\textbf{${userName.replace(/[%$&_{}]/g, '\\$&')}}}}
+
+\\vspace{1.5cm}
+
+% Score principal avec design moderne
+\\begin{tcolorbox}[
+  enhanced,
+  colback=white,
+  colframe=${scoreColor},
+  boxrule=3pt,
+  arc=15pt,
+  width=12cm,
+  halign=center,
+  drop shadow
+]
+\\begin{center}
+{\\fontsize{60}{72}\\selectfont\\textcolor{${scoreColor}}{\\textbf{${scorePercentage}\\%}}}
+
+\\vspace{0.5cm}
+{\\Large\\textcolor{darkGray}{Score Final: ${results.score}/${results.maxScore}}}
+\\end{center}
+\\end{tcolorbox}
+
 \\vfill
-{\\large ${date}\\par}
+{\\large\\textcolor{darkGray}{Généré le ${date}}}
 \\end{center}
 \\end{titlepage}
 
-\\tableofcontents
 \\newpage
 
-\\section{Résumé des résultats}
+% Résumé exécutif
+\\section*{\\textcolor{primaryBlue}{Résumé Exécutif}}
+
 \\begin{tcolorbox}[
   enhanced,
   colback=lightGray,
   colframe=primaryBlue,
-  title=Statistiques de performance,
-  fonttitle=\\bfseries
+  boxrule=2pt,
+  arc=10pt,
+  left=20pt,
+  right=20pt,
+  top=15pt,
+  bottom=15pt
 ]
-\\begin{itemize}[leftmargin=*]
-\\item Réponses correctes: ${results.correctAnswers}
-\\item Réponses incorrectes: ${results.incorrectAnswers}
-\\item Questions non répondues: ${results.notAnsweredCount}
-\\end{itemize}
-\\end{tcolorbox}
-
-\\section{Performance par matière}
-${results.topicScores?.map(topic => `
-\\begin{tcolorbox}[
-  enhanced,
-  colback=lightGray,
-  colframe=primaryBlue,
-  title=${processLatexText(topic.topic)},
-  fonttitle=\\bfseries
-]
-Score: ${topic.percentage}\\% (${topic.score}/${topic.maxScore})
-
-\\begin{tikzpicture}
-\\fill[gray!20] (0,0) rectangle (10,0.5);
-\\fill[primaryBlue] (0,0) rectangle (${(topic.percentage * 10) / 100},0.5);
-\\end{tikzpicture}
-\\end{tcolorbox}
-`).join('\n\\vspace{0.3cm}\n') || ''}
-
-\\section{Recommandations}
-\\begin{tcolorbox}[
-  enhanced,
-  colback=lightGray,
-  colframe=primaryBlue,
-  title=Points à améliorer,
-  fonttitle=\\bfseries
-]
-\\begin{itemize}[leftmargin=*]
-${results.recommendations?.map(rec => `\\item ${processLatexText(rec)}`).join('\n') || ''}
-\\end{itemize}
-\\end{tcolorbox}
-
-\\section{Correction détaillée}
-${results.questions.map((question, index) => `
-\\subsection*{Question ${question.question_number || (index + 1)}}
-
-% Box pour l'énoncé
-\\begin{tcolorbox}[
-  enhanced,
-  breakable,
-  colframe=${question.isCorrect ? 'correctGreen' : 'incorrectRed'},
-  colback=white,
-  title={\\textbf{Énoncé} \\hfill Score: ${question.score}/${question.maxScore}},
-  attach boxed title to top text={yshift=-0.3cm,xshift=0cm},
-  boxed title style={
-    enhanced,
-    colframe=${question.isCorrect ? 'correctGreen' : 'incorrectRed'},
-    colback=${question.isCorrect ? 'correctGreen!10' : 'incorrectRed!10'},
-    boxrule=0.5pt
-  }
-]
-${processLatexText(question.text)}
-\\end{tcolorbox}
-
-\\vspace{0.3cm}
-
-% Box pour la réponse de l'utilisateur
-\\begin{tcolorbox}[
-  enhanced,
-  breakable,
-  colframe=gray!50!black,
-  colback=gray!5,
-  title={\\textbf{Votre réponse}},
-  attach boxed title to top text={yshift=-0.3cm,xshift=0cm},
-  boxed title style={
-    enhanced,
-    colframe=gray!50!black,
-    colback=gray!10,
-    boxrule=0.5pt
-  }
-]
-${question.userAnswer ? processLatexText(question.userAnswer) : '\\textit{Non répondue}'}
-\\end{tcolorbox}
-
-\\vspace{0.3cm}
-
-% Box pour la correction et l'explication
-\\begin{tcolorbox}[
-  enhanced,
-  breakable,
-  colframe=explanationBlue,
-  colback=explanationBlue!5,
-  title={\\textbf{Solution détaillée}},
-  attach boxed title to top text={yshift=-0.3cm,xshift=0cm},
-  boxed title style={
-    enhanced,
-    colframe=explanationBlue,
-    colback=explanationBlue!10,
-    boxrule=0.5pt
-  }
-]
-\\textbf{Réponse correcte:}\\\\
-${processLatexText(question.correctAnswer)}
-
-${question.explanation ? `
-\\vspace{0.5cm}
-\\textbf{Méthode de résolution:}\\\\
-${processLatexText(question.explanation)}` : ''}
+\\begin{center}
+\\begin{tabular}{ccc}
+\\textcolor{correctGreen}{\\textbf{\\Large ${results.correctAnswers}}} & 
+\\textcolor{incorrectRed}{\\textbf{\\Large ${results.incorrectAnswers}}} & 
+\\textcolor{orange}{\\textbf{\\Large ${results.notAnsweredCount}}} \\\\
+\\textcolor{correctGreen}{Correctes} & 
+\\textcolor{incorrectRed}{Incorrectes} & 
+\\textcolor{orange}{Non répondues} \\\\
+\\end{tabular}
+\\end{center}
 \\end{tcolorbox}
 
 \\vspace{1cm}
-% Ligne de séparation entre les questions
-\\hrulefill
+
+% Graphique circulaire des réponses
+\\section*{\\textcolor{primaryBlue}{Répartition des Réponses}}
+
+\\begin{center}
+\\begin{tikzpicture}[scale=1.5]
+% Calcul des angles
+\\pgfmathsetmacro{\\correctAngle}{${results.correctAnswers}/${results.totalQuestions}*360}
+\\pgfmathsetmacro{\\incorrectAngle}{${results.incorrectAnswers}/${results.totalQuestions}*360}
+\\pgfmathsetmacro{\\notAnsweredAngle}{${results.notAnsweredCount}/${results.totalQuestions}*360}
+
+% Secteurs du graphique
+\\fill[correctGreen] (0,0) -- (0:2) arc (0:\\correctAngle:2) -- cycle;
+\\fill[incorrectRed] (0,0) -- (\\correctAngle:2) arc (\\correctAngle:\\correctAngle+\\incorrectAngle:2) -- cycle;
+\\fill[orange] (0,0) -- (\\correctAngle+\\incorrectAngle:2) arc (\\correctAngle+\\incorrectAngle:360:2) -- cycle;
+
+% Cercle central pour effet donut
+\\fill[white] (0,0) circle (0.8);
+
+% Pourcentages au centre
+\\node[font=\\Large\\bfseries] at (0,0.2) {${scorePercentage}\\%};
+\\node[font=\\small,text=darkGray] at (0,-0.2) {Score};
+
+% Légende
+\\node[correctGreen,font=\\bfseries] at (3,1.5) {\\textbullet};
+\\node[anchor=west] at (3.3,1.5) {Correctes (${Math.round((results.correctAnswers/results.totalQuestions)*100)}\\%)};
+
+\\node[incorrectRed,font=\\bfseries] at (3,1) {\\textbullet};
+\\node[anchor=west] at (3.3,1) {Incorrectes (${Math.round((results.incorrectAnswers/results.totalQuestions)*100)}\\%)};
+
+\\node[orange,font=\\bfseries] at (3,0.5) {\\textbullet};
+\\node[anchor=west] at (3.3,0.5) {Non répondues (${Math.round((results.notAnsweredCount/results.totalQuestions)*100)}\\%)};
+\\end{tikzpicture}
+\\end{center}
+
+\\newpage
+
+% Performance par matière
+\\section*{\\textcolor{primaryBlue}{Performance par Matière}}
+
+${results.topicScores?.map((topic, index) => {
+  const percentage = topic.percentage || 0;
+  const color = percentage >= 70 ? 'correctGreen' : percentage >= 50 ? 'orange' : 'incorrectRed';
+  
+  return `
+\\begin{tcolorbox}[
+  enhanced,
+  colback=white,
+  colframe=${color},
+  boxrule=2pt,
+  arc=8pt,
+  left=15pt,
+  right=15pt,
+  top=10pt,
+  bottom=10pt,
+  drop shadow,
+  title={\\textbf{${topic.topic}}},
+  fonttitle=\\bfseries\\color{${color}}
+]
+
+\\begin{minipage}{0.7\\textwidth}
+\\textbf{Score:} ${topic.score}/${topic.maxScore} points
+
+\\vspace{0.3cm}
+% Barre de progression
+\\begin{tikzpicture}
+\\fill[lightGray] (0,0) rectangle (8,0.5);
+\\fill[${color}] (0,0) rectangle (${(percentage * 8) / 100},0.5);
+\\node[anchor=west] at (8.2,0.25) {\\textbf{${percentage}\\%}};
+\\end{tikzpicture}
+\\end{minipage}
+\\hfill
+\\begin{minipage}{0.25\\textwidth}
+\\begin{center}
+\\begin{tikzpicture}[scale=0.8]
+\\fill[lightGray] (0,0) circle (1);
+\\fill[${color}] (0,0) -- (90:1) arc (90:${90-percentage*3.6}:1) -- cycle;
+\\node[font=\\small\\bfseries] at (0,0) {${percentage}\\%};
+\\end{tikzpicture}
+\\end{center}
+\\end{minipage}
+
+\\end{tcolorbox}
+
 \\vspace{0.5cm}
-`).join('\n\n')}
+`;
+}).join('') || ''}
+
+% Recommandations
+\\section*{\\textcolor{primaryBlue}{Recommandations Personnalisées}}
+
+\\begin{tcolorbox}[
+  enhanced,
+  colback=lightGray,
+  colframe=primaryBlue,
+  boxrule=2pt,
+  arc=10pt,
+  left=20pt,
+  right=20pt,
+  top=15pt,
+  bottom=15pt
+]
+
+${results.feedback ? `
+\\textbf{Analyse:} ${results.feedback.replace(/[%$&_{}]/g, '\\$&')}
+
+\\vspace{0.5cm}
+` : ''}
+
+\\textbf{Points d'amélioration:}
+\\begin{itemize}[leftmargin=20pt]
+${results.recommendations?.slice(0, 5).map(rec => 
+  `\\item ${rec.replace(/[%$&_{}]/g, '\\$&')}`
+).join('\n') || ''}
+\\end{itemize}
+
+\\end{tcolorbox}
+
+% Pied de page avec statistiques supplémentaires
+\\vfill
+\\begin{center}
+\\begin{tcolorbox}[
+  enhanced,
+  colback=primaryBlue!5,
+  colframe=primaryBlue,
+  boxrule=1pt,
+  arc=5pt,
+  width=\\textwidth
+]
+\\begin{center}
+\\textcolor{primaryBlue}{\\textbf{Statistiques Détaillées}} \\\\
+\\vspace{0.3cm}
+Total des questions: ${results.totalQuestions} \\quad
+Taux de réussite: ${scorePercentage}\\% \\quad
+Temps estimé: ${Math.round(results.totalQuestions * 2.5)} minutes
+\\end{center}
+\\end{tcolorbox}
+\\end{center}
 
 \\end{document}`;
 };
 
 // Fonction pour générer le PDF en utilisant LaTeX
-const generateLatexPDF = async (results: any, correctionData: any) => {
+// const generateLatexPDF = async (results: any, correctionData: any, userName: string = 'Utilisateur') => {
+//   try {
+//     // Utiliser la fonction generateLatexDocument qui applique le nom d'utilisateur
+//     const latexContent = generateLatexDocument(results, correctionData, userName);
+
+//     // Générer le PDF à partir du LaTeX
+//     const blob = new Blob([latexContent], { type: 'application/x-latex' });
+//     const url = URL.createObjectURL(blob);
+//     const filename = `correction_${userName.replace(/\s+/g, '_')}_${correctionData?.exam_title || 'concours'}_${new Date().toISOString().split('T')[0]}.tex`;
+//     const link = document.createElement('a');
+//     link.href = url;
+//     link.download = filename;
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+//     URL.revokeObjectURL(url);
+
+//   } catch (error) {
+//     console.error('Erreur lors de la génération du PDF:', error);
+//     throw error;
+//   }
+// };
+
+const generatePDF = async (results: any, correctionData: any, userName: string = 'Utilisateur', examId?: string) => {
   try {
-    // Créer le contenu LaTeX
-    const latexContent = `
-\\documentclass[12pt,a4paper]{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage[T1]{fontenc}
-\\usepackage{lmodern}
-\\usepackage[french]{babel}
-\\usepackage{amsmath,amssymb,amsfonts}
-\\usepackage{geometry}
-\\usepackage{xcolor}
-\\usepackage{graphicx}
-\\usepackage{tcolorbox}
-\\usepackage{enumitem}
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    
+    // Configuration des couleurs - définies comme tuples explicites
+    const primaryBlue: [number, number, number] = [37, 99, 235];
+    const correctGreen: [number, number, number] = [5, 150, 105];
+    const incorrectRed: [number, number, number] = [220, 38, 38];
+    const orange: [number, number, number] = [217, 119, 6];
+    const darkGray: [number, number, number] = [55, 65, 81];
+    const lightGray: [number, number, number] = [240, 240, 240];
+    const white: [number, number, number] = [255, 255, 255];
+    const mediumGray: [number, number, number] = [120, 120, 120];
+    
+    const scorePercentage = Math.round((results.score/results.maxScore) * 100);
+    const date = new Date().toLocaleDateString('fr-FR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    
+    // 🔧 CORRECTION: Extraire l'année de l'examen
+    const extractExamYear = (): string => {
+      if (correctionData?.date) {
+        const yearMatch = correctionData.date.match(/\d{4}/);
+        if (yearMatch) return yearMatch[0];
+      }
+      
+      if (examId) {
+        const yearMatch = examId.match(/\d{4}/);
+        if (yearMatch) return yearMatch[0];
+      }
+      
+      if (correctionData?.exam_title) {
+        const yearMatch = correctionData.exam_title.match(/\d{4}/);
+        if (yearMatch) return yearMatch[0];
+      }
+      
+      return new Date().getFullYear().toString();
+    };
+    
+    const examYear = extractExamYear();
+    
+    // Déterminer la couleur du score
+    const getScoreColor = (percentage: number): [number, number, number] => {
+      if (percentage >= 70) return correctGreen;
+      if (percentage >= 50) return orange;
+      return incorrectRed;
+    };
+    
+    const scoreColor = getScoreColor(scorePercentage);
+    
+    // 🔧 CORRECTION: Nettoyer le titre en supprimant le mot "Année"
+    const cleanTitleText = (title: string): string => {
+      return title
+        .replace(/\bAnnée\b/gi, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+    
+    // Fonction pour diviser le titre en lignes
+    const splitTitle = (title: string, maxCharsPerLine: number = 45): string[] => {
+      if (title.length <= maxCharsPerLine) {
+        return [title];
+      }
+      
+      const words = title.split(' ');
+      const lines: string[] = [];
+      let currentLine = '';
+      
+      for (const word of words) {
+        const testLine = currentLine ? `${currentLine} ${word}` : word;
+        
+        if (testLine.length <= maxCharsPerLine) {
+          currentLine = testLine;
+        } else {
+          if (currentLine) {
+            lines.push(currentLine);
+            currentLine = word;
+          } else {
+            lines.push(word.substring(0, maxCharsPerLine - 3) + '...');
+            currentLine = '';
+          }
+        }
+      }
+      
+      if (currentLine) {
+        lines.push(currentLine);
+      }
+      
+      return lines.slice(0, 2);
+    };
+    
+    // Préparer le titre en deux lignes
+    const baseExamTitle = cleanTitleText(correctionData?.exam_title || 'Concours');
+    const titleLines = splitTitle(baseExamTitle, 55);
+    
+    // 📏 SCALE DOWN: Header plus compact
+    const headerHeight = titleLines.length > 1 ? 60 : 50;
+    
+    // Header avec fond bleu
+    pdf.setFillColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
+    pdf.rect(0, 0, pageWidth, headerHeight, 'F');
+    
+    // 📏 SCALE DOWN: Titre principal plus petit
+    pdf.setTextColor(white[0], white[1], white[2]);
+    pdf.setFontSize(18); // Réduit de 24 à 18
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('RAPPORT DE PERFORMANCE', pageWidth/2, 12, { align: 'center' });
+    
+    // 📏 SCALE DOWN: Titre de l'examen plus compact
+    pdf.setFontSize(12); // Réduit de 16 à 12
+    pdf.setFont('helvetica', 'bold');
+    
+    if (titleLines.length === 1) {
+      pdf.text(titleLines[0], pageWidth/2, 25, { align: 'center' });
+      // Session
+      pdf.setFontSize(10); // Réduit de 14 à 10
+      pdf.setFont('helvetica', 'normal');
+      pdf.text(`Session ${examYear}`, pageWidth/2, 35, { align: 'center' });
+      // Nom utilisateur et date
+      pdf.setFontSize(8); // Réduit de 11 à 8
+      pdf.text(`${userName} • ${date}`, pageWidth/2, 43, { align: 'center' });
+    } else {
+      pdf.text(titleLines[0], pageWidth/2, 22, { align: 'center' });
+      pdf.text(titleLines[1], pageWidth/2, 32, { align: 'center' });
+      // Session
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text(`Session ${examYear}`, pageWidth/2, 42, { align: 'center' });
+      // Nom utilisateur et date
+      pdf.setFontSize(8);
+      pdf.text(`${userName} • ${date}`, pageWidth/2, 52, { align: 'center' });
+    }
+    
+    // 📏 SCALE DOWN: Score plus compact
+    const centerX = pageWidth/2;
+    const centerY = headerHeight + 25; // Réduit de 35 à 25
+    const radius = 18; // Réduit de 25 à 18
+    
+    // Score principal - Cercle plus petit
+    pdf.setFillColor(lightGray[0], lightGray[1], lightGray[2]);
+    pdf.circle(centerX, centerY, radius, 'F');
+    
+    pdf.setFillColor(scoreColor[0], scoreColor[1], scoreColor[2]);
+    pdf.circle(centerX, centerY, radius - 2, 'F');
+    
+    pdf.setFillColor(white[0], white[1], white[2]);
+    pdf.circle(centerX, centerY, radius - 6, 'F');
+    
+    // Pourcentage au centre plus petit
+    pdf.setTextColor(scoreColor[0], scoreColor[1], scoreColor[2]);
+    pdf.setFontSize(20); // Réduit de 28 à 20
+    pdf.setFont('helvetica', 'bold');
+    pdf.text(`${scorePercentage}%`, centerX, centerY + 2, { align: 'center' });
+    
+    // Score détaillé plus petit
+    pdf.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
+    pdf.setFontSize(9); // Réduit de 12 à 9
+    pdf.setFont('helvetica', 'normal');
+    pdf.text(`Score: ${results.score}/${results.maxScore}`, centerX, centerY + 12, { align: 'center' });
+    
+    // 📏 SCALE DOWN: Espacement réduit
+    let yPos = centerY + 28; // Réduit de 40 à 28
+    
+    // Statistiques en colonnes plus compactes
+    pdf.setTextColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
+    pdf.setFontSize(12); // Réduit de 16 à 12
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('Statistiques Détaillées', 20, yPos);
+    
+    yPos += 10; // Réduit de 15 à 10
+    
+    // 📏 SCALE DOWN: Colonnes plus petites
+    const colWidth = (pageWidth - 40) / 3;
+    const colHeight = 22; // Réduit de 30 à 22
+    
+    // Colonne 1: Correctes
+    pdf.setFillColor(correctGreen[0], correctGreen[1], correctGreen[2]);
+    pdf.rect(20, yPos, colWidth - 5, colHeight, 'F');
+    pdf.setTextColor(white[0], white[1], white[2]);
+    pdf.setFontSize(16); // Réduit de 20 à 16
+    pdf.setFont('helvetica', 'bold');
+    pdf.text(results.correctAnswers.toString(), 20 + (colWidth-5)/2, yPos + 11, { align: 'center' });
+    pdf.setFontSize(8); // Réduit de 10 à 8
+    pdf.text('Correctes', 20 + (colWidth-5)/2, yPos + 18, { align: 'center' });
+    
+    // Colonne 2: Incorrectes
+    pdf.setFillColor(incorrectRed[0], incorrectRed[1], incorrectRed[2]);
+    pdf.rect(20 + colWidth, yPos, colWidth - 5, colHeight, 'F');
+    pdf.setTextColor(white[0], white[1], white[2]);
+    pdf.setFontSize(16);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text(results.incorrectAnswers.toString(), 20 + colWidth + (colWidth-5)/2, yPos + 11, { align: 'center' });
+    pdf.setFontSize(8);
+    pdf.text('Incorrectes', 20 + colWidth + (colWidth-5)/2, yPos + 18, { align: 'center' });
+    
+    // Colonne 3: Non répondues
+    pdf.setFillColor(orange[0], orange[1], orange[2]);
+    pdf.rect(20 + colWidth*2, yPos, colWidth - 5, colHeight, 'F');
+    pdf.setTextColor(white[0], white[1], white[2]);
+    pdf.setFontSize(16);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text(results.notAnsweredCount.toString(), 20 + colWidth*2 + (colWidth-5)/2, yPos + 11, { align: 'center' });
+    pdf.setFontSize(8);
+    pdf.text('Non répondues', 20 + colWidth*2 + (colWidth-5)/2, yPos + 18, { align: 'center' });
+    
+    yPos += 32; // Réduit de 45 à 32
+    
+    // 📏 SCALE DOWN: Performance par matière plus compacte
+    pdf.setTextColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
+    pdf.setFontSize(12); // Réduit de 16 à 12
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('Performance par Matière', 20, yPos);
+    
+    yPos += 8; // Réduit de 10 à 8
+    
+    // Afficher les matières (max 6 au lieu de 5 grâce à l'espace gagné)
+    const topicsToShow = results.topicScores?.slice(0, 6) || [];
+    
+    topicsToShow.forEach((topic, index) => {
+      const percentage = topic.percentage || 0;
+      const color: [number, number, number] = percentage >= 70 ? correctGreen : percentage >= 50 ? orange : incorrectRed;
+      
+      yPos += 11; // Réduit de 15 à 11
+      
+      // Nom de la matière - plus long grâce à la police plus petite
+      let topicName = topic.topic;
+      if (topicName.length > 30) { // Augmenté de 25 à 30
+        topicName = topicName.substring(0, 27) + '...';
+      }
+      
+      pdf.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
+      pdf.setFontSize(9); // Réduit de 11 à 9
+      pdf.setFont('helvetica', 'bold');
+      pdf.text(topicName, 25, yPos);
+      
+      // Pourcentage
+      pdf.setTextColor(color[0], color[1], color[2]);
+      pdf.text(`${percentage}%`, pageWidth - 30, yPos, { align: 'right' });
+      
+      // 📏 SCALE DOWN: Barre de progression plus fine
+      const barWidth = pageWidth - 60;
+      const barHeight = 3; // Réduit de 4 à 3
+      
+      // Fond de la barre
+      pdf.setFillColor(lightGray[0], lightGray[1], lightGray[2]);
+      pdf.rect(25, yPos + 1.5, barWidth, barHeight, 'F');
+      
+      // Barre de progression
+      if (percentage > 0) {
+        pdf.setFillColor(color[0], color[1], color[2]);
+        pdf.rect(25, yPos + 1.5, (barWidth * percentage) / 100, barHeight, 'F');
+      }
+      
+      // Score détaillé plus petit
+      pdf.setTextColor(mediumGray[0], mediumGray[1], mediumGray[2]);
+      pdf.setFontSize(7); // Réduit de 9 à 7
+      pdf.text(`${topic.score}/${topic.maxScore} pts`, 25, yPos + 7);
+    });
+    
+    yPos += 18; // Réduit de 25 à 18
+    
+    // 📏 SCALE DOWN: Recommandations plus compactes
+    if (yPos < pageHeight - 60) { // Réduit de 80 à 60
+      pdf.setTextColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
+      pdf.setFontSize(12); // Réduit de 16 à 12
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('Recommandations', 20, yPos);
+      
+      yPos += 8; // Réduit de 10 à 8
 
-\\geometry{margin=2.5cm}
+            const colWidth2 = (pageWidth - 50) / 2;
+      
+            // 📏 SCALE DOWN: Points forts plus compacts
+      pdf.setTextColor(correctGreen[0], correctGreen[1], correctGreen[2]);
+      pdf.setFontSize(10); // Réduit de 12 à 10
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('Points Forts', 25, yPos);
+      
+      pdf.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
+      pdf.setFontSize(8); // Réduit de 9 à 8
+      pdf.setFont('helvetica', 'normal');
+      
+      let strengthsY = yPos + 6; // Réduit de 8 à 6
+      const strengths = results.strengths || [];
+      if (strengths.length > 0) {
+        strengths.slice(0, 5).forEach((strength: string) => { // 🎯 LIMITE FIXE: 5 composants
+          // Tronquer les recommandations si trop longues
+          let strengthText = strength;
+          if (strengthText.length > 40) { // Augmenté de 35 à 40
+            strengthText = strengthText.substring(0, 37) + '...';
+          }
+          pdf.text(`• ${strengthText}`, 25, strengthsY);
+          strengthsY += 4; // Réduit de 6 à 4
+        });
+      } else {
+        pdf.text('• Aucun point fort identifié', 25, strengthsY);
+      }
+      
+      // 📏 SCALE DOWN: À améliorer plus compact
+      pdf.setTextColor(incorrectRed[0], incorrectRed[1], incorrectRed[2]);
+      pdf.setFontSize(10); // Réduit de 12 à 10
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('À Améliorer', 25 + colWidth2, yPos);
+      
+      pdf.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
+      pdf.setFontSize(8); // Réduit de 9 à 8
+      pdf.setFont('helvetica', 'normal');
+      
+      let weaknessesY = yPos + 6; // Réduit de 8 à 6
+      const weaknesses = results.weaknesses || [];
+      if (weaknesses.length > 0) {
+        weaknesses.slice(0, 5).forEach((weakness: string) => { // 🎯 LIMITE FIXE: 5 composants
+          // Tronquer les recommandations si trop longues
+          let weaknessText = weakness;
+          if (weaknessText.length > 40) { // Augmenté de 35 à 40
+            weaknessText = weaknessText.substring(0, 37) + '...';
+          }
+          pdf.text(`• ${weaknessText}`, 25 + colWidth2, weaknessesY);
+          weaknessesY += 4; // Réduit de 6 à 4
+        });
+      } else {
+        pdf.text('• Tous les domaines maîtrisés', 25 + colWidth2, weaknessesY);
+      }
 
-\\definecolor{primaryBlue}{RGB}{37,99,235}
-\\definecolor{lightGray}{RGB}{243,244,246}
-\\definecolor{correctGreen}{RGB}{34,197,94}
-\\definecolor{incorrectRed}{RGB}{239,68,68}
-
-\\title{Correction et Résultats}
-\\author{${correctionData?.exam_title || 'Concours'}}
-\\date{\\today}
-
-\\begin{document}
-
-\\maketitle
-\\tableofcontents
-\\newpage
-
-\\section{Résumé des résultats}
-\\begin{tcolorbox}[colback=lightGray,colframe=primaryBlue,title=Statistiques globales]
-Score final: ${results.score}/${results.maxScore} (${Math.round((results.score/results.maxScore) * 100)}\\%)
-
-\\vspace{0.3cm}
-\\begin{itemize}
-\\item Réponses correctes: ${results.correctAnswers}
-\\item Réponses incorrectes: ${results.incorrectAnswers}
-\\item Questions non répondues: ${results.notAnsweredCount}
-\\end{itemize}
-\\end{tcolorbox}
-
-\\section{Performance par matière}
-${results.topicScores?.map(topic => `
-\\begin{tcolorbox}[colback=lightGray,colframe=primaryBlue]
-\\textbf{${topic.topic}}: ${topic.percentage}\\% (${topic.score}/${topic.maxScore})
-\\end{tcolorbox}
-`).join('\n')}
-
-\\section{Recommandations}
-\\begin{tcolorbox}[colback=lightGray,colframe=primaryBlue]
-\\begin{itemize}
-${results.recommendations?.map(rec => `\\item ${rec}`).join('\n')}
-\\end{itemize}
-\\end{tcolorbox}
-
-\\section{Correction détaillée}
-${results.questions.map((question, index) => `
-\\subsection*{Question ${question.question_number || (index + 1)}}
-\\begin{tcolorbox}[
-    colback=lightGray,
-    colframe=${question.isCorrect ? 'correctGreen' : 'incorrectRed'},
-    title={Question ${question.question_number || (index + 1)}${
-    question.isCorrect ? ' - Correcte' : ' - Incorrecte'
-  }}
-]
-
-${question.text.replace(/_/g, '\\_')}
-
-\\vspace{0.3cm}
-\\textbf{Votre réponse:}\\\\
-${question.userAnswer.replace(/_/g, '\\_')}
-
-\\vspace{0.3cm}
-\\textbf{Réponse correcte:}\\\\
-${question.correctAnswer.replace(/_/g, '\\_')}
-
-${question.explanation ? `
-\\vspace{0.3cm}
-\\textbf{Explication:}\\\\
-${question.explanation.replace(/_/g, '\\_')}
-` : ''}
-\\end{tcolorbox}
-`).join('\n\n')}
-
-\\end{document}
-`;
-
-    // Générer le PDF à partir du LaTeX
-// Remplacer la génération PDF par un téléchargement du code LaTeX (à compiler manuellement)
-    const blob = new Blob([latexContent], { type: 'application/x-latex' });
-    const url = URL.createObjectURL(blob);
-    const filename = `correction_${correctionData?.exam_title || 'concours'}_${new Date().toISOString().split('T')[0]}.tex`;
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-
+    }
+    
+    // 📏 SCALE DOWN: Footer plus petit
+    pdf.setTextColor(mediumGray[0], mediumGray[1], mediumGray[2]);
+    pdf.setFontSize(7); // Réduit de 8 à 7
+    pdf.text('Concours Prep Smart Coach - IAAI ACADEMY', pageWidth/2, pageHeight - 8, { align: 'center' });
+    
+    // Nom de fichier avec année
+    const cleanExamTitleForFilename = (correctionData?.exam_title || 'concours')
+      .replace(/[^a-zA-Z0-9\s]/g, '')
+      .replace(/\s+/g, '_')
+      .substring(0, 30);
+    
+    const cleanUserName = userName
+      .replace(/[^a-zA-Z0-9\s]/g, '')
+      .replace(/\s+/g, '_')
+      .substring(0, 20);
+    
+    // Inclure l'année dans le nom du fichier
+    const filename = `rapport_${cleanUserName}_${cleanExamTitleForFilename}_${examYear}_${new Date().toISOString().split('T')[0]}.pdf`;
+    pdf.save(filename);
+    
+    console.log(`✅ PDF généré avec succès: ${filename}`);
+    
   } catch (error) {
-    console.error('Erreur lors de la génération du PDF:', error);
+    console.error('❌ Erreur lors de la génération du PDF:', error);
     throw error;
   }
 };
+
+
+
+
+
+
+
+
+
+
 
 const Correction = () => {
   const { id, subject } = useParams();
@@ -1318,60 +1755,64 @@ const Correction = () => {
   const [correctionData, setCorrectionData] = useState<CorrectionData | null>(null);
   const [userAnswers, setUserAnswers] = useState<Record<string, string>>({});
   const [results, setResults] = useState<any>(null);
-
+  const [currentUser, setCurrentUser] = useState<any>(null);
   // Function to handle downloading correction as PDF
   const handleDownload = async () => {
-    if (!results) return;
-    
-    try {
-      await generateLatexPDF(results, correctionData);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-    }
-  };
+  if (!results) return;
+  
+  try {
+    const userName = currentUser?.full_name || 'Utilisateur';
+    // await generateLatexPDF(results, correctionData, userName);
+    await generatePDF(results, correctionData, userName,id);
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+  }
+};
 
   // Load correction data and user answers
   useEffect(() => {
-    const fetchCorrectionData = async () => {
-      if (!id) {
-        setError("Aucun identifiant d'examen fourni");
-        setIsLoading(false);
-        return;
+  const fetchCorrectionData = async () => {
+    if (!id) {
+      setError("Aucun identifiant d'examen fourni");
+      setIsLoading(false);
+      return;
+    }
+    
+    try {
+      setIsLoading(true);
+      
+      // Récupérer l'utilisateur actuel
+      const user = await getCurrentUser();
+      setCurrentUser(user);
+      
+      // Load correction data
+      const data = await loadCorrectionData(id, subject);
+      setCorrectionData(data);
+      
+      // Get user answers from localStorage
+      const answersKey = `answers_${id}${subject ? `_${subject}` : ''}`;
+      const savedAnswers = localStorage.getItem(answersKey);
+      
+      if (savedAnswers) {
+        const parsedData: UserAnswers = JSON.parse(savedAnswers);
+        setUserAnswers(parsedData.answers);
+        
+        // Calculate results
+        const calculatedResults = calculateResults(data, parsedData.answers);
+        setResults(calculatedResults);
+      } else {
+        setError("Aucune réponse trouvée pour cet examen. Veuillez d'abord compléter l'examen.");
       }
       
-      try {
-        setIsLoading(true);
-        
-        // Load correction data
-        const data = await loadCorrectionData(id, subject);
-        setCorrectionData(data);
-        
-        // Get user answers from localStorage
-        const answersKey = `answers_${id}${subject ? `_${subject}` : ''}`;
-        const savedAnswers = localStorage.getItem(answersKey);
-        
-        if (savedAnswers) {
-          const parsedData: UserAnswers = JSON.parse(savedAnswers);
-          setUserAnswers(parsedData.answers);
-          
-          // Calculate results
-          const calculatedResults = calculateResults(data, parsedData.answers);
-          setResults(calculatedResults);
-        } else {
-          setError("Aucune réponse trouvée pour cet examen. Veuillez d'abord compléter l'examen.");
-        }
-        
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Erreur lors du chargement des corrections:", error);
-        setError(`Erreur lors du chargement des corrections: ${error instanceof Error ? error.message : 'Erreur inconnue'}`);
-        setIsLoading(false);
-        
-      }
-    };
-    
-    fetchCorrectionData();
-  }, [id, subject]);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Erreur lors du chargement des corrections:", error);
+      setError(`Erreur lors du chargement des corrections: ${error instanceof Error ? error.message : 'Erreur inconnue'}`);
+      setIsLoading(false);
+    }
+  };
+  fetchCorrectionData();
+}, [id, subject]);
 
   // Loading state
   if (isLoading) {
@@ -1949,3 +2390,4 @@ const Correction = () => {
 };
 
 export default Correction;
+      
