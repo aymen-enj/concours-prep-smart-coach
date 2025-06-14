@@ -19,13 +19,35 @@ const ResetPassword = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if we have the required parameters for password reset
-    const accessToken = searchParams.get('access_token');
-    const refreshToken = searchParams.get('refresh_token');
+    // Get the session from the URL fragments (which is how Supabase sends the tokens)
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const accessToken = hashParams.get('access_token');
+    const refreshToken = hashParams.get('refresh_token');
+    const type = hashParams.get('type');
     
-    if (!accessToken || !refreshToken) {
-      toast.error("Lien de réinitialisation invalide");
-      navigate("/login");
+    console.log('Hash params:', { accessToken, refreshToken, type });
+    
+    if (type === 'recovery' && accessToken && refreshToken) {
+      // Set the session using the tokens from the URL
+      supabase.auth.setSession({
+        access_token: accessToken,
+        refresh_token: refreshToken
+      }).then(({ error }) => {
+        if (error) {
+          console.error('Error setting session:', error);
+          toast.error("Lien de réinitialisation invalide ou expiré");
+          navigate("/login");
+        }
+      });
+    } else {
+      // Check if we have search params (fallback)
+      const accessTokenFromParams = searchParams.get('access_token');
+      const refreshTokenFromParams = searchParams.get('refresh_token');
+      
+      if (!accessTokenFromParams && !refreshTokenFromParams && !accessToken) {
+        toast.error("Lien de réinitialisation invalide");
+        navigate("/login");
+      }
     }
   }, [searchParams, navigate]);
 
@@ -52,7 +74,7 @@ const ResetPassword = () => {
       if (error) throw error;
 
       toast.success("Mot de passe mis à jour avec succès!");
-      navigate("/dashboard");
+      navigate("/statistiques");
     } catch (error: any) {
       toast.error(error.message || "Erreur lors de la mise à jour du mot de passe");
     } finally {

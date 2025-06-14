@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useEffect, useState } from "react";
 import { User, Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
@@ -47,6 +46,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           toast.success('Connexion réussie');
         } else if (event === 'SIGNED_OUT') {
           toast.success('Déconnexion réussie');
+        } else if (event === 'PASSWORD_RECOVERY') {
+          // Redirect to reset password page when password recovery link is clicked
+          navigate("/reset-password");
         }
       }
     );
@@ -61,7 +63,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return () => {
       subscription.unsubscribe();
     };
-  }, []);
+  }, [navigate]);
 
   const signUp = async (email: string, password: string, metadata?: { full_name?: string }) => {
     try {
@@ -90,7 +92,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       });
       
       if (error) throw error;
-      navigate("/dashboard");
+      navigate("/statistiques");
     } catch (error: any) {
       toast.error(error.message || "Erreur lors de la connexion");
       throw error;
