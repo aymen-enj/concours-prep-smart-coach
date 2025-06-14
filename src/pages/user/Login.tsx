@@ -11,6 +11,7 @@ import { useAuth } from "@/providers/AuthProvider";
 import { toast } from "@/components/ui/sonner";
 import { Loader2, LogIn, UserPlus, LockKeyhole, Mail, User, ArrowRight, CheckCircle, Lock, Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ForgotPasswordModal from "@/components/ForgotPasswordModal";
 
 const Login = () => {
   const [searchParams] = useSearchParams();
@@ -23,6 +24,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [animateContent, setAnimateContent] = useState(false);
   const [activeTab, setActiveTab] = useState(initialTab);
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
   
   const { user, signUp, signIn, signInWithGoogle } = useAuth();
 
@@ -197,12 +199,13 @@ const Login = () => {
                           <Lock className="h-3.5 w-3.5 text-muted-foreground" />
                           Mot de passe
                         </Label>
-                        <Link
-                          to="#"
+                        <button
+                          type="button"
+                          onClick={() => setIsForgotPasswordOpen(true)}
                           className="text-xs text-primary hover:underline"
                         >
                           Mot de passe oublié?
-                        </Link>
+                        </button>
                       </div>
                       <div className="relative">
                         <Input
@@ -388,6 +391,11 @@ const Login = () => {
           </div>
         </div>
       </main>
+
+      <ForgotPasswordModal 
+        isOpen={isForgotPasswordOpen} 
+        onClose={() => setIsForgotPasswordOpen(false)} 
+      />
 
       {/* Add CSS for animations */}
       <style>

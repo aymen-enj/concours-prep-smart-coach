@@ -13,6 +13,7 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<void>;
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -23,6 +24,7 @@ const AuthContext = createContext<AuthContextType>({
   signIn: async () => {},
   signInWithGoogle: async () => {},
   signOut: async () => {},
+  resetPassword: async () => {},
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -111,6 +113,20 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const resetPassword = async (email: string) => {
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+      
+      if (error) throw error;
+      toast.success("Email de réinitialisation envoyé! Vérifiez votre boîte mail.");
+    } catch (error: any) {
+      toast.error(error.message || "Erreur lors de l'envoi de l'email");
+      throw error;
+    }
+  };
+
   const signOut = async () => {
     try {
       await supabase.auth.signOut();
@@ -130,6 +146,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         signIn,
         signInWithGoogle,
         signOut,
+        resetPassword,
       }}
     >
       {children}

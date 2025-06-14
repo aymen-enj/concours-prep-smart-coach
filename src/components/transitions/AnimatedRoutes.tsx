@@ -1,3 +1,4 @@
+
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./PageTransition";
@@ -15,6 +16,7 @@ import Support from "@/pages/user/Support";
 import Settings from "@/pages/user/Settings";
 import NotFound from "@/pages/user/NotFound";
 import AuthCallback from "@/pages/user/AuthCallback";
+import ResetPassword from "@/pages/user/ResetPassword";
 import RequireAuth from "@/components/RequireAuth";
 
 const AnimatedRoutes = () => {
@@ -37,6 +39,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Login />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/reset-password" 
+          element={
+            <PageTransition>
+              <ResetPassword />
             </PageTransition>
           } 
         />

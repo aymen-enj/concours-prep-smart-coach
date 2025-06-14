@@ -9,6 +9,83 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      attempt_answers: {
+        Row: {
+          attempt_id: string
+          created_at: string
+          id: string
+          is_correct: boolean
+          question_number: number
+          question_subject: string | null
+          selected_option: string | null
+          time_spent: number
+        }
+        Insert: {
+          attempt_id: string
+          created_at?: string
+          id?: string
+          is_correct?: boolean
+          question_number: number
+          question_subject?: string | null
+          selected_option?: string | null
+          time_spent?: number
+        }
+        Update: {
+          attempt_id?: string
+          created_at?: string
+          id?: string
+          is_correct?: boolean
+          question_number?: number
+          question_subject?: string | null
+          selected_option?: string | null
+          time_spent?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attempt_answers_attempt_id_fkey"
+            columns: ["attempt_id"]
+            isOneToOne: false
+            referencedRelation: "exam_attempts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      exam_attempts: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          exam_id: string
+          id: string
+          score: number
+          started_at: string
+          total_questions: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          exam_id: string
+          id?: string
+          score?: number
+          started_at?: string
+          total_questions: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          exam_id?: string
+          id?: string
+          score?: number
+          started_at?: string
+          total_questions?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -36,12 +113,50 @@ export type Database = {
         }
         Relationships: []
       }
+      subject_performance: {
+        Row: {
+          attempt_id: string
+          created_at: string
+          id: string
+          score: number
+          subject_name: string
+          total_questions: number
+        }
+        Insert: {
+          attempt_id: string
+          created_at?: string
+          id?: string
+          score?: number
+          subject_name: string
+          total_questions: number
+        }
+        Update: {
+          attempt_id?: string
+          created_at?: string
+          id?: string
+          score?: number
+          subject_name?: string
+          total_questions?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subject_performance_attempt_id_fkey"
+            columns: ["attempt_id"]
+            isOneToOne: false
+            referencedRelation: "exam_attempts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      create_user_profile: {
+        Args: { user_id: string; full_name?: string; avatar_url?: string }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
