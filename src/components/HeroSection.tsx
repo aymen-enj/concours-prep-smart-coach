@@ -145,7 +145,7 @@ const HeroSection = () => {
       </div>
       
       {/* Contenu principal */}
-      <div className="container mx-auto px-4 z-10">
+      <div className="container mx-auto px-4 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           {/* Colonne gauche - Contenu textuel */}
           <div className="lg:col-span-5 order-2 lg:order-1">
@@ -370,7 +370,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1 }}
-                className="absolute -bottom-12 right-0 xl:right-16 2xl:right-24"
+                className="absolute -bottom-12 right-0 xl:right-16 2xl:right-24 z-20"
               >
                 <ChatbotAssistant3D />
               </motion.div>
@@ -379,30 +379,39 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Indicateur de défilement amélioré */}
-      <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center">
+      {/* Indicateur de défilement amélioré - Position fixe pour éviter les conflits */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 pointer-events-auto">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.5 }}
-          className="inline-flex flex-col items-center cursor-pointer"
+          className="inline-flex flex-col items-center cursor-pointer group"
           onClick={scrollToFeatures}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
+          {/* Badge de texte avec espacement amélioré */}
           <motion.div 
-            className="relative px-5 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 shadow-lg group flex items-center justify-center"
+            className="relative px-6 py-3 mb-3 rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:bg-white dark:group-hover:bg-slate-800"
             whileHover={{ y: -2 }}
           >
-            <span className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300">Découvrir plus</span>
+            <span className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300">
+              Découvrir plus
+            </span>
           </motion.div>
           
+          {/* Icône de flèche avec animation améliorée */}
           <motion.div
-            className="mt-2 bg-white/80 dark:bg-slate-800/80 rounded-full p-1 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center"
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="bg-white/90 dark:bg-slate-800/90 rounded-full p-2 border border-slate-200/50 dark:border-slate-700/50 shadow-lg backdrop-blur-md flex items-center justify-center group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-300"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity, 
+              ease: "easeInOut",
+              repeatDelay: 0.5 
+            }}
           >
-            <ChevronDown className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <ChevronDown className="w-5 h-5 text-blue-500 dark:text-blue-400 group-hover:text-indigo-500 transition-colors duration-300" />
           </motion.div>
         </motion.div>
       </div>
