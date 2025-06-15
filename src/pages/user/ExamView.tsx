@@ -13,7 +13,6 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MathRenderer from "@/components/MathRenderer";
-import ImageRenderer from "@/components/ImageRenderer";
 import { useToast } from "@/hooks/use-toast";
 import { loadExam } from "@/services/examService";
 import type { ExamData, ExamQuestion } from "@/types/exam";
@@ -33,8 +32,8 @@ const ExamView = () => {
   const { school, year, subject, type } = useParams<{
     school: string;
     year: string;
-    subject: string;
-    type: string;
+    subject?: string;
+    type?: string;
   }>();
   
   const navigate = useNavigate();
@@ -92,7 +91,7 @@ const ExamView = () => {
   // Load exam data
   useEffect(() => {
     const initializeExam = async () => {
-      if (!school || !year || !subject) {
+      if (!school || !year) {
         setError("Paramètres d'examen manquants");
         setIsLoading(false);
         return;
@@ -101,6 +100,8 @@ const ExamView = () => {
       try {
         setIsLoading(true);
         const examId = `${school}-${year}`;
+        
+        // Load exam with optional subject
         const data = await loadExam(examId, subject);
         setExamData(data);
 
@@ -110,10 +111,10 @@ const ExamView = () => {
 
         // Start tracking the exam
         const examSession = {
-          examId: `${school}-${year}-${subject}${type ? `-${type}` : ''}`,
-          examName: data.exam_title || `${school.toUpperCase()} ${year} - ${subject.toUpperCase()}`,
+          examId: `${school}-${year}${subject ? `-${subject}` : ''}${type ? `-${type}` : ''}`,
+          examName: data.exam_title || `${school.toUpperCase()} ${year}${subject ? ` - ${subject.toUpperCase()}` : ''}`,
           examType: type || 'general',
-          subject: subject,
+          subject: subject || 'general',
           totalQuestions: convertedQuestions.length
         };
 
@@ -151,7 +152,7 @@ const ExamView = () => {
         selectedOption: optionKey,
         isCorrect,
         timeSpent: Math.floor((Date.now() - startTime) / 1000),
-        questionSubject: question.subject || subject
+        questionSubject: question.subject || subject || 'general'
       });
     }
   };
@@ -167,7 +168,7 @@ const ExamView = () => {
           description: "Vos résultats ont été sauvegardés",
           variant: "default"
         });
-        navigate(`/correction/${school}/${year}/${subject}${type ? `/${type}` : ''}`, {
+        navigate(`/correction/${school}/${year}${subject ? `/${subject}` : ''}${type ? `/${type}` : ''}`, {
           state: { 
             selectedAnswers,
             examData,
