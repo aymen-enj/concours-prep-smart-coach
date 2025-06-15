@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,69 +8,81 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { CheckCircle, BarChart, TrendingUp, TrendingDown, Clock, BookOpen, Trophy, Bell, Flame, ChevronRight, Sparkles, Brain, Zap, LineChart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-// Performance stats
-const performanceStats = [
-  { 
-    label: "Mathématiques", 
-    value: 85, 
-    change: 5,
-    color: "bg-primary" 
-  },
-  { 
-    label: "Physique", 
-    value: 72, 
-    change: -2,
-    color: "bg-purple-500" 
-  },
-  { 
-    label: "Chimie", 
-    value: 68, 
-    change: 8, 
-    color: "bg-green-500" 
-  },
-  { 
-    label: "Français", 
-    value: 75, 
-    change: 0,
-    color: "bg-amber-500" 
-  }
-];
-
-// Recent activity data
-const recentActivity = [
-  {
-    id: 1,
-    action: "Concours terminé",
-    details: "Mathématiques - CNC 2021",
-    date: "Aujourd'hui, 14:30",
-    score: "85%",
-    icon: CheckCircle,
-    iconBg: "bg-green-100 dark:bg-green-900/20",
-    iconColor: "text-green-600 dark:text-green-400"
-  },
-  {
-    id: 2,
-    action: "Nouvelle correction disponible",
-    details: "Physique - CPGE 2023",
-    date: "Hier, 18:05",
-    icon: Zap,
-    iconBg: "bg-amber-100 dark:bg-amber-900/20",
-    iconColor: "text-amber-600 dark:text-amber-400"
-  },
-  {
-    id: 3,
-    action: "Exercice pratiqué",
-    details: "Algèbre linéaire - Niveau avancé",
-    date: "06 mai, 09:15",
-    score: "72%",
-    icon: Brain,
-    iconBg: "bg-purple-100 dark:bg-purple-900/20",
-    iconColor: "text-purple-600 dark:text-purple-400"
-  }
-];
+import { useUserStatistics } from "@/hooks/useUserStatistics";
+import { useAuth } from "@/providers/AuthProvider";
+import { cn } from "@/lib/utils";
 
 const Dashboard = () => {
+  const { user } = useAuth();
+  const { statistics, loading, error } = useUserStatistics();
+
+  if (!user) {
+    return (
+      <div className="min-h-screen flex flex-col bg-background">
+        <Navbar />
+        <main className="flex-grow flex items-center justify-center">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4">Connexion requise</h2>
+            <p className="text-muted-foreground mb-6">Veuillez vous connecter pour accéder à vos statistiques.</p>
+            <Button asChild>
+              <Link to="/login">Se connecter</Link>
+            </Button>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col bg-background">
+        <Navbar />
+        <main className="flex-grow flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-muted-foreground">Chargement de vos statistiques...</p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex flex-col bg-background">
+        <Navbar />
+        <main className="flex-grow flex items-center justify-center">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4 text-red-600">Erreur</h2>
+            <p className="text-muted-foreground mb-6">{error}</p>
+            <Button onClick={() => window.location.reload()}>
+              Réessayer
+            </Button>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const getSubjectColor = (index: number) => {
+    const colors = ["bg-primary", "bg-purple-500", "bg-green-500", "bg-amber-500", "bg-red-500", "bg-blue-500"];
+    return colors[index % colors.length];
+  };
+
+  const getActivityIcon = (type: string) => {
+    switch (type) {
+      case 'exam_completed':
+        return CheckCircle;
+      case 'practice_session':
+        return Brain;
+      default:
+        return Zap;
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
@@ -82,7 +95,7 @@ const Dashboard = () => {
           {/* Dashboard header */}
           <div className="mb-12">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-            <div>
+              <div>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
                     <BarChart className="h-6 w-6 text-white" />
@@ -110,22 +123,28 @@ const Dashboard = () => {
             </div>
 
             {/* Streak banner */}
-            <div className="bg-gradient-to-r from-primary/80 to-blue-600 rounded-2xl p-5 text-white shadow-lg mb-8 relative overflow-hidden">
-              <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full"></div>
-              <div className="absolute -left-5 -bottom-5 w-20 h-20 bg-white/10 rounded-full"></div>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <Flame className="h-7 w-7 text-amber-300" />
+            {statistics && statistics.totalAttempts > 0 && (
+              <div className="bg-gradient-to-r from-primary/80 to-blue-600 rounded-2xl p-5 text-white shadow-lg mb-8 relative overflow-hidden">
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full"></div>
+                <div className="absolute -left-5 -bottom-5 w-20 h-20 bg-white/10 rounded-full"></div>
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <Flame className="h-7 w-7 text-amber-300" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-medium mb-1">
+                      {statistics.totalAttempts} concours complétés ! 🎓
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      Score moyen de {statistics.averageScore}% - Continuez votre excellent travail !
+                    </p>
+                  </div>
+                  <Button variant="secondary" className="bg-white/20 text-white hover:bg-white/30 border-none backdrop-blur-sm">
+                    Continuer
+                  </Button>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-medium mb-1">Streak de 7 jours ! 🔥</h3>
-                  <p className="text-white/80 text-sm">Continuez votre série ! Vous êtes sur la bonne voie pour atteindre vos objectifs.</p>
-                </div>
-                <Button variant="secondary" className="bg-white/20 text-white hover:bg-white/30 border-none backdrop-blur-sm">
-                  Continuer
-                </Button>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Stats and Activity section */}
@@ -141,11 +160,10 @@ const Dashboard = () => {
                         <CheckCircle className="h-5 w-5 text-primary" />
                       </div>
                     </div>
-                    <p className="text-2xl font-bold">4</p>
+                    <p className="text-2xl font-bold">{statistics?.totalAttempts || 0}</p>
                     <p className="text-sm text-muted-foreground flex items-center mt-1">
                       <TrendingUp className="h-4 w-4 mr-1 text-green-500" />
-                      <span className="text-green-500 font-medium">+2</span>
-                      <span className="ml-1">ce mois</span>
+                      <span className="text-green-500 font-medium">Total</span>
                     </p>
                   </CardContent>
                 </Card>
@@ -158,11 +176,10 @@ const Dashboard = () => {
                         <BarChart className="h-5 w-5 text-primary" />
                       </div>
                     </div>
-                    <p className="text-2xl font-bold">72%</p>
+                    <p className="text-2xl font-bold">{statistics?.averageScore || 0}%</p>
                     <p className="text-sm text-muted-foreground flex items-center mt-1">
                       <TrendingUp className="h-4 w-4 mr-1 text-green-500" />
-                      <span className="text-green-500 font-medium">+5%</span>
-                      <span className="ml-1">vs dernier</span>
+                      <span className="text-green-500 font-medium">Performance</span>
                     </p>
                   </CardContent>
                 </Card>
@@ -175,11 +192,10 @@ const Dashboard = () => {
                         <Clock className="h-5 w-5 text-primary" />
                       </div>
                     </div>
-                    <p className="text-2xl font-bold">12h</p>
+                    <p className="text-2xl font-bold">{statistics?.totalStudyTime || 0}h</p>
                     <p className="text-sm text-muted-foreground flex items-center mt-1">
-                      <TrendingDown className="h-4 w-4 mr-1 text-amber-500" />
-                      <span className="text-amber-500 font-medium">-2h</span>
-                      <span className="ml-1">vs semaine</span>
+                      <Clock className="h-4 w-4 mr-1 text-blue-500" />
+                      <span className="text-blue-500 font-medium">Total</span>
                     </p>
                   </CardContent>
                 </Card>
@@ -192,10 +208,9 @@ const Dashboard = () => {
                         <Trophy className="h-5 w-5 text-primary" />
                       </div>
                     </div>
-                    <p className="text-2xl font-bold">78%</p>
+                    <p className="text-2xl font-bold">{statistics?.successRate || 0}%</p>
                     <div className="flex flex-wrap gap-1 mt-1">
-                      <span className="text-xs bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 px-2 py-0.5 rounded-full">CNC</span>
-                      <span className="text-xs bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200 px-2 py-0.5 rounded-full">ENCG</span>
+                      <span className="text-xs bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 px-2 py-0.5 rounded-full">Réussite</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -222,24 +237,40 @@ const Dashboard = () => {
                   </div>
                   
                   <div className="space-y-3">
-                    {performanceStats.map((stat, i) => (
-                      <div key={i}>
-                        <div className="flex items-center justify-between mb-1">
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium">{stat.label}</span>
-                            {stat.change > 0 && <Badge variant="outline" className="text-[10px] h-4 px-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 border-none">+{stat.change}%</Badge>}
-                            {stat.change < 0 && <Badge variant="outline" className="text-[10px] h-4 px-1 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200 border-none">{stat.change}%</Badge>}
+                    {statistics?.subjectPerformance.length ? (
+                      statistics.subjectPerformance.map((stat, i) => (
+                        <div key={i}>
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-medium">{stat.subject}</span>
+                              {stat.change > 0 && (
+                                <Badge variant="outline" className="text-[10px] h-4 px-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 border-none">
+                                  +{stat.change}%
+                                </Badge>
+                              )}
+                              {stat.change < 0 && (
+                                <Badge variant="outline" className="text-[10px] h-4 px-1 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200 border-none">
+                                  {stat.change}%
+                                </Badge>
+                              )}
+                            </div>
+                            <span className="text-sm font-semibold">{stat.score}%</span>
                           </div>
-                          <span className="text-sm font-semibold">{stat.value}%</span>
+                          <div className="w-full h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                            <div 
+                              className={`h-full ${getSubjectColor(i)} rounded-full`}
+                              style={{ width: `${stat.score}%` }}
+                            ></div>
+                          </div>
                         </div>
-                        <div className="w-full h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                          <div 
-                            className={`h-full ${stat.color} rounded-full`}
-                            style={{ width: `${stat.value}%` }}
-                          ></div>
-                        </div>
+                      ))
+                    ) : (
+                      <div className="text-center py-8 text-muted-foreground">
+                        <BookOpen className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                        <p>Aucune donnée de performance disponible</p>
+                        <p className="text-sm">Commencez un concours pour voir vos statistiques !</p>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -260,32 +291,60 @@ const Dashboard = () => {
                   </div>
                   
                   <div className="space-y-5">
-                    {recentActivity.map((activity) => (
-                      <div key={activity.id} className="flex gap-3">
-                        <div className={`w-10 h-10 rounded-full ${activity.iconBg} flex-shrink-0 flex items-center justify-center`}>
-                          <activity.icon className={`h-5 w-5 ${activity.iconColor}`} />
-                        </div>
-                        <div className="flex-1 border-b border-border/30 pb-5">
-                          <div className="flex justify-between items-start">
-                            <div>
-                              <h4 className="text-sm font-medium">{activity.action}</h4>
-                              <p className="text-xs text-muted-foreground">{activity.details}</p>
+                    {statistics?.recentActivity.length ? (
+                      statistics.recentActivity.map((activity) => {
+                        const IconComponent = getActivityIcon(activity.type);
+                        return (
+                          <div key={activity.id} className="flex gap-3">
+                            <div className={cn(
+                              "w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center",
+                              activity.type === 'exam_completed' 
+                                ? "bg-green-100 dark:bg-green-900/20" 
+                                : "bg-purple-100 dark:bg-purple-900/20"
+                            )}>
+                              <IconComponent className={cn(
+                                "h-5 w-5",
+                                activity.type === 'exam_completed'
+                                  ? "text-green-600 dark:text-green-400"
+                                  : "text-purple-600 dark:text-purple-400"
+                              )} />
                             </div>
-                            {activity.score && (
-                              <Badge className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 hover:bg-green-200">
-                                {activity.score}
-                              </Badge>
-                            )}
+                            <div className="flex-1 border-b border-border/30 pb-5">
+                              <div className="flex justify-between items-start">
+                                <div>
+                                  <h4 className="text-sm font-medium">{activity.title}</h4>
+                                  <p className="text-xs text-muted-foreground">{activity.subject}</p>
+                                </div>
+                                {activity.score && (
+                                  <Badge className={cn(
+                                    "hover:bg-green-200",
+                                    activity.score >= 60 
+                                      ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200"
+                                      : "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200"
+                                  )}>
+                                    {activity.score}%
+                                  </Badge>
+                                )}
+                              </div>
+                              <p className="text-xs text-muted-foreground mt-1">{activity.date}</p>
+                            </div>
                           </div>
-                          <p className="text-xs text-muted-foreground mt-1">{activity.date}</p>
-                        </div>
+                        );
+                      })
+                    ) : (
+                      <div className="text-center py-8 text-muted-foreground">
+                        <Clock className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                        <p>Aucune activité récente</p>
+                        <p className="text-sm">Commencez un concours pour voir votre activité !</p>
                       </div>
-                    ))}
+                    )}
                   </div>
                   
-                  <Button variant="outline" className="w-full mt-4 text-sm rounded-lg">
-                    Charger plus
-                  </Button>
+                  {statistics?.recentActivity.length ? (
+                    <Button variant="outline" className="w-full mt-4 text-sm rounded-lg">
+                      Charger plus
+                    </Button>
+                  ) : null}
                 </CardContent>
               </Card>
             </div>
@@ -299,7 +358,7 @@ const Dashboard = () => {
                   <Sparkles className="h-5 w-5 text-primary" />
                 </div>
                 <h2 className="text-xl font-poppins font-bold text-foreground">
-                  Concours récemment consultés
+                  Concours recommandés
                 </h2>
               </div>
               <Button variant="outline" className="gap-1" asChild>
@@ -317,21 +376,21 @@ const Dashboard = () => {
                   <div className="p-5">
                     <div className="flex justify-between items-start mb-3">
                       <div>
-                        <h3 className="font-medium">Concours CNC</h3>
-                        <p className="text-sm text-muted-foreground">Mathématiques</p>
+                        <h3 className="font-medium">Concours ENSA</h3>
+                        <p className="text-sm text-muted-foreground">Mathématiques & Physique</p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
-                          2023
+                          2024
                         </Badge>
                         <Badge variant="outline" className="bg-background/50 border-border/50">
                           Classes préparatoires
                         </Badge>
                       </div>
-                      <Button size="sm" className="h-8 text-xs">
-                        Reprendre
+                      <Button size="sm" className="h-8 text-xs" asChild>
+                        <Link to="/concours">Commencer</Link>
                       </Button>
                     </div>
                   </div>
@@ -345,20 +404,20 @@ const Dashboard = () => {
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <h3 className="font-medium">Concours ENSAM</h3>
-                        <p className="text-sm text-muted-foreground">Physique</p>
+                        <p className="text-sm text-muted-foreground">Physique & Chimie</p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
-                          2021
+                          2022
                         </Badge>
                         <Badge variant="outline" className="bg-background/50 border-border/50">
                           Classes préparatoires
                         </Badge>
                       </div>
-                      <Button size="sm" className="h-8 text-xs">
-                        Reprendre
+                      <Button size="sm" className="h-8 text-xs" asChild>
+                        <Link to="/concours">Commencer</Link>
                       </Button>
                     </div>
                   </div>
@@ -372,20 +431,20 @@ const Dashboard = () => {
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <h3 className="font-medium">Concours Médecine</h3>
-                        <p className="text-sm text-muted-foreground">Biologie</p>
+                        <p className="text-sm text-muted-foreground">Sciences</p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
-                          2023
+                          2024
                         </Badge>
                         <Badge variant="outline" className="bg-background/50 border-border/50">
                           Bac
                         </Badge>
                       </div>
-                      <Button size="sm" className="h-8 text-xs">
-                        Reprendre
+                      <Button size="sm" className="h-8 text-xs" asChild>
+                        <Link to="/concours">Commencer</Link>
                       </Button>
                     </div>
                   </div>
