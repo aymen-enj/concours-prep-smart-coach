@@ -1,5 +1,5 @@
 
-import { Routes, Route, Navigate, useLocation, useParams } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./PageTransition";
 
@@ -18,22 +18,6 @@ import NotFound from "@/pages/user/NotFound";
 import AuthCallback from "@/pages/user/AuthCallback";
 import ResetPassword from "@/pages/user/ResetPassword";
 import RequireAuth from "@/components/RequireAuth";
-
-// Component for legacy exam route redirect
-const LegacyExamRedirect = () => {
-  const { id } = useParams<{ id: string }>();
-  
-  if (id?.includes('-')) {
-    const parts = id.split('-');
-    if (parts.length >= 2) {
-      const school = parts[0];
-      const year = parts[1];
-      return <Navigate replace to={`/exam-view/${school}/${year}`} />;
-    }
-  }
-  
-  return <Navigate replace to="/concours" />;
-};
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -117,9 +101,8 @@ const AnimatedRoutes = () => {
               </PageTransition>
             } 
           />
-          {/* Updated routes to match the expected format */}
           <Route 
-            path="/exam-view/:school/:year" 
+            path="/exam-view/:id" 
             element={
               <PageTransition>
                 <ExamView />
@@ -127,7 +110,7 @@ const AnimatedRoutes = () => {
             } 
           />
           <Route 
-            path="/exam-view/:school/:year/:subject" 
+            path="/exam-view/:id/:subject" 
             element={
               <PageTransition>
                 <ExamView />
@@ -135,15 +118,7 @@ const AnimatedRoutes = () => {
             } 
           />
           <Route 
-            path="/exam-view/:school/:year/:subject/:type" 
-            element={
-              <PageTransition>
-                <ExamView />
-              </PageTransition>
-            } 
-          />
-          <Route 
-            path="/correction/:school/:year" 
+            path="/correction/:id" 
             element={
               <PageTransition>
                 <Correction />
@@ -151,15 +126,7 @@ const AnimatedRoutes = () => {
             } 
           />
           <Route 
-            path="/correction/:school/:year/:subject" 
-            element={
-              <PageTransition>
-                <Correction />
-              </PageTransition>
-            } 
-          />
-          <Route 
-            path="/correction/:school/:year/:subject/:type" 
+            path="/correction/:id/:subject" 
             element={
               <PageTransition>
                 <Correction />
@@ -186,8 +153,6 @@ const AnimatedRoutes = () => {
           {/* Legacy routes redirects */}
           <Route path="/dashboard" element={<Navigate replace to="/statistiques" />} />
           <Route path="/concours/:id" element={<Navigate replace to="/exam-view/:id" />} />
-          {/* Legacy route redirect for old format */}
-          <Route path="/exam-view/:id" element={<LegacyExamRedirect />} />
         </Route>
         
         {/* 404 route */}

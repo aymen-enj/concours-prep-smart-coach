@@ -54,14 +54,10 @@ export type Database = {
         Row: {
           completed_at: string | null
           created_at: string
-          duration_minutes: number | null
           exam_id: string
-          exam_name: string | null
-          exam_type: string | null
           id: string
           score: number
           started_at: string
-          subject: string | null
           total_questions: number
           updated_at: string
           user_id: string
@@ -69,14 +65,10 @@ export type Database = {
         Insert: {
           completed_at?: string | null
           created_at?: string
-          duration_minutes?: number | null
           exam_id: string
-          exam_name?: string | null
-          exam_type?: string | null
           id?: string
           score?: number
           started_at?: string
-          subject?: string | null
           total_questions: number
           updated_at?: string
           user_id: string
@@ -84,14 +76,10 @@ export type Database = {
         Update: {
           completed_at?: string | null
           created_at?: string
-          duration_minutes?: number | null
           exam_id?: string
-          exam_name?: string | null
-          exam_type?: string | null
           id?: string
           score?: number
           started_at?: string
-          subject?: string | null
           total_questions?: number
           updated_at?: string
           user_id?: string
