@@ -1,5 +1,5 @@
 
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation, useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./PageTransition";
 
@@ -18,6 +18,22 @@ import NotFound from "@/pages/user/NotFound";
 import AuthCallback from "@/pages/user/AuthCallback";
 import ResetPassword from "@/pages/user/ResetPassword";
 import RequireAuth from "@/components/RequireAuth";
+
+// Component for legacy exam route redirect
+const LegacyExamRedirect = () => {
+  const { id } = useParams<{ id: string }>();
+  
+  if (id?.includes('-')) {
+    const parts = id.split('-');
+    if (parts.length >= 2) {
+      const school = parts[0];
+      const year = parts[1];
+      return <Navigate replace to={`/exam-view/${school}/${year}`} />;
+    }
+  }
+  
+  return <Navigate replace to="/concours" />;
+};
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -171,20 +187,7 @@ const AnimatedRoutes = () => {
           <Route path="/dashboard" element={<Navigate replace to="/statistiques" />} />
           <Route path="/concours/:id" element={<Navigate replace to="/exam-view/:id" />} />
           {/* Legacy route redirect for old format */}
-          <Route path="/exam-view/:id" element={<Navigate replace to={
-            ({ params }) => {
-              const id = params.id;
-              if (id?.includes('-')) {
-                const parts = id.split('-');
-                if (parts.length >= 2) {
-                  const school = parts[0];
-                  const year = parts[1];
-                  return `/exam-view/${school}/${year}`;
-                }
-              }
-              return `/concours`;
-            }
-          } />} />
+          <Route path="/exam-view/:id" element={<LegacyExamRedirect />} />
         </Route>
         
         {/* 404 route */}
