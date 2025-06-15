@@ -12,12 +12,22 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { MathRenderer } from "@/components/MathRenderer";
-import { ImageRenderer } from "@/components/ImageRenderer";
+import MathRenderer from "@/components/MathRenderer";
+import ImageRenderer from "@/components/ImageRenderer";
 import { useToast } from "@/hooks/use-toast";
-import { loadExamData } from "@/services/examService";
-import type { ExamData, Question } from "@/types/exam";
+import { loadExam } from "@/services/examService";
+import type { ExamData, ExamQuestion } from "@/types/exam";
 import { useExamTracking } from "@/hooks/useExamTracking";
+
+// Interface pour une question adaptée à l'ExamView
+interface Question {
+  question_number: string;
+  text: string;
+  options: Record<string, string>;
+  correct_answer: string;
+  subject?: string;
+  image?: string;
+}
 
 const ExamView = () => {
   const { school, year, subject, type } = useParams<{
@@ -32,6 +42,7 @@ const ExamView = () => {
   const { startExam, saveAnswer, finishExam, isExamActive, getCurrentStats } = useExamTracking();
 
   const [examData, setExamData] = useState<ExamData | null>(null);
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
   const [timeElapsed, setTimeElapsed] = useState(0);
@@ -50,6 +61,34 @@ const ExamView = () => {
     return () => clearInterval(timer);
   }, [startTime, isExamActive]);
 
+  // Convert ExamData to Questions format
+  const convertExamDataToQuestions = (data: ExamData): Question[] => {
+    const allQuestions: Question[] = [];
+    
+    data.components.forEach(component => {
+      component.questions.forEach(q => {
+        // Convert options from ExamOption[] to Record<string, string>
+        const options: Record<string, string> = {};
+        if (q.options) {
+          q.options.forEach(option => {
+            options[option.label] = option.text;
+          });
+        }
+
+        allQuestions.push({
+          question_number: q.question_number,
+          text: q.text,
+          options,
+          correct_answer: q.correctAnswer || 'A',
+          subject: q.subject || component.component_name,
+          image: q.programmatic_figure?.image_url
+        });
+      });
+    });
+
+    return allQuestions;
+  };
+
   // Load exam data
   useEffect(() => {
     const initializeExam = async () => {
@@ -61,16 +100,21 @@ const ExamView = () => {
 
       try {
         setIsLoading(true);
-        const data = await loadExamData(school, year, subject, type);
+        const examId = `${school}-${year}`;
+        const data = await loadExam(examId, subject);
         setExamData(data);
+
+        // Convert to questions format
+        const convertedQuestions = convertExamDataToQuestions(data);
+        setQuestions(convertedQuestions);
 
         // Start tracking the exam
         const examSession = {
           examId: `${school}-${year}-${subject}${type ? `-${type}` : ''}`,
-          examName: data.title || `${school.toUpperCase()} ${year} - ${subject.toUpperCase()}`,
+          examName: data.exam_title || `${school.toUpperCase()} ${year} - ${subject.toUpperCase()}`,
           examType: type || 'general',
           subject: subject,
-          totalQuestions: data.questions.length
+          totalQuestions: convertedQuestions.length
         };
 
         await startExam(examSession);
@@ -98,8 +142,8 @@ const ExamView = () => {
     }));
 
     // Save the answer with tracking
-    if (examData) {
-      const question = examData.questions[questionIndex];
+    if (questions.length > 0) {
+      const question = questions[questionIndex];
       const isCorrect = question.correct_answer === optionKey;
       
       saveAnswer({
@@ -113,10 +157,10 @@ const ExamView = () => {
   };
 
   const handleFinishExam = async () => {
-    if (!examData) return;
+    if (!questions.length) return;
 
     try {
-      const success = await finishExam(examData.questions.length);
+      const success = await finishExam(questions.length);
       if (success) {
         toast({
           title: "Examen terminé",
@@ -158,7 +202,7 @@ const ExamView = () => {
     );
   }
 
-  if (error || !examData) {
+  if (error || !examData || !questions.length) {
     return (
       <div className="min-h-screen flex flex-col bg-background">
         <Navbar />
@@ -180,8 +224,8 @@ const ExamView = () => {
     );
   }
 
-  const currentQuestion = examData.questions[currentQuestionIndex];
-  const progress = ((currentQuestionIndex + 1) / examData.questions.length) * 100;
+  const currentQuestion = questions[currentQuestionIndex];
+  const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
   const answeredQuestions = Object.keys(selectedAnswers).length;
   const stats = getCurrentStats();
 
@@ -194,9 +238,9 @@ const ExamView = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
-              <h1 className="text-2xl font-bold">{examData.title}</h1>
+              <h1 className="text-2xl font-bold">{examData.exam_title}</h1>
               <p className="text-muted-foreground">
-                Question {currentQuestionIndex + 1} sur {examData.questions.length}
+                Question {currentQuestionIndex + 1} sur {questions.length}
               </p>
             </div>
             
@@ -208,7 +252,7 @@ const ExamView = () => {
               
               <Badge variant="outline" className="gap-1">
                 <CheckCircle className="h-3 w-3" />
-                {answeredQuestions}/{examData.questions.length}
+                {answeredQuestions}/{questions.length}
               </Badge>
 
               {stats.answered > 0 && (
@@ -240,13 +284,13 @@ const ExamView = () => {
                 <CardContent className="space-y-6">
                   {/* Question text */}
                   <div className="prose prose-sm max-w-none">
-                    <MathRenderer content={currentQuestion.question} />
+                    <MathRenderer text={currentQuestion.text} />
                   </div>
 
                   {/* Question image */}
                   {currentQuestion.image && (
                     <div className="flex justify-center">
-                      <ImageRenderer 
+                      <img 
                         src={currentQuestion.image} 
                         alt={`Question ${currentQuestionIndex + 1}`}
                         className="max-w-full h-auto rounded-lg border"
@@ -268,7 +312,7 @@ const ExamView = () => {
                             <div className="flex items-center gap-2">
                               <span className="font-medium">{key}.</span>
                               <div className="flex-1">
-                                <MathRenderer content={value} />
+                                <MathRenderer text={value} />
                               </div>
                             </div>
                           </Label>
@@ -289,7 +333,7 @@ const ExamView = () => {
                 <CardContent className="space-y-4">
                   {/* Question grid */}
                   <div className="grid grid-cols-5 gap-2">
-                    {examData.questions.map((_, index) => (
+                    {questions.map((_, index) => (
                       <Button
                         key={index}
                         variant={index === currentQuestionIndex ? "default" : selectedAnswers[index] ? "secondary" : "outline"}
@@ -321,8 +365,8 @@ const ExamView = () => {
                       variant="outline"
                       size="sm"
                       className="w-full gap-2"
-                      disabled={currentQuestionIndex === examData.questions.length - 1}
-                      onClick={() => setCurrentQuestionIndex(prev => Math.min(examData.questions.length - 1, prev + 1))}
+                      disabled={currentQuestionIndex === questions.length - 1}
+                      onClick={() => setCurrentQuestionIndex(prev => Math.min(questions.length - 1, prev + 1))}
                     >
                       Suivant
                       <ArrowRight className="h-4 w-4" />
@@ -359,7 +403,7 @@ const ExamView = () => {
                   <div className="text-sm space-y-1">
                     <div className="flex justify-between">
                       <span>Répondues:</span>
-                      <span>{answeredQuestions}/{examData.questions.length}</span>
+                      <span>{answeredQuestions}/{questions.length}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Temps:</span>
