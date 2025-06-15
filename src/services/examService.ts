@@ -1,3 +1,4 @@
+
 import medecine2023Data from '../../concours/medecine/medecine2023/epreuve_2023.json';
 import { ExamData, ExamQuestion } from '../types/exam';
 import { adaptENSAMExam, isENSAMFormat } from '../utils/examAdapters';
@@ -83,6 +84,8 @@ export const convertToExamViewQuestion = (question: ExamQuestion) => {
 export async function loadExam(id: string, subject?: string): Promise<ExamData> {
   try {
     let path;
+    
+    // Handle different exam types
     if (id.startsWith('ensam-')) {
       const [_, year] = id.split('-');
       path = `concours/ensam/ensam${year}/epreuve_${year}.json`;
@@ -92,8 +95,11 @@ export async function loadExam(id: string, subject?: string): Promise<ExamData> 
     } else if (id.startsWith('ensa-') && subject) {
       const [_, year] = id.split('-');
       path = `concours/ensa/ensa${year}/${subject}/epreuve_${year}.json`;
+    } else if (id.startsWith('medecine-')) {
+      const [_, year] = id.split('-');
+      path = `concours/medecine/medecine${year}/epreuve_${year}.json`;
     } else {
-      throw new Error('Invalid exam ID format');
+      throw new Error(`Unsupported exam type: ${id}`);
     }
 
     // Essayer plusieurs chemins d'accès
@@ -126,7 +132,7 @@ export async function loadExam(id: string, subject?: string): Promise<ExamData> 
     
     // Si aucun chemin n'a fonctionné
     if (!rawData) {
-      throw new Error(`Failed to load exam: Could not access file from any path`);
+      throw new Error(`Failed to load exam: Could not access file from any path for ${id}`);
     }
 
     // Détecter et adapter le format ENSAM si nécessaire
@@ -134,7 +140,7 @@ export async function loadExam(id: string, subject?: string): Promise<ExamData> 
       return adaptENSAMExam(rawData);
     }
 
-    // Format ENSA ou autre format standard
+    // Format ENSA, médecine ou autre format standard
     return rawData;
   } catch (error) {
     console.error('Error loading exam:', error);
