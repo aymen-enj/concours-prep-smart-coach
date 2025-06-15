@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -83,6 +82,9 @@ const Dashboard = () => {
     }
   };
 
+  // Vérifier si l'utilisateur a des données
+  const hasData = statistics && statistics.totalAttempts > 0;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
@@ -122,8 +124,8 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Streak banner */}
-            {statistics && statistics.totalAttempts > 0 && (
+            {/* Message d'accueil ou streak banner */}
+            {hasData ? (
               <div className="bg-gradient-to-r from-primary/80 to-blue-600 rounded-2xl p-5 text-white shadow-lg mb-8 relative overflow-hidden">
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full"></div>
                 <div className="absolute -left-5 -bottom-5 w-20 h-20 bg-white/10 rounded-full"></div>
@@ -141,6 +143,28 @@ const Dashboard = () => {
                   </div>
                   <Button variant="secondary" className="bg-white/20 text-white hover:bg-white/30 border-none backdrop-blur-sm">
                     Continuer
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-gradient-to-r from-primary/10 to-blue-100 dark:from-primary/20 dark:to-blue-900/20 rounded-2xl p-6 mb-8 relative overflow-hidden">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <BookOpen className="h-7 w-7 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-medium mb-1 text-foreground">
+                      Bienvenue sur votre tableau de bord ! 🚀
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      Commencez votre premier concours pour voir vos statistiques apparaître ici.
+                    </p>
+                  </div>
+                  <Button className="gap-2" asChild>
+                    <Link to="/concours">
+                      <BookOpen className="h-4 w-4" />
+                      Commencer
+                    </Link>
                   </Button>
                 </div>
               </div>
