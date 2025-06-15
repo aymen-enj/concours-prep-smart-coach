@@ -96,6 +96,12 @@ export const useExamTracking = () => {
       });
       
       console.log('Exam finished successfully with score:', score);
+      
+      // Déclencher un événement personnalisé pour rafraîchir les statistiques
+      window.dispatchEvent(new CustomEvent('examCompleted', { 
+        detail: { score, totalQuestions, durationMinutes } 
+      }));
+      
       return true;
     } catch (error) {
       console.error('Error finishing exam:', error);
