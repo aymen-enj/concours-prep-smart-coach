@@ -132,7 +132,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative overflow-hidden min-h-screen flex items-center" ref={heroRef}>
+    <div className="relative overflow-hidden min-h-screen flex flex-col" ref={heroRef}>
       {/* Effet de confetti lors du clic sur le bouton principal */}
       <Confetti active={confettiActive} />
       
@@ -144,9 +144,9 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.07),transparent_80%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)] animate-pulse-slow"></div>
       </div>
       
-      {/* Contenu principal */}
-      <div className="container mx-auto px-4 z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      {/* Contenu principal - flex-grow pour occuper l'espace disponible */}
+      <div className="container mx-auto px-4 z-10 relative flex-grow flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
           {/* Colonne gauche - Contenu textuel */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             {/* Badge en haut */}
@@ -379,41 +379,46 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Indicateur de défilement amélioré - Position fixe pour éviter les conflits */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 pointer-events-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="inline-flex flex-col items-center cursor-pointer group"
-          onClick={scrollToFeatures}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {/* Badge de texte avec espacement amélioré */}
-          <motion.div 
-            className="relative px-6 py-3 mb-3 rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:bg-white dark:group-hover:bg-slate-800"
-            whileHover={{ y: -2 }}
-          >
-            <span className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300">
-              Découvrir plus
-            </span>
-          </motion.div>
-          
-          {/* Icône de flèche avec animation améliorée */}
+      {/* Indicateur de défilement repositionné - maintenant en bas de la section */}
+      <div className="relative z-30 pb-12 pt-8">
+        <div className="container mx-auto px-4 flex justify-center">
           <motion.div
-            className="bg-white/90 dark:bg-slate-800/90 rounded-full p-2 border border-slate-200/50 dark:border-slate-700/50 shadow-lg backdrop-blur-md flex items-center justify-center group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-300"
-            animate={{ y: [0, 6, 0] }}
-            transition={{ 
-              duration: 2, 
-              repeat: Infinity, 
-              ease: "easeInOut",
-              repeatDelay: 0.5 
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.5 }}
+            className="inline-flex flex-col items-center cursor-pointer group"
+            onClick={scrollToFeatures}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <ChevronDown className="w-5 h-5 text-blue-500 dark:text-blue-400 group-hover:text-indigo-500 transition-colors duration-300" />
+            {/* Badge de texte avec design amélioré */}
+            <motion.div 
+              className="relative px-8 py-4 mb-4 rounded-full bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border border-slate-200/60 dark:border-slate-700/60 shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:bg-white dark:group-hover:bg-slate-800"
+              whileHover={{ y: -3 }}
+            >
+              <span className="text-base font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300">
+                Découvrir plus
+              </span>
+            </motion.div>
+            
+            {/* Icône de flèche avec animation plus visible */}
+            <motion.div
+              className="bg-white/95 dark:bg-slate-800/95 rounded-full p-3 border border-slate-200/60 dark:border-slate-700/60 shadow-xl backdrop-blur-md flex items-center justify-center group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-300 hover:shadow-2xl"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ 
+                duration: 2.5, 
+                repeat: Infinity, 
+                ease: "easeInOut",
+                repeatDelay: 0.5 
+              }}
+            >
+              <ChevronDown className="w-6 h-6 text-blue-500 dark:text-blue-400 group-hover:text-indigo-500 transition-colors duration-300" />
+            </motion.div>
+            
+            {/* Ligne de connexion subtile */}
+            <div className="w-px h-8 bg-gradient-to-b from-slate-300/60 to-transparent dark:from-slate-600/60 mt-4"></div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
