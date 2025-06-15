@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetHeader } from "@/components/ui/sheet";
-import { Menu, Moon, Sun, User, Settings as SettingsIcon, Bell, BarChart, GraduationCap, HelpCircle, UserPlus, LogOut } from "lucide-react";
+import { Menu, Moon, Sun, User, Bell, BarChart, GraduationCap, HelpCircle, UserPlus, LogOut } from "lucide-react";
 import { useTheme } from "@/providers/ThemeProvider";
 import ProfileMenu from "./ProfileMenu";
 import { useAuth } from "@/providers/AuthProvider";
@@ -116,17 +116,6 @@ const Navbar = () => {
                 >
                   Concours
                 </Link>
-                <Link
-                  to="/settings"
-                  className={cn(
-                    "text-sm font-medium transition-colors relative px-1 py-2",
-                    isActive("/settings")
-                      ? "text-royal-blue after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-royal-blue after:rounded-full"
-                      : "text-gray-600 hover:text-royal-blue dark:text-gray-300 dark:hover:text-royal-blue"
-                  )}
-                >
-                  Paramètres
-                </Link>
               </>
             )}
             <Link
@@ -219,18 +208,6 @@ const Navbar = () => {
                       >
                         <GraduationCap className="h-5 w-5" />
                         Concours
-                      </Link>
-                      <Link
-                        to="/settings"
-                        className={cn(
-                          "text-base font-medium transition-colors flex items-center gap-2 px-2 py-2 rounded-md",
-                          isActive("/settings")
-                            ? "text-royal-blue bg-gray-100 dark:bg-gray-800"
-                            : "text-gray-600 hover:text-royal-blue hover:bg-gray-50 dark:text-gray-300 dark:hover:text-royal-blue dark:hover:bg-gray-800/50"
-                        )}
-                      >
-                        <SettingsIcon className="h-5 w-5" />
-                        Paramètres
                       </Link>
                     </>
                   )}
