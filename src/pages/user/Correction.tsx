@@ -211,7 +211,7 @@ const Correction = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
             {questions.map((question, index) => {
-              const userAnswer = selectedAnswers[index];
+              const userAnswer = selectedAnswers[index] as string | undefined;
               const isCorrect = userAnswer === question.correct_answer;
               const wasAnswered = userAnswer !== undefined;
 
