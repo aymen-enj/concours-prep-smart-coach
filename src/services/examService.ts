@@ -1,4 +1,3 @@
-
 import medecine2023Data from '../../concours/medecine/medecine2023/epreuve_2023.json';
 import { ExamData, ExamQuestion } from '../types/exam';
 import { adaptENSAMExam, isENSAMFormat } from '../utils/examAdapters';
@@ -86,7 +85,10 @@ export async function loadExam(id: string, subject?: string): Promise<ExamData> 
     let path;
     
     // Handle different exam types
-    if (id.startsWith('ensam-')) {
+    if (id.startsWith('medecine-')) {
+      const [_, year] = id.split('-');
+      path = `concours/medecine/medecine${year}/epreuve_${year}.json`;
+    } else if (id.startsWith('ensam-')) {
       const [_, year] = id.split('-');
       path = `concours/ensam/ensam${year}/epreuve_${year}.json`;
       if (subject) {
@@ -95,9 +97,6 @@ export async function loadExam(id: string, subject?: string): Promise<ExamData> 
     } else if (id.startsWith('ensa-') && subject) {
       const [_, year] = id.split('-');
       path = `concours/ensa/ensa${year}/${subject}/epreuve_${year}.json`;
-    } else if (id.startsWith('medecine-')) {
-      const [_, year] = id.split('-');
-      path = `concours/medecine/medecine${year}/epreuve_${year}.json`;
     } else {
       throw new Error(`Unsupported exam type: ${id}`);
     }
