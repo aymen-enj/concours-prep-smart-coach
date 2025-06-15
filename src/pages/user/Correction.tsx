@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -33,9 +32,9 @@ const Correction = () => {
   useEffect(() => {
     if (location.state) {
       const { selectedAnswers: stateAnswers, examData: stateExamData, timeElapsed: stateTime } = location.state;
-      if (stateAnswers) setSelectedAnswers(stateAnswers);
-      if (stateExamData) setExamData(stateExamData);
-      if (stateTime) setTimeElapsed(stateTime);
+      if (stateAnswers) setSelectedAnswers(stateAnswers as Record<number, string>);
+      if (stateExamData) setExamData(stateExamData as ExamData);
+      if (stateTime) setTimeElapsed(stateTime as number);
     }
   }, [location.state]);
 
@@ -211,7 +210,7 @@ const Correction = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
             {questions.map((question, index) => {
-              const userAnswer = selectedAnswers[index] as string | undefined;
+              const userAnswer: string | undefined = selectedAnswers[index];
               const isCorrect = userAnswer === question.correct_answer;
               const wasAnswered = userAnswer !== undefined;
 
@@ -301,7 +300,7 @@ const Correction = () => {
                                 {key}
                               </span>
                               <div className="flex-1 pt-1">
-                                <MathRenderer text={value} />
+                                <MathRenderer text={value as string} />
                               </div>
                               <div className="flex items-center gap-2">
                                 {isUserAnswer && (
