@@ -101,8 +101,9 @@ const AnimatedRoutes = () => {
               </PageTransition>
             } 
           />
+          {/* Updated routes to match the expected format */}
           <Route 
-            path="/exam-view/:id" 
+            path="/exam-view/:school/:year" 
             element={
               <PageTransition>
                 <ExamView />
@@ -110,7 +111,7 @@ const AnimatedRoutes = () => {
             } 
           />
           <Route 
-            path="/exam-view/:id/:subject" 
+            path="/exam-view/:school/:year/:subject" 
             element={
               <PageTransition>
                 <ExamView />
@@ -118,7 +119,15 @@ const AnimatedRoutes = () => {
             } 
           />
           <Route 
-            path="/correction/:id" 
+            path="/exam-view/:school/:year/:subject/:type" 
+            element={
+              <PageTransition>
+                <ExamView />
+              </PageTransition>
+            } 
+          />
+          <Route 
+            path="/correction/:school/:year" 
             element={
               <PageTransition>
                 <Correction />
@@ -126,7 +135,15 @@ const AnimatedRoutes = () => {
             } 
           />
           <Route 
-            path="/correction/:id/:subject" 
+            path="/correction/:school/:year/:subject" 
+            element={
+              <PageTransition>
+                <Correction />
+              </PageTransition>
+            } 
+          />
+          <Route 
+            path="/correction/:school/:year/:subject/:type" 
             element={
               <PageTransition>
                 <Correction />
@@ -153,6 +170,21 @@ const AnimatedRoutes = () => {
           {/* Legacy routes redirects */}
           <Route path="/dashboard" element={<Navigate replace to="/statistiques" />} />
           <Route path="/concours/:id" element={<Navigate replace to="/exam-view/:id" />} />
+          {/* Legacy route redirect for old format */}
+          <Route path="/exam-view/:id" element={<Navigate replace to={
+            ({ params }) => {
+              const id = params.id;
+              if (id?.includes('-')) {
+                const parts = id.split('-');
+                if (parts.length >= 2) {
+                  const school = parts[0];
+                  const year = parts[1];
+                  return `/exam-view/${school}/${year}`;
+                }
+              }
+              return `/concours`;
+            }
+          } />} />
         </Route>
         
         {/* 404 route */}
