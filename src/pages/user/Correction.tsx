@@ -572,37 +572,38 @@ const loadCorrectionData = async (examId: string, subject?: string): Promise<Cor
   if (!examId) {
     throw new Error("No exam ID provided");
   }
-  
-  // Case for medical exams
-  if (examId.includes('medecine')) {
-    // Convert medecine-2024 to medecine2024 to match the actual directory structure
+
+  // Déterminer la filière à partir du prefixe (medecine, ensa, ensam…)
+  const [rawFiliere] = examId.split('-');
+  const filiere = rawFiliere.toLowerCase();
+  const year = examId.match(/\d{4}/)?.[0] || '';
+
+  // Construire l'URL vers le JSON dans le dossier public/concours
+  let url = '';
+
+  if (filiere === 'medecine') {
+    // medecine-2024 -> medecine2024 pour le répertoire
     const sanitizedExamId = examId.replace('-', '');
-    const year = examId.match(/\d{4}/)?.[0] || '';
-    
-    return import(`../../../concours/medecine/${sanitizedExamId}/correction_${year}.json`)
-      .then(module => module.default)
-      .catch(error => {
-        console.error("Error loading correction data:", error);
-        throw new Error(`Failed to load correction data for ${examId}: ${error.message}`);
-      });
-  }
-  
-  // Case for engineering entrance exams (ENSA/ENSAM)
-  if (examId && (examId.includes('ensa') || examId.includes('ensam'))) {
+    url = `/concours/medecine/${sanitizedExamId}/correction_${year}.json`;
+  } else if (filiere === 'ensa' || filiere === 'ensam') {
     if (!subject) {
-      throw new Error("Subject is required for ENSA/ENSAM corrections");
+      throw new Error('Subject is required for ENSA/ENSAM corrections');
     }
-    
-    return import(`../../../concours/${examId.includes('ensa') ? 'ensa' : 'ensam'}/${examId}/correction_${subject}.json`)
-      .then(module => module.default)
-      .catch(error => {
-        console.error("Error loading correction data:", error);
-        throw new Error(`Failed to load correction data for ${examId}/${subject}: ${error.message}`);
-      });
+    url = `/concours/${filiere}/${examId}/correction_${subject}.json`;
+  } else {
+    throw new Error(`Unsupported exam type: ${examId}`);
   }
-  
-  // Case for other exam types (can be extended as needed)
-  throw new Error(`Unsupported exam type: ${examId}`);
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    return (await response.json()) as CorrectionData;
+  } catch (error: any) {
+    console.error('Error loading correction data:', error);
+    throw new Error(`Failed to load correction data for ${examId}: ${error.message}`);
+  }
 };
 
 // Function to calculate score and analyze user performance
@@ -1651,16 +1652,6 @@ const generatePDF = async (results: any, correctionData: any, userName: string =
   }
 };
 
-
-
-
-
-
-
-
-
-
-
 const Correction = () => {
   const { id, subject } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -1855,7 +1846,7 @@ const Correction = () => {
                           Résumé de vos résultats
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/20">
+                          <div className="flex items-center gap-3 p-3 rounded-xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-800/30">
                             <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                               <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
                             </div>
@@ -1877,7 +1868,7 @@ const Correction = () => {
                               <p className="text-muted-foreground">Réponses incorrectes</p>
                             </div>
                           </div>
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20">
+                          <div className="flex items-center gap-3 p-3 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-800/30">
                             <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
                               <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                             </div>
@@ -1896,7 +1887,7 @@ const Correction = () => {
                           Score
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/20">
+                          <div className="flex items-center gap-3 p-3 rounded-xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-800/30">
                             <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                               <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
                             </div>
@@ -1918,7 +1909,7 @@ const Correction = () => {
                               <p className="text-muted-foreground">Score maximum</p>
                             </div>
                           </div>
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20">
+                          <div className="flex items-center gap-3 p-3 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-800/30">
                             <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
                               <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                             </div>
@@ -2134,16 +2125,14 @@ const Correction = () => {
                         Correcte
                       </Badge>
                     </div>
-                    <CardDescription className="mt-2"><MathRenderer text={question.text} /></CardDescription>
-                  </CardHeader>
+                    <CardDescription className="mt-2"><MathRenderer text={question.text} /></CardDescription>                  </CardHeader>
                   <CardContent className="p-6 pt-2">
                     <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="p-4 bg-background/50 rounded-lg border border-border/60">
                         <h4 className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1">
                           <BookmarkIcon className="h-3 w-3" /> Votre réponse:
                         </h4>
-                        <p className="text-sm"><MathRenderer text={question.userAnswer} /></p>
-                                           </div>
+                        <p className="text-sm"><MathRenderer text={question.userAnswer} /></p>                      </div>
                       <div className="p-4 bg-green-50 dark:bg-green-900/10 rounded-lg border border-green-100 dark:border-green-800/30">
                         <h4 className="text-sm font-medium text-green-700 dark:text-green-400 mb-1 flex items-center gap-1">
                           <CheckCircle className="h-3 w-3" /> Réponse correcte:
@@ -2303,4 +2292,3 @@ const Correction = () => {
 };
 
 export default Correction;
-      
