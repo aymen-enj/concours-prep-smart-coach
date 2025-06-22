@@ -1385,353 +1385,266 @@ const generatePDF = async (results: any, correctionData: any, userName: string =
     const pdf = new jsPDF('p', 'mm', 'a4');
     const pageWidth = pdf.internal.pageSize.getWidth();
     const pageHeight = pdf.internal.pageSize.getHeight();
-    
-    // Configuration des couleurs - définies comme tuples explicites
-    const primaryBlue: [number, number, number] = [37, 99, 235];
-    const correctGreen: [number, number, number] = [5, 150, 105];
-    const incorrectRed: [number, number, number] = [220, 38, 38];
-    const orange: [number, number, number] = [217, 119, 6];
-    const darkGray: [number, number, number] = [55, 65, 81];
-    const lightGray: [number, number, number] = [240, 240, 240];
-    const white: [number, number, number] = [255, 255, 255];
-    const mediumGray: [number, number, number] = [120, 120, 120];
-    
-    const scorePercentage = Math.round((results.score/results.maxScore) * 100);
+    const margin = 20;
+
+    // --- Palette de couleurs académique ---
+    const primaryBlue: [number, number, number] = [0, 53, 102]; // Bleu marine institutionnel
+    const academicDark: [number, number, number] = [34, 34, 34]; // Gris très foncé pour le texte
+    const mediumGray: [number, number, number] = [102, 102, 102]; // Gris moyen pour les labels
+    const lightGray: [number, number, number] = [245, 245, 245]; // Gris clair pour les fonds
+    const correctGreen: [number, number, number] = [34, 139, 34]; // Vert forêt
+    const incorrectRed: [number, number, number] = [178, 34, 34]; // Rouge brique
+    const orange: [number, number, number] = [204, 102, 0]; // Orange foncé
+
+    // --- Préparation des données ---
+    const scorePercentage = Math.round((results.score / results.maxScore) * 100);
     const date = new Date().toLocaleDateString('fr-FR', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
     });
-    
-    // 🔧 CORRECTION: Extraire l'année de l'examen
+
     const extractExamYear = (): string => {
       if (correctionData?.date) {
         const yearMatch = correctionData.date.match(/\d{4}/);
         if (yearMatch) return yearMatch[0];
       }
-      
       if (examId) {
         const yearMatch = examId.match(/\d{4}/);
         if (yearMatch) return yearMatch[0];
       }
-      
       if (correctionData?.exam_title) {
         const yearMatch = correctionData.exam_title.match(/\d{4}/);
         if (yearMatch) return yearMatch[0];
       }
-      
       return new Date().getFullYear().toString();
     };
-    
     const examYear = extractExamYear();
-    
-    // Déterminer la couleur du score
+
     const getScoreColor = (percentage: number): [number, number, number] => {
       if (percentage >= 70) return correctGreen;
       if (percentage >= 50) return orange;
       return incorrectRed;
     };
-    
     const scoreColor = getScoreColor(scorePercentage);
-    
-    // 🔧 CORRECTION: Nettoyer le titre en supprimant le mot "Année"
+
     const cleanTitleText = (title: string): string => {
-      return title
-        .replace(/\bAnnée\b/gi, '')
-        .replace(/\s+/g, ' ')
-        .trim();
+        return title.replace(/\bAnnée\b/gi, '').replace(/\s+/g, ' ').trim();
     };
     
-    // Fonction pour diviser le titre en lignes
-    const splitTitle = (title: string, maxCharsPerLine: number = 45): string[] => {
-      if (title.length <= maxCharsPerLine) {
-        return [title];
-      }
-      
-      const words = title.split(' ');
-      const lines: string[] = [];
-      let currentLine = '';
-      
-      for (const word of words) {
-        const testLine = currentLine ? `${currentLine} ${word}` : word;
-        
-        if (testLine.length <= maxCharsPerLine) {
-          currentLine = testLine;
-        } else {
-          if (currentLine) {
-            lines.push(currentLine);
-            currentLine = word;
-          } else {
-            lines.push(word.substring(0, maxCharsPerLine - 3) + '...');
-            currentLine = '';
-          }
-        }
-      }
-      
-      if (currentLine) {
-        lines.push(currentLine);
-      }
-      
-      return lines.slice(0, 2);
-    };
-    
-    // Préparer le titre en deux lignes
-    const baseExamTitle = cleanTitleText(correctionData?.exam_title || 'Concours');
-    const titleLines = splitTitle(baseExamTitle, 55);
-    
-    // 📏 SCALE DOWN: Header plus compact
-    const headerHeight = titleLines.length > 1 ? 60 : 50;
-    
-    // Header avec fond bleu
-    pdf.setFillColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
-    pdf.rect(0, 0, pageWidth, headerHeight, 'F');
-    
-    // 📏 SCALE DOWN: Titre principal plus petit
-    pdf.setTextColor(white[0], white[1], white[2]);
-    pdf.setFontSize(18); // Réduit de 24 à 18
+    // --- Début de la construction du PDF ---
+    let yPos = margin;
+
+    // --- Section 1: En-tête académique ---
     pdf.setFont('helvetica', 'bold');
-    pdf.text('RAPPORT DE PERFORMANCE', pageWidth/2, 12, { align: 'center' });
+    pdf.setFontSize(18);
+    pdf.setTextColor(...primaryBlue);
+    pdf.text('RAPPORT DE PERFORMANCE ACADÉMIQUE', pageWidth / 2, yPos, { align: 'center' });
+    yPos += 8;
+
+    pdf.setDrawColor(...mediumGray);
+    pdf.line(margin, yPos, pageWidth - margin, yPos);
+    yPos += 10;
     
-    // 📏 SCALE DOWN: Titre de l'examen plus compact
-    pdf.setFontSize(12); // Réduit de 16 à 12
-    pdf.setFont('helvetica', 'bold');
+    // Gestion du titre long sur plusieurs lignes
+    const examTitle = cleanTitleText(correctionData?.exam_title || 'Évaluation');
+    const rightColInfo = `Session ${examYear}`;
+    const maxTitleWidth = (pageWidth - margin * 2) * 0.65; // Laisse de la place à droite
     
-    if (titleLines.length === 1) {
-      pdf.text(titleLines[0], pageWidth/2, 25, { align: 'center' });
-      // Session
-      pdf.setFontSize(10); // Réduit de 14 à 10
-      pdf.setFont('helvetica', 'normal');
-      pdf.text(`Session ${examYear}`, pageWidth/2, 35, { align: 'center' });
-      // Nom utilisateur et date
-      pdf.setFontSize(8); // Réduit de 11 à 8
-      pdf.text(`${userName} • ${date}`, pageWidth/2, 43, { align: 'center' });
-    } else {
-      pdf.text(titleLines[0], pageWidth/2, 22, { align: 'center' });
-      pdf.text(titleLines[1], pageWidth/2, 32, { align: 'center' });
-      // Session
-      pdf.setFontSize(10);
-      pdf.setFont('helvetica', 'normal');
-      pdf.text(`Session ${examYear}`, pageWidth/2, 42, { align: 'center' });
-      // Nom utilisateur et date
-      pdf.setFontSize(8);
-      pdf.text(`${userName} • ${date}`, pageWidth/2, 52, { align: 'center' });
-    }
-    
-    // 📏 SCALE DOWN: Score plus compact
-    const centerX = pageWidth/2;
-    const centerY = headerHeight + 25; // Réduit de 35 à 25
-    const radius = 18; // Réduit de 25 à 18
-    
-    // Score principal - Cercle plus petit
-    pdf.setFillColor(lightGray[0], lightGray[1], lightGray[2]);
-    pdf.circle(centerX, centerY, radius, 'F');
-    
-    pdf.setFillColor(scoreColor[0], scoreColor[1], scoreColor[2]);
-    pdf.circle(centerX, centerY, radius - 2, 'F');
-    
-    pdf.setFillColor(white[0], white[1], white[2]);
-    pdf.circle(centerX, centerY, radius - 6, 'F');
-    
-    // Pourcentage au centre plus petit
-    pdf.setTextColor(scoreColor[0], scoreColor[1], scoreColor[2]);
-    pdf.setFontSize(20); // Réduit de 28 à 20
-    pdf.setFont('helvetica', 'bold');
-    pdf.text(`${scorePercentage}%`, centerX, centerY + 2, { align: 'center' });
-    
-    // Score détaillé plus petit
-    pdf.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
-    pdf.setFontSize(9); // Réduit de 12 à 9
     pdf.setFont('helvetica', 'normal');
-    pdf.text(`Score: ${results.score}/${results.maxScore}`, centerX, centerY + 12, { align: 'center' });
+    pdf.setFontSize(11);
+    pdf.setTextColor(...academicDark);
     
-    // 📏 SCALE DOWN: Espacement réduit
-    let yPos = centerY + 28; // Réduit de 40 à 28
+    const titleLines = pdf.splitTextToSize(examTitle, maxTitleWidth);
     
-    // Statistiques en colonnes plus compactes
-    pdf.setTextColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
-    pdf.setFontSize(12); // Réduit de 16 à 12
+    pdf.text(titleLines, margin, yPos);
+    pdf.text(rightColInfo, pageWidth - margin, yPos, { align: 'right' });
+
+    const titleBlockHeight = titleLines.length * 5; // Hauteur approx. en mm (taille de police 11pt)
+    yPos += titleBlockHeight + 2;
+    
+    pdf.setFontSize(10);
+    pdf.setTextColor(...mediumGray);
+    pdf.text(`Candidat : ${userName}`, margin, yPos);
+    pdf.text(`Date du rapport : ${date}`, pageWidth - margin, yPos, { align: 'right' });
+    yPos += 15;
+
+    // --- Section 2: Résumé des résultats ---
+    pdf.setFillColor(...lightGray);
+    pdf.setDrawColor(...primaryBlue);
+    pdf.roundedRect(margin, yPos, pageWidth - (2 * margin), 35, 3, 3, 'FD');
+
+    const summaryBoxY = yPos;
+    const colWidthSummary = (pageWidth - (2 * margin)) / 3;
+    const textY = summaryBoxY + 15;
+    const labelY = summaryBoxY + 23;
+
     pdf.setFont('helvetica', 'bold');
-    pdf.text('Statistiques Détaillées', 20, yPos);
-    
-    yPos += 10; // Réduit de 15 à 10
-    
-    // 📏 SCALE DOWN: Colonnes plus petites
-    const colWidth = (pageWidth - 40) / 3;
-    const colHeight = 22; // Réduit de 30 à 22
-    
-    // Colonne 1: Correctes
-    pdf.setFillColor(correctGreen[0], correctGreen[1], correctGreen[2]);
-    pdf.rect(20, yPos, colWidth - 5, colHeight, 'F');
-    pdf.setTextColor(white[0], white[1], white[2]);
-    pdf.setFontSize(16); // Réduit de 20 à 16
+    pdf.setFontSize(22);
+    pdf.setTextColor(...scoreColor);
+    pdf.text(`${scorePercentage}%`, margin + colWidthSummary * 0.5, textY, { align: 'center' });
     pdf.setFont('helvetica', 'bold');
-    pdf.text(results.correctAnswers.toString(), 20 + (colWidth-5)/2, yPos + 11, { align: 'center' });
-    pdf.setFontSize(8); // Réduit de 10 à 8
-    pdf.text('Correctes', 20 + (colWidth-5)/2, yPos + 18, { align: 'center' });
+    pdf.setFontSize(10);
+    pdf.setTextColor(...academicDark);
+    pdf.text('Score Global', margin + colWidthSummary * 0.5, labelY, { align: 'center' });
+    pdf.setFontSize(9);
+    pdf.setTextColor(...mediumGray);
+    pdf.text(`${results.score} / ${results.maxScore} pts`, margin + colWidthSummary * 0.5, labelY + 5, { align: 'center' });
+
+    pdf.setFont('helvetica', 'normal');
+    pdf.setFontSize(10);
+    pdf.setTextColor(...academicDark);
+    pdf.text('Réponses correctes :', margin + colWidthSummary + 10, textY - 5);
+    pdf.text('Réponses incorrectes :', margin + colWidthSummary + 10, textY + 5);
+    pdf.text('Non répondues :', margin + colWidthSummary + 10, textY + 15);
     
-    // Colonne 2: Incorrectes
-    pdf.setFillColor(incorrectRed[0], incorrectRed[1], incorrectRed[2]);
-    pdf.rect(20 + colWidth, yPos, colWidth - 5, colHeight, 'F');
-    pdf.setTextColor(white[0], white[1], white[2]);
-    pdf.setFontSize(16);
     pdf.setFont('helvetica', 'bold');
-    pdf.text(results.incorrectAnswers.toString(), 20 + colWidth + (colWidth-5)/2, yPos + 11, { align: 'center' });
-    pdf.setFontSize(8);
-    pdf.text('Incorrectes', 20 + colWidth + (colWidth-5)/2, yPos + 18, { align: 'center' });
-    
-    // Colonne 3: Non répondues
-    pdf.setFillColor(orange[0], orange[1], orange[2]);
-    pdf.rect(20 + colWidth*2, yPos, colWidth - 5, colHeight, 'F');
-    pdf.setTextColor(white[0], white[1], white[2]);
-    pdf.setFontSize(16);
+    pdf.setTextColor(...correctGreen);
+    pdf.text(results.correctAnswers.toString(), margin + colWidthSummary + 50, textY - 5);
+    pdf.setTextColor(...incorrectRed);
+    pdf.text(results.incorrectAnswers.toString(), margin + colWidthSummary + 50, textY + 5);
+    pdf.setTextColor(...orange);
+    pdf.text(results.notAnsweredCount.toString(), margin + colWidthSummary + 50, textY + 15);
+
+    yPos += 45;
+
+    // --- Section 3: Analyse par Matière ---
     pdf.setFont('helvetica', 'bold');
-    pdf.text(results.notAnsweredCount.toString(), 20 + colWidth*2 + (colWidth-5)/2, yPos + 11, { align: 'center' });
-    pdf.setFontSize(8);
-    pdf.text('Non répondues', 20 + colWidth*2 + (colWidth-5)/2, yPos + 18, { align: 'center' });
+    pdf.setFontSize(14);
+    pdf.setTextColor(...primaryBlue);
+    pdf.text('Analyse par Matière', margin, yPos);
+    yPos += 5;
+    pdf.setDrawColor(...mediumGray);
+    pdf.line(margin, yPos, margin + 50, yPos);
+    yPos += 10;
+
+    const topicsToShow = results.topicScores?.slice(0, 8) || [];
     
-    yPos += 32; // Réduit de 45 à 32
-    
-    // 📏 SCALE DOWN: Performance par matière plus compacte
-    pdf.setTextColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
-    pdf.setFontSize(12); // Réduit de 16 à 12
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('Performance par Matière', 20, yPos);
-    
-    yPos += 8; // Réduit de 10 à 8
-    
-    // Afficher les matières (max 6 au lieu de 5 grâce à l'espace gagné)
-    const topicsToShow = results.topicScores?.slice(0, 6) || [];
-    
-    topicsToShow.forEach((topic, index) => {
+    topicsToShow.forEach((topic: any) => {
+      if (yPos > pageHeight - 40) {
+        pdf.addPage();
+        yPos = margin;
+      }
       const percentage = topic.percentage || 0;
-      const color: [number, number, number] = percentage >= 70 ? correctGreen : percentage >= 50 ? orange : incorrectRed;
+      const topicColor = getScoreColor(percentage);
       
-      yPos += 11; // Réduit de 15 à 11
+      pdf.setFont('times', 'normal');
+      pdf.setFontSize(12);
+      pdf.setTextColor(...academicDark);
+      pdf.text(topic.topic, margin, yPos);
       
-      // Nom de la matière - plus long grâce à la police plus petite
-      let topicName = topic.topic;
-      if (topicName.length > 30) { // Augmenté de 25 à 30
-        topicName = topicName.substring(0, 27) + '...';
-      }
-      
-      pdf.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
-      pdf.setFontSize(9); // Réduit de 11 à 9
-      pdf.setFont('helvetica', 'bold');
-      pdf.text(topicName, 25, yPos);
-      
-      // Pourcentage
-      pdf.setTextColor(color[0], color[1], color[2]);
-      pdf.text(`${percentage}%`, pageWidth - 30, yPos, { align: 'right' });
-      
-      // 📏 SCALE DOWN: Barre de progression plus fine
-      const barWidth = pageWidth - 60;
-      const barHeight = 3; // Réduit de 4 à 3
-      
-      // Fond de la barre
-      pdf.setFillColor(lightGray[0], lightGray[1], lightGray[2]);
-      pdf.rect(25, yPos + 1.5, barWidth, barHeight, 'F');
-      
-      // Barre de progression
+      const scoreText = `${topic.score}/${topic.maxScore} pts (${percentage}%)`;
+      pdf.setFontSize(11);
+      pdf.setTextColor(...mediumGray);
+      pdf.text(scoreText, pageWidth - margin, yPos, { align: 'right' });
+      yPos += 6;
+
+      const barWidth = pageWidth - (2 * margin);
+      const barHeight = 2.5;
+      pdf.setFillColor(...lightGray);
+      pdf.rect(margin, yPos, barWidth, barHeight, 'F');
       if (percentage > 0) {
-        pdf.setFillColor(color[0], color[1], color[2]);
-        pdf.rect(25, yPos + 1.5, (barWidth * percentage) / 100, barHeight, 'F');
+        pdf.setFillColor(...topicColor);
+        pdf.rect(margin, yPos, (barWidth * percentage) / 100, barHeight, 'F');
       }
-      
-      // Score détaillé plus petit
-      pdf.setTextColor(mediumGray[0], mediumGray[1], mediumGray[2]);
-      pdf.setFontSize(7); // Réduit de 9 à 7
-      pdf.text(`${topic.score}/${topic.maxScore} pts`, 25, yPos + 7);
+      yPos += 12;
     });
-    
-    yPos += 18; // Réduit de 25 à 18
-    
-    // 📏 SCALE DOWN: Recommandations plus compactes
-    if (yPos < pageHeight - 60) { // Réduit de 80 à 60
-      pdf.setTextColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
-      pdf.setFontSize(12); // Réduit de 16 à 12
-      pdf.setFont('helvetica', 'bold');
-      pdf.text('Recommandations', 20, yPos);
-      
-      yPos += 8; // Réduit de 10 à 8
 
-            const colWidth2 = (pageWidth - 50) / 2;
-      
-            // 📏 SCALE DOWN: Points forts plus compacts
-      pdf.setTextColor(correctGreen[0], correctGreen[1], correctGreen[2]);
-      pdf.setFontSize(10); // Réduit de 12 à 10
-      pdf.setFont('helvetica', 'bold');
-      pdf.text('Points Forts', 25, yPos);
-      
-      pdf.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
-      pdf.setFontSize(8); // Réduit de 9 à 8
-      pdf.setFont('helvetica', 'normal');
-      
-      let strengthsY = yPos + 6; // Réduit de 8 à 6
-      const strengths = results.strengths || [];
-      if (strengths.length > 0) {
-        strengths.slice(0, 5).forEach((strength: string) => { // 🎯 LIMITE FIXE: 5 composants
-          // Tronquer les recommandations si trop longues
-          let strengthText = strength;
-          if (strengthText.length > 40) { // Augmenté de 35 à 40
-            strengthText = strengthText.substring(0, 37) + '...';
-          }
-          pdf.text(`• ${strengthText}`, 25, strengthsY);
-          strengthsY += 4; // Réduit de 6 à 4
-        });
-      } else {
-        pdf.text('• Aucun point fort identifié', 25, strengthsY);
-      }
-      
-      // 📏 SCALE DOWN: À améliorer plus compact
-      pdf.setTextColor(incorrectRed[0], incorrectRed[1], incorrectRed[2]);
-      pdf.setFontSize(10); // Réduit de 12 à 10
-      pdf.setFont('helvetica', 'bold');
-      pdf.text('À Améliorer', 25 + colWidth2, yPos);
-      
-      pdf.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
-      pdf.setFontSize(8); // Réduit de 9 à 8
-      pdf.setFont('helvetica', 'normal');
-      
-      let weaknessesY = yPos + 6; // Réduit de 8 à 6
-      const weaknesses = results.weaknesses || [];
-      if (weaknesses.length > 0) {
-        weaknesses.slice(0, 5).forEach((weakness: string) => { // 🎯 LIMITE FIXE: 5 composants
-          // Tronquer les recommandations si trop longues
-          let weaknessText = weakness;
-          if (weaknessText.length > 40) { // Augmenté de 35 à 40
-            weaknessText = weaknessText.substring(0, 37) + '...';
-          }
-          pdf.text(`• ${weaknessText}`, 25 + colWidth2, weaknessesY);
-          weaknessesY += 4; // Réduit de 6 à 4
-        });
-      } else {
-        pdf.text('• Tous les domaines maîtrisés', 25 + colWidth2, weaknessesY);
-      }
+    // --- Section 4: Pistes d'Amélioration ---
+    if (yPos > pageHeight - 70) {
+        pdf.addPage();
+        yPos = margin;
+    }
+    yPos += 5;
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(14);
+    pdf.setTextColor(...primaryBlue);
+    pdf.text("Pistes d'Amélioration", margin, yPos);
+    yPos += 5;
+    pdf.setDrawColor(...mediumGray);
+    pdf.line(margin, yPos, margin + 55, yPos);
+    yPos += 10;
 
+    const colWidthRecommendations = (pageWidth - (margin * 2.5)) / 2;
+    let startYRecommendations = yPos;
+    let strengthsY = yPos;
+    
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(12);
+    pdf.setTextColor(...correctGreen);
+    pdf.text("✓ Points Forts", margin, strengthsY);
+    strengthsY += 6;
+    
+    pdf.setFont('times', 'normal');
+    pdf.setFontSize(10);
+    pdf.setTextColor(...academicDark);
+    
+    const strengths = results.strengths || [];
+    if (strengths.length > 0) {
+        strengths.slice(0, 4).forEach((strength: string) => {
+            const textLines = pdf.splitTextToSize(`• ${strength}`, colWidthRecommendations - 5);
+            pdf.text(textLines, margin, strengthsY);
+            strengthsY += textLines.length * 4 + 2;
+        });
+    } else {
+        pdf.text("• Aucun point fort spécifique identifié.", margin, strengthsY);
+        strengthsY += 5;
+    }
+
+    let weaknessesY = startYRecommendations;
+    const weaknessesX = margin + colWidthRecommendations + 5;
+
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(12);
+    pdf.setTextColor(...incorrectRed);
+    pdf.text("✗ À Améliorer", weaknessesX, weaknessesY);
+    weaknessesY += 6;
+
+    pdf.setFont('times', 'normal');
+    pdf.setFontSize(10);
+    pdf.setTextColor(...academicDark);
+
+    const weaknesses = results.weaknesses || [];
+    if (weaknesses.length > 0) {
+        weaknesses.slice(0, 4).forEach((weakness: string) => {
+            const textLines = pdf.splitTextToSize(`• ${weakness}`, colWidthRecommendations - 5);
+            pdf.text(textLines, weaknessesX, weaknessesY);
+            weaknessesY += textLines.length * 4 + 2;
+        });
+    } else {
+        pdf.text("• Excellente maîtrise de tous les domaines.", weaknessesX, weaknessesY);
     }
     
-    // 📏 SCALE DOWN: Footer plus petit
-    pdf.setTextColor(mediumGray[0], mediumGray[1], mediumGray[2]);
-    pdf.setFontSize(7); // Réduit de 8 à 7
-    pdf.text('Concours Prep Smart Coach - IAAI ACADEMY', pageWidth/2, pageHeight - 8, { align: 'center' });
-    
-    // Nom de fichier avec année
+    // --- Pied de page ---
+    const pageCount = pdf.internal.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+        pdf.setPage(i);
+        const footerY = pageHeight - 15;
+        pdf.setDrawColor(...mediumGray);
+        pdf.line(margin, footerY, pageWidth - margin, footerY);
+        
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(8);
+        pdf.setTextColor(...mediumGray);
+        pdf.text('Généré par Concours Prep Smart Coach - IAAI ACADEMY', margin, footerY + 8);
+        pdf.text(`Page ${i} sur ${pageCount}`, pageWidth - margin, footerY + 8, { align: 'right' });
+    }
+
+    // --- Sauvegarde du fichier ---
     const cleanExamTitleForFilename = (correctionData?.exam_title || 'concours')
       .replace(/[^a-zA-Z0-9\s]/g, '')
       .replace(/\s+/g, '_')
       .substring(0, 30);
-    
     const cleanUserName = userName
       .replace(/[^a-zA-Z0-9\s]/g, '')
       .replace(/\s+/g, '_')
       .substring(0, 20);
-    
-    // Inclure l'année dans le nom du fichier
-    const filename = `rapport_${cleanUserName}_${cleanExamTitleForFilename}_${examYear}_${new Date().toISOString().split('T')[0]}.pdf`;
+      
+    const filename = `Rapport_Academique_${cleanUserName}_${cleanExamTitleForFilename}_${examYear}.pdf`;
     pdf.save(filename);
     
-    console.log(`✅ PDF généré avec succès: ${filename}`);
-    
+    console.log(`✅ PDF académique généré avec succès: ${filename}`);
+
   } catch (error) {
     console.error('❌ Erreur lors de la génération du PDF:', error);
     throw error;
