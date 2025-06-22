@@ -1,0 +1,352 @@
+{
+    "exam_title": "Concours d'accès en 1ère année des deux préparatoires des ENSA du Maroc 2019",
+    "subject": "PHYSIQUE - CHIMIE",
+    "duration": "1h30'",
+    "exercises": [
+      {
+        "exercise_number": 1,
+        "title": "Trajectoires, vecteur-vitesse et vecteur-accélération",
+        "stimulus": "On présente ci-dessous les trajectoires, le vecteur-vitesse $\\vec{v}$ et le vecteur-accélération $\\vec{a}$ du centre d'inertie G d'une balle où $\\sum \\vec{F}$ le vecteur représentant la résultante des forces exercées sur la balle en mouvement.",
+        "programmatic_figures": [
+          {
+            "type": "image",
+            "library": "img",
+            "image_url": "/concours/ensa/ensa2019/pc/images/ex1.png",
+            "title": "Trajectoires N°1, N°2, N°3",
+            "description": "Trois schémas de trajectoires de balles avec vecteurs vitesse, accélération et force résultante.",
+            "width": "80%"
+          }
+        ],
+        "questions": [
+          {
+            "question_number": "Q21",
+            "text": "Choisir la proposition correcte parmi les propositions suivantes :",
+            "options": [
+              {"label": "A", "text": "Le mouvement de la représentation N°1 est circulaire et uniforme."},
+              {"label": "B", "text": "La trajectoire de la situation N°2 ne peut pas être rectiligne."},
+              {"label": "C", "text": "Au sommet de la trajectoire de la situation N°3, $\\vec{v}$ est un vecteur nul."},
+              {"label": "D", "text": "Le vecteur $\\vec{a}$ de la balle est dirigé vers le haut lors de la montée dans la situation N°3."}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 2,
+        "title": "Système de trois corps",
+        "stimulus": "On dispose sur un plan horizontal trois corps M1, M2 et M3 de masses respectivement 2, 5 et 8Kg reliés par des ficelles inextensibles et de masse négligeables. Le corps M3 de 8Kg est entrainé par une force F = 60N. Lors du mouvement des trois corps, les forces de frottement sont supposées négligeables.",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2019/pc/images/ex2.png",
+          "title": "Système de trois corps M1, M2, M3",
+          "description": "Trois masses M1, M2, M3 reliées par des ficelles sur un plan horizontal. Une force F tire M3.",
+          "width": "60%"
+        },
+        "questions": [
+          {
+            "question_number": "Q22",
+            "text": "Les accélérations en (ms⁻²) de M1, M2 et M3 dans cet ordre sont :",
+            "options": [
+              {"label": "A", "text": "(10, 5, 4)"},
+              {"label": "B", "text": "(4, 5, 10)"},
+              {"label": "C", "text": "(4, 4, 4)"},
+              {"label": "D", "text": "(4, 10, 5)"}
+            ]
+          },
+          {
+            "question_number": "Q23",
+            "text": "Les tensions T₁ et T₂ en (N) des ficelles dans cet ordre sont :",
+            "options": [
+              {"label": "A", "text": "(10, 8)"},
+              {"label": "B", "text": "(28, 28)"},
+              {"label": "C", "text": "(20, 10)"},
+              {"label": "D", "text": "(8, 28)"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 3,
+        "title": "Mobile relié à deux ressorts",
+        "stimulus": "On considère un mobile de masse m relié à deux ressorts idéaux R₁ et R₂ de raideur k₁ et k₂ et pouvant se déplacer sans frottement suivant un plan horizontal.",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2019/pc/images/ex3.png",
+          "title": "Mobile entre deux ressorts",
+          "description": "Une masse m est attachée entre deux ressorts R1 (raideur k1) et R2 (raideur k2) sur un plan horizontal.",
+          "width": "50%"
+        },
+        "questions": [
+          {
+            "question_number": "Q24",
+            "text": "Quelle formule vérifie la fréquence des oscillations du mobile ?",
+            "options": [
+              {"label": "A", "text": "$f = \\frac{1}{2\\pi}\\sqrt{\\frac{k_1+k_2}{m}}$"},
+              {"label": "B", "text": "$f = \\frac{1}{2\\pi}\\sqrt{\\frac{k_1 k_2}{m(k_1+k_2)}}$"},
+              {"label": "C", "text": "$f = \\frac{1}{2\\pi}\\sqrt{\\frac{k_1 k_2}{m(k_1-k_2)}}$"},
+              {"label": "D", "text": "$f = \\frac{1}{2\\pi}\\sqrt{\\frac{|k_1-k_2|}{m}}$"}
+            ]
+          },
+          {
+            "question_number": "Q25",
+            "text": "La longueur $l_1$ du ressort R₁ à l'équilibre du mobile est donnée par",
+            "options": [
+              {"label": "A", "text": "$l_1 = \\frac{k_1 l_0}{k_2}$"},
+              {"label": "B", "text": "$l_1 = \\frac{k_1 l_0 + k_2 d}{k_1 + k_2}$"},
+              {"label": "C", "text": "$l_1 = \\frac{(k_1-k_2)l_0 + k_2 d}{k_1 + k_2}$"},
+              {"label": "D", "text": "$l_1 = \\frac{(k_1+k_2)l_0 + k_2 d}{k_1 - k_2}$"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 4,
+        "title": "Dispositif avec deux ressorts",
+        "stimulus": "On considère le dispositif représenté ci-contre. Les deux ressorts sont de masse négligeable et présentent la même raideur égale à 100 Nm⁻¹. Les masses M₁ et M₂ ont la même valeur égale à 1kg.",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2019/pc/images/ex4.png",
+          "title": "Deux ressorts et deux masses", 
+          "description": "Un ressort est attaché en haut. Une masse M1 est suspendue à ce ressort. Un deuxième ressort est attaché à M1, et une masse M2 est suspendue à ce deuxième ressort.",
+          "width": "30%"
+        },
+        "questions": [
+          {
+            "question_number": "Q26",
+            "text": "Choisir la proposition correcte parmi les propositions suivantes :",
+            "options": [
+              {"label": "A", "text": "Le ressort du haut s'allonge de 20 cm"},
+              {"label": "B", "text": "Les deux ressorts s'allongent de 20 cm"},
+              {"label": "C", "text": "Le ressort du bas ne s'allonge pas"},
+              {"label": "D", "text": "Les deux ressorts s'allongent de 10 cm"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 5,
+        "title": "Perturbation sur une corde",
+        "stimulus": "Une corde, comme le montre la figure ci-dessous, subit une perturbation se propageant de gauche à droite avec une célérité : $v = 5ms^{-1}$.",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2019/pc/images/ex5.png",
+          "title": "Perturbation sur une corde",
+          "description": "Profil d'une perturbation sur une corde avec des points S, M1, M2, M3 indiqués à différentes positions x (cm).",
+          "width": "70%"
+        },
+        "questions": [
+          {
+            "question_number": "Q27",
+            "text": "La valeur du retard temporel τ du point M₁ par rapport à la source de l'onde S est :",
+            "options": [
+              {"label": "A", "text": "τ = 6,0 ms"},
+              {"label": "B", "text": "τ = -0,60 ms"},
+              {"label": "C", "text": "τ = 60 ms"},
+              {"label": "D", "text": "τ = 12 ms"}
+            ]
+          },
+          {
+            "question_number": "Q28",
+            "text": "La photo de la corde ci-dessus a été prise à une date choisie comme origine du temps ($t_0= 0$). La distance séparant le maximum d'amplitude de l'onde et la source à la date $t_1 = 0,20$ s sera de :",
+            "options": [
+              {"label": "A", "text": "1,40 m"},
+              {"label": "B", "text": "0,4m"},
+              {"label": "C", "text": "1,2m"},
+              {"label": "D", "text": "2,4 m"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 6,
+        "title": "Houle marine",
+        "stimulus": "On considère deux objets A et B flottants sur la surface de la mer. Ils sont séparés d'une distance d = 51 m. Ils subissent une houle (une série de vagues) d'amplitude 2,0m, considérée comme une onde sinusoïdale de période T = 9,1 s. La distance qui sépare A et B est la distance minimale pour laquelle les deux objets vibrent en phase. A la date t = 0, l'objet A est au sommet d'une vague.",
+        "programmatic_figures": [
+          {
+            "type": "image",
+            "library": "img",
+            "image_url": "/concours/ensa/ensa2019/pc/images/ex6.png",
+            "title": "Représentations du mouvement de l'objet A",
+            "description": "Quatre graphiques y(m) en fonction de t(s) représentant différents mouvements sinusoïdaux.",
+            "width": "70%"
+          }
+        ],
+        "questions": [
+          {
+            "question_number": "Q29",
+            "text": "Choisir parmi les quatre représentations ci-dessous celle qui correspond au mouvement de l'objet A en fonction du temps.",
+            "options": [
+              {"label": "A", "text": "représentation 2"},
+              {"label": "B", "text": "représentation 1"},
+              {"label": "C", "text": "représentation 3"},
+              {"label": "D", "text": "représentation 4"}
+            ]
+          },
+          {
+            "question_number": "Q30",
+            "text": "L'objet B à t = 0 se trouve :",
+            "options": [
+              {"label": "A", "text": "au sommet"},
+              {"label": "B", "text": "au creux"},
+              {"label": "C", "text": "position nulle"},
+              {"label": "D", "text": "on ne peut rien dire"}
+            ]
+          },
+          {
+            "question_number": "Q31",
+            "text": "Les dates pour lesquelles l'objet A se trouve au creux d'une vague s'expriment par :",
+            "options": [
+              {"label": "A", "text": "t = nT"},
+              {"label": "B", "text": "t = (n + 1/2)T"},
+              {"label": "C", "text": "t = (n+1)T"},
+              {"label": "D", "text": "t = (n + 1/2)T"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 7,
+        "title": "Radioactivité",
+        "stimulus": "Soit N₀ le nombre de noyaux radioactifs présents à un instant considéré « initial » d'une population de noyaux radioactifs. Soit t₁/₂ le temps de demi-vie des noyaux constituants cette population.",
+        "questions": [
+          {
+            "question_number": "Q32",
+            "text": "Le nombre de noyaux N(nt₁/₂) qui restent au bout de la durée nt₁/₂ est:",
+            "options": [
+              {"label": "A", "text": "$N(nt_{1/2}) = (N_0)^{1/n}$"},
+              {"label": "B", "text": "$N(nt_{1/2}) = \\frac{N_0}{2^n}$"},
+              {"label": "C", "text": "$N(nt_{1/2}) = N_0 e^{-2n}$"},
+              {"label": "D", "text": "$N(nt_{1/2}) = \\frac{N_0}{2n}$"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 8,
+        "title": "Circuits électriques",
+        "stimulus": "On considère quatre circuits électriques (a), (b), (c) et (d) représentés sur les figures ci-dessous. Les quatre circuits sont alimentés au travers un interrupteur K par générateur parfait de force électromotrice E. La bobine est supposée idéale d'inductance L.",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2019/pc/images/ex8.png",
+          "title": "Quatre circuits électriques",
+          "description": "Schémas de quatre circuits (a) RC, (b) RC, (c) RL, (d) RLC.",
+          "width": "80%"
+        },
+        "questions": [
+          {
+            "question_number": "Q33",
+            "text": "Circuit (a) : vers quelle valeur tend la tension $u_R$ aux bornes de la résistance R lorsque $t \\to \\infty$?",
+            "options": [
+              {"label": "A", "text": "$u_R = 0$"},
+              {"label": "B", "text": "$u_R = E$"},
+              {"label": "C", "text": "$u_R = E/2$"},
+              {"label": "D", "text": "$u_R = -E$"}
+            ]
+          },
+          {
+            "question_number": "Q34",
+            "text": "Circuit (b) : dès la fermeture de l'interrupteur K, quelle valeur prend i(t) ?",
+            "options": [
+              {"label": "A", "text": "$i(t) = 0$"},
+              {"label": "B", "text": "$i(t) = \\frac{E}{R}$"},
+              {"label": "C", "text": "$i(t) = \\frac{E}{R} e^{-t/\\tau}$ avec $\\tau = RC$"},
+              {"label": "D", "text": "$i(t) \\to \\infty$"}
+            ]
+          },
+          {
+            "question_number": "Q35",
+            "text": "Circuit (c) : dès la fermeture de l'interrupteur K, quelle valeur prend i(t) ?",
+            "options": [
+              {"label": "A", "text": "$i(t) = 0$"},
+              {"label": "B", "text": "$i(t) = \\frac{E}{R}$"},
+              {"label": "C", "text": "$i(t) = \\frac{E}{R} e^{-t/\\tau}$ avec $\\tau = \\frac{L}{R}$"},
+              {"label": "D", "text": "$i(t) \\to \\infty$"}
+            ]
+          },
+          {
+            "question_number": "Q36",
+            "text": "Circuit (d) : en régime stationnaire établi (ou permanant), la tension aux bornes de R₁ est :",
+            "options": [
+              {"label": "A", "text": "$u_{R1} = 0$"},
+              {"label": "B", "text": "$u_{R1} = E \\frac{R_1}{R_1+R_2}$"},
+              {"label": "C", "text": "$u_{R1} = E$"},
+              {"label": "D", "text": "$u_{R1} = E \\frac{R_1 R_2 C}{L}$"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 9,
+        "title": "Circuit avec commutateur",
+        "stimulus": "Dans le circuit électrique représenté sur le schéma ci-dessous, le commutateur est placé dans un premier temps sur la position (1), de telle sorte qu'un régime permanent est atteint. A l'instant $t = 0$, il est placé en position (2). On s'intéresse à l'évolution du courant i(t) en fonction du temps.",
+        "programmatic_figure": {
+          "type": "image",
+          "library": "img",
+        "image_url": "/concours/ensa/ensa2019/pc/images/ex9.png",
+          "title": "Circuit et évolution du courant",
+          "description": "Schéma d'un circuit avec générateur E, résistances R1, R2, condensateur C et commutateur. Graphique montrant différentes évolutions possibles du courant i(t).",
+          "width": "80%"
+        },
+        "questions": [
+          {
+            "question_number": "Q37",
+            "text": "Parmi les quatre évolutions représentées sur le graphique, choisir la représentation qui traduit correctement l'évolution du courant i(t) en fonction du temps.",
+            "options": [
+              {"label": "A", "text": "Evolution (a)"},
+              {"label": "B", "text": "Evolution (b)"},
+              {"label": "C", "text": "Evolution (c)"},
+              {"label": "D", "text": "Evolution (d)"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 10,
+        "title": "Diffraction par une fente fine",
+        "stimulus": "Une onde plane monochromatique visible de longueur d'onde λ éclaire une fente fine de largeur l pratiquée dans un écran opaque. La figure de diffraction observée sur un écran de projection situé à la distance D derrière la fente, présente une frange centrale brillante limitée par deux franges sombres.",
+        "questions": [
+          {
+            "question_number": "Q38",
+            "text": "L'expression de la largeur de la frange centrale brillante de cette figure de diffraction est:",
+            "options": [
+              {"label": "A", "text": "$\\frac{2\\lambda D}{l}$"},
+              {"label": "B", "text": "$2\\frac{\\lambda l}{D}$"},
+              {"label": "C", "text": "$2\\frac{D}{\\lambda l}$"},
+              {"label": "D", "text": "$2\\frac{lD}{\\lambda}$"}
+            ]
+          }
+        ]
+      },
+      {
+        "exercise_number": 11,
+        "title": "Pile électrochimique",
+        "stimulus": "On réalise une pile avec les couples $Au^{3+}_{(aq)}/Au_{(s)}$ et $Cu^{2+}_{(aq)}/Cu_{(s)}$. $[Cu^{2+}]_i$ et $[Au^{3+}]_i$ sont respectivement les concentrations initiales des ions du cuivre et de l'or. Un ampèremètre indique que le courant électrique circule de la demi-pile à l'or vers la demi-pile au cuivre.",
+        "questions": [
+          {
+            "question_number": "Q39",
+            "text": "choisir la proposition correcte parmi les quatre suivantes :",
+            "options": [
+              {"label": "A", "text": "les électrons circulent de la demi-pile au cuivre vers la demi-pile à l'or"},
+              {"label": "B", "text": "il y a réduction sur l'électrode de cuivre"},
+              {"label": "C", "text": "dans la pile les cations vont de la demi-pile à l'or vers la demi-pile au cuivre"},
+              {"label": "D", "text": "la cathode est l'électrode du cuivre"}
+            ]
+          },
+          {
+            "question_number": "Q40",
+            "text": "le quotient de réaction initial Q₁ s'exprime par :",
+            "options": [
+              {"label": "A", "text": "$Q_i = \\frac{[Cu^{2+}]_i^3}{[Au^{3+}]_i^2}$"},
+              {"label": "B", "text": "$Q_i = \\frac{[Cu^{2+}]_i^2}{[Au^{3+}]_i^3}$"},
+              {"label": "C", "text": "$Q_i = \\frac{[Cu^{2+}]_i}{[Au^{3+}]_i}$"},
+              {"label": "D", "text": "$Q_i = \\frac{[Au^{3+}]_i^3}{[Cu^{2+}]_i^2}$"}
+            ]
+          }
+        ]
+      }
+    ]
+  }
