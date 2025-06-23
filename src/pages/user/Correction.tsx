@@ -589,7 +589,23 @@ const loadCorrectionData = async (examId: string, subject?: string): Promise<Cor
     if (!subject) {
       throw new Error('Subject is required for ENSA/ENSAM corrections');
     }
-    url = `/concours/${filiere}/${examId}/correction_${subject}.json`;
+    // Nouveaux concours placent chaque matière dans un sous-dossier (ex: /ensa2024/math/correction_2024.json)
+    // On tente d'abord ce schéma, puis on retombe sur l'ancien si 404.
+    const examFolder = examId.replace('-', '');
+    url = `/concours/${filiere}/${examFolder}/${subject}/correction_${year}.json`;
+
+    try {
+      const res = await fetch(url);
+      if (res.ok) return (await res.json()) as CorrectionData;
+      // Si le fichier n'existe pas, tenter l'ancien emplacement plat
+      const fallback = `/concours/${filiere}/${examFolder}/correction_${subject}.json`;
+      const resFallback = await fetch(fallback);
+      if (!resFallback.ok) throw new Error(`HTTP ${res.status} / fallback HTTP ${resFallback.status}`);
+      return (await resFallback.json()) as CorrectionData;
+    } catch (err) {
+      console.error('Error loading ENSA/ENSAM correction data:', err);
+      throw new Error(`Failed to load correction data for ${examId}/${subject}: ${(err as Error).message}`);
+    }
   } else {
     throw new Error(`Unsupported exam type: ${examId}`);
   }
@@ -631,8 +647,33 @@ const calculateResults = (correctionData: CorrectionData, userAnswers: Record<st
   
   // Process each component and its questions
   const processedQuestions = [];
-  
-  for (const component of correctionData.components) {
+
+  let components: any[] = [];
+
+  if (Array.isArray((correctionData as any).components) && (correctionData as any).components.length) {
+    components = (correctionData as any).components;
+  } else if (Array.isArray((correctionData as any).questions) && (correctionData as any).questions.length) {
+    // Format « questions » à la racine (ex. ENSA 2024 math)
+    components = [{
+      component_name: (correctionData as any).subject || 'Section',
+      coefficient: 1,
+      questions: (correctionData as any).questions
+    }];
+  } else if (Array.isArray((correctionData as any).exercises) && (correctionData as any).exercises.length) {
+    // Format « exercises » (ex. ENSA 2024 PC)
+    const allQuestions = (correctionData as any).exercises.flatMap((ex: any) => ex.questions || []);
+    components = [{
+      component_name: (correctionData as any).subject || 'Physique-Chimie',
+      coefficient: 1,
+      questions: allQuestions
+    }];
+  }
+
+  if (!components.length) {
+    throw new Error('Unrecognized correction data structure');
+  }
+
+  for (const component of components) {
     const componentCoefficient = component.coefficient || 1;
     const topicName = component.component_name;
     
@@ -1987,7 +2028,7 @@ const Correction = () => {
                   <ul className="space-y-2">
                     {correction.recommendations?.map((recommendation, index) => (
                       <li key={index} className="flex items-start gap-2 text-sm">
-                        <div className="mt-0.5"><ArrowRight className="h-3.5 w-3.5 text-primary" /></div>
+                        <div className="mt-0.5"><ArrowRight className="h-3 w-3 text-primary" /></div>
                         <span>{recommendation}</span>
                       </li>
                     ))}

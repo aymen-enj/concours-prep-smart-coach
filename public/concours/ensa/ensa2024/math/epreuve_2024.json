@@ -37,7 +37,7 @@
       },
       {
         "question_number": "Q4",
-        "text": "$\\lim_{x \\to \\frac{\\pi}{3}} \\frac{\\cos(\\frac{x}{2}) - \\sqrt{3}\\sin(2x-\\frac{\\pi}{3})}{\\cos(2x)}$ =",
+        "text": "$\\lim_{x \\to \\frac{\\pi}{4}} \\frac{\\cos(\\frac{2}{3}x) - \\sqrt{3}\\sin(2x-\\frac{\\pi}{3})}{\\cos(2x)}$ =",
         "options": [
           {"label": "A", "text": "$\\frac{11}{3}$"},
           {"label": "B", "text": "$\\frac{10}{6}$"},
@@ -87,7 +87,7 @@
       },
       {
         "question_number": "Q9",
-        "text": "Soit la fonction $f$ définie sur IR par: $f(x) = \\begin{cases} \\frac{e^{x^2}-1}{x} & \\text{si } x > 0 \\\\ 0 & \\text{si } x \\le 0 \\end{cases}$. $f'$ sa dérivée. $\\lim_{x \\to 0^-} f'(x)$ =",
+        "text": "Soit la fonction $f$ définie sur IR par: $f(x) = \\begin{cases} \\frac{e^{x^2}-1}{x} & \\text{si } x > 0 \\\\ 0 & \\text{si } x \\le 0 \\end{cases}$. $f'$ sa dérivée. $\\lim_{x \\to 0} f'(x)$ =",
         "options": [
           {"label": "A", "text": "0"},
           {"label": "B", "text": "1"},
@@ -97,12 +97,12 @@
       },
       {
         "question_number": "Q10",
-        "text": "$\\int_1^{e^2} \\frac{\\ln(1+x) - \\ln(x)}{x^2} dx$ =",
+        "text": "$\\int_1^{2} \\frac{\\ln(1+x) - \\ln(x)}{x^2} dx$ =",
         "options": [
-          {"label": "A", "text": "$\\frac{3}{2}\\ln 2 + \\frac{1}{e^2}\\ln 3$"},
-          {"label": "B", "text": "$\\frac{3}{2}\\ln 2 + \\frac{3}{e^2}\\ln 3$"},
-          {"label": "C", "text": "$\\frac{3}{2}\\ln 2 - \\frac{1}{e^2}\\ln 3 - \\frac{1}{2}$"},
-          {"label": "D", "text": "$\\frac{3}{2}\\ln 2$"}
+          {"label": "A", "text": "$\\frac{5}{2}\\ln 2 + \\frac{1}{2}\\ln 3$"},
+          {"label": "B", "text": "$\\frac{7}{2}\\ln 2 + \\frac{3}{2}\\ln 3$"},
+          {"label": "C", "text": "$\\frac{7}{2}\\ln 2 - \\frac{3}{2}\\ln 3 - \\frac{1}{2}$"},
+          {"label": "D", "text": "$\\frac{7}{2}\\ln 2$"}
         ]
       },
       {

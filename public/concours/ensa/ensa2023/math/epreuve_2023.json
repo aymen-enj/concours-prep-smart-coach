@@ -45,7 +45,7 @@
       },
       {
         "question_number": "Q5",
-        "text": "Soit la suite $(u_n)$ définie par : $u_n = \\sqrt{n} - [\\sqrt{n}]$, $n \\in \\mathbb{IN}$. ([x] désigne la partie entière de x).\n$\\lim_{n \\to +\\infty} u(n^2+2n)$ =",
+        "text": "Soit la suite $(u_n)$ définie par : $u_n = \\sqrt{n} - [\\sqrt{n}]$, $n \\in \\mathbb{IN}$. ([x] désigne la partie entière de x).\n$\\lim_{n \\to +\\infty} u_{(n^2+2n)}$ =",
         "options": [
           {"label": "A", "text": "0"},
           {"label": "B", "text": "1"},
@@ -87,8 +87,8 @@
         "question_number": "Q9",
         "text": "Soit f une fonction dérivable sur IR telle que:\n$\\forall (x,y) \\in \\mathbb{IR}^2, f(x+y)(1-f(x)f(y)) = f(x) + f(y)$.\nAlors : $\\forall x \\in \\mathbb{IR}, \\frac{f'(x)}{1+f(x)^2}$ =",
         "options": [
-          {"label": "A", "text": "f'(0)"},
-          {"label": "B", "text": "f'(0) - 1"},
+          {"label": "A", "text": "$f'(0)$"},
+          {"label": "B", "text": "$f'(0) - 1$"},
           {"label": "C", "text": "$f'(0) + \\frac{1}{2}$"},
           {"label": "D", "text": "$f'(0) - \\frac{1}{2}$"}
         ]
@@ -100,7 +100,7 @@
           {"label": "A", "text": "$\\ln \\alpha$"},
           {"label": "B", "text": "$2 \\ln \\alpha$"},
           {"label": "C", "text": "0"},
-          {"label": "D", "text": "$\\alpha^{\\frac{\\pi}{2}}$"}
+          {"label": "D", "text": "$\\alpha{\\frac{\\pi}{2}}$"}
         ]
       },
       {
@@ -109,7 +109,7 @@
         "options": [
           {"label": "A", "text": "$\\frac{\\pi^3}{48}$"},
           {"label": "B", "text": "$\\frac{\\pi^3}{24} + \\frac{\\pi}{4}$"},
-          {"label": "C", "text": "$\\frac{\\pi}{8}$"},
+          {"label": "C", "text": "$-\\frac{\\pi}{8}$"},
           {"label": "D", "text": "$\\frac{\\pi^3}{48} + \\frac{\\pi}{8}$"}
         ]
       },
@@ -147,27 +147,27 @@
         "question_number": "Q15",
         "text": "Le nombre complexe $(\\frac{7-15i}{15+7i})^{2023}$ =",
         "options": [
-          {"label": "A", "text": "i"},
-          {"label": "B", "text": "-i"},
-          {"label": "C", "text": "-1"},
-          {"label": "D", "text": "i + 1"}
+          {"label": "A", "text": "$i$"},
+          {"label": "B", "text": "$-i$"},
+          {"label": "C", "text": "$-1$"},
+          {"label": "D", "text": "$i + 1$"}
         ]
       },
       {
         "question_number": "Q16",
         "text": "La somme $(1 + e^{i\\frac{2\\pi}{5}} + e^{i\\frac{4\\pi}{5}} + e^{i\\frac{6\\pi}{5}} + e^{i\\frac{8\\pi}{5}})^{1000}$ =",
         "options": [
-          {"label": "A", "text": "0"},
-          {"label": "B", "text": "1"},
-          {"label": "C", "text": "i"},
-          {"label": "D", "text": "-i"}
+          {"label": "A", "text": "$0$"},
+          {"label": "B", "text": "$1$"},
+          {"label": "C", "text": "$i$"},
+          {"label": "D", "text": "$-i$"}
         ]
       },
       {
         "question_number": "Q17",
         "text": "La solution f(x) de l'équation différentielle $y'' - 7y' + 12y = 0$ vérifiant $f(0) = 0, f'(0) = 1$ est:",
         "options": [
-          {"label": "A", "text": "$e^{4x} - e^{3x}$"},
+          {"label": "A", "text": "$e^{-4x} - e^{3x}$"},
           {"label": "B", "text": "$e^{5x} - e^{3x}$"},
           {"label": "C", "text": "$e^{4x} - e^{3x}$"},
           {"label": "D", "text": "$e^{5x} - e^{4x}$"}
@@ -197,10 +197,10 @@
         "question_number": "Q20",
         "text": "On considère le cercle (C) d'équation $x^2 + y^2 + x - 3y - 3 = 0$ et (D) la droite passant par le point A de coordonnées (1, -2) et tangent à (C) au point M.\nLa longueur du segment [AM] est égale à :",
         "options": [
-          {"label": "A", "text": "1"},
-          {"label": "B", "text": "2"},
-          {"label": "C", "text": "3"},
-          {"label": "D", "text": "4"}
+          {"label": "A", "text": "$1$"},
+          {"label": "B", "text": "$2$"},
+          {"label": "C", "text": "$3$"},
+          {"label": "D", "text": "$4$"}
         ]
       }
     ]
