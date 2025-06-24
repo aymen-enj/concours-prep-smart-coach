@@ -6,7 +6,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, ArrowRight, Clock, AlertTriangle, CheckCircle, Info, HelpCircle, BrainCircuit, Sparkles, BookOpen, LightbulbIcon, Brain, ChevronDown } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, AlertTriangle, CheckCircle, Info, HelpCircle, BrainCircuit, Sparkles, BookOpen, LightbulbIcon, Brain, ChevronDown, GraduationCap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "@/components/ui/sonner";
@@ -646,37 +646,49 @@ const ExamView = () => {
             });
             
             // Transformer les exercises en components
-            const components = correctedExercises.map(exercise => {
-              // Inclure l'exercice comme contexte de composant
-              const exerciseNumber = exercise.exercise_number || "";
-              const exerciseTitle = exercise.title || `Exercice ${exerciseNumber}`;
-              
-              // Préparer les questions avec le stimulus de l'exercice ajouté à chaque question
-              const questionsWithContext = (exercise.questions || []).map(question => {
-                // Si la question n'a pas de stimulus mais que l'exercice en a un, ajouter le stimulus de l'exercice
-                const enhancedQuestion = {
+            let components: any[] = [];
+            
+            if (subject === 'pc') {
+              // Pour Physique-Chimie : fusionner tous les exercices en un seul composant
+              const allQuestions = correctedExercises.flatMap(ex => {
+                const exerciseNumber = ex.exercise_number || "";
+                const exerciseTitle = ex.title || `Exercice ${exerciseNumber}`;
+                return (ex.questions || []).map(question => ({
                   ...question,
-                  // Si la question n'a pas déjà un stimulus, utiliser celui de l'exercice
-                  stimulus: question.stimulus || exercise.stimulus,
-                  // Conserver la figure de l'exercice dans la question si elle n'en a pas déjà une
-                  programmatic_figure: question.programmatic_figure || exercise.programmatic_figure,
-                  // Transférer également les figures multiples si la question n'en a pas
-                  programmatic_figures: question.programmatic_figures || exercise.programmatic_figures,
-                  // Ajouter le titre de l'exercice comme information supplémentaire
-                  exercise_title: exerciseTitle,
-                  // Si la question n'a pas de données supplémentaires, héritage de l'exercice
-                  data: question.data ?? exercise.data,
-                };
-                
-                return enhancedQuestion;
+                  stimulus: question.stimulus || ex.stimulus,
+                  data: question.data ?? ex.data,
+                  programmatic_figure: question.programmatic_figure || ex.programmatic_figure,
+                  programmatic_figures: question.programmatic_figures || ex.programmatic_figures,
+                  exercise_title: exerciseTitle
+                }));
               });
               
-              return {
-                component_name: exerciseTitle,
+              components = [{
+                component_name: 'Physique-Chimie',
                 coefficient: 1,
-                questions: questionsWithContext || []
-              };
-            });
+                questions: allQuestions
+              }];
+            } else {
+              // Cas normal : un composant par exercice
+              components = correctedExercises.map(exercise => {
+                const exerciseNumber = exercise.exercise_number || "";
+                const exerciseTitle = exercise.title || `Exercice ${exerciseNumber}`;
+                const questionsWithContext = (exercise.questions || []).map(question => ({
+                  ...question,
+                  stimulus: question.stimulus || exercise.stimulus,
+                  data: question.data ?? exercise.data,
+                  programmatic_figure: question.programmatic_figure || exercise.programmatic_figure,
+                  programmatic_figures: question.programmatic_figures || exercise.programmatic_figures,
+                  exercise_title: exerciseTitle
+                }));
+                
+                return {
+                  component_name: exerciseTitle,
+                  coefficient: 1,
+                  questions: questionsWithContext
+                };
+              });
+            }
             
             normalizedData = {
               exam_title: rawData.exam_title || `Examen ${id.match(/\d{4}/)?.[0] || ''}`,
@@ -882,7 +894,7 @@ const ExamView = () => {
           normalizedData = {
             exam_title: rawData.exam_title || rawData.title || `Examen ${id.match(/\d{4}/)?.[0] || ''}`,
             components: [{
-              component_name: "Main Component",
+              component_name: "Mathématiques",
               coefficient: 1,
               questions: rawData.questions
             }]
@@ -1188,7 +1200,13 @@ const ExamView = () => {
               });
             }
             
-            // Generic fallback for ENSAM format
+            // Si nous avons un seul composant et qu'il s'appelle encore par défaut, renommer pour les maths
+            if (subject === 'math' && components.length === 1) {
+              if (!components[0].component_name || components[0].component_name.toLowerCase().includes('main')) {
+                components[0].component_name = 'Mathématiques';
+              }
+            }
+            
             normalizedData = {
               exam_title: rawData.exam_title || `Examen ENSAM ${id.match(/\d{4}/)?.[0] || ''}`,
               components: components
@@ -1426,8 +1444,8 @@ const ExamView = () => {
           >
             <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-base font-medium text-primary">{question.question_number}</span>
+                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <GraduationCap className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h1 className="text-2xl font-poppins font-bold text-foreground">
@@ -2006,7 +2024,7 @@ const ExamView = () => {
                           className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/30 rounded-lg p-3 mb-6 flex items-start gap-3 overflow-hidden"
                         >
                           <div className="mt-0.5">
-                            <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                            <Info className="h-5 w-5 text-amber-600" />
                           </div>
                           <div>
                             <p className="text-amber-800 dark:text-amber-300 text-sm">
