@@ -47,12 +47,12 @@
       },
       {
         "question_number": "Q5",
-        "text": "Le produit $\\prod_{k=0}^{9} 3 \\cdot 2^k \\sqrt[2k]{5}$ =",
+        "text": "Le produit $\\prod_{k=0}^{9} \\sqrt[3.2k]{5}$ =",
         "options": [
-          {"label": "A", "text": "$3^{511} \\cdot 5^{256}$"},
-          {"label": "B", "text": "$3^{1023} \\cdot 5^{256}$"},
-          {"label": "C", "text": "$3^{1023} \\cdot 5^{512}$"},
-          {"label": "D", "text": "$3^{511} \\cdot 5^{1024}$"}
+          {"label": "A", "text": "$\\sqrt[3]{\\dfrac{511}{5256}}$"},
+          {"label": "B", "text": "$\\sqrt[3]{\\dfrac{1023}{5256}}$"},
+          {"label": "C", "text": "$\\sqrt[3]{\\dfrac{1023}{5512}}$"},
+          {"label": "D", "text": "$\\sqrt[3]{\\dfrac{511}{51024}}$"}
         ]
       },
       {
@@ -67,7 +67,7 @@
       },
       {
         "question_number": "Q7",
-        "text": "En remarquant que pour tout n ∈ IN, le nombre $(3 + \\sqrt{5})^n + (3 - \\sqrt{5})^n$ est un entier pair, $\\lim_{n \\to +\\infty} \\sin(((3 + \\sqrt{5})^n)\\pi)$ =",
+        "text": "En remarquant que pour tout n ∈ IN, le nombre $(3 + \\sqrt{5})^n + (3 - \\sqrt{5})^n$ est un entier pair, $\\lim_{n \\to +\\infty} \\sin((3 + \\sqrt{5})^n\\pi)$ =",
         "options": [
           {"label": "A", "text": "1"},
           {"label": "B", "text": "-1"},
@@ -87,7 +87,7 @@
       },
       {
         "question_number": "Q9",
-        "text": "$\\lim_{x \\to 0^+} x^{\\frac{1}{\\ln(3x)}} =$",
+        "text": "$\\lim_{x \\to 0^+} x^{\\left(\\frac{1}{\\ln(3x)}\\right)} = $",
         "options": [
           {"label": "A", "text": "e"},
           {"label": "B", "text": "0"},
@@ -140,8 +140,8 @@
         "text": "Soit f : [0; α] → IR continue telle que f(x) ≠ -1 et f(x).f(α - x) = 1. $\\int_0^\\alpha \\frac{1}{1+f(x)} dx =$",
         "options": [
           {"label": "A", "text": "$\\frac{\\alpha}{2}$"},
-          {"label": "B", "text": "α"},
-          {"label": "C", "text": "1+α"},
+          {"label": "B", "text": "$\\alpha$"},
+          {"label": "C", "text": "$1+\\alpha$"},
           {"label": "D", "text": "$\\frac{1}{1+\\alpha}$"}
         ]
       },
@@ -149,30 +149,30 @@
         "question_number": "Q15",
         "text": "Soit la fonction réelle $f(x) = e^{-x}\\sin(x)$ et $f^{(4)}$ sa dérivée d'ordre 4, alors : $f^{(4)}(x) =$",
         "options": [
-          {"label": "A", "text": "-f(x)"},
-          {"label": "B", "text": "-4f(x)"},
-          {"label": "C", "text": "4f(x)"},
-          {"label": "D", "text": "-3f(x)"}
+          {"label": "A", "text": "$-f(x)$"},
+          {"label": "B", "text": "$-4f(x)$"},
+          {"label": "C", "text": "$4f(x)$"},
+          {"label": "D", "text": "$-3f(x)$"}
         ]
       },
       {
         "question_number": "Q16",
         "text": "Pour la même fonction ƒ de Q15, $\\int_0^\\pi f(x) dx =$",
         "options": [
-          {"label": "A", "text": "$\\frac{1}{2}(1-e^{-\\pi})$"},
+          {"label": "A", "text": "$\\frac{1}{3}(1-e^{-\\pi})$"},
           {"label": "B", "text": "$\\frac{1}{2}(1+e^{-\\pi})$"},
           {"label": "C", "text": "$\\frac{1}{4}(1-e^{-\\pi})$"},
-          {"label": "D", "text": "$\\frac{1}{4}(1+e^{-\\pi})$"}
+          {"label": "D", "text": "$\\frac{1}{5}(1+e^{-\\pi})$"}
         ]
       },
       {
         "question_number": "Q17",
         "text": "Soit u la solution de l'équation à variable complexe : $z\\bar{z} + 4iz = -3 + 4i$. Alors:",
         "options": [
-          {"label": "A", "text": "Re(u) × Im(u) = 2"},
-          {"label": "B", "text": "Re(u) × Im(u) = 1"},
-          {"label": "C", "text": "Re(u) + Im(u) = 2"},
-          {"label": "D", "text": "u est un imaginaire pur"}
+          {"label": "A", "text": "$Re(u) \\times Im(u) = 2$"},
+          {"label": "B", "text": "$Re(u) \\times Im(u) = 1$"},
+          {"label": "C", "text": "$Re(u) + Im(u) = 2$"},
+          {"label": "D", "text": "$u$ est un imaginaire pur"}
         ]
       },
       {

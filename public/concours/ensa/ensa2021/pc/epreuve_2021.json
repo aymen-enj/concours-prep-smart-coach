@@ -34,12 +34,12 @@
               {"label": "A", "text": "$t_1 = \\frac{\\sqrt{5}}{15}$ s"},
               {"label": "B", "text": "$t_1 = \\frac{2\\sqrt{5}}{15}$ s"},
               {"label": "C", "text": "$t_1 = \\frac{\\sqrt{5}}{10}$ s"},
-              {"label": "D", "text": "$t_1 = \\sqrt{\\frac{5}{2}}$ s"}
+              {"label": "D", "text": "$t_1 = \\frac{\\sqrt{5}}{5}$ s"}
             ]
           },
           {
             "question_number": "Q23",
-            "text": "La balle touchera le sol à la distance $D_1$ du point de lancement\nCocher la bonne réponse.",
+            "text": "La balle touchera le sol à la distance $D_1$ du point de lancement.\nCocher la bonne réponse.",
             "options": [
               {"label": "A", "text": "$D_1 = 15$ m"},
               {"label": "B", "text": "$D_1 = 22,5$ m"},
@@ -55,7 +55,7 @@
         "questions": [
           {
             "question_number": "Q24",
-            "text": "Dans le cas d'un mouvement circulaire uniforme\nCocher la bonne réponse",
+            "text": "Dans le cas d'un mouvement circulaire uniforme.\nCocher la bonne réponse",
             "options": [
               {"label": "A", "text": "Le vecteur vitesse est constant ;"},
               {"label": "B", "text": "La valeur de l'accélération est nulle"},
@@ -68,7 +68,7 @@
       {
         "exercise_number": 3,
         "title": "Bobine d'inductance",
-        "stimulus": "Dans une bobine d'inductance L et de résistance R, le courant varie selon la loi : i(t) = a - b t, où i est exprimé en ampères (A), t est exprimé en secondes (s) et a et b sont des constantes.",
+        "stimulus": "Dans une bobine d'inductance L et de résistance R, le courant varie selon la loi : $i(t) = a - b t$, où $i$ est exprimé en ampères (A), $t$ est exprimé en secondes (s) et $a$ et $b$ sont des constantes.",
         "questions": [
           {
             "question_number": "Q25",
@@ -152,7 +152,7 @@
           },
           {
             "question_number": "Q29",
-            "text": "La distance minimale d séparant les deux microphones est égale à\nCocher la bonne réponse :",
+            "text": "La distance minimale $d$ séparant les deux microphones est égale à : \nCocher la bonne réponse :",
             "options": [
               {"label": "A", "text": "d = 34 cm"},
               {"label": "B", "text": "d = 17 cm"},
@@ -197,7 +197,7 @@
           },
           {
             "question_number": "Q31",
-            "text": "Déterminer l'énergie maximale $E_{max}$ stockée dans la bobine sans tenir compte de l'énergie dissipée par effet Joule à travers cette dernière. On donne la valeur de $\\pi^2 = 10$.\nla valeur de l'énergie maximale stockée dans la bobine est plus proche de :\nCocher la bonne réponse.",
+            "text": "Déterminer l'énergie maximale $E_{max}'$ stockée dans la bobine sans tenir compte de l'énergie dissipée par effet Joule à travers cette dernière. On donne la valeur de $\\pi^2 = 10$.\nla valeur de l'énergie maximale stockée dans la bobine est plus proche de :\nCocher la bonne réponse.",
             "options": [
               {"label": "A", "text": "$E_{max}' = 0.25$ mJ"},
               {"label": "B", "text": "$E_{max}' = 0.35$ mJ"},
@@ -309,22 +309,22 @@
         "questions": [
           {
             "question_number": "Q38",
-            "text": "Sachant que la valeur de l'avancement de la réaction au bout d' une heure de fonctionnement de la pile vaut $18.10^{-6}$ mol, la valeur de l'intensité de courant est alors plus proche de :\nCocher la bonne réponse.",
+            "text": "Sachant que la valeur de l'avancement de la réaction au bout d' une heure de fonctionnement de la pile vaut $18.10^{-5}$ mol, la valeur de l'intensité de courant est alors plus proche de :\nCocher la bonne réponse.",
             "options": [
-              {"label": "A", "text": "9.00 mA"},
-              {"label": "B", "text": "9.50 mA"},
-              {"label": "C", "text": "10.00 mA"},
-              {"label": "D", "text": "10.50 mA"}
+              {"label": "A", "text": "$9.00 mA$"},
+              {"label": "B", "text": "$9.50 mA$"},
+              {"label": "C", "text": "$10.00 mA$"},
+              {"label": "D", "text": "$10.50 mA$"}
             ]
           },
           {
             "question_number": "Q39",
             "text": "La variation de la masse de l'électrode d'argent est plus proche de : Cocher la bonne réponse.",
             "options": [
-              {"label": "A", "text": "15mg"},
-              {"label": "B", "text": "17mg"},
-              {"label": "C", "text": "19mg"},
-              {"label": "D", "text": "21mg"}
+              {"label": "A", "text": "$15mg$"},
+              {"label": "B", "text": "$17mg$"},
+              {"label": "C", "text": "$19mg$"},
+              {"label": "D", "text": "$21mg$"}
             ]
           }
         ]

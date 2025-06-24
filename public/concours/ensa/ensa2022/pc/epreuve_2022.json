@@ -7,8 +7,8 @@
     {
       "exercise_number": 1,
       "title": "Trajectoire d'un ballon de basket-ball",
-      "stimulus": "On étudie la trajectoire du centre d'inertie d'un ballon de basket-ball de diamètre 25 cm, lancé par un joueur (voir figure). On ne tiendra compte ni de la résistance de l'air ni de la rotation éventuelle du ballon. Le lancer est effectué vers le haut ; on lâche le ballon lorsque son centre d'inertie est en A. Sa vitesse initiale est représentée par un vecteur $\\vec{v}_A$ situé dans le plan vertical $(O, \\vec{i}, \\vec{j})$ et faisant un angle $\\alpha=45°$ avec l'horizontal (Ox).",
-      "data": "On donne : g=10 m.s⁻², $v_A=6\\sqrt{2}$ m.s⁻¹, $h_A = 3.00$ m, $d' =3.00$ m et $d = 6.00$m",
+      "stimulus": "On étudie la trajectoire du centre d'inertie d'un ballon de basket-ball de diamètre 25 cm, lancé par un joueur (voir figure). On ne tiendra compte ni de la résistance de l'air ni de la rotation éventuelle du ballon. Le lancer est effectué vers le haut ; on lâche le ballon lorsque son centre d'inertie est en A. Sa vitesse initiale est représentée par un vecteur $\\vec{v}_0$ situé dans le plan vertical $(O, \\vec{i}, \\vec{j})$ et faisant un angle $\\alpha=45°$ avec l'horizontal (Ox).",
+      "data": "On donne : g=10 m.s⁻², $v_0=6\\sqrt{2}$ m.s⁻¹, $h_A = 3.00$ m, $d' =3.00$ m et $d = 6.00$m",
       "programmatic_figure": {
         "type": "image",
         "library": "img",
@@ -20,7 +20,7 @@
       "questions": [
         {
           "question_number": "Q21",
-          "text": "En supposant que l'angle de lancement du ballon en A est conservé, déterminer la hauteur hA pour que le centre d'inertie du ballon passe exactement au centre C du cerceau du panier. Cocher la bonne réponse :",
+          "text": "En supposant que l'angle de lancement du ballon en A est conservé, déterminer la hauteur $h_A$ pour que le centre d'inertie du ballon passe exactement au centre C du cerceau du panier. Cocher la bonne réponse :",
           "options": [
             {"label": "A", "text": "$h_A = 2.00$ m"},
             {"label": "B", "text": "$h_A = 2.05$m"},
@@ -30,7 +30,7 @@
         },
         {
           "question_number": "Q22",
-          "text": "En conservant toujours le même angle de lancement et la même vitesse initiale $\\vec{v}_A$, déterminer la vitesse du centre d'inertie du ballon de basket lorsqu'il passe exactement au centre C du cerceau du panier. Celle-ci est plus proche de :",
+          "text": "En conservant toujours le même angle de lancement et la même vitesse initiale $\\vec{v}_0$, déterminer la vitesse du centre d'inertie du ballon de basket lorsqu'il passe exactement au centre C du cerceau du panier. Celle-ci est plus proche de :",
           "options": [
             {"label": "A", "text": "$v_C = 7$ m.s⁻¹"},
             {"label": "B", "text": "$v_C = 7.5$ m.s⁻¹"},
@@ -40,12 +40,12 @@
         },
         {
           "question_number": "Q23",
-          "text": "On conserve toujours le même angle de lancement et la même vitesse initiale $\\vec{v}_A$, un défenseur BD, placé entre l'attaquant et le panneau de basket à la distance d' du lanceur, saute verticalement pour intercepter le ballon : l'extrémité de sa main se trouve en B à l'altitude $h_B$. La hauteur minimale $h_A$ de l'attaquant pour qu'il puisse toucher le ballon du bout des doigts est plus proche de :",
+          "text": "On conserve toujours le même angle de lancement et la même vitesse initiale $\\vec{v}_0$, un défenseur BD, placé entre l'attaquant et le panneau de basket à la distance d' du lanceur, saute verticalement pour intercepter le ballon : l'extrémité de sa main se trouve en B à l'altitude $h_B$. La hauteur minimale $h_B$ de l'attaquant pour qu'il puisse toucher le ballon du bout des doigts est plus proche de :",
           "options": [
-            {"label": "A", "text": "$h_A = 3.56$m"},
-            {"label": "B", "text": "$h_A = 3.66$ m"},
-            {"label": "C", "text": "$h_A = 3.76$ m"},
-            {"label": "D", "text": "$h_A = 3.86$ m"}
+            {"label": "A", "text": "$h_B = 3.56$m"},
+            {"label": "B", "text": "$h_B = 3.66$ m"},
+            {"label": "C", "text": "$h_B = 3.76$ m"},
+            {"label": "D", "text": "$h_B = 3.86$ m"}
           ]
         }
       ]
@@ -67,10 +67,10 @@
           "question_number": "Q24",
           "text": "L'expression permettant d'avoir l'angle d'inclinaison $\\alpha$ est donnée par : Cocher la bonne réponse",
           "options": [
-            {"label": "A", "text": "$\\sin\\alpha = \\frac{k}{mg}(l_e - l_0)$"},
-            {"label": "B", "text": "$\\tan\\alpha = \\frac{k}{mg}(l_e - l_0)$"},
-            {"label": "C", "text": "$\\sin\\alpha = \\frac{mg}{k}(l_e - l_0)$"},
-            {"label": "D", "text": "$\\sin\\alpha = \\frac{k}{mg}(l_0)$"}
+            {"label": "A", "text": "$\\sin\\alpha = \\frac{k}{mg}(l_0 - l_e)$"},
+            {"label": "B", "text": "$\\tan\\alpha = \\frac{k}{mg}(l_0 - l_e)$"},
+            {"label": "C", "text": "$\\sin\\alpha = \\frac{k}{mg}(l_e - l_0)$"},
+            {"label": "D", "text": "$\\sin\\alpha = \\frac{k}{mg}(l_e)$"}
           ]
         }
       ]
@@ -283,7 +283,15 @@
       "questions": [
         {
           "question_number": "Q36",
-          "text": "Quel est le nom de la molécule suivante : $CH_3-C(OH)(CH_3)-CH_2-CH_3$",
+          "text": "Quel est le nom de la molécule suivante:",
+          "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2022/pc/images/ex9.png",
+        "title": "Formule de la molécule",
+        "description": "Formule de la molécule",
+        "width": "30%"
+      },
           "options": [
             {"label": "A", "text": "1-éthyl, 1méthyl éthanol"},
             {"label": "B", "text": "2-méthyl butan-2-ol"},
@@ -350,7 +358,7 @@
       "exercise_number": 12,
       "title": "Électrolyse de chlorure de sodium",
       "stimulus": "On donne le bilan de l'électrolyse d'une solution très concentrée de chlorure de sodium: $2Na^+_{(aq)}+2Cl^-_{(aq)}+2H_2O \\rightarrow Cl_{2(gaz)}+ H_{2(gaz)}+2HO^-_{(aq)}+2Na^+_{(aq)}$. Une cellule industrielle fonctionne sous une tension U =3.8V avec une intensité I=$4.5 \\times 10^4$ A",
-      "data": "Données: couples mise en jeu: $Cl_2/Cl^-$ et $H_2O/H_2$: Volume molaire $V_m = 30 L.mol^{-1}$; 1F= 96500C.mol⁻¹",
+      "data": " couples mise en jeu: $Cl_2/Cl^-$ et $H_2O/H_2$: Volume molaire $V_m = 30 L.mol^{-1}$; 1F= 96500C.mol⁻¹",
       "questions": [
         {
           "question_number": "Q40",

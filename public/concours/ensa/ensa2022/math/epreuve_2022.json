@@ -87,17 +87,17 @@
       },
       {
         "question_number": "Q9",
-        "text": "La dérivée de la fonction $f(x) = \\frac{\\sqrt{x-1}}{\\sqrt[3]{(x+2)^2} \\sqrt[5]{(x+3)^3}}$ est:",
+        "text": "La dérivée de la fonction $f(x) = \\frac{\\sqrt{x-1}}{\\sqrt[3]{(x+2)^2} \\sqrt{(x+3)^3}}$ est:",
         "options": [
-          {"label": "A", "text": "$\\frac{5x^2-x-12}{\\sqrt{x-1} \\sqrt[3]{(x+2)^5} \\sqrt[5]{(x+3)^5}}$"},
-          {"label": "B", "text": "$\\frac{3x^2+x-24}{\\sqrt{x-1} \\sqrt[3]{(x+2)} \\sqrt[5]{(x+3)}}$"},
-          {"label": "C", "text": "$\\frac{2x^2+x-24}{2\\sqrt{x-1} \\sqrt[3]{(x+2)^5} \\sqrt[5]{(x+3)^5}}$"},
-          {"label": "D", "text": "$\\frac{5x^2+x-24}{3\\sqrt{x-1} \\sqrt[3]{(x+2)^5} \\sqrt[5]{(x+3)^5}}$"}
+          {"label": "A", "text": "$\\frac{5x^2-x-12}{\\sqrt{x-1} \\sqrt[3]{(x+2)^5} \\sqrt{(x+3)^5}}$"},
+          {"label": "B", "text": "$\\frac{3x^2+x-24}{\\sqrt{x-1} \\sqrt[3]{(x+2)^5} \\sqrt{(x+3)^5}}$"},
+          {"label": "C", "text": "$\\frac{2x^2+x-24}{2\\sqrt{x-1} \\sqrt[3]{(x+2)^5} \\sqrt{(x+3)^5}}$"},
+          {"label": "D", "text": "$\\frac{5x^2+x-24}{3\\sqrt{x-1} \\sqrt[3]{(x+2)^5} \\sqrt{(x+3)^5}}$"}
         ]
       },
       {
         "question_number": "Q10",
-        "text": "Soit f: [0, +∞[ → [0, +∞[ définie par f(x) = xe⁻ˣ. L'équation de la tangente à la courbe f⁻¹ au point d'abscisse e est :",
+        "text": "Soit $f$: $[0, +∞[ → [0, +∞[$ définie par $f(x) = xeˣ$. L'équation de la tangente à la courbe $f^{-1}$ au point d'abscisse e est :",
         "options": [
           {"label": "A", "text": "$y = \\frac{1}{2e}x + \\frac{1}{2}$"},
           {"label": "B", "text": "$y = \\frac{1}{e}x + \\frac{1}{2}$"},
@@ -149,10 +149,10 @@
         "question_number": "Q15",
         "text": "Soit le nombre complexe $z = \\sqrt{3} + i$, alors $z^5$ est égal à :",
         "options": [
-          {"label": "A", "text": "z"},
-          {"label": "B", "text": "-8z"},
-          {"label": "C", "text": "-16z"},
-          {"label": "D", "text": "16z"}
+          {"label": "A", "text": "$\\bar{z}$"},
+          {"label": "B", "text": "$-8\\bar{z}$"},
+          {"label": "C", "text": "$-16\\bar{z}$"},
+          {"label": "D", "text": "$16\\bar{z}$"}
         ]
       },
       {
@@ -169,10 +169,10 @@
         "question_number": "Q17",
         "text": "La solution y(x) de l'équation différentielle suivante: $y'' + y' + \\frac{5}{2}y = 0, y(0) = -4 ; y'(0) = 6$ est:",
         "options": [
-          {"label": "A", "text": "$e^{-\\frac{x}{2}}(-4 \\cos(\\frac{3}{2}x) - \\frac{8}{3}\\sin(\\frac{3}{2}x))$"},
-          {"label": "B", "text": "$e^{-\\frac{x}{2}}(-4 \\cos(\\frac{3}{2}x) + \\frac{8}{3}\\sin(\\frac{3}{2}x))$"},
-          {"label": "C", "text": "$e^x (-4 \\cos(\\frac{3}{2}x) - \\frac{8}{3}\\sin(\\frac{3}{2}x))$"},
-          {"label": "D", "text": "$e^{-\\frac{x}{2}}(-4 \\cos(\\frac{3}{2}x) + \\sin(\\frac{3}{2}x))$"}
+          {"label": "A", "text": "$e^{\\frac{x}{2}}(-4 \\cos(\\frac{3}{2}x) - \\frac{8}{3}\\sin(\\frac{3}{2}x))$"},
+          {"label": "B", "text": "$e^{\\frac{x}{2}}(-4 \\cos(\\frac{3}{2}x) + \\frac{8}{3}\\sin(\\frac{3}{2}x))$"},
+          {"label": "C", "text": "$e^{-\\frac{x}{2}}(-4 \\cos(\\frac{3}{2}x) - \\frac{8}{3}\\sin(\\frac{3}{2}x))$"},
+          {"label": "D", "text": "$e^{-\\frac{x}{2}}(-4 \\cos(\\frac{3}{2}x) + \\frac{8}{3}\\sin(\\frac{3}{2}x))$"}
         ]
       },
       {

@@ -663,7 +663,9 @@ const ExamView = () => {
                   // Transférer également les figures multiples si la question n'en a pas
                   programmatic_figures: question.programmatic_figures || exercise.programmatic_figures,
                   // Ajouter le titre de l'exercice comme information supplémentaire
-                  exercise_title: exerciseTitle
+                  exercise_title: exerciseTitle,
+                  // Si la question n'a pas de données supplémentaires, héritage de l'exercice
+                  data: question.data ?? exercise.data,
                 };
                 
                 return enhancedQuestion;
@@ -1042,7 +1044,7 @@ const ExamView = () => {
                     
                     return {
                       question_number: q.question_number || q.id || `P${partIndex+1}Q${qIndex+1}`,
-                      text: q.text_fr || q.text || q.statement || q.question || "",
+                      text: q.text_fr || q.text || q.question || q.statement || "",
                       stimulus: partInstructions,  // Ajouter les instructions comme contexte
                       programmatic_figure: q.programmatic_figure,
                       programmatic_figures: q.programmatic_figures,
@@ -1143,6 +1145,12 @@ const ExamView = () => {
                       questions: formattedQuestions
                     });
                   }
+                }
+                
+                // Check if value is an object with components property
+                if (value && typeof value === 'object' && 'components' in value && Array.isArray((value as any).components)) {
+                  console.log(`Component ${key} has property 'components' with components array`);
+                  components = [...components, ...(value as any).components];
                 }
               });
             }
@@ -1418,8 +1426,8 @@ const ExamView = () => {
           >
             <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="h-14 w-14 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg ring-4 ring-primary/20 animate-pulse-slow">
-                  <BrainCircuit className="h-7 w-7 text-white" />
+                <div className="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-base font-medium text-primary">{question.question_number}</span>
                 </div>
                 <div>
                   <h1 className="text-2xl font-poppins font-bold text-foreground">
@@ -1568,8 +1576,20 @@ const ExamView = () => {
                             <div className="mb-4 p-3 bg-muted/50 rounded-md border border-border/50">
                               <h3 className="text-sm font-medium mb-2">Données:</h3>
                               
+                              {/* Cas où data est une simple chaîne ou un tableau de chaînes */}
+                              {typeof question.data === 'string' && (
+                                <p className="text-sm"><MathRenderer text={question.data} /></p>
+                              )}
+                              {Array.isArray(question.data) && question.data.every(item => typeof item === 'string') && (
+                                <ul className="list-disc pl-5 space-y-1 text-sm">
+                                  {question.data.map((val: string, idx: number) => (
+                                    <li key={idx}><MathRenderer text={val} /></li>
+                                  ))}
+                                </ul>
+                              )}
+                              
                               {/* Table data */}
-                              {'type' in question.data && question.data.type === 'table' && (
+                              {typeof question.data === 'object' && 'type' in question.data && question.data.type === 'table' && (
                                 <div className="overflow-x-auto w-full max-w-full my-4 -mx-4 sm:mx-0">
                                   <div className="inline-block min-w-full align-middle px-4 sm:px-0">
                                     <table className="text-sm shadow-md w-full md:w-auto" style={{borderCollapse: 'collapse', borderWidth: '1px', borderStyle: 'solid', borderColor: '#d1d5db', minWidth: '100%', tableLayout: 'auto'}}>
@@ -1711,7 +1731,7 @@ const ExamView = () => {
                               )}
                               
                               {/* Results data */}
-                              {'type' in question.data && question.data.type === 'results' && (
+                              {typeof question.data === 'object' && 'type' in question.data && question.data.type === 'results' && (
                                 <div className="space-y-2">
                                   {question.data.observations && question.data.observations.map((obs, idx) => (
                                     <div key={idx} className="flex items-start gap-2">
@@ -1777,7 +1797,7 @@ const ExamView = () => {
                               )}
 
                               {/* Autres données spécifiques */}
-                              {Object.entries(question.data).map(([key, value]) => {
+                              {typeof question.data === 'object' && !Array.isArray(question.data) && question.data !== null && Object.entries(question.data).map(([key, value]) => {
                                 // Liste des clés déjà traitées ailleurs
                                 const alreadyHandledKeys = [
                                   'type', 'given_values', 'remark', 'note', 'description',
@@ -1801,7 +1821,7 @@ const ExamView = () => {
                                   </div>
                                 );
                               })}
-
+                              
                               {/* Calculations - Calculs fournis */}
                               {question.data.calculs_fournis && (
                                 <div className="mt-3 mb-3">
@@ -2008,7 +2028,7 @@ const ExamView = () => {
                             key={`input-${index}`}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            transition={{ duration: 0.3 }}
                           >
                             <div className="flex flex-col space-y-2 border border-border/60 rounded-lg p-4 transition-all hover:border-primary/60 bg-background/80">
                               <label className="font-medium text-base" htmlFor={`response-${question.question_number}`}>
@@ -2028,7 +2048,7 @@ const ExamView = () => {
                           key={option.label}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                          transition={{ duration: 0.3 }}
                         >
                           <div 
                             className={cn(
