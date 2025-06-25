@@ -318,3 +318,13 @@
 .delay-300 {
   animation-delay: 3s;
 }
+
+#floating-chat-container {
+  right: 16px !important; /* Force position for mobile */
+}
+
+@media (min-width: 768px) {
+  #floating-chat-container {
+    right: 24px !important; /* Restore position for desktop */
+  }
+}

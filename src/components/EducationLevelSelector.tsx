@@ -17,10 +17,8 @@ const getLevelIcon = (level: EducationLevel) => {
       return BookOpen;
     case 'Bac+3':
       return Award;
-    case 'Bac+5':
-      return GraduationCap;
     case 'Classes préparatoires':
-      return Calculator;
+      return GraduationCap;
     default:
       return GraduationCap;
   }
@@ -35,8 +33,6 @@ const getLevelDescription = (level: EducationLevel) => {
       return 'Concours après deux années d\'études supérieures';
     case 'Bac+3':
       return 'Concours après licence ou équivalent';
-    case 'Bac+5':
-      return 'Concours après master ou équivalent';
     case 'Classes préparatoires':
       return 'Concours des grandes écoles après CPGE';
     default:
@@ -53,8 +49,6 @@ const getLevelColor = (level: EducationLevel) => {
       return 'from-green-600 to-green-400';
     case 'Bac+3':
       return 'from-amber-600 to-amber-400';
-    case 'Bac+5':
-      return 'from-purple-600 to-purple-400';
     case 'Classes préparatoires':
       return 'from-red-600 to-red-400';
     default:
@@ -93,10 +87,10 @@ const EducationLevelSelector = ({ selectedLevel, onSelectLevel }: EducationLevel
                     </h3>
                   </div>
                   <Badge variant="outline" className="bg-primary/5 border-primary/20">
-                    {level === 'Bac' ? 'Niveau 0' : 
-                     level === 'Bac+2' ? 'Niveau 1' : 
-                     level === 'Bac+3' ? 'Niveau 2' : 
-                     level === 'Bac+5' ? 'Niveau 3' : 'CPGE'}
+                    {level === 'Bac' ? 'Niveau 1' : 
+                     level === 'Bac+2' ? 'Niveau 2' : 
+                     level === 'Bac+3' ? 'Niveau 3' : 
+                     level === 'Classes préparatoires' ? 'Niveau 4' : 'CPGE'}
                   </Badge>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">

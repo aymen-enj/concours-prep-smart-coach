@@ -257,7 +257,7 @@ const ConcoursPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
-      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 relative">
+      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 relative overflow-x-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-1/3 h-96 bg-gradient-to-bl from-primary/10 via-transparent to-transparent rounded-bl-full -z-10"></div>
         <div className="absolute bottom-1/3 left-0 w-1/4 h-80 bg-gradient-to-tr from-primary/5 via-transparent to-transparent rounded-tr-full -z-10"></div>
@@ -398,13 +398,19 @@ const ConcoursPage = () => {
                         <Filter className="h-5 w-5 text-primary" />
                         <h3 className="text-lg font-medium">Filtrer les concours</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                        <div>
+                      {/* Filters on one line from lg breakpoint */}
+                      <div className="flex flex-col lg:flex-row lg:items-end gap-5">
+                        {/* Search field */}
+                        <div className="flex flex-col flex-1 lg:max-w-xs">
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <Search className="h-4 w-4 text-muted-foreground" />
+                            <span className="text-sm text-muted-foreground">Rechercher</span>
+                          </div>
                           <div className="relative">
                             <Search className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
                             <Input
                               placeholder="Rechercher un concours..."
-                              className="pl-10 border border-input bg-background hover:bg-accent/10 focus-visible:ring-1"
+                              className="pl-10 border border-input bg-background hover:bg-accent/10 focus-visible:ring-1 flex-1"
                               value={searchTerm}
                               onChange={(e) => setSearchTerm(e.target.value)}
                             />
@@ -417,7 +423,7 @@ const ConcoursPage = () => {
                             <span className="text-sm text-muted-foreground">Matière</span>
                           </div>
                           <Select value={subjectFilter} onValueChange={setSubjectFilter}>
-                            <SelectTrigger className="bg-background border border-input hover:bg-accent/10">
+                            <SelectTrigger className="w-full lg:w-52">
                               <SelectValue placeholder="Toutes les matières" />
                             </SelectTrigger>
                             <SelectContent>
@@ -437,7 +443,7 @@ const ConcoursPage = () => {
                             <span className="text-sm text-muted-foreground">Année</span>
                           </div>
                           <Select value={yearFilter} onValueChange={setYearFilter}>
-                            <SelectTrigger className="bg-background border border-input hover:bg-accent/10">
+                            <SelectTrigger className="w-full lg:w-52">
                               <SelectValue placeholder="Toutes les années" />
                             </SelectTrigger>
                             <SelectContent>

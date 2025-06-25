@@ -529,7 +529,7 @@ const ExamView = () => {
         // Normalize the data structure based on what we received
         let normalizedData: any = { components: [] };
         
-        // Case spécifique pour les fichiers avec structure "exercises" (format PC)
+        // Cas spécifique pour les fichiers avec structure "exercises" (format PC)
         if (rawData && typeof rawData === 'object' && 'exercises' in rawData && Array.isArray(rawData.exercises)) {
           console.log("Structure détectée: fichier avec exercises (format physique-chimie)");
           console.log("Exercises trouvés:", rawData.exercises.length);
@@ -1428,7 +1428,7 @@ const ExamView = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
-      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 relative">
+      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 relative overflow-x-hidden">
         {/* Enhanced decorative elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary/8 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
         <div className="absolute bottom-20 right-0 w-120 h-120 bg-blue-400/8 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
@@ -1485,7 +1485,7 @@ const ExamView = () => {
             </div>
 
             <div className="mb-8">
-              <div className="mb-3 flex items-center justify-between">
+              <div className="mb-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                 <div className="flex items-center gap-2">
                   <div className="bg-primary/10 text-primary font-medium px-3 py-1 rounded-full text-sm">
                     Question {currentQuestion + 1}/{examInfo.totalQuestions}
@@ -1554,13 +1554,13 @@ const ExamView = () => {
               >
                 <Card className="overflow-hidden border-border/40 bg-card/95 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 mb-8 rounded-xl">
                   <div className="h-2 bg-gradient-to-r from-primary to-blue-600"></div>
-                  <CardContent className="p-8 text-base">
-                    <div className="flex items-start justify-between gap-4 mb-6">
-                      <div className="flex gap-3 flex-grow">
-                        <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                          <span className="text-base font-medium text-primary">{question.question_number}</span>
-                        </div>
-                        <div className="w-full">
+                  <CardContent className="p-4 md:p-6 lg:p-8 text-base">
+                    <div className="flex items-start gap-3 sm:gap-4 mb-6">
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-base font-medium text-primary">{question.question_number}</span>
+                      </div>
+
+                      <div className="flex-grow min-w-0">
                           {question.exercise_title && (
                             <div className="mb-3 text-base text-foreground font-medium">
                               {question.exercise_title}
@@ -1568,9 +1568,9 @@ const ExamView = () => {
                           )}
                           
                           {question.stimulus && (
-                            <div className="mb-5 p-4 bg-muted/50 rounded-lg border border-border/50">
+                            <div className="mb-5 p-3 sm:p-4 bg-muted/50 rounded-lg border border-border/50">
                               <h3 className="text-base font-medium mb-2 text-primary">Contexte:</h3>
-                              <div className="text-base text-foreground leading-relaxed" style={{ maxWidth: '100%', overflowWrap: 'break-word' }}>
+                              <div className="text-base text-foreground leading-relaxed break-words">
                                 <MathRenderer text={question.stimulus} />
                               </div>
                             </div>
@@ -1993,7 +1993,7 @@ const ExamView = () => {
                             </div>
                           )}
                           
-                          <h2 className="text-xl font-medium text-foreground mb-3 leading-relaxed">
+                          <h2 className="text-lg sm:text-xl font-medium text-foreground mb-3 leading-relaxed break-words">
                             <MathRenderer text={question.text} />
                           </h2>
                           
@@ -2003,7 +2003,6 @@ const ExamView = () => {
                             </div>
                           )}
                         </div>
-                      </div>
                       <Button
                         variant="ghost"
                         size="icon"
@@ -2168,17 +2167,18 @@ const ExamView = () => {
               </Card>
 
               {/* Enhanced navigation buttons */}
-              <div className="flex justify-between items-center gap-4">
+              <div className="flex justify-between items-center gap-2 sm:gap-4">
                 <Button 
                   variant="outline" 
                   onClick={handlePrevious}
                   disabled={currentQuestion === 0}
-                  className="flex items-center gap-2 py-6 px-5 rounded-xl border-border/40 hover:bg-primary/5 hover:border-primary/30 shadow-sm hover:shadow-md transition-all duration-200"
+                  // MODIFIÉ: Padding et structure de texte responsifs
+                  className="flex items-center gap-2 p-3 sm:py-4 sm:px-4 md:py-6 md:px-5 rounded-xl border-border/40 hover:bg-primary/5 hover:border-primary/30 shadow-sm hover:shadow-md transition-all duration-200"
                 >
                   <ArrowLeft className="h-5 w-5" />
                   <div className="flex flex-col items-start">
-                    <span className="text-xs text-muted-foreground">Retour</span>
-                    <span className="font-medium">Question précédente</span>
+                    <span className="font-medium text-sm">Retour</span>
+                    <span className="text-xs text-muted-foreground hidden md:block">Question précédente</span>
                   </div>
                 </Button>
                 
@@ -2202,11 +2202,12 @@ const ExamView = () => {
                 {!isLastQuestion ? (
                   <Button
                     onClick={handleNext}
-                    className="flex items-center gap-2 py-6 px-5 rounded-xl bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-md hover:shadow-lg transition-all duration-200"
+                    // MODIFIÉ: Padding et structure de texte responsifs
+                    className="flex items-center gap-2 p-3 sm:py-4 sm:px-4 md:py-6 md:px-5 rounded-xl bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-md hover:shadow-lg transition-all duration-200"
                   >
                     <div className="flex flex-col items-end">
-                      <span className="text-xs text-primary-foreground/80">Continuer</span>
-                      <span className="font-medium">Question suivante</span>
+                      <span className="font-medium text-sm text-primary-foreground">Continuer</span>
+                      <span className="text-xs text-primary-foreground/80 hidden md:block">Question suivante</span>
                     </div>
                     <ArrowRight className="h-5 w-5" />
                   </Button>
@@ -2214,21 +2215,22 @@ const ExamView = () => {
                   <Button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="flex items-center gap-2 py-6 px-5 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-600/90 hover:to-emerald-600/90 shadow-md hover:shadow-lg transition-all duration-200"
+                    // MODIFIÉ: Padding et structure de texte responsifs
+                    className="flex items-center gap-2 p-3 sm:py-4 sm:px-4 md:py-6 md:px-5 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-600/90 hover:to-emerald-600/90 shadow-md hover:shadow-lg transition-all duration-200"
                   >
                     {isSubmitting ? (
                       <>
                         <div className="flex flex-col items-end">
-                          <span className="text-xs text-primary-foreground/80">Patientez</span>
-                          <span className="font-medium">Envoi en cours...</span>
+                          <span className="font-medium text-sm text-primary-foreground">Patientez</span>
+                          <span className="text-xs text-primary-foreground/80 hidden md:block">Envoi en cours...</span>
                         </div>
                         <span className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin ml-1"></span>
                       </>
                     ) : (
                       <>
                         <div className="flex flex-col items-end">
-                          <span className="text-xs text-primary-foreground/80">Bravo !</span>
-                          <span className="font-medium">Terminer l'examen</span>
+                           <span className="font-medium text-sm text-primary-foreground">Terminer</span>
+                           <span className="text-xs text-primary-foreground/80 hidden md:block">Bravo !</span>
                         </div>
                         <Sparkles className="h-5 w-5" />
                       </>

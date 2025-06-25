@@ -511,7 +511,7 @@ const Index = () => {
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform-300 group-hover:translate-x-1" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 rounded-full py-6 text-base hover-lift">
+                  <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 dark:hover:bg-primary/20 rounded-full py-6 text-base hover-lift transition-colors">
                     <Link to="/login">Se connecter</Link>
                   </Button>
                 </div>

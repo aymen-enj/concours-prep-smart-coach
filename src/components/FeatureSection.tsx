@@ -32,7 +32,8 @@ const features = [
     title: "Correction par IA",
     description: "Notre IA analyse vos réponses et fournit des corrections personnalisées avec des conseils d'amélioration ciblés.",
     icon: Brain,
-    color: "from-purple-400 to-purple-600"
+    // Palette plus vive pour un meilleur contraste (fuchsia → violet)
+    color: "from-fuchsia-500 to-violet-600"
   },
   {
     title: "Analyse de performance",

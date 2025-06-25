@@ -79,7 +79,8 @@ const Support = () => {
       title: "Compte",
       icon: <User className="h-5 w-5" />,
       description: "Gérez votre compte et vos paramètres",
-      color: "from-purple-500 to-purple-600"
+      // Couleur renforcée (violet profond) pour mieux contraster
+      color: "from-violet-600 to-fuchsia-600"
     },
     {
       title: "Tarifs",

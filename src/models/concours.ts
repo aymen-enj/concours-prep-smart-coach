@@ -2,7 +2,7 @@
 
 export type Country = 'Maroc' | 'France';
 
-export type EducationLevel = 'Bac' | 'Bac+2' | 'Bac+3' | 'Bac+5' | 'Classes préparatoires';
+export type EducationLevel = 'Bac' | 'Bac+2' | 'Bac+3' | 'Classes préparatoires';
 
 export interface University {
   id: string;
@@ -34,7 +34,6 @@ export const educationLevels: EducationLevel[] = [
   'Bac',
   'Bac+2',
   'Bac+3',
-  'Bac+5',
   'Classes préparatoires'
 ];
 
@@ -55,7 +54,7 @@ export const moroccanUniversities: University[] = [
   {
     id: 'ensam',
     name: 'ENSAM (École Nationale Supérieure d\'Arts et Métiers)',
-    location: 'Casablanca, Meknès',
+    location: 'Multiple locations',
     description: 'École d\'ingénieurs spécialisée dans les arts et métiers'
   },
   {
