@@ -6,4 +6,4 @@ the AGPL-3.0.
 
 To purchase a commercial licence, please contact:
 
-    ENNAJI Aymen <aymenennaji5@gmail.com>
+    ENNAJI Aymen  aymenennaji5@gmail.com
