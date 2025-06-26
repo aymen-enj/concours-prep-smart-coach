@@ -37,6 +37,12 @@ A modern, responsive web application built with React, TypeScript, and Supabase 
 
 ---
 
+## ⚙️ Requirements  
+- Node.js >= 18  
+- Git  
+- Supabase account (free tier is fine)  
+- (Optional) Netlify account for production deployment  
+
 ## 📦 Getting Started
 
 ### 1. Clone the repository
@@ -62,6 +68,15 @@ Create a `.env` file in the root directory and add your Supabase credentials:
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
+
+### 4. Configure Supabase  
+1. Sign in to [Supabase](https://supabase.com/) and create a new project.  
+2. Copy the `Project URL` and `Anon public key` and place them in your `.env` file above.  
+3. Under **Authentication → Providers**, enable **Google** and add the following redirect URLs:  
+   - `http://localhost:5173/auth/callback` (development)  
+   - `https://<your-netlify-site>.netlify.app/auth/callback` (production)  
+4. Under **Authentication → URL Configuration**, set “Site URL” to `http://localhost:5173` and add your Netlify site URL to “Additional Redirect URLs”.  
+5. (Optional) Run database migrations or execute the SQL in `supabase/migrations` to create the required tables.<br/>
 
 ## 🚀 Development
 
@@ -98,6 +113,19 @@ yarn preview
 # or
 bun run preview
 ```
+
+## 🌍 Deployment (Netlify)  
+1. Push your code to GitHub (or GitLab).  
+2. In Netlify, click **Add new site → Import from Git** and select the repository.  
+3. In **Build settings** set  
+   - **Build command**: `npm run build`  
+   - **Publish directory**: `dist`  
+4. Add environment variables:  
+   - `VITE_SUPABASE_URL`  
+   - `VITE_SUPABASE_ANON_KEY`  
+5. Click **Deploy site**.  
+6. Netlify will provide a live URL (e.g. `https://<site>.netlify.app`). Add this URL to your Supabase redirect URLs as described above.  
+7. Client-side routes (including `/auth/callback`) are automatically redirected to `index.html` thanks to the included `netlify.toml`.
 
 ## 📁 Project Structure
 
@@ -138,7 +166,13 @@ bun run lint
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is dual-licensed:
+
+1. **GNU Affero General Public License v3.0 (AGPL-3.0)** – see [LICENSE](cci:7://file:///c:/Users/aymen/concours-prep-smart-coach/LICENSE:0:0-0:0).  
+2. **Commercial License** – see [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md).
+
+You may choose either set of terms.
+
 
 ## 🙏 Acknowledgments
 
