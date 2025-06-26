@@ -27,21 +27,16 @@ export default function Settings() {
     return () => clearTimeout(timer);
   }, [activeTab]);
 
-  // Update avatar URL when user changes or after upload
+  // Update avatar URL when user changes - simplified approach
   useEffect(() => {
     if (user?.user_metadata?.avatar_url) {
-      try {
-        const url = new URL(user.user_metadata.avatar_url);
-        url.searchParams.set('t', Date.now().toString());
-        setAvatarUrl(url.toString());
-      } catch (error) {
-        const cacheBustedUrl = `${user.user_metadata.avatar_url}?t=${Date.now()}`;
-        setAvatarUrl(cacheBustedUrl);
-      }
+      // Use the URL directly without cache busting for better performance
+      const url = user.user_metadata.avatar_url.split('?')[0]; // Remove any existing cache params
+      setAvatarUrl(url);
     } else {
       setAvatarUrl(null);
     }
-  }, [user]);
+  }, [user?.user_metadata?.avatar_url]);
 
   if (!user) {
     navigate('/login');

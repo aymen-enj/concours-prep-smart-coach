@@ -18,20 +18,9 @@ interface AvatarUploaderProps {
 
 const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: AvatarUploaderProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [imgKey, setImgKey] = useState(Date.now()); // Key to force re-render of image
   const [isDragOver, setIsDragOver] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Effect to force re-render of image when avatarUrl changes
-  useEffect(() => {
-    if (avatarUrl) {
-      setImgKey(Date.now());
-      // Pre-fetch the image
-      const img = document.createElement('img');
-      img.src = avatarUrl;
-    }
-  }, [avatarUrl]);
 
   async function handleAvatarChange(event: React.ChangeEvent<HTMLInputElement>) {
     if (!event.target.files || event.target.files.length === 0) {
@@ -97,13 +86,9 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
 
       if (updateError) throw updateError;
 
-      // Add cache-busting parameter to force refresh
-      const timestamp = Date.now();
-      const cacheBustedUrl = `${publicUrl}?t=${timestamp}`;
-      
-      // Update auth metadata with new cache-busting parameter
+      // Update auth metadata - no cache busting needed for new uploads
       const { error: authUpdateError } = await supabase.auth.updateUser({
-        data: { avatar_url: cacheBustedUrl }
+        data: { avatar_url: publicUrl }
       });
 
       if (authUpdateError) throw authUpdateError;
@@ -115,9 +100,8 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
       
       // Add a slight delay before updating the UI
       setTimeout(() => {
-        // Update local state with cache busting
-        onAvatarChange(cacheBustedUrl);
-        setImgKey(timestamp); // Force re-render
+        // Update local state
+        onAvatarChange(publicUrl);
         toast.success("Avatar mis à jour avec succès", { id: toastId });
         console.log("Avatar updated successfully");
       }, 500);
@@ -177,9 +161,9 @@ const AvatarUploader = ({ userId, avatarUrl, onAvatarChange, getInitials }: Avat
           <Avatar className="h-32 w-32 border-4 border-white dark:border-gray-900 shadow-xl">
             {avatarUrl && (
               <AvatarImage 
-                key={imgKey}
                 src={avatarUrl} 
                 alt="Profile"
+                loading="eager"
                 onError={() => {
                   console.error("Failed to load avatar image:", avatarUrl);
                 }}

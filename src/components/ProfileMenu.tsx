@@ -19,29 +19,19 @@ const ProfileMenu = () => {
   const { user, signOut } = useAuth();
   const [open, setOpen] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
-  const [imgKey, setImgKey] = useState(Date.now()); // Key to force re-render of image
   
-  // Update avatar URL when user changes
+  // Update avatar URL when user changes, but avoid excessive cache busting
   useEffect(() => {
     if (user?.user_metadata?.avatar_url) {
-      try {
-        // Add cache-busting parameter to force refresh
-        const url = new URL(user.user_metadata.avatar_url);
-        url.searchParams.set('t', Date.now().toString());
-        setAvatarUrl(url.toString());
-        setImgKey(Date.now()); // Force re-render
-        console.log("Menu Avatar URL updated:", url.toString());
-      } catch (error) {
-        console.error("Error parsing avatar URL:", user.user_metadata.avatar_url, error);
-        // Use the URL directly if it can't be parsed
-        const cacheBustedUrl = `${user.user_metadata.avatar_url}?t=${Date.now()}`;
-        setAvatarUrl(cacheBustedUrl);
-        setImgKey(Date.now()); // Force re-render
-      }
+      const url = user.user_metadata.avatar_url;
+      // Only add cache busting if the URL has changed significantly
+      const baseUrl = url.split('?')[0];
+      setAvatarUrl(baseUrl);
+      console.log("Menu Avatar URL updated:", baseUrl);
     } else {
       setAvatarUrl(null);
     }
-  }, [user]);
+  }, [user?.user_metadata?.avatar_url]);
 
   // Get initials for avatar fallback
   const getInitials = () => {
@@ -91,13 +81,15 @@ const ProfileMenu = () => {
           <Avatar className="h-8 w-8">
             {avatarUrl && (
               <AvatarImage 
-                key={imgKey}
                 src={avatarUrl} 
                 alt="Profile"
+                loading="lazy"
                 onError={() => console.error("Profile menu avatar failed to load:", avatarUrl)}
               />
             )}
-            <AvatarFallback>{getInitials()}</AvatarFallback>
+            <AvatarFallback className="bg-primary text-primary-foreground text-xs font-medium">
+              {getInitials()}
+            </AvatarFallback>
           </Avatar>
           <span className="hidden md:inline-block text-sm font-medium">
             {getDisplayName()}
