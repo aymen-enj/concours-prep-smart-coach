@@ -43,9 +43,21 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setLoading(false);
         
         if (event === 'SIGNED_IN') {
-          toast.success('Connexion réussie');
+          // Show the success toast only on the first sign-in for this session (not on page reload)
+          try {
+            const lastSignInAt = session?.user?.last_sign_in_at || '';
+            const STORAGE_KEY = 'cp_toast_shown_for_last_sign_in_at';
+            const alreadyShownFor = localStorage.getItem(STORAGE_KEY);
+            if (lastSignInAt && alreadyShownFor !== lastSignInAt) {
+              toast.success('Connexion réussie');
+              localStorage.setItem(STORAGE_KEY, lastSignInAt);
+            }
+          } catch {}
         } else if (event === 'SIGNED_OUT') {
           toast.success('Déconnexion réussie');
+          try {
+            localStorage.removeItem('cp_toast_shown_for_last_sign_in_at');
+          } catch {}
         } else if (event === 'PASSWORD_RECOVERY') {
           // Redirect to reset password page when password recovery link is clicked
           navigate("/reset-password");
