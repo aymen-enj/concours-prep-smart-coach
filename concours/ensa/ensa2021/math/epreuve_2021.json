@@ -1,209 +1,449 @@
 {
-    "exam_title": "Concours d'accès en 1ère année des ENSA Maroc",
-    "date": "Juillet 2021",
-    "subject": "Mathématiques",
-    "duration": "1H30 min",
-    "instructions": "Non autorisés : Calculatrices, téléphones, smartwatchs et tous types de documents",
-    "questions": [
-      {
-        "question_number": "Q1",
-        "text": "Une condition nécessaire (pas forcément suffisante) pour réussir le concours de l'ENSA est :",
-        "options": [
-          {"label": "A", "text": "Avoir répondu correctement à tout le QCM"},
-          {"label": "B", "text": "Avoir au plus 25% de réponses fausses"},
-          {"label": "C", "text": "Avoir au moins 50% de réponses correctes"},
-          {"label": "D", "text": "Avoir passé le concours"}
-        ]
-      },
-      {
-        "question_number": "Q2",
-        "text": "Le 17 juillet 2021, jour du concours de l'ENSA, est un samedi. Quel jour de la semaine sera le 29 février 2024 ?",
-        "options": [
-          {"label": "A", "text": "mardi"},
-          {"label": "B", "text": "jeudi"},
-          {"label": "C", "text": "samedi"},
-          {"label": "D", "text": "lundi"}
-        ]
-      },
-      {
-        "question_number": "Q3",
-        "text": "Le nombre de diviseurs de N = $72^{10} \\times 162^{50}$ est:",
-        "options": [
-          {"label": "A", "text": "17600"},
-          {"label": "B", "text": "17680"},
-          {"label": "C", "text": "17820"},
-          {"label": "D", "text": "17901"}
-        ]
-      },
-      {
-        "question_number": "Q4",
-        "text": "Soient x et y deux réels non nuls, inverses l'un de l'autre, tels que la somme du carré de leur somme avec la somme de leurs carrés est égale à 10. Le carré du nombre x vaut :",
-        "options": [
-          {"label": "A", "text": "$2 - \\sqrt{3}$ ou $2 + \\sqrt{3}$"},
-          {"label": "B", "text": "$1 - \\sqrt{5}$ ou $1 + \\sqrt{5}$"},
-          {"label": "C", "text": "$1 - \\sqrt{3}$ ou $1 + \\sqrt{3}$"},
-          {"label": "D", "text": "$2 - \\sqrt{5}$ ou $2 + \\sqrt{5}$"}
-        ]
-      },
-      {
-        "question_number": "Q5",
-        "text": "Le produit $\\prod_{k=0}^{9} 3 \\cdot 2^k \\sqrt[2k]{5}$ =",
-        "options": [
-          {"label": "A", "text": "$3^{511} \\cdot 5^{256}$"},
-          {"label": "B", "text": "$3^{1023} \\cdot 5^{256}$"},
-          {"label": "C", "text": "$3^{1023} \\cdot 5^{512}$"},
-          {"label": "D", "text": "$3^{511} \\cdot 5^{1024}$"}
-        ]
-      },
-      {
-        "question_number": "Q6",
-        "text": "$\\lim_{n \\to +\\infty} 3^n e^{-3n}$ =",
-        "options": [
-          {"label": "A", "text": "1"},
-          {"label": "B", "text": "0"},
-          {"label": "C", "text": "+∞"},
-          {"label": "D", "text": "e"}
-        ]
-      },
-      {
-        "question_number": "Q7",
-        "text": "En remarquant que pour tout n ∈ IN, le nombre $(3 + \\sqrt{5})^n + (3 - \\sqrt{5})^n$ est un entier pair, $\\lim_{n \\to +\\infty} \\sin(((3 + \\sqrt{5})^n)\\pi)$ =",
-        "options": [
-          {"label": "A", "text": "1"},
-          {"label": "B", "text": "-1"},
-          {"label": "C", "text": "0"},
-          {"label": "D", "text": "+∞"}
-        ]
-      },
-      {
-        "question_number": "Q8",
-        "text": "$\\lim_{x \\to \\frac{\\pi}{6}} \\frac{\\sqrt{3}\\sin x - \\cos x}{x - \\frac{\\pi}{6}}$ =",
-        "options": [
-          {"label": "A", "text": "0"},
-          {"label": "B", "text": "1"},
-          {"label": "C", "text": "2"},
-          {"label": "D", "text": "+∞"}
-        ]
-      },
-      {
-        "question_number": "Q9",
-        "text": "$\\lim_{x \\to 0^+} x^{\\frac{1}{\\ln(3x)}} =$",
-        "options": [
-          {"label": "A", "text": "e"},
-          {"label": "B", "text": "0"},
-          {"label": "C", "text": "ln 3"},
-          {"label": "D", "text": "1 + e"}
-        ]
-      },
-      {
-        "question_number": "Q10",
-        "text": "Soit f : ℝ → ℝ une fonction T périodique avec T > 0, telle que $\\lim_{x \\to +\\infty} f(x)$ existe dans IR*. Alors :",
-        "options": [
-          {"label": "A", "text": "f est strictement croissante"},
-          {"label": "B", "text": "f est strictement décroissante"},
-          {"label": "C", "text": "f est la fonction nulle"},
-          {"label": "D", "text": "f est une constante non nulle"}
-        ]
-      },
-      {
-        "question_number": "Q11",
-        "text": "Soit la fonction ƒ définie par : $f(x) = \\begin{cases} x^2 + x^3 \\cos(\\frac{1}{x}) & \\text{si } x \\neq 0 \\\\ f(0) = 0 \\end{cases}$. Soit f' la dérivée d'ordre 1 de f.",
-        "options": [
-          {"label": "A", "text": "f'(0) = 1"},
-          {"label": "B", "text": "f'(0) = 0"},
-          {"label": "C", "text": "f'(0) = 2"},
-          {"label": "D", "text": "f n'est pas dérivable en 0"}
-        ]
-      },
-      {
-        "question_number": "Q12",
-        "text": "Pour la même fonction f de Q11, on note f'' sa dérivée d'ordre 2. Alors :",
-        "options": [
-          {"label": "A", "text": "f''(0) = 0"},
-          {"label": "B", "text": "f''(0) = 1"},
-          {"label": "C", "text": "f''(0) = 2"},
-          {"label": "D", "text": "f n'est pas deux fois dérivable en 0"}
-        ]
-      },
-      {
-        "question_number": "Q13",
-        "text": "L'aire de la région délimitée par la courbe d'équation y = cos(ln x) et les droites d'équations $x = e^{\\frac{\\pi}{2}}$ et $x = e^\\pi$ est égale à:",
-        "options": [
-          {"label": "A", "text": "$\\frac{1}{2}(e^\\pi + e^{\\frac{\\pi}{2}})$"},
-          {"label": "B", "text": "$e^\\pi - e^{\\frac{\\pi}{2}}$"},
-          {"label": "C", "text": "$e^\\pi + e^{\\frac{\\pi}{2}}$"},
-          {"label": "D", "text": "$e^\\pi$"}
-        ]
-      },
-      {
-        "question_number": "Q14",
-        "text": "Soit f : [0; α] → IR continue telle que f(x) ≠ -1 et f(x).f(α - x) = 1. $\\int_0^\\alpha \\frac{1}{1+f(x)} dx =$",
-        "options": [
-          {"label": "A", "text": "$\\frac{\\alpha}{2}$"},
-          {"label": "B", "text": "α"},
-          {"label": "C", "text": "1+α"},
-          {"label": "D", "text": "$\\frac{1}{1+\\alpha}$"}
-        ]
-      },
-      {
-        "question_number": "Q15",
-        "text": "Soit la fonction réelle $f(x) = e^{-x}\\sin(x)$ et $f^{(4)}$ sa dérivée d'ordre 4, alors : $f^{(4)}(x) =$",
-        "options": [
-          {"label": "A", "text": "-f(x)"},
-          {"label": "B", "text": "-4f(x)"},
-          {"label": "C", "text": "4f(x)"},
-          {"label": "D", "text": "-3f(x)"}
-        ]
-      },
-      {
-        "question_number": "Q16",
-        "text": "Pour la même fonction ƒ de Q15, $\\int_0^\\pi f(x) dx =$",
-        "options": [
-          {"label": "A", "text": "$\\frac{1}{2}(1-e^{-\\pi})$"},
-          {"label": "B", "text": "$\\frac{1}{2}(1+e^{-\\pi})$"},
-          {"label": "C", "text": "$\\frac{1}{4}(1-e^{-\\pi})$"},
-          {"label": "D", "text": "$\\frac{1}{4}(1+e^{-\\pi})$"}
-        ]
-      },
-      {
-        "question_number": "Q17",
-        "text": "Soit u la solution de l'équation à variable complexe : $z\\bar{z} + 4iz = -3 + 4i$. Alors:",
-        "options": [
-          {"label": "A", "text": "Re(u) × Im(u) = 2"},
-          {"label": "B", "text": "Re(u) × Im(u) = 1"},
-          {"label": "C", "text": "Re(u) + Im(u) = 2"},
-          {"label": "D", "text": "u est un imaginaire pur"}
-        ]
-      },
-      {
-        "question_number": "Q18",
-        "text": "Soient $z_1$ et $z_2$ les solutions de l'équation à variable complexe : $z^2 - 2\\bar{z} + 3 = 0$. $Re(\\frac{z_1}{z_2}) =$",
-        "options": [
-          {"label": "A", "text": "$-\\frac{2\\sqrt{6}}{7}$"},
-          {"label": "B", "text": "$\\frac{2\\sqrt{6}}{7}$"},
-          {"label": "C", "text": "$\\frac{5}{7}$"},
-          {"label": "D", "text": "$-\\frac{5}{7}$"}
-        ]
-      },
-      {
-        "question_number": "Q19",
-        "text": "Soient θ un nombre réel non nul et z un nombre complexe tels que : $z = \\cos^2 θ + i \\sin θ \\cos θ$. La partie réelle du nombre $z^{-3}$ est :",
-        "options": [
-          {"label": "A", "text": "$\\frac{\\cos θ}{\\sin^3 θ}$"},
-          {"label": "B", "text": "$\\frac{\\sin 3θ}{\\sin^3 θ}$"},
-          {"label": "C", "text": "$\\frac{\\cos 3θ}{\\cos^3 θ}$"},
-          {"label": "D", "text": "$\\frac{\\sin θ}{\\cos^3 θ}$"}
-        ]
-      },
-      {
-        "question_number": "Q20",
-        "text": "Le nombre cos 5θ est égal à :",
-        "options": [
-          {"label": "A", "text": "$\\cos^5 θ + 10\\cos^3 θ \\sin^2 θ + 5\\cos θ \\sin^4 θ$"},
-          {"label": "B", "text": "$\\cos^5 θ + 5\\cos^3 θ \\sin^2 θ + 10\\cos θ \\sin^4 θ$"},
-          {"label": "C", "text": "$\\cos^5 θ - 10\\cos^3 θ \\sin^2 θ + \\cos θ \\sin^4 θ$"},
-          {"label": "D", "text": "$\\cos^5 θ - 10\\cos^3 θ \\sin^2 θ + 5\\cos θ \\sin^4 θ$"}
-        ]
-      }
-    ]
-  }
+  "exam_title": "Concours d'accès en 1ère année des ENSA Maroc",
+  "date": "Juillet 2021",
+  "subject": "Mathématiques",
+  "duration": "1H30 min",
+  "instructions": "Non autorisés : Calculatrices, téléphones, smartwatchs et tous types de documents",
+  "questions": [
+    {
+      "question_number": "Q1",
+      "text": "Une condition nécessaire (pas forcément suffisante) pour réussir le concours de l'ENSA est :",
+      "options": [
+        {
+          "label": "A",
+          "text": "Avoir répondu correctement à tout le QCM"
+        },
+        {
+          "label": "B",
+          "text": "Avoir au plus 25% de réponses fausses"
+        },
+        {
+          "label": "C",
+          "text": "Avoir au moins 50% de réponses correctes"
+        },
+        {
+          "label": "D",
+          "text": "Avoir passé le concours"
+        }
+      ]
+    },
+    {
+      "question_number": "Q2",
+      "text": "Le 17 juillet 2021, jour du concours de l'ENSA, est un samedi. Quel jour de la semaine sera le 29 février 2024 ?",
+      "options": [
+        {
+          "label": "A",
+          "text": "mardi"
+        },
+        {
+          "label": "B",
+          "text": "jeudi"
+        },
+        {
+          "label": "C",
+          "text": "samedi"
+        },
+        {
+          "label": "D",
+          "text": "lundi"
+        }
+      ]
+    },
+    {
+      "question_number": "Q3",
+      "text": "Le nombre de diviseurs de N = $72^{10} \\times 162^{50}$ est:",
+      "options": [
+        {
+          "label": "A",
+          "text": "17600"
+        },
+        {
+          "label": "B",
+          "text": "17680"
+        },
+        {
+          "label": "C",
+          "text": "17820"
+        },
+        {
+          "label": "D",
+          "text": "17901"
+        }
+      ]
+    },
+    {
+      "question_number": "Q4",
+      "text": "Soient x et y deux réels non nuls, inverses l'un de l'autre, tels que la somme du carré de leur somme avec la somme de leurs carrés est égale à 10. Le carré du nombre x vaut :",
+      "options": [
+        {
+          "label": "A",
+          "text": "$2 - √{3}$ ou $2 + √{3}$"
+        },
+        {
+          "label": "B",
+          "text": "$1 - √{5}$ ou $1 + √{5}$"
+        },
+        {
+          "label": "C",
+          "text": "$1 - √{3}$ ou $1 + √{3}$"
+        },
+        {
+          "label": "D",
+          "text": "$2 - √{5}$ ou $2 + √{5}$"
+        }
+      ]
+    },
+    {
+      "question_number": "Q5",
+      "text": "Le produit $∏_{k=0}^{9} 3 \\cdot 2^k √[2k]{5}$ =",
+      "options": [
+        {
+          "label": "A",
+          "text": "$3^{511} \\cdot 5^{256}$"
+        },
+        {
+          "label": "B",
+          "text": "$3^{1023} \\cdot 5^{256}$"
+        },
+        {
+          "label": "C",
+          "text": "$3^{1023} \\cdot 5^{512}$"
+        },
+        {
+          "label": "D",
+          "text": "$3^{511} \\cdot 5^{1024}$"
+        }
+      ]
+    },
+    {
+      "question_number": "Q6",
+      "text": "$\\lim_{n \\to +∈fty} 3^n e^{-3n}$ =",
+      "options": [
+        {
+          "label": "A",
+          "text": "1"
+        },
+        {
+          "label": "B",
+          "text": "0"
+        },
+        {
+          "label": "C",
+          "text": "+∞"
+        },
+        {
+          "label": "D",
+          "text": "e"
+        }
+      ]
+    },
+    {
+      "question_number": "Q7",
+      "text": "En remarquant que pour tout n ∈ IN, le nombre $(3 + √{5})^n + (3 - √{5})^n$ est un entier pair, $\\lim_{n \\to +∈fty} \\sin(((3 + √{5})^n)π)$ =",
+      "options": [
+        {
+          "label": "A",
+          "text": "1"
+        },
+        {
+          "label": "B",
+          "text": "-1"
+        },
+        {
+          "label": "C",
+          "text": "0"
+        },
+        {
+          "label": "D",
+          "text": "+∞"
+        }
+      ]
+    },
+    {
+      "question_number": "Q8",
+      "text": "$\\lim_{x \\to \\frac{π}{6}} \\frac{√{3}\\sin x - \\cos x}{x - \\frac{π}{6}}$ =",
+      "options": [
+        {
+          "label": "A",
+          "text": "0"
+        },
+        {
+          "label": "B",
+          "text": "1"
+        },
+        {
+          "label": "C",
+          "text": "2"
+        },
+        {
+          "label": "D",
+          "text": "+∞"
+        }
+      ]
+    },
+    {
+      "question_number": "Q9",
+      "text": "$\\lim_{x \\to 0⁺} x^{\\frac{1}{\\ln(3x)}} =$",
+      "options": [
+        {
+          "label": "A",
+          "text": "e"
+        },
+        {
+          "label": "B",
+          "text": "0"
+        },
+        {
+          "label": "C",
+          "text": "ln 3"
+        },
+        {
+          "label": "D",
+          "text": "1 + e"
+        }
+      ]
+    },
+    {
+      "question_number": "Q10",
+      "text": "Soit f : ℝ → ℝ une fonction T périodique avec T  > 0, telle que $\\lim_{x \\to +∈fty} f(x)$ existe dans IR×. Alors :",
+      "options": [
+        {
+          "label": "A",
+          "text": "f est strictement croissante"
+        },
+        {
+          "label": "B",
+          "text": "f est strictement décroissante"
+        },
+        {
+          "label": "C",
+          "text": "f est la fonction nulle"
+        },
+        {
+          "label": "D",
+          "text": "f est une constante non nulle"
+        }
+      ]
+    },
+    {
+      "question_number": "Q11",
+      "text": "Soit la fonction ƒ définie par : $f(x) = \\begin{cases} x² + x³ \\cos(\\frac{1}{x}) & \\text{si } x \\neq 0 \\\\ f(0) = 0 \\end{cases}$. Soit f' la dérivée d'ordre 1 de f.",
+      "options": [
+        {
+          "label": "A",
+          "text": "f'(0) = 1"
+        },
+        {
+          "label": "B",
+          "text": "f'(0) = 0"
+        },
+        {
+          "label": "C",
+          "text": "f'(0) = 2"
+        },
+        {
+          "label": "D",
+          "text": "f n'est pas dérivable en 0"
+        }
+      ]
+    },
+    {
+      "question_number": "Q12",
+      "text": "Pour la même fonction f de Q11, on note f'' sa dérivée d'ordre 2. Alors :",
+      "options": [
+        {
+          "label": "A",
+          "text": "f''(0) = 0"
+        },
+        {
+          "label": "B",
+          "text": "f''(0) = 1"
+        },
+        {
+          "label": "C",
+          "text": "f''(0) = 2"
+        },
+        {
+          "label": "D",
+          "text": "f n'est pas deux fois dérivable en 0"
+        }
+      ]
+    },
+    {
+      "question_number": "Q13",
+      "text": "L'aire de la région délimitée par la courbe d'équation y = cos(ln x) et les droites d'équations $x = e^{\\frac{π}{2}}$ et $x = e^π$ est égale à:",
+      "options": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}(e^π + e^{\\frac{π}{2}})$"
+        },
+        {
+          "label": "B",
+          "text": "$e^π - e^{\\frac{π}{2}}$"
+        },
+        {
+          "label": "C",
+          "text": "$e^π + e^{\\frac{π}{2}}$"
+        },
+        {
+          "label": "D",
+          "text": "$e^π$"
+        }
+      ]
+    },
+    {
+      "question_number": "Q14",
+      "text": "Soit f : [0; α] → IR continue telle que f(x) ≠ -1 et f(x).f(α - x) = 1. $∈t₀^α \\frac{1}{1+f(x)} dx =$",
+      "options": [
+        {
+          "label": "A",
+          "text": "$\\frac{α}{2}$"
+        },
+        {
+          "label": "B",
+          "text": "α"
+        },
+        {
+          "label": "C",
+          "text": "1+α"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{1+α}$"
+        }
+      ]
+    },
+    {
+      "question_number": "Q15",
+      "text": "Soit la fonction réelle $f(x) = e^{-x}\\sin(x)$ et $f^{(4)}$ sa dérivée d'ordre 4, alors : $f^{(4)}(x) =$",
+      "options": [
+        {
+          "label": "A",
+          "text": "-f(x)"
+        },
+        {
+          "label": "B",
+          "text": "-4f(x)"
+        },
+        {
+          "label": "C",
+          "text": "4f(x)"
+        },
+        {
+          "label": "D",
+          "text": "-3f(x)"
+        }
+      ]
+    },
+    {
+      "question_number": "Q16",
+      "text": "Pour la même fonction ƒ de Q15, $∈t₀^π f(x) dx =$",
+      "options": [
+        {
+          "label": "A",
+          "text": "$\\frac{1}{2}(1-e^{-π})$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{1}{2}(1+e^{-π})$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{1}{4}(1-e^{-π})$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{1}{4}(1+e^{-π})$"
+        }
+      ]
+    },
+    {
+      "question_number": "Q17",
+      "text": "Soit u la solution de l'équation à variable complexe : $z\\bar{z} + 4iz = -3 + 4i$. Alors:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Re(u) × Im(u) = 2"
+        },
+        {
+          "label": "B",
+          "text": "Re(u) × Im(u) = 1"
+        },
+        {
+          "label": "C",
+          "text": "Re(u) + Im(u) = 2"
+        },
+        {
+          "label": "D",
+          "text": "u est un imaginaire pur"
+        }
+      ]
+    },
+    {
+      "question_number": "Q18",
+      "text": "Soient $z₁$ et $z₂$ les solutions de l'équation à variable complexe : $z² - 2\\bar{z} + 3 = 0$. $Re(\\frac{z₁}{z₂}) =$",
+      "options": [
+        {
+          "label": "A",
+          "text": "$-\\frac{2√{6}}{7}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{2√{6}}{7}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{5}{7}$"
+        },
+        {
+          "label": "D",
+          "text": "$-\\frac{5}{7}$"
+        }
+      ]
+    },
+    {
+      "question_number": "Q19",
+      "text": "Soient θ un nombre réel non nul et z un nombre complexe tels que : $z = \\cos² θ + i \\sin θ \\cos θ$. La partie réelle du nombre $z^{-3}$ est :",
+      "options": [
+        {
+          "label": "A",
+          "text": "$\\frac{\\cos θ}{\\sin³ θ}$"
+        },
+        {
+          "label": "B",
+          "text": "$\\frac{\\sin 3θ}{\\sin³ θ}$"
+        },
+        {
+          "label": "C",
+          "text": "$\\frac{\\cos 3θ}{\\cos³ θ}$"
+        },
+        {
+          "label": "D",
+          "text": "$\\frac{\\sin θ}{\\cos³ θ}$"
+        }
+      ]
+    },
+    {
+      "question_number": "Q20",
+      "text": "Le nombre cos 5θ est égal à :",
+      "options": [
+        {
+          "label": "A",
+          "text": "$\\cos⁵ θ + 10\\cos³ θ \\sin² θ + 5\\cos θ \\sin⁴ θ$"
+        },
+        {
+          "label": "B",
+          "text": "$\\cos⁵ θ + 5\\cos³ θ \\sin² θ + 10\\cos θ \\sin⁴ θ$"
+        },
+        {
+          "label": "C",
+          "text": "$\\cos⁵ θ - 10\\cos³ θ \\sin² θ + \\cos θ \\sin⁴ θ$"
+        },
+        {
+          "label": "D",
+          "text": "$\\cos⁵ θ - 10\\cos³ θ \\sin² θ + 5\\cos θ \\sin⁴ θ$"
+        }
+      ]
+    }
+  ]
+}

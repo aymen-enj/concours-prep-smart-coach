@@ -1,354 +1,594 @@
 {
-    "exam_title": "Concours d'accès en 1ère année des ENSA Maroc",
-    "date": "Juillet 2023",
-    "subject": "Physique-Chimie",
-    "duration": "1h30mn",
-    "exercises": [
-      {
-        "exercise_number": 1,
-        "title": "Ondes lumineuses",
-        "questions": [
-          {
-            "question_number": "Q21",
-            "text": "Cocher la bonne proposition",
-            "options": [
-              {"label": "A", "text": "La fréquence d'une onde lumineuse monochromatique ne dépend pas du milieu de propagation."},
-              {"label": "B", "text": "Les ondes lumineuses ont besoin d'un milieu matériel pour se propager."},
-              {"label": "C", "text": "Les ondes sonores se propagent plus vite dans l'air que dans l'eau."},
-              {"label": "D", "text": "La longueur d'onde des ondes lumineuses est plus courte dans l'air que dans le verre."}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 2,
-        "title": "Diffraction des ondes lumineuses",
-        "stimulus": "Pour déterminer le diamètre d'un cheveu, on choisit d'utiliser le phénomène de diffraction des ondes lumineuses. On dispose alors le cheveu parallèlement au plan d'un écran d'observation distant de 1 m et on l'éclaire avec un faisceau laser de longueur d'onde 650nm. Grace à ce montage, on a pu mesurer et représenter les positions Xn des zéros d'intensité de la figure de diffraction observée sur l'écran en fonction de leur ordre n compté par rapport au centre de la frange centrale (cf. Figure).",
-        "programmatic_figure": {
-          "type": "image",
-          "library": "img",
-          "image_url": "/concours/ensa/ensa2023/pc/images/ex2.png",
-          "title": "Courbe Xn en fonction de n",
-          "description": "Graphique représentant Xn (cm) en fonction de n. Les points sont alignés, indiquant une relation linéaire.",
-          "width": "60%"
-        },
-        "questions": [
-          {
-            "question_number": "Q22",
-            "text": "En exploitant cette courbe donner parmi les valeurs suivantes, celle qui se rapproche le plus au diamètre du cheveu ?",
-            "options": [
-              {"label": "A", "text": "55 µm"},
-              {"label": "B", "text": "74 µm"},
-              {"label": "C", "text": "0,87mm"},
-              {"label": "D", "text": "105µm"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 3,
-        "title": "Circuit RC",
-        "stimulus": "On considère le circuit RC ci-contre, avec R = 1,0 kΩ; C = 0,1 µF et E un générateur de tension constante. Le condensateur est initialement déchargé, on ferme le circuit en mettant l'interrupteur en position 1.",
-        "programmatic_figure": {
-          "type": "image",
-          "library": "img",
-          "image_url": "/concours/ensa/ensa2023/pc/images/ex3.png",
-          "title": "Circuit RC",
-          "description": "Schéma d'un circuit RC série avec un générateur E, un interrupteur K, une résistance R et un condensateur C.",
-          "width": "40%"
-        },
-        "questions": [
-          {
-            "question_number": "Q23",
-            "text": "Une seule parmi les propositions suivantes est fausse, laquelle ?",
-            "options": [
-              {"label": "A", "text": "On peut considérer que la charge du condensateur est complètement terminée à t = 0,2 ms."},
-              {"label": "B", "text": "On peut visualiser l'allure de la variation temporelle de la tension au bornes du condensateur en branchant la Voie 1 de l'oscilloscope entre la condensateur et la résistance, et la Masse (la Terre) entre le condensateur et le générateur."},
-              {"label": "C", "text": "L'équation qui régit la tension $u_R$ aux bornes de la résistance ohmique pendant la charge est : $\\frac{du_R}{dt} + \\frac{u_R}{RC} = 0$"},
-              {"label": "D", "text": "Lorsqu'on ouvre l'interrupteur à t = 5 s, l'intensité du courant dans le circuit est nulle."}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 4,
-        "title": "Champ magnétique d'une bobine",
-        "stimulus": "On considère une bobine longue de longueur l = 0,40 m, constituée de 200 spires jointives et traversée par un courant d'intensité I = 2,0 A.\nDonnée : Perméabilité magnétique du vide : $\\mu_0 = 4\\pi 10^{-7}$ SI.",
-        "questions": [
-          {
-            "question_number": "Q24",
-            "text": "La valeur du champ magnétique créé au centre de la bobine est proche de :",
-            "options": [
-              {"label": "A", "text": "5 mT"},
-              {"label": "B", "text": "3,9 mT"},
-              {"label": "C", "text": "0,87 µT"},
-              {"label": "D", "text": "1,3 mT"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 5,
-        "title": "Inductance d'une bobine",
-        "stimulus": "On cherche à déterminer l'inductance L d'une bobine de résistance négligeable. Pour ce faire, on utilise le montage représenté dans la figure ci-contre, comprenant cette bobine, un conducteur ohmique de résistance R=1,5 kΩ, un GBF qui délivre une tension triangulaire de période T et un interrupteur K. Un oscilloscope permet de visualiser les deux tensions, $u_b(t)$ aux bornes de la bobine, et $u_R(t)$ aux bornes de la résistance R. L'oscilloscope affiche les deux traces montrées sur la figure ci-contre. Les sensibilités de l'appareil sont fixées à 2V/div et 0,2 ms/div.",
-        "programmatic_figure": {
-          "type": "image",
-          "library": "img",
-          "image_url": "/concours/ensa/ensa2023/pc/images/ex5.png",
-          "title": "Montage et oscillogramme",
-          "description": "Schéma d'un circuit avec GBF, interrupteur K, bobine L, résistance R. Oscillogramme montrant deux signaux: $u_b(t)$ (tension aux bornes de la bobine) et $u_R(t)$ (tension aux bornes de la résistance). $u_R(t)$ est triangulaire et $u_b(t)$ est un signal carré.",
-          "width": "50%"
-        },
-        "questions": [
-          {
-            "question_number": "Q25",
-            "text": "Quelle est la relation qui lie $u_b$ à $u_R$ quand l'interrupteur est fermé ?",
-            "options": [
-              {"label": "A", "text": "$u_R = \\frac{L}{R} \\frac{du_b}{dt}$"},
-              {"label": "B", "text": "$u_b = \\frac{L}{R} \\frac{du_R}{dt}$"},
-              {"label": "C", "text": "$u_b = \\frac{L}{R} \\frac{du_R}{dt}$"},
-              {"label": "D", "text": "$u_R = -\\frac{L}{R} \\frac{du_b}{dt}$"}
-            ]
-          },
-          {
-            "question_number": "Q26",
-            "text": "En utilisant la question précédente et les traces de l'oscilloscope sur une demi-période, déterminer la valeur de L. Elle est la plus proche de :",
-            "programmatic_figure": {
-              "type": "image",
-              "library": "img",
-              "image_url": "/concours/ensa/ensa2023/pc/images/q26.png",
-              "title": "Traces d'oscilloscope",
-              "description": "Détail des traces d'oscilloscope montrant les signaux sur une demi-période",
-              "width": "40%"
+  "exam_title": "Concours d'accès en 1ère année des ENSA Maroc",
+  "date": "Juillet 2023",
+  "subject": "Physique-Chimie",
+  "duration": "1h30mn",
+  "exercises": [
+    {
+      "exercise_number": 1,
+      "title": "Ondes lumineuses",
+      "questions": [
+        {
+          "question_number": "Q21",
+          "text": "Cocher la bonne proposition",
+          "options": [
+            {
+              "label": "A",
+              "text": "La fréquence d'une onde lumineuse monochromatique ne dépend pas du milieu de propagation."
             },
-            "options": [
-              {"label": "A", "text": "0,05H"},
-              {"label": "B", "text": "0,1mH"},
-              {"label": "C", "text": "0,1H"},
-              {"label": "D", "text": "1,3 mH"}
-            ]
-          }
-        ]
+            {
+              "label": "B",
+              "text": "Les ondes lumineuses ont besoin d'un milieu matériel pour se propager."
+            },
+            {
+              "label": "C",
+              "text": "Les ondes sonores se propagent plus vite dans l'air que dans l'eau."
+            },
+            {
+              "label": "D",
+              "text": "La longueur d'onde des ondes lumineuses est plus courte dans l'air que dans le verre."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 2,
+      "title": "Diffraction des ondes lumineuses",
+      "stimulus": "Pour déterminer le diamètre d'un cheveu, on choisit d'utiliser le phénomène de diffraction des ondes lumineuses. On dispose alors le cheveu parallèlement au plan d'un écran d'observation distant de 1 m et on l'éclaire avec un faisceau laser de longueur d'onde 650nm. Grace à ce montage, on a pu mesurer et représenter les positions Xn des zéros d'intensité de la figure de diffraction observée sur l'écran en fonction de leur ordre n compté par rapport au centre de la frange centrale (cf. Figure).",
+      "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2023/pc/images/ex2.png",
+        "title": "Courbe Xn en fonction de n",
+        "description": "Graφque représentant Xn (cm) en fonction de n. Les points sont alignés, indiquant une relation linéaire.",
+        "width": "60%"
       },
-      {
-        "exercise_number": 6,
-        "title": "Circuit RLC série",
-        "stimulus": "On considère un circuit RLC série alimenté par un GBF délivrant une tension alternative sinusoïdale. Les valeurs de R, L et C étant inconnues. On maintient constante la tension efficace U aux bornes du GBF: U = 5 V. On fait varier la fréquence f du GBF dans la gamme 800 - 1200 Hz et on relève la valeur efficace de l'intensité I du courant circulant dans le circuit. En exploitant cette courbe :\nOn donne: $\\sqrt{2} = 1,41$",
-        "programmatic_figure": {
-          "type": "image",
-          "library": "img",
-          "image_url": "/concours/ensa/ensa2023/pc/images/ex6.png",
-          "title": "Courbe de résonance",
-          "description": "Graphique de l'intensité efficace I (mA) en fonction de la fréquence f (Hz). La courbe montre un pic de résonance.",
-          "width": "60%"
+      "questions": [
+        {
+          "question_number": "Q22",
+          "text": "En exploitant cette courbe donner parmi les valeurs suivantes, celle qui se rapproche le plus au diamètre du cheveu ?",
+          "options": [
+            {
+              "label": "A",
+              "text": "55 µm"
+            },
+            {
+              "label": "B",
+              "text": "74 µm"
+            },
+            {
+              "label": "C",
+              "text": "0,87mm"
+            },
+            {
+              "label": "D",
+              "text": "105µm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 3,
+      "title": "Circuit RC",
+      "stimulus": "On considère le circuit RC ci-contre, avec R = 1,0 kΩ; C = 0,1 µF et E un générateur de tension constante. Le condensateur est initialement déchargé, on ferme le circuit en mettant l'interrupteur en position 1.",
+      "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2023/pc/images/ex3.png",
+        "title": "Circuit RC",
+        "description": "Schéma d'un circuit RC série avec un générateur E, un interrupteur K, une résistance R et un condensateur C.",
+        "width": "40%"
+      },
+      "questions": [
+        {
+          "question_number": "Q23",
+          "text": "Une seule parmi les propositions suivantes est fausse, laquelle ?",
+          "options": [
+            {
+              "label": "A",
+              "text": "On peut considérer que la charge du condensateur est complètement terminée à t = 0,2 ms."
+            },
+            {
+              "label": "B",
+              "text": "On peut visualiser l'allure de la variation temporelle de la tension au bornes du condensateur en branchant la Voie 1 de l'oscilloscope entre la condensateur et la résistance, et la Masse (la Terre) entre le condensateur et le générateur."
+            },
+            {
+              "label": "C",
+              "text": "L'équation qui régit la tension $u_R$ aux bornes de la résistance ohmique pendant la charge est : $\\frac{du_R}{dt} + \\frac{u_R}{RC} = 0$"
+            },
+            {
+              "label": "D",
+              "text": "Lorsqu'on ouvre l'interrupteur à t = 5 s, l'intensité du courant dans le circuit est nulle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 4,
+      "title": "Champ magnétique d'une bobine",
+      "stimulus": "On considère une bobine longue de longueur l = 0,40 m, constituée de 200 sπres jointives et traversée par un courant d'intensité I = 2,0 A.\nDonnée : Perméabilité magnétique du vide : $μ₀ = 4π 10^{-7}$ SI.",
+      "questions": [
+        {
+          "question_number": "Q24",
+          "text": "La valeur du champ magnétique créé au centre de la bobine est proche de :",
+          "options": [
+            {
+              "label": "A",
+              "text": "5 mT"
+            },
+            {
+              "label": "B",
+              "text": "3,9 mT"
+            },
+            {
+              "label": "C",
+              "text": "0,87 µT"
+            },
+            {
+              "label": "D",
+              "text": "1,3 mT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 5,
+      "title": "Inductance d'une bobine",
+      "stimulus": "On cherche à déterminer l'inductance L d'une bobine de résistance négligeable. Pour ce faire, on utilise le montage représenté dans la figure ci-contre, comprenant cette bobine, un conducteur ohmique de résistance R=1,5 kΩ, un GBF qui délivre une tension triangulaire de période T et un interrupteur K. Un oscilloscope permet de visualiser les deux tensions, $u_b(t)$ aux bornes de la bobine, et $u_R(t)$ aux bornes de la résistance R. L'oscilloscope affiche les deux traces montrées sur la figure ci-contre. Les sensibilités de l'appareil sont fixées à 2V/div et 0,2 ms/div.",
+      "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2023/pc/images/ex5.png",
+        "title": "Montage et oscillogramme",
+        "description": "Schéma d'un circuit avec GBF, interrupteur K, bobine L, résistance R. Oscillogramme montrant deux signaux: $u_b(t)$ (tension aux bornes de la bobine) et $u_R(t)$ (tension aux bornes de la résistance). $u_R(t)$ est triangulaire et $u_b(t)$ est un signal carré.",
+        "width": "50%"
+      },
+      "questions": [
+        {
+          "question_number": "Q25",
+          "text": "Quelle est la relation qui lie $u_b$ à $u_R$ quand l'interrupteur est fermé ?",
+          "options": [
+            {
+              "label": "A",
+              "text": "$u_R = \\frac{L}{R} \\frac{du_b}{dt}$"
+            },
+            {
+              "label": "B",
+              "text": "$u_b = \\frac{L}{R} \\frac{du_R}{dt}$"
+            },
+            {
+              "label": "C",
+              "text": "$u_b = \\frac{L}{R} \\frac{du_R}{dt}$"
+            },
+            {
+              "label": "D",
+              "text": "$u_R = -\\frac{L}{R} \\frac{du_b}{dt}$"
+            }
+          ]
         },
-        "questions": [
-          {
-            "question_number": "Q27",
-            "text": "On trouve que la valeur de R est très proche de:",
-            "options": [
-              {"label": "A", "text": "0,01 kΩ"},
-              {"label": "B", "text": "1 kΩ"},
-              {"label": "C", "text": "1 Ω"},
-              {"label": "D", "text": "100 Ω"}
-            ]
+        {
+          "question_number": "Q26",
+          "text": "En utilisant la question précédente et les traces de l'oscilloscope sur une demi-période, déterminer la valeur de L. Elle est la plus proche de :",
+          "programmatic_figure": {
+            "type": "image",
+            "library": "img",
+            "image_url": "/concours/ensa/ensa2023/pc/images/q26.png",
+            "title": "Traces d'oscilloscope",
+            "description": "Détail des traces d'oscilloscope montrant les signaux sur une demi-période",
+            "width": "40%"
           },
-          {
-            "question_number": "Q28",
-            "text": "Le facteur de qualité du circuit est proche de :",
-            "options": [
-              {"label": "A", "text": "10"},
-              {"label": "B", "text": "5,5"},
-              {"label": "C", "text": "9"},
-              {"label": "D", "text": "7"}
-            ]
-          },
-          {
-            "question_number": "Q29",
-            "text": "La valeur de l'inductance de la bobine est proche de :",
-            "options": [
-              {"label": "A", "text": "0,11 H"},
-              {"label": "B", "text": "22 mH"},
-              {"label": "C", "text": "2,2 H"},
-              {"label": "D", "text": "1,1 H"}
-            ]
-          }
-        ]
+          "options": [
+            {
+              "label": "A",
+              "text": "0,05H"
+            },
+            {
+              "label": "B",
+              "text": "0,1mH"
+            },
+            {
+              "label": "C",
+              "text": "0,1H"
+            },
+            {
+              "label": "D",
+              "text": "1,3 mH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 6,
+      "title": "Circuit RLC série",
+      "stimulus": "On considère un circuit RLC série alimenté par un GBF délivrant une tension alternative sinusoïdale. Les valeurs de R, L et C étant inconnues. On maintient constante la tension efficace U aux bornes du GBF: U = 5 V. On fait varier la fréquence f du GBF dans la gamme 800 - 1200 Hz et on relève la valeur efficace de l'intensité I du courant circulant dans le circuit. En exploitant cette courbe :\nOn donne: $√{2} = 1,41$",
+      "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2023/pc/images/ex6.png",
+        "title": "Courbe de résonance",
+        "description": "Graφque de l'intensité efficace I (mA) en fonction de la fréquence f (Hz). La courbe montre un πc de résonance.",
+        "width": "60%"
       },
-      {
-        "exercise_number": 7,
+      "questions": [
+        {
+          "question_number": "Q27",
+          "text": "On trouve que la valeur de R est très proche de:",
+          "options": [
+            {
+              "label": "A",
+              "text": "0,01 kΩ"
+            },
+            {
+              "label": "B",
+              "text": "1 kΩ"
+            },
+            {
+              "label": "C",
+              "text": "1 Ω"
+            },
+            {
+              "label": "D",
+              "text": "100 Ω"
+            }
+          ]
+        },
+        {
+          "question_number": "Q28",
+          "text": "Le facteur de qualité du circuit est proche de :",
+          "options": [
+            {
+              "label": "A",
+              "text": "10"
+            },
+            {
+              "label": "B",
+              "text": "5,5"
+            },
+            {
+              "label": "C",
+              "text": "9"
+            },
+            {
+              "label": "D",
+              "text": "7"
+            }
+          ]
+        },
+        {
+          "question_number": "Q29",
+          "text": "La valeur de l'inductance de la bobine est proche de :",
+          "options": [
+            {
+              "label": "A",
+              "text": "0,11 H"
+            },
+            {
+              "label": "B",
+              "text": "22 mH"
+            },
+            {
+              "label": "C",
+              "text": "2,2 H"
+            },
+            {
+              "label": "D",
+              "text": "1,1 H"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 7,
+      "title": "Accélération d'un ion",
+      "stimulus": "Un ion de charge q positive et de poids négligeable, initialement immobile, est accéléré à l'entrée d'une plaque métallique P1, portant à un potentiel électrique U1, pour atteindre une autre plaque métallique P2 portant le potentiel électrique U2 (cf. Figure ci-contre).",
+      "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2023/pc/images/ex7.png",
         "title": "Accélération d'un ion",
-        "stimulus": "Un ion de charge q positive et de poids négligeable, initialement immobile, est accéléré à l'entrée d'une plaque métallique P1, portant à un potentiel électrique U1, pour atteindre une autre plaque métallique P2 portant le potentiel électrique U2 (cf. Figure ci-contre).",
-        "programmatic_figure": {
-          "type": "image",
-          "library": "img",
-          "image_url": "/concours/ensa/ensa2023/pc/images/ex7.png",
-          "title": "Accélération d'un ion",
-          "description": "Schéma montrant deux plaques P1 et P2 dans une zone d'accélération. Un champ magnétique B est présent après la plaque P2.",
-          "width": "50%"
+        "description": "Schéma montrant deux plaques P1 et P2 dans une zone d'accélération. Un champ magnétique B est présent après la plaque P2.",
+        "width": "50%"
+      },
+      "questions": [
+        {
+          "question_number": "Q30",
+          "text": "A l'arrivée en P2, la vitesse de la particule a l'expression suivante :",
+          "options": [
+            {
+              "label": "A",
+              "text": "$v = √{\\frac{2q(U₁-U₂)}{m}}$"
+            },
+            {
+              "label": "B",
+              "text": "$v = √{\\frac{2q(U₂-U₁)}{m}}$"
+            },
+            {
+              "label": "C",
+              "text": "$v = √{\\frac{q(U₂-U₁)}{m}}$"
+            },
+            {
+              "label": "D",
+              "text": "$v = √{\\frac{2q(U₁-U₂)}{m}}$"
+            }
+          ]
         },
-        "questions": [
-          {
-            "question_number": "Q30",
-            "text": "A l'arrivée en P2, la vitesse de la particule a l'expression suivante :",
-            "options": [
-              {"label": "A", "text": "$v = \\sqrt{\\frac{2q(U_1-U_2)}{m}}$"},
-              {"label": "B", "text": "$v = \\sqrt{\\frac{2q(U_2-U_1)}{m}}$"},
-              {"label": "C", "text": "$v = \\sqrt{\\frac{q(U_2-U_1)}{m}}$"},
-              {"label": "D", "text": "$v = \\sqrt{\\frac{2q(U_1-U_2)}{m}}$"}
-            ]
-          },
-          {
-            "question_number": "Q31",
-            "text": "A la sortie de la plaque P2, l'ion rentre dans une zone où règne un champs magnétique B uniforme (cf. figure). Quel est l'expression du rayon de courbure de la trajectoire de la particule ?",
-            "options": [
-              {"label": "A", "text": "$r = \\frac{1}{B}\\sqrt{\\frac{2m(U_2-U_1)}{q}}$"},
-              {"label": "B", "text": "$r = \\frac{1}{B}\\sqrt{\\frac{q(U_2-U_1)}{m}}$"},
-              {"label": "C", "text": "$r = \\frac{1}{B}\\sqrt{\\frac{2m(U_1-U_2)}{q}}$"},
-              {"label": "D", "text": "$r = \\sqrt{\\frac{2m(U_2-U_1)}{B}}$"}
-            ]
-          }
-        ]
+        {
+          "question_number": "Q31",
+          "text": "A la sortie de la plaque P2, l'ion rentre dans une zone où règne un champs magnétique B uniforme (cf. figure). Quel est l'expression du rayon de courbure de la trajectoire de la particule ?",
+          "options": [
+            {
+              "label": "A",
+              "text": "$r = \\frac{1}{B}√{\\frac{2m(U₂-U₁)}{q}}$"
+            },
+            {
+              "label": "B",
+              "text": "$r = \\frac{1}{B}√{\\frac{q(U₂-U₁)}{m}}$"
+            },
+            {
+              "label": "C",
+              "text": "$r = \\frac{1}{B}√{\\frac{2m(U₁-U₂)}{q}}$"
+            },
+            {
+              "label": "D",
+              "text": "$r = √{\\frac{2m(U₂-U₁)}{B}}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 8,
+      "title": "Bille et ressort sur une πste circulaire",
+      "stimulus": "L'une des extrémités d'un ressort de raideur k est fixée à un μr et l'autre est comprimée d'une longueur d. On place alors une petite bille de masse m à l'extrémité libre du ressort. A t=0, on libère brusquement le ressort qui se détend et pousse la bille vers une πste sous forme d'une rampe verticale et circulaire (AB) de rayon R et d'angle d'ouverture α (cf. figure ci - contre). On supposera que tous les déplacements de la bille se font sans frottement et se déroulant dans le repère du laboratoire, supposé galiléen.",
+      "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2023/pc/images/ex8.png",
+        "title": "Bille et ressort",
+        "description": "Schéma d'un ressort comprimé avec une bille. La bille est lancée sur une πste circulaire AB, puis quitte la πste en B et atterrit en D.",
+        "width": "50%"
       },
-      {
-        "exercise_number": 8,
-        "title": "Bille et ressort sur une piste circulaire",
-        "stimulus": "L'une des extrémités d'un ressort de raideur k est fixée à un mur et l'autre est comprimée d'une longueur d. On place alors une petite bille de masse m à l'extrémité libre du ressort. A t=0, on libère brusquement le ressort qui se détend et pousse la bille vers une piste sous forme d'une rampe verticale et circulaire (AB) de rayon R et d'angle d'ouverture α (cf. figure ci - contre). On supposera que tous les déplacements de la bille se font sans frottement et se déroulant dans le repère du laboratoire, supposé galiléen.",
-        "programmatic_figure": {
-          "type": "image",
-          "library": "img",
-          "image_url": "/concours/ensa/ensa2023/pc/images/ex8.png",
-          "title": "Bille et ressort",
-          "description": "Schéma d'un ressort comprimé avec une bille. La bille est lancée sur une piste circulaire AB, puis quitte la piste en B et atterrit en D.",
-          "width": "50%"
+      "questions": [
+        {
+          "question_number": "Q32",
+          "text": "Quelle doit être la valeur minimale ($k_{min}$) de la raideur du ressort pour que la masse quitte la πste?",
+          "options": [
+            {
+              "label": "A",
+              "text": "$k_{min}= \\frac{2mgRα}{d²}$"
+            },
+            {
+              "label": "B",
+              "text": "$k_{min}= \\frac{2mgR}{d²}(1-\\cosα)$"
+            },
+            {
+              "label": "C",
+              "text": "$k_{min}= \\frac{mgR}{d²}(1+\\cosα)$"
+            },
+            {
+              "label": "D",
+              "text": "$k_{min}= \\frac{mgd}{R²}(1+\\cosα)$"
+            }
+          ]
         },
-        "questions": [
-          {
-            "question_number": "Q32",
-            "text": "Quelle doit être la valeur minimale ($k_{min}$) de la raideur du ressort pour que la masse quitte la piste?",
-            "options": [
-              {"label": "A", "text": "$k_{min}= \\frac{2mgR\\alpha}{d^2}$"},
-              {"label": "B", "text": "$k_{min}= \\frac{2mgR}{d^2}(1-\\cos\\alpha)$"},
-              {"label": "C", "text": "$k_{min}= \\frac{mgR}{d^2}(1+\\cos\\alpha)$"},
-              {"label": "D", "text": "$k_{min}= \\frac{mgd}{R^2}(1+\\cos\\alpha)$"}
-            ]
-          },
-          {
-            "question_number": "Q33",
-            "text": "La condition précédente étant réalisée. On note $v_0$ la norme de la vitesse avec laquelle la particule quitte la piste. A quelle distance D de son point de décollage la masse touchera-t-elle le sol ?",
-            "options": [
-              {"label": "A", "text": "$D = \\frac{v_0^2 \\sin 2\\alpha}{2g} \\sqrt{1 - \\frac{gR}{v_0^2 \\cos^2\\alpha}}$"},
-              {"label": "B", "text": "$D = \\frac{v_0^2 \\sin 2\\alpha}{g}$"},
-              {"label": "C", "text": "$D = \\frac{v_0^2 \\sin 2\\alpha}{2g}$"},
-              {"label": "D", "text": "$D = \\frac{v_0^2 \\sin 2\\alpha}{2g} (1 + \\sqrt{1 + \\frac{gR}{v_0^2 \\cos^2\\alpha}})$"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 9,
-        "title": "Sonar",
-        "stimulus": "Un bateau utilise un sonar pour scruter la profondeur de l'océan. L'appareil envoie verticalement vers le fond une impulsion de durée 1ms et enregistre le temps s'écoulant entre l'instant du début de l'émission et la détection de l'impulsion réfléchie. On admettra que cette dernière doit parvenir au plus tôt 0,5ms après la fin de l'émission pour qu'elle soit clairement distinguée du signal émis.\nDonnée : la vitesse de propagation du son dans l'eau est de 1500 m/s.",
-        "questions": [
-          {
-            "question_number": "Q34",
-            "text": "Quelle profondeur minimale un tel dispositif peut-il mesurer?",
-            "options": [
-              {"label": "A", "text": "2,26 m"},
-              {"label": "B", "text": "1,13 m"},
-              {"label": "C", "text": "0,375m"},
-              {"label": "D", "text": "113m"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 10,
-        "title": "Scintigraphie cardiaque",
-        "stimulus": "Lors d'une scintigraphie cardiaque, on utilise une solution de chlorure de thallium 201 dont l'activité volumique $A_v$ est de 37 MBq.mL⁻¹. Cet examen nécessite l'injection par voie intraveineuse d'une solution d'activité $A_0$ de 78 MBq chez un individu de 70 kg. On visualise les premières images du cœur grâce à une caméra spécifique quelques minutes seulement après l'injection.\nDonnées : Temps de demi-vie du thallium 201 : T ≈ 3 jours ; ln 26 ≈ 3,3 ; ln 12,3 ≈ 2,5 ; ln 2 ≈ 0,7",
-        "questions": [
-          {
-            "question_number": "Q35",
-            "text": "Calculer le volume V de la solution de chlorure de thallium 201 à injecter à un patient de 70 kg.",
-            "options": [
-              {"label": "A", "text": "2,1mL"},
-              {"label": "B", "text": "1,89mL"},
-              {"label": "C", "text": "147,5mL"},
-              {"label": "D", "text": "70 mL"}
-            ]
-          },
-          {
-            "question_number": "Q36",
-            "text": "On estime que les résultats de l'examen sont exploitables tant que l'activité du traceur est supérieure à 3 MBq. Au bout de combien de jours, environ, faudra -t-il opérer une nouvelle injection ?",
-            "options": [
-              {"label": "A", "text": "10"},
-              {"label": "B", "text": "14"},
-              {"label": "C", "text": "6"},
-              {"label": "D", "text": "30"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 11,
-        "title": "Dosage de peroxyde d'hydrogène",
-        "stimulus": "Les lentilles de contact doivent être décontaminées et nettoyées après usage. Une solution d'eau oxygénée peut être utilisée à cet effet. Afin de déterminer le titre massique en peroxyde d'hydrogène de cette solution, on réalise un dosage d'un échantillon de volume V = 10mL par une solution de permanganate de potassium de concentration C = 0,200 mol. L⁻¹. Le volume versé à l'équivalence vaut 17,6 mL.\nDonnées : couples oxydant-réducteur mis en jeu : MnO₄⁻/Mn²⁺; O₂/H₂O₂ ; M(O)=16g ; M(H)=1g",
-        "questions": [
-          {
-            "question_number": "Q37",
-            "text": "La concentration massique en g.L⁻¹ de la solution de peroxyde d'hydrogène est approximativement :",
-            "options": [
-              {"label": "A", "text": "15"},
-              {"label": "B", "text": "12"},
-              {"label": "C", "text": "30"},
-              {"label": "D", "text": "5"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 12,
-        "title": "Solution aqueuse de monoacide HA",
-        "stimulus": "Une solution aqueuse, de volume V = 500mL, a été préparée en dissolvant une quantité $n_a = 1,5$ mmol d'un monoacide HA dans le volume d'eau distillé nécessaire. L'acide HA réagit avec l'eau selon la réaction d'équation : HA + H₂O ⇌ A⁻ + H₃O⁺. Lorsque le système n'évolue plus, le pH de la solution vaut 5.",
-        "questions": [
-          {
-            "question_number": "Q38",
-            "text": "La valeur de la constante d'équilibre est proche de :",
-            "options": [
-              {"label": "A", "text": "$2,3.10^{-3}$"},
-              {"label": "B", "text": "$3,33.10^{-8}$"},
-              {"label": "C", "text": "$3,33.10^{-11}$"},
-              {"label": "D", "text": "$13,2.10^{-2}$"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 13,
-        "title": "Électrolyse du chlorure de fer (III)",
-        "stimulus": "On réalise l'électrolyse de 250 mL d'une solution de chlorure de fer (III), (Fe³⁺,3Cl⁻), de concentration C = 2,00.10⁻²mol.L⁻¹ dans un tube en U avec des électrodes de graphite. On obtient un dégagement du dichlore à une électrode et des ions fer (II) Fe²⁺ à l'autre. L'électrolyse dure un quart d'heure, l'intensité du courant électrique qui traverse l'électrolyseur est maintenue constante et égale à 500 mA. la température est égale à 27°C et la pression vaut P = 1,00.10⁵Pa. L'équation de la réaction d'électrolyse est : $2Fe^{3+} + 2Cl^- \\rightarrow 2Fe^{2+} + Cl_{2(g)}$\nDonnées : la constante de Faraday F = 96500 C.mol⁻¹; constante des GP, R = 8,32 J.mol⁻¹.K⁻¹;T(K) = t(°C) + 273",
-        "questions": [
-          {
-            "question_number": "Q39",
-            "text": "Quelle est en Coulomb la quantité d'électricité mise en jeu ?",
-            "options": [
-              {"label": "A", "text": "450"},
-              {"label": "B", "text": "225"},
-              {"label": "C", "text": "125"},
-              {"label": "D", "text": "0,125"}
-            ]
-          },
-          {
-            "question_number": "Q40",
-            "text": "Quel est le volume du dichlore qui s'est dégagé ?",
-            "options": [
-              {"label": "A", "text": "29 mL"},
-              {"label": "B", "text": "58 mL"},
-              {"label": "C", "text": "45 mL"},
-              {"label": "D", "text": "120 mL"}
-            ]
-          }
-        ]
-      }
-    ]
-  }
+        {
+          "question_number": "Q33",
+          "text": "La condition précédente étant réalisée. On note $v₀$ la norme de la vitesse avec laquelle la particule quitte la πste. A quelle distance D de son point de décollage la masse touchera-t-elle le sol ?",
+          "options": [
+            {
+              "label": "A",
+              "text": "$D = \\frac{v₀² \\sin 2α}{2g} √{1 - \\frac{gR}{v₀² \\cos²α}}$"
+            },
+            {
+              "label": "B",
+              "text": "$D = \\frac{v₀² \\sin 2α}{g}$"
+            },
+            {
+              "label": "C",
+              "text": "$D = \\frac{v₀² \\sin 2α}{2g}$"
+            },
+            {
+              "label": "D",
+              "text": "$D = \\frac{v₀² \\sin 2α}{2g} (1 + √{1 + \\frac{gR}{v₀² \\cos²α}})$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 9,
+      "title": "Sonar",
+      "stimulus": "Un bateau utilise un sonar pour scruter la profondeur de l'océan. L'appareil envoie verticalement vers le fond une impulsion de durée 1ms et enregistre le temps s'écoulant entre l'instant du début de l'émission et la détection de l'impulsion réfléchie. On admettra que cette dernière doit parvenir au plus tôt 0,5ms après la fin de l'émission pour qu'elle soit clairement distinguée du signal émis.\nDonnée : la vitesse de propagation du son dans l'eau est de 1500 m/s.",
+      "questions": [
+        {
+          "question_number": "Q34",
+          "text": "Quelle profondeur minimale un tel dispositif peut-il mesurer?",
+          "options": [
+            {
+              "label": "A",
+              "text": "2,26 m"
+            },
+            {
+              "label": "B",
+              "text": "1,13 m"
+            },
+            {
+              "label": "C",
+              "text": "0,375m"
+            },
+            {
+              "label": "D",
+              "text": "113m"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 10,
+      "title": "Scintigraφe cardiaque",
+      "stimulus": "Lors d'une scintigraφe cardiaque, on utilise une solution de chlorure de thallium 201 dont l'activité volumique $A_v$ est de 37 MBq.mL⁻¹. Cet examen nécessite l'injection par voie intraveineuse d'une solution d'activité $A₀$ de 78 MBq chez un individu de 70 kg. On visualise les premières images du cœur grâce à une caméra spécifique quelques minutes seulement après l'injection.\nDonnées : Temps de demi-vie du thallium 201 : T ≈ 3 jours ; ln 26 ≈ 3,3 ; ln 12,3 ≈ 2,5 ; ln 2 ≈ 0,7",
+      "questions": [
+        {
+          "question_number": "Q35",
+          "text": "Calculer le volume V de la solution de chlorure de thallium 201 à injecter à un patient de 70 kg.",
+          "options": [
+            {
+              "label": "A",
+              "text": "2,1mL"
+            },
+            {
+              "label": "B",
+              "text": "1,89mL"
+            },
+            {
+              "label": "C",
+              "text": "147,5mL"
+            },
+            {
+              "label": "D",
+              "text": "70 mL"
+            }
+          ]
+        },
+        {
+          "question_number": "Q36",
+          "text": "On estime que les résultats de l'examen sont exploitables tant que l'activité du traceur est supérieure à 3 MBq. Au bout de combien de jours, environ, faudra -t-il opérer une nouvelle injection ?",
+          "options": [
+            {
+              "label": "A",
+              "text": "10"
+            },
+            {
+              "label": "B",
+              "text": "14"
+            },
+            {
+              "label": "C",
+              "text": "6"
+            },
+            {
+              "label": "D",
+              "text": "30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 11,
+      "title": "Dosage de peroxyde d'hydrogène",
+      "stimulus": "Les lentilles de contact doivent être décontaminées et nettoyées après usage. Une solution d'eau oxygénée peut être utilisée à cet effet. Afin de déterminer le titre massique en peroxyde d'hydrogène de cette solution, on réalise un dosage d'un échantillon de volume V = 10mL par une solution de permanganate de potassium de concentration C = 0,200 mol. L⁻¹. Le volume versé à l'équivalence vaut 17,6 mL.\nDonnées : couples oxydant-réducteur mis en jeu : MnO₄⁻/Mn²⁺; O₂/H₂O₂ ; M(O)=16g ; M(H)=1g",
+      "questions": [
+        {
+          "question_number": "Q37",
+          "text": "La concentration massique en g.L⁻¹ de la solution de peroxyde d'hydrogène est approximativement :",
+          "options": [
+            {
+              "label": "A",
+              "text": "15"
+            },
+            {
+              "label": "B",
+              "text": "12"
+            },
+            {
+              "label": "C",
+              "text": "30"
+            },
+            {
+              "label": "D",
+              "text": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 12,
+      "title": "Solution aqueuse de monoacide HA",
+      "stimulus": "Une solution aqueuse, de volume V = 500mL, a été préparée en dissolvant une quantité $n_a = 1,5$ mmol d'un monoacide HA dans le volume d'eau distillé nécessaire. L'acide HA réagit avec l'eau selon la réaction d'équation : HA + H₂O ⇌ A⁻ + H₃O⁺. Lorsque le système n'évolue plus, le pH de la solution vaut 5.",
+      "questions": [
+        {
+          "question_number": "Q38",
+          "text": "La valeur de la constante d'équilibre est proche de :",
+          "options": [
+            {
+              "label": "A",
+              "text": "$2,3.10^{-3}$"
+            },
+            {
+              "label": "B",
+              "text": "$3,33.10^{-8}$"
+            },
+            {
+              "label": "C",
+              "text": "$3,33.10^{-11}$"
+            },
+            {
+              "label": "D",
+              "text": "$13,2.10^{-2}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 13,
+      "title": "Électrolyse du chlorure de fer (III)",
+      "stimulus": "On réalise l'électrolyse de 250 mL d'une solution de chlorure de fer (III), (Fe³⁺,3Cl⁻), de concentration C = 2,00.10⁻²mol.L⁻¹ dans un tube en U avec des électrodes de graφte. On obtient un dégagement du dichlore à une électrode et des ions fer (II) Fe²⁺ à l'autre. L'électrolyse dure un quart d'heure, l'intensité du courant électrique qui traverse l'électrolyseur est maintenue constante et égale à 500 mA. la température est égale à 27°C et la pression vaut P = 1,00.10⁵Pa. L'équation de la réaction d'électrolyse est : $2Fe^{3+} + 2Cl⁻ \\rightarrow 2Fe^{2+} + Cl_{2(g)}$\nDonnées : la constante de Faraday F = 96500 C.mol⁻¹; constante des GP, R = 8,32 J.mol⁻¹.K⁻¹;T(K) = t(°C) + 273",
+      "questions": [
+        {
+          "question_number": "Q39",
+          "text": "Quelle est en Coulomb la quantité d'électricité mise en jeu ?",
+          "options": [
+            {
+              "label": "A",
+              "text": "450"
+            },
+            {
+              "label": "B",
+              "text": "225"
+            },
+            {
+              "label": "C",
+              "text": "125"
+            },
+            {
+              "label": "D",
+              "text": "0,125"
+            }
+          ]
+        },
+        {
+          "question_number": "Q40",
+          "text": "Quel est le volume du dichlore qui s'est dégagé ?",
+          "options": [
+            {
+              "label": "A",
+              "text": "29 mL"
+            },
+            {
+              "label": "B",
+              "text": "58 mL"
+            },
+            {
+              "label": "C",
+              "text": "45 mL"
+            },
+            {
+              "label": "D",
+              "text": "120 mL"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,350 +1,590 @@
 {
-    "exam_title": "Concours d'accès en 1ère année des ENSA Maroc",
-    "date": "Juillet 2021",
-    "subject": "Physique Chimie",
-    "duration": "1 heure 30 minutes",
-    "exercises": [
-      {
-        "exercise_number": 1,
+  "exam_title": "Concours d'accès en 1ère année des ENSA Maroc",
+  "date": "Juillet 2021",
+  "subject": "Physique Chimie",
+  "duration": "1 heure 30 minutes",
+  "exercises": [
+    {
+      "exercise_number": 1,
+      "title": "Lancer d'une balle de tennis",
+      "stimulus": "Un joueur lance une balle de tennis de diamètre 5 cm verticalement et la frappe avec sa raquette quand le centre d'inertie de la balle est situé à une hauteur H = 2,25 m du sol. Il lui comμnique alors une vitesse horizontale de valeur $v₀$. On suppose que les frottements dues à l'air sont négligeables et que la trajectoire de ce mobile dans ce repère est décrite par les positions occupées par le centre d'inertie de la balle quand le temps s'écoule d'une manière continue. On donne aussi la valeur de l'accélération de la pesanteur g = 10 m.s⁻². Le filet de hauteur h = 90 cm est situé à la distance D = 10m du point de lancement (cf. ci-dessus).",
+      "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2021/pc/images/ex1.png",
         "title": "Lancer d'une balle de tennis",
-        "stimulus": "Un joueur lance une balle de tennis de diamètre 5 cm verticalement et la frappe avec sa raquette quand le centre d'inertie de la balle est situé à une hauteur H = 2,25 m du sol. Il lui communique alors une vitesse horizontale de valeur $v_0$. On suppose que les frottements dues à l'air sont négligeables et que la trajectoire de ce mobile dans ce repère est décrite par les positions occupées par le centre d'inertie de la balle quand le temps s'écoule d'une manière continue. On donne aussi la valeur de l'accélération de la pesanteur g = 10 m.s⁻². Le filet de hauteur h = 90 cm est situé à la distance D = 10m du point de lancement (cf. ci-dessus).",
-        "programmatic_figure": {
+        "description": "Schéma de la trajectoire parabolique d'une balle de tennis lancée horizontalement depuis une hauteur H. Un filet de hauteur h est placé à une distance D.",
+        "width": "50%"
+      },
+      "questions": [
+        {
+          "question_number": "Q21",
+          "text": "Déterminer la valeur de la vitesse $v₀$ quand le centre d'inertie de la balle passe à 35 cm au dessus du filet.\nCocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "$v₀ = 20 √{5}$ m/s"
+            },
+            {
+              "label": "B",
+              "text": "$v₀ = 10 √{5}$ m/s"
+            },
+            {
+              "label": "C",
+              "text": "$v₀ = 15 √{5}$ m/s"
+            },
+            {
+              "label": "D",
+              "text": "$v₀ = 30 √{5}$ m/s"
+            }
+          ]
+        },
+        {
+          "question_number": "Q22",
+          "text": "La balle atteindra le filet au bout de la durée $t₁$ après le lancement.\nCocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "$t₁ = \\frac{√{5}}{15}$ s"
+            },
+            {
+              "label": "B",
+              "text": "$t₁ = \\frac{2√{5}}{15}$ s"
+            },
+            {
+              "label": "C",
+              "text": "$t₁ = \\frac{√{5}}{10}$ s"
+            },
+            {
+              "label": "D",
+              "text": "$t₁ = √{\\frac{5}{2}}$ s"
+            }
+          ]
+        },
+        {
+          "question_number": "Q23",
+          "text": "La balle touchera le sol à la distance $D₁$ du point de lancement\nCocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "$D₁ = 15$ m"
+            },
+            {
+              "label": "B",
+              "text": "$D₁ = 22,5$ m"
+            },
+            {
+              "label": "C",
+              "text": "$D₁ = 30$ m"
+            },
+            {
+              "label": "D",
+              "text": "$D₁ = 45$ m"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 2,
+      "title": "Mouvement circulaire uniforme",
+      "questions": [
+        {
+          "question_number": "Q24",
+          "text": "Dans le cas d'un mouvement circulaire uniforme\nCocher la bonne réponse",
+          "options": [
+            {
+              "label": "A",
+              "text": "Le vecteur vitesse est constant ;"
+            },
+            {
+              "label": "B",
+              "text": "La valeur de l'accélération est nulle"
+            },
+            {
+              "label": "C",
+              "text": "Le vecteur accélération est nul ;"
+            },
+            {
+              "label": "D",
+              "text": "La valeur de l'accélération est constante"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 3,
+      "title": "Bobine d'inductance",
+      "stimulus": "Dans une bobine d'inductance L et de résistance R, le courant varie selon la loi : i(t) = a - b t, où i est exprimé en ampères (A), t est exprimé en secondes (s) et a et b sont des constantes.",
+      "questions": [
+        {
+          "question_number": "Q25",
+          "text": "Calculer la tension aux bornes de la bobine à la date t = 0 et déterminer la date $t₁$ à laquelle la tension aux bornes de la bobine est nulle.\nCocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "$U_B(t=0)=0$ et $t₁ = \\frac{a}{b}$"
+            },
+            {
+              "label": "B",
+              "text": "$U_B(t=0)=Ra$ et $t₁ = \\frac{a}{b}$"
+            },
+            {
+              "label": "C",
+              "text": "$U_B(t=0)=Ra$ et $t₁ = \\frac{Ra+bL}{Rb}$"
+            },
+            {
+              "label": "D",
+              "text": "$U_B(t=0)=Ra-bL$ et $t₁ = \\frac{Ra-bL}{Rb}$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 4,
+      "title": "Circuit LC",
+      "stimulus": "On charge complètement un condensateur de capacité C = 5 µF avec une tension E, puis on le branche à une bobine d'induction L et de résistance interne négligeable. La courbe de la figure représente les variations du courant i(t).",
+      "programmatic_figure": {
+        "type": "image",
+        "library": "img",
+        "image_url": "/concours/ensa/ensa2021/pc/images/ex4.png",
+        "title": "Circuit LC et graphe du courant",
+        "description": "Schéma d'un circuit LC (condensateur C et bobine L). Graphe du courant i(mA) en fonction du temps t(ms) montrant une oscillation sinusoïdale.",
+        "width": "70%"
+      },
+      "questions": [
+        {
+          "question_number": "Q26",
+          "text": "L'équation différentielle vérifiée par le courant i(t) est donnée par :\nCocher la bonne réponse",
+          "options": [
+            {
+              "label": "A",
+              "text": "$\\frac{d²i(t)}{dt²} - \\frac{1}{√{LC}}i(t) = 0$"
+            },
+            {
+              "label": "B",
+              "text": "$\\frac{d²i(t)}{dt²} - \\frac{1}{LC}i(t) = 0$"
+            },
+            {
+              "label": "C",
+              "text": "$\\frac{d²i(t)}{dt²} + \\frac{1}{LC}i(t) = 0$"
+            },
+            {
+              "label": "D",
+              "text": "$\\frac{d²i(t)}{dt²} + \\frac{L}{C}i(t) = 0$"
+            }
+          ]
+        },
+        {
+          "question_number": "Q27",
+          "text": "La solution de cette équation différentielle s'écrit sous la forme $i(t) = I_m \\cos(\\frac{2π}{T₀}t + φ)$. En utilisant la courbe du courant i(t) et l'équation différentielle vérifiée par ce dernier, on détermine la valeur de l'inductance L. Elle vaut (On donne la valeur de $π² = 10)$ :\nCocher la bonne réponse",
+          "options": [
+            {
+              "label": "A",
+              "text": "L = 0.5 H"
+            },
+            {
+              "label": "B",
+              "text": "L = 0.05 H"
+            },
+            {
+              "label": "C",
+              "text": "L = 5 mH"
+            },
+            {
+              "label": "D",
+              "text": "L = 50 µH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 5,
+      "title": "Ondes sonores",
+      "stimulus": "Deux microphones M₁ et M₂ sont placés à proximité de l'axe (Δ) perpendiculaire à la membrane d'un haut-parleur et passant par son centre O. Le haut-parleur est branché à un générateur de tension sinusoïdal dont la fréquence est réglable. Les microphones sont branchés à un oscilloscope dont les réglages sont les suivants :\nVoie 1: 1 V/Div, Voie 2: 0.5 V/Div, Balayage: 1 ms/Div.\nLe schéma du montage et les traces des signaux obtenus sur les deux voies de l'oscilloscope sont montrées ci-dessous.",
+      "programmatic_figures": [
+        {
           "type": "image",
           "library": "img",
-          "image_url": "/concours/ensa/ensa2021/pc/images/ex1.png",
-          "title": "Lancer d'une balle de tennis",
-          "description": "Schéma de la trajectoire parabolique d'une balle de tennis lancée horizontalement depuis une hauteur H. Un filet de hauteur h est placé à une distance D.",
-          "width": "50%"
+          "image_url": "/concours/ensa/ensa2021/pc/images/ex5F1.png",
+          "title": "Montage ondes sonores",
+          "description": "Schéma d'un haut-parleur émettant vers deux microphones M1 et M2",
+          "width": "55%"
         },
-        "questions": [
-          {
-            "question_number": "Q21",
-            "text": "Déterminer la valeur de la vitesse $v_0$ quand le centre d'inertie de la balle passe à 35 cm au dessus du filet.\nCocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "$v_0 = 20 \\sqrt{5}$ m/s"},
-              {"label": "B", "text": "$v_0 = 10 \\sqrt{5}$ m/s"},
-              {"label": "C", "text": "$v_0 = 15 \\sqrt{5}$ m/s"},
-              {"label": "D", "text": "$v_0 = 30 \\sqrt{5}$ m/s"}
-            ]
-          },
-          {
-            "question_number": "Q22",
-            "text": "La balle atteindra le filet au bout de la durée $t_1$ après le lancement.\nCocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "$t_1 = \\frac{\\sqrt{5}}{15}$ s"},
-              {"label": "B", "text": "$t_1 = \\frac{2\\sqrt{5}}{15}$ s"},
-              {"label": "C", "text": "$t_1 = \\frac{\\sqrt{5}}{10}$ s"},
-              {"label": "D", "text": "$t_1 = \\sqrt{\\frac{5}{2}}$ s"}
-            ]
-          },
-          {
-            "question_number": "Q23",
-            "text": "La balle touchera le sol à la distance $D_1$ du point de lancement\nCocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "$D_1 = 15$ m"},
-              {"label": "B", "text": "$D_1 = 22,5$ m"},
-              {"label": "C", "text": "$D_1 = 30$ m"},
-              {"label": "D", "text": "$D_1 = 45$ m"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 2,
-        "title": "Mouvement circulaire uniforme",
-        "questions": [
-          {
-            "question_number": "Q24",
-            "text": "Dans le cas d'un mouvement circulaire uniforme\nCocher la bonne réponse",
-            "options": [
-              {"label": "A", "text": "Le vecteur vitesse est constant ;"},
-              {"label": "B", "text": "La valeur de l'accélération est nulle"},
-              {"label": "C", "text": "Le vecteur accélération est nul ;"},
-              {"label": "D", "text": "La valeur de l'accélération est constante"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 3,
-        "title": "Bobine d'inductance",
-        "stimulus": "Dans une bobine d'inductance L et de résistance R, le courant varie selon la loi : i(t) = a - b t, où i est exprimé en ampères (A), t est exprimé en secondes (s) et a et b sont des constantes.",
-        "questions": [
-          {
-            "question_number": "Q25",
-            "text": "Calculer la tension aux bornes de la bobine à la date t = 0 et déterminer la date $t_1$ à laquelle la tension aux bornes de la bobine est nulle.\nCocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "$U_B(t=0)=0$ et $t_1 = \\frac{a}{b}$"},
-              {"label": "B", "text": "$U_B(t=0)=Ra$ et $t_1 = \\frac{a}{b}$"},
-              {"label": "C", "text": "$U_B(t=0)=Ra$ et $t_1 = \\frac{Ra+bL}{Rb}$"},
-              {"label": "D", "text": "$U_B(t=0)=Ra-bL$ et $t_1 = \\frac{Ra-bL}{Rb}$"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 4,
-        "title": "Circuit LC",
-        "stimulus": "On charge complètement un condensateur de capacité C = 5 µF avec une tension E, puis on le branche à une bobine d'induction L et de résistance interne négligeable. La courbe de la figure représente les variations du courant i(t).",
-        "programmatic_figure": {
+        {
           "type": "image",
           "library": "img",
-          "image_url": "/concours/ensa/ensa2021/pc/images/ex4.png",
-          "title": "Circuit LC et graphe du courant",
-          "description": "Schéma d'un circuit LC (condensateur C et bobine L). Graphe du courant i(mA) en fonction du temps t(ms) montrant une oscillation sinusoïdale.",
-          "width": "70%"
+          "image_url": "/concours/ensa/ensa2021/pc/images/ex5F2.png",
+          "title": "Oscillogramme",
+          "description": "Oscillogramme montrant les signaux des voies 1 et 2",
+          "width": "48%"
+        }
+      ],
+      "questions": [
+        {
+          "question_number": "Q28",
+          "text": "Avec une célérité du son dans l'air de v = 340 m.s⁻¹, quelle est la période spatiale λ de l'onde sonore issue du haut-parleur ? La valeur la période spatiale λ vaut. Cocher la bonne réponse :",
+          "options": [
+            {
+              "label": "A",
+              "text": "λ = 1.7 mm"
+            },
+            {
+              "label": "B",
+              "text": "λ = 1700 m"
+            },
+            {
+              "label": "C",
+              "text": "λ = 1.7 m"
+            },
+            {
+              "label": "D",
+              "text": "λ = 17 m"
+            }
+          ]
         },
-        "questions": [
-          {
-            "question_number": "Q26",
-            "text": "L'équation différentielle vérifiée par le courant i(t) est donnée par :\nCocher la bonne réponse",
-            "options": [
-              {"label": "A", "text": "$\\frac{d^2i(t)}{dt^2} - \\frac{1}{\\sqrt{LC}}i(t) = 0$"},
-              {"label": "B", "text": "$\\frac{d^2i(t)}{dt^2} - \\frac{1}{LC}i(t) = 0$"},
-              {"label": "C", "text": "$\\frac{d^2i(t)}{dt^2} + \\frac{1}{LC}i(t) = 0$"},
-              {"label": "D", "text": "$\\frac{d^2i(t)}{dt^2} + \\frac{L}{C}i(t) = 0$"}
-            ]
-          },
-          {
-            "question_number": "Q27",
-            "text": "La solution de cette équation différentielle s'écrit sous la forme $i(t) = I_m \\cos(\\frac{2\\pi}{T_0}t + \\phi)$. En utilisant la courbe du courant i(t) et l'équation différentielle vérifiée par ce dernier, on détermine la valeur de l'inductance L. Elle vaut (On donne la valeur de $\\pi^2 = 10)$ :\nCocher la bonne réponse",
-            "options": [
-              {"label": "A", "text": "L = 0.5 H"},
-              {"label": "B", "text": "L = 0.05 H"},
-              {"label": "C", "text": "L = 5 mH"},
-              {"label": "D", "text": "L = 50 µH"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 5,
-        "title": "Ondes sonores",
-        "stimulus": "Deux microphones M₁ et M₂ sont placés à proximité de l'axe (Δ) perpendiculaire à la membrane d'un haut-parleur et passant par son centre O. Le haut-parleur est branché à un générateur de tension sinusoïdal dont la fréquence est réglable. Les microphones sont branchés à un oscilloscope dont les réglages sont les suivants :\nVoie 1: 1 V/Div, Voie 2: 0.5 V/Div, Balayage: 1 ms/Div.\nLe schéma du montage et les traces des signaux obtenus sur les deux voies de l'oscilloscope sont montrées ci-dessous.",
-        "programmatic_figures": [
-          {
-            "type": "image",
-            "library": "img",
-            "image_url": "/concours/ensa/ensa2021/pc/images/ex5F1.png",
-            "title": "Montage ondes sonores",
-            "description": "Schéma d'un haut-parleur émettant vers deux microphones M1 et M2",
-            "width": "55%"
-          },
-          {
-            "type": "image",
-            "library": "img",
-            "image_url": "/concours/ensa/ensa2021/pc/images/ex5F2.png",
-            "title": "Oscillogramme",
-            "description": "Oscillogramme montrant les signaux des voies 1 et 2",
-            "width": "48%"
-          }
-        ],
-        "questions": [
-          {
-            "question_number": "Q28",
-            "text": "Avec une célérité du son dans l'air de v = 340 m.s⁻¹, quelle est la période spatiale λ de l'onde sonore issue du haut-parleur ? La valeur la période spatiale λ vaut. Cocher la bonne réponse :",
-            "options": [
-              {"label": "A", "text": "λ = 1.7 mm"},
-              {"label": "B", "text": "λ = 1700 m"},
-              {"label": "C", "text": "λ = 1.7 m"},
-              {"label": "D", "text": "λ = 17 m"}
-            ]
-          },
-          {
-            "question_number": "Q29",
-            "text": "La distance minimale d séparant les deux microphones est égale à\nCocher la bonne réponse :",
-            "options": [
-              {"label": "A", "text": "d = 34 cm"},
-              {"label": "B", "text": "d = 17 cm"},
-              {"label": "C", "text": "d = 1.7 cm"},
-              {"label": "D", "text": "d = 3.40 cm"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 6,
-        "title": "Circuit RLC",
-        "stimulus": "On réalise un circuit électrique comportant une bobine d'inductance L et de résistance r, un conducteur ohmique de résistance R et un générateur de tension de f.é.m. E. On donne L = 200 mH, r = 40 Ω et R= 200 Ω. On donne l'équation différentielle qui régit l'établissement du courant i(t) dans la bobine par : $\\frac{di(t)}{dt} + \\frac{R+r}{L}i(t) = \\frac{E}{L}$. La courbe de la figure ci-contre donne les variations de l'intensité i(t) dans le circuit.",
-        "programmatic_figures": [
-          {
-            "type": "image",
-            "library": "img",
-            "image_url": "/concours/ensa/ensa2021/pc/images/ex6F1.png",
-            "title": "Circuit RLC",
-            "description": "Schéma d'un circuit RLC série avec un générateur E. Graphe du courant i(mA) en fonction du temps t(ms) montrant une charge exponentielle.",
-            "width": "48%"
-          },
-          {
-            "type": "image",
-            "library": "img",
-            "image_url": "/concours/ensa/ensa2021/pc/images/ex6F2.png",
-            "title": "Graphe du courant",
-            "description": "Graphe du courant i(mA) en fonction du temps t(ms) montrant une charge exponentielle.",
-            "width": "48%"
-          }
-        ],
-        "questions": [
-          {
-            "question_number": "Q30",
-            "text": "Déterminer la valeur de la force électromotrice du générateur E.\nCocher la bonne réponse.\nla valeur de la f.é.m. E du générateur est plus proche de :",
-            "options": [
-              {"label": "A", "text": "E = 12.0 V"},
-              {"label": "B", "text": "E = 12.5 V"},
-              {"label": "C", "text": "E = 13.0 V"},
-              {"label": "D", "text": "E = 14.0 V"}
-            ]
-          },
-          {
-            "question_number": "Q31",
-            "text": "Déterminer l'énergie maximale $E_{max}$ stockée dans la bobine sans tenir compte de l'énergie dissipée par effet Joule à travers cette dernière. On donne la valeur de $\\pi^2 = 10$.\nla valeur de l'énergie maximale stockée dans la bobine est plus proche de :\nCocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "$E_{max}' = 0.25$ mJ"},
-              {"label": "B", "text": "$E_{max}' = 0.35$ mJ"},
-              {"label": "C", "text": "$E_{max}' = 0.45$ mJ"},
-              {"label": "D", "text": "$E_{max}' = 0.85$ mJ"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 7,
-        "title": "Source radioactive d'iode 123",
-        "stimulus": "Dans les 2 questions suivantes, on considère une source radioactive d'iode123, accompagnée des indications suivantes : Sa masse molaire est 123 g/mol ; sa période est 14 heures ; sa masse initiale 5 g. On donne aussi ln(2)= 0,7, ln(5)= 1,6, ln(7)= 2, ln(10)= 2,3, nombre d'Avogadro $N_A = 6.10^{23}$ mol⁻¹.",
-        "questions": [
-          {
-            "question_number": "Q32",
-            "text": "Le nombre initial d'atomes d'iode 123 contenu dans la source est de :\nCocher la bonne réponse :",
-            "options": [
-              {"label": "A", "text": "$2,20.10^{21}$"},
-              {"label": "B", "text": "$1,25.10^{22}$"},
-              {"label": "C", "text": "$2,45.10^{22}$"},
-              {"label": "D", "text": "$3,50.10^{23}$"}
-            ]
-          },
-          {
-            "question_number": "Q33",
-            "text": "Dans cette question, on suppose que l'activité initiale au moment de la fabrication de la source radioactive d'iode 123 est de $10^{16}$ Bq. L'activité de la source au moment de son utilisation est de $10^{15}$ Bq. Le temps écoulé depuis la fabrication de la source est exactement :\nCocher la bonne réponse :",
-            "options": [
-              {"label": "A", "text": "22 heures"},
-              {"label": "B", "text": "32 heures"},
-              {"label": "C", "text": "44 heures"},
-              {"label": "D", "text": "46 heures"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 8,
-        "title": "Diffraction par une fente",
-        "stimulus": "La lumière d'un laser est diffractée par une fente fine de largeur a = 0,20 mm. On observe la figure de diffraction sur un écran situé à la distance D = 2,50 m. La longueur d'onde du faisceau laser est égale à 620 nm.",
-        "questions": [
-          {
-            "question_number": "Q34",
-            "text": "La largeur de la tache centrale de diffraction est plus proche de : Cocher la bonne réponse",
-            "options": [
-              {"label": "A", "text": "13,5 mm"},
-              {"label": "B", "text": "15,5 mm"},
-              {"label": "C", "text": "17,5 mm"},
-              {"label": "D", "text": "19,5 mm"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 9,
-        "title": "Réfraction de la lumière",
-        "stimulus": "Un laser émet un faisceau de lumière monochromatique qui se propage dans le milieu transparent et homogène d'indice de réfraction absolu $n = 4/3$. Sa fréquence et sa longueur d'onde dans le milieu précèdent sont respectivement $\\nu$ et $\\lambda = 540$ nm. On donne la valeur de la célérité de la lumière dans le vide $c = 3.10^8$ m.s⁻¹",
-        "questions": [
-          {
-            "question_number": "Q35",
-            "text": "La valeur de sa fréquence $\\nu$ est plus proche de : Cocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "$2.10^5$ GHz"},
-              {"label": "B", "text": "$4.10^5$ GHz"},
-              {"label": "C", "text": "$6.10^5$ GHz"},
-              {"label": "D", "text": "$2.10^6$ GHz"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 10,
-        "title": "Dosage acido-basique",
-        "stimulus": "Le dosage de 20 ml d'une solution d'hydroxyde de potassium nécessite 16 ml d'une solution d'acide chloridrique à $10^{-1}$ mol.L⁻¹. On donne M(KOH) = 56 g.mol⁻¹",
-        "questions": [
-          {
-            "question_number": "Q36",
-            "text": "La masse d'hydroxyde de Potassium solide dissoute pour préparer 250ml de solution basique vaut: Cocher la bonne réponse\n(indication : Déterminer d'abord la concentration de l'ion hydroxyde OH⁻ à l'équivalence).",
-            "options": [
-              {"label": "A", "text": "1,12 g"},
-              {"label": "B", "text": "1,12 mg"},
-              {"label": "C", "text": "11,2 g"},
-              {"label": "D", "text": "11,2 mg"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 11,
-        "title": "Réaction d'estérification",
-        "stimulus": "Par réaction d'un corps A et d'éthanol, on a obtenu, par réaction rapide et totale du propanoate d'éthyle.",
-        "questions": [
-          {
-            "question_number": "Q37",
-            "text": "Cocher la bonne réponse",
-            "options": [
-              {"label": "A", "text": "Le corps A est de l'acide propanoïque ."},
-              {"label": "B", "text": "Le corps A est du chlorure d'éthanoyle"},
-              {"label": "C", "text": "Le corps A est de l'acide éthanoïque."},
-              {"label": "D", "text": "Le corps A est du chlorure de propanoyle."}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 12,
-        "title": "Pile Nickel-Argent",
-        "stimulus": "On considère la pile borne - $Ni_{(s)}/ Ni^{2+}_{(sol)}$ // $Ag^+_{(sol)}/Ag_{(s)}$ borne +.\nEn fonctionnement, la pile débite un courant électrique d'intensité constante de valeur I durant une heure. Les données : 1 F = 96500 C.mol⁻¹ ; (Un Faraday = 1 F équivaut à 96500 coulombs/moles d'électrons), $M_{Ag}=108$ g.mol⁻¹",
-        "questions": [
-          {
-            "question_number": "Q38",
-            "text": "Sachant que la valeur de l'avancement de la réaction au bout d' une heure de fonctionnement de la pile vaut $18.10^{-6}$ mol, la valeur de l'intensité de courant est alors plus proche de :\nCocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "9.00 mA"},
-              {"label": "B", "text": "9.50 mA"},
-              {"label": "C", "text": "10.00 mA"},
-              {"label": "D", "text": "10.50 mA"}
-            ]
-          },
-          {
-            "question_number": "Q39",
-            "text": "La variation de la masse de l'électrode d'argent est plus proche de : Cocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "15mg"},
-              {"label": "B", "text": "17mg"},
-              {"label": "C", "text": "19mg"},
-              {"label": "D", "text": "21mg"}
-            ]
-          }
-        ]
-      },
-      {
-        "exercise_number": 13,
-        "title": "Solution aqueuse d'acide éthanoïque",
-        "stimulus": "Soit un volume V = 200mL d'une solution aqueuse d'acide éthanoïque $CH_3COOH$, de concentration $c= 3.10^{-2} mol.L^{-1}$, son pH à 25° vaut pH = 3.4 (avec $10^{-3.4} = 4.10^{-4}$). Il y a eu une réaction acido-basique entre les couples $CH_3COOH / CH_3COO^-$ et $H_3O^+ / H_2O$. En considérant que la transformation de l'acide éthanoïque en ions n'a pas été totale lors de sa mise en solutions, les réactifs restants en particules $CH_3COOH$ a pour nombre de mole.",
-        "questions": [
-          {
-            "question_number": "Q40",
-            "text": "Cocher la bonne réponse.",
-            "options": [
-              {"label": "A", "text": "$5,92.10^{-3}$ mol"},
-              {"label": "B", "text": "$9,60.10^{-4}$ mol"},
-              {"label": "C", "text": "$8,6.10^{-3}$ mol"},
-              {"label": "D", "text": "$5,13.10^{-3}$ mol"}
-            ]
-          }
-        ]
-      }
-    ]
-  }
+        {
+          "question_number": "Q29",
+          "text": "La distance minimale d séparant les deux microphones est égale à\nCocher la bonne réponse :",
+          "options": [
+            {
+              "label": "A",
+              "text": "d = 34 cm"
+            },
+            {
+              "label": "B",
+              "text": "d = 17 cm"
+            },
+            {
+              "label": "C",
+              "text": "d = 1.7 cm"
+            },
+            {
+              "label": "D",
+              "text": "d = 3.40 cm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 6,
+      "title": "Circuit RLC",
+      "stimulus": "On réalise un circuit électrique comportant une bobine d'inductance L et de résistance r, un conducteur ohmique de résistance R et un générateur de tension de f.é.m. E. On donne L = 200 mH, r = 40 Ω et R= 200 Ω. On donne l'équation différentielle qui régit l'établissement du courant i(t) dans la bobine par : $\\frac{di(t)}{dt} + \\frac{R+r}{L}i(t) = \\frac{E}{L}$. La courbe de la figure ci-contre donne les variations de l'intensité i(t) dans le circuit.",
+      "programmatic_figures": [
+        {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2021/pc/images/ex6F1.png",
+          "title": "Circuit RLC",
+          "description": "Schéma d'un circuit RLC série avec un générateur E. Graphe du courant i(mA) en fonction du temps t(ms) montrant une charge exponentielle.",
+          "width": "48%"
+        },
+        {
+          "type": "image",
+          "library": "img",
+          "image_url": "/concours/ensa/ensa2021/pc/images/ex6F2.png",
+          "title": "Graphe du courant",
+          "description": "Graphe du courant i(mA) en fonction du temps t(ms) montrant une charge exponentielle.",
+          "width": "48%"
+        }
+      ],
+      "questions": [
+        {
+          "question_number": "Q30",
+          "text": "Déterminer la valeur de la force électromotrice du générateur E.\nCocher la bonne réponse.\nla valeur de la f.é.m. E du générateur est plus proche de :",
+          "options": [
+            {
+              "label": "A",
+              "text": "E = 12.0 V"
+            },
+            {
+              "label": "B",
+              "text": "E = 12.5 V"
+            },
+            {
+              "label": "C",
+              "text": "E = 13.0 V"
+            },
+            {
+              "label": "D",
+              "text": "E = 14.0 V"
+            }
+          ]
+        },
+        {
+          "question_number": "Q31",
+          "text": "Déterminer l'énergie maximale $E_{max}$ stockée dans la bobine sans tenir compte de l'énergie dissipée par effet Joule à travers cette dernière. On donne la valeur de $π² = 10$.\nla valeur de l'énergie maximale stockée dans la bobine est plus proche de :\nCocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "$E_{max}' = 0.25$ mJ"
+            },
+            {
+              "label": "B",
+              "text": "$E_{max}' = 0.35$ mJ"
+            },
+            {
+              "label": "C",
+              "text": "$E_{max}' = 0.45$ mJ"
+            },
+            {
+              "label": "D",
+              "text": "$E_{max}' = 0.85$ mJ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 7,
+      "title": "Source radioactive d'iode 123",
+      "stimulus": "Dans les 2 questions suivantes, on considère une source radioactive d'iode123, accompagnée des indications suivantes : Sa masse molaire est 123 g/mol ; sa période est 14 heures ; sa masse initiale 5 g. On donne aussi ln(2)= 0,7, ln(5)= 1,6, ln(7)= 2, ln(10)= 2,3, nombre d'Avogadro $N_A = 6.10^{23}$ mol⁻¹.",
+      "questions": [
+        {
+          "question_number": "Q32",
+          "text": "Le nombre initial d'atomes d'iode 123 contenu dans la source est de :\nCocher la bonne réponse :",
+          "options": [
+            {
+              "label": "A",
+              "text": "$2,20.10^{21}$"
+            },
+            {
+              "label": "B",
+              "text": "$1,25.10^{22}$"
+            },
+            {
+              "label": "C",
+              "text": "$2,45.10^{22}$"
+            },
+            {
+              "label": "D",
+              "text": "$3,50.10^{23}$"
+            }
+          ]
+        },
+        {
+          "question_number": "Q33",
+          "text": "Dans cette question, on suppose que l'activité initiale au moment de la fabrication de la source radioactive d'iode 123 est de $10^{16}$ Bq. L'activité de la source au moment de son utilisation est de $10^{15}$ Bq. Le temps écoulé depuis la fabrication de la source est exactement :\nCocher la bonne réponse :",
+          "options": [
+            {
+              "label": "A",
+              "text": "22 heures"
+            },
+            {
+              "label": "B",
+              "text": "32 heures"
+            },
+            {
+              "label": "C",
+              "text": "44 heures"
+            },
+            {
+              "label": "D",
+              "text": "46 heures"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 8,
+      "title": "Diffraction par une fente",
+      "stimulus": "La lumière d'un laser est diffractée par une fente fine de largeur a = 0,20 mm. On observe la figure de diffraction sur un écran situé à la distance D = 2,50 m. La longueur d'onde du faisceau laser est égale à 620 nm.",
+      "questions": [
+        {
+          "question_number": "Q34",
+          "text": "La largeur de la tache centrale de diffraction est plus proche de : Cocher la bonne réponse",
+          "options": [
+            {
+              "label": "A",
+              "text": "13,5 mm"
+            },
+            {
+              "label": "B",
+              "text": "15,5 mm"
+            },
+            {
+              "label": "C",
+              "text": "17,5 mm"
+            },
+            {
+              "label": "D",
+              "text": "19,5 mm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 9,
+      "title": "Réfraction de la lumière",
+      "stimulus": "Un laser émet un faisceau de lumière monochromatique qui se propage dans le milieu transparent et homogène d'indice de réfraction absolu $n = 4/3$. Sa fréquence et sa longueur d'onde dans le milieu précèdent sont respectivement $\\nu$ et $λ = 540$ nm. On donne la valeur de la célérité de la lumière dans le vide $c = 3.10⁸$ m.s⁻¹",
+      "questions": [
+        {
+          "question_number": "Q35",
+          "text": "La valeur de sa fréquence $\\nu$ est plus proche de : Cocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "$2.10⁵$ GHz"
+            },
+            {
+              "label": "B",
+              "text": "$4.10⁵$ GHz"
+            },
+            {
+              "label": "C",
+              "text": "$6.10⁵$ GHz"
+            },
+            {
+              "label": "D",
+              "text": "$2.10⁶$ GHz"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 10,
+      "title": "Dosage acido-basique",
+      "stimulus": "Le dosage de 20 ml d'une solution d'hydroxyde de potassium nécessite 16 ml d'une solution d'acide chloridrique à $10^{-1}$ mol.L⁻¹. On donne M(KOH) = 56 g.mol⁻¹",
+      "questions": [
+        {
+          "question_number": "Q36",
+          "text": "La masse d'hydroxyde de Potassium solide dissoute pour préparer 250ml de solution basique vaut: Cocher la bonne réponse\n(indication : Déterminer d'abord la concentration de l'ion hydroxyde OH⁻ à l'équivalence).",
+          "options": [
+            {
+              "label": "A",
+              "text": "1,12 g"
+            },
+            {
+              "label": "B",
+              "text": "1,12 mg"
+            },
+            {
+              "label": "C",
+              "text": "11,2 g"
+            },
+            {
+              "label": "D",
+              "text": "11,2 mg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 11,
+      "title": "Réaction d'estérification",
+      "stimulus": "Par réaction d'un corps A et d'éthanol, on a obtenu, par réaction raπde et totale du propanoate d'éthyle.",
+      "questions": [
+        {
+          "question_number": "Q37",
+          "text": "Cocher la bonne réponse",
+          "options": [
+            {
+              "label": "A",
+              "text": "Le corps A est de l'acide propanoïque ."
+            },
+            {
+              "label": "B",
+              "text": "Le corps A est du chlorure d'éthanoyle"
+            },
+            {
+              "label": "C",
+              "text": "Le corps A est de l'acide éthanoïque."
+            },
+            {
+              "label": "D",
+              "text": "Le corps A est du chlorure de propanoyle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 12,
+      "title": "Pile Nickel-Argent",
+      "stimulus": "On considère la πle borne - $Ni_{(s)}/ Ni^{2+}_{(sol)}$ // $Ag⁺_{(sol)}/Ag_{(s)}$ borne +.\nEn fonctionnement, la πle débite un courant électrique d'intensité constante de valeur I durant une heure. Les données : 1 F = 96500 C.mol⁻¹ ; (Un Faraday = 1 F équivaut à 96500 coulombs/moles d'électrons), $M_{Ag}=108$ g.mol⁻¹",
+      "questions": [
+        {
+          "question_number": "Q38",
+          "text": "Sachant que la valeur de l'avancement de la réaction au bout d' une heure de fonctionnement de la πle vaut $18.10^{-6}$ mol, la valeur de l'intensité de courant est alors plus proche de :\nCocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "9.00 mA"
+            },
+            {
+              "label": "B",
+              "text": "9.50 mA"
+            },
+            {
+              "label": "C",
+              "text": "10.00 mA"
+            },
+            {
+              "label": "D",
+              "text": "10.50 mA"
+            }
+          ]
+        },
+        {
+          "question_number": "Q39",
+          "text": "La variation de la masse de l'électrode d'argent est plus proche de : Cocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "15mg"
+            },
+            {
+              "label": "B",
+              "text": "17mg"
+            },
+            {
+              "label": "C",
+              "text": "19mg"
+            },
+            {
+              "label": "D",
+              "text": "21mg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "exercise_number": 13,
+      "title": "Solution aqueuse d'acide éthanoïque",
+      "stimulus": "Soit un volume V = 200mL d'une solution aqueuse d'acide éthanoïque $CH₃COOH$, de concentration $c= 3.10^{-2} mol.L^{-1}$, son pH à 25° vaut pH = 3.4 (avec $10^{-3.4} = 4.10^{-4}$). Il y a eu une réaction acido-basique entre les couples $CH₃COOH / CH₃COO⁻$ et $H₃O⁺ / H₂O$. En considérant que la transformation de l'acide éthanoïque en ions n'a pas été totale lors de sa mise en solutions, les réactifs restants en particules $CH₃COOH$ a pour nombre de mole.",
+      "questions": [
+        {
+          "question_number": "Q40",
+          "text": "Cocher la bonne réponse.",
+          "options": [
+            {
+              "label": "A",
+              "text": "$5,92.10^{-3}$ mol"
+            },
+            {
+              "label": "B",
+              "text": "$9,60.10^{-4}$ mol"
+            },
+            {
+              "label": "C",
+              "text": "$8,6.10^{-3}$ mol"
+            },
+            {
+              "label": "D",
+              "text": "$5,13.10^{-3}$ mol"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

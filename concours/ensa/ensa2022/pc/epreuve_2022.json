@@ -7,12 +7,12 @@
     {
       "exercise_number": 1,
       "title": "Trajectoire d'un ballon de basket-ball",
-      "stimulus": "On étudie la trajectoire du centre d'inertie d'un ballon de basket-ball de diamètre 25 cm, lancé par un joueur (voir figure). On ne tiendra compte ni de la résistance de l'air ni de la rotation éventuelle du ballon. Le lancer est effectué vers le haut ; on lâche le ballon lorsque son centre d'inertie est en A. Sa vitesse initiale est représentée par un vecteur $\\vec{v}_A$ situé dans le plan vertical $(O, \\vec{i}, \\vec{j})$ et faisant un angle $\\alpha=45°$ avec l'horizontal (Ox).",
-      "data": "On donne : g=10 m.s⁻², $v_A=6\\sqrt{2}$ m.s⁻¹, $h_A = 3.00$ m, $d' =3.00$ m et $d = 6.00$m",
+      "stimulus": "On étudie la trajectoire du centre d'inertie d'un ballon de basket-ball de diamètre 25 cm, lancé par un joueur (voir figure). On ne tiendra compte ni de la résistance de l'air ni de la rotation éventuelle du ballon. Le lancer est effectué vers le haut ; on lâche le ballon lorsque son centre d'inertie est en A. Sa vitesse initiale est représentée par un vecteur $\\vec{v}_A$ situé dans le plan vertical $(O, \\vec{i}, \\vec{j})$ et faisant un angle $α=45°$ avec l'horizontal (Ox).",
+      "data": "On donne : g=10 m.s⁻², $v_A=6√{2}$ m.s⁻¹, $h_A = 3.00$ m, $d' =3.00$ m et $d = 6.00$m",
       "programmatic_figure": {
         "type": "image",
         "library": "img",
-        "image_url": "/concours/ensa/ensa2022/pc/images/ex1.png", 
+        "image_url": "/concours/ensa/ensa2022/pc/images/ex1.png",
         "title": "Lancer d'un ballon de basket",
         "description": "Schéma d'un lancer de ballon de basket. Point A: position initiale du ballon. Point B: position d'un défenseur. Point C: centre du panier. Vecteur vitesse initiale vA avec un angle α. Hauteurs hA, hB, hC. Distances horizontales d', d.",
         "width": "60%"
@@ -22,30 +22,66 @@
           "question_number": "Q21",
           "text": "En supposant que l'angle de lancement du ballon en A est conservé, déterminer la hauteur hA pour que le centre d'inertie du ballon passe exactement au centre C du cerceau du panier. Cocher la bonne réponse :",
           "options": [
-            {"label": "A", "text": "$h_A = 2.00$ m"},
-            {"label": "B", "text": "$h_A = 2.05$m"},
-            {"label": "C", "text": "$h_A = 2.10$m"},
-            {"label": "D", "text": "$h_A = 2.25$ m"}
+            {
+              "label": "A",
+              "text": "$h_A = 2.00$ m"
+            },
+            {
+              "label": "B",
+              "text": "$h_A = 2.05$m"
+            },
+            {
+              "label": "C",
+              "text": "$h_A = 2.10$m"
+            },
+            {
+              "label": "D",
+              "text": "$h_A = 2.25$ m"
+            }
           ]
         },
         {
           "question_number": "Q22",
           "text": "En conservant toujours le même angle de lancement et la même vitesse initiale $\\vec{v}_A$, déterminer la vitesse du centre d'inertie du ballon de basket lorsqu'il passe exactement au centre C du cerceau du panier. Celle-ci est plus proche de :",
           "options": [
-            {"label": "A", "text": "$v_C = 7$ m.s⁻¹"},
-            {"label": "B", "text": "$v_C = 7.5$ m.s⁻¹"},
-            {"label": "C", "text": "$v_C = 9.5$ m.s⁻¹"},
-            {"label": "D", "text": "$v_C = 11.5$ m.s⁻¹"}
+            {
+              "label": "A",
+              "text": "$v_C = 7$ m.s⁻¹"
+            },
+            {
+              "label": "B",
+              "text": "$v_C = 7.5$ m.s⁻¹"
+            },
+            {
+              "label": "C",
+              "text": "$v_C = 9.5$ m.s⁻¹"
+            },
+            {
+              "label": "D",
+              "text": "$v_C = 11.5$ m.s⁻¹"
+            }
           ]
         },
         {
           "question_number": "Q23",
           "text": "On conserve toujours le même angle de lancement et la même vitesse initiale $\\vec{v}_A$, un défenseur BD, placé entre l'attaquant et le panneau de basket à la distance d' du lanceur, saute verticalement pour intercepter le ballon : l'extrémité de sa main se trouve en B à l'altitude $h_B$. La hauteur minimale $h_A$ de l'attaquant pour qu'il puisse toucher le ballon du bout des doigts est plus proche de :",
           "options": [
-            {"label": "A", "text": "$h_A = 3.56$m"},
-            {"label": "B", "text": "$h_A = 3.66$ m"},
-            {"label": "C", "text": "$h_A = 3.76$ m"},
-            {"label": "D", "text": "$h_A = 3.86$ m"}
+            {
+              "label": "A",
+              "text": "$h_A = 3.56$m"
+            },
+            {
+              "label": "B",
+              "text": "$h_A = 3.66$ m"
+            },
+            {
+              "label": "C",
+              "text": "$h_A = 3.76$ m"
+            },
+            {
+              "label": "D",
+              "text": "$h_A = 3.86$ m"
+            }
           ]
         }
       ]
@@ -53,7 +89,7 @@
     {
       "exercise_number": 2,
       "title": "Ressort sur un plan incliné",
-      "stimulus": "Soit un ressort de raideur k et de longueur à vide $l_0$. L'un de ses extrémités est accroché sur un clou fixé sur une planche inclinée d'un angle $\\alpha$ par rapport à l'horizontale (voir figure). L'autre extrémité est reliée à un corps solide S de masse m, imposant une longueur $l_e$ à l'équilibre.",
+      "stimulus": "Soit un ressort de raideur k et de longueur à vide $l₀$. L'un de ses extrémités est accroché sur un clou fixé sur une planche inclinée d'un angle $α$ par rapport à l'horizontale (voir figure). L'autre extrémité est reliée à un corps solide S de masse m, imposant une longueur $l_e$ à l'équilibre.",
       "programmatic_figure": {
         "type": "image",
         "library": "img",
@@ -65,12 +101,24 @@
       "questions": [
         {
           "question_number": "Q24",
-          "text": "L'expression permettant d'avoir l'angle d'inclinaison $\\alpha$ est donnée par : Cocher la bonne réponse",
+          "text": "L'expression permettant d'avoir l'angle d'inclinaison $α$ est donnée par : Cocher la bonne réponse",
           "options": [
-            {"label": "A", "text": "$\\sin\\alpha = \\frac{k}{mg}(l_e - l_0)$"},
-            {"label": "B", "text": "$\\tan\\alpha = \\frac{k}{mg}(l_e - l_0)$"},
-            {"label": "C", "text": "$\\sin\\alpha = \\frac{mg}{k}(l_e - l_0)$"},
-            {"label": "D", "text": "$\\sin\\alpha = \\frac{k}{mg}(l_0)$"}
+            {
+              "label": "A",
+              "text": "$\\sinα = \\frac{k}{mg}(l_e - l₀)$"
+            },
+            {
+              "label": "B",
+              "text": "$\\tanα = \\frac{k}{mg}(l_e - l₀)$"
+            },
+            {
+              "label": "C",
+              "text": "$\\sinα = \\frac{mg}{k}(l_e - l₀)$"
+            },
+            {
+              "label": "D",
+              "text": "$\\sinα = \\frac{k}{mg}(l₀)$"
+            }
           ]
         }
       ]
@@ -84,20 +132,44 @@
           "question_number": "Q25",
           "text": "Un solide de centre masse G est assimilé à un point matériel est en mouvement par rapport à un repère fixe supposé galiléen. La direction de sa vitesse est constante alors : Cocher la bonne réponse",
           "options": [
-            {"label": "A", "text": "Le repère d'espace d'origine G est galiléen."},
-            {"label": "B", "text": "Son accélération centripète est nulle."},
-            {"label": "C", "text": "Son accélération tangentielle est nulle."},
-            {"label": "D", "text": "La valeur de son accélération est constante."}
+            {
+              "label": "A",
+              "text": "Le repère d'espace d'origine G est galiléen."
+            },
+            {
+              "label": "B",
+              "text": "Son accélération centripète est nulle."
+            },
+            {
+              "label": "C",
+              "text": "Son accélération tangentielle est nulle."
+            },
+            {
+              "label": "D",
+              "text": "La valeur de son accélération est constante."
+            }
           ]
         },
         {
           "question_number": "Q26",
           "text": "Cocher la bonne réponse",
           "options": [
-            {"label": "A", "text": "La fréquence d'une onde lumineuse monochromatique ne dépend pas du milieu de propagation."},
-            {"label": "B", "text": "Seules les interférences mettent en évidence la nature ondulatoire de la lumière."},
-            {"label": "C", "text": "Les ondes lumineuses et les ondes sonores se propagent dans le vide."},
-            {"label": "D", "text": "La longueur d'onde d'un laser est indépendante du milieu de propagation."}
+            {
+              "label": "A",
+              "text": "La fréquence d'une onde lumineuse monochromatique ne dépend pas du milieu de propagation."
+            },
+            {
+              "label": "B",
+              "text": "Seules les interférences mettent en évidence la nature ondulatoire de la lumière."
+            },
+            {
+              "label": "C",
+              "text": "Les ondes lumineuses et les ondes sonores se propagent dans le vide."
+            },
+            {
+              "label": "D",
+              "text": "La longueur d'onde d'un laser est indépendante du milieu de propagation."
+            }
           ]
         }
       ]
@@ -119,30 +191,53 @@
           "question_number": "Q27",
           "text": "Cocher la proposition correcte",
           "options": [
-            {"label": "A", "text": "La tâche centrale possède une largeur double que les autres et la figure de diffraction s'étale verticalement."},
-            {"label": "B", "text": "La tâche centrale possède la même largeur que les autres et la figure de diffraction s'étale verticalement."},
-            {"label": "C", "text": "La tâche centrale possède une largeur double que les autres et la figure de diffraction s'étale horizontalement."},
-            {"label": "D", "text": "La tâche centrale possède la même largeur que les autres et la figure de diffraction s'étale horizontalement."}
+            {
+              "label": "A",
+              "text": "La tâche centrale possède une largeur double que les autres et la figure de diffraction s'étale verticalement."
+            },
+            {
+              "label": "B",
+              "text": "La tâche centrale possède la même largeur que les autres et la figure de diffraction s'étale verticalement."
+            },
+            {
+              "label": "C",
+              "text": "La tâche centrale possède une largeur double que les autres et la figure de diffraction s'étale horizontalement."
+            },
+            {
+              "label": "D",
+              "text": "La tâche centrale possède la même largeur que les autres et la figure de diffraction s'étale horizontalement."
+            }
           ]
         },
         {
           "question_number": "Q28",
-          "stimulus": "Les deux extrémités de la tâche centrale sont repérées par l'angle d'ouverture (2θ) de sommet O (θ est de l'ordre de 10⁻² rad). En modifiant la largeur a de la fente, on a pu tracer le graphique ci-contre représentant les variations θ = f(1/a).",
-          "programmatic_figure": 
-          {
+          "stimulus": "Les deux extrémités de la tâche centrale sont repérées par l'angle d'ouverture (2θ) de sommet O (θ est de l'ordre de 10⁻² rad). En modifiant la largeur a de la fente, on a pu tracer le graφque ci-contre représentant les variations θ = f(1/a).",
+          "programmatic_figure": {
             "type": "image",
             "library": "img",
             "image_url": "/concours/ensa/ensa2022/pc/images/q28.png",
-            "title": "Graphique θ = f(1/a)",
-            "description": "Graphique montrant θ (en 10⁻² rad) en fonction de 1/a (en 10⁴ m⁻¹). La relation est linéaire.",
+            "title": "Graφque θ = f(1/a)",
+            "description": "Graφque montrant θ (en 10⁻² rad) en fonction de 1/a (en 10⁴ m⁻¹). La relation est linéaire.",
             "width": "40%"
           },
-          "text": "En utilisant le graphique donner la valeur la plus proche de la longueur d'onde du laser utilisé.",
+          "text": "En utilisant le graφque donner la valeur la plus proche de la longueur d'onde du laser utilisé.",
           "options": [
-            {"label": "A", "text": "466 nm"},
-            {"label": "B", "text": "530 nm"},
-            {"label": "C", "text": "622 nm"},
-            {"label": "D", "text": "0.732 µm"}
+            {
+              "label": "A",
+              "text": "466 nm"
+            },
+            {
+              "label": "B",
+              "text": "530 nm"
+            },
+            {
+              "label": "C",
+              "text": "622 nm"
+            },
+            {
+              "label": "D",
+              "text": "0.732 µm"
+            }
           ]
         }
       ]
@@ -150,16 +245,28 @@
     {
       "exercise_number": 4,
       "title": "Laser He-Ne",
-      "stimulus": "Un laser He-Ne de puissance P = 2 mW émet un faisceau de lumière monochromatique de longueur d'onde $\\lambda_0 = 630$ nm. On donne: Constante de Planck : $h = 6,62.10^{-34}$ J.s et la célérité de la lumière: $c = 3.10^8$ m.s⁻¹",
+      "stimulus": "Un laser He-Ne de puissance P = 2 mW émet un faisceau de lumière monochromatique de longueur d'onde $λ₀ = 630$ nm. On donne: Constante de Planck : $h = 6,62.10^{-34}$ J.s et la célérité de la lumière: $c = 3.10⁸$ m.s⁻¹",
       "questions": [
         {
           "question_number": "Q29",
           "text": "Le nombre de photons transportés par ce faisceau en une seconde est plus proche de :",
           "options": [
-            {"label": "A", "text": "6 millions de milliards de photons par seconde"},
-            {"label": "B", "text": "60 millions de milliards de photons par seconde"},
-            {"label": "C", "text": "0,6 million de milliards de photons par seconde"},
-            {"label": "D", "text": "600 millions de milliards de photons par seconde"}
+            {
+              "label": "A",
+              "text": "6 millions de milliards de photons par seconde"
+            },
+            {
+              "label": "B",
+              "text": "60 millions de milliards de photons par seconde"
+            },
+            {
+              "label": "C",
+              "text": "0,6 million de milliards de photons par seconde"
+            },
+            {
+              "label": "D",
+              "text": "600 millions de milliards de photons par seconde"
+            }
           ]
         }
       ]
@@ -173,10 +280,22 @@
           "question_number": "Q30",
           "text": "L'énergie électrique fournie journellement par le panneau, pour une durée moyenne d'éclairement de 12 h est proche de :",
           "options": [
-            {"label": "A", "text": "172 MJ"},
-            {"label": "B", "text": "1.72 MJ"},
-            {"label": "C", "text": "20.7 MJ"},
-            {"label": "D", "text": "45.6 kJ"}
+            {
+              "label": "A",
+              "text": "172 MJ"
+            },
+            {
+              "label": "B",
+              "text": "1.72 MJ"
+            },
+            {
+              "label": "C",
+              "text": "20.7 MJ"
+            },
+            {
+              "label": "D",
+              "text": "45.6 kJ"
+            }
           ]
         }
       ]
@@ -198,10 +317,22 @@
           "question_number": "Q31",
           "text": "Le prof demande à l'un de ses élèves d'écrire au tableau les équations différentielles vérifiées par les grandeurs électriques du circuit (q, i, $u_R$ et $u_C$) quand l'interrupteur est mis en position (1). L'élève a écrit les quatre équations qui suivent. Seule l'une d'entre elles ne comporte pas d'erreurs, laquelle? Cocher la bonne réponse:",
           "options": [
-            {"label": "A", "text": "$q+RC\\frac{dq}{dt}=CE$"},
-            {"label": "B", "text": "$i+RC\\frac{di}{dt}=E$"},
-            {"label": "C", "text": "$u_R-RC\\frac{du_R}{dt}=0$"},
-            {"label": "D", "text": "$u_C+RC\\frac{du_C}{dt}=CE$"}
+            {
+              "label": "A",
+              "text": "$q+RC\\frac{dq}{dt}=CE$"
+            },
+            {
+              "label": "B",
+              "text": "$i+RC\\frac{di}{dt}=E$"
+            },
+            {
+              "label": "C",
+              "text": "$u_R-RC\\frac{du_R}{dt}=0$"
+            },
+            {
+              "label": "D",
+              "text": "$u_C+RC\\frac{du_C}{dt}=CE$"
+            }
           ]
         },
         {
@@ -211,16 +342,28 @@
             "type": "image",
             "library": "img",
             "image_url": "/concours/ensa/ensa2022/pc/images/q32.png",
-            "title": "Graphique ln(E-uc) en fonction de t",
-            "description": "Graphique montrant ln(E-uc) en fonction de t (ms). La relation est linéaire décroissante, passant par (0, 1.5) et (1, 0.5).",
+            "title": "Graφque ln(E-uc) en fonction de t",
+            "description": "Graφque montrant ln(E-uc) en fonction de t (ms). La relation est linéaire décroissante, passant par (0, 1.5) et (1, 0.5).",
             "width": "30%"
           },
           "text": "En utilisant cette figure montrer que les valeurs de E et de C sont proches de",
           "options": [
-            {"label": "A", "text": "$e^{1.5}$V et 10µF"},
-            {"label": "B", "text": "$e^{0.15}$V et 1µF"},
-            {"label": "C", "text": "$e^{1.5}$V et 1µF"},
-            {"label": "D", "text": "$e^{0.15}$V et 10µF"}
+            {
+              "label": "A",
+              "text": "$e^{1.5}$V et 10µF"
+            },
+            {
+              "label": "B",
+              "text": "$e^{0.15}$V et 1µF"
+            },
+            {
+              "label": "C",
+              "text": "$e^{1.5}$V et 1µF"
+            },
+            {
+              "label": "D",
+              "text": "$e^{0.15}$V et 10µF"
+            }
           ]
         }
       ]
@@ -228,7 +371,7 @@
     {
       "exercise_number": 7,
       "title": "Ondes ultrasonores",
-      "stimulus": "Un émetteur E situé en un point O sur un banc d'expériences gradué émet des ondes ultrasonores dans l'air qui sont captées par un récepteur situé sur le même banc au point M1 (cf. figure). On observe les deux signaux émis et captés sur les deux voies d'un oscilloscope. Les signaux observés se présentent sous forme de deux signaux sinusoïdaux d'amplitudes voisines et présentant un décalage temporel.\nOn réalise alors les deux manipulations suivantes :\nManipulation 1: En approchant le récepteur de l'émetteur à partir de M₁, les deux sinusoïdes sont en phase pour la deuxième fois quand on atteint le point M₂ tel que $M_1M_2 =1.36$cm.\nManipulation 2: En éloignant le récepteur de l'émetteur à partir de M₁, les deux sinusoïdes sont en phase pour la quatrième fois quand on atteint le point M₃ tel que $M_1M_3 = 2.04$ cm.",
+      "stimulus": "Un émetteur E situé en un point O sur un banc d'expériences gradué émet des ondes ultrasonores dans l'air qui sont captées par un récepteur situé sur le même banc au point M1 (cf. figure). On observe les deux signaux émis et captés sur les deux voies d'un oscilloscope. Les signaux observés se présentent sous forme de deux signaux sinusoïdaux d'amplitudes voisines et présentant un décalage temporel.\nOn réalise alors les deux manipulations suivantes :\nManipulation 1: En approchant le récepteur de l'émetteur à partir de M₁, les deux sinusoïdes sont en phase pour la deuxième fois quand on atteint le point M₂ tel que $M₁M₂ =1.36$cm.\nManipulation 2: En éloignant le récepteur de l'émetteur à partir de M₁, les deux sinusoïdes sont en phase pour la quatrième fois quand on atteint le point M₃ tel que $M₁M₃ = 2.04$ cm.",
       "programmatic_figure": {
         "type": "image",
         "library": "img",
@@ -242,10 +385,22 @@
           "question_number": "Q33",
           "text": "La longueur d'onde de l'onde sonore utilisée est plus proche de : Cocher la bonne réponse",
           "options": [
-            {"label": "A", "text": "0.45 cm"},
-            {"label": "B", "text": "0.68 cm"},
-            {"label": "C", "text": "1.02 cm"},
-            {"label": "D", "text": "2.10 cm"}
+            {
+              "label": "A",
+              "text": "0.45 cm"
+            },
+            {
+              "label": "B",
+              "text": "0.68 cm"
+            },
+            {
+              "label": "C",
+              "text": "1.02 cm"
+            },
+            {
+              "label": "D",
+              "text": "2.10 cm"
+            }
           ]
         }
       ]
@@ -253,26 +408,50 @@
     {
       "exercise_number": 8,
       "title": "Échantillon radioactif",
-      "stimulus": "Un service de médecine nucléaire reçoit un échantillon d'un composé radioactif pur 2 jours après l'expédition. L'activité de l'échantillon au moment de la réception est $16.10^9$ Bq. L'activité de l'échantillon, 8 jours après réception, ne vaut que $1.10^9$ Bq.",
+      "stimulus": "Un service de médecine nucléaire reçoit un échantillon d'un composé radioactif pur 2 jours après l'expédition. L'activité de l'échantillon au moment de la réception est $16.10⁹$ Bq. L'activité de l'échantillon, 8 jours après réception, ne vaut que $1.10⁹$ Bq.",
       "questions": [
         {
           "question_number": "Q34",
           "text": "La période du composé radioactif vaut :",
           "options": [
-            {"label": "A", "text": "1 jour"},
-            {"label": "B", "text": "2 jours"},
-            {"label": "C", "text": "8 jours"},
-            {"label": "D", "text": "12 jours"}
+            {
+              "label": "A",
+              "text": "1 jour"
+            },
+            {
+              "label": "B",
+              "text": "2 jours"
+            },
+            {
+              "label": "C",
+              "text": "8 jours"
+            },
+            {
+              "label": "D",
+              "text": "12 jours"
+            }
           ]
         },
         {
           "question_number": "Q35",
           "text": "L'activité de l'échantillon au moment de l'expédition vaut :",
           "options": [
-            {"label": "A", "text": "8GBq"},
-            {"label": "B", "text": "20GBq"},
-            {"label": "C", "text": "32GBq"},
-            {"label": "D", "text": "42GBq"}
+            {
+              "label": "A",
+              "text": "8GBq"
+            },
+            {
+              "label": "B",
+              "text": "20GBq"
+            },
+            {
+              "label": "C",
+              "text": "32GBq"
+            },
+            {
+              "label": "D",
+              "text": "42GBq"
+            }
           ]
         }
       ]
@@ -283,12 +462,24 @@
       "questions": [
         {
           "question_number": "Q36",
-          "text": "Quel est le nom de la molécule suivante : $CH_3-C(OH)(CH_3)-CH_2-CH_3$",
+          "text": "Quel est le nom de la molécule suivante : $CH₃-C(OH)(CH₃)-CH₂-CH₃$",
           "options": [
-            {"label": "A", "text": "1-éthyl, 1méthyl éthanol"},
-            {"label": "B", "text": "2-méthyl butan-2-ol"},
-            {"label": "C", "text": "2-hydroxy, 2-méthyl butane"},
-            {"label": "D", "text": "1,1-diméthyl propan-1-ol"}
+            {
+              "label": "A",
+              "text": "1-éthyl, 1méthyl éthanol"
+            },
+            {
+              "label": "B",
+              "text": "2-méthyl butan-2-ol"
+            },
+            {
+              "label": "C",
+              "text": "2-hydroxy, 2-méthyl butane"
+            },
+            {
+              "label": "D",
+              "text": "1,1-diméthyl propan-1-ol"
+            }
           ]
         }
       ]
@@ -296,8 +487,8 @@
     {
       "exercise_number": 10,
       "title": "Électrodéposition de cuivre",
-      "stimulus": "Afin d'effectuer une électrodéposition de cuivre sur une bague métallique on réalise une pile constituée par cette bague, qui remplace l'une des 2 électrodes qui est reliée à la cathode, et est plongée dans une solution contenant les ions $Cu^{2+}$. L'anode est l'autre électrode en cuivre. La bague et l'électrode de cuivre sont reliées à un générateur qui débite un courant constant I = 400 mA. Sachant que l'électrolyse fonctionne pendant une heure.",
-       "programmatic_figure": {
+      "stimulus": "Afin d'effectuer une électrodéposition de cuivre sur une bague métallique on réalise une πle constituée par cette bague, qui remplace l'une des 2 électrodes qui est reliée à la cathode, et est plongée dans une solution contenant les ions $Cu^{2+}$. L'anode est l'autre électrode en cuivre. La bague et l'électrode de cuivre sont reliées à un générateur qui débite un courant constant I = 400 mA. Sachant que l'électrolyse fonctionne pendant une heure.",
+      "programmatic_figure": {
         "type": "image",
         "library": "img",
         "image_url": "/concours/ensa/ensa2022/pc/images/ex10.png",
@@ -310,10 +501,22 @@
           "question_number": "Q37",
           "text": "Quelle est la quantité de matière d'électrons qui a circulé pendant cette durée ? Elle est plus proche de :",
           "options": [
-            {"label": "A", "text": "$1.5 \\times 10^{-2}$ mol"},
-            {"label": "B", "text": "$3.1 \\times 10^{-2}$ mol"},
-            {"label": "C", "text": "$4.5 \\times 10^{-2}$ mol"},
-            {"label": "D", "text": "$6.0 \\times 10^{-2}$ mol"}
+            {
+              "label": "A",
+              "text": "$1.5 \\times 10^{-2}$ mol"
+            },
+            {
+              "label": "B",
+              "text": "$3.1 \\times 10^{-2}$ mol"
+            },
+            {
+              "label": "C",
+              "text": "$4.5 \\times 10^{-2}$ mol"
+            },
+            {
+              "label": "D",
+              "text": "$6.0 \\times 10^{-2}$ mol"
+            }
           ]
         },
         {
@@ -321,10 +524,22 @@
           "stimulus": "On donne 1F = 96500 C.mol⁻¹; $M_{Cu}=63,5$ g.mol⁻¹ (un Faraday équivaut à 96500 Coulombs/mole d'électrons);",
           "text": "Quelle est la masse de cuivre déposée sur la bague pendant la même durée ? Elle est plus proche de :",
           "options": [
-            {"label": "A", "text": "940 mg"},
-            {"label": "B", "text": "440 mg"},
-            {"label": "C", "text": "460 mg"},
-            {"label": "D", "text": "470 mg"}
+            {
+              "label": "A",
+              "text": "940 mg"
+            },
+            {
+              "label": "B",
+              "text": "440 mg"
+            },
+            {
+              "label": "C",
+              "text": "460 mg"
+            },
+            {
+              "label": "D",
+              "text": "470 mg"
+            }
           ]
         }
       ]
@@ -336,12 +551,24 @@
       "questions": [
         {
           "question_number": "Q39",
-          "text": "Dans ce mélange, la concentration finale de l'ion $H_3O^+$ vaut:",
+          "text": "Dans ce mélange, la concentration finale de l'ion $H₃O⁺$ vaut:",
           "options": [
-            {"label": "A", "text": "$[H_3O^+] = 2.8 \\times 10^{-3} \\text{ mol.L}^{-1}$"},
-            {"label": "B", "text": "$[H_3O^+] = 2.8 \\times 10^{-4} \\text{ mol.L}^{-1}$"},
-            {"label": "C", "text": "$[H_3O^+] = 8.2 \\times 10^{-3} \\text{ mol.L}^{-1}$"},
-            {"label": "D", "text": "$[H_3O^+] = 8.2 \\times 10^{-4} \\text{ mol.L}^{-1}$"}
+            {
+              "label": "A",
+              "text": "$[H₃O⁺] = 2.8 \\times 10^{-3} \\text{ mol.L}^{-1}$"
+            },
+            {
+              "label": "B",
+              "text": "$[H₃O⁺] = 2.8 \\times 10^{-4} \\text{ mol.L}^{-1}$"
+            },
+            {
+              "label": "C",
+              "text": "$[H₃O⁺] = 8.2 \\times 10^{-3} \\text{ mol.L}^{-1}$"
+            },
+            {
+              "label": "D",
+              "text": "$[H₃O⁺] = 8.2 \\times 10^{-4} \\text{ mol.L}^{-1}$"
+            }
           ]
         }
       ]
@@ -349,17 +576,29 @@
     {
       "exercise_number": 12,
       "title": "Électrolyse de chlorure de sodium",
-      "stimulus": "On donne le bilan de l'électrolyse d'une solution très concentrée de chlorure de sodium: $2Na^+_{(aq)}+2Cl^-_{(aq)}+2H_2O \\rightarrow Cl_{2(gaz)}+ H_{2(gaz)}+2HO^-_{(aq)}+2Na^+_{(aq)}$. Une cellule industrielle fonctionne sous une tension U =3.8V avec une intensité I=$4.5 \\times 10^4$ A",
-      "data": "Données: couples mise en jeu: $Cl_2/Cl^-$ et $H_2O/H_2$: Volume molaire $V_m = 30 L.mol^{-1}$; 1F= 96500C.mol⁻¹",
+      "stimulus": "On donne le bilan de l'électrolyse d'une solution très concentrée de chlorure de sodium: $2Na⁺_{(aq)}+2Cl⁻_{(aq)}+2H₂O \\rightarrow Cl_{2(gaz)}+ H_{2(gaz)}+2HO⁻_{(aq)}+2Na⁺_{(aq)}$. Une cellule industrielle fonctionne sous une tension U =3.8V avec une intensité I=$4.5 \\times 10⁴$ A",
+      "data": "Données: couples mise en jeu: $Cl₂/Cl⁻$ et $H₂O/H₂$: Volume molaire $V_m = 30 L.mol^{-1}$; 1F= 96500C.mol⁻¹",
       "questions": [
         {
           "question_number": "Q40",
           "text": "Déterminer les volumes de dichlore et dihydrogène produits en un jour qui sont identiques et qui ont une même valeur, plus proche de: Cocher la bonne réponse",
           "options": [
-            {"label": "A", "text": "400m³"},
-            {"label": "B", "text": "450m³"},
-            {"label": "C", "text": "500m³"},
-            {"label": "D", "text": "600m³"}
+            {
+              "label": "A",
+              "text": "400m³"
+            },
+            {
+              "label": "B",
+              "text": "450m³"
+            },
+            {
+              "label": "C",
+              "text": "500m³"
+            },
+            {
+              "label": "D",
+              "text": "600m³"
+            }
           ]
         }
       ]
