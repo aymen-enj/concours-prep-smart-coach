@@ -19,7 +19,7 @@
     },
     {
       "question_number": "Q2",
-      "text": "Le nombre de diviseurs positifs du nombre 546×840 est:",
+      "text": "Le nombre de diviseurs positifs du nombre $546\\times 840$ est:",
       "options": [
         {"label": "A", "text": "180"},
         {"label": "B", "text": "181"},
@@ -27,7 +27,7 @@
         {"label": "D", "text": "183"}
       ],
       "correct_option": "A",
-      "explanation": "Décomposition en facteurs premiers : 546 = 2 * 273 = 2 * 3 * 91 = 2 * 3 * 7 * 13. 840 = 10 * 84 = (2*5) * (12*7) = (2*5) * (2²*3*7) = 2³ * 3 * 5 * 7. Le produit est (2 * 3 * 7 * 13) * (2³ * 3 * 5 * 7) = 2⁴ * 3² * 5¹ * 7² * 13¹. Le nombre de diviseurs est (4+1)(2+1)(1+1)(2+1)(1+1) = 5 * 3 * 2 * 3 * 2 = 180."
+      "explanation": "Décomposition en facteurs premiers : $546 = 2 \\times 273 = 2 \\times 3 \\times 91 = 2 \\times 3 \\times 7 \\times 13$. $840 = 10 \\times 84 = (2\\times 5) \\times (12\\times 7) = (2\\times 5) \\times (2^2\\times 3\\times 7) = 2^3 \\times 3 \\times 5 \\times 7$. Le produit est $(2 \\times 3 \\times 7 \\times 13) \\times (2^3 \\times 3 \\times 5 \\times 7) = 2^4 \\times 3^2 \\times 5^1 \\times 7^2 \\times 13^1$. Le nombre de diviseurs est $(4+1)(2+1)(1+1)(2+1)(1+1) = 5 \\times 3 \\times 2 \\times 3 \\times 2 = 180$."
     },
     {
       "question_number": "Q3",

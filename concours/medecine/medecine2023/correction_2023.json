@@ -13,25 +13,25 @@
             "options": [
               {"label": "A", "text": "Ce cycle peut se dérouler en milieu aérobie et anaérobie."},
               {"label": "B", "text": "Ce cycle comporte des réactions d'hydrolyse."},
-              {"label": "C", "text": "Le cycle de Krebs produit NADH,H+, FADH2, CO2 et l'AcétylCoA."},
+              {"label": "C", "text": "Le cycle de Krebs produit $NADH,H^+$, $FADH_2$, $CO_2$ et l'AcétylCoA."},
               {"label": "D", "text": "Au cours de ce cycle, les transporteurs d'hydrogène passent de la forme oxydée à la forme réduite."},
               {"label": "E", "text": "Les réactions du cycle de Krebs se déroulent dans la membrane interne mitochondriale."}
             ],
             "correct_option": "D",
-            "explanation": "A est faux, le cycle de Krebs est strictement aérobie car il dépend de la régénération de NAD+ et FAD par la chaîne respiratoire qui nécessite de l'O2. B est vrai pour certaines étapes (ex: formation de citrate à partir d'acétyl-CoA et oxaloacétate implique l'hydrolyse du thioester de l'acétyl-CoA, et clivage de succinyl-CoA), mais ce n'est pas sa caractéristique la plus distinctive. C est faux, l'AcétylCoA est un substrat du cycle, pas un produit. D est vrai, NAD+ et FAD (formes oxydées) sont réduits en NADH,H+ et FADH2. E est faux, le cycle de Krebs se déroule dans la matrice mitochondriale."
+            "explanation": "A est faux, le cycle de Krebs est strictement aérobie car il dépend de la régénération de $NAD^+$ et $FAD$ par la chaîne respiratoire qui nécessite de l'$O_2$. B est vrai pour certaines étapes (ex: formation de citrate à partir d'acétyl-CoA et oxaloacétate implique l'hydrolyse du thioester de l'acétyl-CoA, et clivage de succinyl-CoA), mais ce n'est pas sa caractéristique la plus distinctive. C est faux, l'AcétylCoA est un substrat du cycle, pas un produit. D est vrai, $NAD^+$ et $FAD$ (formes oxydées) sont réduits en $NADH,H^+$ et $FADH_2$. E est faux, le cycle de Krebs se déroule dans la matrice mitochondriale."
           },
           {
             "question_number": "Q2",
             "text": "Au sujet de la chaîne respiratoire :",
             "options": [
-              {"label": "A", "text": "Il y a un transfert d'électrons du couple O2/H2O au couple NADH,H+/NAD+."},
+              {"label": "A", "text": "Il y a un transfert d'électrons du couple $O_2/H_2O$ au couple $NADH,H^+/NAD^+$."},
               {"label": "B", "text": "Le dioxygène est oxydé en tant que récepteur final des électrons."},
               {"label": "C", "text": "Il y a augmentation de la concentration des protons dans la matrice."},
               {"label": "D", "text": "Il y a diminution du pH dans la matrice."},
               {"label": "E", "text": "Il y a augmentation de la concentration des protons dans l'espace intermembranaire."}
             ],
             "correct_option": "E",
-            "explanation": "A est faux, le transfert d'électrons se fait de NADH,H+ (et FADH2) vers le couple O2/H2O. B est faux, le dioxygène est réduit en H2O. C est faux, la concentration des protons diminue dans la matrice car ils sont pompés vers l'espace intermembranaire. D est faux, la diminution du pH (augmentation [H+]) a lieu dans l'espace intermembranaire, donc le pH augmente (devient plus basique) dans la matrice. E est vrai, le pompage des protons de la matrice vers l'espace intermembranaire augmente leur concentration dans cet espace."
+            "explanation": "A est faux, le transfert d'électrons se fait de $NADH,H^+$ (et $FADH_2$) vers le couple $O_2/H_2O$. B est faux, le dioxygène est réduit en $H_2O$. C est faux, la concentration des protons diminue dans la matrice car ils sont pompés vers l'espace intermembranaire. D est faux, la diminution du pH (augmentation $[H^+]$) a lieu dans l'espace intermembranaire, donc le pH augmente (devient plus basique) dans la matrice. E est vrai, le pompage des protons de la matrice vers l'espace intermembranaire augmente leur concentration dans cet espace."
           },
           {
             "question_number": "Q3",

@@ -16,7 +16,7 @@
               {"label": "E", "text": "l'actine qui déplace la troponine et la tête de myosine porteuse d'ATP se lie à la tropomyosine."}
             ],
             "correct_option": "A",
-            "explanation": "Le Ca⁺⁺  se fixe sur la troponine C. Ce complexe troponine-Ca⁺⁺  change de conformation et déplace la tropomyosine, libérant ainsi les sites de liaison de la myosine sur l'actine. La tête de myosine, qui a hydrolysé l'ATP en ADP+Pi (et est donc porteuse d'ADP+Pi et 'armée'), peut alors se lier à l'actine. A est la plus proche description. La tête de myosine hydrolyse l'ATP avant de se lier (état armé), mais est encore techniquement 'porteuse' d'ATP ou de ses produits d'hydrolyse."
+            "explanation": "La libération des ions calcium ($Ca^{++}$) par le réticulum sarcoplasmique est l'événement déclencheur de la contraction. Ces ions se lient à la sous-unité C de la troponine. Ce complexe troponine-calcium subit un changement conformationnel qui entraîne le déplacement de la tropomyosine, libérant ainsi les sites de liaison de la myosine sur les filaments d'actine. La tête de myosine, qui a préalablement hydrolysé l'ATP en ADP + Pi et se trouve dans une configuration de haute énergie, peut alors se fixer à l'actine, formant un pont d'union actine-myosine. L'option A décrit le plus fidèlement cette séquence d'événements."
           },
           {
             "question_number": "Q2",
@@ -37,7 +37,7 @@
               {"label": "E", "text": "4 et 5."}
             ],
             "correct_option": "D",
-            "explanation": "1 est faux (la fermentation lactique intervient pour des efforts intenses et relativement courts, mais pas 'longs' comparé à la respiration). 2 est faux (la respiration est pour des efforts plus longs). 3 est vrai (voie anaérobie alactique, très rapide, qqs secondes). 4 est faux (phosphocréatine pour effort très court/rapide). 5 est vrai (voie aérobie, pour efforts d'endurance/longs). Donc 3 et 5 sont vraies."
+            "explanation": "La régénération de l'ATP musculaire fait appel à trois voies métaboliques dont la contribution varie selon l'intensité et la durée de l'effort. Pour les efforts très courts et intenses (quelques secondes), la voie anaérobie alactique est sollicitée, utilisant la phosphocréatine pour régénérer l'ATP à partir de l'ADP (proposition 3 vraie). Pour les efforts un peu plus longs et intenses (quelques dizaines de secondes à 2 minutes), la voie anaérobie lactique (fermentation lactique ou glycolyse anaérobie) prend le relais (proposition 1 fausse). Enfin, pour les efforts d'endurance, de longue durée et d'intensité modérée, la respiration cellulaire (voie aérobie), qui a un rendement énergétique bien supérieur, est la voie prédominante (proposition 5 vraie, propositions 2 et 4 fausses)."
           },
           {
             "question_number": "Q3",
@@ -50,7 +50,7 @@
               {"label": "E", "text": "de deux gènes disposés sur un même locus d'un chromosome déterminé."}
             ],
             "correct_option": "C",
-            "explanation": "Le brassage intrachromosomique (crossing-over) se produit entre chromatides non-sœurs de chromosomes homologues. Il implique l'échange de segments d'ADN et donc la recombinaison des allèles de gènes situés sur ces segments. L'option C décrit le mieux cette situation en considérant des gènes différents sur les chromosomes homologues."
+            "explanation": "Le brassage intrachromosomique, ou 'crossing-over', est un phénomène méiotique qui se déroule durant la prophase de la première division de méiose. Il consiste en un échange de segments de chromatides entre deux chromosomes homologues appariés. Cet échange crée de nouvelles combinaisons d'allèles pour des gènes situés sur différents loci le long de ces chromosomes, augmentant ainsi la diversité génétique des gamètes produits."
           },
           {
             "question_number": "Q4",
@@ -63,7 +63,7 @@
               {"label": "E", "text": "une protéine découverte chez les plantes et utilisée comme vecteur en génie génétique."}
             ],
             "correct_option": "A",
-            "explanation": "Un plasmide est une petite molécule d'ADN circulaire, distincte de l'ADN chromosomique principal, trouvée chez les bactéries et certains eucaryotes. Il est largement utilisé comme vecteur en génie génétique."
+            "explanation": "Un plasmide est une molécule d'ADN double brin, généralement circulaire et de petite taille, que l'on trouve principalement chez les bactéries. Il est distinct de l'ADN chromosomique bactérien et se réplique de manière autonome. En génie génétique, les plasmides sont largement utilisés comme vecteurs pour cloner, transporter et transférer des gènes d'intérêt dans des cellules hôtes."
           },
           {
             "question_number": "Q5",
@@ -76,7 +76,7 @@
               {"label": "E", "text": "juste avant la deuxième division de la méiose grâce à l'ADN polymérase qui copie l'ADN."}
             ],
             "correct_option": "D",
-            "explanation": "La réplication de l'ADN se produit durant la phase S de l'interphase, avant la mitose ET avant la première division de la méiose (mais pas avant la deuxième). Elle est catalysée par l'ADN polymérase. L'option D est la plus générale et correcte."
+            "explanation": "La réplication de l'ADN est le processus par lequel une molécule d'ADN est dupliquée à l'identique. Ce processus est semi-conservatif et se déroule au cours de la phase S (pour Synthèse) de l'interphase du cycle cellulaire. L'interphase précède les divisions cellulaires, que ce soit la mitose ou la méiose. L'enzyme principale catalysant cette synthèse est l'ADN polymérase. Il n'y a pas de réplication de l'ADN entre la première et la deuxième division de méiose."
           },
           {
             "question_number": "Q6",
@@ -89,7 +89,7 @@
               {"label": "E", "text": "indépendants est exprimée en centimorgan (cM) dont 1 cM correspond à 1% des types parentaux."}
             ],
             "correct_option": "A",
-            "explanation": "Une carte factorielle (ou carte génétique) montre la position relative des gènes liés sur un chromosome. La distance est mesurée en centimorgans (cM), où 1 cM correspond à une fréquence de recombinaison de 1% (donc 1% de descendants de type recombiné)."
+            "explanation": "Une carte factorielle, ou carte génétique, représente la position relative des loci de gènes liés sur un même chromosome. La distance entre ces loci n'est pas une distance physique mais une distance génétique, mesurée en unités de recombinaison appelées centimorgans (cM). Par définition, une distance de 1 cM entre deux gènes correspond à une fréquence de recombinaison de 1%, ce qui signifie que 1% des descendants issus d'un croisement test présentent un phénotype recombiné pour ces deux gènes."
           },
           {
             "question_number": "Q7",
@@ -102,7 +102,7 @@
               {"label": "E", "text": "L'allèle responsable de la maladie ne se transmet pas du père vers ses filles."}
             ],
             "correct_option": "D",
-            "explanation": "A est faux (le père transmet son X à ses filles, son Y à ses fils). B est faux (si la mère est saine non porteuse, les filles seront porteuses mais saines). C est faux (une femme porteuse a 50% de chances de transmettre l'allèle X malade à son fils). D est vrai (une femme malade (XᵃXᵃ) transmettra un Xᵃ à tous ses enfants; ses fils (XᵃY) seront donc malades). E est faux (le père transmet son unique chromosome X à toutes ses filles)."
+            "explanation": "Pour une maladie récessive liée à l'X, une femme est malade si elle est homozygote pour l'allèle morbide (XᵃXᵃ). Un homme est malade s'il est hémizygote (XᵃY). Une femme malade (XᵃXᵃ) transmet obligatoirement un chromosome X porteur de l'allèle morbide (Xᵃ) à tous ses descendants. Par conséquent, tous ses fils recevront ce Xᵃ et, ayant un chromosome Y, auront le génotype XᵃY et seront donc systématiquement malades."
           },
           {
             "question_number": "Q8",
@@ -115,7 +115,7 @@
               {"label": "E", "text": "la dérive génétique est liée à des phénomènes déterministes c'est-à-dire non-aléatoires."}
             ],
             "correct_option": "B",
-            "explanation": "A est faux (effets plus marqués dans les petites populations). B est vrai (un goulot d'étranglement réduit drastiquement la taille de la population, amplifiant les effets de la dérive). C est faux (dérive et sélection agissent souvent conjointement). D est faux (la dérive tend à réduire la diversité génétique en fixant ou éliminant des allèles). E est faux (la dérive est un phénomène aléatoire)."
+            "explanation": "La dérive génétique est un mécanisme d'évolution stochastique (aléatoire) qui provoque une fluctuation des fréquences alléliques au fil des générations. Ses effets sont inversement proportionnels à la taille de la population ; ils sont donc particulièrement importants dans les petites populations. Un goulot d'étranglement (bottleneck effect) est une réduction drastique de la taille d'une population, ce qui amplifie considérablement les effets de la dérive. La dérive tend à réduire la diversité génétique en fixant ou en éliminant des allèles de manière aléatoire."
           },
           {
             "question_number": "Q9",
@@ -136,7 +136,7 @@
               {"label": "E", "text": "2 et 5."}
             ],
             "correct_option": "E",
-            "explanation": "1 est faux (LB reconnaissent l'antigène natif, généralement pas présenté par CMH, ou si présentation, c'est aux LT helpers). 2 est vrai (LT4 ou LT auxiliaires reconnaissent des peptides antigéniques présentés par le CMH-II des CPA). 3 est faux (LT8 reconnaissent le CMH-I). 4 est faux (LT4 reconnaissent CMH-II). 5 est vrai (LT8 ou LT cytotoxiques reconnaissent des peptides antigéniques présentés par le CMH-I sur les cellules infectées ou tumorales, et aussi par les CPA dans certains cas de présentation croisée). Donc 2 et 5 sont vraies."
+            "explanation": "La reconnaissance de l'antigène par les lymphocytes T est restreinte par le Complexe Majeur d'Histocompatibilité (CMH). Les lymphocytes T auxiliaires (LT4), via leur récepteur T (TCR) et leur corécepteur CD4, reconnaissent spécifiquement les peptides antigéniques présentés par les molécules du CMH de classe II à la surface des cellules présentatrices d'antigènes (CPA) (proposition 2 vraie). Les lymphocytes T cytotoxiques (LT8), via leur TCR et leur corécepteur CD8, reconnaissent spécifiquement les peptides antigéniques présentés par les molécules du CMH de classe I à la surface de la plupart des cellules nucléées, y compris les CPA et les cellules infectées (proposition 5 vraie)."
           },
           {
             "question_number": "Q10",
@@ -149,7 +149,7 @@
               {"label": "E", "text": "LB qui se transforment en plasmocytes secrétant les IgG qui se fixent sur les cellules dendritiques."}
             ],
             "correct_option": "B",
-            "explanation": "La phase de sensibilisation à un allergène implique la première rencontre avec l'allergène, sa présentation par les CPA aux lymphocytes T auxiliaires (LT4), qui aident ensuite les lymphocytes B à se différencier en plasmocytes produisant des anticorps IgE spécifiques. Ces IgE se fixent ensuite sur les récepteurs Fc des mastocytes et basophiles."
+            "explanation": "La phase de sensibilisation de l'allergie (hypersensibilité de type I) correspond au premier contact avec un allergène. L'allergène est capté et présenté par les cellules présentatrices d'antigènes (CPA) aux lymphocytes T auxiliaires (LT4). Ces derniers s'activent et stimulent à leur tour les lymphocytes B (LB) spécifiques de l'allergène. Les LB se différencient alors en plasmocytes, qui produisent en grande quantité des immunoglobulines de type E (IgE). Ces IgE se fixent par leur fragment Fc sur les récepteurs présents à la surface des mastocytes et des basophiles, rendant l'individu 'sensibilisé'."
           },
           {
             "question_number": "Q11",
@@ -163,31 +163,31 @@
               {"label": "E", "text": "phosphocréatine, au niveau de la matrice, lors de l'échauffement et par la voie de fermentation lactique, au niveau du hyaloplasme, lors de la course."}
             ],
             "correct_option": "A",
-            "explanation": "Pour un effort très court et intense comme un sprint de 10s, la phosphocréatine (PCr) est la première source rapide d'ATP. Si l'effort se prolonge légèrement au-delà ou est maximal, la fermentation lactique (glycolyse anaérobie) prend le relais. Le graphique montre une chute rapide de la PCr pendant la course et une augmentation de l'acide lactique, tandis que l'ATP reste relativement stable. L'échauffement utiliserait des voies variées dont un peu de PCr pour les mouvements initiaux. La voie de la phosphocréatine et la fermentation lactique se déroulent toutes deux dans le hyaloplasme (cytosol). La respiration (matrice mitochondriale) est moins sollicitée pour un effort aussi bref. Donc A est la plus plausible."
+            "explanation": "Un sprint de 10 secondes est un effort maximal et de très courte durée qui dépend exclusivement des voies métaboliques anaérobies pour la régénération de l'ATP. La première voie sollicitée est la voie anaérobie alactique (hydrolyse de la phosphocréatine), qui fournit de l'énergie quasi instantanément. Elle est rapidement secondée par la voie anaérobie lactique (glycolyse anaérobie), qui produit de l'acide lactique. Ces deux processus se déroulent dans le cytoplasme de la cellule musculaire (hyaloplasme). L'option A, bien qu'attribuant la phosphocréatine à l'échauffement et la fermentation à la course, identifie correctement les deux voies et leur localisation cellulaire."
           },
           {
             "question_number": "Q12",
             "text": "Le sens de déplacement des électrons du NADH, H+ vers le dioxygène le long de quatre composantes de cette chaîne respiratoire est le suivant :",
             "options": [
-              {"label": "A", "text": "Cytochrome a3 $\\rightarrow$ Cytochrome a $\\rightarrow$ Cytochrome b $\\rightarrow$ Flavine mononucléotide."},
-              {"label": "B", "text": "Ubiquinone $\\rightarrow$ Cytochrome b $\\rightarrow$ Cytochrome a $\\rightarrow$ Cytochrome a3."},
-              {"label": "C", "text": "Flavine mononucléotide $\\rightarrow$ Cytochrome c $\\rightarrow$ Cytochrome c1 $\\rightarrow$ Cytochrome a3."},
-              {"label": "D", "text": "Ubiquinone $\\rightarrow$ Cytochrome b $\\rightarrow$ Cytochrome a3 $\\rightarrow$ Cytochrome a."},
-              {"label": "E", "text": "Cytochrome a3 $\\rightarrow$ Cytochrome a $\\rightarrow$ Cytochrome c $\\rightarrow$ Cytochrome c1."}
+              {"label": "A", "text": "Cytochrome a3 → Cytochrome a → Cytochrome b → Flavine mononucléotide."},
+              {"label": "B", "text": "Ubiquinone → Cytochrome b → Cytochrome a → Cytochrome a3."},
+              {"label": "C", "text": "Flavine mononucléotide → Cytochrome c → Cytochrome c1 → Cytochrome a3."},
+              {"label": "D", "text": "Ubiquinone → Cytochrome b → Cytochrome a3 → Cytochrome a."},
+              {"label": "E", "text": "Cytochrome a3 → Cytochrome a → Cytochrome c → Cytochrome c1."}
             ],
             "correct_option": "B",
-            "explanation": "Les électrons se déplacent des potentiels d'oxydoréduction les plus négatifs vers les plus positifs. Flavine mononucléotide (-300mV) $\\rightarrow$ Ubiquinone (+2mV) $\\rightarrow$ Cytochrome b (+30mV) $\\rightarrow$ Cytochrome c1 (+225mV) $\\rightarrow$ Cytochrome c (+235mV) $\\rightarrow$ Cytochrome a (+310mV) $\\rightarrow$ Cytochrome a3 (+385mV) $\\rightarrow$ O2. L'option B : Ubiquinone (+2mV) $\\rightarrow$ Cyt b (+30mV) $\\rightarrow$ Cyt a (+310mV) $\\rightarrow$ Cyt a3 (+385mV) suit cet ordre de potentiels croissants."
+            "explanation": "Au sein de la chaîne respiratoire mitochondriale, le transfert des électrons s'effectue spontanément des transporteurs à faible potentiel d'oxydoréduction vers ceux à potentiel plus élevé. Le NADH cède ses électrons au Complexe I (NADH déshydrogénase, contenant le FMN), qui les transfère à l'ubiquinone (Coenzyme Q). L'ubiquinone les cède au Complexe III (cytochrome bc1). De là, ils passent au cytochrome c, puis au Complexe IV (cytochrome c oxydase, contenant les cytochromes a et a3), pour finalement réduire l'accepteur final, le dioxygène (O₂). La séquence de l'option B (Ubiquinone → Cytochrome b → Cytochrome a → Cytochrome a3) respecte cet ordre croissant de potentiel redox et la direction du flux électronique."
           },
           {
             "question_number": "Q13",
-            "stimulus": "Lapin gris poil long (GgLl) x Lapine blanche poil court (ggll). F1: lapereaux tachetés poil long. F1 x F1 $\\rightarrow$ F2.",
-            "text": "Sachant que les deux gènes étudiés sont indépendants, les proportions des phénotypes obtenus à la génération $F_{2}$ sont :",
+            "stimulus": "Lapin gris poil long (GgLl) x Lapine blanche poil court (ggll). F1: lapereaux tachetés poil long. F1 x F1 → F2.",
+            "text": "Sachant que les deux gènes étudiés sont indépendants, les proportions des phénotypes obtenus à la génération F₂ sont :",
             "options": [
-              {"label": "A", "text": "gris long: $9/16$; gris court: $3/16$; blanc long: $3/16$; blanc court: $1/16$."},
-              {"label": "B", "text": "blanc long: $9/16$; blanc court: $3/16$; gris long: $3/16$; gris court: $1/16$."},
-              {"label": "C", "text": "tacheté long: $6/16$; gris long: $3/16$; blanc long: $3/16$; tacheté court: $2/16$; gris court: $1/16$; blanc court: $1/16$."},
-              {"label": "D", "text": "tacheté long: $6/16$; gris long: $3/16$; blanc court: $3/16$; tacheté court: $2/16$; gris court: $1/16$; blanc long: $1/16$."},
-              {"label": "E", "text": "tacheté long: $6/16$; gris court: $3/16$; blanc long: $3/16$; tacheté court: $2/16$; gris long: $1/16$; blanc court: $1/16$."}
+              {"label": "A", "text": "gris long: 9/16; gris court: 3/16; blanc long: 3/16; blanc court: 1/16."},
+              {"label": "B", "text": "blanc long: 9/16; blanc court: 3/16; gris long: 3/16; gris court: 1/16."},
+              {"label": "C", "text": "tacheté long: 6/16; gris long: 3/16; blanc long: 3/16; tacheté court: 2/16; gris court: 1/16; blanc court: 1/16."},
+              {"label": "D", "text": "tacheté long: 6/16; gris long: 3/16; blanc court: 3/16; tacheté court: 2/16; gris court: 1/16; blanc long: 1/16."},
+              {"label": "E", "text": "tacheté long: 6/16; gris court: 3/16; blanc long: 3/16; tacheté court: 2/16; gris long: 1/16; blanc court: 1/16."}
             ],
             "correct_option": "C",
             "explanation": "Croisement initial: Gris (supposons G) long (L) avec Blanc (g) court (l). Si F1 sont tachetés (T) poils longs (L), cela indique une codominance ou dominance incomplète pour la couleur (Gris x Blanc $\\rightarrow$ Tacheté) et une dominance de Long sur Court. Soit les allèles pour la couleur Cᴳ (gris) et Cᴮ (blanc). Le parent gris est CᴳCᴳ et le parent blanc CᴮCᴮ. Les F1 sont CᴳCᴮ (tacheté). Pour la longueur, parent long LL, parent court ll. Les F1 sont Ll (long). Donc F1 est CᴳCᴮ Ll. Croisement F1 x F1 : (CᴳCᴮ Ll) x (CᴳCᴮ Ll). Pour la couleur : $1/4$ CᴳCᴳ (gris), $2/4$ CᴳCᴮ (tacheté), $1/4$ CᴮCᴮ (blanc). Pour la longueur : $3/4$ L_ (long), $1/4$ ll (court). Combinaisons: Tacheté Long = $(2/4) \\times (3/4) = 6/16$. Gris Long = $(1/4) \\times (3/4) = 3/16$. Blanc Long = $(1/4) \\times (3/4) = 3/16$. Tacheté Court = $(2/4) \\times (1/4) = 2/16$. Gris Court = $(1/4) \\times (1/4) = 1/16$. Blanc Court = $(1/4) \\times (1/4) = 1/16$. Ceci correspond à l'option C."
@@ -226,9 +226,9 @@
             "text": "Probabilité d'avoir une fille daltonienne :",
             "options": [
               {"label": "A", "text": "0"},
-              {"label": "B", "text": "$1/4$"},
-              {"label": "C", "text": "$1/2$"},
-              {"label": "D", "text": "$3/4$"},
+              {"label": "B", "text": "1/4"},
+              {"label": "C", "text": "1/2"},
+              {"label": "D", "text": "3/4"},
               {"label": "E", "text": "1"}
             ],
             "correct_option": "B",
@@ -236,14 +236,14 @@
           },
           {
             "question_number": "Q17",
-            "stimulus": "Souris: [Y] jaune, [+] agouti (sauvage). C1: [Y] x [+] $\\rightarrow$ 1/2 [Y], 1/2 [+]. C2: [Y] x [Y] $\\rightarrow$ 2/3 [Y], 1/3 [+].",
+            "stimulus": "Souris: [Y] jaune, [+] agouti (sauvage). C1: [Y] x [+] → 1/2 [Y], 1/2 [+]. C2: [Y] x [Y] → 2/3 [Y], 1/3 [+].",
             "text": "Croisement [Y] (issu C2) x souris [+], descendance:",
             "options": [
-              {"label": "A", "text": "$1/4$ yellow; $3/4$ agouti."},
-              {"label": "B", "text": "$1/3$ yellow; $2/3$ agouti."},
-              {"label": "C", "text": "$3/4$ yellow; $1/4$ agouti."},
-              {"label": "D", "text": "$1/2$ yellow; $1/2$ agouti."},
-              {"label": "E", "text": "$2/3$ yellow; $1/3$ agouti."}
+              {"label": "A", "text": "1/4 yellow; 3/4 agouti."},
+              {"label": "B", "text": "1/3 yellow; 2/3 agouti."},
+              {"label": "C", "text": "3/4 yellow; 1/4 agouti."},
+              {"label": "D", "text": "1/2 yellow; 1/2 agouti."},
+              {"label": "E", "text": "2/3 yellow; 1/3 agouti."}
             ],
             "correct_option": "D",
             "explanation": "C1: [Y] x [+] $\\rightarrow$ 1/2[Y], 1/2[+]. Si Y est dominant sur +, notons Y l'allèle jaune et y l'allèle agouti. Alors parent [Y] est Yy et parent [+] est yy. Cela donne Yy x yy $\\rightarrow$ 1/2 Yy ([Y]), 1/2 yy ([+]). Ceci est cohérent. C2: [Y] x [Y] $\\rightarrow$ (Yy) x (Yy) $\\rightarrow$ 1/4 YY, 2/4 Yy, 1/4 yy. On obtient 2/3 [Y] et 1/3 [+]. Ceci suggère que le génotype YY est létal et que les souris [Y] sont Yy, et les [+] sont yy. Donc les [Y] survivants sont tous Yy. Croiser un [Y] (Yy) issu de C2 avec une souris [+] (yy) : Yy x yy $\\rightarrow$ 1/2 Yy ([Y]) et 1/2 yy ([+])."
@@ -251,14 +251,14 @@
           {
             "question_number": "Q18",
             "stimulus": "PTC: 70% sensibles (S_). Allèle dominant S, récessif s.",
-            "data": {"given_values": ["$\\sqrt{0,20}=0,45$", "$\\sqrt{0,30}=0,55$", "$\\sqrt{0,70}=0,83$"]},
+            "data": {"given_values": ["√0,20=0,45", "√0,30=0,55", "√0,70=0,83"]},
             "text": "Fréquences des allèles et génotypes?",
             "options": [
-              {"label": "A", "text": "$f(s)=0.55; f(S)=0.45; f(ss)=0.30; f(Ss)=0.49; f(SS)=0.20.$"},
-              {"label": "B", "text": "$f(s)=0.55; f(S)=0.45; f(ss)=0.30; f(Ss)=0.20; f(SS)=0.49.$"},
-              {"label": "C", "text": "$f(s)=0.70; f(S)=0.30; f(ss)=0.30; f(Ss)=0.20; f(SS)=0.50.$"},
-              {"label": "D", "text": "$f(s)=0.55; f(S)=0.45; f(ss)=0.30; f(Ss)=0.68; f(SS)=0.02.$"},
-              {"label": "E", "text": "$f(s)=0.83; f(S)=0.17; f(ss)=0.70; f(Ss)=0.44; f(SS)=0.07.$"}
+              {"label": "A", "text": "f(s)=0.55; f(S)=0.45; f(ss)=0.30; f(Ss)=0.49; f(SS)=0.20."},
+              {"label": "B", "text": "f(s)=0.55; f(S)=0.45; f(ss)=0.30; f(Ss)=0.20; f(SS)=0.49."},
+              {"label": "C", "text": "f(s)=0.70; f(S)=0.30; f(ss)=0.30; f(Ss)=0.20; f(SS)=0.50."},
+              {"label": "D", "text": "f(s)=0.55; f(S)=0.45; f(ss)=0.30; f(Ss)=0.68; f(SS)=0.02."},
+              {"label": "E", "text": "f(s)=0.83; f(S)=0.17; f(ss)=0.70; f(Ss)=0.44; f(SS)=0.07."}
             ],
             "correct_option": "A",
             "explanation": "70% sensibles ([S_]) $\\implies$ 30% insensibles ([ss]). Fréquence du génotype [ss] = $f(ss) = q^2 = 0,30$. Fréquence de l'allèle s: $q = f(s) = \\sqrt{0,30} = 0,55$. Fréquence de l'allèle S: $p = f(S) = 1 - q = 1 - 0,55 = 0,45$. Fréquences des génotypes: $f(SS) = p^2 = (0,45)^2 = 0,2025 \\approx 0,20$. $f(Ss) = 2pq = 2(0,45)(0,55) = 0,495 \\approx 0,49$ ou 0,50. $f(ss) = q^2 = 0,30$. L'option A correspond à $f(s)=0.55, f(S)=0.45, f(ss)=0.30, f(SS)=0.20, f(Ss)=0.49$."
@@ -307,18 +307,18 @@
           {
             "exercise_title": "Ondes à la surface de l'eau",
             "question_number": "Q21",
-            "stimulus": "Onde sinusoïdale, N=50Hz. Section à $t_1$. Élongation source $y_{s}(t)=10^{-2}\\sin(100\\pi t)$. Le graphique montre 2.5 longueurs d'onde ($\\lambda$) sur 10 cm.",
-            "text": "La valeur de l'instant $t_{1}$ est:",
-            "options": [{"label": "A", "text":"$t_{1}=0,6ms$"}, {"label": "B", "text":"$t_{1}=14ms$"}, {"label": "C", "text":"$t_{1}=21ms$"}, {"label": "D", "text":"$t_{1}=50~ms$"}, {"label": "E", "text":"$t_{1}=100~ms$"}],
+            "stimulus": "Onde sinusoïdale, N=50Hz. Section à t₁. Élongation source yₛ(t)=10⁻²sin(100πt). Le graphique montre 2.5 longueurs d'onde (λ) sur 10 cm.",
+            "text": "La valeur de l'instant t₁ est:",
+            "options": [{"label": "A", "text":"t₁=0,6ms"}, {"label": "B", "text":"t₁=14ms"}, {"label": "C", "text":"t₁=21ms"}, {"label": "D", "text":"t₁=50ms"}, {"label": "E", "text":"t₁=100ms"}],
             "correct_option": "C",
             "explanation": "Période $T = 1/N = 1/50 Hz = 0,02 s = 20 ms$. Le graphique montre que la distance parcourue par l'onde à l'instant $t_1$ est $d = 2,5 \\lambda$. D'après l'image, $2,5 \\lambda = 10 cm = 0,1 m$. Donc $\\lambda = 0,1m / 2,5 = 0,04 m = 4 cm$. L'élongation de la source $y_s(t) = A \\sin(2\\pi N t)$. Ici $A=10^{-2}m$. Le front d'onde à $t_1$ est au point $x = 2,5 \\lambda$. L'instant $t_1$ doit correspondre à un multiple entier de la période plus un quart de période si on suppose que la source commence à $y_s=0$ et phase ascendante, et que le front est à la fin de la 2.5ème longueur d'onde avec un sommet. C'est $2T + T/4$ ou $T/4$ pour la première crête... Le point S est un sommet (y=A) à $t_1$. L'équation de S est $y_s(t_1)=A \\sin(2\\pi N t_1) = A$. Donc $2\\pi N t_1 = \\pi/2 + 2k\\pi$. Soit $N t_1 = 1/4 + k$. $t_1 = (1/4N) + k/N = T/4 + kT$. Les options sont: 0.6ms, 14ms, 21ms, 50ms, 100ms. $T/4=5ms$. $T=20ms$. $T/4=5ms$. $t_1 = 5ms + k(20ms)$. Pour $k=0, t_1=5ms$. Pour $k=1, t_1=25ms$. Option C: $t_1=21ms$ n'est pas un T/4. Alternativement, si le graphique représente l'état de la surface à un instant $t_1$ tel que le front d'onde (le point le plus éloigné de S ayant commencé à vibrer) se trouve à $x_f = v t_1 = 2.5 \\lambda$. Et que la source S est un maximum (sommet), $y_s(t_1) = A$. $100\\pi t_1 = \\pi/2 + 2k\\pi \\implies t_1 = 1/(200) + k/50 = 0.005s + k(0.02s) = 5ms + k(20ms)$. Donc 5ms, 25ms, 45ms... Aucune option n'est compatible.  Il y a probablement une erreur dans l'énoncé ou les options. Si le graphique montrait 2.5T plutôt que 2.5$\\lambda$, et que $x=10cm$ est le point $x$ et $y_S(t_1)$ est un maximum. $t_1 = (1/4+k)T$. La plus proche pourrait être $T+T/4$ si $2.5\\lambda$ représente $t_1$. C: 21ms est T + 1ms, B: 14ms est 0.7T. "
           },
           {
             "exercise_title": "Ondes à la surface de l'eau",
             "question_number": "Q22",
-            "stimulus": "P appartient à la crête numéro 4. $y_{s}(t)=10^{-2}\\sin(100\\pi t)$.",
-            "text": "L'élongation du point $\\mathcal{P}$ à l'instant $\\mathcal{t}$ est:",
-            "options": [{"label": "A", "text":"$y_{\\mathcal{P}}(t)=10^{-2}.sin(100.\\pi.t)$"}, {"label": "B", "text":"$y_{\\mathcal{P}}(t)=10^{-2}.sin(100.\\pi.t-\\frac{\\pi}{2})$"}, {"label": "C", "text":"$y_{\\mathcal{P}}(t)=10^{-2}.sin(100.\\pi.t+\\frac{\\pi}{2})$"}, {"label": "D", "text":"$y_{\\mathcal{P}}(t)=10^{-2}.sin(100.t)$"}, {"label": "E", "text":"$y_{P}(t)=10^{-2}.sin(100.\\pi~t-\\pi)$"}],
+            "stimulus": "P appartient à la crête numéro 4. yₛ(t)=10⁻²sin(100πt).",
+            "text": "L'élongation du point P à l'instant t est:",
+            "options": [{"label": "A", "text":"yₚ(t)=10⁻²sin(100πt)"}, {"label": "B", "text":"yₚ(t)=10⁻²sin(100πt-π/2)"}, {"label": "C", "text":"yₚ(t)=10⁻²sin(100πt+π/2)"}, {"label": "D", "text":"yₚ(t)=10⁻²sin(100t)"}, {"label": "E", "text":"yₚ(t)=10⁻²sin(100πt-π)"}],
             "correct_option": "A",
             "explanation": "Si le point P est sur la crête numéro 4, cela signifie qu'il est en phase avec la source S (ou déphasé d'un multiple de $2\\pi$) lorsque S est aussi sur une crête. Plus généralement, si P est une crête, son élongation est maximale (A) et donc sa phase est $\\pi/2 + 2k\\pi$. L'élongation d'un point P situé à une distance $x_P$ de la source est $y_P(t) = y_S(t - x_P/v) = A \\sin(2\\pi N (t-x_P/v)) = A \\sin(2\\pi N t - 2\\pi x_P/\\lambda)$. Si P est la 4ème crête, alors $x_P = 4\\lambda$ (si la 1ère est à $x=\\lambda$). Alors le terme de phase $-2\\pi x_P/\\lambda = -2\\pi (4\\lambda)/\\lambda = -8\\pi$. Ce déphasage de $-8\\pi$ est équivalent à $0 [2\\pi]$. Donc $y_P(t) = A \\sin(2\\pi N t) = y_S(t)$ si la crête n°4 correspond à $x=4\\lambda$. L'option A."
           },
@@ -326,7 +326,7 @@
             "exercise_title": "Diffraction de la lumière par une fente",
             "question_number": "Q23",
             "text": "La valeur de la largeur de la fente est :",
-            "options": [{"label": "A", "text":"$a=10\\mu m$"}, {"label": "B", "text":"$a=25\\mu m$"}, {"label": "C", "text":"$a=40\\mu m$"}, {"label": "D", "text":"$a=65\\mu m$"}, {"label": "E", "text":"$a=100\\mu m$"}],
+            "options": [{"label": "A", "text":"a=10μm"}, {"label": "B", "text":"a=25μm"}, {"label": "C", "text":"a=40μm"}, {"label": "D", "text":"a=65μm"}, {"label": "E", "text":"a=100μm"}],
             "correct_option": "C",
             "explanation": "Pour l'expérience 1: $\\theta_1 = \\lambda_1/a_1$. On a $\\theta_1 = 10^{-2} rad$ et $a_1=a$. Donc $\\lambda_1 = a \\times 10^{-2}$. Pour l'expérience 2: $L_2 = 2D\\lambda_2/a_2$. $L_2=5cm=0,05m$, $\\lambda_2 = 632,8nm$, $a_2=a$. Donc $D/a = L_2/(2\\lambda_2) = 0,05 / (2 \\times 632,8 \\times 10^{-9}) = 0,05 / (1265,6 \\times 10^{-9}) \\approx 39507$. On a $L_1 = 2D\\lambda_1/a_1 = 2(D/a)\\lambda_1$. $3,2 \\times 10^{-2} = 2 \\times 39507 \\times \\lambda_1$. $\\lambda_1 = (3,2 \\times 10^{-2}) / (2 \\times 39507) \\approx 4,05 \\times 10^{-7} m = 405 nm$. On sait que $\\lambda_1 = a \\theta_1$. Donc $a = \\lambda_1 / \\theta_1 = (4,05 \\times 10^{-7} m) / (10^{-2} rad) = 4,05 \\times 10^{-5} m = 40,5 \\mu m$. L'option la plus proche est $40 \\mu m$."
           },
@@ -335,11 +335,11 @@
             "question_number": "Q24",
             "text": "Les écarts angulaires de diffraction dans les quatre expériences sont tels que :",
             "options": [
-              {"label": "A", "text": "$\\theta_4 > \\theta_1 > \\theta_2 > \\theta_3$"},
-              {"label": "B", "text": "$\\theta_3 > \\theta_2 > \\theta_1 > \\theta_4$"},
-              {"label": "C", "text": "$\\theta_1 > \\theta_2 > \\theta_3 > \\theta_4$"},
-              {"label": "D", "text": "$\\theta_2 > \\theta_3 > \\theta_4 > \\theta_1$"},
-              {"label": "E", "text": "$\\theta_3 > \\theta_1 > \\theta_2 > \\theta_4$"}
+              {"label": "A", "text": "θ₄ > θ₁ > θ₂ > θ₃"},
+              {"label": "B", "text": "θ₃ > θ₂ > θ₁ > θ₄"},
+              {"label": "C", "text": "θ₁ > θ₂ > θ₃ > θ₄"},
+              {"label": "D", "text": "θ₂ > θ₃ > θ₄ > θ₁"},
+              {"label": "E", "text": "θ₃ > θ₁ > θ₂ > θ₄"}
             ],
             "correct_option": "B",
             "explanation": "On a $\\theta = \\lambda/a$. $\\lambda_1 = 405 nm$, $\\lambda_2 = 632,8 nm$. $a_1=a, a_2=a, a_3=a/2, a_4=2a$. $\\theta_1 = \\lambda_1/a = 405/a$. $\\theta_2 = \\lambda_2/a = 632,8/a$. $\\theta_3 = \\lambda_2/(a/2) = 2\\lambda_2/a = 1265,6/a$. $\\theta_4 = \\lambda_2/(2a) = (632,8/2)/a = 316,4/a$. Classement des $\\theta$: $\\theta_3 (1265.6/a) > \\theta_2 (632.8/a) > \\theta_1 (405/a) > \\theta_4 (316.4/a)$. Ceci correspond à l'option B."

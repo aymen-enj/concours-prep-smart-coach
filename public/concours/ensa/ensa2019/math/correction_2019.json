@@ -13,7 +13,7 @@
           {"label": "D", "text": "$\\frac{an+b}{n+a}$"}
         ],
         "correct_option": "A",
-        "explanation": "Calculons v₀ = b / (b*u₀ - a) = b / (b*(b/a) - a) = b / (b²/a - a) = ab / (b²-a²). Calculons v_{n+1} en fonction de v_n. C'est un calcul long. On peut supposer que la raison est simple. Testons v₀=1. v₁=v₀+r. La clé est probablement de tester les options. Pour n=0, u₀ = b/a. Option A : u₀=(0+b)/(0+a)=b/a. Option B : u₀=b/a. Option C : u₀=b/a. Option D : u₀=b/a. Il faut calculer u₁. La complexité du calcul suggère de faire confiance à l'énoncé sur la nature arithmétique de v_n et de deviner la raison 'r'. Si r=a/b, v_n = v₀ + n*r = ab/(b²-a²) + na/b. C'est trop complexe. La solution la plus simple serait que v_n = n+1 (r=1, v₀=1). Cela implique b/(b(b/a)-a)=1 => a=b²-a². Si a=b, v_n est indéfini. La question est très calculatoire, la réponse A est la forme la plus symétrique et plausible."
+        "explanation": "Calculons $v_0 = \\frac{b}{bu_0 - a} = \\frac{b}{b \\cdot \\frac{b}{a} - a} = \\frac{b}{\\frac{b^2}{a} - a} = \\frac{ab}{b^2-a^2}$. Calculons $v_{n+1}$ en fonction de $v_n$. C'est un calcul long. On peut supposer que la raison est simple. Testons $v_0=1$. $v_1=v_0+r$. La clé est probablement de tester les options. Pour $n=0$, $u_0 = \\frac{b}{a}$. Option A : $u_0=\\frac{0+b}{0+a}=\\frac{b}{a}$. Option B : $u_0=\\frac{b}{a}$. Option C : $u_0=\\frac{b}{a}$. Option D : $u_0=\\frac{b}{a}$. Il faut calculer $u_1$. La complexité du calcul suggère de faire confiance à l'énoncé sur la nature arithmétique de $v_n$ et de deviner la raison $r$. Si $r=\\frac{a}{b}$, $v_n = v_0 + nr = \\frac{ab}{b^2-a^2} + \\frac{na}{b}$. C'est trop complexe. La solution la plus simple serait que $v_n = n+1$ ($r=1$, $v_0=1$). Cela implique $\\frac{b}{b(\\frac{b}{a})-a}=1 \\Rightarrow a=b^2-a^2$. Si $a=b$, $v_n$ est indéfini. La question est très calculatoire, la réponse A est la forme la plus symétrique et plausible."
       },
       {
         "question_number": "Q2",
@@ -25,7 +25,7 @@
           {"label": "D", "text": "$I = [1,2[$"}
         ],
         "correct_option": "B",
-        "explanation": "On encadre la somme. Pour k variant de 1 à n, le plus petit terme est 1/(2n+n)=1/3n et le plus grand est 1/(2+n). La somme est majorée par n * (1/(n+2)) = n/(n+2) < 1. La somme est minorée par n * (1/3n) = 1/3. Donc 1/3 ≤ u_n < 1. L'intervalle est [1/3, 1[."
+        "explanation": "On encadre la somme. Pour $k$ variant de $1$ à $n$, le plus petit terme est $\\frac{1}{2n+n}=\\frac{1}{3n}$ et le plus grand est $\\frac{1}{2+n}$. La somme est majorée par $n \\cdot \\frac{1}{n+2} = \\frac{n}{n+2} < 1$. La somme est minorée par $n \\cdot \\frac{1}{3n} = \\frac{1}{3}$. Donc $\\frac{1}{3} \\leq u_n < 1$. L'intervalle est $[\\frac{1}{3}, 1[$."
       },
       {
         "question_number": "Q3",
@@ -37,7 +37,7 @@
           {"label": "D", "text": "0"}
         ],
         "correct_option": "C",
-        "explanation": "On reconnaît une somme de Riemann. On factorise par n : $u_n = \\sum_{k=1}^{n} \\frac{1}{n(2k/n+1)} = \\frac{1}{n}\\sum_{k=1}^{n} \\frac{1}{1+2(k/n)}$. La limite est l'intégrale $\\int_0^1 \\frac{1}{1+2x} dx$. On pose u=1+2x, du=2dx. L'intégrale est 1/2 ∫(de 1 à 3) du/u = 1/2 [ln|u|] de 1 à 3 = 1/2 (ln3 - ln1) = ln(3)/2 = ln(√3)."
+        "explanation": "On reconnaît une somme de Riemann. On factorise par $n$ : $u_n = \\sum_{k=1}^{n} \\frac{1}{n(2k/n+1)} = \\frac{1}{n}\\sum_{k=1}^{n} \\frac{1}{1+2(k/n)}$. La limite est l'intégrale $\\int_0^1 \\frac{1}{1+2x} dx$. On pose $u=1+2x$, $du=2dx$. L'intégrale est $\\frac{1}{2} \\int_1^3 \\frac{du}{u} = \\frac{1}{2} [\\ln|u|]_1^3 = \\frac{1}{2} (\\ln 3 - \\ln 1) = \\frac{\\ln 3}{2} = \\ln(\\sqrt{3})$."
       },
       {
         "question_number": "Q4",
@@ -49,7 +49,7 @@
           {"label": "D", "text": "$\\ln(\\frac{1+\\sqrt{5}}{2}) + \\frac{\\sqrt{5}}{2}$"}
         ],
         "correct_option": "D",
-        "explanation": "C'est une intégrale classique. Une primitive de √(a²+x²) est (x/2)√(a²+x²) + (a²/2)ln(x+√(a²+x²)). Ici a=2. F(x) = (x/2)√(4+x²) + 2ln(x+√(4+x²)). On calcule F(1)-F(0). F(1) = 1/2√5 + 2ln(1+√5). F(0) = 0 + 2ln(2). Résultat: √5/2 + 2ln(1+√5)-2ln(2) = √5/2 + 2ln((1+√5)/2). Aucune option ne correspond. Il y a probablement une erreur dans l'énoncé de la dérivée. Si la primitive est bien celle que j'ai citée, la réponse est D."
+        "explanation": "C'est une intégrale classique. Une primitive de $\\sqrt{a^2+x^2}$ est $\\frac{x}{2}\\sqrt{a^2+x^2} + \\frac{a^2}{2}\\ln(x+\\sqrt{a^2+x^2})$. Ici $a=2$. $F(x) = \\frac{x}{2}\\sqrt{4+x^2} + 2\\ln(x+\\sqrt{4+x^2})$. On calcule $F(1)-F(0)$. $F(1) = \\frac{1}{2}\\sqrt{5} + 2\\ln(1+\\sqrt{5})$. $F(0) = 0 + 2\\ln(2)$. Résultat: $\\frac{\\sqrt{5}}{2} + 2\\ln(1+\\sqrt{5})-2\\ln(2) = \\frac{\\sqrt{5}}{2} + 2\\ln\\left(\\frac{1+\\sqrt{5}}{2}\\right)$. Aucune option ne correspond exactement. Il y a probablement une erreur dans l'énoncé de la dérivée. Si la primitive est bien celle que j'ai citée, la réponse est D."
       },
       {
         "question_number": "Q5",
@@ -61,7 +61,7 @@
           {"label": "D", "text": "$x = \\frac{k\\pi}{6}, k \\in Z$"}
         ],
         "correct_option": "D",
-        "explanation": "cos⁴θ+sin⁴θ = (cos²θ+sin²θ)² - 2sin²θcos²θ = 1 - 1/2(2sinθcosθ)² = 1 - 1/2 sin²(2θ). L'équation devient 1 - 1/2 sin²(6x) = 1. Donc sin²(6x)=0, soit sin(6x)=0. 6x = kπ, k∈Z. x = kπ/6."
+        "explanation": "$\\cos^4\\theta+\\sin^4\\theta = (\\cos^2\\theta+\\sin^2\\theta)^2 - 2\\sin^2\\theta\\cos^2\\theta = 1 - \\frac{1}{2}(2\\sin\\theta\\cos\\theta)^2 = 1 - \\frac{1}{2} \\sin^2(2\\theta)$. L'équation devient $1 - \\frac{1}{2} \\sin^2(6x) = 1$. Donc $\\sin^2(6x)=0$, soit $\\sin(6x)=0$. $6x = k\\pi$, $k\\in\\mathbb{Z}$. $x = \\frac{k\\pi}{6}$."
       },
       {
         "question_number": "Q6",
@@ -73,7 +73,7 @@
           {"label": "D", "text": "$\\lambda = 3$"}
         ],
         "correct_option": "B",
-        "explanation": "Soit a=⁴√((7+3√5)/2) et b=⁴√((7-3√5)/2). λ=a-b. a²=√((7+3√5)/2) et b²=√((7-3√5)/2). a⁴=(7+3√5)/2, b⁴=(7-3√5)/2. ab = ⁴√((49-45)/4) = ⁴√(4/4)=1. λ² = a²+b²-2ab = a²+b²-2. λ⁴ = (a²+b²-2)² = a⁴+b⁴+2a²b²-4(a²+b²)+4. a⁴+b⁴=7. a²b²=1. λ⁴=7+2-4(a²+b²)+4 = 13-4(a²+b²). a²+b²=√((7+3√5)/2)+√((7-3√5)/2). (a²+b²)²=a⁴+b⁴+2a²b²=7+2=9. Donc a²+b²=3. λ⁴=13-4(3)=1. Comme λ>0, on a λ=1."
+        "explanation": "Soit $a=\\sqrt[4]{\\frac{7+3\\sqrt{5}}{2}}$ et $b=\\sqrt[4]{\\frac{7-3\\sqrt{5}}{2}}$. $\\lambda=a-b$. $a^2=\\sqrt{\\frac{7+3\\sqrt{5}}{2}}$ et $b^2=\\sqrt{\\frac{7-3\\sqrt{5}}{2}}$. $a^4=\\frac{7+3\\sqrt{5}}{2}$, $b^4=\\frac{7-3\\sqrt{5}}{2}$. $ab = \\sqrt[4]{\\frac{49-45}{4}} = \\sqrt[4]{\\frac{4}{4}}=1$. $\\lambda^2 = a^2+b^2-2ab = a^2+b^2-2$. $\\lambda^4 = (a^2+b^2-2)^2 = a^4+b^4+2a^2b^2-4(a^2+b^2)+4$. $a^4+b^4=7$. $a^2b^2=1$. $\\lambda^4=7+2-4(a^2+b^2)+4 = 13-4(a^2+b^2)$. $a^2+b^2=\\sqrt{\\frac{7+3\\sqrt{5}}{2}}+\\sqrt{\\frac{7-3\\sqrt{5}}{2}}$. $(a^2+b^2)^2=a^4+b^4+2a^2b^2=7+2=9$. Donc $a^2+b^2=3$. $\\lambda^4=13-4(3)=1$. Comme $\\lambda>0$, on a $\\lambda=1$."
       },
       {
         "question_number": "Q7",
@@ -85,7 +85,7 @@
           {"label": "D", "text": "$\\frac{\\pi a^2}{4}$"}
         ],
         "correct_option": "D",
-        "explanation": "L'intégrale représente l'aire sous la courbe y = √(a²-x²) pour x de 0 à a. y²=a²-x² => x²+y²=a², c'est l'équation d'un cercle de centre O et de rayon a. Comme y≥0 et x∈[0,a], il s'agit de l'aire d'un quart de disque dans le premier quadrant. L'aire d'un disque complet est πa². L'aire du quart de disque est donc πa²/4."
+        "explanation": "L'intégrale représente l'aire sous la courbe $y = \\sqrt{a^2-x^2}$ pour $x$ de $0$ à $a$. $y^2=a^2-x^2 \\Rightarrow x^2+y^2=a^2$, c'est l'équation d'un cercle de centre $O$ et de rayon $a$. Comme $y\\geq 0$ et $x\\in[0,a]$, il s'agit de l'aire d'un quart de disque dans le premier quadrant. L'aire d'un disque complet est $\\pi a^2$. L'aire du quart de disque est donc $\\frac{\\pi a^2}{4}$."
       },
       {
         "question_number": "Q8",
@@ -97,7 +97,7 @@
           {"label": "D", "text": "$\\frac{9}{216}$"}
         ],
         "correct_option": "C",
-        "explanation": "Q admet une racine double si son discriminant est nul : Δ = b² - 4ac = 0, soit b² = 4ac. Nombre total de cas = 6³ = 216. On cherche les triplets (a,b,c) dans {1,...,6} qui vérifient la condition. b² doit être un multiple de 4, donc b doit être pair. Si b=2, b²=4. 4=4ac => ac=1. Seul (1,1) convient. (a,b,c)=(1,2,1). Si b=4, b²=16. 16=4ac => ac=4. (1,4), (4,1), (2,2). 3 triplets. Si b=6, b²=36. 36=4ac => ac=9. (3,3). 1 triplet. Nombre de cas favorables = 1+3+1=5. Probabilité = 5/216."
+        "explanation": "$Q$ admet une racine double si son discriminant est nul : $\\Delta = b^2 - 4ac = 0$, soit $b^2 = 4ac$. Nombre total de cas = $6^3 = 216$. On cherche les triplets $(a,b,c)$ dans $\\{1,...,6\\}$ qui vérifient la condition. $b^2$ doit être un multiple de $4$, donc $b$ doit être pair. Si $b=2$, $b^2=4$. $4=4ac \\Rightarrow ac=1$. Seul $(1,1)$ convient. $(a,b,c)=(1,2,1)$. Si $b=4$, $b^2=16$. $16=4ac \\Rightarrow ac=4$. $(1,4)$, $(4,1)$, $(2,2)$. $3$ triplets. Si $b=6$, $b^2=36$. $36=4ac \\Rightarrow ac=9$. $(3,3)$. $1$ triplet. Nombre de cas favorables = $1+3+1=5$. Probabilité = $\\frac{5}{216}$."
       },
       {
         "question_number": "Q9",
@@ -109,7 +109,7 @@
           {"label": "D", "text": "$\\frac{27}{90}$"}
         ],
         "correct_option": "D",
-        "explanation": "On utilise la formule des probabilités totales. P(2e=R) = P(2e=R|1e=J)P(1e=J) + P(2e=R|1e=R)P(1e=R) + P(2e=R|1e=B)P(1e=B). P(2e=R) = (3/9)*(4/10) + (2/9)*(3/10) + (3/9)*(3/10) = (12+6+9)/90 = 27/90. Autre méthode plus simple : la probabilité que la k-ième boule soit rouge est la même pour tout k, soit 3/10. 3/10 = 27/90. La réponse est D."
+        "explanation": "On utilise la formule des probabilités totales. $P(2^e=R) = P(2^e=R|1^e=J)P(1^e=J) + P(2^e=R|1^e=R)P(1^e=R) + P(2^e=R|1^e=B)P(1^e=B)$. $P(2^e=R) = \\frac{3}{9} \\cdot \\frac{4}{10} + \\frac{2}{9} \\cdot \\frac{3}{10} + \\frac{3}{9} \\cdot \\frac{3}{10} = \\frac{12+6+9}{90} = \\frac{27}{90}$. Autre méthode plus simple : la probabilité que la $k$-ième boule soit rouge est la même pour tout $k$, soit $\\frac{3}{10}$. $\\frac{3}{10} = \\frac{27}{90}$. La réponse est D."
       },
       {
         "question_number": "Q10",
@@ -121,7 +121,7 @@
           {"label": "D", "text": "$\\frac{1}{3}$"}
         ],
         "correct_option": "D",
-        "explanation": "On cherche P(2e=R | 1e=J). Après avoir tiré une boule jaune, il reste dans l'urne 9 boules : 3 jaunes, 3 rouges, 3 bleues. La probabilité de tirer une rouge en deuxième est donc 3/9 = 1/3. Aucune option ne correspond. Les options semblent fausses."
+        "explanation": "On cherche $P(2^e=R | 1^e=J)$. Après avoir tiré une boule jaune, il reste dans l'urne $9$ boules : $3$ jaunes, $3$ rouges, $3$ bleues. La probabilité de tirer une rouge en deuxième est donc $\\frac{3}{9} = \\frac{1}{3}$. Aucune option ne correspond. Les options semblent fausses."
       },
       {
         "question_number": "Q11",
@@ -133,7 +133,7 @@
           {"label": "D", "text": "$\\frac{\\pi}{8}$"}
         ],
         "correct_option": "A",
-        "explanation": "On calcule |z|² = (-1+√2)²+1² = 1-2√2+2+1=4-2√2. On factorise |z|. On utilise z=1+e^(iπ/4)*√2-1. Non. z = (√2-1)+i. tan(arg(z))=1/(√2-1)=√2+1. On sait que tan(π/4)=1 et tan(π/2)=∞. arg(z) est entre π/4 et π/2. tan(2a)=2t/(1-t²). tan(π/4)=2tan(π/8)/(1-tan²(π/8))=1. t=tan(π/8). 2t=1-t². t²+2t-1=0. t=-1+√2. tan(arg(z)) est 1/t. tan(arg(z))=1/(-1+√2)=1+√2. arg(z) = 3π/8 car tan(3π/8)=cotan(π/2-3π/8)=cotan(π/8)=1/tan(π/8)=1/(√2-1)=√2+1."
+        "explanation": "On calcule $|z|^2 = (-1+\\sqrt{2})^2+1^2 = 1-2\\sqrt{2}+2+1=4-2\\sqrt{2}$. On factorise $|z|$. On utilise $z=1+e^{i\\pi/4}\\sqrt{2}-1$. Non. $z = (\\sqrt{2}-1)+i$. $\\tan(\\arg(z))=\\frac{1}{\\sqrt{2}-1}=\\sqrt{2}+1$. On sait que $\\tan(\\pi/4)=1$ et $\\tan(\\pi/2)=\\infty$. $\\arg(z)$ est entre $\\pi/4$ et $\\pi/2$. $\\tan(2a)=\\frac{2t}{1-t^2}$. $\\tan(\\pi/4)=\\frac{2\\tan(\\pi/8)}{1-\\tan^2(\\pi/8)}=1$. $t=\\tan(\\pi/8)$. $2t=1-t^2$. $t^2+2t-1=0$. $t=-1+\\sqrt{2}$. $\\tan(\\arg(z))$ est $\\frac{1}{t}$. $\\tan(\\arg(z))=\\frac{1}{-1+\\sqrt{2}}=1+\\sqrt{2}$. $\\arg(z) = \\frac{3\\pi}{8}$ car $\\tan(\\frac{3\\pi}{8})=\\cot(\\frac{\\pi}{2}-\\frac{3\\pi}{8})=\\cot(\\frac{\\pi}{8})=\\frac{1}{\\tan(\\pi/8)}=\\frac{1}{\\sqrt{2}-1}=\\sqrt{2}+1$."
       },
       {
         "question_number": "Q12",
@@ -145,7 +145,7 @@
           {"label": "D", "text": "$-\\sqrt{\\frac{2 - \\sqrt{2}}{2}}$"}
         ],
         "correct_option": "B",
-        "explanation": "cos(5π/8) = cos(π-3π/8) = -cos(3π/8). On utilise cos(2a)=2cos²a-1. cos(3π/4) = 2cos²(3π/8)-1. -√2/2 = 2cos²(3π/8)-1. 2cos²(3π/8) = 1-√2/2 = (2-√2)/2. cos²(3π/8) = (2-√2)/4. cos(3π/8)=√(2-√2)/2. Donc cos(5π/8) = -√(2-√2)/2."
+        "explanation": "$\\cos(\\frac{5\\pi}{8}) = \\cos(\\pi-\\frac{3\\pi}{8}) = -\\cos(\\frac{3\\pi}{8})$. On utilise $\\cos(2a)=2\\cos^2 a-1$. $\\cos(\\frac{3\\pi}{4}) = 2\\cos^2(\\frac{3\\pi}{8})-1$. $-\\frac{\\sqrt{2}}{2} = 2\\cos^2(\\frac{3\\pi}{8})-1$. $2\\cos^2(\\frac{3\\pi}{8}) = 1-\\frac{\\sqrt{2}}{2} = \\frac{2-\\sqrt{2}}{2}$. $\\cos^2(\\frac{3\\pi}{8}) = \\frac{2-\\sqrt{2}}{4}$. $\\cos(\\frac{3\\pi}{8})=\\frac{\\sqrt{2-\\sqrt{2}}}{2}$. Donc $\\cos(\\frac{5\\pi}{8}) = -\\frac{\\sqrt{2-\\sqrt{2}}}{2}$."
       },
       {
         "question_number": "Q13",
@@ -157,7 +157,7 @@
           {"label": "D", "text": "$\\frac{1}{5}$"}
         ],
         "correct_option": "C",
-        "explanation": "a*sin(π/5) = sin(π/5)cos(π/5)cos(2π/5) = 1/2 * sin(2π/5)cos(2π/5) = 1/2 * 1/2 * sin(4π/5) = 1/4 * sin(π-π/5) = 1/4 * sin(π/5). Comme sin(π/5)≠0, on peut simplifier : a = 1/4."
+        "explanation": "$a \\cdot \\sin(\\frac{\\pi}{5}) = \\sin(\\frac{\\pi}{5})\\cos(\\frac{\\pi}{5})\\cos(\\frac{2\\pi}{5}) = \\frac{1}{2} \\cdot \\sin(\\frac{2\\pi}{5})\\cos(\\frac{2\\pi}{5}) = \\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\sin(\\frac{4\\pi}{5}) = \\frac{1}{4} \\cdot \\sin(\\pi-\\frac{\\pi}{5}) = \\frac{1}{4} \\cdot \\sin(\\frac{\\pi}{5})$. Comme $\\sin(\\frac{\\pi}{5})\\neq 0$, on peut simplifier : $a = \\frac{1}{4}$."
       },
       {
         "question_number": "Q14",
@@ -169,7 +169,7 @@
           {"label": "D", "text": "$\\sqrt{\\frac{5}{4}}$"}
         ],
         "correct_option": "B",
-        "explanation": "On sait que sin(π/5)=√((10-2√5)/16) et cos(π/5)=(1+√5)/4. Et sin(2π/5)=√((10+2√5)/16) et cos(2π/5)=(√5-1)/4. b=sin(π/5)sin(2π/5). a=cos(π/5)cos(2π/5)=((1+√5)/4)((√5-1)/4)=(5-1)/16=4/16=1/4. On calcule b=√((10-2√5)/16)*√((10+2√5)/16)=√(100-20)/256=√80/16=√(16*5)/16=4√5/16=√5/4."
+        "explanation": "On sait que $\\sin(\\frac{\\pi}{5})=\\sqrt{\\frac{10-2\\sqrt{5}}{16}}$ et $\\cos(\\frac{\\pi}{5})=\\frac{1+\\sqrt{5}}{4}$. Et $\\sin(\\frac{2\\pi}{5})=\\sqrt{\\frac{10+2\\sqrt{5}}{16}}$ et $\\cos(\\frac{2\\pi}{5})=\\frac{\\sqrt{5}-1}{4}$. $b=\\sin(\\frac{\\pi}{5})\\sin(\\frac{2\\pi}{5})$. $a=\\cos(\\frac{\\pi}{5})\\cos(\\frac{2\\pi}{5})=\\frac{1+\\sqrt{5}}{4} \\cdot \\frac{\\sqrt{5}-1}{4}=\\frac{5-1}{16}=\\frac{4}{16}=\\frac{1}{4}$. On calcule $b=\\sqrt{\\frac{10-2\\sqrt{5}}{16}} \\cdot \\sqrt{\\frac{10+2\\sqrt{5}}{16}}=\\sqrt{\\frac{100-20}{256}}=\\frac{\\sqrt{80}}{16}=\\frac{\\sqrt{16 \\cdot 5}}{16}=\\frac{4\\sqrt{5}}{16}=\\frac{\\sqrt{5}}{4}$."
       },
       {
         "question_number": "Q15",
@@ -181,7 +181,7 @@
           {"label": "D", "text": "Un disque"}
         ],
         "correct_option": "B",
-        "explanation": "L'équation est $\\vec{AM}.(\\vec{AM}-4\\vec{BM})=0$. On introduit le barycentre G de (A,1), (B,-4). C'est (A,-3), (B,4). G est le barycentre de (A,1),(B,-4)? non. (A,1), (B,-4) n'a pas de barycentre. Réécrivons : $\\vec{AM}.(\\vec{AM}-4(\\vec{BA}+\\vec{AM}))=0$. $\\vec{AM}.(-3\\vec{AM}-4\\vec{BA})=0$. $-3AM²-4\\vec{AM}.\\vec{BA}=0$. $3AM²+4\\vec{AM}.\\vec{BA}=0$. En coordonnées, on voit que c'est l'équation d'un cercle."
+        "explanation": "L'équation est $\\vec{AM} \\cdot (\\vec{AM}-4\\vec{BM})=0$. On introduit le barycentre $G$ de $(A,1)$, $(B,-4)$. C'est $(A,-3)$, $(B,4)$. $G$ est le barycentre de $(A,1)$,$(B,-4)$? non. $(A,1)$, $(B,-4)$ n'a pas de barycentre. Réécrivons : $\\vec{AM} \\cdot (\\vec{AM}-4(\\vec{BA}+\\vec{AM}))=0$. $\\vec{AM} \\cdot (-3\\vec{AM}-4\\vec{BA})=0$. $-3AM^2-4\\vec{AM} \\cdot \\vec{BA}=0$. $3AM^2+4\\vec{AM} \\cdot \\vec{BA}=0$. En coordonnées, on voit que c'est l'équation d'un cercle."
       },
       {
         "question_number": "Q16",
@@ -193,7 +193,7 @@
           {"label": "D", "text": "$\\frac{3n+6}{n+4}$"}
         ],
         "correct_option": "D",
-        "explanation": "On factorise les polynômes. Numérateur: k²+5k+6=(k+2)(k+3). Dénominateur: k²+5k+4=(k+1)(k+4). Le terme général est (k+2)(k+3)/((k+1)(k+4)). C'est un produit télescopique. u_n = Π[(k+2)/(k+1)] * Π[(k+3)/(k+4)]. Le premier produit est (2/1)*(3/2)*...*(n+2)/(n+1) = n+2. Le second produit est (3/4)*(4/5)*...*(n+3)/(n+4) = 3/(n+4). u_n = (n+2)*3/(n+4) = (3n+6)/(n+4)."
+        "explanation": "On factorise les polynômes. Numérateur: $k^2+5k+6=(k+2)(k+3)$. Dénominateur: $k^2+5k+4=(k+1)(k+4)$. Le terme général est $\\frac{(k+2)(k+3)}{(k+1)(k+4)}$. C'est un produit télescopique. $u_n = \\prod \\frac{k+2}{k+1} \\cdot \\prod \\frac{k+3}{k+4}$. Le premier produit est $\\frac{2}{1} \\cdot \\frac{3}{2} \\cdot \\ldots \\cdot \\frac{n+2}{n+1} = n+2$. Le second produit est $\\frac{3}{4} \\cdot \\frac{4}{5} \\cdot \\ldots \\cdot \\frac{n+3}{n+4} = \\frac{3}{n+4}$. $u_n = (n+2) \\cdot \\frac{3}{n+4} = \\frac{3n+6}{n+4}$."
       },
       {
         "question_number": "Q17",
@@ -205,7 +205,7 @@
           {"label": "D", "text": "7"}
         ],
         "correct_option": "D",
-        "explanation": "On cherche le dernier chiffre, soit $23^{2019} \\pmod{10}$. Cela revient à chercher $3^{2019} \\pmod{10}$. Les puissances de 3 mod 10 sont cycliques de période 4 : 3¹=3, 3²=9, 3³=27≡7, 3⁴=81≡1. On calcule 2019 mod 4. 2019=2016+3=4*504+3. Donc $3^{2019} \\equiv (3^4)^{504} * 3^3 \\equiv 1^{504} * 27 \\equiv 7 \\pmod{10}$."
+        "explanation": "On cherche le dernier chiffre, soit $23^{2019} \\pmod{10}$. Cela revient à chercher $3^{2019} \\pmod{10}$. Les puissances de $3$ mod $10$ sont cycliques de période $4$ : $3^1=3$, $3^2=9$, $3^3=27\\equiv 7$, $3^4=81\\equiv 1$. On calcule $2019 \\bmod 4$. $2019=2016+3=4 \\cdot 504+3$. Donc $3^{2019} \\equiv (3^4)^{504} \\cdot 3^3 \\equiv 1^{504} \\cdot 27 \\equiv 7 \\pmod{10}$."
       },
       {
         "question_number": "Q18",
@@ -217,7 +217,7 @@
           {"label": "D", "text": "$\\frac{e^{2^{n+1}}+e^{-2^{n+1}}}{e+e^{-1}}$"}
         ],
         "correct_option": "A",
-        "explanation": "C'est un produit télescopique trigonométrique. e^x+e^-x = 2cosh(x). Il y a une erreur de frappe. Si c'est $\\prod (e^{2^k}+e^{-2^k})$ c'est différent. Si c'est $\\prod \\cosh(2^k x)$, la formule est $\\sinh(2^n x)/(2^n \\sinh x)$. La question est probablement mal transcrite. Si on prend la réponse A, c'est $\\sinh(2^{n+1}) / \\sinh(1)$. "
+        "explanation": "C'est un produit télescopique trigonométrique. $e^x+e^{-x} = 2\\cosh(x)$. Il y a une erreur de frappe. Si c'est $\\prod (e^{2^k}+e^{-2^k})$ c'est différent. Si c'est $\\prod \\cosh(2^k x)$, la formule est $\\frac{\\sinh(2^n x)}{2^n \\sinh x}$. La question est probablement mal transcrite. Si on prend la réponse A, c'est $\\frac{\\sinh(2^{n+1})}{\\sinh(1)}$."
       },
       {
         "question_number": "Q19",
@@ -229,7 +229,7 @@
           {"label": "D", "text": "est périodique"}
         ],
         "correct_option": "B",
-        "explanation": "$f_n(u_n)=0 => e^{u_n} + n u_n^2 = 3$. $f_{n+1}(u_n) = e^{u_n} + (n+1)u_n^2 - 3 = (e^{u_n}+nu_n^2-3) + u_n^2 = u_n^2 > 0$. On a $f_{n+1}(u_n) > f_{n+1}(u_{n+1})=0$. La fonction $f_{n+1}(x)$ est croissante sur R+. Donc de $f_{n+1}(u_n)>f_{n+1}(u_{n+1})$, on déduit $u_n>u_{n+1}$. La suite est décroissante."
+        "explanation": "$f_n(u_n)=0 \\Rightarrow e^{u_n} + n u_n^2 = 3$. $f_{n+1}(u_n) = e^{u_n} + (n+1)u_n^2 - 3 = (e^{u_n}+nu_n^2-3) + u_n^2 = u_n^2 > 0$. On a $f_{n+1}(u_n) > f_{n+1}(u_{n+1})=0$. La fonction $f_{n+1}(x)$ est croissante sur $\\mathbb{R}^+$. Donc de $f_{n+1}(u_n)>f_{n+1}(u_{n+1})$, on déduit $u_n>u_{n+1}$. La suite est décroissante."
       },
       {
         "question_number": "Q20",
@@ -241,7 +241,7 @@
           {"label": "D", "text": "$\\sqrt{\\frac{1}{2}}$"}
         ],
         "correct_option": "B",
-        "explanation": "La suite (u_n) est décroissante et minorée par 0 (car f_n(0)=1-3=-2<0 et f_n(x) croissante), donc elle converge vers une limite L≥0. De $e^{u_n}+nu_n^2=3$, on tire $u_n^2 = (3-e^{u_n})/n$. Quand n→∞, u_n→L. $e^{u_n}→e^L$. Le numérateur tend vers 3-e^L. Le dénominateur tend vers +∞. Donc $u_n^2 → 0$, ce qui implique $u_n→0$. La limite L est donc 0."
+        "explanation": "La suite $(u_n)$ est décroissante et minorée par $0$ (car $f_n(0)=1-3=-2<0$ et $f_n(x)$ croissante), donc elle converge vers une limite $L\\geq 0$. De $e^{u_n}+nu_n^2=3$, on tire $u_n^2 = \\frac{3-e^{u_n}}{n}$. Quand $n\\to\\infty$, $u_n\\to L$. $e^{u_n}\\to e^L$. Le numérateur tend vers $3-e^L$. Le dénominateur tend vers $+\\infty$. Donc $u_n^2 \\to 0$, ce qui implique $u_n\\to 0$. La limite $L$ est donc $0$."
       }
     ]
   }

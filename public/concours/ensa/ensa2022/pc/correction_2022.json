@@ -7,35 +7,35 @@
       {
         "exercise_number": 1,
         "title": "Trajectoire d'un ballon de basket-ball",
-        "stimulus": "On étudie la trajectoire d'un ballon lancé en A à hA=3.00m, v₀=6√2 m/s, α=45°. Le panier C est à d=6.00m horizontalement. g=10m/s².",
+        "stimulus": "On étudie la trajectoire d'un ballon lancé en A à $h_A=3.00m$, $v_0=6\\sqrt{2}$ m/s, $\\alpha=45°$. Le panier C est à $d=6.00m$ horizontalement. $g=10m/s^2$.",
         "questions": [
           {
             "question_number": "Q21",
-            "text": "En supposant que l'angle de lancement du ballon en A est conservé, déterminer la hauteur hC pour que le centre d'inertie du ballon passe exactement au centre C du cerceau du panier. Cocher la bonne réponse :",
+            "text": "En supposant que l'angle de lancement du ballon en A est conservé, déterminer la hauteur $h_C$ pour que le centre d'inertie du ballon passe exactement au centre C du cerceau du panier. Cocher la bonne réponse :",
             "correct_option": "B",
             "options": [
-              {"label": "A", "text": "hC = 2.00 m"},
-              {"label": "B", "text": "hC = 2.05m"},
-              {"label": "C", "text": "hC = 2.10m"},
-              {"label": "D", "text": "hC = 2.25 m"}
+              {"label": "A", "text": "$h_C = 2.00$ m"},
+              {"label": "B", "text": "$h_C = 2.05m$"},
+              {"label": "C", "text": "$h_C = 2.10m$"},
+              {"label": "D", "text": "$h_C = 2.25$ m"}
             ],
-            "explanation": "L'équation de la trajectoire est y(x) = -g/(2v₀²cos²α) * x² + (tan α)x + hA. Avec α=45°, tanα=1 et cos²α=1/2. v₀² = (6√2)² = 72. y(x) = -10/(2*72*1/2) * x² + x + 3 = -10/72 * x² + x + 3. On cherche y(d) = y(6). y(6) = -10/72 * 6² + 6 + 3 = -10*36/72 + 9 = -10/2 + 9 = -5 + 9 = 4m. Aucune des options ne correspond. Il y a une erreur dans l'énoncé. La hauteur du panier est universellement 3,05m. Si on cherche hA pour que y(6)=3.05, on a 3.05 = -5 + 6 + hA => hA=2.05m. La question demande hC mais les réponses correspondent à un calcul de hA. La bonne réponse est donc B."
+            "explanation": "L'équation de la trajectoire est $y(x) = -\\frac{g}{2v_0^2\\cos^2\\alpha} \\times x^2 + (\\tan \\alpha)x + h_A$. Avec $\\alpha=45°$, $\\tan\\alpha=1$ et $\\cos^2\\alpha=\\frac{1}{2}$. $v_0^2 = (6\\sqrt{2})^2 = 72$. $y(x) = -\\frac{10}{2 \\times 72 \\times \\frac{1}{2}} \\times x^2 + x + 3 = -\\frac{10}{72} \\times x^2 + x + 3$. On cherche $y(d) = y(6)$. $y(6) = -\\frac{10}{72} \\times 6^2 + 6 + 3 = -\\frac{10 \\times 36}{72} + 9 = -\\frac{10}{2} + 9 = -5 + 9 = 4m$. Aucune des options ne correspond. Il y a une erreur dans l'énoncé. La hauteur du panier est universellement $3,05m$. Si on cherche $h_A$ pour que $y(6)=3.05$, on a $3.05 = -5 + 6 + h_A \\Rightarrow h_A=2.05m$. La question demande $h_C$ mais les réponses correspondent à un calcul de $h_A$. La bonne réponse est donc B."
           },
           {
             "question_number": "Q22",
             "text": "En conservant toujours le même angle de lancement et la même vitesse initiale, déterminer la vitesse du centre d'inertie du ballon de basket lorsqu'il passe exactement au centre C du cerceau du panier. Celle-ci est plus proche de :",
             "correct_option": "C",
             "options": [
-              {"label": "A", "text": "vC = 7 m.s⁻¹"},
-              {"label": "B", "text": "vC = 7.5 m.s⁻¹"},
-              {"label": "C", "text": "vC = 9.5 m.s⁻¹"},
-              {"label": "D", "text": "vC = 11.5 m.s⁻¹"}
+              {"label": "A", "text": "$v_C = 7$ m.s$^{-1}$"},
+              {"label": "B", "text": "$v_C = 7.5$ m.s$^{-1}$"},
+              {"label": "C", "text": "$v_C = 9.5$ m.s$^{-1}$"},
+              {"label": "D", "text": "$v_C = 11.5$ m.s$^{-1}$"}
             ],
-            "explanation": "vx = v₀cosα = 6√2 * √2/2 = 6 m/s (constante). vy(t) = -gt + v₀sinα = -10t + 6. Il faut le temps t pour arriver à x=d=6m. t = x/vx = 6/6 = 1s. vy(1) = -10*1+6 = -4 m/s. vC = √(vx² + vy(1)²) = √(6² + (-4)²) = √(36+16) = √52 ≈ 7.2 m/s. Aucune option ne correspond. Si hA=2.05m (de Q21), hC=3.05m. ΔEp=mg(hC-hA)=mg(1)=1.5J. ΔEc=-1.5J. Ec(C)=Ec(A)-1.5=1/2*0.6*72-1.5=21.6-1.5=20.1J. vc=√(2*20.1/0.6)≈8.2m/s. Encore loin. La clé de correction usuelle est C."
+            "explanation": "$v_x = v_0\\cos\\alpha = 6\\sqrt{2} \\times \\frac{\\sqrt{2}}{2} = 6$ m/s (constante). $v_y(t) = -gt + v_0\\sin\\alpha = -10t + 6$. Il faut le temps $t$ pour arriver à $x=d=6m$. $t = \\frac{x}{v_x} = \\frac{6}{6} = 1s$. $v_y(1) = -10 \\times 1+6 = -4$ m/s. $v_C = \\sqrt{v_x^2 + v_y(1)^2} = \\sqrt{6^2 + (-4)^2} = \\sqrt{36+16} = \\sqrt{52} \\approx 7.2$ m/s. Aucune option ne correspond. Si $h_A=2.05m$ (de Q21), $h_C=3.05m$. $\\Delta E_p=mg(h_C-h_A)=mg(1)=1.5J$. $\\Delta E_c=-1.5J$. $E_c(C)=E_c(A)-1.5=\\frac{1}{2} \\times 0.6 \\times 72-1.5=21.6-1.5=20.1J$. $v_c=\\sqrt{\\frac{2 \\times 20.1}{0.6}}\\approx 8.2m/s$. Encore loin. La clé de correction usuelle est C."
           },
           {
             "question_number": "Q23",
-            "text": "Un défenseur BD, placé à la distance d'=3m du lanceur, saute verticalement pour intercepter le ballon. La hauteur minimale hB de l'attaquant pour qu'il puisse toucher le ballon est plus proche de :",
+            "text": "Un défenseur BD, placé à la distance $d'=3m$ du lanceur, saute verticalement pour intercepter le ballon. La hauteur minimale $h_B$ de l'attaquant pour qu'il puisse toucher le ballon est plus proche de :",
             "correct_option": "D",
             "options": [
               {"label": "A", "text": "hB = 3.56m"},

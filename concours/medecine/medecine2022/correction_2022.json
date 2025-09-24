@@ -16,7 +16,7 @@
               {"label": "E", "text": "l'actine qui déplace la troponine et la tête de myosine porteuse d'ATP se lie à la tropomyosine."}
             ],
             "correct_option": "A",
-            "explanation": "Le Ca⁺⁺  se fixe sur la troponine C. Ce complexe troponine-Ca⁺⁺  change de conformation et déplace la tropomyosine, libérant ainsi les sites de liaison de la myosine sur l'actine. La tête de myosine, qui a hydrolysé l'ATP en ADP+Pi (et est donc porteuse d'ADP+Pi et 'armée'), peut alors se lier à l'actine. A est la plus proche description. La tête de myosine hydrolyse l'ATP avant de se lier (état armé), mais est encore techniquement 'porteuse' d'ATP ou de ses produits d'hydrolyse."
+            "explanation": "Le $Ca^{2+}$ se fixe sur la troponine C. Ce complexe troponine-$Ca^{2+}$ change de conformation et déplace la tropomyosine, libérant ainsi les sites de liaison de la myosine sur l'actine. La tête de myosine, qui a hydrolysé l'$ATP$ en $ADP+Pi$ (et est donc porteuse d'$ADP+Pi$ et 'armée'), peut alors se lier à l'actine. A est la plus proche description. La tête de myosine hydrolyse l'$ATP$ avant de se lier (état armé), mais est encore techniquement 'porteuse' d'$ATP$ ou de ses produits d'hydrolyse."
           },
           {
             "question_number": "Q2",

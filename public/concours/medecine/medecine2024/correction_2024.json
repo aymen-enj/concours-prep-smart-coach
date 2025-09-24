@@ -18,7 +18,7 @@
             {"label": "E", "text": "Au cours du transfert des électrons par la chaîne respiratoire, il y a un pompage des protons H* de l'espace intermembranaire vers la matrice mitochondriale."}
           ],
           "correct_option": "C",
-          "explanation": "A est faux car l'Acétyl CoA est un substrat du cycle de Krebs, pas un produit direct (bien que le cycle prépare sa propre continuation via l'oxaloacétate). B est faux car la fermentation lactique produit de l'acide lactique et de l'ATP, mais pas de CO₂. D est faux car la chaîne respiratoire permet l'oxydation de NADH,H⁺ et FADH₂ (donc la régénération de NAD⁺ et FAD). E est faux car le pompage des protons H⁺ se fait de la matrice mitochondriale vers l'espace intermembranaire. C est correct car les processus d'oxydo-réduction dans la mitochondrie (chaîne respiratoire et phosphorylation oxydative) sont couplés pour produire et régénérer l'ATP."
+          "explanation": "A est faux car l'Acétyl CoA est un substrat du cycle de Krebs, pas un produit direct (bien que le cycle prépare sa propre continuation via l'oxaloacétate). B est faux car la fermentation lactique produit de l'acide lactique et de l'ATP, mais pas de $\\mathrm{CO_2}$. D est faux car la chaîne respiratoire permet l'oxydation de $\\mathrm{NADH,H^+}$ et $\\mathrm{FADH_2}$ (donc la régénération de $\\mathrm{NAD^+}$ et FAD). E est faux car le pompage des protons $\\mathrm{H^+}$ se fait de la matrice mitochondriale vers l'espace intermembranaire. C est correct car les processus d'oxydo-réduction dans la mitochondrie (chaîne respiratoire et phosphorylation oxydative) sont couplés pour produire et régénérer l'ATP."
         },
         {
           "question_number": "Q2",
@@ -31,7 +31,7 @@
             {"label": "E", "text": "La phosphorylation oxydative."}
           ],
           "correct_option": "B",
-          "explanation": "La glycolyse ne libère pas de CO₂. La fermentation lactique non plus. Le transport d'électrons et la phosphorylation oxydative sont impliqués dans la production d'ATP mais pas directement dans la libération de CO₂. Le cycle de Krebs (ou cycle de l'acide citrique) est la voie métabolique où l'acétyl-CoA est complètement oxydé, produisant du CO₂ comme déchet principal."
+          "explanation": "La glycolyse ne libère pas de $\\mathrm{CO_2}$. La fermentation lactique non plus. Le transport d'électrons et la phosphorylation oxydative sont impliqués dans la production d'ATP mais pas directement dans la libération de $\\mathrm{CO_2}$. Le cycle de Krebs (ou cycle de l'acide citrique) est la voie métabolique où l'acétyl-CoA est complètement oxydé, produisant du $\\mathrm{CO_2}$ comme déchet principal."
         },
         {
           "question_number": "Q3",
@@ -57,7 +57,7 @@
             {"label": "E", "text": "La production de l'insuline est réalisée en synthétisant 3 chaînes peptidiques."}
           ],
           "correct_option": "E",
-          "explanation": "A est faux: l'insuline est synthétisée par les cellules β des îlots de Langerhans. B est faux: l'insuline est hypoglycémiante. C est faux: l'insuline humaine mature est composée de deux chaînes, la chaîne A (21 aa) et la chaîne B (30 aa), soit 51 acides aminés au total. D est faux: la production d'insuline suit le dogme central (ADN -> ARNm -> protéine). E est correct en considérant le précurseur : la préproinsuline est synthétisée, son peptide signal est clivé pour donner la proinsuline (une chaîne). La proinsuline est ensuite clivée en insuline (chaînes A et B) et en peptide C. Ainsi, le processus implique initialement la formation de ce qui deviendra ces trois entités distinctes (A, B, C)."
+          "explanation": "A est faux: l'insuline est synthétisée par les cellules β des îlots de Langerhans. B est faux: l'insuline est hypoglycémiante. C est faux: l'insuline humaine mature est composée de deux chaînes, la chaîne A (21 acides aminés) et la chaîne B (30 acides aminés), soit 51 acides aminés au total. D est faux: la production d'insuline suit le dogme central (ADN → ARNm → protéine). E est correct en considérant le précurseur : la préproinsuline est synthétisée, son peptide signal est clivé pour donner la proinsuline (une chaîne). La proinsuline est ensuite clivée en insuline (chaînes A et B) et en peptide C. Ainsi, le processus implique initialement la formation de ce qui deviendra ces trois entités distinctes (A, B, C)."
         },
         {
           "question_number": "Q5",
@@ -70,7 +70,7 @@
             {"label": "E", "text": "Permet de casser les liaisons hydrogène."}
           ],
           "correct_option": "C",
-          "explanation": "A et E décrivent l'action de l'ADN hélicase. B décrit les protéines SSB (Single-Strand Binding proteins) qui maintiennent les brins séparés. D décrit l'ARN polymérase. C est la fonction principale de l'ADN polymérase: elle polymérise les désoxyribonucléotides pour former un nouveau brin d'ADN complémentaire à un brin matrice, lors de la réplication."
+          "explanation": "A et E décrivent l'action de l'ADN hélicase. B décrit les protéines SSB (Single-Strand Binding proteins) qui maintiennent les brins séparés. D décrit l'ARN polymérase. C est la fonction principale de l'ADN polymérase : elle polymérise les désoxyribonucléotides pour former un nouveau brin d'ADN complémentaire à un brin matrice, lors de la réplication."
         },
         {
           "question_number": "Q6",
@@ -131,7 +131,7 @@
             {"label": "E", "text": "Mode lié au chromosome Y."}
           ],
           "correct_option": "A",
-          "explanation": "Les parents I-1 et I-2 sont sains mais ont un enfant II-2 atteint. Cela exclut un mode dominant (B, C), car si c'était dominant, au moins un parent serait atteint. Le mode lié au chromosome Y (E) est exclu car la maladie affecterait uniquement les hommes et un père atteint transmettrait à tous ses fils (ici père I-1 sain, fils II-2 atteint). Restent autosomique récessif (AR) et récessif lié à l'X (XR). Les deux sont techniquement compatibles avec cet arbre simple. Pour AR : I-1 (Aa) x I-2 (Aa) -> II-2 (aa). Pour XR : I-1 (XAY) x I-2 (XAXa) -> II-2 (XaY). Toutefois, en l'absence d'autres informations, l'AR est souvent considéré comme le mode le plus simple ou par défaut compatible avec un saut de génération. S'il faut une seule réponse, l'AR (A) est une conclusion typique pour ce type d'arbre élémentaire."
+          "explanation": "Les parents I-1 et I-2 sont sains mais ont un enfant II-2 atteint. Cela exclut un mode dominant (B, C), car si c'était dominant, au moins un parent serait atteint. Le mode lié au chromosome Y (E) est exclu car la maladie affecterait uniquement les hommes et un père atteint transmettrait à tous ses fils (ici père I-1 sain, fils II-2 atteint). Restent autosomique récessif (AR) et récessif lié à l'X (XR). Les deux sont techniquement compatibles avec cet arbre simple. Pour AR : I-1 (Aa) x I-2 (Aa) → II-2 (aa). Pour XR : I-1 (XAY) x I-2 (XAXa) → II-2 (XaY). Toutefois, en l'absence d'autres informations, l'AR est souvent considéré comme le mode le plus simple ou par défaut compatible avec un saut de génération. S'il faut une seule réponse, l'AR (A) est une conclusion typique pour ce type d'arbre élémentaire."
         },
         {
           "question_number": "Q10",
@@ -144,7 +144,7 @@
             {"label": "E", "text": "L'α globine est constituée de 476 acides aminés."}
           ],
           "correct_option": "D",
-          "explanation": "A est faux: les gènes de l'α-globine sont sur le chromosome 16, mais ceux de la β-globine sont sur le chromosome 11. B est faux: l'hémoglobine A (HbA), majoritaire chez l'adulte, est un tétramère α2β2 (deux chaînes α et deux chaînes β). C est faux: l'hémoglobine est une hétéroprotéine constituée de globines (partie protéique) et de groupements hèmes (partie non protéique contenant du fer). D est vrai: les β-thalassémies sont des maladies génétiques caractérisées par un défaut de synthèse des chaînes β de l'hémoglobine. E est faux: la chaîne α-globine humaine a 141 acides aminés et la chaîne β-globine en a 146."
+          "explanation": "A est faux: les gènes de l'α-globine sont sur le chromosome 16, mais ceux de la β-globine sont sur le chromosome 11. B est faux: l'hémoglobine A (HbA), majoritaire chez l'adulte, est un tétramère α₂β₂ (deux chaînes α et deux chaînes β). C est faux: l'hémoglobine est une hétéroprotéine constituée de globines (partie protéique) et de groupements hèmes (partie non protéique contenant du fer). D est vrai: les β-thalassémies sont des maladies génétiques caractérisées par un défaut de synthèse des chaînes β de l'hémoglobine. E est faux: la chaîne α-globine humaine a 141 acides aminés et la chaîne β-globine en a 146."
         },
         {
           "question_number": "Q11",
@@ -196,7 +196,7 @@
             {"label": "E", "text": "Met en jeu la différenciation des lymphocytes LT4 en lymphocytes T cytotoxiques (LTc)."}
           ],
           "correct_option": "E",
-          "explanation": "La réponse immunitaire à médiation cellulaire implique principalement les lymphocytes T. A est faux (LB = médiation humorale). B décrit une coopération globale de la réponse adaptative, mais pas spécifiquement cellulaire. C décrit la médiation humorale. D est vrai que l'IL-2 (sécrétée par les LT4 activés) est cruciale pour l'expansion clonale des LT. E est la description la plus directe et complète : les LT8 (précurseurs des LTc) sont activés (avec l'aide des LT4 ou LTh) et se différencient en LT cytotoxiques qui détruisent les cellules infectées ou tumorales. La question est un peu ambigüe car LT4 ne se différencient pas en LTc, mais aident à la différenciation des LT8 en LTc. Toutefois, comparée aux autres, E est la proposition qui cible le mieux l'effecteur principal de la médiation cellulaire."
+          "explanation": "La réponse immunitaire à médiation cellulaire implique principalement les lymphocytes T. A est faux (LB = médiation humorale). B décrit une coopération globale de la réponse adaptative, mais pas spécifiquement cellulaire. C décrit la médiation humorale. D est vrai que l'IL-2 (sécrétée par les LT4 activés) est cruciale pour l'expansion clonale des LT. E est la description la plus directe et complète : les LT8 (précurseurs des LTc) sont activés (avec l'aide des LT4 ou LTh) et se différencient en LT cytotoxiques qui détruisent les cellules infectées ou tumorales. La question est un peu ambiguë car les LT4 ne se différencient pas en LTc, mais aident à la différenciation des LT8 en LTc. Toutefois, comparée aux autres, E est la proposition qui cible le mieux l'effecteur principal de la médiation cellulaire."
         }
       ]
     },
@@ -217,7 +217,7 @@
             {"label": "E", "text": "λ = D/2L"}
           ],
           "correct_option": "D",
-          "explanation": "Pour la diffraction par un fil (ou une fente) de largeur 'a', le demi-angle d'ouverture de la tache centrale de diffraction θ est donné par θ ≈ λ/a (pour θ petit, en radians). D'autre part, la largeur de la tache centrale L est liée à θ par tan(θ) ≈ θ = (L/2)/D = L/(2D). En égalant les deux expressions de θ: λ/a = L/(2D). D'où λ = L.a/(2D)."
+          "explanation": "Pour la diffraction par un fil (ou une fente) de largeur $a$, le demi-angle d'ouverture de la tache centrale de diffraction $\\theta$ est donné par $\\theta \\approx \\frac{\\lambda}{a}$ (pour $\\theta$ petit, en radians). D'autre part, la largeur de la tache centrale $L$ est liée à $\\theta$ par $\\tan(\\theta) \\approx \\theta = \\frac{L/2}{D} = \\frac{L}{2D}$. En égalant les deux expressions de $\\theta$ : $\\frac{\\lambda}{a} = \\frac{L}{2D}$. D'où $\\lambda = \\frac{L \\cdot a}{2D}$."
         },
         {
           "exercise_title": "Ondes",
@@ -232,7 +232,7 @@
             {"label": "E", "text": "λ = 63. 10⁻⁷m"}
           ],
           "correct_option": "C",
-          "explanation": "On a L = P/a (car L est proportionnelle à 1/a avec coefficient P). On sait de Q15 que L = 2Dλ/a. En égalant les deux expressions de L: P/a = 2Dλ/a. En simplifiant par 'a' (qui est non nul): P = 2Dλ. Donc λ = P/(2D). Avec P = 7.10⁻⁶ m² et D = 5,5 m: λ = (7.10⁻⁶) / (2 * 5,5) = (7.10⁻⁶) / 11 ≈ 0,6363... * 10⁻⁶ m = 6,363... * 10⁻⁷ m. L'option C (6,3.10⁻⁷m) est la plus proche."
+          "explanation": "On a $L = \\frac{P}{a}$ (car $L$ est proportionnelle à $\\frac{1}{a}$ avec coefficient $P$). On sait de Q15 que $L = \\frac{2D\\lambda}{a}$. En égalant les deux expressions de $L$ : $\\frac{P}{a} = \\frac{2D\\lambda}{a}$. En simplifiant par $a$ (qui est non nul) : $P = 2D\\lambda$. Donc $\\lambda = \\frac{P}{2D}$. Avec $P = 7 \\times 10^{-6} \\, \\mathrm{m^2}$ et $D = 5,5 \\, \\mathrm{m}$ : $\\lambda = \\frac{7 \\times 10^{-6}}{2 \\times 5,5} = \\frac{7 \\times 10^{-6}}{11} \\approx 6,36 \\times 10^{-7} \\, \\mathrm{m}$. L'option C ($6,3 \\times 10^{-7} \\, \\mathrm{m}$) est la plus proche."
         },
         {
           "exercise_title": "Ondes",
@@ -247,7 +247,7 @@
             {"label": "E", "text": "d = 5.10⁻⁷mm"}
           ],
           "correct_option": "A",
-          "explanation": "On utilise λ = L.d/(2D) (ici le diamètre du poil est 'd' au lieu de 'a'). Donc d = 2Dλ/L. λ ≈ 6,3.10⁻⁷ m (de Q16). D = 5,5 m. L = 35 mm = 35.10⁻³ m. d = (2 * 5,5 * 6,3.10⁻⁷) / (35.10⁻³) = (11 * 6,3.10⁻⁷) / (35.10⁻³) = (69,3.10⁻⁷) / (35.10⁻³) = (69,3/35).10⁻⁴ m ≈ 1,98.10⁻⁴ m ≈ 0,198.10⁻³ m ≈ 0,2 mm."
+          "explanation": "On utilise $\\lambda = \\frac{L \\cdot d}{2D}$ (ici le diamètre du poil est $d$ au lieu de $a$). Donc $d = \\frac{2D\\lambda}{L}$. On a $\\lambda \\approx 6,3 \\times 10^{-7} \\, \\mathrm{m}$ (de Q16), $D = 5,5 \\, \\mathrm{m}$ et $L = 35 \\, \\mathrm{mm} = 35 \\times 10^{-3} \\, \\mathrm{m}$. $d = \\frac{2 \\times 5,5 \\times 6,3 \\times 10^{-7}}{35 \\times 10^{-3}} = \\frac{69,3 \\times 10^{-7}}{35 \\times 10^{-3}} \\approx 1,98 \\times 10^{-4} \\, \\mathrm{m} \\approx 0,2 \\, \\mathrm{mm}$."
         },
         {
           "exercise_title": "Transformations nucléaires",
@@ -262,7 +262,7 @@
             {"label": "E", "text": "Tc100 (Z=43)"}
           ],
           "correct_option": "B",
-          "explanation": "La désintégration β- correspond à l'émission d'un électron (⁰₋₁e). L'équation de désintégration est : ⁹⁹₄₂Mo → ᴬZX + ⁰₋₁e. Conservation du nombre de masse: 99 = A + 0 => A = 99. Conservation du nombre de charge: 42 = Z - 1 => Z = 43. L'élément de numéro atomique Z=43 est le Technétium (Tc). Le noyau fils est donc ⁹⁹₄₃Tc. Le 'm' dans Tc99m indique un état métastable, ce qui est fréquent pour cet isotope utilisé en médecine."
+          "explanation": "La désintégration $\\beta^-$ correspond à l'émission d'un électron $(^0_{-1}e)$. L'équation de désintégration est : $^{99}_{42}\\mathrm{Mo} \\rightarrow ^{A}_{Z}\\mathrm{X} + ^{0}_{-1}e$. Conservation du nombre de masse: $99 = A + 0 \\Rightarrow A = 99$. Conservation du nombre de charge: $42 = Z - 1 \\Rightarrow Z = 43$. L'élément de numéro atomique Z=43 est le Technétium (Tc). Le noyau fils est donc $^{99}_{43}\\mathrm{Tc}$. Le 'm' dans Tc99m indique un état métastable, ce qui est fréquent pour cet isotope utilisé en médecine."
         },
         {
           "exercise_title": "Transformations nucléaires",
@@ -277,7 +277,7 @@
             {"label": "E", "text": "6 minutes"}
           ],
           "correct_option": "D",
-          "explanation": "La demi-vie T2 est liée à la constante radioactive λ2 par T2 = ln(2)/λ2. On a λ2 = 32.10⁻⁶ s⁻¹ et ln(2) ≈ 0,70. T2 = 0,70 / (32.10⁻⁶) s = (0,70/32) * 10⁶ s ≈ 0,021875 * 10⁶ s = 21875 s. Pour convertir en heures, on divise par 3600 (1h = 3600s): T2 = 21875 / 3600 h ≈ 6,076 h. L'indication 109/18 ≈ 6 semble une aide au calcul si on tombe sur ce ratio, ce qui est le cas (21875/3600 peut se simplifier). Cela correspond à environ 6 heures."
+          "explanation": "La demi-vie $T_2$ est liée à la constante radioactive $\\lambda_2$ par $T_2 = \\frac{\\ln(2)}{\\lambda_2}$. On a $\\lambda_2 = 32 \\times 10^{-6} \\, \\mathrm{s^{-1}}$ et $\\ln(2) \\approx 0,70$. $T_2 = \\frac{0,70}{32 \\times 10^{-6}} \\, \\mathrm{s} = \\frac{0,70}{32} \\times 10^6 \\, \\mathrm{s} \\approx 0,021875 \\times 10^6 \\, \\mathrm{s} = 21875 \\, \\mathrm{s}$. Pour convertir en heures, on divise par 3600 (1h = 3600s): $T_2 = \\frac{21875}{3600} \\, \\mathrm{h} \\approx 6,076 \\, \\mathrm{h}$. Cela correspond à environ 6 heures."
         },
         {
           "exercise_title": "Transformations nucléaires",
@@ -292,7 +292,7 @@
             {"label": "E", "text": "0,2.10¹⁵"}
           ],
           "correct_option": "D",
-          "explanation": "L'activité A est liée au nombre de noyaux N par A = λN. Donc N = A/λ. Ici A₀ = 640 MBq = 640 * 10⁶ Bq. λ₂ = 32 * 10⁻⁶ s⁻¹. N₀ = (640 * 10⁶) / (32 * 10⁻⁶) = (640/32) * 10¹² = 20 * 10¹² = 2 * 10¹³. L'option D s'écrit 0,2.10¹⁴ = 2.10⁻¹.10¹⁴ = 2.10¹³."
+          "explanation": "L'activité $A$ est liée au nombre de noyaux $N$ par $A = \\lambda N$. Donc $N = \\frac{A}{\\lambda}$. Ici $A_0 = 640 \\, \\mathrm{MBq} = 640 \\times 10^6 \\, \\mathrm{Bq}$. $\\lambda_2 = 32 \\times 10^{-6} \\, \\mathrm{s^{-1}}$. $N_0 = \\frac{640 \\times 10^6}{32 \\times 10^{-6}} = \\frac{640}{32} \\times 10^{12} = 20 \\times 10^{12} = 2 \\times 10^{13}$. L'option D s'écrit $0,2 \\times 10^{14} = 2 \\times 10^{-1} \\times 10^{14} = 2 \\times 10^{13}$."
         },
         {
           "exercise_title": "Transformations nucléaires",
@@ -307,7 +307,7 @@
             {"label": "E", "text": "14h"}
           ],
           "correct_option": "B",
-          "explanation": "Soit A₀ l'activité à 8h (t=0). A(t) = 0,70 A₀. On a A(t) = A₀ e^(-λ₂t). Donc 0,70 = e^(-λ₂t). Prenant le logarithme népérien: ln(0,70) = -λ₂t. Donc t = -ln(0,70)/λ₂. λ₂ = ln(2)/T₂. t = -ln(0,70) * T₂/ln(2) = ln(1/0,70) * T₂/ln(2) = ln(10/7) * T₂/ln(2). On donne ln(10/7) ≈ 0,35 et ln(2) ≈ 0,70. T₂ ≈ 6 heures (de Q19). t = (0,35/0,70) * 6 h = (1/2) * 6 h = 3 heures. L'examen a commencé à 8h, donc il s'est terminé à 8h + 3h = 11h."
+          "explanation": "Soit $A_0$ l'activité à 8h (t=0). $A(t) = 0,70 A_0$. On a $A(t) = A_0 e^{-\\lambda_2 t}$. Donc $0,70 = e^{-\\lambda_2 t}$. Prenant le logarithme népérien: $\\ln(0,70) = -\\lambda_2 t$. Donc $t = -\\frac{\\ln(0,70)}{\\lambda_2}$. Or, $\\lambda_2 = \\frac{\\ln(2)}{T_2}$. Alors $t = -\\ln(0,70) \\times \\frac{T_2}{\\ln(2)} = \\ln(\\frac{1}{0,70}) \\times \\frac{T_2}{\\ln(2)} = \\ln(\\frac{10}{7}) \\times \\frac{T_2}{\\ln(2)}$. On donne $\\ln(10/7) \\approx 0,35$ et $\\ln(2) \\approx 0,70$. Et $T_2 \\approx 6$ heures (de Q19). $t = \\frac{0,35}{0,70} \\times 6 \\, \\mathrm{h} = \\frac{1}{2} \\times 6 \\, \\mathrm{h} = 3$ heures. L'examen a commencé à 8h, donc il s'est terminé à 8h + 3h = 11h."
         },
         {
           "exercise_title": "Transformations nucléaires",
@@ -330,7 +330,7 @@
             {"label": "E", "text": "A2max > A1tmax"}
           ],
           "correct_option": "A",
-          "explanation": "L'activité du père Mo99 à tmax=24h est A₁(tmax) = A₁₀ * e^(-λ₁tmax). T₁ = 66h (demi-vie Mo99). λ₁ = ln(2)/T₁ = ln(2)/66 h⁻¹. A₁(tmax) = 1 GBq * e^(-ln(2)/66 * 24) = 1 GBq * e^(-ln(2) * 24/66) = 1 GBq * e^(-ln(2) * 4/11). Sachant que 4/11 ≈ 0,36: A₁(tmax) ≈ 1 GBq * (e^ln(2))⁻⁰.³⁶ = 1 GBq * 2⁻⁰.³⁶. On donne 2⁻⁰.³⁶ ≈ 0,78. Donc A₁(tmax) ≈ 1 GBq * 0,78 = 0,78 GBq = 780 MBq. Dans de nombreux cas pratiques où T₂(fils) << T₁(père) (ici 6h << 66h), l'activité maximale du fils A₂max est très proche de l'activité du père A₁(tmax) au moment tmax. Le graphe montre que A₂max est approximativement égal à A₁(tmax). L'option A correspond à cette valeur."
+          "explanation": "L'activité du père Mo99 à $t_{max}=24\\,\\mathrm{h}$ est $A_1(t_{max}) = A_{1_0} \\cdot e^{-\\lambda_1 t_{max}}$. On a $T_1 = 66\\,\\mathrm{h}$ (demi-vie Mo99), donc $\\lambda_1 = \\frac{\\ln(2)}{T_1} = \\frac{\\ln(2)}{66} \\, \\mathrm{h^{-1}}$. $A_1(t_{max}) = 1 \\, \\mathrm{GBq} \\cdot e^{-\\frac{\\ln(2)}{66} \\cdot 24} = 1 \\, \\mathrm{GBq} \\cdot e^{-\\ln(2) \\cdot \\frac{24}{66}} = 1 \\, \\mathrm{GBq} \\cdot e^{-\\ln(2) \\cdot \\frac{4}{11}}$. Sachant que $4/11 \\approx 0,36$: $A_1(t_{max}) \\approx 1 \\, \\mathrm{GBq} \\cdot (e^{\\ln(2)})^{-0,36} = 1 \\, \\mathrm{GBq} \\cdot 2^{-0,36}$. On donne $2^{-0,36} \\approx 0,78$. Donc $A_1(t_{max}) \\approx 1 \\, \\mathrm{GBq} \\cdot 0,78 = 0,78 \\, \\mathrm{GBq} = 780 \\, \\mathrm{MBq}$. Dans de nombreux cas pratiques où $T_2(\\text{fils}) \\ll T_1(\\text{père})$ (ici $6\\,\\mathrm{h} \\ll 66\\,\\mathrm{h}$), l'activité maximale du fils $A_{2_{max}}$ est très proche de l'activité du père $A_1(t_{max})$ au moment $t_{max}$. Le graphe montre que $A_{2_{max}}$ est approximativement égal à $A_1(t_{max})$. L'option A correspond à cette valeur."
         },
         {
           "exercise_title": "Mécanique",
@@ -353,7 +353,7 @@
             {"label": "E", "text": "ax = g.sinα, ay = -g.cosα"}
           ],
           "correct_option": "A",
-          "explanation": "Les forces agissant sur le solide sont son poids P et la réaction normale Rn du plan. Le repère (A,i,j) a i le long du plan vers le bas et j perpendiculaire au plan vers le haut. Le poids P peut être décomposé en Px = mg.sinα (selon i) et Py = -mg.cosα (selon -j). La réaction Rn est selon j: Rn = Rn.j. D'après la deuxième loi de Newton: m.a = P + Rn. Projection sur i: m.ax = mg.sinα => ax = g.sinα. Projection sur j: m.ay = Rn - mg.cosα. Puisqu'il n'y a pas de mouvement perpendiculaire au plan, ay = 0, ce qui implique Rn = mg.cosα. Donc ax = g.sinα et ay = 0."
+          "explanation": "Les forces agissant sur le solide sont son poids $\\vec{P}$ et la réaction normale $\\vec{R_n}$ du plan. Le repère $(A, \\vec{i}, \\vec{j})$ a $\\vec{i}$ le long du plan vers le bas et $\\vec{j}$ perpendiculaire au plan vers le haut. Le poids $\\vec{P}$ peut être décomposé en $P_x = mg\\sin(\\alpha)$ (selon $\\vec{i}$) et $P_y = -mg\\cos(\\alpha)$ (selon $-\\vec{j}$). La réaction $\\vec{R_n}$ est selon $\\vec{j}$: $\\vec{R_n} = R_n\\vec{j}$. D'après la deuxième loi de Newton: $m\\vec{a} = \\vec{P} + \\vec{R_n}$. Projection sur $\\vec{i}$: $ma_x = mg\\sin(\\alpha) \\Rightarrow a_x = g\\sin(\\alpha)$. Projection sur $\\vec{j}$: $ma_y = R_n - mg\\cos(\\alpha)$. Puisqu'il n'y a pas de mouvement perpendiculaire au plan, $a_y = 0$, ce qui implique $R_n = mg\\cos(\\alpha)$. Donc $a_x = g\\sin(\\alpha)$ et $a_y = 0$."
         },
         {
           "exercise_title": "Mécanique",
@@ -368,7 +368,7 @@
             {"label": "E", "text": "17,84 m.s⁻¹"}
           ],
           "correct_option": "B",
-          "explanation": "Le mouvement est rectiligne uniformément varié avec a = ax = g.sinα. a = 10 * 0,4 = 4 m/s². Vitesse initiale v₀ = 0. Distance AB = d = 2 m. On utilise la relation v² - v₀² = 2ad. Donc vB² = 2ad. vB = √(2ad) = √(2 * 4 * 2) = √16 = 4 m/s."
+          "explanation": "Le mouvement est rectiligne uniformément varié avec une accélération $a = a_x = g\\sin(\\alpha)$. $a = 10 \\times 0,4 = 4 \\, \\mathrm{m/s^2}$. Vitesse initiale $v_0 = 0$. Distance AB $= d = 2 \\, \\mathrm{m}$. On utilise la relation $v_B^2 - v_0^2 = 2ad$. Donc $v_B^2 = 2ad$. $v_B = \\sqrt{2ad} = \\sqrt{2 \\cdot 4 \\cdot 2} = \\sqrt{16} = 4 \\, \\mathrm{m/s}$."
         },
         {
           "exercise_title": "Mécanique",
@@ -383,7 +383,7 @@
             {"label": "E", "text": "961 N"}
           ],
           "correct_option": "C",
-          "explanation": "La force R exercée par le plan, en l'absence de frottement, est la réaction normale Rn. D'après l'analyse de Q23, Rn = mg.cosα. m = 10 kg, g = 10 m/s², cos24° ≈ 0,9. Rn = 10 * 10 * 0,9 = 100 * 0,9 = 90 N."
+          "explanation": "La force R exercée par le plan, en l'absence de frottement, est la réaction normale $R_n$. D'après l'analyse de Q23, $R_n = mg\\cos(\\alpha)$. Avec $m = 10 \\, \\mathrm{kg}$, $g = 10 \\, \\mathrm{m/s^2}$ et $\\cos(24°) \\approx 0,9$. $R_n = 10 \\times 10 \\times 0,9 = 100 \\times 0,9 = 90 \\, \\mathrm{N}$."
         },
         {
           "exercise_title": "Electricité",
@@ -397,7 +397,7 @@
             {"label": "E", "text": "Les propositions ABCD sont incorrectes"}
           ],
           "correct_option": "E",
-          "explanation": "D'après la loi d'Ohm, U = RI. Donc I = U/R. U = 12 V, R = 6 Ω. I = 12 V / 6 Ω = 2 A. Aucune des propositions A, B, C, D n'est égale à 2 A. Donc la proposition E est correcte."
+          "explanation": "D'après la loi d'Ohm, $U = RI$. Donc $I = \\frac{U}{R}$. Avec $U = 12 \\, \\mathrm{V}$ et $R = 6 \\, \\Omega$, on a $I = \\frac{12 \\, \\mathrm{V}}{6 \\, \\Omega} = 2 \\, \\mathrm{A}$. Aucune des propositions A, B, C, D n'est égale à 2 A. Donc la proposition E est correcte."
         },
         {
           "exercise_title": "Electricité",
@@ -413,14 +413,14 @@
           },
           "text": "L'intensité i(t) du courant électrique circulant dans le circuit s'écrit",
           "options": [
-            {"label": "A", "text": "$i(t) = \\frac{E}{R} e^{-\\frac{1}{RC}t}$"},
-            {"label": "B", "text": "$i(t) = \\frac{E}{R} e^{\\frac{1}{RC}t}$"},
-            {"label": "C", "text": "$i(t) = 2.10^{-3} e^{-50t}$"},
-            {"label": "D", "text": "$i(t) = 4,5.10^{-5} e^{-RC.t}$"},
-            {"label": "E", "text": "$i(t) = 5,7.10^{-5} e^{-RC.t}$"}
+            {"label": "A", "text": "i(t) = (E/R)e^(-t/RC)"},
+            {"label": "B", "text": "i(t) = (E/R)e^(t/RC)"},
+            {"label": "C", "text": "i(t) = 2×10⁻³e^(-50t)"},
+            {"label": "D", "text": "i(t) = 4,5×10⁻⁵e^(-RC×t)"},
+            {"label": "E", "text": "i(t) = 5,7×10⁻⁵e^(-RC×t)"}
           ],
           "correct_option": "C",
-          "explanation": "Pour la charge d'un condensateur initialement déchargé dans un circuit RC série, le courant est donné par i(t) = (E/R)e^(-t/RC). E = 4 V. R = 2 kΩ = 2000 Ω. C = 10 µF = 10.10⁻⁶ F. τ = RC = 2000 * 10.10⁻⁶ = 20000.10⁻⁶ = 2.10⁻² s. 1/RC = 1/(2.10⁻²) = 100/2 = 50 s⁻¹. E/R = 4/2000 = 2/1000 = 2.10⁻³ A. Donc i(t) = 2.10⁻³ e^(-50t) A."
+          "explanation": "Pour la charge d'un condensateur initialement déchargé dans un circuit RC série, le courant est donné par $i(t) = \\frac{E}{R}e^{-t/RC}$. On a $E = 4 \\, \\mathrm{V}$, $R = 2 \\, \\mathrm{k\\Omega} = 2000 \\, \\Omega$ et $C = 10 \\, \\mu\\mathrm{F} = 10 \\times 10^{-6} \\, \\mathrm{F}$. La constante de temps est $\\tau = RC = 2000 \\times 10 \\times 10^{-6} = 2 \\times 10^{-2} \\, \\mathrm{s}$. Donc, $\\frac{1}{RC} = \\frac{1}{2 \\times 10^{-2}} = 50 \\, \\mathrm{s^{-1}}$. Le courant initial est $\\frac{E}{R} = \\frac{4}{2000} = 2 \\times 10^{-3} \\, \\mathrm{A}$. L'expression du courant est donc $i(t) = 2 \\times 10^{-3} e^{-50t} \\, \\mathrm{A}$."
         },
         {
           "exercise_title": "Electricité",
@@ -435,7 +435,7 @@
             {"label": "E", "text": "i = 1,5 mA, Qmax = 20 µC"}
           ],
           "correct_option": "D",
-          "explanation": "À t=0, i(0) = (E/R)e⁰ = E/R = 2.10⁻³ A = 2 mA. La charge maximale dans le condensateur est atteinte lorsque la tension à ses bornes est E. Qmax = C.E = (10.10⁻⁶ F) * (4 V) = 40.10⁻⁶ C = 40 µC. Donc i(0) = 2 mA et Qmax = 40 µC."
+          "explanation": "À $t=0$, le courant est maximal : $i(0) = \\frac{E}{R}e^0 = \\frac{E}{R} = \\frac{4 \\, \\mathrm{V}}{2000 \\, \\Omega} = 2 \\times 10^{-3} \\, \\mathrm{A} = 2 \\, \\mathrm{mA}$. La charge maximale dans le condensateur est atteinte en régime permanent, lorsque la tension à ses bornes est E. $Q_{max} = C \\cdot E = (10 \\times 10^{-6} \\, \\mathrm{F}) \\times (4 \\, \\mathrm{V}) = 40 \\times 10^{-6} \\, \\mathrm{C} = 40 \\, \\mu\\mathrm{C}$. Donc $i(0) = 2 \\, \\mathrm{mA}$ et $Q_{max} = 40 \\, \\mu\\mathrm{C}$."
         }
       ]
     },
@@ -455,7 +455,7 @@
             {"label": "E", "text": "Toutes les affirmations ci-dessus sont correctes."}
           ],
           "correct_option": "C",
-          "explanation": "A et B sont des définitions correctes. D est correct, c'est le rôle d'un catalyseur. C est incorrecte car la température est un facteur cinétique majeur : augmenter la température augmente généralement la vitesse des réactions chimiques. E est donc fausse."
+          "explanation": "A et B sont des définitions correctes. D est correct, c'est le rôle d'un catalyseur. C est incorrecte car la température est un facteur cinétique majeur : augmenter la température augmente généralement la vitesse des réactions chimiques. Par conséquent, E est fausse."
         },
         {
           "exercise_title": "Transformations rapides et lentes d'un système chimique",
@@ -469,7 +469,7 @@
             {"label": "E", "text": "Aucune des affirmations ci-dessus n'est correcte"}
           ],
           "correct_option": "B",
-          "explanation": "La combustion est une réaction chimique (A,D faux) qui se produit rapidement une fois amorcée (B vrai, C faux)."
+          "explanation": "La combustion est une réaction chimique (A et D sont faux) qui se produit rapidement une fois amorcée (B est vrai, C est faux)."
         },
         {
           "exercise_title": "Transformations rapides et lentes d'un système chimique",
@@ -483,7 +483,7 @@
             {"label": "E", "text": "Aucune des affirmations ci-dessus n'est correcte"}
           ],
           "correct_option": "C",
-          "explanation": "La formation de la rouille (oxydation du fer) est une réaction chimique (A,D faux) qui se produit lentement à température ambiante (C vrai, B faux)."
+          "explanation": "La formation de la rouille (oxydation du fer) est une réaction chimique (A et D sont faux) qui se produit lentement à température ambiante (C est vrai, B est faux)."
         },
         {
           "exercise_title": "Transformations rapides et lentes d'un système chimique",
@@ -497,7 +497,7 @@
             {"label": "E", "text": "Lumière"}
           ],
           "correct_option": "D",
-          "explanation": "A, B, C sont des facteurs cinétiques importants. E (lumière) est crucial pour les réactions photochimiques. D (Pression) a un effet significatif sur la vitesse des réactions impliquant des gaz (modification des concentrations partielles). Cependant, pour les réactions en phase condensée (liquide ou solide) sans intervention de gaz, l'effet de la pression sur la vitesse est généralement faible comparé aux autres facteurs. C'est le facteur qui a 'le moins' d'effet universel."
+          "explanation": "A, B, et C sont des facteurs cinétiques importants. E (lumière) est crucial pour les réactions photochimiques. D (Pression) a un effet significatif sur la vitesse des réactions impliquant des gaz (modification des concentrations partielles). Cependant, pour les réactions en phase condensée (liquide ou solide) sans intervention de gaz, l'effet de la pression sur la vitesse est généralement faible comparé aux autres facteurs. C'est donc le facteur qui a 'le moins' d'effet universel."
         },
         {
           "exercise_title": "Transformations rapides et lentes d'un système chimique",
@@ -511,7 +511,7 @@
             {"label": "E", "text": "Aucune des affirmations ci-dessus n'est correcte"}
           ],
           "correct_option": "A",
-          "explanation": "Un catalyseur augmente la vitesse d'une réaction chimique en abaissant son énergie d'activation, et il est régénéré à la fin de la réaction (n'est pas consommé globalement). A est la définition correcte. B décrit un inhibiteur. C et D sont faux."
+          "explanation": "Un catalyseur augmente la vitesse d'une réaction chimique en abaissant son énergie d'activation, et il est régénéré à la fin de la réaction (il n'est pas consommé globalement). A est la définition correcte. B décrit un inhibiteur. C et D sont faux."
         },
         {
           "exercise_title": "Transformations non totales d'un système chimique",
@@ -525,7 +525,7 @@
             {"label": "E", "text": "Aucune des affirmations ci-dessus n'est correcte"}
           ],
           "correct_option": "D",
-          "explanation": "Une transformation non totale est une transformation qui aboutit à un état d'équilibre où les réactifs et les produits coexistent. A décrit une transformation totale. B est une conséquence de l'équilibre, donc vrai. C est faux, une non-totale est réversible. D est vrai, le caractère réversible est fondamental pour une transformation non totale. Entre B et D, D (réversible) est la nature intrinsèque qui mène à l'observation B (coexistence à l'équilibre). D est plus fondamental."
+          "explanation": "Une transformation non totale est une transformation qui aboutit à un état d'équilibre où les réactifs et les produits coexistent. A décrit une transformation totale. B est une conséquence de l'équilibre, donc vrai. C est faux, une transformation non totale est réversible. D est vrai, le caractère réversible est fondamental pour une transformation non totale. Entre B et D, D (réversible) est la nature intrinsèque qui mène à l'observation B (coexistence à l'équilibre). D est donc plus fondamental."
         },
         {
           "exercise_title": "Transformations non totales d'un système chimique",
@@ -539,7 +539,7 @@
             {"label": "E", "text": "Toutes les affirmations ci-dessus sont correctes."}
           ],
           "correct_option": "B",
-          "explanation": "A est faux, Kc n'est sans dimension que si la somme des coefficients stœchiométriques des produits est égale à celle des réactifs. B est vrai, Kc est calculée à partir des concentrations à l'équilibre. C et D sont faux en général; l'effet de la température sur Kc dépend du signe de l'enthalpie de réaction (loi de Van't Hoff)."
+          "explanation": "A est faux, $K_c$ n'est sans dimension que si la somme des coefficients stœchiométriques des produits est égale à celle des réactifs. B est vrai, $K_c$ est calculée à partir des concentrations à l'équilibre. C et D sont faux en général; l'effet de la température sur $K_c$ dépend du signe de l'enthalpie de réaction (loi de van 't Hoff)."
         },
         {
           "exercise_title": "Transformations non totales d'un système chimique",
@@ -553,7 +553,7 @@
             {"label": "E", "text": "Déplace l'équilibre vers la formation des produits."}
           ],
           "correct_option": "B",
-          "explanation": "D'après le principe de Le Chatelier, si on augmente la température d'un système à l'équilibre, celui-ci évolue dans le sens qui consomme de la chaleur (sens endothermique). Pour une réaction exothermique (directe: libère chaleur), la réaction inverse est endothermique. Donc, augmenter la température favorise la réaction inverse (B). D est une autre façon de dire la même chose (formation des réactants = sens inverse)."
+          "explanation": "D'après le principe de Le Chatelier, si on augmente la température d'un système à l'équilibre, celui-ci évolue dans le sens qui consomme de la chaleur (sens endothermique). Pour une réaction exothermique (sens direct: libère de la chaleur), la réaction inverse est endothermique. Donc, augmenter la température favorise la réaction inverse (B). D est une autre façon de dire la même chose (la formation des réactants correspond au sens inverse)."
         },
         {
           "exercise_title": "Transformations non totales d'un système chimique",
@@ -595,7 +595,7 @@
             {"label": "E", "text": "Les informations données ne sont pas suffisantes pour le déterminer."}
           ],
           "correct_option": "A",
-          "explanation": "Une variation d'enthalpie standard ΔH° négative signifie que la réaction libère de la chaleur, elle est donc exothermique. La spontanéité dépend aussi de la variation d'entropie ΔS° et de la température T (via ΔG° = ΔH° - TΔS°)."
+          "explanation": "Une variation d'enthalpie standard $\\Delta H°$ négative signifie que la réaction libère de la chaleur, elle est donc exothermique. La spontanéité dépend aussi de la variation d'entropie $\\Delta S°$ et de la température T (via la relation $\\Delta G° = \\Delta H° - T\\Delta S°$)."
         },
         {
           "exercise_title": "Sens d'évolution d'un système chimique",
@@ -609,7 +609,7 @@
             {"label": "E", "text": "Les informations données ne sont pas suffisantes."}
           ],
           "correct_option": "A",
-          "explanation": "Une variation d'entropie standard ΔS° positive signifie que le désordre du système augmente. La spontanéité dépend aussi de la variation d'enthalpie ΔH° et de la température T (via ΔG° = ΔH° - TΔS°)."
+          "explanation": "Une variation d'entropie standard $\\Delta S°$ positive signifie que le désordre du système augmente. La spontanéité dépend aussi de la variation d'enthalpie $\\Delta H°$ et de la température T (via la relation $\\Delta G° = \\Delta H° - T\\Delta S°$)."
         },
         {
           "exercise_title": "Sens d'évolution d'un système chimique",
@@ -623,7 +623,7 @@
             {"label": "E", "text": "Les informations données ne sont pas suffisantes."}
           ],
           "correct_option": "A",
-          "explanation": "La spontanéité est déterminée par le signe de la variation d'enthalpie libre standard ΔG° = ΔH° - TΔS°. ΔH° = -20 kJ/mol = -20000 J/mol. T = 298 K. ΔS° = 10 J/mol·K. ΔG° = -20000 J/mol - (298 K * 10 J/mol·K) = -20000 J/mol - 2980 J/mol = -22980 J/mol. Puisque ΔG° < 0, la réaction est spontanée. A est la meilleure explication: quand ΔH° < 0 (favorable) et ΔS° > 0 (favorable, car -TΔS° < 0), ΔG° est toujours négatif quelle que soit T > 0, donc la réaction est toujours spontanée."
+          "explanation": "La spontanéité est déterminée par le signe de la variation d'enthalpie libre standard $\\Delta G° = \\Delta H° - T\\Delta S°$. On a $\\Delta H° = -20 \\, \\mathrm{kJ/mol} = -20000 \\, \\mathrm{J/mol}$, $T = 298 \\, \\mathrm{K}$, $\\Delta S° = 10 \\, \\mathrm{J/mol \\cdot K}$. Calcul de $\\Delta G°$: $\\Delta G° = -20000 \\, \\mathrm{J/mol} - (298 \\, \\mathrm{K} \\times 10 \\, \\mathrm{J/mol \\cdot K}) = -20000 \\, \\mathrm{J/mol} - 2980 \\, \\mathrm{J/mol} = -22980 \\, \\mathrm{J/mol}$. Puisque $\\Delta G° < 0$, la réaction est spontanée. A est la meilleure explication: quand $\\Delta H° < 0$ (favorable) et $\\Delta S° > 0$ (favorable, car $-T\\Delta S° < 0$), $\\Delta G°$ est toujours négatif quelle que soit la température $T > 0$, donc la réaction est toujours spontanée."
         },
         {
           "exercise_title": "Sens d'évolution d'un système chimique",
@@ -637,7 +637,7 @@
             {"label": "E", "text": "Les informations données ne sont pas suffisantes pour le déterminer."}
           ],
           "correct_option": "D",
-          "explanation": "Pour déterminer si la réaction est à l'équilibre, on calcule le quotient de réaction Qr et on le compare à Kc. Qr = ([C][D]) / ([A]²[B]) = (0,3 * 0,1) / ((0,1)² * 0,2) = (0,03) / (0,01 * 0,2) = 0,03 / 0,002 = 30/2 = 15. Puisque Qr = 15 et Kc = 2, Qr ≠ Kc. Donc la réaction n'est pas à l'équilibre."
+          "explanation": "Pour déterminer si la réaction est à l'équilibre, on calcule le quotient de réaction $Q_r$ et on le compare à $K_c$. $Q_r = \\frac{[C][D]}{[A]^2[B]} = \\frac{(0,3) \\times (0,1)}{(0,1)^2 \\times (0,2)} = \\frac{0,03}{0,01 \\times 0,2} = \\frac{0,03}{0,002} = \\frac{30}{2} = 15$. Puisque $Q_r = 15$ et $K_c = 2$, on a $Q_r \\neq K_c$. Donc la réaction n'est pas à l'équilibre."
         }
       ]
     },
@@ -647,20 +647,20 @@
       "questions": [
         {
           "question_number": "Q43",
-          "text": "On considère la fonction f définie par: $f(x) = x - \\frac{(\\ln(x))^2}{x}$",
+          "text": "On considère la fonction f définie par: f(x) = x - (ln(x))²/x",
           "options": [
-            {"label": "A", "text": "$f' = 1 + \\frac{2\\ln(x)-(\\ln(x))^2}{x^2}$"},
-            {"label": "B", "text": "$f' = 1 - \\frac{2\\ln(x)-(\\ln(x))^2}{x^2}$"},
-            {"label": "C", "text": "$f' = -1 + \\frac{2\\ln(x)-(\\ln(x))^2}{x^2}$"},
-            {"label": "D", "text": "$f' = -1 - \\frac{2\\ln(x)-(\\ln(x))^2}{x^2}$"},
-            {"label": "E", "text": "$f' = 1 + \\frac{2\\ln(x)+(\\ln(x))^2}{x^2}$"}
+            {"label": "A", "text": "f' = 1 + (2ln(x)-(ln(x))²)/x²"},
+            {"label": "B", "text": "f' = 1 - (2ln(x)-(ln(x))²)/x²"},
+            {"label": "C", "text": "f' = -1 + (2ln(x)-(ln(x))²)/x²"},
+            {"label": "D", "text": "f' = -1 - (2ln(x)-(ln(x))²)/x²"},
+            {"label": "E", "text": "f' = 1 + (2ln(x)+(ln(x))²)/x²"}
           ],
           "correct_option": "B",
-          "explanation": "Dérivée de $x$ est 1. Pour $\\frac{(\\ln x)^2}{x}$, on utilise $(u/v)' = (u'v-uv')/v^2$ avec $u(x)=(\\ln x)^2 \\implies u'(x) = 2(\\ln x)(1/x)$ et $v(x)=x \\implies v'(x)=1$. La dérivée de $\\frac{(\\ln x)^2}{x}$ est $\\frac{(2(\\ln x)/x) \\cdot x - (\\ln x)^2 \\cdot 1}{x^2} = \\frac{2\\ln x - (\\ln x)^2}{x^2}$. Donc $f'(x) = 1 - \\frac{2\\ln x - (\\ln x)^2}{x^2}$."
+          "explanation": "La dérivée de $x$ est $1$. Pour dériver $\\frac{(\\ln x)^2}{x}$, on utilise la formule de la dérivée d'un quotient $\\left(\\frac{u}{v}\\right)' = \\frac{u'v-uv'}{v^2}$ avec $u(x)=(\\ln x)^2$ et $v(x)=x$. On a $u'(x) = 2(\\ln x) \\cdot \\frac{1}{x}$ et $v'(x)=1$. La dérivée de $\\frac{(\\ln x)^2}{x}$ est donc $\\frac{(2(\\ln x) \\cdot \\frac{1}{x}) \\cdot x - (\\ln x)^2 \\cdot 1}{x^2} = \\frac{2\\ln x - (\\ln x)^2}{x^2}$. Finalement, $f'(x) = 1 - \\frac{2\\ln x - (\\ln x)^2}{x^2}$."
         },
         {
           "question_number": "Q44",
-          "text": "La fonction $f: f(x) = 2\\ln(\\frac{1+e^x}{1-e^x})$ admet une asymptote horizontale ou oblique lorsque x tend vers -∞ ou +∞, Quelle est l'équation de cette asymptote ?",
+          "text": "La fonction f: f(x) = 2ln((1+eˣ)/(1-eˣ)) admet une asymptote horizontale ou oblique lorsque x tend vers -∞ ou +∞, Quelle est l'équation de cette asymptote ?",
           "options": [
             {"label": "A", "text": "y = 2x"},
             {"label": "B", "text": "y = x"},
@@ -669,11 +669,11 @@
             {"label": "E", "text": "y = -2x"}
           ],
           "correct_option": "C",
-          "explanation": "Pour que $\\ln(U)$ soit défini, $U > 0$. Ici $U = \\frac{1+e^x}{1-e^x}$. Il faut $1+e^x > 0$ (toujours vrai) et $1-e^x > 0$ (pour que le quotient soit positif si le numérateur l'est), donc $e^x < 1 \\implies x < 0$. Le domaine de f est $]-\\infty, 0[$. On ne peut donc étudier la limite qu'en $-\\infty$. Quand $x \\to -\\infty$, $e^x \\to 0$. Alors $\\frac{1+e^x}{1-e^x} \\to \\frac{1+0}{1-0} = 1$. Donc $f(x) \\to 2\\ln(1) = 0$. Il y a une asymptote horizontale d'équation $y=0$ en $-\\infty$."
+          "explanation": "Pour que $\\ln(U)$ soit défini, il faut que $U > 0$. Ici, $U = \\frac{1+e^x}{1-e^x}$. Le numérateur $1+e^x$ est toujours positif. Pour que le quotient soit positif, il faut donc que le dénominateur $1-e^x$ soit aussi positif. $1-e^x > 0 \\implies e^x < 1 \\implies x < 0$. Le domaine de définition de $f$ est donc $]-\\infty, 0[$. On ne peut donc étudier la limite qu'en $-\\infty$. Quand $x \\to -\\infty$, $e^x \\to 0$. Alors $\\frac{1+e^x}{1-e^x} \\to \\frac{1+0}{1-0} = 1$. Donc $f(x) \\to 2\\ln(1) = 0$. Il y a une asymptote horizontale d'équation $y=0$ en $-\\infty$."
         },
         {
           "question_number": "Q45",
-          "text": "On considère la fonction g définie par: $g(x) = \\frac{x^2+1}{x+1}$; Déterminer le point xo où la tangente à Cg est parallèle à la droite d'équation y=x.",
+          "text": "On considère la fonction g définie par: g(x) = (x²+1)/(x+1); Déterminer le point x₀ où la tangente à Cg est parallèle à la droite d'équation y=x.",
           "options": [
             {"label": "A", "text": "xo=0"},
             {"label": "B", "text": "xo=-1"},
@@ -682,37 +682,37 @@
             {"label": "E", "text": "xo = Ø (ensemble vide)"}
           ],
           "correct_option": "E",
-          "explanation": "La tangente à Cg est parallèle à $y=x$ si sa pente $g'(x_0)$ est égale à 1 (pente de $y=x$). $g'(x) = \\frac{2x(x+1) - (x^2+1)(1)}{(x+1)^2} = \\frac{2x^2+2x-x^2-1}{(x+1)^2} = \\frac{x^2+2x-1}{(x+1)^2}$. On résout $g'(x_0)=1 \\implies \\frac{x_0^2+2x_0-1}{(x_0+1)^2} = 1$. $x_0^2+2x_0-1 = (x_0+1)^2 = x_0^2+2x_0+1$. Cela simplifie en $-1 = 1$, ce qui est impossible. Donc il n'existe aucun $x_0$ tel que la tangente soit parallèle à $y=x$."
+          "explanation": "La tangente à la courbe $C_g$ est parallèle à la droite $y=x$ si sa pente, donnée par $g'(x_0)$, est égale à $1$ (la pente de $y=x$). Calculons la dérivée $g'(x)$: $g'(x) = \\frac{(2x)(x+1) - (x^2+1)(1)}{(x+1)^2} = \\frac{2x^2+2x-x^2-1}{(x+1)^2} = \\frac{x^2+2x-1}{(x+1)^2}$. On résout l'équation $g'(x_0)=1$: $\\frac{x_0^2+2x_0-1}{(x_0+1)^2} = 1$. Cela implique $x_0^2+2x_0-1 = (x_0+1)^2 = x_0^2+2x_0+1$. En simplifiant, on obtient $-1 = 1$, ce qui est impossible. Il n'existe donc aucun point $x_0$ où la tangente est parallèle à la droite $y=x$."
         },
         {
           "question_number": "Q46",
-          "text": "Soit $z = \\frac{(1-i)^{10}}{(1+i\\sqrt{3})^4}$; Quelle est la bonne réponse ?",
+          "text": "Soit z = (1-i)¹⁰/(1+i√3)⁴; Quelle est la bonne réponse ?",
           "options": [
-            {"label": "A", "text": "$|z| = 4$"},
-            {"label": "B", "text": "$|z| = \\frac{1}{2}$"},
-            {"label": "C", "text": "$\\arg z = \\frac{\\pi}{6} [2\\pi]$"},
-            {"label": "D", "text": "$\\arg z = \\frac{3\\pi}{2} [2\\pi]$"},
-            {"label": "E", "text": "$\\arg z = \\frac{\\pi}{2} [2\\pi]$"}
+            {"label": "A", "text": "|z| = 4"},
+            {"label": "B", "text": "|z| = 1/2"},
+            {"label": "C", "text": "arg z = π/6 [2π]"},
+            {"label": "D", "text": "arg z = 3π/2 [2π]"},
+            {"label": "E", "text": "arg z = π/2 [2π]"}
           ],
           "correct_option": "C",
-          "explanation": "$1-i = \\sqrt{2}e^{-i\\pi/4}$. Donc $(1-i)^{10} = (\\sqrt{2})^{10} e^{-i10\\pi/4} = 2^5 e^{-i5\\pi/2} = 32 e^{-i\\pi/2}$ (car $-5\\pi/2 = -2\\pi - \\pi/2 \\equiv -\\pi/2 [2\\pi]$). $1+i\\sqrt{3} = 2(1/2+i\\sqrt{3}/2) = 2e^{i\\pi/3}$. Donc $(1+i\\sqrt{3})^4 = 2^4 e^{i4\\pi/3} = 16 e^{i4\\pi/3}$. $z = \\frac{32e^{-i\\pi/2}}{16e^{i4\\pi/3}} = 2 e^{-i\\pi/2 - i4\\pi/3} = 2 e^{-i(3\\pi/6 + 8\\pi/6)} = 2 e^{-i11\\pi/6}$. Arg $z = -11\\pi/6 \\equiv -11\\pi/6 + 2\\pi = -11\\pi/6 + 12\\pi/6 = \\pi/6 [2\\pi]$. Module $|z|=2$. La bonne réponse est C."
+          "explanation": "Mettons les nombres sous forme exponentielle. $1-i = \\sqrt{2}e^{-i\\pi/4}$. Donc $(1-i)^{10} = (\\sqrt{2})^{10} e^{-i10\\pi/4} = 2^5 e^{-i5\\pi/2} = 32 e^{-i\\pi/2}$ (car $-5\\pi/2 = -2\\pi - \\pi/2 \\equiv -\\pi/2 \\pmod{2\\pi}$). $1+i\\sqrt{3} = 2(\\frac{1}{2}+i\\frac{\\sqrt{3}}{2}) = 2e^{i\\pi/3}$. Donc $(1+i\\sqrt{3})^4 = 2^4 e^{i4\\pi/3} = 16 e^{i4\\pi/3}$. Le quotient est $z = \\frac{32e^{-i\\pi/2}}{16e^{i4\\pi/3}} = 2 e^{-i\\pi/2 - i4\\pi/3} = 2 e^{-i(\\frac{3\\pi}{6} + \\frac{8\\pi}{6})} = 2 e^{-i11\\pi/6}$. L'argument de $z$ est $\\arg(z) = -\\frac{11\\pi}{6} \\equiv -\\frac{11\\pi}{6} + 2\\pi = -\\frac{11\\pi}{6} + \\frac{12\\pi}{6} = \\frac{\\pi}{6} \\pmod{2\\pi}$. Le module est $|z|=2$. La bonne réponse est C."
         },
         {
           "question_number": "Q47",
-          "text": "Soient z1, z2, et z3 trois nombres complexes distincts ayant le même cube, c'est-à-dire $(z_1)^3=(z_2)^3=(z_3)^3$. Quelles sont les valeurs possibles de z1, z2, et z3?",
+          "text": "Soient z1, z2, et z3 trois nombres complexes distincts ayant le même cube, c'est-à-dire (z₁)³=(z₂)³=(z₃)³. Quelles sont les valeurs possibles de z1, z2, et z3?",
           "options": [
-            {"label": "A", "text": "$z_1 = 1, z_2 = i, z_3 = -i$"},
-            {"label": "B", "text": "$z_1 = 1, z_2 = \\omega, z_3 = \\omega^2$ où $\\omega = e^{2\\pi i/3}$"},
-            {"label": "C", "text": "$z_1 = 1, z_2 = \\frac{1}{2}+i\\frac{\\sqrt{3}}{2}, z_3 = -\\frac{1}{2}-i\\frac{\\sqrt{3}}{2}$"},
-            {"label": "D", "text": "$z_1 = 2, z_2 = -1, z_3 = 1$"},
-            {"label": "E", "text": "$z_1 = 1, z_2 = -\\omega, z_3 = -\\omega^2$ où $\\omega = e^{2\\pi i/3}$"}
+            {"label": "A", "text": "z₁ = 1, z₂ = i, z₃ = -i"},
+            {"label": "B", "text": "z₁ = 1, z₂ = ω, z₃ = ω² où ω = e^(2πi/3)"},
+            {"label": "C", "text": "z₁ = 1, z₂ = 1/2+i√3/2, z₃ = -1/2-i√3/2"},
+            {"label": "D", "text": "z₁ = 2, z₂ = -1, z₃ = 1"},
+            {"label": "E", "text": "z₁ = 1, z₂ = -ω, z₃ = -ω² où ω = e^(2πi/3)"}
           ],
           "correct_option": "B",
-          "explanation": "Si $z_1, z_2, z_3$ sont trois nombres complexes distincts ayant le même cube $K$, alors ce sont les trois racines cubiques de $K$. Si $z_1$ est l'une des racines, les autres sont $z_1\\omega$ et $z_1\\omega^2$, où $\\omega = e^{2i\\pi/3}$ est une racine cubique de l'unité. L'option B correspond à $K=1$, où $z_1=1$, $z_2=\\omega$, $z_3=\\omega^2$. Elles sont distinctes et $1^3=1, \\omega^3=1, (\\omega^2)^3=1$."
+          "explanation": "Si $z_1, z_2, z_3$ sont trois nombres complexes distincts ayant le même cube, notons-le $K$, alors ils sont les trois racines cubiques de $K$. Si $z_1$ est l'une de ces racines, les deux autres sont obtenues en la multipliant par les racines cubiques de l'unité (autres que 1), soit $\\omega = e^{2i\\pi/3}$ et $\\omega^2 = e^{4i\\pi/3}$. Les trois racines sont donc de la forme $z_1, z_1\\omega, z_1\\omega^2$. L'option B illustre ce cas pour $K=1$ et $z_1=1$. Les racines sont $1, \\omega, \\omega^2$. Elles sont distinctes et vérifient bien $1^3=1$, $\\omega^3=(e^{2i\\pi/3})^3 = e^{2i\\pi}=1$, et $(\\omega^2)^3=(e^{4i\\pi/3})^3 = e^{4i\\pi}=1$."
         },
         {
           "question_number": "Q48",
-          "text": "Soit dans l'espace muni d'un repère orthonormé direct $(O, \\vec{i}, \\vec{j}, \\vec{k})$ les points A(0;3;1), B(-1; 3 ; 0) et C(0; 5; 0). La sphère (S) a pour équation: $x^2 + y^2 + z^2 - 4x - 5 = 0$. Quelles sont les coordonnées du point de tangence H du plan (ABC) et de la sphère (S) ?",
+          "text": "Soit dans l'espace muni d'un repère orthonormé direct (O, i⃗, j⃗, k⃗) les points A(0;3;1), B(-1; 3 ; 0) et C(0; 5; 0). La sphère (S) a pour équation: x² + y² + z² - 4x - 5 = 0. Quelles sont les coordonnées du point de tangence H du plan (ABC) et de la sphère (S) ?",
           "options": [
             {"label": "A", "text": "(2; 2; √5)"},
             {"label": "B", "text": "(2; 3; 1)"},
@@ -721,20 +721,20 @@
             {"label": "E", "text": "(0; -1; 2)"}
           ],
           "correct_option": "D",
-          "explanation": "Sphère (S): $(x-2)^2 - 4 + y^2 + z^2 - 5 = 0 \\implies (x-2)^2 + y^2 + z^2 = 9$. Centre $\\Omega(2,0,0)$, rayon $R=3$. Plan (ABC): $\\vec{AB}(-1,0,-1)$, $\\vec{AC}(0,2,-1)$. Vecteur normal $\\vec{n} = \\vec{AB} \\wedge \\vec{AC} = (2,-1,-2)$. Équation du plan: $2x-y-2z+d=0$. Passant par A(0,3,1): $0-3-2+d=0 \\implies d=5$. Plan: $2x-y-2z+5=0$. Distance $\\Omega$ au plan: $\\frac{|2(2)-0-2(0)+5|}{\\sqrt{2^2+(-1)^2+(-2)^2}} = \\frac{9}{3} = 3$. Distance = Rayon, donc plan tangent. Point H: $\\vec{\\Omega H} = k\\vec{n}$. $H(x_H,y_H,z_H)$. $x_H-2=2k, y_H=-k, z_H=-2k$. H est dans le plan: $2(2k+2) - (-k) - 2(-2k) + 5 = 0 \\implies 4k+4+k+4k+5 = 0 \\implies 9k+9=0 \\implies k=-1$. Donc $x_H = 2(-1)+2=0, y_H=-(-1)=1, z_H=-2(-1)=2$. $H(0,1,2)$."
+          "explanation": "1. Sphère (S): $x^2 - 4x + y^2 + z^2 - 5 = 0 \\implies (x-2)^2 - 4 + y^2 + z^2 - 5 = 0 \\implies (x-2)^2 + y^2 + z^2 = 9$. Le centre de la sphère est $\\Omega(2,0,0)$ et son rayon est $R=3$. 2. Plan (ABC): On calcule les vecteurs $\\vec{AB}(-1,0,-1)$ et $\\vec{AC}(0,2,-1)$. Un vecteur normal au plan est $\\vec{n} = \\vec{AB} \\wedge \\vec{AC} = (2,-1,-2)$. L'équation du plan est de la forme $2x-y-2z+d=0$. Comme il passe par A(0,3,1): $2(0)-3-2(1)+d=0 \\implies d=5$. L'équation du plan est $2x-y-2z+5=0$. 3. Tangence: La distance de $\\Omega$ au plan est $\\frac{|2(2)-0-2(0)+5|}{\\sqrt{2^2+(-1)^2+(-2)^2}} = \\frac{|4+5|}{\\sqrt{9}} = \\frac{9}{3} = 3$. La distance est égale au rayon, donc le plan est tangent à la sphère. 4. Point de tangence H: H est le projeté orthogonal de $\\Omega$ sur le plan. La droite $(\\Omega H)$ est dirigée par $\\vec{n}$. Un point de cette droite s'écrit $(2+2k, -k, -2k)$. H appartient à cette droite et au plan: $2(2+2k) - (-k) - 2(-2k) + 5 = 0 \\implies 4+4k+k+4k+5 = 0 \\implies 9k+9=0 \\implies k=-1$. Les coordonnées de H sont donc $(2+2(-1), -(-1), -2(-1)) = (0,1,2)$."
         },
         {
           "question_number": "Q49",
           "text": "On suppose que 2000 personnes ont envoyé un-SMS dans le cadre d'un mini-jeu télé qui consistait à répondre à une question à 2 choix. La société qui gère ce \"jeu-SMS\" sélectionne 30 SMS au hasard parmi les 2000. On note Ω l'ensemble de tous les sous-ensembles de 30 SMS (distincts). Combien d'éléments contient-il?",
           "options": [
-            {"label": "A", "text": "$A_{2000}^{30}$"},
-            {"label": "B", "text": "$C_{2000}^{30}$"},
+            {"label": "A", "text": "A₂₀₀₀³⁰"},
+            {"label": "B", "text": "C₂₀₀₀³⁰"},
             {"label": "C", "text": "1970"},
-            {"label": "D", "text": "$\\frac{2000!}{30!}$"},
+            {"label": "D", "text": "2000!/30!"},
             {"label": "E", "text": "2000"}
           ],
           "correct_option": "B",
-          "explanation": "Il s'agit de choisir un sous-ensemble de 30 SMS parmi 2000. L'ordre de sélection des 30 SMS n'importe pas, donc c'est une combinaison. Le nombre d'éléments est $C_{2000}^{30} = \\binom{2000}{30}$."
+          "explanation": "Il s'agit de choisir un sous-ensemble de 30 SMS parmi 2000 SMS. L'ordre dans lequel les 30 SMS sont sélectionnés n'a pas d'importance. Il s'agit donc d'une combinaison de 30 éléments parmi 2000. Le nombre d'éléments est donné par le coefficient binomial $\\binom{2000}{30}$, aussi noté $C_{2000}^{30}$."
         },
         {
           "question_number": "Q50",
@@ -747,24 +747,24 @@
             {"label": "E", "text": "0.3"}
           ],
           "correct_option": "C",
-          "explanation": "Il y a 30 places à pourvoir parmi 2000 participants. La probabilité qu'une personne donnée soit sélectionnée est le nombre de places divisé par le nombre total de participants: $P = \\frac{30}{2000} = \\frac{3}{200} = \\frac{1.5}{100} = 0.015$."
+          "explanation": "La probabilité qu'une personne donnée soit sélectionnée est le nombre de places à pourvoir (cas favorables) divisé par le nombre total de participants (cas possibles). Il y a 30 places et 2000 participants. La probabilité est donc $P = \\frac{30}{2000} = \\frac{3}{200} = \\frac{1,5}{100} = 0,015$."
         },
         {
           "question_number": "Q51",
-          "text": "Soit $U_n = \\ln(1+ ne^{-n})$, n ∈ ℕ Quelle est la bonne réponse ?",
+          "text": "Soit Uₙ = ln(1+ ne⁻ⁿ), n ∈ ℕ Quelle est la bonne réponse ?",
           "options": [
             {"label": "A", "text": "La suite (Un) est bornée"},
-            {"label": "B", "text": "$\\lim_{n \\to +\\infty} U_n = +\\infty$"},
+            {"label": "B", "text": "lim(n→+∞) Uₙ = +∞"},
             {"label": "C", "text": "$\\lim_{n \\to +\\infty} U_n = 1$"},
             {"label": "D", "text": "La suite (Un) est divergente"},
             {"label": "E", "text": "$\\lim_{n \\to +\\infty} U_n = 0$"}
           ],
           "correct_option": "E",
-          "explanation": "Quand $n \\to +\\infty$, $ne^{-n} = n/e^n \\to 0$ par croissances comparées. Donc $1+ne^{-n} \\to 1$. Par conséquent, $U_n = \\ln(1+ne^{-n}) \\to \\ln(1) = 0$. La limite est 0 (E). Puisque la suite converge, elle est bornée (A), mais E donne une information plus précise qui est la limite elle-même."
+          "explanation": "Pour trouver la limite de la suite $U_n = \\ln(1+ne^{-n})$, on examine le terme $ne^{-n}$ quand $n \\to +\\infty$. Ce terme peut s'écrire $\\frac{n}{e^n}$. Par croissances comparées, on sait que l'exponentielle l'emporte sur le polynôme, donc $\\lim_{n \\to +\\infty} \\frac{n}{e^n} = 0$. Par conséquent, $\\lim_{n \\to +\\infty} (1+ne^{-n}) = 1+0=1$. Comme la fonction $\\ln$ est continue en 1, on a $\\lim_{n \\to +\\infty} U_n = \\ln(1) = 0$. La suite converge vers 0."
         },
         {
           "question_number": "Q52",
-          "text": "Soit la suite w(n) définie par $w_0 = 1$ et $w_{n+1} = \\frac{w_n + 3}{2w_n + 4}$ et on pose $y_n = \\frac{4}{2+w_n}$; $y_{n+1}$ vérifie la relation suivante :",
+          "text": "Soit la suite $w(n)$ définie par $w_0 = 1$ et $w_{n+1} = \\frac{w_n + 3}{2w_n + 4}$ et on pose $y_n = \\frac{4}{2+w_n}$; $y_{n+1}$ vérifie la relation suivante :",
           "options": [
             {"label": "A", "text": "$y_{n+1} = \\frac{23}{6+y_n}$"},
             {"label": "B", "text": "$y_{n+1} = \\frac{32}{6+y_n}$"},
@@ -773,7 +773,7 @@
             {"label": "E", "text": "$y_{n+1} = \\frac{32}{20+y_n}$"}
           ],
           "correct_option": "E",
-          "explanation": "De $y_n = \\frac{4}{2+w_n}$, on a $2+w_n = \\frac{4}{y_n} \\implies w_n = \\frac{4}{y_n}-2 = \\frac{4-2y_n}{y_n}$. $y_{n+1} = \\frac{4}{2+w_{n+1}} = \\frac{4}{2 + \\frac{w_n+3}{2w_n+4}} = \\frac{4(2w_n+4)}{2(2w_n+4) + w_n+3} = \\frac{8w_n+16}{4w_n+8+w_n+3} = \\frac{8w_n+16}{5w_n+11}$. Substituons $w_n$: $y_{n+1} = \\frac{8(\\frac{4-2y_n}{y_n})+16}{5(\\frac{4-2y_n}{y_n})+11} = \\frac{\\frac{32-16y_n+16y_n}{y_n}}{\\frac{20-10y_n+11y_n}{y_n}} = \\frac{32}{20+y_n}$."
+          "explanation": "De la relation $y_n = \\frac{4}{2+w_n}$, on exprime $w_n$ en fonction de $y_n$: $2+w_n = \\frac{4}{y_n} \\implies w_n = \\frac{4}{y_n}-2 = \\frac{4-2y_n}{y_n}$. Exprimons maintenant $y_{n+1}$ en fonction de $w_n$: $y_{n+1} = \\frac{4}{2+w_{n+1}} = \\frac{4}{2 + \\frac{w_n+3}{2w_n+4}} = \\frac{4(2w_n+4)}{2(2w_n+4) + (w_n+3)} = \\frac{8w_n+16}{4w_n+8+w_n+3} = \\frac{8w_n+16}{5w_n+11}$. Enfin, substituons l'expression de $w_n$ en fonction de $y_n$: $y_{n+1} = \\frac{8(\\frac{4-2y_n}{y_n})+16}{5(\\frac{4-2y_n}{y_n})+11} = \\frac{\\frac{32-16y_n+16y_n}{y_n}}{\\frac{20-10y_n+11y_n}{y_n}} = \\frac{\\frac{32}{y_n}}{\\frac{20+y_n}{y_n}} = \\frac{32}{20+y_n}$."
         },
         {
           "question_number": "Q53",
@@ -786,7 +786,7 @@
             {"label": "E", "text": "l'équation (E) n'admet pas de solution."}
           ],
           "correct_option": "A",
-          "explanation": "L'équation est définie pour $x>0$. $(\\sqrt{x})^{x+1} = (x^{1/2})^{x+1} = x^{(x+1)/2}$. L'équation devient $x^x = x^{(x+1)/2}$. Si $x=1$, on a $1^1 = 1^{(1+1)/2} \\implies 1=1$, donc $x=1$ est solution. Si $x \neq 1$ et $x>0$, on peut égaler les exposants: $x = \\frac{x+1}{2} \\implies 2x = x+1 \\implies x=1$. On retrouve la même solution. Donc $x=1$ est l'unique solution."
+          "explanation": "L'équation est définie pour $x>0$. On peut réécrire le membre de droite: $(\\sqrt{x})^{x+1} = (x^{1/2})^{x+1} = x^{\\frac{x+1}{2}}$. L'équation devient alors $x^x = x^{\\frac{x+1}{2}}$. Une solution évidente est $x=1$, car $1^1 = 1$ et $1^{\\frac{1+1}{2}} = 1^1 = 1$. Si $x \neq 1$ et $x>0$, on peut égaler les exposants: $x = \\frac{x+1}{2}$. En multipliant par 2, on obtient $2x = x+1$, ce qui donne $x=1$. On retrouve la même solution. Donc, $x=1$ est l'unique solution de l'équation."
         },
         {
           "question_number": "Q54",
@@ -799,7 +799,7 @@
             {"label": "E", "text": "$\\frac{1}{2}\\ln|2+\\cos x|+C$"}
           ],
           "correct_option": "B",
-          "explanation": "On pose $u = 2+\\sin x$. Alors $du = \\cos x dx$. L'intégrale devient $\\int \\frac{1}{u} du = \\ln|u|+C = \\ln|2+\\sin x|+C$. Puisque $-1 \\le \\sin x \\le 1$, $1 \\le 2+\\sin x \\le 3$, donc $2+\\sin x$ est toujours positif. Ainsi $\\ln(2+\\sin x)+C$."
+          "explanation": "Il s'agit d'une intégrale de la forme $\\int \\frac{u'}{u} dx$, qui s'intègre en $\\ln|u|+C$. Posons $u = 2+\\sin x$. La dérivée de $u$ est $u' = \\cos x$. L'intégrale est donc bien de cette forme. Ainsi, $\\int \\frac{\\cos x}{2+\\sin x} dx = \\ln|2+\\sin x|+C$. De plus, comme $-1 \\le \\sin x \\le 1$, le terme $2+\\sin x$ est toujours compris entre 1 et 3, donc il est toujours positif. On peut retirer les valeurs absolues: $\\ln(2+\\sin x)+C$."
         },
         {
           "question_number": "Q55",
@@ -812,20 +812,20 @@
             {"label": "E", "text": "$D_f = [-1,1]$"}
           ],
           "correct_option": "C",
-          "explanation":"La fonction s'écrit $f(x) = e^{x \\ln(1+1/x)}$. Pour que $\\ln(1+1/x)$ soit défini, il faut $1+1/x > 0$. Soit $\\frac{x+1}{x} > 0$. Un tableau de signes montre que cette condition est vérifiée pour $x \\in ]-\\infty, -1[ \\cup ]0, +\\infty[$. Il faut aussi que $x \neq 0$ pour $1/x$, ce qui est déjà inclus dans cet intervalle."
+          "explanation":"La fonction peut être écrite sous la forme $f(x) = e^{x \\ln(1+\\frac{1}{x})}$. Pour que cette expression soit définie, il faut que l'argument du logarithme, $1+\\frac{1}{x}$, soit strictement positif. On résout donc l'inéquation $1+\\frac{1}{x} > 0$, soit $\\frac{x+1}{x} > 0$. Un tableau de signes montre que cette condition est vérifiée lorsque $x$ et $x+1$ sont de même signe. C'est le cas pour $x > 0$ ou pour $x < -1$. Le domaine de définition est donc $D_f = ]-\\infty, -1[ \\cup ]0, +\\infty[$."
         },
         {
           "question_number": "Q56",
           "text": "Soit $f(x) = x\\sin(\\pi x) - \\ln(x) - 1$ définie sur $]0,1]$. Quelle est la bonne réponse ?",
           "options": [
             {"label": "A", "text": "f est majorée"},
-            {"label": "B", "text": "Il existe c ∈ ]0,1] tel que f(c) = 0"},
+            {"label": "B", "text": "Il existe $c \\in ]0,1]$ tel que $f(c) = 0$"},
             {"label": "C", "text": "$\\lim_{x \\to 0^+} f(x) = -\\infty$"},
             {"label": "D", "text": "f est croissante"},
             {"label": "E", "text": "$\\lim_{x \\to 1^-} f(x) = -1$"}
           ],
           "correct_option": "B",
-          "explanation": "Calculons les limites aux bornes du domaine $]0,1]$. $\\lim_{x \\to 0^+} x\\sin(\\pi x) = 0$. $\\lim_{x \\to 0^+} (-\\ln x) = +\\infty$. Donc $\\lim_{x \\to 0^+} f(x) = 0 + (+\\infty) - 1 = +\\infty$. (A et C sont fausses). Pour $x=1$: $f(1) = 1\\sin(\\pi) - \\ln(1) - 1 = 0 - 0 - 1 = -1$. (E est vraie). La fonction $f$ est continue sur $]0,1]$. Puisque $\\lim_{x \\to 0^+} f(x) = +\\infty$ et $f(1) = -1$, d'après le Théorème des Valeurs Intermédiaires, il existe au moins un $c \\in ]0,1[$ tel que $f(c)=0$. (B est vraie). Entre E et B, l'application du TVI (B) est un résultat plus significatif que la simple évaluation d'une limite par continuité (E)."
+          "explanation": "La fonction $f$ est continue sur l'intervalle $]0,1]$. Étudions les limites aux bornes. Limite en $0^+$: $\\lim_{x \\to 0^+} x\\sin(\\pi x) = 0$ (car $\\sin(\\pi x)$ est borné). $\\lim_{x \\to 0^+} (-\\ln x) = +\\infty$. Donc, $\\lim_{x \\to 0^+} f(x) = 0 + (+\\infty) - 1 = +\\infty$. (Les propositions A et C sont donc fausses). Valeur en $x=1$: $f(1) = 1\\cdot\\sin(\\pi) - \\ln(1) - 1 = 1\\cdot 0 - 0 - 1 = -1$. (La proposition E est vraie, mais ce n'est qu'une simple évaluation). Puisque la fonction $f$ est continue sur $]0,1]$, que $\\lim_{x \\to 0^+} f(x) = +\\infty$ et que $f(1) = -1$, la fonction prend toutes les valeurs entre $-1$ et $+\\infty$. En particulier, elle doit s'annuler au moins une fois. D'après le Théorème des Valeurs Intermédiaires, il existe au moins un $c \\in ]0,1[$ tel que $f(c)=0$. (La proposition B est donc vraie et constitue une conclusion plus forte que E)."
         }
       ]
     }

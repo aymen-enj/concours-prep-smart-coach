@@ -7,7 +7,7 @@
       {
         "exercise_number": 1,
         "title": "Lancer d'une balle de tennis",
-        "stimulus": "Balle de tennis lancée horizontalement depuis H=2,25m avec une vitesse v₀. Filet de hauteur h=90cm=0.9m à une distance D=10m. g=10m/s².",
+        "stimulus": "Balle de tennis lancée horizontalement depuis $H=2,25m$ avec une vitesse $v_0$. Filet de hauteur $h=90cm=0.9m$ à une distance $D=10m$. $g=10m/s^2$.",
         "questions": [
           {
             "question_number": "Q21",
@@ -19,7 +19,7 @@
               {"label": "C", "text": "$v_0 = 15 \\sqrt{5}$ m/s"},
               {"label": "D", "text": "$v_0 = 30 \\sqrt{5}$ m/s"}
             ],
-            "explanation": "Équations du mouvement: x(t)=v₀t et y(t)=H-1/2gt². La balle passe à une hauteur y_filet = 0,90m + 0,35m = 1,25m. Chute verticale: H-y_filet = 1/2gt². 2,25 - 1,25 = 1 = 1/2 * 10 * t². t² = 1/5, t=1/√5 s. Pendant ce temps, la balle parcourt D=10m horizontalement: D=v₀t => v₀=D/t = 10/(1/√5) = 10√5 m/s."
+            "explanation": "Équations du mouvement: $x(t)=v_0t$ et $y(t)=H-\\frac{1}{2}gt^2$. La balle passe à une hauteur $y_{filet} = 0,90m + 0,35m = 1,25m$. Chute verticale: $H-y_{filet} = \\frac{1}{2}gt^2$. $2,25 - 1,25 = 1 = \\frac{1}{2} \\times 10 \\times t^2$. $t^2 = \\frac{1}{5}$, $t=\\frac{1}{\\sqrt{5}}$ s. Pendant ce temps, la balle parcourt $D=10m$ horizontalement: $D=v_0t \\Rightarrow v_0=\\frac{D}{t} = \\frac{10}{\\frac{1}{\\sqrt{5}}} = 10\\sqrt{5}$ m/s."
           },
           {
             "question_number": "Q22",
@@ -31,7 +31,7 @@
               {"label": "C", "text": "$t_1 = \\frac{\\sqrt{5}}{10}$ s"},
               {"label": "D", "text": "$t_1 = \\frac{\\sqrt{5}}{5}$ s"}
             ],
-            "explanation": "Le temps t₁ pour atteindre le filet (à x=D=10m) est t₁=D/v₀. En utilisant v₀=10√5 m/s de la Q21: t₁ = 10 / (10√5) = 1/√5 = √5/5 s."
+            "explanation": "Le temps $t_1$ pour atteindre le filet (à $x=D=10m$) est $t_1=\\frac{D}{v_0}$. En utilisant $v_0=10\\sqrt{5}$ m/s de la Q21: $t_1 = \\frac{10}{10\\sqrt{5}} = \\frac{1}{\\sqrt{5}} = \\frac{\\sqrt{5}}{5}$ s."
           },
           {
             "question_number": "Q23",
@@ -43,7 +43,7 @@
               {"label": "C", "text": "$D_1 = 30$ m"},
               {"label": "D", "text": "$D_1 = 45$ m"}
             ],
-            "explanation": "La balle touche le sol quand y(t)=0. H - 1/2gt² = 0. 2,25 = 5t². t² = 2,25/5 = 0,45. t = √0,45 = √(9*0,05) = 3√0,05 = 3√(5/100) = 3√5/10 s. Distance horizontale D₁ = v₀*t = (10√5) * (3√5/10) = 3 * (√5)² = 3*5 = 15 m."
+            "explanation": "La balle touche le sol quand $y(t)=0$. $H - \\frac{1}{2}gt^2 = 0$. $2,25 = 5t^2$. $t^2 = \\frac{2,25}{5} = 0,45$. $t = \\sqrt{0,45} = \\sqrt{9 \\times 0,05} = 3\\sqrt{0,05} = 3\\sqrt{\\frac{5}{100}} = \\frac{3\\sqrt{5}}{10}$ s. Distance horizontale $D_1 = v_0 \\times t = (10\\sqrt{5}) \\times (\\frac{3\\sqrt{5}}{10}) = 3 \\times (\\sqrt{5})^2 = 3 \\times 5 = 15$ m."
           }
         ]
       },

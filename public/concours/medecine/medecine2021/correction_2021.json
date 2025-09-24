@@ -297,7 +297,7 @@
               {"label": "E", "text": "d = 1,2 m"}
             ],
             "correct_option": "B",
-            "explanation": "La Figure 1 montre l'élongation du point M. Ce point commence à bouger à t = 4 x 10⁻² s, mais le mouvement est déphasé. Le retard de M par rapport à la source S (qui part à t=0) est de τ = 0,08 s. La distance SM est donc d = v × τ. En utilisant v=5,0 m/s (de Q21), on obtient d = 5,0 * 0,08 = 0,40 m."
+            "explanation": "La Figure 1 montre l'élongation du point M. Ce point commence à bouger à t = 4 × 10⁻² s, mais le mouvement est déphasé. Le retard de M par rapport à la source S (qui part à t=0) est de τ = 0,08 s. La distance SM est donc d = v × τ. En utilisant v=5,0 m/s (de Q21), on obtient d = 5,0 × 0,08 = 0,40 m."
           },
           {
             "question_number": "Q23",
@@ -336,7 +336,7 @@
               {"label": "E", "text": "Vₑ = 1767m.s⁻¹"}
             ],
             "correct_option": "D",
-            "explanation": "D'après le graphe (Figure 2), Δt est une fonction linéaire de d. La pente est k = Δt/d. Choisissons un point facile à lire, par exemple à d=0,2m, on lit Δt≈0.45ms = 0,45x10⁻³s. La pente est k ≈ (0,45x10⁻³)/0,2 = 2,25x10⁻³ s/m. D'après Q24, k = 1/V_a - 1/V_e. Donc 1/V_e = 1/V_a - k = 1/340 - 2,25x10⁻³ = 2,94x10⁻³ - 2,25x10⁻³ = 0,69x10⁻³. V_e = 1/(0,69x10⁻³) ≈ 1449 m/s. L'option la plus proche est D, 1492 m.s⁻¹."
+            "explanation": "D'après le graphe (Figure 2), Δt est une fonction linéaire de d. La pente est k = Δt/d. Choisissons un point facile à lire, par exemple à d=0,2m, on lit Δt≈0.45ms = 0,45×10⁻³s. La pente est k ≈ (0,45×10⁻³)/0,2 = 2,25×10⁻³ s/m. D'après Q24, k = 1/V_a - 1/V_e. Donc 1/V_e = 1/V_a - k = 1/340 - 2,25×10⁻³ = 2,94×10⁻³ - 2,25×10⁻³ = 0,69×10⁻³. V_e = 1/(0,69×10⁻³) ≈ 1449 m/s. L'option la plus proche est D, 1492 m.s⁻¹."
           },
           {
             "question_number": "Q26",
@@ -350,7 +350,7 @@
               {"label": "E", "text": "Lᵣ = 6,8 mm"}
             ],
             "correct_option": "B",
-            "explanation": "La largeur de la tache centrale est L = 2Dλ/a. λ = c/N. Donc L est proportionnel à λ, et inversement proportionnel à N. On a la relation : Lᵣ/Lᵥ = (c/Nᵣ)/(c/Nᵥ) = Nᵥ/Nᵣ. Donc Lᵣ = Lᵥ * (Nᵥ/Nᵣ) = 8,6 mm * (5,36.10¹⁴ / 4,74.10¹⁴) = 8,6 * 1,13 ≈ 9,7 mm."
+            "explanation": "La largeur de la tache centrale est L = 2Dλ/a. λ = c/N. Donc L est proportionnel à λ, et inversement proportionnel à N. On a la relation : Lᵣ/Lᵥ = (c/Nᵣ)/(c/Nᵥ) = Nᵥ/Nᵣ. Donc Lᵣ = Lᵥ × (Nᵥ/Nᵣ) = 8,6 mm × (5,36×10¹⁴ / 4,74×10¹⁴) = 8,6 × 1,13 ≈ 9,7 mm."
           },
           {
             "question_number": "Q27",
@@ -389,7 +389,7 @@
               {"label": "E", "text": "λ=4,2.10⁻¹¹ s⁻¹"}
             ],
             "correct_option": "B",
-            "explanation": "L'activité A est donnée par A = -dN/dt = λN. Le graphe donne -dN/dt en fonction de N. C'est une droite passant par l'origine de pente λ. Choisissons un point : pour N = 0,5 x 10²⁰ noyaux, -dN/dt = 1,25 x 10¹⁰ noyaux/s. Donc λ = (-dN/dt)/N = (1,25.10¹⁰) / (0,5.10²⁰) = 2,5.10⁻¹⁰ s⁻¹."
+            "explanation": "L'activité A est donnée par A = -dN/dt = λN. Le graphe donne -dN/dt en fonction de N. C'est une droite passant par l'origine de pente λ. Choisissons un point : pour N = 0,5 × 10²⁰ noyaux, -dN/dt = 1,25 × 10¹⁰ noyaux/s. Donc λ = (-dN/dt)/N = (1,25×10¹⁰) / (0,5×10²⁰) = 2,5×10⁻¹⁰ s⁻¹."
           },
           {
             "question_number": "Q30",
@@ -415,7 +415,7 @@
               {"label": "E", "text": "2,8.10⁹ s"}
             ],
             "correct_option": "E",
-            "explanation": "Cette durée est la demi-vie, t₁/₂. On utilise la relation t₁/₂ = ln(2)/λ. Avec λ=2,5.10⁻¹⁰ s⁻¹ (de Q29) et ln(2)≈0,7. t₁/₂ = 0,7 / (2,5.10⁻¹⁰) = 0,28.10¹⁰ s = 2,8.10⁹ s."
+            "explanation": "Cette durée est la demi-vie, t₁/₂. On utilise la relation t₁/₂ = ln(2)/λ. Avec λ=2,5×10⁻¹⁰ s⁻¹ (de Q29) et ln(2)≈0,7. t₁/₂ = 0,7 / (2,5×10⁻¹⁰) = 0,28×10¹⁰ s = 2,8×10⁹ s."
           },
           {
             "question_number": "Q32",
@@ -428,7 +428,7 @@
               {"label": "E", "text": "N=t₁/₂/(2ln2)"}
             ],
             "correct_option": "C",
-            "explanation": "L'activité est a(t) = λN(t). À t=t₁/₂, l'activité est a(t₁/₂) = a₀/2. Donc λN(t₁/₂) = a₀/2. On cherche N(t₁/₂). On a N(t₁/₂) = a₀/(2λ). Comme λ = ln(2)/t₁/₂, on substitue : N(t₁/₂) = a₀ / (2 * ln(2)/t₁/₂) = a₀.t₁/₂ / (2ln2). Note: 'a₀' dans l'option doit être l'activité dans la thyroïde."
+            "explanation": "L'activité est a(t) = λN(t). À t=t₁/₂, l'activité est a(t₁/₂) = a₀/2. Donc λN(t₁/₂) = a₀/2. On cherche N(t₁/₂). On a N(t₁/₂) = a₀/(2λ). Comme λ = ln(2)/t₁/₂, on substitue : N(t₁/₂) = a₀ / (2 × ln(2)/t₁/₂) = a₀×t₁/₂ / (2ln2). Note: 'a₀' dans l'option doit être l'activité dans la thyroïde."
           },
           {
             "question_number": "Q33",
@@ -441,7 +441,7 @@
               {"label": "E", "text": "a = 2,1 Bq"}
             ],
             "correct_option": "E",
-            "explanation": "Activité initiale dans la thyroïde a_thy(0) = 30% * 7MBq = 2,1 MBq = 2,1.10⁶ Bq. Après 20 demi-vies, l'activité est a = a_thy(0) / 2²⁰. On nous donne e⁻¹³⁸ = 2⁻²⁰ = 10⁻⁶. Donc a = 2,1.10⁶ Bq * 10⁻⁶ = 2,1 Bq."
+            "explanation": "Activité initiale dans la thyroïde a_thy(0) = 30% × 7MBq = 2,1 MBq = 2,1×10⁶ Bq. Après 20 demi-vies, l'activité est a = a_thy(0) / 2²⁰. On nous donne e⁻¹³⁸ = 2⁻²⁰ = 10⁻⁶. Donc a = 2,1×10⁶ Bq × 10⁻⁶ = 2,1 Bq."
           },
           {
             "question_number": "Q34",
@@ -455,7 +455,7 @@
               {"label": "E", "text": "C=500 μF"}
             ],
             "correct_option": "E",
-            "explanation": "Pour une charge à courant constant, q = I₀t et q = C.uc. Donc C.uc = I₀t, ce qui donne uc = (I₀/C)t. C'est une droite passant par l'origine de pente k = I₀/C. D'après le graphe 2, la pente est k = Δuc/Δt = 4V/4s = 1 V/s. On a C = I₀/k = (0,5.10⁻³ A) / (1 V/s) = 0,5.10⁻³ F = 500 μF."
+            "explanation": "Pour une charge à courant constant, q = I₀t et q = C×uc. Donc C×uc = I₀t, ce qui donne uc = (I₀/C)t. C'est une droite passant par l'origine de pente k = I₀/C. D'après le graphe 2, la pente est k = Δuc/Δt = 4V/4s = 1 V/s. On a C = I₀/k = (0,5×10⁻³ A) / (1 V/s) = 0,5×10⁻³ F = 500 μF."
           },
           {
             "question_number": "Q35",
@@ -495,7 +495,7 @@
               {"label": "E", "text": "Eₑ=9,0 mJ"}
             ],
             "correct_option": "B",
-            "explanation": "Malgré l'incohérence des données, on peut procéder. De la Q35, on a A=6V et on lit sur le graphe uc(0,5s)=2V. De uc(t)=A.e^(-t/τ), on a 2=6e^(-0,5/τ), soit τ=0.5/ln(3)≈0,455s. À t=0,25s, uc(0,25)=6e^(-0,25/0,455)≈3,46V. L'énergie est Eₑ=½C.uc². En utilisant C=500μF de Q34, Eₑ=0.5*(500.10⁻⁶)*(3.46)² ≈ 3.10⁻³ J = 3,0 mJ. L'option B (3,4mJ) est la plus proche."
+            "explanation": "Malgré l'incohérence des données, on peut procéder. De la Q35, on a A=6V et on lit sur le graphe uc(0,5s)=2V. De uc(t)=A×e^(-t/τ), on a 2=6e^(-0,5/τ), soit τ=0.5/ln(3)≈0,455s. À t=0,25s, uc(0,25)=6e^(-0,25/0,455)≈3,46V. L'énergie est Eₑ=½C×uc². En utilisant C=500μF de Q34, Eₑ=0.5×(500×10⁻⁶)×(3.46)² ≈ 3×10⁻³ J = 3,0 mJ. L'option B (3,4mJ) est la plus proche."
           },
           {
             "question_number": "Q38",
@@ -553,7 +553,7 @@
               {"label": "E", "text": "x_f=5.10⁻³ mol"}
             ],
             "correct_option": "C",
-            "explanation": "À l'état final, la concentration en I₂ est lue sur le plateau du graphe : [I₂]_f = 2,5 mmol.L⁻¹. L'avancement final x_f est lié à [I₂]_f par la relation x_f = [I₂]_f * V. Le volume V = 100mL = 0,1 L. Donc x_f = (2,5.10⁻³ mol/L) * (0,1 L) = 2,5.10⁻⁴ mol. Les options sont en 10⁻³ mol. Il y a probablement une erreur de puissance dans les options. En supposant une erreur de lecture et que [I2]_f = 2.5 mol/L, ce qui est impossible. Si les options étaient en 10⁻⁴ mol, la C serait x_f=2.5.10⁻⁴ mol. Si V=1L, x_f=2.5.10⁻³ mol. Admettons que V=1L par erreur. Alors x_f = 2.5 * 10⁻³ mol, ce qui est l'option C."
+            "explanation": "À l'état final, la concentration en I₂ est lue sur le plateau du graphe : [I₂]_f = 2,5 mmol.L⁻¹. L'avancement final x_f est lié à [I₂]_f par la relation x_f = [I₂]_f × V. Le volume V = 100mL = 0,1 L. Donc x_f = (2,5×10⁻³ mol/L) × (0,1 L) = 2,5×10⁻⁴ mol. Les options sont en 10⁻³ mol. Il y a probablement une erreur de puissance dans les options. En supposant une erreur de lecture et que [I2]_f = 2.5 mol/L, ce qui est impossible. Si les options étaient en 10⁻⁴ mol, la C serait x_f=2.5×10⁻⁴ mol. Si V=1L, x_f=2.5×10⁻³ mol. Admettons que V=1L par erreur. Alors x_f = 2.5 × 10⁻³ mol, ce qui est l'option C."
           },
           {
             "question_number": "Q42",
@@ -592,7 +592,7 @@
               {"label": "E", "text": "x_f=1,5 mmol"}
             ],
             "correct_option": "B",
-            "explanation": "Calcul des quantités initiales. n(CaCO₃)=m/M, non donné. n(acide)=C*V = (8.10⁻² mol/L)*(0,158L)=0,01264 mol = 12,64 mmol. D'après le graphe, la réaction s'arrête (plateau) à x_f ≈ 6,3 mmol. Donc CaCO₃ est le réactif limitant. On peut vérifier : si l'acide est limitant, x_max = n(acide)/2 = 12,64/2=6,32 mmol. Comme x_f = 6,32 mmol, cela signifie que c'est bien l'acide lactique qui est le réactif limitant et la réaction est totale (ou quasi-totale)."
+            "explanation": "Calcul des quantités initiales. n(CaCO₃)=m/M, non donné. n(acide)=C×V = (8×10⁻² mol/L)×(0,158L)=0,01264 mol = 12,64 mmol. D'après le graphe, la réaction s'arrête (plateau) à x_f ≈ 6,3 mmol. Donc CaCO₃ est le réactif limitant. On peut vérifier : si l'acide est limitant, x_max = n(acide)/2 = 12,64/2=6,32 mmol. Comme x_f = 6,32 mmol, cela signifie que c'est bien l'acide lactique qui est le réactif limitant et la réaction est totale (ou quasi-totale)."
           },
           {
             "question_number": "Q45",
@@ -605,7 +605,7 @@
               {"label": "E", "text": "m=30 mg"}
             ],
             "correct_option": "B",
-            "explanation": "D'après Q44, x_f = 6.32 mmol. Si on suppose que CaCO₃ est le réactif limitant, x_f = n(CaCO₃)_initial. Donc n(CaCO₃) = 6.32 mmol. m = n * M = (6.32 * 10⁻³ mol) * (100 g/mol) = 0,632 g. Cette valeur ne correspond à aucune option. Il y a une erreur dans le sujet. Si on suppose que CaCO3 est en excès et l'acide limitant (x_max=6.32mmol), on ne peut pas trouver m. Si on suppose la réponse B, m=3g, n(CaCO₃)=3g/100g/mol=30mmol. Dans ce cas, n(CaCO₃) > n(acide)/2. CaCO₃ est en excès. La question est probablement défectueuse. "
+            "explanation": "D'après Q44, x_f = 6.32 mmol. Si on suppose que CaCO₃ est le réactif limitant, x_f = n(CaCO₃)_initial. Donc n(CaCO₃) = 6.32 mmol. m = n × M = (6.32 × 10⁻³ mol) × (100 g/mol) = 0,632 g. Cette valeur ne correspond à aucune option. Il y a une erreur dans le sujet. Si on suppose que CaCO3 est en excès et l'acide limitant (x_max=6.32mmol), on ne peut pas trouver m. Si on suppose la réponse B, m=3g, n(CaCO₃)=3g/100g/mol=30mmol. Dans ce cas, n(CaCO₃) > n(acide)/2. CaCO₃ est en excès. La question est probablement défectueuse."
           },
           {
             "question_number": "Q46",
@@ -618,7 +618,7 @@
               {"label": "E", "text": "v(CO₂)=36 mL"}
             ],
             "correct_option": "B",
-            "explanation": "À t=t₁/₂, x = x_f/2. D'après Q44, x_f=6,32 mmol. Donc x(t₁/₂) = 6,32/2 = 3,16 mmol. Le volume de CO₂ est V(CO₂) = n(CO₂) * V_m. D'après le tableau d'avancement, n(CO₂) = x. Donc V(CO₂) = 3,16.10⁻³ mol * 24 L/mol = 0,07584 L = 75,84 mL. L'option B (72mL) est la plus proche."
+            "explanation": "À t=t₁/₂, x = x_f/2. D'après Q44, x_f=6,32 mmol. Donc x(t₁/₂) = 6,32/2 = 3,16 mmol. Le volume de CO₂ est V(CO₂) = n(CO₂) × V_m. D'après le tableau d'avancement, n(CO₂) = x. Donc V(CO₂) = 3,16×10⁻³ mol × 24 L/mol = 0,07584 L = 75,84 mL. L'option B (72mL) est la plus proche."
           },
           {
             "question_number": "Q47",
@@ -631,7 +631,7 @@
               {"label": "E", "text": "[H₃O⁺]=1,09.10⁻⁴ mol.L⁻¹"}
             ],
             "correct_option": "A",
-            "explanation": "On a σ = λ(H₃O⁺)[H₃O⁺] + λ(A⁻)[A⁻]. Pour un acide faible HA, [H₃O⁺]≈[A⁻]. σ ≈ [H₃O⁺] * (λ(H₃O⁺) + λ(A⁻)). Les concentrations doivent être en mol.m⁻³. Soit C=[H₃O⁺]. σ=C*(λ₁ + λ₂). C = σ/(λ₁ + λ₂). σ = 109mS/m = 0.109 S/m. λ(H₃O⁺) = 35.0x10⁻³ S.m².mol⁻¹. λ(A⁻)=3.6x10⁻³ S.m².mol⁻¹. C = 0.109 / (35.0x10⁻³ + 3.6x10⁻³) = 0.109 / (38.6x10⁻³) = 2,82 mol.m⁻³. En mol/L: [H₃O⁺] = 2,82 * 10⁻³ mol.L⁻¹."
+            "explanation": "On a σ = λ(H₃O⁺)[H₃O⁺] + λ(A⁻)[A⁻]. Pour un acide faible HA, [H₃O⁺]≈[A⁻]. σ ≈ [H₃O⁺] × (λ(H₃O⁺) + λ(A⁻)). Les concentrations doivent être en mol.m⁻³. Soit C=[H₃O⁺]. σ=C×(λ₁ + λ₂). C = σ/(λ₁ + λ₂). σ = 109mS/m = 0.109 S/m. λ(H₃O⁺) = 35.0×10⁻³ S.m².mol⁻¹. λ(A⁻)=3.6×10⁻³ S.m².mol⁻¹. C = 0.109 / (35.0×10⁻³ + 3.6×10⁻³) = 0.109 / (38.6×10⁻³) = 2,82 mol.m⁻³. En mol/L: [H₃O⁺] = 2,82 × 10⁻³ mol.L⁻¹."
           },
           {
             "question_number": "Q48",
@@ -644,7 +644,7 @@
               {"label": "E", "text": "pH=3,96"}
             ],
             "correct_option": "C",
-            "explanation": "pH = -log[H₃O⁺]. De la Q47, [H₃O⁺]=2,82.10⁻³ mol/L. pH = -log(2,82.10⁻³). On nous donne log(2,82)=0,45. pH = -(log(2,82) + log(10⁻³)) = - (0,45 - 3) = 2,55."
+            "explanation": "pH = -log[H₃O⁺]. De la Q47, [H₃O⁺]=2,82×10⁻³ mol/L. pH = -log(2,82×10⁻³). On nous donne log(2,82)=0,45. pH = -(log(2,82) + log(10⁻³)) = - (0,45 - 3) = 2,55."
           },
           {
             "question_number": "Q49",
@@ -657,7 +657,7 @@
               {"label": "E", "text": "m=500 mg"}
             ],
             "correct_option": "E",
-            "explanation": "Lors du dosage, à l'équivalence n(acide) = n(base). n(acide) = Cₐ.Vₐ. n(base) = Cₑ.Vₑ. On dose Va=50mL de S, pas le V=100mL initial. Donc Cₐ.Vₐ = Cₑ.Vₑ => Cₐ = (Cₑ.Vₑ)/Vₐ = (5.10⁻² * 27,8.10⁻³)/(50.10⁻³) = 0,0278 mol/L. C'est la concentration de la solution S. La quantité de matière dans les 100mL initiaux est n = Cₐ * V_total = 0,0278 * 0,1L = 0,00278 mol. La masse est m = n * M = 0,00278 mol * 180 g/mol ≈ 0,5 g = 500 mg."
+            "explanation": "Lors du dosage, à l'équivalence n(acide) = n(base). n(acide) = Cₐ×Vₐ. n(base) = Cₑ×Vₑ. On dose Va=50mL de S, pas le V=100mL initial. Donc Cₐ×Vₐ = Cₑ×Vₑ => Cₐ = (Cₑ×Vₑ)/Vₐ = (5×10⁻² × 27,8×10⁻³)/(50×10⁻³) = 0,0278 mol/L. C'est la concentration de la solution S. La quantité de matière dans les 100mL initiaux est n = Cₐ × V_total = 0,0278 × 0,1L = 0,00278 mol. La masse est m = n × M = 0,00278 mol × 180 g/mol ≈ 0,5 g = 500 mg."
           },
           {
             "question_number": "Q50",
@@ -670,7 +670,7 @@
               {"label": "E", "text": "Kₐ = 4,0.10⁻⁷"}
             ],
             "correct_option": "C",
-            "explanation": "Kₐ = [A⁻][H₃O⁺]/[HA]. [H₃O⁺] = 2.82.10⁻³ mol/L (de Q47). [A⁻] ≈ [H₃O⁺]. [HA] = C - [H₃O⁺] = 0.0278 - 0.00282 ≈ 0.02498 mol/L. Kₐ ≈ (2.82.10⁻³)² / 0.02498 ≈ 7.95.10⁻⁶ / 0.02498 ≈ 3.18.10⁻⁴. La valeur la plus proche est 3,2.10⁻⁴."
+            "explanation": "Kₐ = [A⁻][H₃O⁺]/[HA]. [H₃O⁺] = 2.82×10⁻³ mol/L (de Q47). [A⁻] ≈ [H₃O⁺]. [HA] = C - [H₃O⁺] = 0.0278 - 0.00282 ≈ 0.02498 mol/L. Kₐ ≈ (2.82×10⁻³)² / 0.02498 ≈ 7.95×10⁻⁶ / 0.02498 ≈ 3.18×10⁻⁴. La valeur la plus proche est 3,2×10⁻⁴."
           },
           {
             "question_number": "Q51",
@@ -683,7 +683,7 @@
               {"label": "E", "text": "τ=0,52"}
             ],
             "correct_option": "B",
-            "explanation": "τ = [H₃O⁺]/C. pH=2.43. [H₃O⁺]=10⁻²,⁴³. On a 10⁻⁰,⁴³ ≈ 0,37. [H₃O⁺] = 10⁰,⁵⁷⁻³ = 10⁰,⁵⁷ * 10⁻³. 10⁰,⁵⁷=3,7. [H₃O⁺] = 3,7.10⁻³ mol/L. τ = (3,7.10⁻³)/10⁻² = 0,37."
+            "explanation": "τ = [H₃O⁺]/C. pH=2.43. [H₃O⁺]=10⁻²,⁴³. On a 10⁻⁰,⁴³ ≈ 0,37. [H₃O⁺] = 10⁰,⁵⁷⁻³ = 10⁰,⁵⁷ × 10⁻³. 10⁰,⁵⁷=3,7. [H₃O⁺] = 3,7×10⁻³ mol/L. τ = (3,7×10⁻³)/10⁻² = 0,37."
           },
           {
             "question_number": "Q52",
@@ -696,7 +696,7 @@
               {"label": "E", "text": "[CICH₂COOH]=12,5[CICH₂COO⁻]"}
             ],
             "correct_option": "C",
-            "explanation": "[A⁻]=[H₃O⁺]=3,7.10⁻³M. [HA]=C-[H₃O⁺]=10⁻²-3,7.10⁻³ = 6,3.10⁻³M. Ratio [HA]/[A⁻] = (6,3.10⁻³)/(3,7.10⁻³) ≈ 1,7."
+            "explanation": "[A⁻]=[H₃O⁺]=3,7×10⁻³M. [HA]=C-[H₃O⁺]=10⁻²-3,7×10⁻³ = 6,3×10⁻³M. Ratio [HA]/[A⁻] = (6,3×10⁻³)/(3,7×10⁻³) ≈ 1,7."
           },
           {
             "question_number": "Q53",
@@ -735,7 +735,7 @@
               {"label": "E", "text": "Kₐ₂=2,9.10⁻⁴"}
             ],
             "correct_option": "D",
-            "explanation": "K = Kₐ(HCO₂H)/Kₐ(CH₃CO₂H) = Kₐ₂/Kₐ₁. Kₐ₂ = K * Kₐ₁. Kₐ₁ est donné (1,8.10⁻⁵), K=10. Kₐ₂ = 10 * 1,8.10⁻⁵ = 1,8.10⁻⁴."
+            "explanation": "K = Kₐ(HCO₂H)/Kₐ(CH₃CO₂H) = Kₐ₂/Kₐ₁. Kₐ₂ = K × Kₐ₁. Kₐ₁ est donné (1,8×10⁻⁵), K=10. Kₐ₂ = 10 × 1,8×10⁻⁵ = 1,8×10⁻⁴."
           },
           {
             "question_number": "Q56",
@@ -774,7 +774,7 @@
               {"label": "E", "text": "τ=0,45"}
             ],
             "correct_option": "C",
-            "explanation": "On applique la formule de Q57. τ = 10^(pH-pKe) / C_B. pH=11,5, pKe=14, C_B=2.10⁻². τ = 10^(11,5-14) / (2.10⁻²) = 10⁻²,⁵ / (2.10⁻²) = (10⁻⁰,⁵ * 10⁻²)/(2.10⁻²) = 10⁻⁰,⁵/2. 10⁻⁰,⁵ ≈ 0,316. τ = 0,316/2 ≈ 0,158. La valeur la plus proche est 0,16."
+            "explanation": "On applique la formule de Q57. τ = 10^(pH-pKe) / C_B. pH=11,5, pKe=14, C_B=2×10⁻². τ = 10^(11,5-14) / (2×10⁻²) = 10⁻²,⁵ / (2×10⁻²) = (10⁻⁰,⁵ × 10⁻²)/(2×10⁻²) = 10⁻⁰,⁵/2. 10⁻⁰,⁵ ≈ 0,316. τ = 0,316/2 ≈ 0,158. La valeur la plus proche est 0,16."
           },
           {
             "question_number": "Q59",
@@ -800,7 +800,7 @@
               {"label": "E", "text": "Kₐ=1,67.10⁻¹¹"}
             ],
             "correct_option": "D",
-            "explanation": "Utilisons pKa + pKb = pKe. pKb = -log(Kb). Kb = τ²C_B/(1-τ) = (0.158)²*0.02 / (1-0.158) = 5.9.10⁻⁴. pKb = -log(5.9.10⁻⁴) ≈ 3.23. pKa = 14 - 3.23 = 10.77. Ka = 10⁻¹⁰,⁷⁷ = 10⁰,²³ * 10⁻¹¹ ≈ 1,7 * 10⁻¹¹. Encore une fois, les données sont incohérentes. La réponse B, 3,25.10⁻¹¹ impliquerait pKa ≈ 10.49."
+            "explanation": "Utilisons pKa + pKb = pKe. pKb = -log(Kb). Kb = τ²C_B/(1-τ) = (0.158)²×0.02 / (1-0.158) = 5.9×10⁻⁴. pKb = -log(5.9×10⁻⁴) ≈ 3.23. pKa = 14 - 3.23 = 10.77. Ka = 10⁻¹⁰,⁷⁷ = 10⁰,²³ × 10⁻¹¹ ≈ 1,7 × 10⁻¹¹. Encore une fois, les données sont incohérentes. La réponse B, 3,25×10⁻¹¹ impliquerait pKa ≈ 10.49."
           }
         ]
       },
@@ -826,7 +826,7 @@
             "text": "Si f(x) = (1/(1-x)) * ln(1 + 1/x) alors f'(x) est égale à :",
             "options": [],
             "correct_option": "A",
-            "explanation": "Calcul complexe de dérivée d'un produit. f'(x) = (u'v + uv') où u = 1/(1-x) et v = ln(1+1/x). u' = 1/(1-x)². v' = (-1/x²)/(1+1/x) = -1/(x(x+1)). f'(x) = [1/(1-x)²]ln(1+1/x) + [1/(1-x)][-1/(x(x+1))]. Mettre au même dénominateur... c'est long. En examinant l'option A, on voit `ln(1+1/x)/(1-x)² + 1/(x(1-x²))`. Le deuxième terme est `1/((1-x)x(1+x))`. C'est bien `uv'`. Donc la réponse est bien **A**."
+            "explanation": "Calcul complexe de dérivée d'un produit. f'(x) = (u'v + uv') où u = 1/(1-x) et v = ln(1+1/x). u' = 1/(1-x)². v' = (-1/x²)/(1+1/x) = -1/(x(x+1)). f'(x) = [1/(1-x)²]ln(1+1/x) + [1/(1-x)][-1/(x(x+1))]. Mettre au même dénominateur... c'est long. En examinant l'option A, on voit ln(1+1/x)/(1-x)² + 1/(x(1-x²)). Le deuxième terme est 1/((1-x)x(1+x)). C'est bien uv'. Donc la réponse est bien A."
           },
           {
             "question_number": "Q63",
@@ -839,7 +839,7 @@
               {"label": "E", "text": "7+15i"}
             ],
             "correct_option": "D",
-            "explanation": "On calcule d'abord Z = (7-15i)/(15+7i). Z = (7-15i)/(i(-15i+7)) = (7-15i)/(i(7-15i)) = 1/i = -i. On doit donc calculer (-i)^2021. (-i)^2021 = (-1)^2021 * i^2021 = -1 * i^(4*505 + 1) = -1 * (i⁴)⁵⁰⁵ * i¹ = -1 * (1)⁵⁰⁵ * i = -i."
+            "explanation": "On calcule d'abord Z = (7-15i)/(15+7i). Z = (7-15i)/(i(-15i+7)) = (7-15i)/(i(7-15i)) = 1/i = -i. On doit donc calculer (-i)^2021. (-i)^2021 = (-1)^2021 × i^2021 = -1 × i^(4×505 + 1) = -1 × (i⁴)⁵⁰⁵ × i¹ = -1 × (1)⁵⁰⁵ × i = -i."
           },
           {
             "question_number": "Q64",
@@ -852,7 +852,7 @@
               {"label": "E", "text": "1/(1+x)"}
             ],
             "correct_option": "E",
-            "explanation": "L'expression est la somme d'une suite géométrique de premier terme 1 et de raison -x. La somme est S_n = u₀ * (1 - r^(n+1))/(1-r) = 1 * (1 - (-x)^(n+1))/(1 - (-x)) = (1 - (-x)^(n+1))/(1+x). Comme x ∈ ]0,1[, on a | -x | < 1. Donc lim (n→+∞) (-x)^(n+1) = 0. La limite de la somme est donc 1/(1+x)."
+            "explanation": "L'expression est la somme d'une suite géométrique de premier terme 1 et de raison -x. La somme est S_n = u₀ × (1 - r^(n+1))/(1-r) = 1 × (1 - (-x)^(n+1))/(1 - (-x)) = (1 - (-x)^(n+1))/(1+x). Comme x ∈ ]0,1[, on a | -x | < 1. Donc lim (n→+∞) (-x)^(n+1) = 0. La limite de la somme est donc 1/(1+x)."
           },
           {
             "question_number": "Q65",
@@ -878,7 +878,7 @@
               {"label": "E", "text": "5√2"}
             ],
             "correct_option": "E",
-            "explanation": "On prend le module des deux côtés de l'équation : ||z|²z| = |15-20i|. | |z|² | * |z| = √(15²+(-20)²) = √(225+400) = √625 = 25. |z|² * |z| = |z|³ = 25. |z|=∛25. On cherche |(1+i)z| = |1+i|*|z| = √(1²+1²) * ∛25 = √2 * ∛25. Cela ne correspond pas. Il y a une erreur dans l'énoncé du PDF, il s'agissait probablement de z|z|=15-20i ou z²|z|=15-20i. Si c'est z² = 15-20i, alors |z|²=25, |z|=5. Alors |(1+i)z|=√2*5 = 5√2. C'est l'option E. On suppose donc que la question était |z|z=15-20i."
+            "explanation": "On prend le module des deux côtés de l'équation : ||z|²z| = |15-20i|. | |z|² | × |z| = √(15²+(-20)²) = √(225+400) = √625 = 25. |z|² × |z| = |z|³ = 25. |z|=∛25. On cherche |(1+i)z| = |1+i|×|z| = √(1²+1²) × ∛25 = √2 × ∛25. Cela ne correspond pas. Il y a une erreur dans l'énoncé du PDF, il s'agissait probablement de z|z|=15-20i ou z²|z|=15-20i. Si c'est z² = 15-20i, alors |z|²=25, |z|=5. Alors |(1+i)z|=√2×5 = 5√2. C'est l'option E. On suppose donc que la question était |z|z=15-20i."
           },
           {
             "question_number": "Q67",
@@ -930,7 +930,7 @@
               {"label": "E", "text": "4"}
             ],
             "correct_option": "C",
-            "explanation": "f(x) est une primitive de 2x+ln(x). f(x) = ∫(2x+lnx)dx = x² + (xlnx-x) + C. f(1)=1²+(1ln1-1)+C=1+(0-1)+C=C. On donne f(1)=4, donc C=4. f(x)=x²+xlnx-x+4. f(e)=e² + elne - e + 4 = e² + e - e + 4 = e²+4."
+            "explanation": "f(x) est une primitive de 2x+ln(x). f(x) = ∫(2x+lnx)dx = x² + (xlnx-x) + C. f(1)=1²+(1×ln1-1)+C=1+(0-1)+C=C. On donne f(1)=4, donc C=4. f(x)=x²+x×lnx-x+4. f(e)=e² + e×lne - e + 4 = e² + e - e + 4 = e²+4."
           },
           {
             "question_number": "Q71",
@@ -950,7 +950,7 @@
               {"label": "E", "text": "12"}
             ],
             "correct_option": "C",
-            "explanation": "Soit u=f'(x), du=f''(x)dx. L'intégrale est ∫u du = 1/2 u². Donc ∫f'f''dx = 1/2 [ (f'(x))² ]. Entre 1 et 2, la valeur est 1/2[(f'(2))² - (f'(1))²] = 8. (f'(2))²-(f'(1))²=16. (f'(2)-f'(1))(f'(2)+f'(1))=16. On donne f'(2)-f'(1)=2. Donc 2 * (f'(2)+f'(1)) = 16. f'(2)+f'(1)=8."
+            "explanation": "Soit u=f'(x), du=f''(x)dx. L'intégrale est ∫u du = 1/2 u². Donc ∫f'f''dx = 1/2 [ (f'(x))² ]. Entre 1 et 2, la valeur est 1/2[(f'(2))² - (f'(1))²] = 8. (f'(2))²-(f'(1))²=16. (f'(2)-f'(1))(f'(2)+f'(1))=16. On donne f'(2)-f'(1)=2. Donc 2 × (f'(2)+f'(1)) = 16. f'(2)+f'(1)=8."
           },
           {
             "question_number": "Q73",
@@ -976,7 +976,7 @@
               {"label": "E", "text": "π/12"}
             ],
             "correct_option": "E",
-            "explanation": "Astuce classique. Soit J = ∫ [cosx/(sinx+cosx)]dx sur les mêmes bornes. I+J = ∫ 1 dx = π/3 - π/6 = π/6. On fait le changement de variable u = π/2 - x (π/3+π/6). dx=-du. I = ∫ [sin(π/2-u)/sin(π/2-u)+cos(π/2-u)] (-du) = ∫ [cos(u)/(cos(u)+sin(u))]du = J. Donc I=J. 2I=π/6 => I=π/12."
+            "explanation": "Astuce classique. Soit J = ∫ [cosx/(sinx+cosx)]dx sur les mêmes bornes. I+J = ∫ 1 dx = π/3 - π/6 = π/6. On fait le changement de variable u = π/2 - x (π/3+π/6). dx=-du. I = ∫ [sin(π/2-u)/sin(π/2-u)+cos(π/2-u)] (-du) = ∫ [cos(u)/(cos(u)+sin(u))]du = J. Donc I=J. 2I=π/6 ⇒ I=π/12."
           },
           {
             "question_number": "Q75",
@@ -1002,7 +1002,7 @@
               {"label": "E", "text": "√2 / 2"}
             ],
             "correct_option": "C",
-            "explanation": "L'énoncé de la récurrence est étrange (uₙ défini avec uₙ₊₁). Supposons que c'est uₙ₊₁ = √((uₙ+uₙ₋₁)/2). La limite L, si elle existe, vérifie L=√((L+L)/2)=√L, donc L²=L. L=0 ou L=1. u₂=√((1+0)/2)=1/√2. u₃=√((1+1/√2)/2). La suite est bornée entre 0 et 1. La limite est 1. La question telle qu'elle est écrite `u_n = sqrt((u_{n+1}+u_{n-1})/2)` est mal posée."
+            "explanation": "L'énoncé de la récurrence est étrange (uₙ défini avec uₙ₊₁). Supposons que c'est uₙ₊₁ = √((uₙ+uₙ₋₁)/2). La limite L, si elle existe, vérifie L=√((L+L)/2)=√L, donc L²=L. L=0 ou L=1. u₂=√((1+0)/2)=1/√2. u₃=√((1+1/√2)/2). La suite est bornée entre 0 et 1. La limite est 1. La question telle qu'elle est écrite u_n = sqrt((u_{n+1}+u_{n-1})/2) est mal posée."
           },
           {
             "question_number": "Q77",
@@ -1028,7 +1028,7 @@
               {"label": "E", "text": "4"}
             ],
             "correct_option": "C",
-            "explanation": "∫(de 0 à 1) (3x²+2ax+b)dx = [x³+ax²+bx] de 0 à 1 = 1+a+b. On a 1+a+b < 2, soit a+b < 1. Discriminant de f(x)=0 : Δ = (2a)²-4(3)(b) = 4a²-12b. On ne peut pas conclure sur le signe de Δ à partir de a+b<1. Exemple: a=0, b=0 => a+b<1. Δ=0 (1 sol). a=-2, b=0 => a+b<1. Δ=16>0 (2 sol). a=1,b=-1=> a+b<1. Δ=16>0 (2 sol). a=1, b=1/2 => a+b>1. Δ=16-6>0 (2 sol). La question est mal posée. Cependant, si on pense au théorème de Rolle, ∫f=F(1)-F(0). f est une parabole. Si f(x)=0 n'a pas de solution (Δ<0), alors f garde un signe constant. f(x)>0 tout le temps. ∫f > 0 mais ça n'aide pas. En se basant sur le fait que le concours teste des concepts typiques, il y a probablement un lien caché. Si on suppose que f(0)>0 et f(1)>0, b>0 et 3+2a+b>0. Et le sommet -a/3 est dans [0,1]. Si f(0) et f(1) ont des signes opposés, on a une solution. Rien ne le garantit. Si f(x) n'a aucune solution (Δ < 0), alors a² < 3b. La condition a+b < 1 ne suffit pas. C'est likely 2, car c'est le cas le plus courant pour une parabole."
+            "explanation": "∫(de 0 à 1) (3x²+2ax+b)dx = [x³+ax²+bx] de 0 à 1 = 1+a+b. On a 1+a+b < 2, soit a+b < 1. Discriminant de f(x)=0 : Δ = (2a)²-4(3)(b) = 4a²-12b. On ne peut pas conclure sur le signe de Δ à partir de a+b<1. Exemple: a=0, b=0 ⇒ a+b<1. Δ=0 (1 sol). a=-2, b=0 ⇒ a+b<1. Δ=16>0 (2 sol). a=1,b=-1⇒ a+b<1. Δ=16>0 (2 sol). a=1, b=1/2 ⇒ a+b>1. Δ=16-6>0 (2 sol). La question est mal posée. Cependant, si on pense au théorème de Rolle, ∫f=F(1)-F(0). f est une parabole. Si f(x)=0 n'a pas de solution (Δ<0), alors f garde un signe constant. f(x)>0 tout le temps. ∫f > 0 mais ça n'aide pas. En se basant sur le fait que le concours teste des concepts typiques, il y a probablement un lien caché. Si on suppose que f(0)>0 et f(1)>0, b>0 et 3+2a+b>0. Et le sommet -a/3 est dans [0,1]. Si f(0) et f(1) ont des signes opposés, on a une solution. Rien ne le garantit. Si f(x) n'a aucune solution (Δ < 0), alors a² < 3b. La condition a+b < 1 ne suffit pas. C'est probablement 2, car c'est le cas le plus courant pour une parabole."
           },
           {
             "question_number": "Q79",
@@ -1054,7 +1054,7 @@
               {"label": "E", "text": "(∀n∈N*), (∃!aₙ∈]-1;0[) : fₙ(aₙ)=0 et lim naₙ=1"}
             ],
             "correct_option": "A",
-            "explanation": "f'ₙ(x)=-e⁻ˣ-n < 0. fₙ est strictement décroissante. fₙ(0)=1. fₙ(1)=e⁻¹-n. Pour n≥1, fₙ(1)<0. D'après le TVI, il existe une unique solution aₙ ∈ ]0,1[ telle que fₙ(aₙ)=0. Donc e^(-aₙ)=naₙ. Quand n→+∞, naₙ doit être >0, donc aₙ>0. Si aₙ→L>0, naₙ→+∞, mais e^(-aₙ)→e⁻L. Contradiction. Donc aₙ→0. Puisque aₙ→0, e^(-aₙ) ≈ 1-aₙ. Donc 1-aₙ ≈ naₙ => 1 ≈ aₙ(n+1). naₙ ≈ n/(n+1). La limite de naₙ quand n→+∞ est 1."
+            "explanation": "f'ₙ(x)=-e⁻ˣ-n < 0. fₙ est strictement décroissante. fₙ(0)=1. fₙ(1)=e⁻¹-n. Pour n≥1, fₙ(1)<0. D'après le TVI, il existe une unique solution aₙ ∈ ]0,1[ telle que fₙ(aₙ)=0. Donc e^(-aₙ)=naₙ. Quand n→+∞, naₙ doit être >0, donc aₙ>0. Si aₙ→L>0, naₙ→+∞, mais e^(-aₙ)→e⁻L. Contradiction. Donc aₙ→0. Puisque aₙ→0, e^(-aₙ) ≈ 1-aₙ. Donc 1-aₙ ≈ naₙ ⇒ 1 ≈ aₙ(n+1). naₙ ≈ n/(n+1). La limite de naₙ quand n→+∞ est 1."
           }
         ]
       }

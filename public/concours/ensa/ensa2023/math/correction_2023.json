@@ -13,7 +13,7 @@
         {"label": "D", "text": "40"}
       ],
       "correct_option": "C",
-      "explanation": "La logique alterne entre deux opérations. Pour passer de 6 à 4: -2. De 4 à 8: x2. De 8 à 5: -3. De 5 à 15: x3. On observe une séquence d'opérations (-n) puis (xn). Le prochain terme devrait donc être 15 - 4 = 11."
+      "explanation": "La logique alterne entre deux opérations. Pour passer de $6$ à $4$: $-2$. De $4$ à $8$: $\\times 2$. De $8$ à $5$: $-3$. De $5$ à $15$: $\\times 3$. On observe une séquence d'opérations $(-n)$ puis $(\\times n)$. Le prochain terme devrait donc être $15 - 4 = 11$."
     },
     {
       "question_number": "Q2",
@@ -25,7 +25,7 @@
         {"label": "D", "text": "3"}
       ],
       "correct_option": "A",
-      "explanation": "Un nombre est divisible par 9 si la somme de ses chiffres est divisible par 9. Soit x = c₁c₂c₃c₄c₅c₆. Sa somme des chiffres S = c₁+c₂+c₃+c₄+c₅+c₆ est un multiple de 9. Le nombre y est c₂c₃c₄c₅c₆c₁. La somme des chiffres de y est c₂+c₃+c₄+c₅+c₆+c₁ = S. Comme la somme des chiffres de y est la même que celle de x, et que S est un multiple de 9, alors y est aussi divisible par 9. Le reste de la division de y par 9 est donc 0."
+      "explanation": "Un nombre est divisible par $9$ si la somme de ses chiffres est divisible par $9$. Soit $x = c_1c_2c_3c_4c_5c_6$. Sa somme des chiffres $S = c_1+c_2+c_3+c_4+c_5+c_6$ est un multiple de $9$. Le nombre $y$ est $c_2c_3c_4c_5c_6c_1$. La somme des chiffres de $y$ est $c_2+c_3+c_4+c_5+c_6+c_1 = S$. Comme la somme des chiffres de $y$ est la même que celle de $x$, et que $S$ est un multiple de $9$, alors $y$ est aussi divisible par $9$. Le reste de la division de $y$ par $9$ est donc $0$."
     },
     {
       "question_number": "Q3",
@@ -37,7 +37,7 @@
         {"label": "D", "text": "10"}
       ],
       "correct_option": "C",
-      "explanation": "La décomposition de 150 en facteurs premiers est 150 = 2 * 3 * 5². Soit (a, b) un couple tel que ab=150 et pgcd(a,b)=1. Cela signifie que a et b ne partagent aucun facteur premier. Les facteurs premiers sont 2, 3, 5². On doit donc répartir les blocs (2), (3), (5²) entre a et b. Les possibilités pour a (et b sera le complément) sont : 1 (b=150), 2 (b=75), 3 (b=50), 25 (b=6). Cela donne 4 paires de facteurs. Comme les couples (a,b) et (b,a) sont distincts si a≠b, on a 4*2 = 8 couples."
+      "explanation": "La décomposition de $150$ en facteurs premiers est $150 = 2 \\times 3 \\times 5^2$. Soit $(a, b)$ un couple tel que $ab=150$ et $\\gcd(a,b)=1$. Cela signifie que $a$ et $b$ ne partagent aucun facteur premier. Les facteurs premiers sont $2$, $3$, $5^2$. On doit donc répartir les blocs $(2)$, $(3)$, $(5^2)$ entre $a$ et $b$. Les possibilités pour $a$ (et $b$ sera le complément) sont : $1$ ($b=150$), $2$ ($b=75$), $3$ ($b=50$), $25$ ($b=6$). Cela donne $4$ paires de facteurs. Comme les couples $(a,b)$ et $(b,a)$ sont distincts si $a\\neq b$, on a $4\\times 2 = 8$ couples."
     },
     {
       "question_number": "Q4",

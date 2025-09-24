@@ -225,14 +225,14 @@
             "stimulus": "On étudie la diffraction d'un rayonnement LASER de longueur d'onde $\\lambda = 405nm$ en utilisant une fente de largeur $a = 40\\mu m$ et un écran placé à une distance $D = 2,5m$ de la fente.",
             "text": "La largeur L de la tache centrale sur l'écran est égale à :",
             "options": [
-              {"label": "A", "text": "$2D\\lambda/a$"},
-              {"label": "B", "text": "$2a\\lambda/D$"},
-              {"label": "C", "text": "$D\\lambda/a$"},
-              {"label": "D", "text": "$\\lambda/a$"},
-              {"label": "E", "text": "$2D/a$"}
+              {"label": "A", "text": "2Dλ/a"},
+              {"label": "B", "text": "2aλ/D"},
+              {"label": "C", "text": "Dλ/a"},
+              {"label": "D", "text": "λ/a"},
+              {"label": "E", "text": "2D/a"}
             ],
             "correct_option": "A",
-            "explanation": "Pour la diffraction par une fente de largeur 'a', le demi-angle d'ouverture de la tache centrale $\\theta$ est donné par $\\tan \\theta \\approx \\theta = \\lambda/a$ (pour $\\theta$ petit, en radians). La largeur de la tache centrale L est liée à $\\theta$ par $\\tan \\theta = (L/2)/D = L/(2D)$. En égalant les deux expressions de $\\tan \\theta$: $\\lambda/a = L/(2D)$. D'où $L = 2D\\lambda/a$."
+            "explanation": "Pour la diffraction par une fente de largeur 'a', le demi-angle d'ouverture de la tache centrale θ est donné par tanθ ≈ θ = λ/a (pour θ petit, en radians). La largeur de la tache centrale L est liée à θ par tanθ = (L/2)/D = L/(2D). En égalant les deux expressions de tanθ: λ/a = L/(2D). D'où L = 2Dλ/a."
           },
           {
             "exercise_title": "Diffraction de la lumière",
@@ -240,19 +240,19 @@
             "stimulus": "On étudie la diffraction d'un rayonnement LASER de longueur d'onde $\\lambda = 405nm$ en utilisant une fente de largeur $a = 40\\mu m$ et un écran placé à une distance $D = 2,5m$ de la fente.",
             "text": "La largeur L de la tache centrale mesure:",
             "options": [
-              {"label": "A", "text": "$5mm$"},
-              {"label": "B", "text": "$5cm$"},
-              {"label": "C", "text": "$5dm$"},
-              {"label": "D", "text": "$1,5cm$"},
-              {"label": "E", "text": "$1,5dm$"}
+              {"label": "A", "text": "5mm"},
+              {"label": "B", "text": "5cm"},
+              {"label": "C", "text": "5dm"},
+              {"label": "D", "text": "1,5cm"},
+              {"label": "E", "text": "1,5dm"}
             ],
             "correct_option": "B",
-            "explanation": "$L = \\frac{2D\\lambda}{a} = \\frac{2 \\times 2,5 \\text{ m} \\times 405 \\times 10^{-9} \\text{ m}}{40 \\times 10^{-6} \\text{ m}} = \\frac{5 \\times 405 \\times 10^{-9}}{40 \\times 10^{-6}} = \\frac{2025 \\times 10^{-9}}{40 \\times 10^{-6}} = \\frac{202.5 \\times 10^{-8}}{4 \\times 10^{-5}} = 50,625 \\times 10^{-3} \\text{ m} = 5,0625 \\times 10^{-2} \\text{ m} = 5,0625 \\text{ cm}$. L'option la plus proche est 5cm."
+            "explanation": "L = (2Dλ)/a = (2 × 2,5 m × 405 × 10⁻⁹ m)/(40 × 10⁻⁶ m) = (5 × 405 × 10⁻⁹)/(40 × 10⁻⁶) = (2025 × 10⁻⁹)/(40 × 10⁻⁶) = (202.5 × 10⁻⁸)/(4 × 10⁻⁵) = 50,625 × 10⁻³ m = 5,0625 × 10⁻² m = 5,0625 cm. L'option la plus proche est 5cm."
           },
           {
             "exercise_title": "Radioactivité",
             "question_number": "Q18",
-            "stimulus": "L'uranium U238 (Z=92) est radioactif $\\alpha$ de constante radioactive $\\lambda1$. Le noyau fils obtenu est radioactif $\\beta-$. A partir de l'U238 et après une première désintégration $\\alpha$ et 2 désintégrations $\\beta-$ successives, le noyau obtenu est l'uranium U234 radioactif.",
+            "stimulus": "L'uranium U238 (Z=92) est radioactif α de constante radioactive λ1. Le noyau fils obtenu est radioactif β⁻. A partir de l'U238 et après une première désintégration α et 2 désintégrations β⁻ successives, le noyau obtenu est l'uranium U234 radioactif.",
             "text": "Pour l'U234 le nombre Z est :",
             "options": [
               {"label": "A", "text": "88"},
@@ -267,37 +267,37 @@
           {
             "exercise_title": "Radioactivité",
             "question_number": "Q19",
-            "stimulus": "L'U234 se désintègre par émission $\\alpha$ pour donner du Thorium Th230 radioactif de constante radioactive $\\lambda2$. A l'équilibre, dit séculaire, les activités de l'U238 et du Th230 sont égales. Leurs demi-vies physiques respectives sont notées $t_{1/2}1$ et $t_{1/2}2$.",
-            "text": "A cet équilibre, le rapport des nombres de noyaux : $r = N(Th230) / N(U238)$ est égale à :",
+            "stimulus": "L'U234 se désintègre par émission α pour donner du Thorium Th230 radioactif de constante radioactive λ2. A l'équilibre, dit séculaire, les activités de l'U238 et du Th230 sont égales. Leurs demi-vies physiques respectives sont notées t₁/₂₁ et t₁/₂₂.",
+            "text": "A cet équilibre, le rapport des nombres de noyaux : r = N(Th230) / N(U238) est égale à :",
             "options": [
-              {"label": "A", "text": "$230/238$"},
-              {"label": "B", "text": "$\\lambda1/\\lambda2$"},
-              {"label": "C", "text": "$\\lambda2/\\lambda1$"},
-              {"label": "D", "text": "$t_{1/2}1/t_{1/2}2$"},
-              {"label": "E", "text": "$1$"}
+              {"label": "A", "text": "230/238"},
+              {"label": "B", "text": "λ1/λ2"},
+              {"label": "C", "text": "λ2/λ1"},
+              {"label": "D", "text": "t₁/₂₁/t₁/₂₂"},
+              {"label": "E", "text": "1"}
             ],
             "correct_option": "B",
-            "explanation": "À l'équilibre séculaire, l'activité du père (U238, $\\lambda_1$, $N_1$) est égale à l'activité du fils (Th230, $\\lambda_2$, $N_2$). Soit $A_1 = A_2 \\implies \\lambda_1 N_1 = \\lambda_2 N_2$. Le rapport $r = N(Th230)/N(U238) = N_2/N_1$. De l'égalité des activités, $N_2/N_1 = \\lambda_1/\\lambda_2$."
+            "explanation": "À l'équilibre séculaire, l'activité du père (U238, λ₁, N₁) est égale à l'activité du fils (Th230, λ₂, N₂). Soit A₁ = A₂ ⇒ λ₁N₁ = λ₂N₂. Le rapport r = N(Th230)/N(U238) = N₂/N₁. De l'égalité des activités, N₂/N₁ = λ₁/λ₂."
           },
           {
             "exercise_title": "Radioactivité",
             "question_number": "Q20",
-            "stimulus": "Les demi-vies $t_{1/2}1 = 4,5.10^9$ années (pour U238) et $t_{1/2}2 \\approx 75000$ années (pour Th230). On donne : $75/45 \\approx 1,6$. Le rapport r (calculé en Q19) est N(Th230)/N(U238).",
+            "stimulus": "Les demi-vies t₁/₂₁ = 4,5×10⁹ années (pour U238) et t₁/₂₂ ≈ 75000 années (pour Th230). On donne : 75/45 ≈ 1,6. Le rapport r (calculé en Q19) est N(Th230)/N(U238).",
             "text": "Le rapport r est égale à :",
             "options": [
-              {"label": "A", "text": "$1,6.10^5$"},
-              {"label": "B", "text": "$1,6.10^{-5}$"},
-              {"label": "C", "text": "$16.10^{-5}$"},
-              {"label": "D", "text": "$1,6.10^{-5}$"},
-              {"label": "E", "text": "$1,6.10^{-6}$"}
+              {"label": "A", "text": "1,6×10⁵"},
+              {"label": "B", "text": "1,6×10⁻⁵"},
+              {"label": "C", "text": "16×10⁻⁵"},
+              {"label": "D", "text": "1,6×10⁻⁵"},
+              {"label": "E", "text": "1,6×10⁻⁶"}
             ],
             "correct_option": "B",
-            "explanation": "On a $r = \\lambda_1/\\lambda_2$. Sachant que $\\lambda = \\ln(2)/t_{1/2}$, on a $r = (\\ln(2)/t_{1/2}1) / (\\ln(2)/t_{1/2}2) = t_{1/2}2 / t_{1/2}1$. $r = \\frac{75000 \\text{ années}}{4,5 \\times 10^9 \\text{ années}} = \\frac{7,5 \\times 10^4}{4,5 \\times 10^9} = \\frac{7,5}{4,5} \\times 10^{4-9} = \\frac{75}{45} \\times 10^{-5}$. On donne $75/45 \\approx 1,6$. Donc $r \\approx 1,6 \\times 10^{-5}$. Options B et D sont identiques."
+            "explanation": "On a r = λ₁/λ₂. Sachant que λ = ln(2)/t₁/₂, on a r = (ln(2)/t₁/₂₁) / (ln(2)/t₁/₂₂) = t₁/₂₂ / t₁/₂₁. r = (75000 années)/(4,5 × 10⁹ années) = (7,5 × 10⁴)/(4,5 × 10⁹) = (7,5/4,5) × 10⁴⁻⁹ = (75/45) × 10⁻⁵. On donne 75/45 ≈ 1,6. Donc r ≈ 1,6 × 10⁻⁵. Options B et D sont identiques."
           },
           {
             "exercise_title": "Radioactivité",
             "question_number": "Q21",
-            "stimulus": "Le Th230 est radioactif $\\alpha$. Il donne du Radium Ra226. Le nombre de noyaux initiaux du Th230 est $N_0$. Après un temps $t= x \\cdot t_{1/2}$, il ne reste plus que $N = N_0/16$ de noyaux thorium actif. (ici $t_{1/2}$ est la demi-vie du Th230).",
+            "stimulus": "Le Th230 est radioactif α. Il donne du Radium Ra226. Le nombre de noyaux initiaux du Th230 est N₀. Après un temps t= x × t₁/₂, il ne reste plus que N = N₀/16 de noyaux thorium actif. (ici t₁/₂ est la demi-vie du Th230).",
             "text": "Dans ce cas, le coefficient x est égale à :",
             "options": [
               {"label": "A", "text": "2"},
@@ -307,12 +307,12 @@
               {"label": "E", "text": "32"}
             ],
             "correct_option": "B",
-            "explanation": "La loi de décroissance radioactive est $N(t) = N_0 (1/2)^{t/t_{1/2}}$. Ici, $t = x \\cdot t_{1/2}$, donc $N(t) = N_0 (1/2)^x$. On nous dit $N = N_0/16$. Donc $N_0/16 = N_0 (1/2)^x \\implies 1/16 = (1/2)^x$. Comme $16 = 2^4$, on a $(1/2)^4 = (1/2)^x$, d'où $x=4$."
+            "explanation": "La loi de décroissance radioactive est N(t) = N₀(1/2)^(t/t₁/₂). Ici, t = x × t₁/₂, donc N(t) = N₀(1/2)^x. On nous dit N = N₀/16. Donc N₀/16 = N₀(1/2)^x ⇒ 1/16 = (1/2)^x. Comme 16 = 2⁴, on a (1/2)⁴ = (1/2)^x, d'où x=4."
           },
           {
             "exercise_title": "Radioactivité",
             "question_number": "Q22",
-            "stimulus": "A partir de l'U238, après x désintégrations $\\alpha$ et y désintégrations $\\beta-$, le noyau obtenu est le Pb206 (Z=82) stable.",
+            "stimulus": "A partir de l'U238, après x désintégrations α et y désintégrations β⁻, le noyau obtenu est le Pb206 (Z=82) stable.",
             "text": "Les valeurs de x et y calculées sont :",
             "options": [
               {"label": "A", "text": "x= 20, y= 10"},
@@ -352,7 +352,7 @@
               {"label": "E", "text": "4,2m"}
             ],
             "correct_option": "C",
-            "explanation": "La hauteur h peut être calculée par $h = v_0 t_H - \frac{1}{2}gt_H^2$. Avec $t_H = 0,8s$: $h = (8)(0,8) - \frac{1}{2}(10)(0,8)^2 = 6,4 - 5(0,64) = 6,4 - 3,2 = 3,2 \text{ m}$. Alternativement, $v_f^2 - v_0^2 = 2as$. Ici $s=h$, $a=-g$, $v_f=0$. $0^2 - v_0^2 = 2(-g)h \\implies -v_0^2 = -2gh \\implies h = v_0^2 / (2g) = 8^2 / (2 \\times 10) = 64/20 = 3,2 \text{ m}$."
+            "explanation": "La hauteur $h$ peut être calculée par : $h = v_{0}t_{H} - \\tfrac{1}{2}gt_{H}^{2}$. Avec $t_{H} = 0.8 \\, \\text{s}$ : $h = (8)(0.8) - \\tfrac{1}{2}(10)(0.8)^{2} = 6.4 - 5(0.64) = 6.4 - 3.2 = 3.2 \\, \\text{m}$.\\\\ Alternativement, on utilise $v_{f}^{2} - v_{0}^{2} = 2as$. Ici $s=h$, $a=-g$, et $v_{f}=0$. Donc : $0^{2} - v_{0}^{2} = 2(-g)h \\implies -v_{0}^{2} = -2gh \\implies h = \\tfrac{v_{0}^{2}}{2g} = \\tfrac{8^{2}}{2 \\times 10} = \\tfrac{64}{20} = 3.2 \\, \\text{m}$."
           },
           {
             "exercise_title": "Mécanique",
@@ -497,7 +497,7 @@
             "data": {
               "Données": "Masse molaire de la polyvidone iodée : $M = 2363~\\mathrm{g\\cdot mol^{-1}}$ \nUne molécule de polyvidone iodée libère une molécule de diiode"
             },
-            "text": "La concentration C0 en diiode de la solution commerciale est de :",
+            "text": "La concentration C$0$ en diiode de la solution commerciale est de :",
             "options": [
               {"label": "A", "text": "$0,004~\\mathrm{mol\\cdot L^{-1}}$"},
               {"label": "B", "text": "$0,04~\\mathrm{mol\\cdot L^{-1}}$"},
@@ -506,7 +506,7 @@
               {"label": "E", "text": "Les réponses précédentes sont fausses"}
             ],
             "correct_option": "B",
-            "explanation": "À l'équivalence, $n(I_2)_{\text{dosé}} = \frac{1}{2} n(S_2O_3^{2-})_{\text{versé}}$. Soit $C_1 V_1 = \frac{1}{2} C_2 V_e$. La concentration de $I_2$ dans $S_1$ est $C_1 = \frac{C_2 V_e}{2V_1} = \frac{(0,01~\\mathrm{mol\\cdot L^{-1}})(8,0~\\mathrm{mL})}{2(10,0~\\mathrm{mL})} = \frac{0,08}{20} = 0,004~\\mathrm{mol\\cdot L^{-1}}$. La solution commerciale $S_0$ a été diluée 10 fois pour obtenir $S_1$, donc $C_0 = 10 \times C_1 = 10 \times 0,004~\\mathrm{mol\\cdot L^{-1}} = 0,04~\\mathrm{mol\\cdot L^{-1}}$."
+            "explanation": "À l'équivalence : $n(I_{2})_{\\text{dosé}} = \\tfrac{1}{2} \\, n(S_{2}O_{3}^{2-})_{\\text{versé}}$. Donc : $C_{1}V_{1} = \\tfrac{1}{2} C_{2}V_{e}$. La concentration de $I_{2}$ dans $S_{1}$ est : $C_{1} = \\tfrac{C_{2}V_{e}}{2V_{1}} = \\tfrac{(0.01 \\, \\mathrm{mol\\,L^{-1}})(8.0 \\, \\mathrm{mL})}{2 \\times (10.0 \\, \\mathrm{mL})} = \\tfrac{0.08}{20} = 0.004 \\, \\mathrm{mol\\,L^{-1}}$. La solution commerciale $S_{0}$ a été diluée 10 fois pour obtenir $S_{1}$, donc : $C_{0} = 10 \\times C_{1} = 10 \\times 0.004 \\, \\mathrm{mol\\,L^{-1}} = 0.04 \\, \\mathrm{mol\\,L^{-1}}$."
           },
           {
             "exercise_title": "Exercice 1",

@@ -27,7 +27,7 @@
         "questions": [
           {
             "question_number": "Q22",
-            "text": "Les accélérations en (ms⁻²) de M1, M2 et M3 dans cet ordre sont :",
+            "text": "Les accélérations en $(m \\cdot s^{-2})$ de M1, M2 et M3 dans cet ordre sont :",
             "correct_option": "C",
             "options": [
               {"label": "A", "text": "(10, 5, 4)"},
@@ -35,11 +35,11 @@
               {"label": "C", "text": "(4, 4, 4)"},
               {"label": "D", "text": "(4, 10, 5)"}
             ],
-            "explanation": "Les trois corps sont reliés par des ficelles inextensibles et se déplacent ensemble. Ils ont donc la même accélération 'a'. On applique la deuxième loi de Newton au système complet {M1+M2+M3}. La seule force extérieure motrice est F. F = (m1+m2+m3)a. 60N = (2+5+8)kg * a = 15a. a = 60/15 = 4 m/s²."
+            "explanation": "Les trois corps sont reliés par des ficelles inextensibles et se déplacent ensemble. Ils ont donc la même accélération $a$. On applique la deuxième loi de Newton au système complet $\\{M_1+M_2+M_3\\}$. La seule force extérieure motrice est $F$. $F = (m_1+m_2+m_3)a$. $60N = (2+5+8)kg \\times a = 15a$. $a = \\frac{60}{15} = 4 \\, m/s^2$."
           },
           {
             "question_number": "Q23",
-            "text": "Les tensions T₁ et T₂ en (N) des ficelles dans cet ordre sont :",
+            "text": "Les tensions $T_1$ et $T_2$ en $(N)$ des ficelles dans cet ordre sont :",
             "correct_option": "D",
             "options": [
               {"label": "A", "text": "(10, 8)"},
@@ -47,7 +47,7 @@
               {"label": "C", "text": "(20, 10)"},
               {"label": "D", "text": "(8, 28)"}
             ],
-            "explanation": "On isole le corps M1 : la seule force horizontale est T₁. T₁ = m1 * a = 2kg * 4m/s² = 8N. On isole le corps M2 : la somme des forces est T₂ - T₁. T₂ - T₁ = m2 * a. T₂ = T₁ + m2*a = 8N + 5kg*4m/s² = 8 + 20 = 28N. Les tensions sont donc (8, 28)."
+            "explanation": "On isole le corps $M_1$ : la seule force horizontale est $T_1$. $T_1 = m_1 \\times a = 2kg \\times 4m/s^2 = 8N$. On isole le corps $M_2$ : la somme des forces est $T_2 - T_1$. $T_2 - T_1 = m_2 \\times a$. $T_2 = T_1 + m_2 \\times a = 8N + 5kg \\times 4m/s^2 = 8 + 20 = 28N$. Les tensions sont donc $(8, 28)$."
           }
         ]
       },
@@ -65,7 +65,7 @@
               {"label": "C", "text": "$f = \\frac{1}{2\\pi}\\sqrt{\\frac{k_1 k_2}{m|k_1-k_2|}}$"},
               {"label": "D", "text": "$f = \\frac{1}{2\\pi}\\sqrt{\\frac{|k_1-k_2|}{m}}$"}
             ],
-            "explanation": "Lorsque le mobile est déplacé de x de sa position d'équilibre, le ressort R₁ exerce une force -k₁x et le ressort R₂ exerce une force -k₂x (les deux s'opposent au déplacement). La force de rappel totale est F = -k₁x - k₂x = -(k₁+k₂)x. C'est équivalent à un système avec un seul ressort de raideur équivalente k_eq = k₁+k₂. La pulsation propre est ω = √(k_eq/m) = √((k₁+k₂)/m). La fréquence est f = ω/(2π)."
+            "explanation": "Lorsque le mobile est déplacé de $x$ de sa position d'équilibre, le ressort $R_1$ exerce une force $-k_1x$ et le ressort $R_2$ exerce une force $-k_2x$ (les deux s'opposent au déplacement). La force de rappel totale est $F = -k_1x - k_2x = -(k_1+k_2)x$. C'est équivalent à un système avec un seul ressort de raideur équivalente $k_{eq} = k_1+k_2$. La pulsation propre est $\\omega = \\sqrt{\\frac{k_{eq}}{m}} = \\sqrt{\\frac{k_1+k_2}{m}}$. La fréquence est $f = \\frac{\\omega}{2\\pi}$."
           },
           {
             "question_number": "Q25",
@@ -77,7 +77,7 @@
               {"label": "C", "text": "$l_1 = \\frac{(k_1-k_2)l_0 + k_2 d}{k_1 + k_2}$"},
               {"label": "D", "text": "$l_1 = \\frac{(k_1+k_2)l_0 + k_2 d}{k_1 - k_2}$"}
             ],
-            "explanation": "La question est mal formulée, elle suppose que les ressorts ont la même longueur à vide l₀ et que la distance entre les points d'attache est d. À l'équilibre, la force du ressort 1 (T₁ = k₁(l₁-l₀)) est égale à la force du ressort 2 (T₂ = k₂(l₂-l₀)). On a aussi l₁+l₂=d. De T₁=T₂, k₁(l₁-l₀)=k₂(d-l₁-l₀). k₁l₁-k₁l₀=k₂d-k₂l₁-k₂l₀. l₁(k₁+k₂)=k₁l₀-k₂l₀+k₂d. Cela ne correspond à aucune option. Si la question signifiait que les ressorts sont attachés en série, la réponse serait différente. L'option B est la plus plausible si on réinterprète les variables."
+            "explanation": "La question est mal formulée, elle suppose que les ressorts ont la même longueur à vide $l_0$ et que la distance entre les points d'attache est $d$. À l'équilibre, la force du ressort 1 ($T_1 = k_1(l_1-l_0)$) est égale à la force du ressort 2 ($T_2 = k_2(l_2-l_0)$). On a aussi $l_1+l_2=d$. De $T_1=T_2$, $k_1(l_1-l_0)=k_2(d-l_1-l_0)$. $k_1l_1-k_1l_0=k_2d-k_2l_1-k_2l_0$. $l_1(k_1+k_2)=k_1l_0-k_2l_0+k_2d$. Cela ne correspond à aucune option. Si la question signifiait que les ressorts sont attachés en série, la réponse serait différente. L'option B est la plus plausible si on réinterprète les variables."
           }
         ]
       },
@@ -94,7 +94,7 @@
               {"label": "C", "text": "Le ressort du bas ne s'allonge pas"},
               {"label": "D", "text": "Les deux ressorts s'allongent de 10 cm"}
             ],
-            "explanation": "Le ressort du bas supporte la masse M₂, donc son allongement est Δl₂ = M₂g/k = (1kg*10m/s²)/100N/m = 0.1m = 10cm. Le ressort du haut supporte les deux masses M₁ et M₂, donc une masse totale de 2kg. Son allongement est Δl₁ = (M₁+M₂)g/k = (2kg*10m/s²)/100N/m = 0.2m = 20cm. L'option A est la seule correcte."
+            "explanation": "Le ressort du bas supporte la masse $M_2$, donc son allongement est $\\Delta l_2 = \\frac{M_2g}{k} = \\frac{1kg \\times 10m/s^2}{100N/m} = 0.1m = 10cm$. Le ressort du haut supporte les deux masses $M_1$ et $M_2$, donc une masse totale de $2kg$. Son allongement est $\\Delta l_1 = \\frac{(M_1+M_2)g}{k} = \\frac{2kg \\times 10m/s^2}{100N/m} = 0.2m = 20cm$. L'option A est la seule correcte."
           }
         ]
       },
@@ -111,7 +111,7 @@
               {"label": "C", "text": "$τ = 60 ms$"},
               {"label": "D", "text": "$τ = 12 ms$"}
             ],
-            "explanation": "Le retard temporel τ est la distance divisée par la célérité. τ = d/v. La distance SM₁ est de 30cm = 0.3m. v=5m/s. τ = 0.3m / 5m/s = 0.06s = 60ms. La réponse est C."
+            "explanation": "Le retard temporel $\\tau$ est la distance divisée par la célérité. $\\tau = \\frac{d}{v}$. La distance $SM_1$ est de $30cm = 0.3m$. $v=5m/s$. $\\tau = \\frac{0.3m}{5m/s} = 0.06s = 60ms$. La réponse est C."
           },
           {
             "question_number": "Q28",
@@ -123,7 +123,7 @@
               {"label": "C", "text": "$1,2m$"},
               {"label": "D", "text": "$2,4 m$"}
             ],
-            "explanation": "À t=0, le maximum de l'onde se trouve à x_max(0) = 40cm = 0.4m. L'onde se propage vers la droite à v=5m/s. À t₁=0,20s, le maximum se sera déplacé d'une distance d=v*t₁ = 5m/s * 0.2s = 1m. Sa nouvelle position sera x_max(t₁) = x_max(0) + d = 0.4m + 1m = 1.4m."
+            "explanation": "À $t=0$, le maximum de l'onde se trouve à $x_{max}(0) = 40cm = 0.4m$. L'onde se propage vers la droite à $v=5m/s$. À $t_1=0,20s$, le maximum se sera déplacé d'une distance $d=v \\times t_1 = 5m/s \\times 0.2s = 1m$. Sa nouvelle position sera $x_{max}(t_1) = x_{max}(0) + d = 0.4m + 1m = 1.4m$."
           }
         ]
       },
@@ -140,7 +140,7 @@
               {"label": "C", "text": "représentation 3"},
               {"label": "D", "text": "représentation 4"}
             ],
-            "explanation": "À t=0, A est au sommet d'une vague. Son élongation est maximale et positive (+2,0m). Le mouvement est sinusoïdal de période T=9.1s. La représentation 1 est la seule qui commence à un maximum positif à t=0."
+            "explanation": "À $t=0$, A est au sommet d'une vague. Son élongation est maximale et positive $(+2,0m)$. Le mouvement est sinusoïdal de période $T=9.1s$. La représentation 1 est la seule qui commence à un maximum positif à $t=0$."
           },
           {
             "question_number": "Q30",
