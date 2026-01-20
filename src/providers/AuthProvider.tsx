@@ -142,16 +142,30 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const signOut = async () => {
+    // 1. Nettoyage immédiat de l'état local pour rafraîchir l'UI tout de suite
+    setUser(null);
+    setSession(null);
+    
     try {
+      // 2. Tenter la déconnexion Supabase officielle
       const { error } = await supabase.auth.signOut();
       if (error) {
-        // Si l'utilisateur est déjà déconnecté ou session invalide (403), ce n'est pas grave
-        console.warn("Erreur lors de la déconnexion (session peut-être expirée):", error);
+        console.warn("Erreur Supabase signOut non bloquante:", error);
       }
+    } catch (error) {
+      console.warn("Exception lors du signOut:", error);
+    } finally {
+      // 3. IMPORTANT: Nettoyage manuel du localStorage pour éviter la rémanence du token
+      // Supabase stocke le token sous une clé qui commence par "sb-" et finit par "-auth-token"
+      Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith('sb-') && key.endsWith('-auth-token')) {
+          localStorage.removeItem(key);
+        }
+      });
+
       navigate("/");
-    } catch (error: any) {
-      console.error("Exception lors de la déconnexion:", error);
-      navigate("/");
+      // On force un petit rechargement si nécessaire ou juste un toast
+      // toast.success("Bye bye!"); // Optionnel car on redirige
     }
   };
 
