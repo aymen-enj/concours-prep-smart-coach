@@ -143,10 +143,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const signOut = async () => {
     try {
-      await supabase.auth.signOut();
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        // Si l'utilisateur est déjà déconnecté ou session invalide (403), ce n'est pas grave
+        console.warn("Erreur lors de la déconnexion (session peut-être expirée):", error);
+      }
       navigate("/");
     } catch (error: any) {
-      toast.error(error.message || "Erreur lors de la déconnexion");
+      console.error("Exception lors de la déconnexion:", error);
+      navigate("/");
     }
   };
 
