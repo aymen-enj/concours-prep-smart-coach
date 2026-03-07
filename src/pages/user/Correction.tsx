@@ -1739,12 +1739,88 @@ const Correction = () => {
       const savedAnswers = localStorage.getItem(answersKey);
       
       if (savedAnswers) {
-        const parsedData: UserAnswers = JSON.parse(savedAnswers);
+        const parsedData: UserAnswers & { attemptId?: string } = JSON.parse(savedAnswers);
         setUserAnswers(parsedData.answers);
         
         // Calculate results
         const calculatedResults = calculateResults(data, parsedData.answers);
         setResults(calculatedResults);
+
+        // --- SAVE TO SUPABASE Logic ---
+        // Only save if we have a user and we haven't saved this specific attempt yet
+        if (user && user.email && !parsedData.attemptId) {
+          try {
+            console.log("Saving exam attempt to Supabase...");
+            
+            // 1. Insert into exam_attempts
+            const { data: attemptData, error: attemptError } = await supabase
+              .from('exam_attempts')
+              .insert({
+                user_id: (await supabase.auth.getUser()).data.user?.id, // Ensure we have the user ID
+                exam_id: id,
+                subject: subject || data.subject || 'Général',
+                exam_name: data.title || `Concours ${id}`,
+                score: calculatedResults.score, // Raw score
+                total_questions: calculatedResults.maxScore, // Use maxScore as total points ref, or totalQuestions? 
+                // Dashboard calculation uses score / total_questions * 100.
+                // If I save raw score (e.g. 15) and total questions (e.g. 20), dashboard gets 75%. Correct.
+                // But wait, calculatedResults.totalQuestions is the COUNT of questions.
+                // calculatedResults.maxScore is the sum of coefficients.
+                // If dashboard uses (score / total_questions), it expects score to be points and total_questions to be max potential points? 
+                // Let's check dashboard again: "(curr.score / curr.total_questions) * 100"
+                // If score is 15 points and total_questions is 20 points, that works.
+                // If total_questions is just count (e.g. 5 questions worth 4 points each), then 15/5 = 300%. WRONG.
+                // So I should save 'maxPossibleScore' into 'total_questions' column to correspond to "Total Points".
+                // OR I fix dashboard to verify semantics.
+                // Dashboard Schema check: "total_questions integer". Usually implies count.
+                // If I save raw score, I should probably save max score in a column named max_score... but column is total_questions.
+                // Let's assume for now I save maxScore into total_questions to make the math work on Dashboard 
+                // OR I save Score as Percentage (0-100) and Total Questions as 100.
+                // Let's save Score: calculatedResults.score and Total_Questions: calculatedResults.maxScore. 
+                // This semantically fits "Score obtained / Total Score possible".
+                
+                // Let's verify schema: score integer, total_questions integer.
+                // Using maxScore for total_questions is the safest bet for the dashboard logic.
+                
+                completed_at: new Date().toISOString(),
+                exam_type: data.type || 'Concours',
+                duration_minutes: 0 // We don't track it yet
+              })
+              .select()
+              .single();
+
+            if (attemptError) {
+              console.error("Error saving attempt:", attemptError);
+            } else if (attemptData) {
+              console.log("Attempt saved!", attemptData);
+              const attemptId = attemptData.id;
+
+              // 2. Update localStorage to prevent duplicate saves
+              parsedData.attemptId = attemptId;
+              localStorage.setItem(answersKey, JSON.stringify(parsedData));
+
+              // 3. Save subject performance (topic scores) inside Supabase
+              if (calculatedResults.topicScores && calculatedResults.topicScores.length > 0) {
+                 const performanceData = calculatedResults.topicScores.map(topic => ({
+                   attempt_id: attemptId,
+                   subject_name: topic.topic,
+                   score: topic.score,
+                   total_questions: topic.maxScore // Same logic: max points for that topic
+                 }));
+                 
+                 const { error: perfError } = await supabase
+                   .from('subject_performance')
+                   .insert(performanceData);
+                   
+                 if (perfError) console.error("Error saving subject performance:", perfError);
+              }
+            }
+          } catch (saveErr) {
+            console.error("Exception saving results:", saveErr);
+          }
+        }
+        // -----------------------------
+
       } else {
         setError("Aucune réponse trouvée pour cet examen. Veuillez d'abord compléter l'examen.");
       }
